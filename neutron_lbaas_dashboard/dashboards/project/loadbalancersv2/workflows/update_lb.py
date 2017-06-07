@@ -14,7 +14,7 @@
 
 from django.utils.translation import ugettext as _
 from neutron_lbaas_dashboard import api
-from create_lb import *  # noqa
+from . create_lb import *  # noqa
 
 INDEX_URL = "horizon:projects:loadbalancersv2:index"
 

@@ -13,4 +13,4 @@
 #    under the License.
 
 from . create_lb import *  # noqa
-from update_lb import *  # noqa
+from . update_lb import *  # noqa

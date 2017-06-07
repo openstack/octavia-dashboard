@@ -14,7 +14,8 @@
 
 from __future__ import absolute_import
 
-from django.utils.datastructures import SortedDict
+import collections
+
 from django.utils.translation import ugettext_lazy as _
 
 from horizon import messages
@@ -473,13 +474,13 @@ def _pool_list(request, expand_subnet=False, expand_vip=False, **kwargs):
     pools = neutronclient(request).list_pools(**kwargs).get('pools')
     if expand_subnet:
         subnets = neutron.subnet_list(request)
-        subnet_dict = SortedDict((s.id, s) for s in subnets)
+        subnet_dict = collections.OrderedDict((s.id, s) for s in subnets)
         for p in pools:
             subnet = subnet_dict.get(p['subnet_id'])
             p['subnet_name'] = subnet.cidr if subnet else None
     if expand_vip:
         vips = vip_list(request)
-        vip_dict = SortedDict((v.id, v) for v in vips)
+        vip_dict = collections.OrderedDict((v.id, v) for v in vips)
         for p in pools:
             p['vip_name'] = _get_vip(request, p, vip_dict,
                                      expand_name_only=True)
@@ -629,7 +630,7 @@ def _member_list(request, expand_pool, **kwargs):
     members = neutronclient(request).list_members(**kwargs).get('members')
     if expand_pool:
         pools = _pool_list(request)
-        pool_dict = SortedDict((p.id, p) for p in pools)
+        pool_dict = collections.OrderedDict((p.id, p) for p in pools)
         for m in members:
             m['pool_name'] = pool_dict.get(m['pool_id']).name_or_id
     return [Member(m) for m in members]
