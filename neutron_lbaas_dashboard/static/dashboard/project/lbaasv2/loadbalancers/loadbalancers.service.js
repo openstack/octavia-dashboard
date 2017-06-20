@@ -38,18 +38,18 @@
 
   function loadBalancersService($q, api, gettext) {
     var operatingStatus = {
-      'ONLINE': gettext('Online'),
-      'OFFLINE': gettext('Offline'),
-      'DEGRADED': gettext('Degraded'),
-      'ERROR': gettext('Error')
+      ONLINE: gettext('Online'),
+      OFFLINE: gettext('Offline'),
+      DEGRADED: gettext('Degraded'),
+      ERROR: gettext('Error')
     };
 
     var provisioningStatus = {
-      'ACTIVE': gettext('Active'),
-      'PENDING_CREATE': gettext('Pending Create'),
-      'PENDING_UPDATE': gettext('Pending Update'),
-      'PENDING_DELETE': gettext('Pending Delete'),
-      'ERROR': gettext('Error')
+      ACTIVE: gettext('Active'),
+      PENDING_CREATE: gettext('Pending Create'),
+      PENDING_UPDATE: gettext('Pending Update'),
+      PENDING_DELETE: gettext('Pending Delete'),
+      ERROR: gettext('Error')
     };
 
     var service = {

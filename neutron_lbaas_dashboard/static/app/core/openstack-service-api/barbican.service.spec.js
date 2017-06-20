@@ -37,16 +37,16 @@
 
     var tests = [
       {
-        "func": "getCertificates",
-        "method": "get",
-        "path": "/api/barbican/certificates/",
-        "error": "Unable to retrieve SSL certificates."
+        func: "getCertificates",
+        method: "get",
+        path: "/api/barbican/certificates/",
+        error: "Unable to retrieve SSL certificates."
       },
       {
-        "func": "getSecrets",
-        "method": "get",
-        "path": "/api/barbican/secrets/",
-        "error": "Unable to retrieve secrets."
+        func: "getSecrets",
+        method: "get",
+        path: "/api/barbican/secrets/",
+        error: "Unable to retrieve secrets."
       }
     ];
 

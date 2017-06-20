@@ -49,9 +49,9 @@
     var ctrl = this;
 
     ctrl.loadBalancerAlgorithm = {
-      'ROUND_ROBIN': gettext('Round Robin'),
-      'LEAST_CONNECTIONS': gettext('Least Connections'),
-      'SOURCE_IP': gettext('Source IP')
+      ROUND_ROBIN: gettext('Round Robin'),
+      LEAST_CONNECTIONS: gettext('Least Connections'),
+      SOURCE_IP: gettext('Source IP')
     };
     ctrl.actions = rowActions.init($routeParams.loadbalancerId, $routeParams.listenerId).actions;
     ctrl.membersTabActive = $window.membersTabActive;

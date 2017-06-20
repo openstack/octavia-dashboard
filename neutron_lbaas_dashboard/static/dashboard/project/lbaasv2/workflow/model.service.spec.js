@@ -87,19 +87,19 @@
           return deferred.promise;
         },
         getLoadBalancer: function() {
-            var loadbalancer = {
-              id: '1234',
-              name: 'Load Balancer 1',
-              vip_address: '1.2.3.4',
-              vip_subnet_id: 'subnet-1',
-              description: ''
-            };
+          var loadbalancer = {
+            id: '1234',
+            name: 'Load Balancer 1',
+            vip_address: '1.2.3.4',
+            vip_subnet_id: 'subnet-1',
+            description: ''
+          };
 
-            var deferred = $q.defer();
-            deferred.resolve({ data: loadbalancer });
+          var deferred = $q.defer();
+          deferred.resolve({ data: loadbalancer });
 
-            return deferred.promise;
-          },
+          return deferred.promise;
+        },
         getListeners: function() {
           var listeners = [
             { id: '1234', name: 'Listener 1', protocol_port: 80 },

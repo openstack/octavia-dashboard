@@ -164,7 +164,7 @@
      */
 
     function getListeners(id) {
-      var params = id ? {'params': {'loadbalancerId': id}} : {};
+      var params = id ? {params: {loadbalancerId: id}} : {};
       return apiService.get('/api/lbaas/listeners/', params)
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve listeners.'));
@@ -183,7 +183,7 @@
 
     function getListener(id, includeChildResources) {
       var params = includeChildResources
-          ? {'params': {'includeChildResources': includeChildResources}}
+          ? {params: {includeChildResources: includeChildResources}}
           : {};
       return apiService.get('/api/lbaas/listeners/' + id + '/', params)
         .error(function () {
@@ -253,7 +253,7 @@
 
     function getPool(id, includeChildResources) {
       var params = includeChildResources
-          ? {'params': {'includeChildResources': includeChildResources}}
+          ? {params: {includeChildResources: includeChildResources}}
           : {};
       return apiService.get('/api/lbaas/pools/' + id + '/', params)
         .error(function () {
