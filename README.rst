@@ -2,8 +2,8 @@
 Team and repository tags
 ========================
 
-.. image:: http://governance.openstack.org/badges/octavia-dashboard.svg
-    :target: http://governance.openstack.org/reference/tags/index.html
+.. image:: https://governance.openstack.org/badges/octavia-dashboard.svg
+    :target: https://governance.openstack.org/reference/tags/index.html
 
 .. Change things from this point on
 
@@ -14,9 +14,9 @@ octavia-dashboard
 Horizon panels for Octavia
 
 * Free software: Apache license
-* Documentation: http://docs.openstack.org/developer/octavia-dashboard
-* Source: http://git.openstack.org/cgit/openstack/octavia-dashboard
-* Bugs: http://bugs.launchpad.net/octavia
+* Documentation: https://docs.openstack.org/developer/octavia-dashboard
+* Source: https://git.openstack.org/cgit/openstack/octavia-dashboard
+* Bugs: https://bugs.launchpad.net/octavia
 
 Features
 --------
