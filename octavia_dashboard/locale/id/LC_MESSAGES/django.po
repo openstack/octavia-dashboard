@@ -1,0 +1,280 @@
+# suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: octavia-dashboard 1.0.1.dev44\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-01-03 17:58+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-01-17 05:10+0000\n"
+"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%s loadbalancers"
+msgstr "%s loadbalancers"
+
+msgid "Admin Status"
+msgstr "Admin Status"
+
+msgid "All Instances"
+msgstr "All Instances (semua instance)"
+
+msgid "Certificate"
+msgstr "Certificate (sertifikat)"
+
+msgid "Certificate Chain (Optional)"
+msgstr "Certificate Chain (opsional)"
+
+msgid "Certificate Name"
+msgstr "Certificate Name (nama sertifikat)"
+
+msgid "Could not create full loadbalancer."
+msgstr "Tidak dapat membuat loadbalancer (penyeimbang beban) penuh."
+
+msgid "Could not get load balancer list."
+msgstr "tidak bisa mendapatkan daftar penyeimbang beban (load balancer)"
+
+msgid "Disable"
+msgstr "Disable (non aktif)"
+
+msgid "Disabled LB"
+msgstr "Disabled LB"
+
+msgid "Edit Load Balancer"
+msgstr "Edit Load Balancer (edit penyeimbang beban)"
+
+msgid "Enable"
+msgstr "Enable (mengaktifkan)"
+
+msgid "Enabled LB"
+msgstr "Enabled LB"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTPS"
+msgstr "HTTPS"
+
+msgid "Health Check Interval (in seconds)"
+msgstr ""
+"Health Check Interval (jarak waktu pemeriksaan kesehatan - dalam detik)"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Instance Port"
+msgstr "Instance Port (port instance)"
+
+msgid "Instance Port on which service is running."
+msgstr "Port instance dimana layanan berjalan."
+
+msgid "Instances"
+msgstr "Instance"
+
+msgid "Intermediate Chain Certificates"
+msgstr "Intermediate Chain Certificates (sertifikat rangkaian menengah)"
+
+msgid "LB Details"
+msgstr "LB Details (rincian LB)"
+
+msgid "LB Port"
+msgstr "LB Port (port LB)"
+
+msgid "LB Port on which LB is listening."
+msgstr "Port LB dimana LB mendengarkan."
+
+msgid "LB Protocol"
+msgstr "LB Protocol (protokol LB)"
+
+msgid "Launch"
+msgstr "Launch (luncurkan)"
+
+msgid "Launch Load Balancer"
+msgstr "Launch Load Balancer (peluncuran penyeimbang beban)"
+
+#, python-format
+msgid "Launched %(count)s named \"%(name)s\"."
+msgstr "Diluncurkan %(count)s bernama \"%(name)s\"."
+
+msgid "Least Connection"
+msgstr "Least Connection (koneksi paling sedikit)"
+
+msgid "Least Sessions"
+msgstr "Least Sessions (sesi paling sedikit)"
+
+msgid "Load Balancer"
+msgstr "Load Balancer (penyeimbang beban)"
+
+msgid "Load Balancer Description"
+msgstr "Load Balancer Description (gambaran penyeimbang beban)"
+
+msgid "Load Balancers"
+msgstr "Load Balancers (penyeimbang beban)"
+
+msgid "Load Balancers V2"
+msgstr "Load Balancers V2"
+
+msgid "Load Balancing Method"
+msgstr "Load Balancing Method (Metode keseimbangan beban)"
+
+msgid "Method"
+msgstr "Method (metoda)"
+
+msgid "Monitor"
+msgstr "Monitor (monitor)"
+
+msgid "Name"
+msgstr "Name (nama)"
+
+msgid "No instances found."
+msgstr "Tidak ditemukan instance"
+
+msgid "No members enabled."
+msgstr "Tidak ada anggota yang aktif."
+
+msgid "Not available"
+msgstr "Not available (tidak tersedia)"
+
+msgid ""
+"Number of times health check should be attempted before marking down a member"
+msgstr ""
+"Jumlah berapa kali pemeriksaan kesehatan harus diusahakan sebelum menandai "
+"penurunan anggota"
+
+msgid "Operating Status"
+msgstr "Operating Status (pengoperasian status)"
+
+msgid "Overview"
+msgstr "Overview (ikhtisar)"
+
+msgid "PING"
+msgstr "PING"
+
+msgid "Please provide all certificate parameters."
+msgstr "Harap memberikan semua parameter sertifikat."
+
+msgid "Please provide instance port"
+msgstr "Harap memberikan instance port"
+
+msgid ""
+"Please select a list of instances that should handle traffic for this target "
+"load balancer. All instances must reside in the same Project as the target "
+"load balancer."
+msgstr ""
+"Silakan pilih daftar instance yang harus menangani lalu lintas untuk "
+"penyeimbang beban target ini. Semua instance harus berada dalam Proyek yang "
+"sama dengan beban penyeimbang sasaran."
+
+msgid "Please select an option for the load balancing method."
+msgstr "Silakan pilih opsi untuk metode keseimbangan beban."
+
+msgid "Please select at least one member"
+msgstr "Silakan pilih minimal satu anggota"
+
+msgid "Private Key"
+msgstr "Private Key (kunci pribadi)"
+
+msgid "Protocol"
+msgstr "Protocol (protokol)"
+
+msgid "Provide Load Balancer Description."
+msgstr "Provide Load Balancer Description (berikan gambaran penyeimbang beban)"
+
+msgid "Provisioning Status"
+msgstr "Provisioning Status (pengaturan status)"
+
+msgid "Receive String"
+msgstr "Receive String (terima string)"
+
+#, python-format
+msgid "Requested IP and port combination already exists %s "
+msgstr "Meminta kombinasi IP dan port yang sudah ada %s "
+
+msgid "Retry count before markdown"
+msgstr "Coba lagi hitung sebelum penurunan tanda"
+
+msgid "Round Robin"
+msgstr "Round Robin"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "SSL Certificate"
+msgstr "SSL Certificate (sertifikat SSL)"
+
+msgid "Scheduled termination of"
+msgstr "Pemutusan yang dijadwalkan"
+
+msgid "Select from existing VIP IPs"
+msgstr "Pilih dari IP VIP yang ada "
+
+msgid "Selected Instances"
+msgstr "Selected Instances (instance terpilih)"
+
+msgid "Send String"
+msgstr "Send String (kirim string)"
+
+msgid "TCP"
+msgstr "TCP"
+
+msgid "Terminate"
+msgstr "Terminate (mengakhiri)"
+
+#, python-format
+msgid "Unable to get VIP for pool %(pool)s."
+msgstr "Tidak dapat mendapatkan VIP untuk pool %(pool)s."
+
+#, python-format
+msgid "Unable to get health monitors for pool %(pool)s."
+msgstr "Tidak dapat mendapatkan monitor kesehatan untuk pool %(pool)s."
+
+#, python-format
+msgid "Unable to get members for pool %(pool)s."
+msgstr "Tidak dapat mendapatkan anggota untuk pool %(pool)s."
+
+msgid "Unable to get pool detail."
+msgstr "Tidak dapat mendapatkan kolam rinci (pool detail)."
+
+#, python-format
+msgid "Unable to get subnet for pool %(pool)s."
+msgstr "Tidak dapat mendapatkan subnet untuk pool %(pool)s."
+
+#, python-format
+msgid "Unable to launch %(count)s named \"%(name)s\"."
+msgstr "Tidak dapat meluncurkan %(count)s bernama \"%(name)s\"."
+
+#, python-format
+msgid "Unable to modify load balancer \"%s\"."
+msgstr "Tidak dapat memodifikasi penyeimbang beban \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for loadbalancer \"%s\"."
+msgstr "Tidak dapat mengambil rincian untuk loadbalancer \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve load balancer details. %s"
+msgstr "Tidak dapat mengambil rincian load balancer. %s"
+
+msgid "Unable to retrieve members list. Please try again later."
+msgstr "Tidak dapat mengambil daftar anggota. Silakan coba lagi nanti."
+
+msgid "Unable to retrieve pools list."
+msgstr "Tidak dapat mengambil daftar kolam (pool list)."
+
+msgid "Unable to retrieve vips."
+msgstr "Tidak dapat mengambil VIP."
+
+msgid "Update"
+msgstr "Update (perbarui)"
+
+#, python-format
+msgid "Updated load balancer \"%s\"."
+msgstr "Diperbarui penyeimbang beban \"%s\"."
+
+msgid "loadbalancer"
+msgstr "loadbalancer"

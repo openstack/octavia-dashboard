@@ -2,4 +2,4 @@
 
 set -ex
 
-export NEUTRON_LBAAS_DASHBOARD_SCREENSHOTS_DIR=/opt/stack/new/neutron-lbaas-dashboard/.tox/py27integration/src/horizon/openstack_dashboard/test/integration_tests/integration_tests_screenshots
+export OCTAVIA_DASHBOARD_SCREENSHOTS_DIR=/opt/stack/new/octavia-dashboard/.tox/py27integration/src/horizon/openstack_dashboard/test/integration_tests/integration_tests_screenshots

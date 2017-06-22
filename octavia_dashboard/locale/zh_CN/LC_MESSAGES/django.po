@@ -1,0 +1,276 @@
+# liuyanfu <lyf219@163.com>, 2016. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: octavia-dashboard 1.0.1.dev32\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2016-10-13 22:46+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2016-10-21 01:29+0000\n"
+"Last-Translator: liuyanfu <lyf219@163.com>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh-CN\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%s loadbalancers"
+msgstr "%s 负载均衡器"
+
+msgid "Admin Status"
+msgstr "管理状态"
+
+msgid "All Instances"
+msgstr "所有云主机"
+
+msgid "Certificate"
+msgstr "证书"
+
+msgid "Certificate Chain (Optional)"
+msgstr "证书链（可选）"
+
+msgid "Certificate Name"
+msgstr "证书名称"
+
+msgid "Could not create full loadbalancer."
+msgstr "无法创建满负载均衡器。"
+
+msgid "Could not get load balancer list."
+msgstr "无法获取负载均衡器列表。"
+
+msgid "Disable"
+msgstr "关闭"
+
+msgid "Disabled LB"
+msgstr "关闭负载均衡器"
+
+msgid "Edit Load Balancer"
+msgstr "编辑负载均衡器"
+
+msgid "Enable"
+msgstr "开启"
+
+msgid "Enabled LB"
+msgstr "开启负载均衡器"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTPS"
+msgstr "HTTPS"
+
+msgid "Health Check Interval (in seconds)"
+msgstr "健康检查间隔（秒）"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Instance Port"
+msgstr "云主机端口"
+
+msgid "Instance Port on which service is running."
+msgstr "运行服务的云主机端口"
+
+msgid "Instances"
+msgstr "云主机"
+
+msgid "Intermediate Chain Certificates"
+msgstr "中间链证书"
+
+msgid "LB Details"
+msgstr "LB详细信息"
+
+msgid "LB Port"
+msgstr "LB端口"
+
+msgid "LB Port on which LB is listening."
+msgstr "正在侦听的LB上的端口。"
+
+msgid "LB Protocol"
+msgstr "LB协议"
+
+msgid "Launch"
+msgstr "启动"
+
+msgid "Launch Load Balancer"
+msgstr "运行负载均衡器"
+
+#, python-format
+msgid "Launched %(count)s named \"%(name)s\"."
+msgstr "已启动 %(count)s 个指定“%(name)s”。"
+
+msgid "Least Connection"
+msgstr "最少连接"
+
+msgid "Least Sessions"
+msgstr "最少会话"
+
+msgid "Load Balancer"
+msgstr "负载均衡器"
+
+msgid "Load Balancer Description"
+msgstr "负载均衡器描述"
+
+msgid "Load Balancers"
+msgstr "负载均衡"
+
+msgid "Load Balancers V2"
+msgstr "负载均衡器V2"
+
+msgid "Load Balancing Method"
+msgstr "负载均衡方法"
+
+msgid "Method"
+msgstr "方法"
+
+msgid "Monitor"
+msgstr "监控"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "No instances found."
+msgstr "找不到云主机"
+
+msgid "No members enabled."
+msgstr "没有成员启动"
+
+msgid "Not available"
+msgstr "不可用"
+
+msgid ""
+"Number of times health check should be attempted before marking down a member"
+msgstr "在清理一个成员之前，应该多次进行健康检查次数"
+
+msgid "Operating Status"
+msgstr "操作状态"
+
+msgid "Overview"
+msgstr "概述"
+
+msgid "PING"
+msgstr "PING"
+
+msgid "Please provide all certificate parameters."
+msgstr "请提供所有证书参数。"
+
+msgid "Please provide instance port"
+msgstr "请提供云主机端口"
+
+msgid ""
+"Please select a list of instances that should handle traffic for this target "
+"load balancer. All instances must reside in the same Project as the target "
+"load balancer."
+msgstr ""
+"请选择一个为这个目标负载均衡器处理流量的云主机列表。所有云主机必须在同一个项"
+"目中，作为目标负载均衡器。"
+
+msgid "Please select an option for the load balancing method."
+msgstr "请为负载均衡方法选择一个选项。"
+
+msgid "Please select at least one member"
+msgstr "请至少选择一个成员"
+
+msgid "Private Key"
+msgstr "私钥"
+
+msgid "Protocol"
+msgstr "协议"
+
+msgid "Provide Load Balancer Description."
+msgstr "提供负载均衡器描述。"
+
+msgid "Provisioning Status"
+msgstr "配置状态"
+
+msgid "Receive String"
+msgstr "接收字符串"
+
+#, python-format
+msgid "Requested IP and port combination already exists %s "
+msgstr "请求绑定的IP和端口已经存在%s"
+
+msgid "Retry count before markdown"
+msgstr "清理前的重试次数"
+
+msgid "Round Robin"
+msgstr "轮循"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "SSL Certificate"
+msgstr "SSL证书"
+
+msgid "Scheduled termination of"
+msgstr "调度实例"
+
+msgid "Select from existing VIP IPs"
+msgstr "从已存在的VIP IPs中选择"
+
+msgid "Selected Instances"
+msgstr "选择的云主机"
+
+msgid "Send String"
+msgstr "发送字符串"
+
+msgid "TCP"
+msgstr "TCP"
+
+msgid "Terminate"
+msgstr "终结"
+
+#, python-format
+msgid "Unable to get VIP for pool %(pool)s."
+msgstr "无法获取%(pool)s池的VIP。"
+
+#, python-format
+msgid "Unable to get health monitors for pool %(pool)s."
+msgstr "无法获取%(pool)s池的健康监控信息。"
+
+#, python-format
+msgid "Unable to get members for pool %(pool)s."
+msgstr "无法获取%(pool)s池的成员。"
+
+msgid "Unable to get pool detail."
+msgstr "无法获取池的详细信息。"
+
+#, python-format
+msgid "Unable to get subnet for pool %(pool)s."
+msgstr "无法获取%(pool)s池的子网。"
+
+#, python-format
+msgid "Unable to launch %(count)s named \"%(name)s\"."
+msgstr "无法启动 %(count)s 个指定 \"%(name)s\"。"
+
+#, python-format
+msgid "Unable to modify load balancer \"%s\"."
+msgstr "无法修改负载均衡器\"%s\"。"
+
+#, python-format
+msgid "Unable to retrieve details for loadbalancer \"%s\"."
+msgstr "无法检索负载均衡器相信信息。\"%s\"。"
+
+#, python-format
+msgid "Unable to retrieve load balancer details. %s"
+msgstr "无法检索负载均衡器详情。%s"
+
+msgid "Unable to retrieve members list. Please try again later."
+msgstr "无法检索成员列表。请稍后重试。"
+
+msgid "Unable to retrieve pools list."
+msgstr "无法检索池列表。"
+
+msgid "Unable to retrieve vips."
+msgstr "无法检索vips。"
+
+msgid "Update"
+msgstr "更新"
+
+#, python-format
+msgid "Updated load balancer \"%s\"."
+msgstr "更新负载均衡器\"%s\"。"
+
+msgid "loadbalancer"
+msgstr "负载均衡器"

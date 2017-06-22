@@ -1,0 +1,1027 @@
+# suhartono <cloudsuhartono@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: octavia-dashboard 1.0.1.dev45\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-01-17 14:12+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-01-17 01:42+0000\n"
+"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+#, python-format
+msgid "%(ip)s..."
+msgstr "%(ip)s..."
+
+msgid ""
+"<strong>Expected status codes:</strong>\n"
+"  The expected HTTP status codes to get from a successful health check. Must "
+"be a single number,\n"
+"  a comma separated list of numbers, or a range (two numbers separated by a "
+"hyphen)."
+msgstr ""
+"<strong>Expected status codes:</strong>\n"
+"Kode status HTTP yang diharapkan untuk mendapatkan dari pemeriksaan "
+"kesehatan yang sukses. Harus nomor tunggal, \n"
+"    daftar nomor yang dipisahkan koma, atau kisaran (dua angka yang "
+"dipisahkan oleh tanda hubung)."
+
+msgid ""
+"<strong>HTTP method:</strong>\n"
+"  The HTTP method used to perform the health check."
+msgstr ""
+"<strong>HTTP method:</strong>\n"
+"Metode HTTP yang digunakan untuk melakukan cek kesehatan."
+
+msgid ""
+"<strong>IP address:</strong>\n"
+"  If an IP address is provided it must be a well-formed IPv4 or IPv6 "
+"address. The system will\n"
+"  attempt to assign the provided IP address to the load balancer. If an IP "
+"address is not provided\n"
+"  then one will be allocated for you."
+msgstr ""
+"<strong>IP address:</strong>\n"
+" Jika alamat IP disediakan, maka itu harus menjadi alamat IPv4 atau IPv6 "
+"well-formed. Sistem akan\n"
+"   mencoba untuk menetapkan alamat IP yang disediakan untuk penyeimbang "
+"beban. Jika alamat IP tidak disediakan\n"
+"   maka salah satu akan dialokasikan untuk Anda."
+
+msgid ""
+"<strong>IP address:</strong>\n"
+"  The IP address of the member to receive traffic from the load balancer. "
+"Must be a well-formed\n"
+"  IPv4 or IPv6 address."
+msgstr ""
+"<strong>IP address:</strong>\n"
+"  Alamat IP dari anggota untuk menerima lalu lintas dari penyeimbang beban. "
+"Harus alamat \n"
+"   IPv4 atau IPv6 well-formed."
+
+msgid ""
+"<strong>Interval:</strong>\n"
+"  The interval between health checks. Must be greater than or equal to the "
+"timeout."
+msgstr ""
+"<strong>Interval:</strong>\n"
+"Jarak waktu antara pemeriksaan kesehatan. Harus lebih besar dari atau sama "
+"dengan batas waktu (timeout)."
+
+msgid ""
+"<strong>Method:</strong>\n"
+"  The load balancer algorithm that distributes traffic to the pool members.\n"
+"  <ul>\n"
+"    <li>\n"
+"      LEAST_CONNECTIONS: Allocates requests to the instance with the least "
+"number of active\n"
+"      connections.\n"
+"    </li>\n"
+"    <li>\n"
+"      ROUND_ROBIN: Rotates requests evenly between multiple instances.\n"
+"    </li>\n"
+"    <li>\n"
+"      SOURCE_IP: Requests from a unique source IP address are consistently "
+"directed to the same instance.\n"
+"    </li>\n"
+"  </ul>"
+msgstr ""
+"<strong>Method:</strong>\n"
+"Algoritma penyeimbang beban yang mendistribusikan lalu lintas kepada anggota "
+"kolam.\n"
+"  <ul>\n"
+"    <li>\n"
+"      LEAST_CONNECTIONS: Allocates requests to the instance with the least "
+"number of active\n"
+"      connections.\n"
+"    </li>\n"
+"    <li>\n"
+"      ROUND_ROBIN: Rotates requests evenly between multiple instances.\n"
+"    </li>\n"
+"    <li>\n"
+"      SOURCE_IP: Requests from a unique source IP address are consistently "
+"directed to the same instance.\n"
+"    </li>\n"
+"  </ul>"
+
+msgid ""
+"<strong>Port:</strong>\n"
+"  The port on which the front end listens. Must be an integer from 1 to "
+"65535."
+msgstr ""
+"<strong>Port:</strong>\n"
+" Port dimana ujung depannya mendengarkan. Harus integer 1sampai 65535."
+
+msgid ""
+"<strong>Port:</strong>\n"
+"  The port on which the member listens for traffic. Must be a number from 1 "
+"to 65535."
+msgstr ""
+"<strong>Port:</strong>\n"
+"  port dimana anggota mendengarkan lalu lintas. Harus berupa angka 1 sampai "
+"65535."
+
+msgid ""
+"<strong>Protocol:</strong>\n"
+"  The protocol for which the front end listens. The TERMINATED_HTTPS "
+"protocol is only available if\n"
+"  the key-manager service is enabled and you have authority to list "
+"certificate containers and\n"
+"  secrets."
+msgstr ""
+"<strong>Protocol:</strong>\n"
+"  Protokol dimana ujung depannya mendengarkan. Protokol TERMINATED_HTTPS ini "
+"hanya tersedia jika\n"
+"   layanan key-manager diaktifkan dan Anda memiliki kewenangan untuk "
+"mendaftar kontainer sertifikat dan\n"
+"   kerahasiaan."
+
+msgid ""
+"<strong>Retries:</strong>\n"
+"  The number of allowed connection failures before marking the member as "
+"inactive. Must be a\n"
+"  number from 1 to 10."
+msgstr ""
+"<strong>Retries:</strong>\n"
+"Jumlah kegagalan koneksi yang diperbolehkan sebelum menandai anggota sebagai "
+"tidak aktif. Harus\n"
+"   nomor dari 1 sampai 10."
+
+msgid ""
+"<strong>Subnet:</strong>\n"
+"  The network on which to allocate the load balancer's IP address."
+msgstr ""
+"<strong>Subnet:</strong>\n"
+"  Jaringan yang mengalokasikan alamat IP milik penyeimbang beban ini."
+
+msgid ""
+"<strong>Subnet:</strong>\n"
+"  The network which contains the IP address of the member."
+msgstr ""
+"<strong>Subnet:</strong>\n"
+"Jaringan yang berisi alamat IP dari anggota."
+
+msgid ""
+"<strong>Timeout:</strong>\n"
+"  The time after which a health check times out. Must be a number greater "
+"than or equal to 0\n"
+"  and less than or equal to the interval."
+msgstr ""
+"<strong>Timeout:</strong>\n"
+"  Waktu setelah beberapa kali pemeriksaan kesehatan keluar. Harus angka yang "
+"lebih besar dari atau sama dengan 0\n"
+"   dan kurang dari atau sama dengan interval."
+
+msgid ""
+"<strong>URL path:</strong>\n"
+"  The target of the health check HTTP request to the member. Must be a valid "
+"URL path."
+msgstr ""
+"<strong>URL path:</strong>\n"
+"Target dari permintaan HTTP cek kesehatan ke anggota. Harus path URL yang "
+"valid."
+
+msgid ""
+"<strong>Weight:</strong>\n"
+"  The weight of a member determines the portion of requests or connections "
+"it services compared\n"
+"  to the other members of the pool. A higher weight means it will receive "
+"more traffic. Must be\n"
+"  a number from 1 to 256."
+msgstr ""
+"<strong>Weight:</strong>\n"
+"  Berat anggota menentukan porsi permintaan atau koneksi layanan IT "
+"dibandingkan\n"
+"   degan anggota lain dari kolam. Sebuah berat yang lebih tinggi berarti "
+"akan menerima lebih banyak lalu lintas. Harus dalam \n"
+"   nomor 1 sampai 256."
+
+msgid "A new health monitor is being created."
+msgstr "Sebuah pemantauan kesehatan baru sedang dibuat."
+
+msgid "A new listener is being created."
+msgstr "Sebuah pendengar baru sedang dibuat."
+
+msgid "A new load balancer is being created."
+msgstr "Sebuah penyeimbang beban baru sedang dibuat."
+
+msgid "A new pool is being created."
+msgstr "Sebuah kolam baru sedang dibuat."
+
+msgid ""
+"A pool represents a group of members over which the load balancing will be "
+"applied."
+msgstr ""
+"Sebuah kolam mewakili sekelompok anggota dimana load balancing akan "
+"diterapkan."
+
+msgid "Actions"
+msgstr "Actions (tindakan)"
+
+msgid "Active"
+msgstr "Active (aktif)"
+
+msgid "Add"
+msgstr "Add (tambah)"
+
+msgid "Add external member"
+msgstr "Tambahkan anggota eksternal"
+
+msgid "Add members to the load balancer pool."
+msgstr "Tambahkan anggota ke kolam penyeimbang beban."
+
+msgid "Add/Remove Pool Members"
+msgstr "Add/Remove Pool Members (anggota kolam Add/Remove)"
+
+msgid "Address"
+msgstr "Address (alamat)"
+
+msgid "Admin State Up"
+msgstr "Admin State Up"
+
+msgid "Allocated Members"
+msgstr "Anggota yang dialokasikan"
+
+msgid "An error occurred. Please try again later."
+msgstr "Terjadi kesalahan. Silakan coba lagi nanti."
+
+msgid "Associate"
+msgstr "Associate (mengkaitkan)"
+
+msgid "Associate Floating IP"
+msgstr "Associate Floating IP (mengkaitkan IP mengambang)"
+
+msgid "Associate Floating IP Address"
+msgstr "Associate Floating IP Address (alamat IP mengambang asosiasi)"
+
+msgid "Associating floating IP with load balancer."
+msgstr "Pengkaitan IP mengambang dengan beban penyeimbang."
+
+msgid "Available Instances"
+msgstr "Instance yang tersedia"
+
+msgid "Cancel"
+msgstr "Cancel (batalkan)"
+
+msgid "Certificate Name"
+msgstr "Certificate Name (nama sertifikat)"
+
+msgid "Confirm Delete Health Monitor"
+msgstr "Confirm Delete Health Monitor (konfirmasi hapus pemantauan kesehatan)"
+
+msgid "Confirm Delete Listeners"
+msgstr "Confirm Delete Listeners (konfirmasi penghapusan pendengar)"
+
+msgid "Confirm Delete Load Balancers"
+msgstr "Confirm Delete Load Balancers (konfirmasi hapus beban penyeimbang)"
+
+msgid "Confirm Delete Pool"
+msgstr "Confirm Delete Pool (konfirmasi hapus kolam)"
+
+msgid "Confirm Disassociate Floating IP Address"
+msgstr "Konfirmasi pemisahan alamat IP mengambang"
+
+msgid "Connection Limit"
+msgstr "Connection Limit (batas koneksi)"
+
+msgid "Create Health Monitor"
+msgstr "Create Health Monitor (buat pemantauan kesehatan)"
+
+msgid "Create Listener"
+msgstr "Create Listener (buat pendengar)"
+
+msgid "Create Load Balancer"
+msgstr "Create Load Balancer (buat penyeimbang beban)"
+
+msgid "Create Pool"
+msgstr "Create Pool (buat kolam)"
+
+msgid "Default Pool ID"
+msgstr "Default Pool ID (ID pool default)"
+
+msgid "Degraded"
+msgstr "Degraded (diturunkan)"
+
+msgid "Delay"
+msgstr "Delay (menunda)"
+
+msgid "Delete Health Monitor"
+msgstr "Delete Health Monitor (hapus pemantauan kesehatan)"
+
+msgid "Delete Listener"
+msgstr "Delete Listener (hapus pendengar)"
+
+msgid "Delete Listeners"
+msgstr "Delete Listeners (hapus pendengar)"
+
+msgid "Delete Load Balancer"
+msgstr "Delete Load Balancer (hapus penyeimbang beban)"
+
+msgid "Delete Load Balancers"
+msgstr "Delete Load Balancers (hapus penyeimbang beban)"
+
+msgid "Delete Pool"
+msgstr "Delete Pool (hapus kolam)"
+
+#, python-format
+msgid "Deleted health monitor: %s."
+msgstr "Pemantauan kesehatan yang dihapus: %s."
+
+#, python-format
+msgid "Deleted listeners: %s."
+msgstr "Pendengar yang dihapus: %s."
+
+#, python-format
+msgid "Deleted load balancers: %s."
+msgstr "Penyeimbang beban yang dihapus: %s."
+
+#, python-format
+msgid "Deleted pool: %s."
+msgstr "Kolam yang dihapus: %s."
+
+msgid "Description"
+msgstr "Description (gambaran)"
+
+msgid "Disassociate"
+msgstr "Disassociate (pemisahan)"
+
+msgid "Disassociate Floating IP"
+msgstr "Disassociate Floating IP (memisahkan IP mengambang)"
+
+#, python-format
+msgid "Disassociated floating IP address from load balancer: %s."
+msgstr "Alamat IP mengambang yang dipisahkan dari penyeimbang beban: %s."
+
+msgid ""
+"Each port that listens for traffic on a particular load balancer is "
+"configured separately and\n"
+"  tied to the load balancer. Multiple listeners can be associated with the "
+"same load balancer but\n"
+"  each must use a unique port."
+msgstr ""
+"Setiap port yang mendengarkan lalu lintas pada penyeimbang beban tertentu "
+"dikonfigurasi secara terpisah dan\n"
+"   terikat penyeimbang beban. Beberapa pendengar dapat dikaitkan dengan "
+"penyeimbang beban yang sama tetapi\n"
+"   masing-masing harus menggunakan port yang unik."
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "Edit Pool"
+msgstr "Edit Pool (edit kolam)"
+
+msgid "Error"
+msgstr "Error (kesalahan)"
+
+msgid "Expected Codes"
+msgstr "Expected Codes (kode yang diharapkan)"
+
+msgid "Expected status codes"
+msgstr "Expected status codes (kode status yang diharapkan)"
+
+msgid "Expiration Date"
+msgstr "Expiration Date (tanggal kadaluarsa)"
+
+msgid "Floating IP Address"
+msgstr "Floating IP Address (alamat IP mengambang)"
+
+msgid ""
+"Floating IP address or pool\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Kolam atau alamat IP mengambang  <span class=\"hz-icon-required fa fa-"
+"asterisk\"></span>"
+
+msgid "Floating IP addresses"
+msgstr "Floating IP addresses (alamat IP mengambang)"
+
+msgid "Floating IP pools"
+msgstr "Floating IP pools (pool IP mengambang)"
+
+msgid "HTTP Method"
+msgstr "HTTP Method (metode HTTP)"
+
+msgid "HTTP method"
+msgstr "HTTP method (methode HTTP)"
+
+msgid "Health Monitor ID"
+msgstr "Health Monitor ID (ID pemantauan kesehatan)"
+
+msgid "ID"
+msgstr "ID"
+
+msgid "IP Address"
+msgstr "IP Address (alamat IP)"
+
+msgid ""
+"IP Address\n"
+"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
+"tableData.displayedAllocated.length > 0\">\n"
+"            </span>\n"
+"            \n"
+"              Subnet\n"
+"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
+"tableData.displayedAllocated.length > 0\">\n"
+"            </span>\n"
+"            <th class=\"rsp-p1\">\n"
+"              Port\n"
+"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
+"tableData.displayedAllocated.length > 0\">\n"
+"            </span>\n"
+"            Weight</th>\n"
+"            <th class=\"actions_column\"></th>"
+msgstr ""
+"Alamat IP\n"
+"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
+"tableData.displayedAllocated.length > 0\">\n"
+"            </span>\n"
+"            \n"
+"              Subnet\n"
+"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
+"tableData.displayedAllocated.length > 0\">\n"
+"            </span>\n"
+"            <th class=\"rsp-p1\">\n"
+"              Port\n"
+"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
+"tableData.displayedAllocated.length > 0\">\n"
+"            </span>\n"
+"            Weight</th>\n"
+"            <th class=\"actions_column\"></th>"
+
+#, python-format
+msgid "IP Addresses (%(count)s)"
+msgstr "Alamat IP (%(count)s)"
+
+msgid "IP address"
+msgstr "Alamat IP"
+
+msgid ""
+"If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
+"certificates must\n"
+"  be selected. The first certificate will be the default."
+msgstr ""
+"Jika pendengar menggunakan protokol TERMINATED_HTTPS, maka satu atau lebih "
+"sertifikat SSL harus\n"
+"   dipilih. Sertifikat pertama akan menjadi default."
+
+msgid ""
+"Interval (sec)\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Interval (sec)\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Least Connections"
+msgstr "Least Connections (koneksi paling sedikit)"
+
+#, python-format
+msgid "Listener %(index)s"
+msgstr "Pendengar %(index)s"
+
+msgid "Listener 1"
+msgstr "Listener 1"
+
+msgid "Listener Details"
+msgstr "Listener Details (rincian pendengar)"
+
+msgid "Listener ID"
+msgstr "Listener ID"
+
+msgid "Listeners"
+msgstr "Listeners (pendengar)"
+
+#, python-format
+msgid "Load Balancer %(index)s"
+msgstr "Penyeimbang beban %(index)s"
+
+msgid "Load Balancer Algorithm"
+msgstr "Load Balancer Algorithm (algoritma penyeimbang beban)"
+
+msgid "Load Balancer Details"
+msgstr "Load Balancer Details (rincian beban penyeimbang)"
+
+msgid "Load Balancer ID"
+msgstr "Load Balancer ID (ID penyeimbang beban)"
+
+msgid "Load Balancers"
+msgstr "Load Balancers (penyeimbang beban)"
+
+msgid "Loading"
+msgstr "Loading (pemuatan)"
+
+msgid "Max Retries"
+msgstr "Max Retries (pengulangan terbanyak)"
+
+msgid "Member ID"
+msgstr "Member ID (ID anggota)"
+
+msgid "Members"
+msgstr "Members (anggota)"
+
+msgid ""
+"Members are the actual IP addresses that will receive traffic from the load "
+"balancer. Each\n"
+"  member must have a unique combination of IP address and port."
+msgstr ""
+"Anggota adalah alamat IP yang sebenarnya yang akan menerima lalu lintas dari "
+"penyeimbang beban. Setiap\n"
+"   anggota harus memiliki kombinasi yang unik dari alamat IP dan port."
+
+msgid ""
+"Method\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Method\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Monitor Details"
+msgstr "Monitor Details (rincian pemantauan)"
+
+msgid "Monitor ID"
+msgstr "Monitor ID"
+
+msgid ""
+"Monitor type\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Tipe pemantauan\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Name"
+msgstr "Name (nama)"
+
+msgid "No available certificates"
+msgstr "Tidak ada sertifikat yang tersedia"
+
+msgid "No available instances"
+msgstr "Tidak ada instance yang tersedia"
+
+msgid "No items to display."
+msgstr "Tidak ada item untuk ditampilkan."
+
+msgid "No members have been allocated"
+msgstr "Tidak ada anggota telah dialokasikan"
+
+msgid "None"
+msgstr "None (tidak ada)"
+
+msgid "Offline"
+msgstr "Offline"
+
+msgid "Online"
+msgstr "Online"
+
+msgid "Operating Status"
+msgstr "Operating Status (status operasi)"
+
+msgid "Overview"
+msgstr "Overview (ikhtisar)"
+
+msgid "Pending Create"
+msgstr "Pending Create (penundaan pembuatan)"
+
+msgid "Pending Delete"
+msgstr "Pending Delete (penundaan penghapusan)"
+
+msgid "Pending Update"
+msgstr "Pending Update (penundaan pembaharuan)"
+
+msgid "Pool 1"
+msgstr "Pool 1"
+
+msgid "Pool Details"
+msgstr "Pool Details (rincian kolam)"
+
+msgid "Pool ID"
+msgstr "Pool ID (ID kolam)"
+
+msgid "Pool Members"
+msgstr "Pool Members  (anggota kolam)"
+
+msgid "Pool member weight has been updated."
+msgstr "Berat anggota kolam telah diperbarui."
+
+msgid "Port"
+msgstr "Port"
+
+msgid ""
+"Port\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Port\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Port ID"
+msgstr "Port ID (ID port)"
+
+msgid "Protocol"
+msgstr "Protocol (protokol)"
+
+msgid ""
+"Protocol\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Protokol\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Protocol Port"
+msgstr "Protocol Port (port protokol)"
+
+msgid "Provide the details for the health monitor."
+msgstr "Memberikan rincian untuk pemantauan kesehatan."
+
+msgid "Provide the details for the listener."
+msgstr "Memberikan rincian untuk pendengar."
+
+msgid "Provide the details for the load balancer."
+msgstr "Memberikan rincian untuk penyeimbang beban."
+
+msgid "Provide the details for the pool."
+msgstr "Memberikan rincian untuk kolam."
+
+msgid "Provider"
+msgstr "Provider (penyedia)"
+
+msgid "Provisioning Status"
+msgstr "Provisioning Status (status penyediaan)"
+
+msgid "Remove"
+msgstr "Remove (hilangkan)"
+
+msgid ""
+"Retries\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Retries\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Round Robin"
+msgstr "Round Robin"
+
+msgid "SSL Certificates"
+msgstr "SSL Certificates (sertifikat SSL)"
+
+msgid ""
+"Select a floating IP address to associate with the load balancer or a "
+"floating IP pool in which to allocate a new floating IP address."
+msgstr ""
+"Pilih alamat IP mengambang untuk mengasosiasikan dengan penyeimbang beban "
+"atau pool IP mengambang yang mengalokasikan alamat IP mengambang baru."
+
+msgid "Select certificates from the available certificates below"
+msgstr "Pilih sertifikat dari sertifikat yang tersedia di bawah ini"
+
+msgid "Select one or more SSL certificates for the listener."
+msgstr "Pilih salah satu atau lebih sertifikat SSL untuk pendengar."
+
+msgid "Session Persistence"
+msgstr "Session Persistence"
+
+msgid "Source IP"
+msgstr "Source IP (IP sumber)"
+
+msgid ""
+"Subnet\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Subnet\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Subnet ID"
+msgstr "Subnet ID (ID subnet)"
+
+msgid "Tenant ID"
+msgstr "Tenant ID"
+
+msgid ""
+"The Available Instances table contains existing compute instances that can "
+"be added as members\n"
+"  of the pool. Use the \"Add external member\" button to add a member not "
+"found in the Available\n"
+"  Instances table."
+msgstr ""
+"Tabel Available Instance berisi instance komptasi yang ada dimana dapat "
+"ditambahkan sebagai anggota\n"
+"   kolam. Gunakan tombol \"Add external member\" untuk menambahkan anggota "
+"yang tidak ditemukan di tabel \n"
+"   Available Instance."
+
+msgid "The IP address is not valid."
+msgstr "Alamat IP tidak valid."
+
+msgid "The URL path is not valid."
+msgstr "Path URL tidak sah."
+
+msgid "The expected status code is not valid."
+msgstr "Kode status yang diharapkan adalah tidak sah."
+
+#, python-format
+msgid "The following health monitor could not be deleted: %s."
+msgstr "Pemantauan kesehatan berikut ini tidak bisa dihapus: %s."
+
+#, python-format
+msgid ""
+"The following listeners could not be deleted, possibly due to existing "
+"pools: %s."
+msgstr ""
+"Pendengar berikut ini tidak bisa dihapus, mungkin karena kolam yang ada: %s."
+
+#, python-format
+msgid "The following listeners will not be deleted due to existing pools: %s."
+msgstr "Pendengar berikut tidak akan dihapus karena kolam yang ada: %s."
+
+#, python-format
+msgid "The following load balancers are pending and cannot be deleted: %s."
+msgstr "Penyeimbang beban berikut yang tertunda dan tidak dapat dihapus: %s."
+
+#, python-format
+msgid ""
+"The following load balancers could not be deleted, possibly due to existing "
+"listeners: %s."
+msgstr ""
+"Penyeimbang beban berikut tidak dapat dihapus, mungkin karena pendengar yang "
+"sedang ada: %s."
+
+#, python-format
+msgid "The following pool could not be deleted: %s."
+msgstr "Kolam berikut ini tidak bisa dihapus: %s."
+
+msgid "The health check interval must be greater than or equal to the timeout."
+msgstr ""
+"Interval pemeriksaan kesehatan harus lebih besar dari atau sama dengan batas "
+"waktu."
+
+msgid "The health monitor has been updated."
+msgstr "Pemantauan kesehatan telah diperbarui."
+
+msgid ""
+"The health monitor is used to determine the health of your pool members. "
+"Health checks\n"
+"  routinely run against each member within the pool and the result of the "
+"health check is used\n"
+"  to determine if the member receives new connections. Each pool can only "
+"have one health\n"
+"  monitor."
+msgstr ""
+"Pemantauan kesehatan digunakan untuk menentukan kesehatan anggota kolam "
+"Anda. Pemeriksaan kesehatan\n"
+"   secara rutin dijalankan terhadap setiap anggota dalam kolam dan hasil "
+"dari pemeriksaan kesehatan digunakan\n"
+"   untuk menentukan apakah anggota menerima sambungan baru. Setiap kolam "
+"hanya dapat memiliki satu pemantauan kesehatan."
+
+msgid "The listener has been updated."
+msgstr "Pendengar telah diperbarui."
+
+msgid "The load balancer has been updated."
+msgstr "Penyeimbang beban telah diperbarui."
+
+msgid ""
+"The load balancer occupies a neutron network port and has an IP address "
+"assigned from a subnet."
+msgstr ""
+"Penyeimbang beban menempati port jaringan neutron dan memiliki alamat IP "
+"yang ditetapkan dari subnet."
+
+msgid "The max retry count must be a number between 1 and 10."
+msgstr "Jumlah retry max harus dalam angka antara 1 dan 10."
+
+msgid "The pool has been updated."
+msgstr "Kolam telah diperbarui."
+
+msgid "The pool members have been updated."
+msgstr "Para anggota kolam telah diperbarui."
+
+msgid "The port must be a number between 1 and 65535."
+msgstr "Port harus dalam angka antara 1 dan 65535."
+
+msgid ""
+"The port must be unique among all listeners attached to this load balancer."
+msgstr ""
+"Port harus unik di antara semua pendengar yang terkait pada penyeimbang "
+"beban ini."
+
+msgid "The timeout must be a number greater than or equal to 0."
+msgstr "Timeout harus berupa angka lebih besar dari atau sama dengan 0."
+
+msgid "The weight must be a number between 1 and 256."
+msgstr "Berat harus dalam angka antara 1 dan 256."
+
+msgid ""
+"The weight of a member determines the portion of requests or connections it "
+"services compared to the other members of the pool."
+msgstr ""
+"Berat anggota menentukan porsi dari permintaan atau koneksi layanan IT  "
+"dibandingkan dengan anggota lain dari kolam."
+
+msgid "Timeout"
+msgstr "Timeout (waktu habis)"
+
+msgid ""
+"Timeout (sec)\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Timeout (sec)\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid "Type"
+msgstr "Type (tipe)"
+
+msgid "URL Path"
+msgstr "URL Path"
+
+msgid "URL path"
+msgstr "Path URL"
+
+msgid "Unable to create health monitor."
+msgstr "Tidak dapat membuat pemantauan kesehatan."
+
+msgid "Unable to create listener."
+msgstr "Tidak dapat membuat pendengar."
+
+msgid "Unable to create load balancer."
+msgstr "Tidak dapat membuat penyeimbang beban."
+
+msgid "Unable to create pool."
+msgstr "Tidak dapat membuat kolam."
+
+msgid "Unable to delete health monitor."
+msgstr "Tidak dapat menghapus pemantauan kesehatan."
+
+msgid "Unable to delete listener."
+msgstr "Tidak dapat menghapus pendengar."
+
+msgid "Unable to delete load balancer."
+msgstr "Tidak dapat menghapus penyeimbang beban."
+
+msgid "Unable to delete pool."
+msgstr "Tidak dapat menghapus kolam."
+
+#, python-format
+msgid "Unable to disassociate floating IP address from load balancer: %s."
+msgstr ""
+"Tidak dapat memisahkan alamat IP mengambang dari penyeimbang beban: %s."
+
+msgid "Unable to retrieve SSL certificates."
+msgstr "Tidak dapat mengambil sertifikat SSL."
+
+msgid "Unable to retrieve health monitor."
+msgstr "Tidak dapat mengambil pemantauan kesehatan."
+
+msgid "Unable to retrieve listener."
+msgstr "Tidak dapat mengambil pendengar."
+
+msgid "Unable to retrieve listeners."
+msgstr "Tidak dapat mengambil pendengar."
+
+msgid "Unable to retrieve load balancer."
+msgstr "Tidak dapat mengambil penyeimbang beban."
+
+msgid "Unable to retrieve load balancers."
+msgstr "Tidak dapat mengambil penyeimbang beban."
+
+msgid "Unable to retrieve member."
+msgstr "Tidak dapat mengambil anggota."
+
+msgid "Unable to retrieve members."
+msgstr "Tidak dapat mengambil anggota."
+
+msgid "Unable to retrieve pool."
+msgstr "Tidak dapat mengambil kolam (pool)."
+
+msgid "Unable to retrieve secrets."
+msgstr "Tidak dapat mengambil rahasia."
+
+msgid "Unable to update health monitor."
+msgstr "Tidak dapat memperbarui pemantauan kesehatan."
+
+msgid "Unable to update listener."
+msgstr "Tidak dapat memperbarui pendengar."
+
+msgid "Unable to update load balancer."
+msgstr "Tidak dapat memperbarui penyeimbang beban."
+
+msgid "Unable to update member list."
+msgstr "Tidak dapat memperbarui daftar anggota."
+
+msgid "Unable to update member."
+msgstr "Tidak dapat memperbarui anggota."
+
+msgid "Unable to update pool."
+msgstr "Tidak dapat memperbarui kolam."
+
+msgid "Update"
+msgstr "Update (perbarui)"
+
+msgid "Update Health Monitor"
+msgstr "Update Health Monitor (perbaharui pemantauan kesehatan)"
+
+msgid "Update Listener"
+msgstr "Update Listener (perbarui pendengar)"
+
+msgid "Update Load Balancer"
+msgstr "Update Load Balancer (perbarui penyeimbang beban)"
+
+msgid "Update Member Weight"
+msgstr "Update Member Weight"
+
+msgid "Update Pool"
+msgstr "Update Pool (perbarui kolam)"
+
+msgid "Update Weight"
+msgstr "Update Weight (perbarui berat)"
+
+msgid ""
+"Use the key-manager service to create any certificate containers before "
+"creating the listener.\n"
+"  The following documentation provides information on how to create a "
+"certificate container:\n"
+"  <ul>\n"
+"    <li>\n"
+"      <a target=\"_blank\" href=\"http://developer.openstack.org/api-guide/"
+"key-manager/containers.html#certificate-containers\">\n"
+"        Key Manager API Guide: Creating a Certificate Container\n"
+"      </a>\n"
+"    </li>\n"
+"    <li>\n"
+"      <a target=\"_blank\" href=\"http://docs.openstack.org/cli-reference/"
+"barbican.html\">\n"
+"        Key Manager Service Command-Line Client\n"
+"      </a>\n"
+"    </li>\n"
+"  </ul>"
+msgstr ""
+"Gunakan layanan key-manager untuk menciptakan kontainer sertifikat sebelum "
+"membuat pendengar.\n"
+"   Dokumentasi berikut memberikan informasi tentang cara membuat kontainer "
+"sertifikat:\n"
+"  <ul>\n"
+"    <li>\n"
+"      <a target=\"_blank\" href=\"http://developer.openstack.org/api-guide/"
+"key-manager/containers.html#certificate-containers\">\n"
+"        Key Manager API Guide: Creating a Certificate Container\n"
+"      </a>\n"
+"    </li>\n"
+"    <li>\n"
+"      <a target=\"_blank\" href=\"http://docs.openstack.org/cli-reference/"
+"barbican.html\">\n"
+"        Key Manager Service Command-Line Client\n"
+"      </a>\n"
+"    </li>\n"
+"  </ul>"
+
+msgid "Weight"
+msgstr "Weight (berat)"
+
+msgid ""
+"Weight\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Weight (berat) \n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+#, python-format
+msgid ""
+"You are about to disassociate the floating IP address from load balancer \"%s"
+"\". Please confirm."
+msgstr ""
+"Anda akan memisahkan alamat IP mengambang dari penyeimbang beban \"%s\". "
+"Silahkan konfirmasi."
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Please confirm your selection. Deleted health "
+"monitors are not recoverable."
+msgstr ""
+"Anda telah memilih \"%s\". Harap mengkonfirmasi pilihan Anda. Pemantauan "
+"kesehatan yang telah dihapus tidak dapat dipulihkan."
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Please confirm your selection. Deleted listeners "
+"are not recoverable."
+msgstr ""
+"Anda telah memilih \"%s\". Harap mengkonfirmasi pilihan Anda. Pendengar yang "
+"telah dihapus tidak dapat dipulihkan."
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Please confirm your selection. Deleted load "
+"balancers are not recoverable."
+msgstr ""
+"Anda telah memilih \"%s\". Harap mengkonfirmasi pilihan Anda. Penyeimbang  "
+"beban yang telah dihapus tidak dapat dipulihkan."
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Please confirm your selection. Deleted pools are "
+"not recoverable."
+msgstr ""
+"Anda telah memilih \"%s\". Harap mengkonfirmasi pilihan Anda. Kolam yang "
+"telah dihapus tidak dapat dipulihkan."
