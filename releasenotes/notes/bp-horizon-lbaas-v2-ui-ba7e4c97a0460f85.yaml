@@ -1,6 +1,6 @@
 ---
 features:
-  - A new dashboard wizard for Neutron LBaaS version 2. Allows you to create a
+  - A new dashboard wizard for Octavia version 2. Allows you to create a
     version 2 load balancer and related resources such as a listener, pool,
     pool members, and health monitor.
   - A view of all the existing version 2 load balancers.

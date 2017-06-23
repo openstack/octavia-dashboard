@@ -1,9 +1,9 @@
-.. neutron-lbaas-dashboard documentation master file, created by
+.. octavia-dashboard documentation master file, created by
    sphinx-quickstart on Tue Jul  9 22:26:36 2013.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to neutron-lbaas-dashboard's documentation!
+Welcome to octavia-dashboard's documentation!
 ========================================================
 
 Contents:
@@ -13,7 +13,6 @@ Contents:
 
    readme
    installation
-   usage
    contributing
 
 Indices and tables

@@ -1,0 +1,279 @@
+# Artem <amikhalev90@gmail.com>, 2016. #zanata
+# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2017. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: octavia-dashboard 1.0.1.dev55\n"
+"Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
+"POT-Creation-Date: 2017-02-03 18:54+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2017-02-03 08:54+0000\n"
+"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"X-Generator: Zanata 3.7.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+#, python-format
+msgid "%s loadbalancers"
+msgstr "%s балансировщики нагрузки"
+
+msgid "Admin Status"
+msgstr "Статус"
+
+msgid "All Instances"
+msgstr "Все инстансы"
+
+msgid "Certificate"
+msgstr "Сертификат"
+
+msgid "Certificate Chain (Optional)"
+msgstr "Цепочка сертификатов (Необязательно)"
+
+msgid "Certificate Name"
+msgstr "Имя сертификата"
+
+msgid "Could not create full loadbalancer."
+msgstr "Невозможно создать полноценный балансировщик нагрузки."
+
+msgid "Could not get load balancer list."
+msgstr "Невозможно получить список балансировщиков нагрузки."
+
+msgid "Disable"
+msgstr "Выключить"
+
+msgid "Disabled LB"
+msgstr "Отключённые балансировщики"
+
+msgid "Edit Load Balancer"
+msgstr "Редактировать балансировщик нагрузки"
+
+msgid "Enable"
+msgstr "Включить"
+
+msgid "Enabled LB"
+msgstr "Включённые балансировщики"
+
+msgid "HTTP"
+msgstr "HTTP"
+
+msgid "HTTPS"
+msgstr "HTTPS"
+
+msgid "Health Check Interval (in seconds)"
+msgstr "Интервал проверки статуса (сек)"
+
+msgid "IP"
+msgstr "IP-адрес"
+
+msgid "Instance Port"
+msgstr "Порт инстанса"
+
+msgid "Instance Port on which service is running."
+msgstr "Порт инстанса на котором запущена служба"
+
+msgid "Instances"
+msgstr "Инстансы"
+
+msgid "Intermediate Chain Certificates"
+msgstr "Цепочка промежуточных сертификатов"
+
+msgid "LB Details"
+msgstr "Детали балансировщика"
+
+msgid "LB Port"
+msgstr "Порт балансировки"
+
+msgid "LB Port on which LB is listening."
+msgstr "Порт балансировщика для обработки входящих подключений"
+
+msgid "LB Protocol"
+msgstr "Протокол балансировки"
+
+msgid "Launch"
+msgstr "Запустить"
+
+msgid "Launch Load Balancer"
+msgstr "Запустить балансировщик нагрузки"
+
+#, python-format
+msgid "Launched %(count)s named \"%(name)s\"."
+msgstr "Запущено %(count)s  \"%(name)s\"."
+
+msgid "Least Connection"
+msgstr "Минимум соединений"
+
+msgid "Least Sessions"
+msgstr "Минимум сессий"
+
+msgid "Load Balancer"
+msgstr "Балансировщик нагрузки"
+
+msgid "Load Balancer Description"
+msgstr "Описание балансировщика нагрузки"
+
+msgid "Load Balancers"
+msgstr "Балансировщики нагрузки"
+
+msgid "Load Balancers V2"
+msgstr "Балансировщики нагрузки V2"
+
+msgid "Load Balancing Method"
+msgstr "Метод балансировки нагрузки"
+
+msgid "Method"
+msgstr "Метод"
+
+msgid "Monitor"
+msgstr "Монитор"
+
+msgid "Name"
+msgstr "Имя"
+
+msgid "No instances found."
+msgstr "Инстансы не найдены."
+
+msgid "No members enabled."
+msgstr "Нет разрешенных участников."
+
+msgid "Not available"
+msgstr "Недоступно"
+
+msgid ""
+"Number of times health check should be attempted before marking down a member"
+msgstr ""
+"Количество проверок доступности перед тем, как пометить участника недоступным"
+
+msgid "Operating Status"
+msgstr "Рабочее состояние"
+
+msgid "Overview"
+msgstr "Обзор"
+
+msgid "PING"
+msgstr "PING"
+
+msgid "Please provide all certificate parameters."
+msgstr "Предоставьте все параметры сертификата."
+
+msgid "Please provide instance port"
+msgstr "Укажите порт инстанса"
+
+msgid ""
+"Please select a list of instances that should handle traffic for this target "
+"load balancer. All instances must reside in the same Project as the target "
+"load balancer."
+msgstr ""
+"Выберите инстансы, обрабатывающие трафик целевого балансировщика нагрузки. "
+"Все инстансы должны находиться в том же проекте, что и балансировщик."
+
+msgid "Please select an option for the load balancing method."
+msgstr "Выберите метод балансировки нагрузки."
+
+msgid "Please select at least one member"
+msgstr "Выберите как минимум одного участника"
+
+msgid "Private Key"
+msgstr "Закрытый ключ"
+
+msgid "Protocol"
+msgstr "Протокол"
+
+msgid "Provide Load Balancer Description."
+msgstr "Предоставьте описание балансировщика нагрузки."
+
+msgid "Provisioning Status"
+msgstr "Статус развертывания"
+
+msgid "Receive String"
+msgstr "Строка ответа"
+
+#, python-format
+msgid "Requested IP and port combination already exists %s "
+msgstr "Запрошенная комбинация IP и порта уже существует %s"
+
+msgid "Retry count before markdown"
+msgstr "Количество попыток перед отключением"
+
+msgid "Round Robin"
+msgstr "Циклический"
+
+msgid "SSL"
+msgstr "SSL"
+
+msgid "SSL Certificate"
+msgstr " SSL сертификат"
+
+msgid "Scheduled termination of"
+msgstr "Запланировано удаление"
+
+msgid "Select from existing VIP IPs"
+msgstr "Выберите из существующих VIP адресов"
+
+msgid "Selected Instances"
+msgstr "Выбранные инстансы"
+
+msgid "Send String"
+msgstr "Строка запроса"
+
+msgid "TCP"
+msgstr "TCP"
+
+msgid "Terminate"
+msgstr "Удалить"
+
+#, python-format
+msgid "Unable to get VIP for pool %(pool)s."
+msgstr "Невозможно получить VIP для пула %(pool)s."
+
+#, python-format
+msgid "Unable to get health monitors for pool %(pool)s."
+msgstr "Не удалось получить мониторы статуса  для пула %(pool)s."
+
+#, python-format
+msgid "Unable to get members for pool %(pool)s."
+msgstr "Невозможно  получить участников для пула %(pool)s."
+
+msgid "Unable to get pool detail."
+msgstr "Невозможно получить детали пула."
+
+#, python-format
+msgid "Unable to get subnet for pool %(pool)s."
+msgstr "Невозможно получить подсеть для пула %(pool)s."
+
+#, python-format
+msgid "Unable to launch %(count)s named \"%(name)s\"."
+msgstr "Не удалось запустить %(count)s  \"%(name)s\"."
+
+#, python-format
+msgid "Unable to modify load balancer \"%s\"."
+msgstr "Не удалось изменить балансировщик нагрузки \"%s\"."
+
+#, python-format
+msgid "Unable to retrieve details for loadbalancer \"%s\"."
+msgstr "Не удалось получить информацию о балансировщике нагрузки\"%s\"."
+
+#, python-format
+msgid "Unable to retrieve load balancer details. %s"
+msgstr "Не удалось получить информацию о балансировщике нагрузки. %s"
+
+msgid "Unable to retrieve members list. Please try again later."
+msgstr "Не удалось получить список участников.  Повторите попытку позже."
+
+msgid "Unable to retrieve pools list."
+msgstr "Не удалось получить список пулов."
+
+msgid "Unable to retrieve vips."
+msgstr "Невозможно получить список VIP"
+
+msgid "Update"
+msgstr "Обновить"
+
+#, python-format
+msgid "Updated load balancer \"%s\"."
+msgstr "Обновлён балансировщик \"%s\"."
+
+msgid "loadbalancer"
+msgstr "балансировщик нагрузки"

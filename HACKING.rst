@@ -1,4 +1,4 @@
-neutron-lbaas-dashboard Style Commandments
-===============================================
+octavia-dashboard Style Commandments
+====================================
 
 Read the OpenStack Style Commandments http://docs.openstack.org/developer/hacking/

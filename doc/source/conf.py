@@ -37,8 +37,8 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'neutron-lbaas-dashboard'
-copyright = u'2013, OpenStack Foundation'
+project = u'octavia-dashboard'
+copyright = u'2017, OpenStack Foundation'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 add_function_parentheses = True
@@ -75,4 +75,4 @@ latex_documents = [
 #intersphinx_mapping = {'http://docs.python.org/': None}
 
 # A list of ignored prefixes for module index sorting.
-modindex_common_prefix = ['neutron-lbaas-dashboard.']
+modindex_common_prefix = ['octavia-dashboard.']

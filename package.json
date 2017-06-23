@@ -1,8 +1,8 @@
 {
   "version": "0.0.0",
   "private": true,
-  "name": "neutron-lbaas-dashboard",
-  "description": "Neutron LBaaS v2 Dashboard",
+  "name": "octavia-dashboard",
+  "description": "Octavia Dashboard",
   "repository": "none",
   "license": "Apache 2.0",
   "devDependencies": {
@@ -21,9 +21,9 @@
     "phantomjs-prebuilt": "2.1.14"
   },
   "scripts": {
-    "postinstall": "neutron_lbaas_dashboard/post_install.sh",
-    "test": "karma start neutron_lbaas_dashboard/karma.conf.js --single-run",
-    "lint": "eslint --no-color neutron_lbaas_dashboard/static"
+    "postinstall": "octavia_dashboard/post_install.sh",
+    "test": "karma start octavia_dashboard/karma.conf.js --single-run",
+    "lint": "eslint --no-color octavia_dashboard/static"
   },
   "dependencies": {}
 }

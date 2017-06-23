@@ -4,9 +4,9 @@ Installation
 
 At the command line::
 
-    $ pip install neutron-lbaas-dashboard
+    $ pip install octavia-dashboard
 
 Or, if you have virtualenvwrapper installed::
 
-    $ mkvirtualenv neutron-lbaas-dashboard
-    $ pip install neutron-lbaas-dashboard
+    $ mkvirtualenv octavia-dashboard
+    $ pip install octavia-dashboard

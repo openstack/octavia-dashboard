@@ -8,12 +8,12 @@ DIR=${BASH_SOURCE%/*}
 source $DIR/commons $@
 
 set +e
-cd /opt/stack/new/neutron-lbaas-dashboard
+cd /opt/stack/new/octavia-dashboard
 sudo -H -u stack tox -e py27integration
 retval=$?
 set -e
 
-if [ -d ${NEUTRON_LBAAS_DASHBOARD_SCREENSHOTS_DIR}/ ]; then
-  cp -r ${NEUTRON_LBAAS_DASHBOARD_SCREENSHOTS_DIR}/ /home/jenkins/workspace/gate-neutron-lbaas-dashboard-dsvm-integration/
+if [ -d ${OCTAVIA_DASHBOARD_SCREENSHOTS_DIR}/ ]; then
+  cp -r ${OCTAVIA_DASHBOARD_SCREENSHOTS_DIR}/ /home/jenkins/workspace/gate-octavia-dashboard-dsvm-integration/
 fi
 exit $retval
