@@ -21,7 +21,6 @@ from django.views import generic
 
 from horizon import conf
 
-from openstack_dashboard.api import network
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
@@ -388,7 +387,7 @@ def add_floating_ip_info(request, loadbalancers):
     """Add floating IP address info to each load balancer.
 
     """
-    floating_ips = network.tenant_floating_ip_list(request)
+    floating_ips = neutron.tenant_floating_ip_list(request)
     for lb in loadbalancers:
         floating_ip = {}
         associated_ip = next((fip for fip in floating_ips
@@ -415,7 +414,7 @@ class LoadBalancers(generic.View):
         tenant_id = request.user.project_id
         loadbalancers = neutronclient(request).list_loadbalancers(
             tenant_id=tenant_id).get('loadbalancers')
-        if request.GET.get('full') and network.floating_ip_supported(request):
+        if request.GET.get('full') and neutron.floating_ip_supported(request):
             add_floating_ip_info(request, loadbalancers)
         return {'items': loadbalancers}
 
@@ -444,7 +443,7 @@ class LoadBalancer(generic.View):
         """
         loadbalancer = neutronclient(request).show_loadbalancer(
             loadbalancer_id).get('loadbalancer')
-        if request.GET.get('full') and network.floating_ip_supported(request):
+        if request.GET.get('full') and neutron.floating_ip_supported(request):
             add_floating_ip_info(request, [loadbalancer])
         return loadbalancer
 
