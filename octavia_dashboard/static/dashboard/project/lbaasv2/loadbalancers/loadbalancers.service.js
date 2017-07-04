@@ -46,6 +46,7 @@
 
     var provisioningStatus = {
       ACTIVE: gettext('Active'),
+      INACTIVE: gettext('Inactive'),
       PENDING_CREATE: gettext('Pending Create'),
       PENDING_UPDATE: gettext('Pending Update'),
       PENDING_DELETE: gettext('Pending Delete'),

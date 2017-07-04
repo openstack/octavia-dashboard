@@ -41,6 +41,7 @@
       deleteLoadBalancer: deleteLoadBalancer,
       createLoadBalancer: createLoadBalancer,
       editLoadBalancer: editLoadBalancer,
+      getLoadBalancerStatusTree: getLoadBalancerStatusTree,
       getListeners: getListeners,
       getListener: getListener,
       createListener: createListener,
@@ -144,6 +145,21 @@
       return apiService.put('/api/lbaas/loadbalancers/' + id + '/', spec)
         .error(function () {
           toastService.add('error', gettext('Unable to update load balancer.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getLoadBalancerStatusTree
+     * @description
+     * Get the status tree for a load balancer
+     * @param {string} id
+     * Specifies the id of the load balancer to request the status tree for.
+     */
+
+    function getLoadBalancerStatusTree(id) {
+      return apiService.get('/api/lbaas/loadbalancers/' + id + '/statuses/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve load balancer status tree.'));
         });
     }
 

@@ -60,6 +60,13 @@
         testInput: [ '1234' ]
       },
       {
+        func: 'getLoadBalancerStatusTree',
+        method: 'get',
+        path: '/api/lbaas/loadbalancers/1234/statuses/',
+        error: 'Unable to retrieve load balancer status tree.',
+        testInput: [ '1234' ]
+      },
+      {
         func: 'getListeners',
         method: 'get',
         path: '/api/lbaas/listeners/',
