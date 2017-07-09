@@ -1,47 +1,50 @@
 <div ng-controller="PoolDetailController as ctrl">
-  <div class="page-header">
-    <ol class="breadcrumb">
-      <li><a href="project/ngloadbalancersv2/"><translate>Load Balancers</translate></a></li>
-      <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
-      <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
-      <li class="active">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</li>
-      <actions allowed="ctrl.actions" type="row" item="ctrl.pool"
-               ng-if="ctrl.pool" class="actions_column pull-right"></actions>
-    </ol>
-    <p ng-if="::ctrl.pool.description">{$ ::ctrl.pool.description $}</p>
-  </div>
-  <tabset>
-    <tab heading="{$ 'Overview' | translate $}">
-      <div class="row">
-        <div class="col-md-6 detail">
-          <dl class="dl-horizontal">
-            <dt translate>Protocol</dt>
-            <dd>{$ ::ctrl.pool.protocol $}</dd>
-            <dt translate>Load Balancer Algorithm</dt>
-            <dd>{$ ctrl.pool.lb_algorithm | decode:ctrl.loadBalancerAlgorithm $}</dd>
-            <dt translate>Session Persistence</dt>
-            <dd>{$ ctrl.pool.session_persistence | noValue:('None' | translate) $}</dd>
-            <dt translate>Admin State Up</dt>
-            <dd>{$ ctrl.pool.admin_state_up | yesno $}</dd>
-            <dt translate>Health Monitor ID</dt>
-            <dd>
-              <a ng-href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}/healthmonitors/{$ ::ctrl.pool.healthmonitor_id $}" ng-if="ctrl.pool.healthmonitor_id">
-                {$ ::ctrl.pool.healthmonitor_id $}
-              </a>
-              <span ng-if="!ctrl.pool.healthmonitor_id">
-                {$ 'None' | translate $}
-              </span>
-            </dd>
-            <dt translate>Pool ID</dt>
-            <dd>{$ ::ctrl.pool.id $}</dd>
-            <dt translate>Tenant ID</dt>
-            <dd>{$ ::ctrl.pool.tenant_id $}</dd>
-          </dl>
+  <detail-status loading="ctrl.loading" error="ctrl.error"></detail-status>
+  <div ng-if="!ctrl.loading && !ctrl.error">
+    <div class="page-header">
+      <ol class="breadcrumb">
+        <li><a href="project/ngloadbalancersv2/"><translate>Load Balancers</translate></a></li>
+        <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
+        <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
+        <li class="active">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</li>
+        <actions allowed="ctrl.actions" type="row" item="ctrl.pool"
+                 ng-if="ctrl.pool" class="actions_column pull-right"></actions>
+      </ol>
+      <p ng-if="::ctrl.pool.description">{$ ::ctrl.pool.description $}</p>
+    </div>
+    <tabset>
+      <tab heading="{$ 'Overview' | translate $}">
+        <div class="row">
+          <div class="col-md-6 detail">
+            <dl class="dl-horizontal">
+              <dt translate>Protocol</dt>
+              <dd>{$ ::ctrl.pool.protocol $}</dd>
+              <dt translate>Load Balancer Algorithm</dt>
+              <dd>{$ ctrl.pool.lb_algorithm | decode:ctrl.loadBalancerAlgorithm $}</dd>
+              <dt translate>Session Persistence</dt>
+              <dd>{$ ctrl.pool.session_persistence | noValue:('None' | translate) $}</dd>
+              <dt translate>Admin State Up</dt>
+              <dd>{$ ctrl.pool.admin_state_up | yesno $}</dd>
+              <dt translate>Health Monitor ID</dt>
+              <dd>
+                <a ng-href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}/healthmonitors/{$ ::ctrl.pool.healthmonitor_id $}" ng-if="ctrl.pool.healthmonitor_id">
+                  {$ ::ctrl.pool.healthmonitor_id $}
+                </a>
+                <span ng-if="!ctrl.pool.healthmonitor_id">
+                  {$ 'None' | translate $}
+                </span>
+              </dd>
+              <dt translate>Pool ID</dt>
+              <dd>{$ ::ctrl.pool.id $}</dd>
+              <dt translate>Tenant ID</dt>
+              <dd>{$ ::ctrl.pool.tenant_id $}</dd>
+            </dl>
+          </div>
         </div>
-      </div>
-    </tab>
-    <tab heading="{$ 'Members' | translate $}" active="ctrl.membersTabActive">
-      <ng-include src="'static/dashboard/project/lbaasv2/members/table.html'"></ng-include>
-    </tab>
-  </tabset>
+      </tab>
+      <tab heading="{$ 'Members' | translate $}" active="ctrl.membersTabActive">
+        <ng-include src="'static/dashboard/project/lbaasv2/members/table.html'"></ng-include>
+      </tab>
+    </tabset>
+  </div>
 </div>

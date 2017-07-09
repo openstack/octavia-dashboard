@@ -1,35 +1,38 @@
 <div ng-controller="MemberDetailController as ctrl">
-  <div class="page-header">
-    <ol class="breadcrumb">
-      <li><a href="project/ngloadbalancersv2/"><translate>Load Balancers</translate></a></li>
-      <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
-      <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
-      <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
-      <li class="active">{$ ::(ctrl.member.name || ctrl.member.id) $}</li>
-      <actions allowed="ctrl.actions" type="row" item="ctrl.member"
-               ng-if="ctrl.member" class="actions_column pull-right"></actions>
-    </ol>
-  </div>
-  <div class="row">
-    <div class="col-md-6 detail">
-      <dl class="dl-horizontal">
-        <dt translate>Address</dt>
-        <dd>{$ ::ctrl.member.address $}</dd>
-        <dt translate>Protocol Port</dt>
-        <dd>{$ ::ctrl.member.protocol_port $}</dd>
-        <dt translate>Weight</dt>
-        <dd>{$ ctrl.member.weight $}</dd>
-        <dt translate>Operating Status</dt>
-        <dd>{$ ctrl.member.operating_status | decode:ctrl.operatingStatus $}</dd>
-        <dt translate>Provisioning Status</dt>
-        <dd>{$ ctrl.member.provisioning_status | decode:ctrl.provisioningStatus $}</dd>
-        <dt translate>Admin State Up</dt>
-        <dd>{$ ctrl.member.admin_state_up | yesno $}</dd>
-        <dt translate>Member ID</dt>
-        <dd>{$ ::ctrl.member.id $}</dd>
-        <dt translate>Tenant ID</dt>
-        <dd>{$ ::ctrl.member.tenant_id $}</dd>
-      </dl>
+  <detail-status loading="ctrl.loading" error="ctrl.error"></detail-status>
+  <div ng-if="!ctrl.loading && !ctrl.error">
+    <div class="page-header">
+      <ol class="breadcrumb">
+        <li><a href="project/ngloadbalancersv2/"><translate>Load Balancers</translate></a></li>
+        <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
+        <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
+        <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
+        <li class="active">{$ ::(ctrl.member.name || ctrl.member.id) $}</li>
+        <actions allowed="ctrl.actions" type="row" item="ctrl.member"
+                 ng-if="ctrl.member" class="actions_column pull-right"></actions>
+      </ol>
+    </div>
+    <div class="row">
+      <div class="col-md-6 detail">
+        <dl class="dl-horizontal">
+          <dt translate>Address</dt>
+          <dd>{$ ::ctrl.member.address $}</dd>
+          <dt translate>Protocol Port</dt>
+          <dd>{$ ::ctrl.member.protocol_port $}</dd>
+          <dt translate>Weight</dt>
+          <dd>{$ ctrl.member.weight $}</dd>
+          <dt translate>Operating Status</dt>
+          <dd>{$ ctrl.member.operating_status | decode:ctrl.operatingStatus $}</dd>
+          <dt translate>Provisioning Status</dt>
+          <dd>{$ ctrl.member.provisioning_status | decode:ctrl.provisioningStatus $}</dd>
+          <dt translate>Admin State Up</dt>
+          <dd>{$ ctrl.member.admin_state_up | yesno $}</dd>
+          <dt translate>Member ID</dt>
+          <dd>{$ ::ctrl.member.id $}</dd>
+          <dt translate>Tenant ID</dt>
+          <dd>{$ ::ctrl.member.tenant_id $}</dd>
+        </dl>
+      </div>
     </div>
   </div>
 </div>

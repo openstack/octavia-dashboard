@@ -68,8 +68,9 @@
   }
 }
 
-/* Progress indicator in the table while items are loading */
-[table-status] {
+/* Progress indicator while data is loading */
+[table-status],
+detail-status {
   .progress {
     margin: 0px auto;
     width: 25%;
@@ -77,5 +78,14 @@
     .progress-bar {
       width: 100%;
     }
+  }
+}
+detail-status {
+  .progress {
+    margin-top: 25vh;
+  }
+  .error-actions {
+    text-align: center;
+    margin-top: 10px;
   }
 }

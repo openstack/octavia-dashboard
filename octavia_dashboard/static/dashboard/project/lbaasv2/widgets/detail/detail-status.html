@@ -1,0 +1,12 @@
+<div ng-if="loading || error">
+  <div class="progress">
+    <div class="progress-bar" role="progressbar"
+         ng-class="{ 'progress-bar-striped active': !error, 'progress-bar-danger': error }">
+      <span ng-if="!error" class="sr-only" translate>Loading</span>
+      <span ng-if="error" translate>An error occurred. Please try again later.</span>
+    </div>
+  </div>
+  <div class="error-actions" ng-if="error">
+    <a href="javascript:window.history.back();" translate>Back</a>
+  </div>
+</div>

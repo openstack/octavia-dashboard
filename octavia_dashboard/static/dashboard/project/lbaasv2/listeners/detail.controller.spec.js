@@ -17,26 +17,40 @@
   'use strict';
 
   describe('LBaaS v2 Listener Detail Controller', function() {
-    var lbaasv2API, ctrl;
+    var lbaasv2API, $controller, apiFail, qAllFail;
 
-    function fakeAPI() {
+    function fakePromise(data, reject) {
       return {
-        success: function(callback) {
-          callback('foo');
+        then: function(success, fail) {
+          if (reject) {
+            fail();
+          } else {
+            success({ data: data });
+          }
+          return fakePromise();
         }
       };
     }
 
+    function fakeAPI() {
+      return fakePromise('foo', apiFail);
+    }
+
     function loadbalancerAPI() {
-      var loadbalancer = { provisioning_status: 'ACTIVE' };
-      return {
-        success: function(callback) {
-          callback(loadbalancer);
-        },
-        then: function(callback) {
-          callback({ data: loadbalancer });
+      return fakePromise({ provisioning_status: 'ACTIVE' });
+    }
+
+    function qAll() {
+      return fakePromise(null, qAllFail);
+    }
+
+    function createController() {
+      return $controller('ListenerDetailController', {
+        $routeParams: {
+          loadbalancerId: 'loadbalancerId',
+          listenerId: 'listenerId'
         }
-      };
+      });
     }
 
     ///////////////////////
@@ -48,6 +62,10 @@
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     beforeEach(module(function($provide) {
+      apiFail = false;
+      qAllFail = false;
+
+      $provide.value('$q', { all: qAll });
       $provide.value('$uibModal', {});
     }));
 
@@ -55,20 +73,30 @@
       lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
       spyOn(lbaasv2API, 'getListener').and.callFake(fakeAPI);
       spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
-      var controller = $injector.get('$controller');
-      ctrl = controller('ListenerDetailController', {
-        $routeParams: {
-          loadbalancerId: 'loadbalancerId',
-          listenerId: 'listenerId'
-        }
-      });
+      $controller = $injector.get('$controller');
     }));
 
     it('should invoke lbaasv2 apis', function() {
+      var ctrl = createController();
       expect(lbaasv2API.getListener).toHaveBeenCalledWith('listenerId');
       expect(lbaasv2API.getLoadBalancer).toHaveBeenCalledWith('loadbalancerId');
       expect(ctrl.loadbalancer).toEqual({ provisioning_status: 'ACTIVE' });
       expect(ctrl.listener).toBe('foo');
+    });
+
+    it('should throw error on API fail', function() {
+      apiFail = true;
+      var init = function() {
+        createController();
+      };
+      expect(init).toThrow();
+    });
+
+    it('should set error state if any APIs fail', function() {
+      qAllFail = true;
+      var ctrl = createController();
+      expect(ctrl.loading).toBe(false);
+      expect(ctrl.error).toBe(true);
     });
 
   });
