@@ -12,7 +12,6 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from .views import DetailView  # noqa
@@ -22,15 +21,14 @@ from .views import UpdateView  # noqa
 
 
 INSTANCES = r'^(?P<loadbalancer_id>[^/]+)/%s$'
-VIEW_MOD = 'openstack_dashboard.dashboards.project.loadbalancersv2.views'
 
 
-urlpatterns = patterns(VIEW_MOD,
-                       url(r'^$', IndexView.as_view(), name='index'),
-                       url(r'^launch$',
-                           LaunchLoadBalancerView.as_view(), name='launch'),
-                       url(r'^(?P<loadbalancer_id>[^/]+)/$',
-                           DetailView.as_view(), name='detail'),
-                       url(INSTANCES %
-                           'update', UpdateView.as_view(), name='update'),
-                       )
+urlpatterns = [
+    url(r'^$', IndexView.as_view(), name='index'),
+    url(r'^launch$',
+        LaunchLoadBalancerView.as_view(), name='launch'),
+    url(r'^(?P<loadbalancer_id>[^/]+)/$',
+        DetailView.as_view(), name='detail'),
+    url(INSTANCES %
+        'update', UpdateView.as_view(), name='update'),
+]
