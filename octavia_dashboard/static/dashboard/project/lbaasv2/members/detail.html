@@ -19,6 +19,10 @@
         <dd>{$ ::ctrl.member.protocol_port $}</dd>
         <dt translate>Weight</dt>
         <dd>{$ ctrl.member.weight $}</dd>
+        <dt translate>Operating Status</dt>
+        <dd>{$ ctrl.member.operating_status | decode:ctrl.operatingStatus $}</dd>
+        <dt translate>Provisioning Status</dt>
+        <dd>{$ ctrl.member.provisioning_status | decode:ctrl.provisioningStatus $}</dd>
         <dt translate>Admin State Up</dt>
         <dd>{$ ctrl.member.admin_state_up | yesno $}</dd>
         <dt translate>Member ID</dt>

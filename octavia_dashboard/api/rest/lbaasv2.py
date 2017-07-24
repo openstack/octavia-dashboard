@@ -429,6 +429,23 @@ class LoadBalancers(generic.View):
 
 
 @urls.register
+class LoadBalancerStatusTree(generic.View):
+    """API for retrieving the resource status tree for a single load balancer.
+
+    """
+    url_regex = r'lbaas/loadbalancers/(?P<loadbalancer_id>[^/]+)/statuses/$'
+
+    @rest_utils.ajax()
+    def get(self, request, loadbalancer_id):
+        """Get the status tree for a specific load balancer.
+
+        http://localhost/api/lbaas/loadbalancers/cc758c90-3d98-4ea1-af44-aab405c9c915/statuses
+        """
+        return neutronclient(request).retrieve_loadbalancer_status(
+            loadbalancer_id)
+
+
+@urls.register
 class LoadBalancer(generic.View):
     """API for retrieving, updating, and deleting a single load balancer.
 

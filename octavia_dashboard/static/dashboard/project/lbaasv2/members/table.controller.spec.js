@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -17,7 +18,7 @@
   'use strict';
 
   describe('LBaaS v2 Members Table Controller', function() {
-    var controller, lbaasv2API, scope;
+    var controller, lbaasv2API, membersService, scope;
     var items = [{ foo: 'bar' }];
     var apiFail = false;
 
@@ -40,15 +41,16 @@
     beforeEach(module('horizon.framework.util'));
     beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
-
     beforeEach(module(function($provide) {
       $provide.value('$uibModal', {});
     }));
 
     beforeEach(inject(function($injector) {
       lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      membersService = $injector.get('horizon.dashboard.project.lbaasv2.members.service');
       controller = $injector.get('$controller');
       spyOn(lbaasv2API, 'getMembers').and.callFake(fakeAPI);
+      spyOn(membersService, 'associateMemberStatuses');
     }));
 
     function createController() {
@@ -61,7 +63,7 @@
         }});
     }
 
-    it('should initialize correctly', function() {
+    it('should initialize the controller properties correctly', function() {
       var ctrl = createController();
       expect(ctrl.items).toEqual([]);
       expect(ctrl.src).toEqual(items);
@@ -71,13 +73,22 @@
       expect(ctrl.loadbalancerId).toBeDefined();
       expect(ctrl.listenerId).toBeDefined();
       expect(ctrl.poolId).toBeDefined();
+      expect(ctrl.rowActions).toBeDefined();
       expect(ctrl.batchActions).toBeDefined();
+      expect(ctrl.operatingStatus).toBeDefined();
+      expect(ctrl.provisioningStatus).toBeDefined();
     });
 
     it('should invoke lbaasv2 apis', function() {
       var ctrl = createController();
       expect(lbaasv2API.getMembers).toHaveBeenCalled();
       expect(ctrl.src.length).toBe(1);
+    });
+
+    it('should invoke the "associateMemberStatuses" method', function() {
+      var ctrl = createController();
+      expect(membersService.associateMemberStatuses).toHaveBeenCalledWith(
+          ctrl.loadbalancerId, ctrl.listenerId, ctrl.poolId, ctrl.src);
     });
 
     it('should show error if loading fails', function() {

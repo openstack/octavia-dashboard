@@ -38,6 +38,8 @@
       <th class="rsp-p1" st-sort="id" st-sort-default="id" translate>ID</th>
       <th class="rsp-p1" st-sort="address" translate>IP Address</th>
       <th class="rsp-p1" st-sort="protocol_port" translate>Protocol Port</th>
+      <th class="rsp-p1" st-sort="protocol_port" translate>Operating Status</th>
+      <th class="rsp-p1" st-sort="protocol_port" translate>Provisioning Status</th>
       <th class="rsp-p1" st-sort="weight" translate>Weight</th>
       <th class="actions_column" translate>Actions</th>
     </tr>
@@ -63,6 +65,8 @@
       <td class="rsp-p1"><a ng-href="project/ngloadbalancersv2/{$ ::table.loadbalancerId $}/listeners/{$ ::table.listenerId $}/pools/{$ ::table.poolId $}/members/{$ ::item.id $}">{$ ::item.id $}</a></td>
       <td class="rsp-p1">{$ ::item.address $}</td>
       <td class="rsp-p1">{$ ::item.protocol_port $}</td>
+      <td class="rsp-p1">{$ ::item.operating_status | decode:table.operatingStatus $}</td>
+      <td class="rsp-p1">{$ ::item.provisioning_status | decode:table.provisioningStatus $}</td>
       <td class="rsp-p1">{$ item.weight $}</td>
       <td class="actions_column">
         <!--

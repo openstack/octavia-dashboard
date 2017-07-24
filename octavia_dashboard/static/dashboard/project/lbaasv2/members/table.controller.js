@@ -24,7 +24,9 @@
     'horizon.app.core.openstack-service-api.lbaasv2',
     'horizon.dashboard.project.lbaasv2.members.actions.rowActions',
     'horizon.dashboard.project.lbaasv2.members.actions.batchActions',
-    '$routeParams'
+    '$routeParams',
+    'horizon.dashboard.project.lbaasv2.loadbalancers.service',
+    'horizon.dashboard.project.lbaasv2.members.service'
   ];
 
   /**
@@ -38,11 +40,14 @@
    * @param rowActions The pool members row actions service.
    * @param batchActions The members batch actions service.
    * @param $routeParams The angular $routeParams service.
+   * @param loadBalancersService The LBaaS v2 load balancers service.
+   * @param membersService The LBaaS v2 members service.
    * @returns undefined
    */
 
-  function MembersTableController(api, rowActions, batchActions, $routeParams) {
-
+  function MembersTableController(
+      api, rowActions, batchActions, $routeParams, loadBalancersService, membersService
+  ) {
     var ctrl = this;
     ctrl.items = [];
     ctrl.src = [];
@@ -54,6 +59,8 @@
     ctrl.poolId = $routeParams.poolId;
     ctrl.rowActions = rowActions.init(ctrl.loadbalancerId, ctrl.poolId);
     ctrl.batchActions = batchActions.init(ctrl.loadbalancerId);
+    ctrl.operatingStatus = loadBalancersService.operatingStatus;
+    ctrl.provisioningStatus = loadBalancersService.provisioningStatus;
 
     init();
 
@@ -69,6 +76,11 @@
     function success(response) {
       ctrl.src = response.data.items;
       ctrl.loading = false;
+      membersService.associateMemberStatuses(
+          ctrl.loadbalancerId,
+          ctrl.listenerId,
+          ctrl.poolId,
+          ctrl.src);
     }
 
     function fail(/*response*/) {
