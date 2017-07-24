@@ -12,13 +12,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import patterns
 from django.conf.urls import url
 
 from octavia_dashboard.dashboards.project.ngloadbalancersv2 import views
 
 
-urlpatterns = patterns(
-    'octavia_dashboard.dashboards.project.ngloadbalancersv2.views',
+urlpatterns = [
     url('', views.IndexView.as_view(), name='index'),
-)
+]
