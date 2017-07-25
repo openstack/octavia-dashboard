@@ -12,9 +12,8 @@
 #    under the License.
 
 from django.conf import urls
-import openstack_dashboard.urls
+from openstack_dashboard import urls as dashboard_urls
 
-urlpatterns = urls.patterns(
-    '',
-    urls.url(r'', urls.include(openstack_dashboard.urls))
-)
+urlpatterns = [
+    urls.url(r'', urls.include(dashboard_urls))
+]
