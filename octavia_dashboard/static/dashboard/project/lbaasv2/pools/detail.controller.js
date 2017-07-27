@@ -26,7 +26,8 @@
     '$routeParams',
     'horizon.framework.util.i18n.gettext',
     '$window',
-    '$scope'
+    '$scope',
+    '$q'
   ];
 
   /**
@@ -42,12 +43,15 @@
    * @param gettext The horizon gettext function for translation.
    * @param $window Angular's reference to the browser window object.
    * @param $scope The angular scope object.
+   * @param $q The angular service for promises.
    * @returns undefined
    */
 
-  function PoolDetailController(api, rowActions, $routeParams, gettext, $window, $scope) {
+  function PoolDetailController(api, rowActions, $routeParams, gettext, $window, $scope, $q) {
     var ctrl = this;
 
+    ctrl.loading = true;
+    ctrl.error = false;
     ctrl.loadBalancerAlgorithm = {
       ROUND_ROBIN: gettext('Round Robin'),
       LEAST_CONNECTIONS: gettext('Least Connections'),
@@ -61,15 +65,41 @@
     ////////////////////////////////
 
     function init() {
-      api.getPool($routeParams.poolId).success(set('pool'));
-      api.getListener($routeParams.listenerId).success(set('listener'));
-      api.getLoadBalancer($routeParams.loadbalancerId).success(set('loadbalancer'));
+      ctrl.pool = null;
+      ctrl.listener = null;
+      ctrl.loadbalancer = null;
+      ctrl.loading = true;
+      ctrl.error = false;
+      $q.all([
+        api.getPool($routeParams.poolId)
+          .then(success('pool'), fail('pool')),
+        api.getListener($routeParams.listenerId)
+          .then(success('listener'), fail('listener')),
+        api.getLoadBalancer($routeParams.loadbalancerId)
+          .then(success('loadbalancer'), fail('loadbalancer'))
+      ]).then(postInit, initError);
     }
 
-    function set(property) {
-      return angular.bind(null, function setProp(property, value) {
-        ctrl[property] = value;
+    function success(property) {
+      return angular.bind(null, function setProp(property, response) {
+        ctrl[property] = response.data;
       }, property);
+    }
+
+    function fail(property) {
+      return angular.bind(null, function setProp(property, error) {
+        ctrl[property] = null;
+        throw error;
+      }, property);
+    }
+
+    function postInit() {
+      ctrl.loading = false;
+    }
+
+    function initError() {
+      ctrl.loading = false;
+      ctrl.error = true;
     }
 
     // Save the active state of the members tab in the global window object so it can stay

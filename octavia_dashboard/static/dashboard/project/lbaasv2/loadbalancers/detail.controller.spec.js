@@ -17,14 +17,26 @@
   'use strict';
 
   describe('LBaaS v2 Load Balancer Detail Controller', function() {
-    var lbaasv2API, ctrl, $scope, $window;
+    var lbaasv2API, $scope, $window, $controller, apiFail;
 
     function fakeAPI() {
       return {
-        success: function(callback) {
-          callback({ id: '1234' });
+        then: function(success, fail) {
+          if (apiFail && fail) {
+            fail();
+          } else {
+            success({ id: '1234' });
+          }
         }
       };
+    }
+
+    function createController() {
+      return $controller('LoadBalancerDetailController', {
+        $scope: $scope,
+        $window: $window,
+        $routeParams: { loadbalancerId: '1234' }
+      });
     }
 
     ///////////////////////
@@ -36,6 +48,7 @@
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     beforeEach(module(function($provide) {
+      apiFail = false;
       $provide.value('$uibModal', {});
     }));
 
@@ -44,19 +57,16 @@
       spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(fakeAPI);
       $scope = $injector.get('$rootScope').$new();
       $window = {};
-      var controller = $injector.get('$controller');
-      ctrl = controller('LoadBalancerDetailController', {
-        $scope: $scope,
-        $window: $window,
-        $routeParams: { loadbalancerId: '1234' }
-      });
+      $controller = $injector.get('$controller');
     }));
 
     it('should invoke lbaasv2 apis', function() {
+      createController();
       expect(lbaasv2API.getLoadBalancer).toHaveBeenCalledWith('1234', true);
     });
 
     it('should save changes to listeners tab active state', function() {
+      var ctrl = createController();
       expect($window.listenersTabActive).toBeUndefined();
       expect(ctrl.listenersTabActive).toBeUndefined();
       ctrl.listenersTabActive = true;
@@ -65,6 +75,13 @@
       ctrl.listenersTabActive = false;
       $scope.$apply();
       expect($window.listenersTabActive).toBe(false);
+    });
+
+    it('should set error state', function() {
+      apiFail = true;
+      var ctrl = createController();
+      expect(ctrl.loading).toBe(false);
+      expect(ctrl.error).toBe(true);
     });
 
   });

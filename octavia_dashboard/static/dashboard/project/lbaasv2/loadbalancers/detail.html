@@ -1,54 +1,57 @@
 <div ng-controller="LoadBalancerDetailController as ctrl">
-  <div class="page-header">
-    <ol class="breadcrumb">
-      <li><a href="project/ngloadbalancersv2/"><translate>Load Balancers</translate></a></li>
-      <li class="active">{$ ctrl.loadbalancer.name || ctrl.loadbalancer.id $}</li>
-      <actions allowed="ctrl.actions" type="row" item="ctrl.loadbalancer"
-               ng-if="ctrl.loadbalancer" class="actions_column pull-right"></actions>
-    </ol>
-    <p ng-if="::ctrl.loadbalancer.description">{$ ::ctrl.loadbalancer.description $}</p>
-    <ul class="list-inline">
-      <li>
-        <strong translate>IP Address</strong>
-        {$ ::ctrl.loadbalancer.vip_address $}
-      </li>
-      <li>
-        <strong translate>Operating Status</strong>
-        {$ ctrl.loadbalancer.operating_status | decode:ctrl.operatingStatus $}
-      </li>
-      <li>
-        <strong translate>Provisioning Status</strong>
-        {$ ctrl.loadbalancer.provisioning_status | decode:ctrl.provisioningStatus $}
-      </li>
-    </ul>
-  </div>
-  <tabset>
-    <tab heading="{$ 'Overview' | translate $}">
-      <div class="row">
-        <div class="col-md-6 detail">
-          <dl class="dl-horizontal">
-            <dt translate>Provider</dt>
-            <dd>{$ ::ctrl.loadbalancer.provider $}</dd>
-            <dt translate>Admin State Up</dt>
-            <dd>{$ ctrl.loadbalancer.admin_state_up | yesno $}</dd>
-            <dt translate ng-if="ctrl.loadbalancer.floating_ip !== undefined">Floating IP Address</dt>
-            <dd ng-if="ctrl.loadbalancer.floating_ip !== undefined">{$ ctrl.loadbalancer.floating_ip.ip | noValue:('None' | translate) $}</dd>
-            <dt translate>Load Balancer ID</dt>
-            <dd>{$ ::ctrl.loadbalancer.id $}</dd>
-            <dt translate>Subnet ID</dt>
-            <dd>
-              <a target="_self" ng-href="project/networks/subnets/{$ ::ctrl.loadbalancer.vip_subnet_id $}/detail">{$ ::ctrl.loadbalancer.vip_subnet_id $}</a>
-            </dd>
-            <dt translate>Port ID</dt>
-            <dd>
-              <a target="_self" ng-href="project/networks/ports/{$ ::ctrl.loadbalancer.vip_port_id $}/detail">{$ ::ctrl.loadbalancer.vip_port_id $}</a>
-            </dd>
-          </dl>
+  <detail-status loading="ctrl.loading" error="ctrl.error"></detail-status>
+  <div ng-if="!ctrl.loading && !ctrl.error">
+    <div class="page-header">
+      <ol class="breadcrumb">
+        <li><a href="project/ngloadbalancersv2/"><translate>Load Balancers</translate></a></li>
+        <li class="active">{$ ctrl.loadbalancer.name || ctrl.loadbalancer.id $}</li>
+        <actions allowed="ctrl.actions" type="row" item="ctrl.loadbalancer"
+                 ng-if="ctrl.loadbalancer" class="actions_column pull-right"></actions>
+      </ol>
+      <p ng-if="::ctrl.loadbalancer.description">{$ ::ctrl.loadbalancer.description $}</p>
+      <ul class="list-inline">
+        <li>
+          <strong translate>IP Address</strong>
+          {$ ::ctrl.loadbalancer.vip_address $}
+        </li>
+        <li>
+          <strong translate>Operating Status</strong>
+          {$ ctrl.loadbalancer.operating_status | decode:ctrl.operatingStatus $}
+        </li>
+        <li>
+          <strong translate>Provisioning Status</strong>
+          {$ ctrl.loadbalancer.provisioning_status | decode:ctrl.provisioningStatus $}
+        </li>
+      </ul>
+    </div>
+    <tabset>
+      <tab heading="{$ 'Overview' | translate $}">
+        <div class="row">
+          <div class="col-md-6 detail">
+            <dl class="dl-horizontal">
+              <dt translate>Provider</dt>
+              <dd>{$ ::ctrl.loadbalancer.provider $}</dd>
+              <dt translate>Admin State Up</dt>
+              <dd>{$ ctrl.loadbalancer.admin_state_up | yesno $}</dd>
+              <dt translate ng-if="ctrl.loadbalancer.floating_ip !== undefined">Floating IP Address</dt>
+              <dd ng-if="ctrl.loadbalancer.floating_ip !== undefined">{$ ctrl.loadbalancer.floating_ip.ip | noValue:('None' | translate) $}</dd>
+              <dt translate>Load Balancer ID</dt>
+              <dd>{$ ::ctrl.loadbalancer.id $}</dd>
+              <dt translate>Subnet ID</dt>
+              <dd>
+                <a target="_self" ng-href="project/networks/subnets/{$ ::ctrl.loadbalancer.vip_subnet_id $}/detail">{$ ::ctrl.loadbalancer.vip_subnet_id $}</a>
+              </dd>
+              <dt translate>Port ID</dt>
+              <dd>
+                <a target="_self" ng-href="project/networks/ports/{$ ::ctrl.loadbalancer.vip_port_id $}/detail">{$ ::ctrl.loadbalancer.vip_port_id $}</a>
+              </dd>
+            </dl>
+          </div>
         </div>
-      </div>
-    </tab>
-    <tab heading="{$ 'Listeners' | translate $}" active="ctrl.listenersTabActive">
-      <ng-include src="'static/dashboard/project/lbaasv2/listeners/table.html'"></ng-include>
-    </tab>
-  </tabset>
+      </tab>
+      <tab heading="{$ 'Listeners' | translate $}" active="ctrl.listenersTabActive">
+        <ng-include src="'static/dashboard/project/lbaasv2/listeners/table.html'"></ng-include>
+      </tab>
+    </tabset>
+  </div>
 </div>

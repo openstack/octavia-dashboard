@@ -17,26 +17,42 @@
   'use strict';
 
   describe('LBaaS v2 Member Detail Controller', function() {
-    var controller, lbaasv2API, membersService, ctrl, actions;
+    var $controller, lbaasv2API, membersService, apiFail, qAllFail, actions;
 
-    function fakeAPI() {
+    function fakePromise(data, reject) {
       return {
-        success: function(callback) {
-          callback('foo');
+        then: function(success, fail) {
+          if (reject) {
+            fail();
+          } else {
+            success({ data: data });
+          }
+          return fakePromise();
         }
       };
     }
 
+    function fakeAPI() {
+      return fakePromise('foo', apiFail);
+    }
+
     function loadbalancerAPI() {
-      var loadbalancer = { provisioning_status: 'ACTIVE' };
-      return {
-        success: function(callback) {
-          callback(loadbalancer);
-        },
-        then: function(callback) {
-          callback({ data: loadbalancer });
+      return fakePromise({ provisioning_status: 'ACTIVE' });
+    }
+
+    function qAll() {
+      return fakePromise(null, qAllFail);
+    }
+
+    function createController() {
+      return $controller('MemberDetailController', {
+        $routeParams: {
+          loadbalancerId: 'loadbalancerId',
+          listenerId: 'listenerId',
+          poolId: 'poolId',
+          memberId: 'memberId'
         }
-      };
+      });
     }
 
     ///////////////////////
@@ -48,6 +64,10 @@
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     beforeEach(module(function($provide) {
+      apiFail = false;
+      qAllFail = false;
+
+      $provide.value('$q', { all: qAll });
       $provide.value('$uibModal', {});
       $provide.value('horizon.dashboard.project.lbaasv2.members.actions.rowActions', {
         init: function() {
@@ -68,25 +88,15 @@
       spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
       spyOn(actions, 'init').and.callThrough();
       spyOn(membersService, 'associateMemberStatuses');
-      controller = $injector.get('$controller');
-      ctrl = controller('MemberDetailController', {
-        $routeParams: {
-          loadbalancerId: 'loadbalancerId',
-          listenerId: 'listenerId',
-          poolId: 'poolId',
-          memberId: 'memberId'
-        }
-      });
+      $controller = $injector.get('$controller');
     }));
 
     it('should invoke lbaasv2 apis', function() {
+      var ctrl = createController();
       expect(lbaasv2API.getMember).toHaveBeenCalledWith('poolId','memberId');
       expect(lbaasv2API.getPool).toHaveBeenCalledWith('poolId');
       expect(lbaasv2API.getListener).toHaveBeenCalledWith('listenerId');
       expect(lbaasv2API.getLoadBalancer).toHaveBeenCalledWith('loadbalancerId');
-    });
-
-    it('should initialize the controller properties correctly', function() {
       expect(ctrl.loadbalancerId).toBeDefined();
       expect(ctrl.listenerId).toBeDefined();
       expect(ctrl.poolId).toBeDefined();
@@ -97,8 +107,24 @@
     });
 
     it('should invoke the "associateMemberStatuses" method', function() {
+      var ctrl = createController();
       expect(membersService.associateMemberStatuses).toHaveBeenCalledWith(
           ctrl.loadbalancerId, ctrl.listenerId, ctrl.poolId, [ctrl.member]);
+    });
+
+    it('should throw error on API fail', function() {
+      apiFail = true;
+      var init = function() {
+        createController();
+      };
+      expect(init).toThrow();
+    });
+
+    it('should set error state if any APIs fail', function() {
+      qAllFail = true;
+      var ctrl = createController();
+      expect(ctrl.loading).toBe(false);
+      expect(ctrl.error).toBe(true);
     });
 
   });

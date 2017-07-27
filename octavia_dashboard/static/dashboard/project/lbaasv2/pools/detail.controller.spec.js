@@ -17,26 +17,43 @@
   'use strict';
 
   describe('LBaaS v2 Pool Detail Controller', function() {
-    var lbaasv2API, ctrl, $scope, $window;
+    var lbaasv2API, $scope, $window, $controller, apiFail, qAllFail;
 
-    function fakeAPI() {
+    function fakePromise(data, reject) {
       return {
-        success: function(callback) {
-          callback('foo');
+        then: function(success, fail) {
+          if (reject) {
+            fail();
+          } else {
+            success({ data: data });
+          }
+          return fakePromise();
         }
       };
     }
 
+    function fakeAPI() {
+      return fakePromise('foo', apiFail);
+    }
+
     function loadbalancerAPI() {
-      var loadbalancer = { provisioning_status: 'ACTIVE' };
-      return {
-        success: function(callback) {
-          callback(loadbalancer);
-        },
-        then: function(callback) {
-          callback({ data: loadbalancer });
+      return fakePromise({ provisioning_status: 'ACTIVE' });
+    }
+
+    function qAll() {
+      return fakePromise(null, qAllFail);
+    }
+
+    function createController() {
+      return $controller('PoolDetailController', {
+        $scope: $scope,
+        $window: $window,
+        $routeParams: {
+          loadbalancerId: 'loadbalancerId',
+          listenerId: 'listenerId',
+          poolId: 'poolId'
         }
-      };
+      });
     }
 
     ///////////////////////
@@ -47,6 +64,13 @@
     beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
+    beforeEach(module(function($provide) {
+      apiFail = false;
+      qAllFail = false;
+
+      $provide.value('$q', { all: qAll });
+    }));
+
     beforeEach(inject(function($injector) {
       lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
       spyOn(lbaasv2API, 'getPool').and.callFake(fakeAPI);
@@ -54,19 +78,11 @@
       spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
       $scope = $injector.get('$rootScope').$new();
       $window = {};
-      var controller = $injector.get('$controller');
-      ctrl = controller('PoolDetailController', {
-        $scope: $scope,
-        $window: $window,
-        $routeParams: {
-          loadbalancerId: 'loadbalancerId',
-          listenerId: 'listenerId',
-          poolId: 'poolId'
-        }
-      });
+      $controller = $injector.get('$controller');
     }));
 
     it('should invoke lbaasv2 apis', function() {
+      var ctrl = createController();
       expect(lbaasv2API.getPool).toHaveBeenCalledWith('poolId');
       expect(lbaasv2API.getListener).toHaveBeenCalledWith('listenerId');
       expect(lbaasv2API.getLoadBalancer).toHaveBeenCalledWith('loadbalancerId');
@@ -76,10 +92,12 @@
     });
 
     it('should define mapping for the load balancer algorithm', function() {
+      var ctrl = createController();
       expect(ctrl.loadBalancerAlgorithm).toBeDefined();
     });
 
     it('should save changes to members tab active state', function() {
+      var ctrl = createController();
       expect($window.membersTabActive).toBeUndefined();
       expect(ctrl.membersTabActive).toBeUndefined();
       ctrl.membersTabActive = true;
@@ -88,6 +106,21 @@
       ctrl.membersTabActive = false;
       $scope.$apply();
       expect($window.membersTabActive).toBe(false);
+    });
+
+    it('should throw error on API fail', function() {
+      apiFail = true;
+      var init = function() {
+        createController();
+      };
+      expect(init).toThrow();
+    });
+
+    it('should set error state if any APIs fail', function() {
+      qAllFail = true;
+      var ctrl = createController();
+      expect(ctrl.loading).toBe(false);
+      expect(ctrl.error).toBe(true);
     });
 
   });

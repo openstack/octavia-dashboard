@@ -23,7 +23,8 @@
   ListenerDetailController.$inject = [
     'horizon.app.core.openstack-service-api.lbaasv2',
     'horizon.dashboard.project.lbaasv2.listeners.actions.rowActions',
-    '$routeParams'
+    '$routeParams',
+    '$q'
   ];
 
   /**
@@ -36,12 +37,15 @@
    * @param api The LBaaS v2 API service.
    * @param rowActions The listener row actions service.
    * @param $routeParams The angular $routeParams service.
+   * @param $q The angular service for promises.
    * @returns undefined
    */
 
-  function ListenerDetailController(api, rowActions, $routeParams) {
+  function ListenerDetailController(api, rowActions, $routeParams, $q) {
     var ctrl = this;
 
+    ctrl.loading = true;
+    ctrl.error = false;
     ctrl.actions = rowActions.init($routeParams.loadbalancerId).actions;
 
     init();
@@ -49,14 +53,38 @@
     ////////////////////////////////
 
     function init() {
-      api.getListener($routeParams.listenerId).success(set('listener'));
-      api.getLoadBalancer($routeParams.loadbalancerId).success(set('loadbalancer'));
+      ctrl.listener = null;
+      ctrl.loadbalancer = null;
+      ctrl.loading = true;
+      ctrl.error = false;
+      $q.all([
+        api.getListener($routeParams.listenerId)
+          .then(success('listener'), fail('listener')),
+        api.getLoadBalancer($routeParams.loadbalancerId)
+          .then(success('loadbalancer'), fail('loadbalancer'))
+      ]).then(postInit, initError);
     }
 
-    function set(property) {
-      return angular.bind(null, function setProp(property, value) {
-        ctrl[property] = value;
+    function success(property) {
+      return angular.bind(null, function setProp(property, response) {
+        ctrl[property] = response.data;
       }, property);
+    }
+
+    function fail(property) {
+      return angular.bind(null, function setProp(property, error) {
+        ctrl[property] = null;
+        throw error;
+      }, property);
+    }
+
+    function postInit() {
+      ctrl.loading = false;
+    }
+
+    function initError() {
+      ctrl.loading = false;
+      ctrl.error = true;
     }
 
   }

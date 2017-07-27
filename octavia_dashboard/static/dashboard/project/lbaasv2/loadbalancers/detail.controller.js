@@ -50,6 +50,8 @@
   ) {
     var ctrl = this;
 
+    ctrl.loading = true;
+    ctrl.error = false;
     ctrl.actions = rowActions.actions;
     ctrl.operatingStatus = loadBalancersService.operatingStatus;
     ctrl.provisioningStatus = loadBalancersService.provisioningStatus;
@@ -60,11 +62,21 @@
     ////////////////////////////////
 
     function init() {
-      api.getLoadBalancer($routeParams.loadbalancerId, true).success(success);
+      ctrl.loadbalancer = null;
+      ctrl.loading = true;
+      ctrl.error = false;
+      api.getLoadBalancer($routeParams.loadbalancerId, true).then(success, fail);
     }
 
     function success(response) {
-      ctrl.loadbalancer = response;
+      ctrl.loadbalancer = response.data;
+      ctrl.loading = false;
+    }
+
+    function fail(/*response*/) {
+      ctrl.loadbalancer = null;
+      ctrl.loading = false;
+      ctrl.error = true;
     }
 
     // Save the active state of the listeners tab in the global window object so it can stay
