@@ -1,7 +1,6 @@
 [run]
 branch = True
-source = neutron_lbaas_dashboard
-omit = neutron_lbaas_dashboard/openstack/*
+source = octavia_dashboard
 
 [report]
 ignore_errors = True

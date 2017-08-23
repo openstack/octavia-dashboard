@@ -101,15 +101,15 @@ settings.update_dashboards(dashboard_modules, HORIZON_CONFIG, INSTALLED_APPS)
 HORIZON_IMAGES_ALLOW_UPLOAD = True
 
 AVAILABLE_REGIONS = [
-    ('http://localhost:5000/v2.0', 'local'),
-    ('http://remote:5000/v2.0', 'remote'),
+    ('http://localhost/identity', 'local'),
+    ('http://remote/identity', 'remote'),
 ]
 
 OPENSTACK_API_VERSIONS = {
     "identity": 3
 }
 
-OPENSTACK_KEYSTONE_URL = "http://localhost:5000/v2.0"
+OPENSTACK_KEYSTONE_URL = "http://localhost/identity"
 OPENSTACK_KEYSTONE_DEFAULT_ROLE = "_member_"
 
 OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
