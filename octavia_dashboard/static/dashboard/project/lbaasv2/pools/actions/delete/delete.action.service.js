@@ -103,7 +103,7 @@
         $route.reload();
       } else {
         // Success, go back to listener details page
-        var path = 'project/ngloadbalancersv2/' + loadbalancerId + '/listeners/' + listenerId;
+        var path = 'project/load_balancer/' + loadbalancerId + '/listeners/' + listenerId;
         $location.path(path);
       }
     }

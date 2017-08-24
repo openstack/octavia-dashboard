@@ -115,11 +115,11 @@
       } else {
         // If the user is on the listeners table then just reload the page, otherwise they
         // are on the details page and we return to the table.
-        var regex = new RegExp('project\/ngloadbalancersv2\/' + loadbalancerId + '(\/)?$');
+        var regex = new RegExp('project\/load_balancer\/' + loadbalancerId + '(\/)?$');
         if (regex.test($location.path())) {
           $route.reload();
         } else {
-          $location.path('project/ngloadbalancersv2/' + loadbalancerId);
+          $location.path('project/load_balancer/' + loadbalancerId);
         }
       }
     }

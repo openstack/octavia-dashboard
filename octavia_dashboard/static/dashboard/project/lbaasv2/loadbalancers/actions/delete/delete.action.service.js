@@ -142,10 +142,10 @@
       } else {
         // If the user is on the load balancers table then just reload the page, otherwise they
         // are on the details page and we return to the table.
-        if (/\/ngloadbalancersv2(\/)?$/.test($location.path())) {
+        if (/\/load_balancer(\/)?$/.test($location.path())) {
           $route.reload();
         } else {
-          $location.path('project/ngloadbalancersv2');
+          $location.path('project/load_balancer');
         }
       }
     }

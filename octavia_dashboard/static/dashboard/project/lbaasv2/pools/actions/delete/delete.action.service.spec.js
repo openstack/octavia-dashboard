@@ -146,7 +146,7 @@
       spyOn(toast, 'add');
       service.perform(pool);
       $scope.$apply();
-      expect($location.path).toHaveBeenCalledWith('project/ngloadbalancersv2/1/listeners/2');
+      expect($location.path).toHaveBeenCalledWith('project/load_balancer/1/listeners/2');
       expect(toast.add).toHaveBeenCalledWith('success', 'Deleted pool: Pool1.');
     });
 

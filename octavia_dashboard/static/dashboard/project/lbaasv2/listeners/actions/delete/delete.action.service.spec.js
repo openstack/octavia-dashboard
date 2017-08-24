@@ -144,7 +144,7 @@
     });
 
     it('should reload table after delete', function() {
-      path = 'project/ngloadbalancersv2/1';
+      path = 'project/load_balancer/1';
       spyOn($route, 'reload');
       service.perform(items);
       $scope.$apply();
@@ -152,12 +152,12 @@
     });
 
     it('should return to table after delete if on detail page', function() {
-      path = 'project/ngloadbalancersv2/1/listeners/2';
+      path = 'project/load_balancer/1/listeners/2';
       spyOn($location, 'path');
       spyOn(toast, 'add');
       service.perform(items[0]);
       $scope.$apply();
-      expect($location.path).toHaveBeenCalledWith('project/ngloadbalancersv2/1');
+      expect($location.path).toHaveBeenCalledWith('project/load_balancer/1');
       expect(toast.add).toHaveBeenCalledWith('success', 'Deleted listeners: First.');
     });
 

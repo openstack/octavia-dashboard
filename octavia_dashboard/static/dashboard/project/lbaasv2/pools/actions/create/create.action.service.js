@@ -81,7 +81,7 @@
 
     function onCreate(response) {
       var poolId = response.data.id;
-      $location.path('project/ngloadbalancersv2/' + loadbalancerId + '/listeners/' +
+      $location.path('project/load_balancer/' + loadbalancerId + '/listeners/' +
           listenerId + '/pools/' + poolId);
     }
 

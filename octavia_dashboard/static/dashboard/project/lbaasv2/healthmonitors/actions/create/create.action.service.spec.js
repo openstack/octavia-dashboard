@@ -98,7 +98,7 @@
       init('loadbalancer1', 'listener1', loadBalancerState.promise).create.allowed({id: 'pool1'});
       service.create.perform();
       expect($location.path).toHaveBeenCalledWith(
-        'project/ngloadbalancersv2/loadbalancer1/listeners/listener1/pools/pool1/' +
+        'project/load_balancer/loadbalancer1/listeners/listener1/pools/pool1/' +
         'healthmonitors/healthmonitor1');
     });
 

@@ -14,7 +14,7 @@
 
 from django.conf.urls import url
 
-from octavia_dashboard.dashboards.project.ngloadbalancersv2 import views
+from octavia_dashboard.dashboards.project.load_balancer import views
 
 
 urlpatterns = [

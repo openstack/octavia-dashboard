@@ -105,7 +105,7 @@
     });
 
     it('should route URLs', function () {
-      var loadbalancers = '/project/ngloadbalancersv2';
+      var loadbalancers = '/project/load_balancer';
       var listener = loadbalancers + '/:loadbalancerId/listeners/:listenerId';
       var pool = listener + '/pools/:poolId';
       var member = pool + '/members/:memberId';

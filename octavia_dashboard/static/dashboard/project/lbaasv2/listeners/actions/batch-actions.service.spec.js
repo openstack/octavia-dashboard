@@ -98,7 +98,7 @@
     it('should redirect after create', function() {
       spyOn($location, 'path').and.callThrough();
       actions[0].service.perform();
-      expect($location.path).toHaveBeenCalledWith('project/ngloadbalancersv2/1234/listeners/5678');
+      expect($location.path).toHaveBeenCalledWith('project/load_balancer/1234/listeners/5678');
     });
 
   });

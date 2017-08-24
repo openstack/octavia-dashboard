@@ -104,7 +104,7 @@
       init('1234', defer.promise).create.allowed({id: '5678'});
       createPoolService.create.perform();
       expect($location.path).toHaveBeenCalledWith(
-          'project/ngloadbalancersv2/1234/listeners/5678/pools/9012');
+          'project/load_balancer/1234/listeners/5678/pools/9012');
     });
 
   });

@@ -35,7 +35,7 @@ Howto
    install on the horizon machine or within horizon's python virtual
    environment.
 
-2. Copy ``_1481_project_ng_loadbalancersv2_panel.py`` in
+2. Copy ``_1482_project_load_balancer_panel.py`` in
    ``octavia_dashboard/enabled`` directory
    to ``openstack_dashboard/local/enabled``.
 

@@ -57,7 +57,7 @@
     var basePath = $windowProvider.$get().STATIC_URL + 'dashboard/project/lbaasv2/';
     $provide.constant('horizon.dashboard.project.lbaasv2.basePath', basePath);
 
-    var loadbalancers = '/project/ngloadbalancersv2';
+    var loadbalancers = '/project/load_balancer';
     var listener = loadbalancers + '/:loadbalancerId/listeners/:listenerId';
     var pool = listener + '/pools/:poolId';
     var member = pool + '/members/:memberId';

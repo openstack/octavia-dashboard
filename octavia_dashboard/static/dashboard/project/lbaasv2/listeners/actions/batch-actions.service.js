@@ -100,7 +100,7 @@
 
     function onCreate(response) {
       var id = response.data.id;
-      $location.path('project/ngloadbalancersv2/' + loadBalancerId + '/listeners/' + id);
+      $location.path('project/load_balancer/' + loadBalancerId + '/listeners/' + id);
     }
   }
 

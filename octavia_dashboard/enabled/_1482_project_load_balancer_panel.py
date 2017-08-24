@@ -13,7 +13,7 @@
 # limitations under the License.
 
 # The slug of the panel to be added to HORIZON_CONFIG. Required.
-PANEL = 'ngloadbalancersv2'
+PANEL = 'load_balancer'
 # The slug of the dashboard the PANEL is associated with. Required.
 PANEL_DASHBOARD = 'project'
 # The slug of the panel group the PANEL is associated with.
@@ -21,7 +21,7 @@ PANEL_GROUP = 'network'
 
 # Python panel class of the PANEL to be added.
 ADD_PANEL = (
-    'octavia_dashboard.dashboards.project.ngloadbalancersv2.panel'
+    'octavia_dashboard.dashboards.project.load_balancer.panel'
     '.NGLoadBalancers')
 
 ADD_INSTALLED_APPS = ['octavia_dashboard']

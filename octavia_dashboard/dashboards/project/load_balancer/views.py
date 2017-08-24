@@ -16,5 +16,5 @@ from horizon.views import HorizonTemplateView
 
 
 class IndexView(HorizonTemplateView):
-    template_name = 'project/ngloadbalancersv2/index.html'
+    template_name = 'project/load_balancer/index.html'
     page_title = 'Load Balancers'

@@ -143,7 +143,7 @@
     });
 
     it('should return to pool details after delete', function() {
-      var path = 'project/ngloadbalancersv2/1/listeners/2/pools/3';
+      var path = 'project/load_balancer/1/listeners/2/pools/3';
       spyOn($location, 'path');
       spyOn(toast, 'add');
       service.perform(monitor);

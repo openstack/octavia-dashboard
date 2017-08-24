@@ -106,7 +106,7 @@
         $route.reload();
       } else {
         // Success, go back to pool details page
-        var path = 'project/ngloadbalancersv2/' + loadbalancerId +
+        var path = 'project/load_balancer/' + loadbalancerId +
                    '/listeners/' + listenerId +
                    '/pools/' + poolId;
         $location.path(path);

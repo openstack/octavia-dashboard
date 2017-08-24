@@ -18,27 +18,10 @@ from django.utils.translation import ugettext_lazy as _
 
 import horizon
 
-from openstack_dashboard.api import neutron
-
 LOG = logging.getLogger(__name__)
 
 
 class NGLoadBalancers(horizon.Panel):
     name = _("Load Balancers")
-    slug = 'ngloadbalancersv2'
+    slug = 'load_balancer'
     permissions = ('openstack.services.network',)
-
-    def allowed(self, context):
-        request = context['request']
-        try:
-            if not neutron.is_service_enabled(request,
-                                              config_name='enable_lb',
-                                              ext_name='lbaasv2'):
-                return False
-        except Exception:
-            LOG.error("Call to list enabled services failed. This is likely "
-                      "due to a problem communicating with the Neutron "
-                      "endpoint. Load Balancers v2 panel will not be "
-                      "displayed")
-            return False
-        return super(NGLoadBalancers, self).allowed(context)

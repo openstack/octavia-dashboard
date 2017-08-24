@@ -3,10 +3,10 @@
   <div ng-if="!ctrl.loading && !ctrl.error">
     <div class="page-header">
       <ol class="breadcrumb">
-        <li><a href="project/ngloadbalancersv2/"><translate>Load Balancers</translate></a></li>
-        <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
-        <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
-        <li><a href="project/ngloadbalancersv2/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
+        <li><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
+        <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
+        <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
+        <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
         <li class="active">{$ ::(ctrl.healthmonitor.name || ctrl.healthmonitor.id) $}</li>
         <actions allowed="ctrl.actions" type="row" item="ctrl.healthmonitor"
                  ng-if="ctrl.healthmonitor" class="actions_column pull-right"></actions>

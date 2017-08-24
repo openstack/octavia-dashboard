@@ -72,7 +72,7 @@
            duration="200">
         </span>
       </td>
-      <td class="rsp-p1"><a ng-href="project/ngloadbalancersv2/{$ ::item.id $}">{$ ::(item.name || item.id) $}</a></td>
+      <td class="rsp-p1"><a ng-href="project/load_balancer/{$ ::item.id $}">{$ ::(item.name || item.id) $}</a></td>
       <td class="rsp-p1">{$ ::item.description | noValue $}</td>
       <td class="rsp-p1">{$ ::item.operating_status | decode:table.operatingStatus $}</td>
       <td class="rsp-p1">{$ ::item.provisioning_status | decode:table.provisioningStatus $}</td>
