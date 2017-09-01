@@ -25,8 +25,7 @@
     'horizon.dashboard.project.lbaasv2.members.actions.rowActions',
     'horizon.dashboard.project.lbaasv2.members.actions.batchActions',
     '$routeParams',
-    'horizon.dashboard.project.lbaasv2.loadbalancers.service',
-    'horizon.dashboard.project.lbaasv2.members.service'
+    'horizon.dashboard.project.lbaasv2.loadbalancers.service'
   ];
 
   /**
@@ -41,12 +40,11 @@
    * @param batchActions The members batch actions service.
    * @param $routeParams The angular $routeParams service.
    * @param loadBalancersService The LBaaS v2 load balancers service.
-   * @param membersService The LBaaS v2 members service.
    * @returns undefined
    */
 
   function MembersTableController(
-      api, rowActions, batchActions, $routeParams, loadBalancersService, membersService
+      api, rowActions, batchActions, $routeParams, loadBalancersService
   ) {
     var ctrl = this;
     ctrl.items = [];
@@ -76,11 +74,6 @@
     function success(response) {
       ctrl.src = response.data.items;
       ctrl.loading = false;
-      membersService.associateMemberStatuses(
-          ctrl.loadbalancerId,
-          ctrl.listenerId,
-          ctrl.poolId,
-          ctrl.src);
     }
 
     function fail(/*response*/) {

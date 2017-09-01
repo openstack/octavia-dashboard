@@ -449,8 +449,8 @@ msgstr "サブネット<span class=\"hz-icon-required fa fa-asterisk\"></span>"
 msgid "Subnet ID"
 msgstr "サブネット ID"
 
-msgid "Tenant ID"
-msgstr "テナント ID"
+msgid "Project ID"
+msgstr "プロジェクト ID"
 
 msgid "The URL path is not valid."
 msgstr "URLは有効ではありません。"

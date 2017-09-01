@@ -25,8 +25,7 @@
     'horizon.dashboard.project.lbaasv2.members.actions.rowActions',
     '$routeParams',
     '$q',
-    'horizon.dashboard.project.lbaasv2.loadbalancers.service',
-    'horizon.dashboard.project.lbaasv2.members.service'
+    'horizon.dashboard.project.lbaasv2.loadbalancers.service'
   ];
 
   /**
@@ -41,12 +40,11 @@
    * @param $routeParams The angular $routeParams service.
    * @param $q The angular service for promises.
    * @param loadBalancersService The LBaaS v2 load balancers service.
-   * @param membersService The LBaaS v2 members service.
    * @returns undefined
    */
 
   function MemberDetailController(
-      api, rowActions, $routeParams, $q, loadBalancersService, membersService
+      api, rowActions, $routeParams, $q, loadBalancersService
   ) {
     var ctrl = this;
 
@@ -85,15 +83,6 @@
     function success(property) {
       return angular.bind(null, function setProp(property, response) {
         ctrl[property] = response.data;
-
-        if (property === 'member') {
-          membersService.associateMemberStatuses(
-            ctrl.loadbalancerId,
-            ctrl.listenerId,
-            ctrl.poolId,
-            [ctrl.member]);
-        }
-
       }, property);
     }
 

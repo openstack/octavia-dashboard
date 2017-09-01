@@ -27,17 +27,17 @@
               <dd>{$ ctrl.pool.admin_state_up | yesno $}</dd>
               <dt translate>Health Monitor ID</dt>
               <dd>
-                <a ng-href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}/healthmonitors/{$ ::ctrl.pool.healthmonitor_id $}" ng-if="ctrl.pool.healthmonitor_id">
-                  {$ ::ctrl.pool.healthmonitor_id $}
+                <a ng-href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}/healthmonitors/{$ ::ctrl.pool.health_monitor_id $}" ng-if="ctrl.pool.health_monitor_id">
+                  {$ ::ctrl.pool.health_monitor_id $}
                 </a>
-                <span ng-if="!ctrl.pool.healthmonitor_id">
+                <span ng-if="!ctrl.pool.health_monitor_id">
                   {$ 'None' | translate $}
                 </span>
               </dd>
               <dt translate>Pool ID</dt>
               <dd>{$ ::ctrl.pool.id $}</dd>
-              <dt translate>Tenant ID</dt>
-              <dd>{$ ::ctrl.pool.tenant_id $}</dd>
+              <dt translate>Project ID</dt>
+              <dd>{$ ::ctrl.pool.project_id $}</dd>
             </dl>
           </div>
         </div>

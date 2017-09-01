@@ -672,8 +672,8 @@ msgstr ""
 msgid "Subnet ID"
 msgstr "子网ID"
 
-msgid "Tenant ID"
-msgstr "租户ID"
+msgid "Project ID"
+msgstr "项目ID"
 
 msgid ""
 "The Available Instances table contains existing compute instances that can "

@@ -73,7 +73,7 @@
       poolId = pool.id;
       return $q.all([
         statePromise,
-        qExtensions.booleanAsPromise(!pool.healthmonitor_id),
+        qExtensions.booleanAsPromise(!pool.health_monitor_id),
         policy.ifAllowed({ rules: [['neutron', 'create_health_monitor']] })
       ]);
     }
