@@ -89,7 +89,7 @@
     it('should not allow creating a health monitor if one already exists', function() {
       loadBalancerState.resolve();
       init('active', '1', loadBalancerState.promise);
-      expect(allowed({ healthmonitor_id: '1234' })).toBe(false);
+      expect(allowed({ health_monitor_id: '1234' })).toBe(false);
     });
 
     it('should redirect after create', function() {

@@ -17,15 +17,66 @@
 from six.moves import _thread as thread
 from time import sleep
 
+from django.conf import settings
 from django.views import generic
 
 from horizon import conf
+from openstack import connection
+from openstack import profile
 
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
 
 neutronclient = neutron.neutronclient
+
+
+def _get_sdk_connection(request):
+    """Creates an SDK connection based on the request.
+
+    :param request: Django request object
+    :returns: SDK connection object
+    """
+    prof = profile.Profile()
+    prof.set_region(profile.Profile.ALL, request.user.services_region)
+
+    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
+    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
+    return connection.Connection(profile=prof,
+                                 verify=insecure,
+                                 cert=cacert,
+                                 user_agent='octavia-dashboard',
+                                 auth_plugin='token',
+                                 project_id=request.user.project_id,
+                                 default_domain_id=request.user.domain_id,
+                                 token=request.user.token.unscoped_token,
+                                 auth_url=request.user.endpoint)
+
+
+def _sdk_object_to_list(object):
+    """Converts an SDK generator object to a list of dictionaries.
+
+    :param object: SDK generator object
+    :returns: List of dictionaries
+    """
+    result_list = []
+    for item in object:
+        result_list.append(_get_sdk_object_dict(item))
+    return result_list
+
+
+def _get_sdk_object_dict(object):
+    """Converts an SDK object to a dictionary.
+
+    Fixes any SDK imposed object oddities.
+
+    :param object: SDK object
+    :returns: Dictionary
+    """
+    item_dict = object.to_dict()
+    if 'is_admin_state_up' in item_dict:
+        item_dict['admin_state_up'] = item_dict['is_admin_state_up']
+    return item_dict
 
 
 def poll_loadbalancer_status(request, loadbalancer_id, callback,
@@ -47,9 +98,9 @@ def poll_loadbalancer_status(request, loadbalancer_id, callback,
     status = from_state
     while status == from_state:
         sleep(interval)
-        lb = neutronclient(request).show_loadbalancer(
-            loadbalancer_id).get('loadbalancer')
-        status = lb['provisioning_status']
+        conn = _get_sdk_connection(request)
+        lb = conn.load_balancer.get_load_balancer(loadbalancer_id)
+        status = lb.provisioning_status
 
     if status == to_state:
         kwargs = {'loadbalancer_id': loadbalancer_id}
@@ -60,27 +111,26 @@ def poll_loadbalancer_status(request, loadbalancer_id, callback,
 
 def create_loadbalancer(request):
     data = request.DATA
-    spec = {
-        'vip_subnet_id': data['loadbalancer']['subnet']
-    }
-    if data['loadbalancer'].get('name'):
-        spec['name'] = data['loadbalancer']['name']
-    if data['loadbalancer'].get('description'):
-        spec['description'] = data['loadbalancer']['description']
-    if data['loadbalancer'].get('ip'):
-        spec['vip_address'] = data['loadbalancer']['ip']
-    loadbalancer = neutronclient(request).create_loadbalancer(
-        {'loadbalancer': spec}).get('loadbalancer')
+
+    conn = _get_sdk_connection(request)
+    loadbalancer = conn.load_balancer.create_load_balancer(
+        project_id=request.user.project_id,
+        vip_subnet_id=data['loadbalancer']['subnet'],
+        name=data['loadbalancer'].get('name'),
+        description=data['loadbalancer'].get('description'),
+        vip_address=data['loadbalancer'].get('ip'))
+
     if data.get('listener'):
         # There is work underway to add a new API to LBaaS v2 that will
         # allow us to pass in all information at once. Until that is
         # available we use a separate thread to poll for the load
         # balancer status and create the other resources when it becomes
         # active.
-        args = (request, loadbalancer['id'], create_listener)
+        args = (request, loadbalancer.id, create_listener)
         kwargs = {'from_state': 'PENDING_CREATE'}
         thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
-    return loadbalancer
+
+    return _get_sdk_object_dict(loadbalancer)
 
 
 def create_listener(request, **kwargs):
@@ -88,28 +138,30 @@ def create_listener(request, **kwargs):
 
     """
     data = request.DATA
-    listenerSpec = {
-        'protocol': data['listener']['protocol'],
-        'protocol_port': data['listener']['port'],
-        'loadbalancer_id': kwargs['loadbalancer_id']
-    }
-    if data['listener'].get('name'):
-        listenerSpec['name'] = data['listener']['name']
-    if data['listener'].get('description'):
-        listenerSpec['description'] = data['listener']['description']
-    if data.get('certificates'):
-        listenerSpec['default_tls_container_ref'] = data['certificates'][0]
-        listenerSpec['sni_container_refs'] = data['certificates']
 
-    listener = neutronclient(request).create_listener(
-        {'listener': listenerSpec}).get('listener')
+    try:
+        default_tls_ref = data['certificates'][0]
+    except (KeyError, IndexError):
+        default_tls_ref = None
+
+    conn = _get_sdk_connection(request)
+    # TODO(johnsom) Add SNI support
+    # https://bugs.launchpad.net/octavia/+bug/1714294
+    listener = conn.load_balancer.create_listener(
+        protocol=data['listener']['protocol'],
+        protocol_port=data['listener']['port'],
+        load_balancer_id=kwargs['loadbalancer_id'],
+        name=data['listener'].get('name'),
+        description=data['listener'].get('description'),
+        default_tls_container_ref=default_tls_ref,
+        sni_container_refs=None)
 
     if data.get('pool'):
         args = (request, kwargs['loadbalancer_id'], create_pool)
-        kwargs = {'callback_kwargs': {'listener_id': listener['id']}}
+        kwargs = {'callback_kwargs': {'listener_id': listener.id}}
         thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
 
-    return listener
+    return _get_sdk_object_dict(listener)
 
 
 def create_pool(request, **kwargs):
@@ -117,29 +169,26 @@ def create_pool(request, **kwargs):
 
     """
     data = request.DATA
-    poolSpec = {
-        'protocol': data['pool']['protocol'],
-        'lb_algorithm': data['pool']['method'],
-        'listener_id': kwargs['listener_id']
-    }
-    if data['pool'].get('name'):
-        poolSpec['name'] = data['pool']['name']
-    if data['pool'].get('description'):
-        poolSpec['description'] = data['pool']['description']
-    pool = neutronclient(request).create_lbaas_pool(
-        {'pool': poolSpec}).get('pool')
+
+    conn = _get_sdk_connection(request)
+    pool = conn.load_balancer.create_pool(
+        protocol=data['pool']['protocol'],
+        lb_algorithm=data['pool']['method'],
+        listener_id=kwargs['listener_id'],
+        name=data['pool'].get('name'),
+        description=data['pool'].get('description'))
 
     if data.get('members'):
         args = (request, kwargs['loadbalancer_id'], add_member)
-        kwargs = {'callback_kwargs': {'pool_id': pool['id'],
+        kwargs = {'callback_kwargs': {'pool_id': pool.id,
                                       'index': 0}}
         thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
     elif data.get('monitor'):
         args = (request, kwargs['loadbalancer_id'], create_health_monitor)
-        kwargs = {'callback_kwargs': {'pool_id': pool['id']}}
+        kwargs = {'callback_kwargs': {'pool_id': pool.id}}
         thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
 
-    return pool
+    return _get_sdk_object_dict(pool)
 
 
 def create_health_monitor(request, **kwargs):
@@ -147,21 +196,19 @@ def create_health_monitor(request, **kwargs):
 
     """
     data = request.DATA
-    monitorSpec = {
-        'type': data['monitor']['type'],
-        'delay': data['monitor']['interval'],
-        'timeout': data['monitor']['timeout'],
-        'max_retries': data['monitor']['retry'],
-        'pool_id': kwargs['pool_id']
-    }
-    if data['monitor'].get('method'):
-        monitorSpec['http_method'] = data['monitor']['method']
-    if data['monitor'].get('path'):
-        monitorSpec['url_path'] = data['monitor']['path']
-    if data['monitor'].get('status'):
-        monitorSpec['expected_codes'] = data['monitor']['status']
-    return neutronclient(request).create_lbaas_healthmonitor(
-        {'healthmonitor': monitorSpec}).get('healthmonitor')
+
+    conn = _get_sdk_connection(request)
+    health_mon = conn.load_balancer.create_health_monitor(
+        type=data['monitor']['type'],
+        delay=data['monitor']['interval'],
+        timeout=data['monitor']['timeout'],
+        max_retries=data['monitor']['retry'],
+        pool_id=kwargs['pool_id'],
+        http_method=data['monitor'].get('method'),
+        url_path=data['monitor'].get('path'),
+        expected_codes=data['monitor'].get('status'))
+
+    return _get_sdk_object_dict(health_mon)
 
 
 def add_member(request, **kwargs):
@@ -182,16 +229,14 @@ def add_member(request, **kwargs):
         loadbalancer_id = kwargs.get('loadbalancer_id')
 
     member = members[index]
-    memberSpec = {
-        'address': member['address'],
-        'protocol_port': member['port'],
-        'subnet_id': member['subnet']
-    }
-    if member.get('weight'):
-        memberSpec['weight'] = member['weight']
 
-    member = neutronclient(request).create_lbaas_member(
-        pool_id, {'member': memberSpec}).get('member')
+    conn = _get_sdk_connection(request)
+    member = conn.load_balancer.create_member(
+        pool_id,
+        address=member['address'],
+        protocol_port=member['port'],
+        subnet_id=member['subnet'],
+        weight=member.get('weight'))
 
     index += 1
     if kwargs.get('members_to_add'):
@@ -214,7 +259,7 @@ def add_member(request, **kwargs):
         kwargs = {'callback_kwargs': {'pool_id': pool_id}}
         thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
 
-    return member
+    return _get_sdk_object_dict(member)
 
 
 def remove_member(request, **kwargs):
@@ -229,7 +274,9 @@ def remove_member(request, **kwargs):
         members_to_delete = kwargs['members_to_delete']
         member_id = members_to_delete.pop(0)
 
-        neutronclient(request).delete_lbaas_member(member_id, pool_id)
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_member(member_id, pool_id,
+                                         ignore_missing=True)
 
         args = (request, loadbalancer_id, update_member_list)
         kwargs = {'callback_kwargs': {
@@ -244,15 +291,15 @@ def update_loadbalancer(request, **kwargs):
 
     """
     data = request.DATA
-    spec = {}
     loadbalancer_id = kwargs.get('loadbalancer_id')
 
-    if data['loadbalancer'].get('name'):
-        spec['name'] = data['loadbalancer']['name']
-    if data['loadbalancer'].get('description'):
-        spec['description'] = data['loadbalancer']['description']
-    return neutronclient(request).update_loadbalancer(
-        loadbalancer_id, {'loadbalancer': spec}).get('loadbalancer')
+    conn = _get_sdk_connection(request)
+    loadbalancer = conn.load_balancer.update_load_balancer(
+        loadbalancer_id,
+        name=data['loadbalancer'].get('name'),
+        description=data['loadbalancer'].get('description'))
+
+    return _get_sdk_object_dict(loadbalancer)
 
 
 def update_listener(request, **kwargs):
@@ -260,23 +307,20 @@ def update_listener(request, **kwargs):
 
     """
     data = request.DATA
-    listener_spec = {}
     listener_id = data['listener'].get('id')
     loadbalancer_id = data.get('loadbalancer_id')
 
-    if data['listener'].get('name'):
-        listener_spec['name'] = data['listener']['name']
-    if data['listener'].get('description'):
-        listener_spec['description'] = data['listener']['description']
-
-    listener = neutronclient(request).update_listener(
-        listener_id, {'listener': listener_spec}).get('listener')
+    conn = _get_sdk_connection(request)
+    listener = conn.load_balancer.update_listener(
+        listener=listener_id,
+        name=data['listener'].get('name'),
+        description=data['listener'].get('description'))
 
     if data.get('pool'):
         args = (request, loadbalancer_id, update_pool)
         thread.start_new_thread(poll_loadbalancer_status, args)
 
-    return listener
+    return _get_sdk_object_dict(listener)
 
 
 def update_pool(request, **kwargs):
@@ -284,23 +328,20 @@ def update_pool(request, **kwargs):
 
     """
     data = request.DATA
-    pool_spec = {}
     pool_id = data['pool'].get('id')
     loadbalancer_id = data.get('loadbalancer_id')
 
-    if data['pool'].get('name'):
-        pool_spec['name'] = data['pool']['name']
-    if data['pool'].get('description'):
-        pool_spec['description'] = data['pool']['description']
-
-    pools = neutronclient(request).update_lbaas_pool(
-        pool_id, {'pool': pool_spec}).get('pools')
+    conn = _get_sdk_connection(request)
+    pool = conn.load_balancer.update_pool(
+        pool=pool_id,
+        name=data['pool'].get('name'),
+        description=data['pool'].get('description'))
 
     # Assemble the lists of member id's to add and remove, if any exist
-    tenant_id = request.user.project_id
     request_member_data = data.get('members', [])
-    existing_members = neutronclient(request).list_lbaas_members(
-        pool_id, tenant_id=tenant_id).get('members')
+
+    existing_members = _sdk_object_to_list(conn.load_balancer.members(pool_id))
+
     (members_to_add, members_to_delete) = get_members_to_add_remove(
         request_member_data, existing_members)
 
@@ -315,7 +356,7 @@ def update_pool(request, **kwargs):
         args = (request, loadbalancer_id, update_monitor)
         thread.start_new_thread(poll_loadbalancer_status, args)
 
-    return pools
+    return _get_sdk_object_dict(pool)
 
 
 def update_monitor(request, **kwargs):
@@ -323,26 +364,19 @@ def update_monitor(request, **kwargs):
 
     """
     data = request.DATA
-    monitor_spec = {}
     monitor_id = data['monitor']['id']
 
-    if data['monitor'].get('interval'):
-        monitor_spec['delay'] = data['monitor']['interval']
-    if data['monitor'].get('timeout'):
-        monitor_spec['timeout'] = data['monitor']['timeout']
-    if data['monitor'].get('retry'):
-        monitor_spec['max_retries'] = data['monitor']['retry']
-    if data['monitor'].get('method'):
-        monitor_spec['http_method'] = data['monitor']['method']
-    if data['monitor'].get('path'):
-        monitor_spec['url_path'] = data['monitor']['path']
-    if data['monitor'].get('status'):
-        monitor_spec['expected_codes'] = data['monitor']['status']
+    conn = _get_sdk_connection(request)
+    healthmonitor = conn.load_balancer.update_health_monitor(
+        monitor_id,
+        delay=data['monitor'].get('interval'),
+        timeout=data['monitor'].get('timeout'),
+        max_retries=data['monitor'].get('timeout'),
+        http_method=data['monitor'].get('method'),
+        url_path=data['monitor'].get('path'),
+        expected_codes=data['monitor'].get('status'))
 
-    healthmonitor = neutronclient(request).update_lbaas_healthmonitor(
-        monitor_id, {'healthmonitor': monitor_spec}).get('healthmonitor')
-
-    return healthmonitor
+    return _get_sdk_object_dict(healthmonitor)
 
 
 def update_member_list(request, **kwargs):
@@ -411,12 +445,12 @@ class LoadBalancers(generic.View):
 
         The listing result is an object with property "items".
         """
-        tenant_id = request.user.project_id
-        loadbalancers = neutronclient(request).list_loadbalancers(
-            tenant_id=tenant_id).get('loadbalancers')
+        conn = _get_sdk_connection(request)
+        lb_list = _sdk_object_to_list(conn.load_balancer.load_balancers(
+            project_id=request.user.project_id))
         if request.GET.get('full') and neutron.floating_ip_supported(request):
-            add_floating_ip_info(request, loadbalancers)
-        return {'items': loadbalancers}
+            add_floating_ip_info(request, lb_list)
+        return {'items': lb_list}
 
     @rest_utils.ajax()
     def post(self, request):
@@ -426,23 +460,6 @@ class LoadBalancers(generic.View):
         a listener, pool, monitor, etc.
         """
         return create_loadbalancer(request)
-
-
-@urls.register
-class LoadBalancerStatusTree(generic.View):
-    """API for retrieving the resource status tree for a single load balancer.
-
-    """
-    url_regex = r'lbaas/loadbalancers/(?P<loadbalancer_id>[^/]+)/statuses/$'
-
-    @rest_utils.ajax()
-    def get(self, request, loadbalancer_id):
-        """Get the status tree for a specific load balancer.
-
-        http://localhost/api/lbaas/loadbalancers/cc758c90-3d98-4ea1-af44-aab405c9c915/statuses
-        """
-        return neutronclient(request).retrieve_loadbalancer_status(
-            loadbalancer_id)
 
 
 @urls.register
@@ -458,11 +475,12 @@ class LoadBalancer(generic.View):
 
         http://localhost/api/lbaas/loadbalancers/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        loadbalancer = neutronclient(request).show_loadbalancer(
-            loadbalancer_id).get('loadbalancer')
+        conn = _get_sdk_connection(request)
+        loadbalancer = conn.load_balancer.find_load_balancer(loadbalancer_id)
+        loadbalancer_dict = _get_sdk_object_dict(loadbalancer)
         if request.GET.get('full') and neutron.floating_ip_supported(request):
-            add_floating_ip_info(request, [loadbalancer])
-        return loadbalancer
+            add_floating_ip_info(request, [loadbalancer_dict])
+        return loadbalancer_dict
 
     @rest_utils.ajax()
     def put(self, request, loadbalancer_id):
@@ -478,7 +496,9 @@ class LoadBalancer(generic.View):
 
         http://localhost/api/lbaas/loadbalancers/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        neutronclient(request).delete_loadbalancer(loadbalancer_id)
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_load_balancer(loadbalancer_id,
+                                                ignore_missing=True)
 
 
 @urls.register
@@ -495,9 +515,10 @@ class Listeners(generic.View):
         The listing result is an object with property "items".
         """
         loadbalancer_id = request.GET.get('loadbalancerId')
-        tenant_id = request.user.project_id
-        result = neutronclient(request).list_listeners(tenant_id=tenant_id)
-        listener_list = result.get('listeners')
+        conn = _get_sdk_connection(request)
+        listener_list = _sdk_object_to_list(conn.load_balancer.listeners(
+            project_id=request.user.project_id))
+
         if loadbalancer_id:
             listener_list = self._filter_listeners(listener_list,
                                                    loadbalancer_id)
@@ -517,7 +538,7 @@ class Listeners(generic.View):
         filtered_listeners = []
 
         for listener in listener_list:
-            if listener['loadbalancers'][0]['id'] == loadbalancer_id:
+            if listener['load_balancers'][0]['id'] == loadbalancer_id:
                 filtered_listeners.append(listener)
 
         return filtered_listeners
@@ -540,8 +561,9 @@ class Listener(generic.View):
 
         http://localhost/api/lbaas/listeners/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        listener = neutronclient(request).show_listener(
-            listener_id).get('listener')
+        conn = _get_sdk_connection(request)
+        listener = conn.load_balancer.find_listener(listener_id)
+        listener = _get_sdk_object_dict(listener)
 
         if request.GET.get('includeChildResources'):
             resources = {}
@@ -549,20 +571,20 @@ class Listener(generic.View):
 
             if listener.get('default_pool_id'):
                 pool_id = listener['default_pool_id']
-                pool = neutronclient(request).show_lbaas_pool(
-                    pool_id).get('pool')
+                pool = conn.load_balancer.find_pool(pool_id)
+                pool = _get_sdk_object_dict(pool)
                 resources['pool'] = pool
 
                 if pool.get('members'):
-                    tenant_id = request.user.project_id
-                    members = neutronclient(request).list_lbaas_members(
-                        pool_id, tenant_id=tenant_id).get('members')
-                    resources['members'] = members
+                    member_list = _sdk_object_to_list(
+                        conn.load_balancer.members(pool_id))
+                    resources['members'] = member_list
 
-                if pool.get('healthmonitor_id'):
-                    monitor_id = pool['healthmonitor_id']
-                    monitor = neutronclient(request).show_lbaas_healthmonitor(
-                        monitor_id).get('healthmonitor')
+                if pool.get('healt_hmonitor_id'):
+                    monitor_id = pool['health_monitor_id']
+                    monitor = conn.load_balancer.find_health_monitor(
+                        monitor_id)
+                    monitor = _get_sdk_object_dict(monitor)
                     resources['monitor'] = monitor
 
             return resources
@@ -583,7 +605,8 @@ class Listener(generic.View):
 
         http://localhost/api/lbaas/listeners/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        neutronclient(request).delete_listener(listener_id)
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_listener(listener_id, ignore_missing=True)
 
 
 @urls.register
@@ -622,22 +645,24 @@ class Pool(generic.View):
 
         http://localhost/api/lbaas/pools/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        pool = neutronclient(request).show_lbaas_pool(pool_id).get('pool')
+        conn = _get_sdk_connection(request)
+        pool = conn.load_balancer.find_pool(pool_id)
+        pool = _get_sdk_object_dict(pool)
 
         if request.GET.get('includeChildResources'):
             resources = {}
             resources['pool'] = pool
 
             if pool.get('members'):
-                tenant_id = request.user.project_id
-                members = neutronclient(request).list_lbaas_members(
-                    pool_id, tenant_id=tenant_id).get('members')
-                resources['members'] = members
+                member_list = _sdk_object_to_list(
+                    conn.load_balancer.members(pool_id))
+                resources['members'] = member_list
 
-            if pool.get('healthmonitor_id'):
-                monitor_id = pool['healthmonitor_id']
-                monitor = neutronclient(request).show_lbaas_healthmonitor(
-                    monitor_id).get('healthmonitor')
+            if pool.get('health_monitor_id'):
+                monitor_id = pool['health_monitor_id']
+                monitor = conn.load_balancer.find_health_monitor(
+                    monitor_id)
+                monitor = _get_sdk_object_dict(monitor)
                 resources['monitor'] = monitor
 
             return resources
@@ -658,7 +683,8 @@ class Pool(generic.View):
 
         http://localhost/api/lbaas/pools/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        neutronclient(request).delete_lbaas_pool(pool_id)
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_pool(pool_id)
 
 
 @urls.register
@@ -674,10 +700,9 @@ class Members(generic.View):
 
         The listing result is an object with property "items".
         """
-        tenant_id = request.user.project_id
-        result = neutronclient(request).list_lbaas_members(pool_id,
-                                                           tenant_id=tenant_id)
-        return {'items': result.get('members')}
+        conn = _get_sdk_connection(request)
+        members_list = _sdk_object_to_list(conn.load_balancer.members(pool_id))
+        return {'items': members_list}
 
     @rest_utils.ajax()
     def put(self, request, pool_id):
@@ -685,10 +710,12 @@ class Members(generic.View):
 
         """
         # Assemble the lists of member id's to add and remove, if any exist
-        tenant_id = request.user.project_id
         request_member_data = request.DATA.get('members', [])
-        existing_members = neutronclient(request).list_lbaas_members(
-            pool_id, tenant_id=tenant_id).get('members')
+
+        conn = _get_sdk_connection(request)
+        existing_members = _sdk_object_to_list(
+            conn.load_balancer.members(pool_id))
+
         (members_to_add, members_to_delete) = get_members_to_add_remove(
             request_member_data, existing_members)
 
@@ -713,8 +740,9 @@ class Member(generic.View):
         """Get a specific member belonging to a specific pool.
 
         """
-        return neutronclient(request).show_lbaas_member(
-            member_id, pool_id).get('member')
+        conn = _get_sdk_connection(request)
+        member = conn.load_balancer.find_member(member_id, pool_id)
+        return _get_sdk_object_dict(member)
 
     @rest_utils.ajax()
     def put(self, request, member_id, pool_id):
@@ -722,11 +750,10 @@ class Member(generic.View):
 
         """
         data = request.DATA
-        spec = {
-            'weight': data['weight']
-        }
-        return neutronclient(request).update_lbaas_member(
-            member_id, pool_id, {'member': spec})
+        conn = _get_sdk_connection(request)
+        member = conn.load_balancer.update_member(
+            member_id, pool_id, weight=data['weight'])
+        return _get_sdk_object_dict(member)
 
 
 @urls.register
@@ -751,26 +778,29 @@ class HealthMonitor(generic.View):
     """API for retrieving a single health monitor.
 
     """
-    url_regex = r'lbaas/healthmonitors/(?P<healthmonitor_id>[^/]+)/$'
+    url_regex = r'lbaas/healthmonitors/(?P<health_monitor_id>[^/]+)/$'
 
     @rest_utils.ajax()
-    def get(self, request, healthmonitor_id):
+    def get(self, request, health_monitor_id):
         """Get a specific health monitor.
 
         """
-        return neutronclient(request).show_lbaas_healthmonitor(
-            healthmonitor_id).get('healthmonitor')
+        conn = _get_sdk_connection(request)
+        health_mon = conn.load_balancer.find_health_monitor(health_monitor_id)
+        return _get_sdk_object_dict(health_mon)
 
     @rest_utils.ajax()
-    def delete(self, request, healthmonitor_id):
+    def delete(self, request, health_monitor_id):
         """Delete a specific health monitor.
 
         http://localhost/api/lbaas/healthmonitors/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        neutronclient(request).delete_lbaas_healthmonitor(healthmonitor_id)
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_health_monitor(health_monitor_id,
+                                                 ignore_missing=True)
 
     @rest_utils.ajax()
-    def put(self, request, healthmonitor_id):
+    def put(self, request, health_monitor_id):
         """Edit a health monitor.
 
         """

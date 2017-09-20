@@ -18,7 +18,7 @@
   'use strict';
 
   describe('LBaaS v2 Members Table Controller', function() {
-    var controller, lbaasv2API, membersService, scope;
+    var controller, lbaasv2API, scope;
     var items = [{ foo: 'bar' }];
     var apiFail = false;
 
@@ -47,10 +47,8 @@
 
     beforeEach(inject(function($injector) {
       lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
-      membersService = $injector.get('horizon.dashboard.project.lbaasv2.members.service');
       controller = $injector.get('$controller');
       spyOn(lbaasv2API, 'getMembers').and.callFake(fakeAPI);
-      spyOn(membersService, 'associateMemberStatuses');
     }));
 
     function createController() {
@@ -83,12 +81,6 @@
       var ctrl = createController();
       expect(lbaasv2API.getMembers).toHaveBeenCalled();
       expect(ctrl.src.length).toBe(1);
-    });
-
-    it('should invoke the "associateMemberStatuses" method', function() {
-      var ctrl = createController();
-      expect(membersService.associateMemberStatuses).toHaveBeenCalledWith(
-          ctrl.loadbalancerId, ctrl.listenerId, ctrl.poolId, ctrl.src);
     });
 
     it('should show error if loading fails', function() {

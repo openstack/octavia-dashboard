@@ -701,8 +701,8 @@ msgstr ""
 msgid "Subnet ID"
 msgstr "Subnetz-ID"
 
-msgid "Tenant ID"
-msgstr "Mandanten-ID"
+msgid "Project ID"
+msgstr "Projekt-ID"
 
 msgid ""
 "The Available Instances table contains existing compute instances that can "

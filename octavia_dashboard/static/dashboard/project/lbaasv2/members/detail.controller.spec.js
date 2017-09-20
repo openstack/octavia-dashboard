@@ -17,7 +17,7 @@
   'use strict';
 
   describe('LBaaS v2 Member Detail Controller', function() {
-    var $controller, lbaasv2API, membersService, apiFail, qAllFail, actions;
+    var $controller, lbaasv2API, apiFail, qAllFail, actions;
 
     function fakePromise(data, reject) {
       return {
@@ -81,13 +81,11 @@
     beforeEach(inject(function($injector) {
       lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
       actions = $injector.get('horizon.dashboard.project.lbaasv2.members.actions.rowActions');
-      membersService = $injector.get('horizon.dashboard.project.lbaasv2.members.service');
       spyOn(lbaasv2API, 'getMember').and.callFake(fakeAPI);
       spyOn(lbaasv2API, 'getPool').and.callFake(fakeAPI);
       spyOn(lbaasv2API, 'getListener').and.callFake(fakeAPI);
       spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
       spyOn(actions, 'init').and.callThrough();
-      spyOn(membersService, 'associateMemberStatuses');
       $controller = $injector.get('$controller');
     }));
 
@@ -104,12 +102,6 @@
       expect(ctrl.provisioningStatus).toBeDefined();
       expect(ctrl.actions).toBe('member-actions');
       expect(actions.init).toHaveBeenCalledWith('loadbalancerId', 'poolId');
-    });
-
-    it('should invoke the "associateMemberStatuses" method', function() {
-      var ctrl = createController();
-      expect(membersService.associateMemberStatuses).toHaveBeenCalledWith(
-          ctrl.loadbalancerId, ctrl.listenerId, ctrl.poolId, [ctrl.member]);
     });
 
     it('should throw error on API fail', function() {

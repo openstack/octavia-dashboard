@@ -628,8 +628,8 @@ msgstr ""
 msgid "Subnet ID"
 msgstr "ID подсети"
 
-msgid "Tenant ID"
-msgstr "ИД арендатора"
+msgid "Project ID"
+msgstr "ID проекта"
 
 msgid "The IP address is not valid."
 msgstr "IP адрес не действителен."
