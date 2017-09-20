@@ -334,6 +334,7 @@ def update_pool(request, **kwargs):
     conn = _get_sdk_connection(request)
     pool = conn.load_balancer.update_pool(
         pool=pool_id,
+        lb_algorithm=data['pool']['method'],
         name=data['pool'].get('name'),
         description=data['pool'].get('description'))
 
