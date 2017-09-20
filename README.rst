@@ -16,7 +16,7 @@ Horizon panels for Octavia
 * Free software: Apache license
 * Documentation: https://docs.openstack.org/developer/octavia-dashboard
 * Source: https://git.openstack.org/cgit/openstack/octavia-dashboard
-* Bugs: https://bugs.launchpad.net/octavia
+* Bugs: https://storyboard.openstack.org/#!/project/909
 
 Features
 --------
