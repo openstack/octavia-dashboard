@@ -395,6 +395,9 @@ msgstr "ポート"
 msgid "Port ID"
 msgstr "ポート ID"
 
+msgid "Project ID"
+msgstr "プロジェクト ID"
+
 msgid "Protocol"
 msgstr "プロトコル"
 
@@ -448,9 +451,6 @@ msgstr "サブネット<span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Subnet ID"
 msgstr "サブネット ID"
-
-msgid "Project ID"
-msgstr "プロジェクト ID"
 
 msgid "The URL path is not valid."
 msgstr "URLは有効ではありません。"

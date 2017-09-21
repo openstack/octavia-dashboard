@@ -597,6 +597,9 @@ msgstr ""
 msgid "Port ID"
 msgstr "端口ID"
 
+msgid "Project ID"
+msgstr "项目ID"
+
 msgid "Protocol"
 msgstr "协议"
 
@@ -671,9 +674,6 @@ msgstr ""
 
 msgid "Subnet ID"
 msgstr "子网ID"
-
-msgid "Project ID"
-msgstr "项目ID"
 
 msgid ""
 "The Available Instances table contains existing compute instances that can "

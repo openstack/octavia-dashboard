@@ -552,6 +552,9 @@ msgstr ""
 msgid "Port ID"
 msgstr "ID порта"
 
+msgid "Project ID"
+msgstr "ID проекта"
+
 msgid "Protocol"
 msgstr "Протокол"
 
@@ -627,9 +630,6 @@ msgstr ""
 
 msgid "Subnet ID"
 msgstr "ID подсети"
-
-msgid "Project ID"
-msgstr "ID проекта"
 
 msgid "The IP address is not valid."
 msgstr "IP адрес не действителен."

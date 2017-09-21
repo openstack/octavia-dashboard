@@ -620,6 +620,9 @@ msgstr ""
 msgid "Port ID"
 msgstr "Port ID (ID port)"
 
+msgid "Project ID"
+msgstr "Project ID"
+
 msgid "Protocol"
 msgstr "Protocol (protokol)"
 
@@ -695,9 +698,6 @@ msgstr ""
 
 msgid "Subnet ID"
 msgstr "Subnet ID (ID subnet)"
-
-msgid "Project ID"
-msgstr "Project ID"
 
 msgid ""
 "The Available Instances table contains existing compute instances that can "
