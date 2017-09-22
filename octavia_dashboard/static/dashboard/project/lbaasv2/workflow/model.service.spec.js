@@ -39,6 +39,10 @@
           name: 'Pool 1',
           protocol: 'HTTP',
           lb_algorithm: 'ROUND_ROBIN',
+          session_persistence: {
+            type: 'APP_COOKIE',
+            cookie_name: 'cookie_name'
+          },
           description: 'pool description'
         },
         members: [
@@ -340,6 +344,10 @@
         expect(model.methods).toEqual(['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP']);
       });
 
+      it('has array of pool session persistence types', function() {
+        expect(model.types).toEqual(['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE']);
+      });
+
       it('has array of monitor types', function() {
         expect(model.monitorTypes).toEqual(['HTTP', 'PING', 'TCP']);
       });
@@ -548,6 +556,8 @@
         expect(model.spec.pool.description).toBeNull();
         expect(model.spec.pool.protocol).toBeNull();
         expect(model.spec.pool.method).toBeNull();
+        expect(model.spec.pool.type).toBeNull();
+        expect(model.spec.pool.cookie).toBeNull();
       });
 
       it('should initialize monitor model spec properties', function() {
@@ -687,6 +697,8 @@
         expect(model.spec.pool.description).toBe('pool description');
         expect(model.spec.pool.protocol).toBe('HTTP');
         expect(model.spec.pool.method).toBe('ROUND_ROBIN');
+        expect(model.spec.pool.type).toBe('APP_COOKIE');
+        expect(model.spec.pool.cookie).toBe('cookie_name');
       });
 
       it('should initialize all monitor properties', function() {
@@ -767,6 +779,8 @@
         expect(model.spec.pool.description).toBe('pool description');
         expect(model.spec.pool.protocol).toBe('HTTP');
         expect(model.spec.pool.method).toBe('ROUND_ROBIN');
+        expect(model.spec.pool.type).toBe('APP_COOKIE');
+        expect(model.spec.pool.cookie).toBe('cookie_name');
       });
 
       it('should initialize all monitor properties', function() {
@@ -847,6 +861,8 @@
         expect(model.spec.pool.description).toBe('pool description');
         expect(model.spec.pool.protocol).toBe('HTTP');
         expect(model.spec.pool.method).toBe('ROUND_ROBIN');
+        expect(model.spec.pool.type).toBe('APP_COOKIE');
+        expect(model.spec.pool.cookie).toBe('cookie_name');
       });
 
       it('should initialize all monitor properties to null', function() {
@@ -926,7 +942,7 @@
         expect(Object.keys(model.spec).length).toBe(8);
         expect(Object.keys(model.spec.loadbalancer).length).toBe(4);
         expect(Object.keys(model.spec.listener).length).toBe(5);
-        expect(Object.keys(model.spec.pool).length).toBe(5);
+        expect(Object.keys(model.spec.pool).length).toBe(7);
         expect(Object.keys(model.spec.monitor).length).toBe(8);
         expect(model.spec.members).toEqual([]);
       });
@@ -1167,6 +1183,7 @@
         model.spec.pool.name = 'pool name';
         model.spec.pool.description = 'pool description';
         model.spec.pool.method = 'LEAST_CONNECTIONS';
+        model.spec.pool.type = 'SOURCE_IP';
         model.spec.members = [{
           address: { ip: '1.2.3.4', subnet: '1' },
           addresses: [{ ip: '1.2.3.4', subnet: '1' },
@@ -1220,6 +1237,7 @@
         expect(finalSpec.pool.description).toBe('pool description');
         expect(finalSpec.pool.protocol).toBe('TCP');
         expect(finalSpec.pool.method).toBe('LEAST_CONNECTIONS');
+        expect(finalSpec.pool.type).toBe('SOURCE_IP');
 
         expect(finalSpec.members.length).toBe(3);
         expect(finalSpec.members[0].address).toBe('1.2.3.4');
@@ -1840,6 +1858,8 @@
         expect(finalSpec.pool.description).toBe('pool description');
         expect(finalSpec.pool.protocol).toBe('HTTP');
         expect(finalSpec.pool.method).toBe('ROUND_ROBIN');
+        expect(finalSpec.pool.type).toBe('APP_COOKIE');
+        expect(finalSpec.pool.cookie).toBe('cookie_name');
 
         expect(finalSpec.members.length).toBe(2);
         expect(finalSpec.members[0].id).toBe('1234');
@@ -1879,6 +1899,8 @@
         expect(finalSpec.pool.description).toBe('pool description');
         expect(finalSpec.pool.protocol).toBe('HTTP');
         expect(finalSpec.pool.method).toBe('ROUND_ROBIN');
+        expect(finalSpec.pool.type).toBe('APP_COOKIE');
+        expect(finalSpec.pool.cookie).toBe('cookie_name');
 
         expect(finalSpec.members.length).toBe(2);
         expect(finalSpec.members[0].id).toBe('1234');
@@ -1920,6 +1942,8 @@
         expect(finalSpec.pool.description).toBe('pool description');
         expect(finalSpec.pool.protocol).toBe('HTTP');
         expect(finalSpec.pool.method).toBe('ROUND_ROBIN');
+        expect(finalSpec.pool.type).toBe('APP_COOKIE');
+        expect(finalSpec.pool.cookie).toBe('cookie_name');
 
         expect(finalSpec.members.length).toBe(2);
         expect(finalSpec.members[0].id).toBe('1234');
@@ -1974,6 +1998,38 @@
         includeChildResources = true;
         delete listenerResources.listener;
         delete listenerResources.monitor;
+        model.initialize('pool', 'poolId', 'loadbalancerId');
+        scope.$apply();
+      });
+
+      it('should only show pool and monitor details', function() {
+        expect(model.visibleResources).toEqual(['pool', 'members']);
+      });
+    });
+
+    describe('Model visible resources (edit pool, no session persistence type)', function() {
+
+      beforeEach(function() {
+        includeChildResources = true;
+        delete listenerResources.listener;
+        delete listenerResources.monitor;
+        delete listenerResources.pool.session_persistence.type;
+        model.initialize('pool', 'poolId', 'loadbalancerId');
+        scope.$apply();
+      });
+
+      it('should only show pool and monitor details', function() {
+        expect(model.visibleResources).toEqual(['pool', 'members']);
+      });
+    });
+
+    describe('Model visible resources (edit pool, no session persistence cookie name)', function() {
+
+      beforeEach(function() {
+        includeChildResources = true;
+        delete listenerResources.listener;
+        delete listenerResources.monitor;
+        delete listenerResources.pool.session_persistence.cookie_name;
         model.initialize('pool', 'poolId', 'loadbalancerId');
         scope.$apply();
       });
