@@ -17,20 +17,22 @@
         <dl class="dl-horizontal">
           <dt translate>Address</dt>
           <dd>{$ ::ctrl.member.address $}</dd>
-          <dt translate>Protocol Port</dt>
-          <dd>{$ ::ctrl.member.protocol_port $}</dd>
-          <dt translate>Weight</dt>
-          <dd>{$ ctrl.member.weight $}</dd>
-          <dt translate>Operating Status</dt>
-          <dd>{$ ctrl.member.operating_status | decode:ctrl.operatingStatus $}</dd>
-          <dt translate>Provisioning Status</dt>
-          <dd>{$ ctrl.member.provisioning_status | decode:ctrl.provisioningStatus $}</dd>
           <dt translate>Admin State Up</dt>
           <dd>{$ ctrl.member.admin_state_up | yesno $}</dd>
           <dt translate>Member ID</dt>
           <dd>{$ ::ctrl.member.id $}</dd>
+          <dt translate>Operating Status</dt>
+          <dd>{$ ctrl.member.operating_status | decode:ctrl.operatingStatus $}</dd>
           <dt translate>Project ID</dt>
           <dd>{$ ::ctrl.member.project_id $}</dd>
+          <dt translate>Protocol Port</dt>
+          <dd>{$ ::ctrl.member.protocol_port $}</dd>
+          <dt translate>Provisioning Status</dt>
+          <dd>{$ ctrl.member.provisioning_status | decode:ctrl.provisioningStatus $}</dd>
+          <dt translate>Subnet ID</dt>
+          <dd>{$ ctrl.member.subnet_id $}</dd>
+          <dt translate>Weight</dt>
+          <dd>{$ ctrl.member.weight $}</dd>
         </dl>
       </div>
     </div>
