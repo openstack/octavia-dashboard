@@ -88,8 +88,7 @@
            ng-class="{ 'has-error': monitorDetailsForm.status.$invalid && monitorDetailsForm.status.$dirty }">
         <label translate class="control-label" for="status">Expected status codes</label>
         <input name="status" id="status" type="text" class="form-control"
-               ng-model="model.spec.monitor.status" ng-pattern="::ctrl.statusPattern"
-               ng-disabled="model.context.id">
+               ng-model="model.spec.monitor.status" ng-pattern="::ctrl.statusPattern">
         <span class="help-block" ng-show="monitorDetailsForm.status.$invalid && monitorDetailsForm.status.$dirty">
           {$ ::ctrl.statusError $}
         </span>
