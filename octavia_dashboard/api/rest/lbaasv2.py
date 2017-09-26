@@ -372,7 +372,7 @@ def update_monitor(request, **kwargs):
         monitor_id,
         delay=data['monitor'].get('interval'),
         timeout=data['monitor'].get('timeout'),
-        max_retries=data['monitor'].get('timeout'),
+        max_retries=data['monitor'].get('retry'),
         http_method=data['monitor'].get('method'),
         url_path=data['monitor'].get('path'),
         expected_codes=data['monitor'].get('status'))
