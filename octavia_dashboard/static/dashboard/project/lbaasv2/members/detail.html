@@ -2,14 +2,14 @@
   <detail-status loading="ctrl.loading" error="ctrl.error"></detail-status>
   <div ng-if="!ctrl.loading && !ctrl.error">
     <div class="page-header">
+      <actions allowed="ctrl.actions" type="row" item="ctrl.member"
+               ng-if="ctrl.member" class="actions_column pull-right"></actions>
       <ol class="breadcrumb">
         <li><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
         <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
         <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
         <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
         <li class="active">{$ ::(ctrl.member.name || ctrl.member.id) $}</li>
-        <actions allowed="ctrl.actions" type="row" item="ctrl.member"
-                 ng-if="ctrl.member" class="actions_column pull-right"></actions>
       </ol>
     </div>
     <div class="row">
