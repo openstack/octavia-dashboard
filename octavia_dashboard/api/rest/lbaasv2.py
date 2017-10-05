@@ -170,10 +170,23 @@ def create_pool(request, **kwargs):
     """
     data = request.DATA
 
+    session_persistence_type = data['pool'].get('type')
+    if session_persistence_type is None:
+        session_persistence = None
+    else:
+        cookie = data['pool'].get('cookie')
+        if session_persistence_type != 'APP_COOKIE':
+            cookie = None
+        session_persistence = {
+            'type': session_persistence_type,
+            'cookie_name': cookie
+        }
+
     conn = _get_sdk_connection(request)
     pool = conn.load_balancer.create_pool(
         protocol=data['pool']['protocol'],
         lb_algorithm=data['pool']['method'],
+        session_persistence=session_persistence,
         listener_id=kwargs['listener_id'],
         name=data['pool'].get('name'),
         description=data['pool'].get('description'))
@@ -331,10 +344,23 @@ def update_pool(request, **kwargs):
     pool_id = data['pool'].get('id')
     loadbalancer_id = data.get('loadbalancer_id')
 
+    session_persistence_type = data['pool'].get('type')
+    if session_persistence_type is None:
+        session_persistence = None
+    else:
+        cookie = data['pool'].get('cookie')
+        if session_persistence_type != 'APP_COOKIE':
+            cookie = None
+        session_persistence = {
+            'type': session_persistence_type,
+            'cookie_name': cookie
+        }
+
     conn = _get_sdk_connection(request)
     pool = conn.load_balancer.update_pool(
         pool=pool_id,
         lb_algorithm=data['pool']['method'],
+        session_persistence=session_persistence,
         name=data['pool'].get('name'),
         description=data['pool'].get('description'))
 

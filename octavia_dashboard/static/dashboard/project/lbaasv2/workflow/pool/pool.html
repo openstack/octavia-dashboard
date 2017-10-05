@@ -24,6 +24,31 @@
   <div class="row">
 
     <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <label translate class="control-label" for="type">
+          Session Persistence
+        </label>
+        <select class="form-control" name="type" id="type"
+                ng-options="type for type in model.types"
+                ng-model="model.spec.pool.type">
+          <option value="">None</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.spec.pool.type === 'APP_COOKIE'">
+      <div class="form-group">
+        <label translate class="control-label" for="cookie">Cookie</label>
+        <input name="cookie" id="cookie" type="text" class="form-control"
+               ng-model="model.spec.pool.cookie">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group required">
         <label translate class="control-label" for="method">
           Method

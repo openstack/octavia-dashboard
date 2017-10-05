@@ -87,6 +87,7 @@
       members: [],
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS'],
       methods: ['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP'],
+      types: ['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'],
       monitorTypes: ['HTTP', 'PING', 'TCP'],
       monitorMethods: ['GET', 'HEAD'],
       certificates: [],
@@ -152,7 +153,9 @@
           name: gettext('Pool 1'),
           description: null,
           protocol: null,
-          method: null
+          method: null,
+          type: null,
+          cookie: null
         },
         monitor: {
           id: null,
@@ -634,6 +637,16 @@
       spec.description = pool.description;
       spec.protocol = pool.protocol;
       spec.method = pool.lb_algorithm;
+      if (angular.isObject(pool.session_persistence)) {
+        var type = pool.session_persistence.type;
+        var cookie = pool.session_persistence.cookie_name;
+        if (type) {
+          spec.type = type;
+        }
+        if (type === 'APP_COOKIE' && cookie) {
+          spec.cookie = cookie;
+        }
+      }
     }
 
     function setMembersSpec(membersList) {
