@@ -20,6 +20,7 @@ install_project() {
     local project=$1
     local branch=${2:-$BRANCH_NAME}
     local PROJECT_DIR=$HOME/$project
+    local ZUULV3_PROJECT_DIR=$HOME/src/git.openstack.org/openstack/$project
 
     set +e
     project_installed=$(echo "import $project" | python 2>/dev/null ; echo $?)
@@ -32,7 +33,10 @@ install_project() {
     # Note that the functional tests use sudo to run tox and thus
     # variables used for zuul-cloner to check out the correct version are
     # lost.
-    if [ -d "$PROJECT_DIR" ]; then
+    if [ -d "$ZUULV3_PROJECT_DIR" ]; then
+        echo "FOUND $project code at $ZUULV3_PROJECT_DIR - using"
+        $install_cmd -U $ZUULV3_PROJECT_DIR
+    elif [ -d "$PROJECT_DIR" ]; then
         echo "FOUND $project code at $PROJECT_DIR - using"
         $install_cmd -U $PROJECT_DIR
     elif [ $project_installed -eq 0 ]; then
