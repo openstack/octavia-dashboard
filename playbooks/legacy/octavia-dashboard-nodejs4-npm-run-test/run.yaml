@@ -1,0 +1,149 @@
+- hosts: all
+  name: Autoconverted job legacy-octavia-dashboard-nodejs4-npm-run-test from old job
+    gate-octavia-dashboard-nodejs4-npm-run-test
+  tasks:
+
+    - name: Ensure legacy workspace directory
+      file:
+        path: '{{ ansible_user_dir }}/workspace'
+        state: directory
+
+    - shell:
+        cmd: |
+          set -e
+          set -x
+          CLONEMAP=`mktemp`
+          function cleanup {
+              # In cases where zuul-cloner is aborted during a git
+              # clone operation, git will remove the git work tree in
+              # its cleanup. The work tree in these jobs is the
+              # workspace directory, which means that subsequent
+              # jenkins post-build actions can not run because the
+              # workspace has been removed.
+              # To reduce the likelihood of this having an impact,
+              # recreate the workspace directory if needed
+              mkdir -p $WORKSPACE
+              rm -f $CLONEMAP
+          }
+          trap cleanup EXIT
+          cat > $CLONEMAP << EOF
+          clonemap:
+            - name: $ZUUL_PROJECT
+              dest: .
+          EOF
+          /usr/zuul-env/bin/zuul-cloner -m $CLONEMAP --cache-dir /opt/git \
+              git://git.openstack.org $ZUUL_PROJECT
+        executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: /usr/local/jenkins/slave_scripts/install-distro-packages.sh
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -u
+          set -e
+          set -x
+          # Prerequisites
+          sudo apt-get update
+          sudo apt-get install -y apt-transport-https lsb-release curl
+
+          DISTRO=$(lsb_release -c -s)
+
+          # Install via nodesource
+          curl -s https://deb.nodesource.com/gpgkey/nodesource.gpg.key | sudo apt-key add -
+
+          echo "deb https://deb.nodesource.com/node_4.x $DISTRO main" | sudo tee /etc/apt/sources.list.d/nodesource.list
+          echo "deb-src https://deb.nodesource.com/node_4.x $DISTRO main" | sudo tee -a /etc/apt/sources.list.d/nodesource.list
+
+          sudo apt-get update
+          sudo apt-get install -y nodejs
+
+          # Output to the log for debugging sake.
+          node --version
+          npm --version
+        executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          sudo apt-get update
+          sudo apt-get install -y xvfb
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          sudo apt-get update
+          sudo apt-get install -y chromium-browser
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          sudo apt-get update
+          sudo apt-get install -y firefox dbus
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -x
+          sudo rm -f /etc/sudoers.d/zuul
+          # Prove that general sudo access is actually revoked
+          ! sudo -n true
+        executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          DIMENSIONS='1280x1024x24'
+          /usr/bin/Xvfb :99 -screen 0 ${DIMENSIONS} -ac +extension GLX +render -noreset 2>&1 > /dev/null &
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          set -u
+          set -e
+          set -x
+          export DISPLAY=:99
+          npm install --verbose
+
+          # Try running as a standard lifecycle script, otherwise try custom.
+          npm_lifecycle_phases="publish install version test stop start restart pack"
+
+          if [[ $npm_lifecycle_phases =~ (^| )test($| ) ]]; then
+              npm test --verbose
+          else
+              npm run test --verbose
+          fi
+
+          # If no shrinkwrap exists, generate it.
+          if [ ! -f ./npm-shrinkwrap.json ]; then
+              npm prune # https://github.com/npm/npm/issues/6298
+              npm shrinkwrap
+          fi
+        executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'
+
+    - shell:
+        cmd: |
+          OUT=`git ls-files --other --exclude-standard --directory`
+          if [ -z "$OUT" ]; then
+              echo "No extra files created during test."
+              exit 0
+          else
+              echo "The following un-ignored files were created during the test:"
+              echo "$OUT"
+              exit 0  # TODO: change to 1 to fail tests.
+          fi
+        executable: /bin/bash
+        chdir: '{{ ansible_user_dir }}/workspace'
+      environment: '{{ zuul | zuul_legacy_vars }}'

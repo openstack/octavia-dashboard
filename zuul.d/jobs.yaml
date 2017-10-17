@@ -1,0 +1,17 @@
+- job:
+    name: octavia-dashboard-nodejs4-npm-run-lint
+    parent: legacy-base
+    run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-lint/run
+    post-run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-lint/post
+    timeout: 2400
+    required-projects:
+      - openstack/horizon
+
+- job:
+    name: octavia-dashboard-nodejs4-npm-run-test
+    parent: legacy-base
+    run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-test/run
+    post-run: playbooks/legacy/octavia-dashboard-nodejs4-npm-run-test/post
+    timeout: 2400
+    required-projects:
+      - openstack/horizon

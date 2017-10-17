@@ -1,0 +1,12 @@
+# Note: Some official OpenStack wide jobs are still defined in the
+#       project-config repository
+- project:
+    name: openstack/octavia-dashboard
+    check:
+      jobs:
+        - octavia-dashboard-nodejs4-npm-run-lint
+        - octavia-dashboard-nodejs4-npm-run-test
+    gate:
+      jobs:
+        - octavia-dashboard-nodejs4-npm-run-lint
+        - octavia-dashboard-nodejs4-npm-run-test
