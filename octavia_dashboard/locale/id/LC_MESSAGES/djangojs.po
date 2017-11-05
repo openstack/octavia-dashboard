@@ -301,6 +301,9 @@ msgstr "Create Load Balancer (buat penyeimbang beban)"
 msgid "Create Pool"
 msgstr "Create Pool (buat kolam)"
 
+msgid "Created At"
+msgstr "Created At"
+
 msgid "Default Pool ID"
 msgstr "Default Pool ID (ID pool default)"
 
@@ -936,6 +939,9 @@ msgstr "Update Pool (perbarui kolam)"
 
 msgid "Update Weight"
 msgstr "Update Weight (perbarui berat)"
+
+msgid "Updated At"
+msgstr "Updated At"
 
 msgid ""
 "Use the key-manager service to create any certificate containers before "
