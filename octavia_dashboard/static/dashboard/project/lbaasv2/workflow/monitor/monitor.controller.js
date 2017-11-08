@@ -45,6 +45,7 @@
     ctrl.intervalError = gettext('The health check interval must be greater than or equal to the timeout.');
     /* eslint-enable max-len */
     ctrl.retryError = gettext('The max retry count must be a number between 1 and 10.');
+    ctrl.retryDownError = gettext('The max retry down count must be a number between 1 and 10.');
     ctrl.timeoutError = gettext('The timeout must be a number greater than or equal to 0.');
     ctrl.statusError = gettext('The expected status code is not valid.');
     ctrl.pathError = gettext('The URL path is not valid.');

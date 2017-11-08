@@ -162,6 +162,7 @@
           type: null,
           interval: 5,
           retry: 3,
+          retry_down: 3,
           timeout: 5,
           method: 'GET',
           status: '200',
@@ -673,6 +674,7 @@
       spec.interval = monitor.delay;
       spec.timeout = monitor.timeout;
       spec.retry = monitor.max_retries;
+      spec.retry_down = monitor.max_retries_down;
       spec.method = monitor.http_method;
       spec.status = monitor.expected_codes;
       spec.path = monitor.url_path;

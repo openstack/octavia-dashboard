@@ -216,6 +216,7 @@ def create_health_monitor(request, **kwargs):
         delay=data['monitor']['interval'],
         timeout=data['monitor']['timeout'],
         max_retries=data['monitor']['retry'],
+        max_retries_down=data['monitor']['retry_down'],
         pool_id=kwargs['pool_id'],
         http_method=data['monitor'].get('method'),
         url_path=data['monitor'].get('path'),
@@ -399,6 +400,7 @@ def update_monitor(request, **kwargs):
         delay=data['monitor'].get('interval'),
         timeout=data['monitor'].get('timeout'),
         max_retries=data['monitor'].get('retry'),
+        max_retries_down=data['monitor'].get('retry_down'),
         http_method=data['monitor'].get('method'),
         url_path=data['monitor'].get('path'),
         expected_codes=data['monitor'].get('status'))

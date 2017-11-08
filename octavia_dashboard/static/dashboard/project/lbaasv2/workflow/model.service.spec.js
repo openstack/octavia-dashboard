@@ -67,6 +67,7 @@
           delay: 1,
           timeout: 1,
           max_retries: 1,
+          max_retries_down: 1,
           http_method: 'POST',
           expected_codes: '200',
           url_path: '/test'
@@ -161,6 +162,7 @@
             delay: 1,
             timeout: 1,
             max_retries: 1,
+            max_retries_down: 1,
             http_method: 'POST',
             expected_codes: '200',
             url_path: '/test'
@@ -564,6 +566,7 @@
         expect(model.spec.monitor.type).toBeNull();
         expect(model.spec.monitor.interval).toBe(5);
         expect(model.spec.monitor.retry).toBe(3);
+        expect(model.spec.monitor.retry_down).toBe(3);
         expect(model.spec.monitor.timeout).toBe(5);
         expect(model.spec.monitor.method).toBe('GET');
         expect(model.spec.monitor.status).toBe('200');
@@ -610,6 +613,7 @@
         expect(model.spec.monitor.interval).toBe(1);
         expect(model.spec.monitor.timeout).toBe(1);
         expect(model.spec.monitor.retry).toBe(1);
+        expect(model.spec.monitor.retry_down).toBe(1);
         expect(model.spec.monitor.method).toBe('POST');
         expect(model.spec.monitor.status).toBe('200');
         expect(model.spec.monitor.path).toBe('/test');
@@ -706,6 +710,7 @@
         expect(model.spec.monitor.type).toBe('HTTP');
         expect(model.spec.monitor.interval).toBe(1);
         expect(model.spec.monitor.retry).toBe(1);
+        expect(model.spec.monitor.retry_down).toBe(1);
         expect(model.spec.monitor.timeout).toBe(1);
         expect(model.spec.monitor.method).toBe('POST');
         expect(model.spec.monitor.status).toBe('200');
@@ -788,6 +793,7 @@
         expect(model.spec.monitor.type).toBe('HTTP');
         expect(model.spec.monitor.interval).toBe(1);
         expect(model.spec.monitor.retry).toBe(1);
+        expect(model.spec.monitor.retry_down).toBe(1);
         expect(model.spec.monitor.timeout).toBe(1);
         expect(model.spec.monitor.method).toBe('POST');
         expect(model.spec.monitor.status).toBe('200');
@@ -870,6 +876,7 @@
         expect(model.spec.monitor.type).toBeNull();
         expect(model.spec.monitor.interval).toBe(5);
         expect(model.spec.monitor.retry).toBe(3);
+        expect(model.spec.monitor.retry_down).toBe(3);
         expect(model.spec.monitor.timeout).toBe(5);
         expect(model.spec.monitor.method).toBe('GET');
         expect(model.spec.monitor.status).toBe('200');
@@ -943,7 +950,7 @@
         expect(Object.keys(model.spec.loadbalancer).length).toBe(4);
         expect(Object.keys(model.spec.listener).length).toBe(5);
         expect(Object.keys(model.spec.pool).length).toBe(7);
-        expect(Object.keys(model.spec.monitor).length).toBe(8);
+        expect(Object.keys(model.spec.monitor).length).toBe(9);
         expect(model.spec.members).toEqual([]);
       });
 
@@ -1025,6 +1032,10 @@
 
       it('sets monitor retry count to 3', function() {
         expect(model.spec.monitor.retry).toBe(3);
+      });
+
+      it('sets monitor retry down count to 3', function() {
+        expect(model.spec.monitor.retry_down).toBe(3);
       });
 
       it('sets monitor timeout to 5', function() {
@@ -1214,6 +1225,7 @@
         model.spec.monitor.type = 'PING';
         model.spec.monitor.interval = 1;
         model.spec.monitor.retry = 1;
+        model.spec.monitor.retry_down = 1;
         model.spec.monitor.timeout = 1;
         model.spec.certificates = [{
           id: 'container1',
@@ -1264,6 +1276,7 @@
         expect(finalSpec.monitor.type).toBe('PING');
         expect(finalSpec.monitor.interval).toBe(1);
         expect(finalSpec.monitor.retry).toBe(1);
+        expect(finalSpec.monitor.retry_down).toBe(1);
         expect(finalSpec.monitor.timeout).toBe(1);
         expect(finalSpec.certificates).toBeUndefined();
       });
@@ -1385,6 +1398,7 @@
         model.spec.monitor.type = 'PING';
         model.spec.monitor.interval = 1;
         model.spec.monitor.retry = 1;
+        model.spec.monitor.retry_down = 1;
         model.spec.monitor.timeout = null;
 
         var finalSpec = model.submit();
@@ -1459,6 +1473,7 @@
         model.spec.monitor.type = 'PING';
         model.spec.monitor.interval = 1;
         model.spec.monitor.retry = 1;
+        model.spec.monitor.retry_down = 1;
         model.spec.monitor.timeout = 1;
         model.spec.certificates = [{
           id: 'container1',
@@ -1503,6 +1518,7 @@
         expect(finalSpec.monitor.type).toBe('PING');
         expect(finalSpec.monitor.interval).toBe(1);
         expect(finalSpec.monitor.retry).toBe(1);
+        expect(finalSpec.monitor.retry_down).toBe(1);
         expect(finalSpec.monitor.timeout).toBe(1);
         expect(finalSpec.certificates).toBeUndefined();
       });
@@ -1612,6 +1628,7 @@
         model.spec.monitor.type = 'PING';
         model.spec.monitor.interval = 1;
         model.spec.monitor.retry = 1;
+        model.spec.monitor.retry_down = 1;
         model.spec.monitor.timeout = null;
 
         var finalSpec = model.submit();
@@ -1667,6 +1684,7 @@
         model.spec.monitor.type = 'PING';
         model.spec.monitor.interval = 1;
         model.spec.monitor.retry = 1;
+        model.spec.monitor.retry_down = 1;
         model.spec.monitor.timeout = 1;
         model.spec.certificates = [{
           id: 'container1',
@@ -1706,6 +1724,7 @@
         expect(finalSpec.monitor.type).toBe('PING');
         expect(finalSpec.monitor.interval).toBe(1);
         expect(finalSpec.monitor.retry).toBe(1);
+        expect(finalSpec.monitor.retry_down).toBe(1);
         expect(finalSpec.monitor.timeout).toBe(1);
         expect(finalSpec.certificates).toBeUndefined();
       });
@@ -1794,6 +1813,7 @@
         model.spec.monitor.type = 'PING';
         model.spec.monitor.interval = 1;
         model.spec.monitor.retry = 1;
+        model.spec.monitor.retry_down = 1;
         model.spec.monitor.timeout = null;
 
         var finalSpec = model.submit();
@@ -1829,6 +1849,7 @@
         expect(finalSpec.monitor.type).toBe('HTTP');
         expect(finalSpec.monitor.interval).toBe(5);
         expect(finalSpec.monitor.retry).toBe(3);
+        expect(finalSpec.monitor.retry_down).toBe(3);
         expect(finalSpec.monitor.timeout).toBe(5);
         expect(finalSpec.monitor.method).toBe('GET');
         expect(finalSpec.monitor.status).toBe('200');
@@ -1876,6 +1897,7 @@
         expect(finalSpec.monitor.type).toBe('HTTP');
         expect(finalSpec.monitor.interval).toBe(1);
         expect(finalSpec.monitor.retry).toBe(1);
+        expect(finalSpec.monitor.retry_down).toBe(1);
         expect(finalSpec.monitor.timeout).toBe(1);
       });
     });
@@ -1917,6 +1939,7 @@
         expect(finalSpec.monitor.type).toBe('HTTP');
         expect(finalSpec.monitor.interval).toBe(1);
         expect(finalSpec.monitor.retry).toBe(1);
+        expect(finalSpec.monitor.retry_down).toBe(1);
         expect(finalSpec.monitor.timeout).toBe(1);
       });
     });
@@ -1959,6 +1982,7 @@
 
         expect(finalSpec.monitor.interval).toBe(5);
         expect(finalSpec.monitor.retry).toBe(3);
+        expect(finalSpec.monitor.retry_down).toBe(3);
         expect(finalSpec.monitor.timeout).toBe(5);
       });
     });
@@ -2049,6 +2073,7 @@
       it('should set final spec properties', function() {
         model.spec.monitor.interval = 10;
         model.spec.monitor.retry = 6;
+        model.spec.monitor.retry_down = 6;
         model.spec.monitor.timeout = 8;
         model.spec.monitor.method = 'GET';
         model.spec.monitor.status = '200-204';
@@ -2067,6 +2092,7 @@
         expect(finalSpec.monitor.type).toBe('HTTP');
         expect(finalSpec.monitor.interval).toBe(10);
         expect(finalSpec.monitor.retry).toBe(6);
+        expect(finalSpec.monitor.retry_down).toBe(6);
         expect(finalSpec.monitor.timeout).toBe(8);
         expect(finalSpec.monitor.method).toBe('GET');
         expect(finalSpec.monitor.status).toBe('200-204');

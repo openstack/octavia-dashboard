@@ -17,6 +17,22 @@
       </div>
     </div>
 
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+      <div class="form-group required"
+           ng-class="{ 'has-error': monitorDetailsForm.retry_down.$invalid && monitorDetailsForm.retry_down.$dirty }">
+        <label translate class="control-label" for="retry_down">
+          Retries down
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="retry_down" id="retry_down" type="number" class="form-control"
+               ng-model="model.spec.monitor.retry_down" ng-pattern="/^\d+$/" min="1" max="10"
+               ng-required="true">
+        <span class="help-block" ng-show="monitorDetailsForm.retry_down.$invalid && monitorDetailsForm.retry_down.$dirty">
+          {$ ::ctrl.retryDownError $}
+        </span>
+      </div>
+    </div>
+
   </div>
 
   <div class="row">
