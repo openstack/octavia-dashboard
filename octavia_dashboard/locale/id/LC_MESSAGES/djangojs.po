@@ -212,6 +212,24 @@ msgstr ""
 "akan menerima lebih banyak lalu lintas. Harus dalam \n"
 "   nomor 1 sampai 256."
 
+msgid ""
+"<strong>Monitor Address:</strong>\n"
+"  An alternate IP address used for health monitoring a backend member.\n"
+"  Default is null which monitors the member address."
+msgstr ""
+"<strong>Monitor Address:</strong>\n"
+"  An alternate IP address used for health monitoring a backend member.\n"
+"  Default is null which monitors the member address."
+
+msgid ""
+"<strong>Monitor Port:</strong>\n"
+"  An alternate protocol port used for health monitoring a backend member.\n"
+"  Default is null which monitors the member protocol port."
+msgstr ""
+"<strong>Monitor Port:</strong>\n"
+"  An alternate protocol port used for health monitoring a backend member.\n"
+"  Default is null which monitors the member protocol port."
+
 msgid "A new health monitor is being created."
 msgstr "Sebuah pemantauan kesehatan baru sedang dibuat."
 
@@ -621,8 +639,8 @@ msgstr "Pool ID (ID kolam)"
 msgid "Pool Members"
 msgstr "Pool Members  (anggota kolam)"
 
-msgid "Pool member weight has been updated."
-msgstr "Berat anggota kolam telah diperbarui."
+msgid "Pool member has been updated."
+msgstr "Pool member has been updated."
 
 msgid "Port"
 msgstr "Port"
@@ -664,6 +682,9 @@ msgstr "Memberikan rincian untuk penyeimbang beban."
 
 msgid "Provide the details for the pool."
 msgstr "Memberikan rincian untuk kolam."
+
+msgid "Provide the details for the member."
+msgstr "Provide the details for the member."
 
 msgid "Provider"
 msgstr "Provider (penyedia)"
@@ -837,12 +858,11 @@ msgstr "Timeout harus berupa angka lebih besar dari atau sama dengan 0."
 msgid "The weight must be a number between 1 and 256."
 msgstr "Berat harus dalam angka antara 1 dan 256."
 
-msgid ""
-"The weight of a member determines the portion of requests or connections it "
-"services compared to the other members of the pool."
-msgstr ""
-"Berat anggota menentukan porsi dari permintaan atau koneksi layanan IT  "
-"dibandingkan dengan anggota lain dari kolam."
+msgid "The monitor address must be a vaid IP address."
+msgstr "The monitor address must be a vaid IP address."
+
+msgid "The monitor port must be a number between 1 and 65535."
+msgstr "The monitor port must be a number between 1 and 65535."
 
 msgid "Timeout"
 msgstr "Timeout (waktu habis)"
@@ -952,14 +972,11 @@ msgstr "Update Listener (perbarui pendengar)"
 msgid "Update Load Balancer"
 msgstr "Update Load Balancer (perbarui penyeimbang beban)"
 
-msgid "Update Member Weight"
-msgstr "Update Member Weight"
+msgid "Update Member"
+msgstr "Update Member"
 
 msgid "Update Pool"
 msgstr "Update Pool (perbarui kolam)"
-
-msgid "Update Weight"
-msgstr "Update Weight (perbarui berat)"
 
 msgid "Updated At"
 msgstr "Updated At"
@@ -1006,11 +1023,31 @@ msgstr ""
 msgid "Weight"
 msgstr "Weight (berat)"
 
+msgid "Monitor Address"
+msgstr "Monitor Address"
+
+msgid "Monitor Port"
+msgstr "Monitor Port"
+
 msgid ""
 "Weight\n"
 "            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 msgstr ""
 "Weight (berat) \n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid ""
+"IP Address\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"IP Address\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+
+msgid ""
+"Protocol Port\n"
+"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Protocol Port\n"
 "            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 #, python-format

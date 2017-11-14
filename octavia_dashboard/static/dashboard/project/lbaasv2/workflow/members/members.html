@@ -11,6 +11,8 @@
              class="table table-striped table-rsp table-detail">
         <thead>
           <tr>
+            <th class="expander"></th>
+
             <th class="rsp-p1" translate>
               IP Address
               <span class="hz-icon-required fa fa-asterisk" ng-show="ctrl.tableData.displayedAllocated.length > 0">
@@ -35,7 +37,13 @@
               </div>
             </td>
           </tr>
-          <tr ng-repeat="row in ctrl.tableData.displayedAllocated track by row.id">
+          <tr ng-repeat-start="row in ctrl.tableData.displayedAllocated track by row.id">
+            <td class="expander">
+              <span class="fa fa-chevron-right"
+                    hz-expand-detail
+                    duration="200">
+              </span>
+            </td>
             <td class="rsp-p1">
               <div ng-if="!row.addresses"
                    class="form-group required member-address"
@@ -97,6 +105,48 @@
               </action-list>
             </td>
           </tr>
+          <tr ng-repeat-end class="detail-row">
+            <!--
+              Detail-row:
+              Contains detailed information on this item.
+              Can be toggled using the chevron button.
+              Ensure colspan is greater or equal to number of column-headers.
+            -->
+            <td class="detail" colspan="7">
+
+              <div class="row">
+                <dl class="col-lg-5 col-md-5 col-sm-5">
+                  <dt translate>Monitor Address</dt>
+                  <dd
+                    class="form-group member-monitor-address"
+                    ng-class="{ 'has-error': memberDetailsForm['{$ ::row.id $}-monitor-address'].$invalid && memberDetailsForm['{$ ::row.id $}-monitor-address'].$dirty }">
+                    <input name="{$ ::row.id $}-monitor-address" type="text" class="form-control"
+                                                                             ng-model="row.monitor_address" ng-pattern="::ctrl.ipPattern"
+                                                                                                            ng-disabled="row.allocatedMember"
+                                                                                                            popover-placement="top" popover-append-to-body="true"
+                                                                                                                                    popover-trigger="focus"
+                                                                                                                                    ng-attr-popover="{$ memberDetailsForm[row.id + '-monitor-address'].$invalid && memberDetailsForm[row.id + '-monitor-address'].$dirty ? ctrl.ipError : '' $}">
+                  </dd>
+                </dl>
+                <dl class="col-lg-5 col-md-5 col-sm-5">
+                  <dt translate>Monitor Port</dt>
+                  <dd class="form-group member-monitor-port"
+                       ng-class="{ 'has-error': memberDetailsForm['{$ ::row.id $}-monitor-port'].$invalid && memberDetailsForm['{$ ::row.id $}-monitor-port'].$dirty }">
+                    <input name="{$ ::row.id $}-monitor-port" type="number" class="form-control"
+                                                                            ng-model="row.monitor_port" ng-pattern="/^\d+$/" min="1" max="65535"
+                                                                                                                                     ng-disabled="row.allocatedMember"
+                                                                                                                                     popover-placement="top" popover-append-to-body="true"
+                                                                                                                                                             popover-trigger="focus"
+                                                                                                                                                             ng-attr-popover="{$ memberDetailsForm[row.id + '-monitor-port'].$invalid && memberDetailsForm[row.id + '-monitor-port'].$dirty ? ctrl.portError : '' $}">
+                  </dd>
+                </dl>
+              </div>
+
+            </td>
+          </tr>
+
+          <tr table-status table="table" column-count="7"></tr>
+
           <tr>
             <td colspan="5">
               <action-list class="pull-right">

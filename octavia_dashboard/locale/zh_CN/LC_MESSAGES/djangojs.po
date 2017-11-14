@@ -581,9 +581,6 @@ msgstr "资源池ID"
 msgid "Pool Members"
 msgstr "资源池成员"
 
-msgid "Pool member weight has been updated."
-msgstr "负载均衡池成员权重已经更新。"
-
 msgid "Port"
 msgstr "端口"
 
@@ -775,11 +772,6 @@ msgstr "超时时限必须为一个大于等于0的整数。"
 msgid "The weight must be a number between 1 and 256."
 msgstr "权重必须为1到256的整数。"
 
-msgid ""
-"The weight of a member determines the portion of requests or connections it "
-"services compared to the other members of the pool."
-msgstr "成员的权重决定了它在服务中与其他池成员的请求和连接的占比。"
-
 msgid "Timeout"
 msgstr "超时时限"
 
@@ -887,14 +879,8 @@ msgstr "更新监听器"
 msgid "Update Load Balancer"
 msgstr "更新负载均衡器"
 
-msgid "Update Member Weight"
-msgstr "更新成员权重"
-
 msgid "Update Pool"
 msgstr "更新资源池"
-
-msgid "Update Weight"
-msgstr "更新权重"
 
 msgid ""
 "Use the key-manager service to create any certificate containers before "

@@ -245,12 +245,15 @@ def add_member(request, **kwargs):
     member = members[index]
 
     conn = _get_sdk_connection(request)
+    monitor_address = member.get('monitor_address')
     member = conn.load_balancer.create_member(
         pool_id,
         address=member['address'],
         protocol_port=member['port'],
         subnet_id=member['subnet'],
-        weight=member.get('weight'))
+        weight=member.get('weight'),
+        monitor_address=monitor_address if monitor_address else None,
+        monitor_port=member.get('monitor_port'))
 
     index += 1
     if kwargs.get('members_to_add'):
@@ -780,8 +783,11 @@ class Member(generic.View):
         """
         data = request.DATA
         conn = _get_sdk_connection(request)
+        monitor_address = data.get('monitor_address')
         member = conn.load_balancer.update_member(
-            member_id, pool_id, weight=data['weight'])
+            member_id, pool_id, weight=data.get('weight'),
+            monitor_address=monitor_address if monitor_address else None,
+            monitor_port=data.get('monitor_port'))
         return _get_sdk_object_dict(member)
 
 
