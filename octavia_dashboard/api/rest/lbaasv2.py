@@ -153,6 +153,7 @@ def create_listener(request, **kwargs):
         load_balancer_id=kwargs['loadbalancer_id'],
         name=data['listener'].get('name'),
         description=data['listener'].get('description'),
+        connection_limit=data['listener'].get('connection_limit'),
         default_tls_container_ref=default_tls_ref,
         sni_container_refs=None)
 
@@ -328,7 +329,8 @@ def update_listener(request, **kwargs):
     listener = conn.load_balancer.update_listener(
         listener=listener_id,
         name=data['listener'].get('name'),
-        description=data['listener'].get('description'))
+        description=data['listener'].get('description'),
+        connection_limit=data['listener'].get('connection_limit'))
 
     if data.get('pool'):
         args = (request, loadbalancer_id, update_pool)

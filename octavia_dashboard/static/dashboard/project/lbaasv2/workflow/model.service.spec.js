@@ -31,6 +31,7 @@
           description: 'listener description',
           protocol: 'HTTP',
           protocol_port: 80,
+          connection_limit: 999,
           loadbalancers: [ { id: '1234' } ],
           sni_container_refs: ['container2']
         },
@@ -550,6 +551,7 @@
         expect(model.spec.listener.description).toBeNull();
         expect(model.spec.listener.protocol).toBeNull();
         expect(model.spec.listener.port).toBeNull();
+        expect(model.spec.listener.connection_limit).toBe(-1);
       });
 
       it('should not initialize pool model spec properties', function() {
@@ -693,6 +695,7 @@
         expect(model.spec.listener.description).toBe('listener description');
         expect(model.spec.listener.protocol).toBe('HTTP');
         expect(model.spec.listener.port).toBe(80);
+        expect(model.spec.listener.connection_limit).toBe(999);
       });
 
       it('should initialize all pool properties', function() {
@@ -776,6 +779,7 @@
         expect(model.spec.listener.description).toBeNull();
         expect(model.spec.listener.protocol).toBeNull();
         expect(model.spec.listener.port).toBeNull();
+        expect(model.spec.listener.connection_limit).toBe(-1);
       });
 
       it('should initialize all pool properties', function() {
@@ -859,6 +863,7 @@
         expect(model.spec.listener.description).toBeNull();
         expect(model.spec.listener.protocol).toBeNull();
         expect(model.spec.listener.port).toBeNull();
+        expect(model.spec.listener.connection_limit).toBe(-1);
       });
 
       it('should initialize all pool properties', function() {
@@ -948,7 +953,7 @@
       it('has the right number of properties', function() {
         expect(Object.keys(model.spec).length).toBe(8);
         expect(Object.keys(model.spec.loadbalancer).length).toBe(4);
-        expect(Object.keys(model.spec.listener).length).toBe(5);
+        expect(Object.keys(model.spec.listener).length).toBe(6);
         expect(Object.keys(model.spec.pool).length).toBe(7);
         expect(Object.keys(model.spec.monitor).length).toBe(9);
         expect(model.spec.members).toEqual([]);
@@ -996,6 +1001,10 @@
 
       it('sets listener port to null', function() {
         expect(model.spec.listener.port).toBeNull();
+      });
+
+      it('sets listener connection limit to reasonable default', function() {
+        expect(model.spec.listener.connection_limit).toBe(-1);
       });
 
       it('sets pool id to null', function() {
@@ -1191,6 +1200,7 @@
         model.spec.loadbalancer.subnet = model.subnets[0];
         model.spec.listener.protocol = 'TCP';
         model.spec.listener.port = 80;
+        model.spec.listener.connection_limit = 999;
         model.spec.pool.name = 'pool name';
         model.spec.pool.description = 'pool description';
         model.spec.pool.method = 'LEAST_CONNECTIONS';
@@ -1244,6 +1254,7 @@
         expect(finalSpec.listener.description).toBeUndefined();
         expect(finalSpec.listener.protocol).toBe('TCP');
         expect(finalSpec.listener.port).toBe(80);
+        expect(finalSpec.listener.connection_limit).toBe(999);
 
         expect(finalSpec.pool.name).toBe('pool name');
         expect(finalSpec.pool.description).toBe('pool description');
@@ -1286,6 +1297,7 @@
         model.spec.loadbalancer.subnet = model.subnets[0];
         model.spec.listener.protocol = 'TERMINATED_HTTPS';
         model.spec.listener.port = 443;
+        model.spec.listener.connection_limit = 9999;
         model.spec.pool.method = 'LEAST_CONNECTIONS';
         model.spec.certificates = [{
           id: 'container1',
@@ -1303,6 +1315,7 @@
         expect(finalSpec.listener.description).toBeUndefined();
         expect(finalSpec.listener.protocol).toBe('TERMINATED_HTTPS');
         expect(finalSpec.listener.port).toBe(443);
+        expect(finalSpec.listener.connection_limit).toBe(9999);
         expect(finalSpec.pool.protocol).toBe('HTTP');
         expect(finalSpec.certificates).toEqual(['container1']);
       });
@@ -1440,6 +1453,7 @@
       it('should set final spec properties', function() {
         model.spec.listener.protocol = 'TCP';
         model.spec.listener.port = 80;
+        model.spec.listener.connection_limit = 999;
         model.spec.pool.name = 'pool name';
         model.spec.pool.description = 'pool description';
         model.spec.pool.method = 'LEAST_CONNECTIONS';
@@ -1487,6 +1501,7 @@
         expect(finalSpec.listener.description).toBeUndefined();
         expect(finalSpec.listener.protocol).toBe('TCP');
         expect(finalSpec.listener.port).toBe(80);
+        expect(finalSpec.listener.connection_limit).toBe(999);
 
         expect(finalSpec.pool.name).toBe('pool name');
         expect(finalSpec.pool.description).toBe('pool description');
@@ -1528,6 +1543,7 @@
         model.spec.loadbalancer.subnet = model.subnets[0];
         model.spec.listener.protocol = 'TERMINATED_HTTPS';
         model.spec.listener.port = 443;
+        model.spec.listener.connection_limit = 999;
         model.spec.pool.method = 'LEAST_CONNECTIONS';
         model.spec.certificates = [{
           id: 'container1',
@@ -1541,6 +1557,7 @@
         expect(finalSpec.listener.description).toBeUndefined();
         expect(finalSpec.listener.protocol).toBe('TERMINATED_HTTPS');
         expect(finalSpec.listener.port).toBe(443);
+        expect(finalSpec.listener.connection_limit).toBe(999);
         expect(finalSpec.pool.protocol).toBe('HTTP');
         expect(finalSpec.certificates).toEqual(['container1']);
       });

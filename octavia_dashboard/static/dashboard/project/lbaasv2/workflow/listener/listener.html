@@ -60,4 +60,25 @@
     </div>
 
   </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group required"
+           ng-class="{ 'has-error': listenerDetailsForm.connection_limit.$invalid && listenerDetailsForm.connection_limit.$dirty }">
+        <label translate class="control-label" for="connection_limit">
+          Connection Limit
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="connection_limit" id="connection_limit" type="number" class="form-control"
+               ng-model="model.spec.listener.connection_limit" ng-pattern="/^-?\d+$/" min="-1"
+               ng-required="true">
+        <span class="help-block" ng-show="(listenerDetailsForm.connection_limit.$error.number || listenerDetailsForm.connection_limit.$error.required) && listenerDetailsForm.connection_limit.$dirty">
+          {$ ::ctrl.connectionLimitError $}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
 </div>
