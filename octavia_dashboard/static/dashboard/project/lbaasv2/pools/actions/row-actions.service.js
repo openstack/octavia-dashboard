@@ -67,7 +67,7 @@
       return [{
         service: editService.init(loadBalancerIsActionable).edit,
         template: {
-          text: gettext('Edit Pool')
+          text: gettext('Edit')
         }
       },{
         service: createService.init(loadbalancerId, listenerId, loadBalancerIsActionable).create,

@@ -36,7 +36,7 @@
 
     it('should define correct table row actions', function() {
       expect(actions.length).toBe(3);
-      expect(actions[0].template.text).toBe('Edit Pool');
+      expect(actions[0].template.text).toBe('Edit');
       expect(actions[1].template.text).toBe('Create Health Monitor');
       expect(actions[2].template.text).toBe('Delete Pool');
     });

@@ -317,9 +317,6 @@ msgstr "Отвязать Назначаемый IP"
 msgid "Edit"
 msgstr "Редактировать"
 
-msgid "Edit Pool"
-msgstr "Редактировать пул"
-
 msgid "Error"
 msgstr "Ошибка"
 

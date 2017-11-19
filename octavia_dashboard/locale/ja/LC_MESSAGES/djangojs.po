@@ -210,9 +210,6 @@ msgstr "ロードバランサー:%sからFloating IP アドレスの割り当て
 msgid "Edit"
 msgstr "編集"
 
-msgid "Edit Pool"
-msgstr "プールの編集"
-
 msgid "Error"
 msgstr "エラー"
 
