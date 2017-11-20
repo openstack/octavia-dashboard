@@ -55,7 +55,7 @@
     ctrl.loadbalancerId = $routeParams.loadbalancerId;
     ctrl.listenerId = $routeParams.listenerId;
     ctrl.poolId = $routeParams.poolId;
-    ctrl.rowActions = rowActions.init(ctrl.loadbalancerId, ctrl.poolId);
+    ctrl.rowActions = rowActions.init(ctrl.loadbalancerId, ctrl.listenerId, ctrl.poolId);
     ctrl.batchActions = batchActions.init(ctrl.loadbalancerId);
     ctrl.operatingStatus = loadBalancersService.operatingStatus;
     ctrl.provisioningStatus = loadBalancersService.provisioningStatus;

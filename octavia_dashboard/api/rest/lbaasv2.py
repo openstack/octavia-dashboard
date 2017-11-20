@@ -777,6 +777,14 @@ class Member(generic.View):
         return _get_sdk_object_dict(member)
 
     @rest_utils.ajax()
+    def delete(self, request, member_id, pool_id):
+        """Delete a specific member belonging to a specific pool.
+
+        """
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_member(member_id, pool_id)
+
+    @rest_utils.ajax()
     def put(self, request, member_id, pool_id):
         """Edit a pool member.
 

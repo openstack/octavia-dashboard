@@ -50,7 +50,8 @@
 
     ctrl.loading = true;
     ctrl.error = false;
-    ctrl.actions = rowActions.init($routeParams.loadbalancerId, $routeParams.poolId).actions;
+    ctrl.actions = rowActions.init($routeParams.loadbalancerId,
+      $routeParams.listenerId, $routeParams.poolId).actions;
     ctrl.loadbalancerId = $routeParams.loadbalancerId;
     ctrl.listenerId = $routeParams.listenerId;
     ctrl.poolId = $routeParams.poolId;

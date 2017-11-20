@@ -312,6 +312,9 @@ msgstr "Confirm Delete Load Balancers (konfirmasi hapus beban penyeimbang)"
 msgid "Confirm Delete Pool"
 msgstr "Confirm Delete Pool (konfirmasi hapus kolam)"
 
+msgid "Confirm Delete Member"
+msgstr "Confirm Delete Member"
+
 msgid "Confirm Disassociate Floating IP Address"
 msgstr "Konfirmasi pemisahan alamat IP mengambang"
 
@@ -360,6 +363,9 @@ msgstr "Delete Load Balancers (hapus penyeimbang beban)"
 msgid "Delete Pool"
 msgstr "Delete Pool (hapus kolam)"
 
+msgid "Delete Member"
+msgstr "Delete Member"
+
 #, python-format
 msgid "Deleted health monitor: %s."
 msgstr "Pemantauan kesehatan yang dihapus: %s."
@@ -375,6 +381,10 @@ msgstr "Penyeimbang beban yang dihapus: %s."
 #, python-format
 msgid "Deleted pool: %s."
 msgstr "Kolam yang dihapus: %s."
+
+#, python-format
+msgid "Deleted member: %s."
+msgstr "Deleted member: %s."
 
 msgid "Description"
 msgstr "Description (gambaran)"
@@ -797,6 +807,10 @@ msgstr ""
 msgid "The following pool could not be deleted: %s."
 msgstr "Kolam berikut ini tidak bisa dihapus: %s."
 
+#, python-format
+msgid "The following member could not be deleted: %s."
+msgstr "The following member could not be deleted: %s."
+
 msgid "The health check interval must be greater than or equal to the timeout."
 msgstr ""
 "Interval pemeriksaan kesehatan harus lebih besar dari atau sama dengan batas "
@@ -906,6 +920,9 @@ msgstr "Tidak dapat menghapus penyeimbang beban."
 
 msgid "Unable to delete pool."
 msgstr "Tidak dapat menghapus kolam."
+
+msgid "Unable to delete member."
+msgstr "Unable to delete member."
 
 #, python-format
 msgid "Unable to disassociate floating IP address from load balancer: %s."
@@ -1089,3 +1106,11 @@ msgid ""
 msgstr ""
 "Anda telah memilih \"%s\". Harap mengkonfirmasi pilihan Anda. Kolam yang "
 "telah dihapus tidak dapat dipulihkan."
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Please confirm your selection. Deleted members are "
+"not recoverable."
+msgstr ""
+"You have selected \"%s\". Please confirm your selection. Deleted members are "
+"not recoverable."
