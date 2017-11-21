@@ -23,7 +23,7 @@
   rowActions.$inject = [
     'horizon.framework.util.i18n.gettext',
     'horizon.dashboard.project.lbaasv2.loadbalancers.service',
-    'horizon.dashboard.project.lbaasv2.members.actions.edit-weight.modal.service'
+    'horizon.dashboard.project.lbaasv2.members.actions.edit-member.modal.service'
   ];
 
   /**
@@ -35,11 +35,11 @@
    *
    * @param gettext The horizon gettext function for translation.
    * @param loadBalancersService The LBaaS v2 load balancers service.
-   * @param editWeight The LBaaS v2 pool member edit weight service.
+   * @param editMember The LBaaS v2 pool member edit service.
    * @returns Members row actions service object.
    */
 
-  function rowActions(gettext, loadBalancersService, editWeight) {
+  function rowActions(gettext, loadBalancersService, editMember) {
     var loadBalancerIsActionable, poolId;
 
     var service = {
@@ -59,9 +59,9 @@
 
     function actions() {
       return [{
-        service: editWeight.init(poolId, loadBalancerIsActionable),
+        service: editMember.init(poolId, loadBalancerIsActionable),
         template: {
-          text: gettext('Update Weight')
+          text: gettext('Edit')
         }
       }];
     }

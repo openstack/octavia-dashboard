@@ -33,6 +33,10 @@
           <dd>{$ ctrl.member.subnet_id $}</dd>
           <dt translate>Weight</dt>
           <dd>{$ ctrl.member.weight $}</dd>
+          <dt translate>Monitor Address</dt>
+          <dd>{$ ::ctrl.member.monitor_address | noValue:('None' | translate) $}</dd>
+          <dt translate>Monitor Port</dt>
+          <dd>{$ ::ctrl.member.monitor_port | noValue:('None' | translate) $}</dd>
           <dt translate>Created At</dt>
           <dd>{$ ::ctrl.member.created_at $}</dd>
           <dt translate>Updated At</dt>

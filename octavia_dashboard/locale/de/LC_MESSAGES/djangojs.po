@@ -607,9 +607,6 @@ msgstr "Pool-ID"
 msgid "Pool Members"
 msgstr "Pool-Mitglieder"
 
-msgid "Pool member weight has been updated."
-msgstr "Pool-Mitglied Gewicht wurde aktualisiert."
-
 msgid "Port"
 msgstr "Port"
 
@@ -822,14 +819,6 @@ msgstr "Das Zeitlimit muss eine Zahl größer oder gleich 0 sein."
 msgid "The weight must be a number between 1 and 256."
 msgstr "Das Gewicht muss eine Zahl zwischen 1 und 256 sein."
 
-msgid ""
-"The weight of a member determines the portion of requests or connections it "
-"services compared to the other members of the pool."
-msgstr ""
-"Das Gewicht eines Mitglieds bestimmt die Menge an Anfragen oder "
-"Verbindungen, die es bedient, verglichen mit den anderen Mitgliedern des "
-"Pools."
-
 msgid "Timeout"
 msgstr "Zeitlimit"
 
@@ -938,14 +927,8 @@ msgstr "Listener aktualisieren"
 msgid "Update Load Balancer"
 msgstr "Loadbalancer aktualisieren"
 
-msgid "Update Member Weight"
-msgstr "Mitglied-Gewicht aktualisieren"
-
 msgid "Update Pool"
 msgstr "Pool aktualisieren"
-
-msgid "Update Weight"
-msgstr "Gewicht aktualisieren"
 
 msgid ""
 "Use the key-manager service to create any certificate containers before "

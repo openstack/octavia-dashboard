@@ -386,9 +386,6 @@ msgstr "プール ID"
 msgid "Pool Members"
 msgstr "プールメンバー"
 
-msgid "Pool member weight has been updated."
-msgstr "プールメンバーのウェイトが更新されました。"
-
 msgid "Port"
 msgstr "ポート"
 
@@ -623,14 +620,8 @@ msgstr "リスナーの更新"
 msgid "Update Load Balancer"
 msgstr "ロードバランサーの更新"
 
-msgid "Update Member Weight"
-msgstr "メンバーウェイトの更新"
-
 msgid "Update Pool"
 msgstr "プールの更新"
-
-msgid "Update Weight"
-msgstr "ウェイトの更新"
 
 msgid "Weight"
 msgstr "ウェイト"

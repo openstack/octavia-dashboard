@@ -18,7 +18,7 @@
 
   angular
     .module('horizon.dashboard.project.lbaasv2.members')
-    .factory('horizon.dashboard.project.lbaasv2.members.actions.edit-weight.modal.service',
+    .factory('horizon.dashboard.project.lbaasv2.members.actions.edit-member.modal.service',
       modalService);
 
   modalService.$inject = [
@@ -33,10 +33,10 @@
 
   /**
    * @ngdoc service
-   * @ngname horizon.dashboard.project.lbaasv2.members.actions.edit-weight.modal.service
+   * @ngname horizon.dashboard.project.lbaasv2.members.actions.edit-member.modal.service
    *
    * @description
-   * Provides the service for the pool member Edit Weight action.
+   * Provides the service for the pool member Edit Member action.
    *
    * @param $q The angular service for promises.
    * @param $uibModal The angular bootstrap $uibModal service.
@@ -46,7 +46,7 @@
    * @param toastService The horizon toast service.
    * @param gettext The horizon gettext function for translation.
    *
-   * @returns The Edit Weight modal service.
+   * @returns The Edit Member modal service.
    */
 
   function modalService(
@@ -99,8 +99,8 @@
     function open(item) {
       var spec = {
         backdrop: 'static',
-        controller: 'EditWeightModalController as modal',
-        templateUrl: basePath + 'members/actions/edit-weight/modal.html',
+        controller: 'EditMemberModalController as modal',
+        templateUrl: basePath + 'members/actions/edit-member/modal.html',
         resolve: {
           poolId: function() {
             return poolId;
@@ -114,7 +114,7 @@
     }
 
     function onModalClose() {
-      toastService.add('success', gettext('Pool member weight has been updated.'));
+      toastService.add('success', gettext('Pool member has been updated.'));
       $route.reload();
     }
 

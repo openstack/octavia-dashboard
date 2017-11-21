@@ -35,6 +35,8 @@
         <input type="checkbox" hz-select-all="table.items">
       </th>
 
+      <th class="expander"></th>
+
       <th class="rsp-p1" st-sort="id" st-sort-default="id" translate>ID</th>
       <th class="rsp-p1" st-sort="address" translate>IP Address</th>
       <th class="rsp-p1" st-sort="protocol_port" translate>Protocol Port</th>
@@ -54,13 +56,19 @@
       Include action-col if you want to perform actions.
       rsp-p1 rsp-p2 are responsive priority as user resizes window.
     -->
-    <tr ng-repeat="item in table.items track by item.id"
+    <tr ng-repeat-start="item in table.items track by item.id"
         ng-class="{'st-selected': checked[item.id]}">
 
       <td class="multi_select_column">
         <input type="checkbox"
                ng-model="tCtrl.selections[item.id].checked"
                hz-select="item">
+      </td>
+      <td class="expander">
+        <span class="fa fa-chevron-right"
+           hz-expand-detail
+           duration="200">
+        </span>
       </td>
       <td class="rsp-p1"><a ng-href="project/load_balancer/{$ ::table.loadbalancerId $}/listeners/{$ ::table.listenerId $}/pools/{$ ::table.poolId $}/members/{$ ::item.id $}">{$ ::item.id $}</a></td>
       <td class="rsp-p1">{$ ::item.address $}</td>
@@ -77,7 +85,30 @@
       </td>
     </tr>
 
-    <tr table-status table="table" column-count="6"></tr>
+    <tr ng-repeat-end class="detail-row">
+      <!--
+        Detail-row:
+        Contains detailed information on this item.
+        Can be toggled using the chevron button.
+        Ensure colspan is greater or equal to number of column-headers.
+      -->
+      <td class="detail" colspan="9">
+
+        <div class="row">
+          <dl class="col-sm-2">
+            <dt translate>Monitor Address</dt>
+            <dd>{$ ::item.monitor_address | noValue:('None' | translate) $}</dd>
+          </dl>
+          <dl class="col-sm-2">
+            <dt translate>Monitor Port</dt>
+            <dd>{$ ::item.monitor_port | noValue:('None' | translate) $}</dd>
+          </dl>
+        </div>
+
+      </td>
+    </tr>
+
+    <tr table-status table="table" column-count="9"></tr>
 
   </tbody>
   <!--

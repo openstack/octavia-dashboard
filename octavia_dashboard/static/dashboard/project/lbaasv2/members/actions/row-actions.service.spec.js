@@ -36,7 +36,7 @@
 
     it('should define correct table row actions', function() {
       expect(actions.length).toBe(1);
-      expect(actions[0].template.text).toBe('Update Weight');
+      expect(actions[0].template.text).toBe('Edit');
     });
 
     it('should have the "allowed" and "perform" functions', function() {

@@ -501,7 +501,9 @@
           members.push({
             id: server.id,
             name: server.name,
-            weight: 1
+            weight: 1,
+            monitor_address: null,
+            monitor_port: null
           });
         }
       });
@@ -661,6 +663,8 @@
           subnet: mapSubnetObj(member.subnet_id),
           port: member.protocol_port,
           weight: member.weight,
+          monitor_address: member.monitor_address,
+          monitor_port: member.monitor_port,
           allocatedMember: true
         });
       });

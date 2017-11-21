@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  describe('LBaaS v2 Member Edit Weight Controller', function() {
+  describe('LBaaS v2 Member Edit Controller', function() {
     var ctrl, api, $controller, $uibModalInstance, $scope, $q;
     var fail = false;
 
@@ -37,7 +37,11 @@
       $provide.value('poolId', 'pool1');
       $provide.value('member', {
         id: 'member1',
-        weight: 1
+        address: '3.3.3.3',
+        protocol_port: '443',
+        weight: 1,
+        monitor_address: '1.1.1.1',
+        monitor_port: 80
       });
       $provide.value('horizon.app.core.openstack-service-api.lbaasv2', {
         editMember: function() {
@@ -52,24 +56,34 @@
       $uibModalInstance = $injector.get('$uibModalInstance');
       $scope = $injector.get('$rootScope').$new();
       $q = $injector.get('$q');
-      ctrl = $controller('EditWeightModalController');
+      ctrl = $controller('EditMemberModalController');
     }));
 
     it('should define controller properties', function() {
       expect(ctrl.cancel).toBeDefined();
       expect(ctrl.save).toBeDefined();
       expect(ctrl.saving).toBe(false);
+      expect(ctrl.address).toBeDefined();
+      expect(ctrl.protocol_port).toBeDefined();
       expect(ctrl.weight).toBe(1);
+      expect(ctrl.ipPattern).toBeDefined();
+      expect(ctrl.helpUrl).toBeDefined();
       expect(ctrl.weightError).toBe('The weight must be a number between 1 and 256.');
+      expect(ctrl.monitorAddressError).toBe('The monitor address must be a vaid IP address.');
+      expect(ctrl.monitorPortError).toBe('The monitor port must be a number between 1 and 65535.');
     });
 
-    it('should edit member weight', function() {
+    it('should edit member weight, monitor address and port', function() {
       spyOn(api, 'editMember').and.callThrough();
       spyOn($uibModalInstance, 'close');
       ctrl.save();
       $scope.$apply();
       expect(ctrl.saving).toBe(true);
-      expect(api.editMember).toHaveBeenCalledWith('pool1', 'member1', { weight: 1 });
+      expect(api.editMember).toHaveBeenCalledWith('pool1', 'member1', {
+        weight: 1,
+        monitor_address: '1.1.1.1',
+        monitor_port: 80
+      });
       expect($uibModalInstance.close).toHaveBeenCalled();
     });
 

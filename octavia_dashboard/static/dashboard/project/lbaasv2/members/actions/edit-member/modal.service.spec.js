@@ -16,7 +16,7 @@
 (function () {
   'use strict';
 
-  describe('LBaaS v2 Member Edit Weight Service', function() {
+  describe('LBaaS v2 Member Edit Service', function() {
     var service, policy, $scope, $route, $uibModal, toast;
     var member = { id: 'member1' };
 
@@ -65,7 +65,7 @@
       $route = $injector.get('$route');
       $uibModal = $injector.get('$uibModal');
       service = $injector.get(
-        'horizon.dashboard.project.lbaasv2.members.actions.edit-weight.modal.service');
+        'horizon.dashboard.project.lbaasv2.members.actions.edit-member.modal.service');
       service.init('pool1', fakePromise());
     }));
 
@@ -101,7 +101,7 @@
       spyOn($route, 'reload');
       service.perform(member);
       $scope.$apply();
-      expect(toast.add).toHaveBeenCalledWith('success', 'Pool member weight has been updated.');
+      expect(toast.add).toHaveBeenCalledWith('success', 'Pool member has been updated.');
       expect($route.reload).toHaveBeenCalled();
     });
 

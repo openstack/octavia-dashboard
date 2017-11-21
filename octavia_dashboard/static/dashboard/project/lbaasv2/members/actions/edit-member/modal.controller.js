@@ -18,11 +18,13 @@
 
   angular
     .module('horizon.dashboard.project.lbaasv2.members')
-    .controller('EditWeightModalController', EditWeightModalController);
+    .controller('EditMemberModalController', EditMemberModalController);
 
-  EditWeightModalController.$inject = [
+  EditMemberModalController.$inject = [
     '$uibModalInstance',
     'horizon.app.core.openstack-service-api.lbaasv2',
+    'horizon.dashboard.project.lbaasv2.basePath',
+    'horizon.dashboard.project.lbaasv2.patterns',
     'horizon.framework.util.i18n.gettext',
     // Dependencies injected with resolve by $uibModal.open
     'poolId',
@@ -31,9 +33,9 @@
 
   /**
    * @ngdoc controller
-   * @name EditWeightModalController
+   * @name EditMemberModalController
    * @description
-   * Controller used by the modal service for editing the weight of a pool member.
+   * Controller used by the modal service for editing a pool member.
    *
    * @param $uibModalInstance The angular bootstrap $uibModalInstance service.
    * @param api The LBaaS v2 API service.
@@ -41,22 +43,37 @@
    * @param poolId The pool ID.
    * @param member The pool member to update.
    *
-   * @returns The Edit Weight modal controller.
+   * @returns The Edit Member modal controller.
    */
 
-  function EditWeightModalController($uibModalInstance, api, gettext, poolId, member) {
+  function EditMemberModalController($uibModalInstance, api, basePath,
+    patterns, gettext, poolId, member) {
     var ctrl = this;
 
+    // IP address validation pattern
+    ctrl.ipPattern = [patterns.ipv4, patterns.ipv6].join('|');
+
+    ctrl.address = member.address;
+    ctrl.protocol_port = member.protocol_port;
     ctrl.weight = member.weight;
+    ctrl.monitor_address = member.monitor_address;
+    ctrl.monitor_port = member.monitor_port;
     ctrl.cancel = cancel;
     ctrl.save = save;
     ctrl.saving = false;
     ctrl.weightError = gettext('The weight must be a number between 1 and 256.');
+    ctrl.monitorAddressError = gettext('The monitor address must be a vaid IP address.');
+    ctrl.monitorPortError = gettext('The monitor port must be a number between 1 and 65535.');
+
+    ctrl.helpUrl = basePath + 'workflow/members/members.help.html';
 
     function save() {
       ctrl.saving = true;
-      return api.editMember(poolId, member.id, { weight: ctrl.weight })
-        .then(onSuccess, onFailure);
+      return api.editMember(poolId, member.id, {
+        weight: ctrl.weight,
+        monitor_address: ctrl.monitor_address,
+        monitor_port: ctrl.monitor_port
+      }).then(onSuccess, onFailure);
     }
 
     function cancel() {
