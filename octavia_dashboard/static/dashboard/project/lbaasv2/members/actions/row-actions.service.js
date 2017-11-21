@@ -23,6 +23,7 @@
   rowActions.$inject = [
     'horizon.framework.util.i18n.gettext',
     'horizon.dashboard.project.lbaasv2.loadbalancers.service',
+    'horizon.dashboard.project.lbaasv2.members.actions.delete',
     'horizon.dashboard.project.lbaasv2.members.actions.edit-member.modal.service'
   ];
 
@@ -39,8 +40,8 @@
    * @returns Members row actions service object.
    */
 
-  function rowActions(gettext, loadBalancersService, editMember) {
-    var loadBalancerIsActionable, poolId;
+  function rowActions(gettext, loadBalancersService, deleteService, editMember) {
+    var loadBalancerIsActionable, loadbalancerId, listenerId, poolId;
 
     var service = {
       actions: actions,
@@ -51,9 +52,11 @@
 
     ///////////////
 
-    function init(loadbalancerId, _poolId_) {
-      loadBalancerIsActionable = loadBalancersService.isActionable(loadbalancerId);
+    function init(_loadbalancerId_, _listenerId_, _poolId_) {
+      loadbalancerId = _loadbalancerId_;
+      listenerId = _listenerId_;
       poolId = _poolId_;
+      loadBalancerIsActionable = loadBalancersService.isActionable(loadbalancerId);
       return service;
     }
 
@@ -62,6 +65,12 @@
         service: editMember.init(poolId, loadBalancerIsActionable),
         template: {
           text: gettext('Edit')
+        }
+      },{
+        service: deleteService.init(loadbalancerId, listenerId, poolId, loadBalancerIsActionable),
+        template: {
+          text: gettext('Delete Member'),
+          type: 'delete'
         }
       }];
     }

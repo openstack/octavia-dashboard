@@ -28,15 +28,16 @@
     beforeEach(inject(function ($injector) {
       var rowActionsService = $injector.get(
         'horizon.dashboard.project.lbaasv2.members.actions.rowActions');
-      actions = rowActionsService.init('1', '2').actions();
+      actions = rowActionsService.init('1', '2', '3').actions();
       var loadbalancerService = $injector.get(
           'horizon.dashboard.project.lbaasv2.loadbalancers.service');
       spyOn(loadbalancerService, 'isActionable').and.returnValue(true);
     }));
 
     it('should define correct table row actions', function() {
-      expect(actions.length).toBe(1);
+      expect(actions.length).toBe(2);
       expect(actions[0].template.text).toBe('Edit');
+      expect(actions[1].template.text).toBe('Delete Member');
     });
 
     it('should have the "allowed" and "perform" functions', function() {

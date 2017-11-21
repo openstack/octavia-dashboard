@@ -18,7 +18,7 @@
   'use strict';
 
   describe('LBaaS v2 Members Table Controller', function() {
-    var controller, lbaasv2API, scope;
+    var controller, lbaasv2API, scope, actions;
     var items = [{ foo: 'bar' }];
     var apiFail = false;
 
@@ -43,19 +43,28 @@
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
     beforeEach(module(function($provide) {
       $provide.value('$uibModal', {});
+      $provide.value('horizon.dashboard.project.lbaasv2.members.actions.rowActions', {
+        init: function() {
+          return {
+            actions: 'member-actions'
+          };
+        }
+      });
     }));
 
     beforeEach(inject(function($injector) {
       lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      actions = $injector.get('horizon.dashboard.project.lbaasv2.members.actions.rowActions');
       controller = $injector.get('$controller');
       spyOn(lbaasv2API, 'getMembers').and.callFake(fakeAPI);
+      spyOn(actions, 'init').and.callThrough();
     }));
 
     function createController() {
       return controller('MembersTableController', {
         $scope: scope,
         $routeParams: {
-          loadbalancerId: 'loadbaancerId',
+          loadbalancerId: 'loadbalancerId',
           listenerId: 'listenerId',
           poolId: 'poolId'
         }});

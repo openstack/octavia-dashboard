@@ -128,6 +128,13 @@
         testInput: [ '1234', '5678' ]
       },
       {
+        func: 'deleteMember',
+        method: 'delete',
+        path: '/api/lbaas/pools/1234/members/5678/',
+        error: 'Unable to delete member.',
+        testInput: [ '1234', '5678' ]
+      },
+      {
         func: 'editMember',
         method: 'put',
         path: '/api/lbaas/pools/1234/members/5678/',

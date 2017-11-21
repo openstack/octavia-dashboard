@@ -52,6 +52,7 @@
       deletePool: deletePool,
       getMembers: getMembers,
       getMember: getMember,
+      deleteMember: deleteMember,
       editMember: editMember,
       getHealthMonitor: getHealthMonitor,
       deleteHealthMonitor: deleteHealthMonitor,
@@ -343,6 +344,23 @@
       return apiService.get('/api/lbaas/pools/' + poolId + '/members/' + memberId + '/')
         .error(function () {
           toastService.add('error', gettext('Unable to retrieve member.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.deleteMember
+     * @description
+     * Delete a single pool Member by ID.
+     * @param {string} poolId
+     * Specifies the id of the pool the member belongs to.
+     * @param {string} memberId
+     * Specifies the id of the member to request.
+     */
+
+    function deleteMember(poolId, memberId) {
+      return apiService.delete('/api/lbaas/pools/' + poolId + '/members/' + memberId + '/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to delete member.'));
         });
     }
 

@@ -101,7 +101,7 @@
       expect(ctrl.operatingStatus).toBeDefined();
       expect(ctrl.provisioningStatus).toBeDefined();
       expect(ctrl.actions).toBe('member-actions');
-      expect(actions.init).toHaveBeenCalledWith('loadbalancerId', 'poolId');
+      expect(actions.init).toHaveBeenCalledWith('loadbalancerId', 'listenerId', 'poolId');
     });
 
     it('should throw error on API fail', function() {
