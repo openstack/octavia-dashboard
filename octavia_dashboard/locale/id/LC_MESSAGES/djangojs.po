@@ -405,9 +405,6 @@ msgstr ""
 msgid "Edit"
 msgstr "Edit"
 
-msgid "Edit Pool"
-msgstr "Edit Pool (edit kolam)"
-
 msgid "Error"
 msgstr "Error (kesalahan)"
 

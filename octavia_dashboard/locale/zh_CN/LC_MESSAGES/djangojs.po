@@ -352,9 +352,6 @@ msgstr ""
 msgid "Edit"
 msgstr "编辑"
 
-msgid "Edit Pool"
-msgstr "编辑资源池"
-
 msgid "Error"
 msgstr "错误"
 

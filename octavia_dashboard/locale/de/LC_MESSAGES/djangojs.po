@@ -376,9 +376,6 @@ msgstr ""
 msgid "Edit"
 msgstr "Bearbeiten"
 
-msgid "Edit Pool"
-msgstr "Pool bearbeiten"
-
 msgid "Error"
 msgstr "Fehler"
 
