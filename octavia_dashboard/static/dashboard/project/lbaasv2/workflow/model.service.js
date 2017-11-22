@@ -146,7 +146,8 @@
           name: gettext('Listener 1'),
           description: null,
           protocol: null,
-          port: null
+          port: null,
+          connection_limit: -1
         },
         pool: {
           id: null,
@@ -631,6 +632,7 @@
       spec.description = listener.description;
       spec.protocol = listener.protocol;
       spec.port = listener.protocol_port;
+      spec.connection_limit = listener.connection_limit;
     }
 
     function setPoolSpec(pool) {

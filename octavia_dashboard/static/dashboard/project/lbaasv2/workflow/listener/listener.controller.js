@@ -44,6 +44,9 @@
     ctrl.portNumberError = gettext('The port must be a number between 1 and 65535.');
     ctrl.portUniqueError = gettext(
         'The port must be unique among all listeners attached to this load balancer.');
+    ctrl.connectionLimitError = gettext(
+      'The connection limit must be a number greater than or equal to -1.'
+    );
 
     ////////////
 
