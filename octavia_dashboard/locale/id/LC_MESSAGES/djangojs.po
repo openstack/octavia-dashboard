@@ -318,17 +318,24 @@ msgstr "Confirm Delete Listeners (konfirmasi penghapusan pendengar)"
 msgid "Confirm Delete Load Balancers"
 msgstr "Confirm Delete Load Balancers (konfirmasi hapus beban penyeimbang)"
 
-msgid "Confirm Delete Pool"
-msgstr "Confirm Delete Pool (konfirmasi hapus kolam)"
-
 msgid "Confirm Delete Member"
 msgstr "Confirm Delete Member"
+
+msgid "Confirm Delete Pool"
+msgstr "Confirm Delete Pool (konfirmasi hapus kolam)"
 
 msgid "Confirm Disassociate Floating IP Address"
 msgstr "Konfirmasi pemisahan alamat IP mengambang"
 
 msgid "Connection Limit"
 msgstr "Connection Limit (batas koneksi)"
+
+msgid ""
+"Connection Limit\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgstr ""
+"Connection Limit\n"
+"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 
 msgid "Create Health Monitor"
 msgstr "Create Health Monitor (buat pemantauan kesehatan)"
@@ -369,11 +376,11 @@ msgstr "Delete Load Balancer (hapus penyeimbang beban)"
 msgid "Delete Load Balancers"
 msgstr "Delete Load Balancers (hapus penyeimbang beban)"
 
-msgid "Delete Pool"
-msgstr "Delete Pool (hapus kolam)"
-
 msgid "Delete Member"
 msgstr "Delete Member"
+
+msgid "Delete Pool"
+msgstr "Delete Pool (hapus kolam)"
 
 #, python-format
 msgid "Deleted health monitor: %s."
@@ -388,12 +395,12 @@ msgid "Deleted load balancers: %s."
 msgstr "Penyeimbang beban yang dihapus: %s."
 
 #, python-format
-msgid "Deleted pool: %s."
-msgstr "Kolam yang dihapus: %s."
-
-#, python-format
 msgid "Deleted member: %s."
 msgstr "Deleted member: %s."
+
+#, python-format
+msgid "Deleted pool: %s."
+msgstr "Kolam yang dihapus: %s."
 
 msgid "Description"
 msgstr "Description (gambaran)"
@@ -675,13 +682,6 @@ msgid "Port"
 msgstr "Port"
 
 msgid ""
-"Connection Limit\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Connection Limit\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
-msgid ""
 "Port\n"
 "          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
 msgstr ""
@@ -800,16 +800,14 @@ msgstr ""
 "yang tidak ditemukan di tabel \n"
 "   Available Instance."
 
-msgid ""
-"The connection limit must be a number greater than or equal to -1."
-msgstr ""
-"The connection limit must be a number greater than or equal to -1."
-
 msgid "The IP address is not valid."
 msgstr "Alamat IP tidak valid."
 
 msgid "The URL path is not valid."
 msgstr "Path URL tidak sah."
+
+msgid "The connection limit must be a number greater than or equal to -1."
+msgstr "The connection limit must be a number greater than or equal to -1."
 
 msgid "The expected status code is not valid."
 msgstr "Kode status yang diharapkan adalah tidak sah."
@@ -842,12 +840,12 @@ msgstr ""
 "sedang ada: %s."
 
 #, python-format
-msgid "The following pool could not be deleted: %s."
-msgstr "Kolam berikut ini tidak bisa dihapus: %s."
-
-#, python-format
 msgid "The following member could not be deleted: %s."
 msgstr "The following member could not be deleted: %s."
+
+#, python-format
+msgid "The following pool could not be deleted: %s."
+msgstr "Kolam berikut ini tidak bisa dihapus: %s."
 
 msgid "The health check interval must be greater than or equal to the timeout."
 msgstr ""
@@ -956,11 +954,11 @@ msgstr "Tidak dapat menghapus pendengar."
 msgid "Unable to delete load balancer."
 msgstr "Tidak dapat menghapus penyeimbang beban."
 
-msgid "Unable to delete pool."
-msgstr "Tidak dapat menghapus kolam."
-
 msgid "Unable to delete member."
 msgstr "Unable to delete member."
+
+msgid "Unable to delete pool."
+msgstr "Tidak dapat menghapus kolam."
 
 #, python-format
 msgid "Unable to disassociate floating IP address from load balancer: %s."
@@ -1119,16 +1117,16 @@ msgstr ""
 
 #, python-format
 msgid ""
+"You have selected \"%s\". Please confirm your selection. Deleted members are "
+"not recoverable."
+msgstr ""
+"You have selected \"%s\". Please confirm your selection. Deleted members are "
+"not recoverable."
+
+#, python-format
+msgid ""
 "You have selected \"%s\". Please confirm your selection. Deleted pools are "
 "not recoverable."
 msgstr ""
 "Anda telah memilih \"%s\". Harap mengkonfirmasi pilihan Anda. Kolam yang "
 "telah dihapus tidak dapat dipulihkan."
-
-#, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted members are "
-"not recoverable."
-msgstr ""
-"You have selected \"%s\". Please confirm your selection. Deleted members are "
-"not recoverable."
