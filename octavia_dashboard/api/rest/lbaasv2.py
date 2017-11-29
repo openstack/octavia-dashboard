@@ -21,8 +21,12 @@ from django.conf import settings
 from django.views import generic
 
 from horizon import conf
+import octavia_dashboard
 from openstack import connection
-from openstack import profile
+try:
+    from openstack import config as occ
+except ImportError:
+    from os_client_config import config as occ
 
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api.rest import urls
@@ -37,20 +41,27 @@ def _get_sdk_connection(request):
     :param request: Django request object
     :returns: SDK connection object
     """
-    prof = profile.Profile()
-    prof.set_region(profile.Profile.ALL, request.user.services_region)
-
+    # NOTE(mordred) Nothing says love like two inverted booleans
+    # The config setting is NO_VERIFY which is, in fact, insecure.
+    # get_one_cloud wants verify, so we pass 'not insecure' to verify.
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    return connection.Connection(profile=prof,
-                                 verify=insecure,
-                                 cert=cacert,
-                                 user_agent='octavia-dashboard',
-                                 auth_plugin='token',
-                                 project_id=request.user.project_id,
-                                 default_domain_id=request.user.domain_id,
-                                 token=request.user.token.unscoped_token,
-                                 auth_url=request.user.endpoint)
+    # Pass load_yaml_config as this is a Django service with its own config
+    # and we don't want to accidentaly pick up a clouds.yaml file. We want to
+    # use the settings we're passing in.
+    cloud_config = occ.OpenStackConfig(load_yaml_config=False).get_one_cloud(
+        verify=not insecure,
+        cacert=cacert,
+        region_name=request.user.services_region,
+        auth_type='token',
+        auth=dict(
+            project_id=request.user.project_id,
+            project_domain_id=request.user.domain_id,
+            token=request.user.token.unscoped_token,
+            auth_url=request.user.endpoint),
+        app_name='octavia-dashboard',
+        app_version=octavia_dashboard.__version__)
+    return connection.from_config(cloud_config=cloud_config)
 
 
 def _sdk_object_to_list(object):
