@@ -662,6 +662,24 @@ class Pools(generic.View):
     url_regex = r'lbaas/pools/$'
 
     @rest_utils.ajax()
+    def get(self, request):
+        """List of pools for the current project.
+
+        The listing result is an object with property "items".
+        """
+        loadbalancer_id = request.GET.get('loadbalancerId')
+        listener_id = request.GET.get('listenerId')
+        conn = _get_sdk_connection(request)
+        pool_list = _sdk_object_to_list(conn.load_balancer.pools(
+            project_id=request.user.project_id))
+
+        if loadbalancer_id or listener_id:
+            pool_list = self._filter_pools(pool_list,
+                                           loadbalancer_id,
+                                           listener_id)
+        return {'items': pool_list}
+
+    @rest_utils.ajax()
     def post(self, request):
         """Create a new pool.
 
@@ -671,6 +689,24 @@ class Pools(generic.View):
         kwargs = {'loadbalancer_id': request.DATA.get('loadbalancer_id'),
                   'listener_id': request.DATA.get('parentResourceId')}
         return create_pool(request, **kwargs)
+
+    def _filter_pools(self, pool_list, loadbalancer_id, listener_id):
+        filtered_pools = []
+
+        for pool in pool_list:
+            if loadbalancer_id:
+                if pool['loadbalancers'][0]['id'] == loadbalancer_id:
+                    if listener_id:
+                        if (pool['listeners'] and
+                                pool['listeners'][0]['id'] == listener_id):
+                            filtered_pools.append(pool)
+                    else:
+                        filtered_pools.append(pool)
+            elif (pool['listeners'] and
+                  pool['listeners'][0]['id'] == listener_id):
+                    filtered_pools.append(pool)
+
+        return filtered_pools
 
 
 @urls.register
@@ -820,6 +856,26 @@ class HealthMonitors(generic.View):
     url_regex = r'lbaas/healthmonitors/$'
 
     @rest_utils.ajax()
+    def get(self, request):
+        """List of health monitors for the current project.
+
+        The listing result is an object with property "items".
+        """
+        pool_id = request.GET.get('poolId')
+        conn = _get_sdk_connection(request)
+        health_monitor_list = _sdk_object_to_list(
+            conn.load_balancer.health_monitors(
+                project_id=request.user.project_id
+            )
+        )
+
+        if pool_id:
+            health_monitor_list = self._filter_health_monitors(
+                health_monitor_list,
+                pool_id)
+        return {'items': health_monitor_list}
+
+    @rest_utils.ajax()
     def post(self, request):
         """Create a new health monitor.
 
@@ -827,6 +883,15 @@ class HealthMonitors(generic.View):
         kwargs = {'loadbalancer_id': request.DATA.get('loadbalancer_id'),
                   'pool_id': request.DATA.get('parentResourceId')}
         return create_health_monitor(request, **kwargs)
+
+    def _filter_health_monitors(self, health_monitor_list, pool_id):
+        filtered_health_monitors = []
+
+        for health_monitor in health_monitor_list:
+            if health_monitor['pools'][0]['id'] == pool_id:
+                filtered_health_monitors.append(health_monitor)
+
+        return filtered_health_monitors
 
 
 @urls.register

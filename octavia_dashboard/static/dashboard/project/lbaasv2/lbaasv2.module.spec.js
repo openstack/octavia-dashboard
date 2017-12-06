@@ -1,5 +1,6 @@
 /*
  * Copyright 2015 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -104,43 +105,270 @@
       inject();
     });
 
-    it('should route URLs', function () {
+    it('should route to loadbalancer panel', function () {
       var loadbalancers = '/project/load_balancer';
-      var listener = loadbalancers + '/:loadbalancerId/listeners/:listenerId';
-      var pool = listener + '/pools/:poolId';
-      var member = pool + '/members/:memberId';
-      var healthmonitor = pool + '/healthmonitors/:healthmonitorId';
       var routes = [[
         loadbalancers, {
-          templateUrl: basePath + 'loadbalancers/table.html'
-        }
-      ], [
-        loadbalancers + '/:loadbalancerId', {
-          templateUrl: basePath + 'loadbalancers/detail.html'
-        }
-      ], [
-        listener, {
-          templateUrl: basePath + 'listeners/detail.html'
-        }
-      ], [
-        pool, {
-          templateUrl: basePath + 'pools/detail.html'
-        }
-      ], [
-        member, {
-          templateUrl: basePath + 'members/detail.html'
-        }
-      ], [
-        healthmonitor, {
-          templateUrl: basePath + 'healthmonitors/detail.html'
+          templateUrl: basePath + 'loadbalancers/panel.html'
         }
       ]];
 
-      expect($routeProvider.when.calls.count()).toBe(6);
-      angular.forEach($routeProvider.when.calls.all(), function(call, i) {
-        expect(call.args).toEqual(routes[i]);
+      routes.forEach(function(route) {
+        expect($routeProvider.when).toHaveBeenCalledWith(route[0], route[1]);
       });
     });
+
+    it('should route resolved loadbalancer detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/loadbalancers/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+
+      });
+    }));
+
+    it('should route resolved listener detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      function listenerAPI() {
+        var listener = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(listener);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      spyOn(lbaasv2API, 'getListener').and.callFake(listenerAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/listeners/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1/listeners/2');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      });
+    }));
+
+    it('should route resolved pool detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      function listenerAPI() {
+        var listener = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(listener);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function poolAPI() {
+        var pool = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(pool);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      spyOn(lbaasv2API, 'getListener').and.callFake(listenerAPI);
+      spyOn(lbaasv2API, 'getPool').and.callFake(poolAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/pools/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1/listeners/2/pools/3');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      });
+    }));
+
+    it('should route resolved member detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      function listenerAPI() {
+        var listener = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(listener);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function poolAPI() {
+        var pool = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(pool);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function memberAPI() {
+        var member = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(member);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      spyOn(lbaasv2API, 'getListener').and.callFake(listenerAPI);
+      spyOn(lbaasv2API, 'getPool').and.callFake(poolAPI);
+      spyOn(lbaasv2API, 'getMember').and.callFake(memberAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/members/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1/listeners/2/pools/3/members/4');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      });
+    }));
+
+    it('should route resolved health monitor detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      function listenerAPI() {
+        var listener = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(listener);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function poolAPI() {
+        var pool = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(pool);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function healthmonitorAPI() {
+        var healthmonitor = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(healthmonitor);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      spyOn(lbaasv2API, 'getListener').and.callFake(listenerAPI);
+      spyOn(lbaasv2API, 'getPool').and.callFake(poolAPI);
+      spyOn(lbaasv2API, 'getHealthMonitor').and.callFake(healthmonitorAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/healthmonitors/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1/listeners/2/pools/3/healthmonitors/4');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      });
+    }));
+
+    it('should redirect to project home on route change error',
+      inject(function($location, $rootScope) {
+        spyOn($location, 'path').and.callThrough();
+        $rootScope.$emit('$routeChangeError', null, null, null, 'routeChangeError');
+        expect($location.path).toHaveBeenCalledWith('project/load_balancer');
+      })
+    );
+
   });
 
 })();

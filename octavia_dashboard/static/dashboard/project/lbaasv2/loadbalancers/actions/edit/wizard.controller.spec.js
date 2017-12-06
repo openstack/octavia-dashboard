@@ -29,7 +29,6 @@
       launchContext: { id: '1' }
     };
 
-    beforeEach(module('horizon.framework.util'));
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
     beforeEach(module(function ($provide) {
       workflowSpy = jasmine.createSpy('workflow').and.returnValue(workflow);

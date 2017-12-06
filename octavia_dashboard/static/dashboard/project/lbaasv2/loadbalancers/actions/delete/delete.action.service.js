@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -21,9 +22,9 @@
     .factory('horizon.dashboard.project.lbaasv2.loadbalancers.actions.delete', deleteService);
 
   deleteService.$inject = [
-    '$q',
+    'horizon.dashboard.project.lbaasv2.loadbalancers.resourceType',
+    'horizon.framework.util.actions.action-result.service',
     '$location',
-    '$route',
     'horizon.framework.widgets.modal.deleteModalService',
     'horizon.app.core.openstack-service-api.lbaasv2',
     'horizon.app.core.openstack-service-api.policy',
@@ -36,24 +37,31 @@
    * @ngDoc factory
    * @name horizon.dashboard.project.lbaasv2.loadbalancers.actions.deleteService
    * @description
+   *
    * Brings up the delete load balancers confirmation modal dialog.
    * On submit, deletes selected load balancers.
    * On cancel, does nothing.
-   * @param $q The angular service for promises.
+   *
+   * @param resourceType The loadbalancer resource type.
+   * @param actionResultService The horizon action result service.
    * @param $location The angular $location service.
-   * @param $route The angular $route service.
    * @param deleteModal The horizon delete modal service.
    * @param api The LBaaS v2 API service.
    * @param policy The horizon policy service.
    * @param toast The horizon message service.
    * @param qExtensions Horizon extensions to the $q service.
    * @param gettext The horizon gettext function for translation.
-   * @returns The load balancers table delete service.
+   *
+   * @returns The load balancers delete service.
    */
 
   function deleteService(
-    $q, $location, $route, deleteModal, api, policy, toast, qExtensions, gettext
+    resourceType, actionResultService, $location, deleteModal, api,
+    policy, toast, qExtensions, gettext
   ) {
+
+    var scope;
+
     // If a batch delete, then this message is displayed for any selected load balancers not in
     // ACTIVE or ERROR state.
     var notAllowedMessage = gettext('The following load balancers are pending and cannot be ' +
@@ -82,23 +90,34 @@
 
     //////////////
 
-    function perform(items) {
-      if (angular.isArray(items)) {
-        qExtensions.allSettled(items.map(checkPermission)).then(afterCheck);
-      } else {
-        deleteModal.open({ $emit: actionComplete }, [items], context);
-      }
+    function perform(items, _scope_) {
+      scope = _scope_;
+      var loadbalancers = angular.isArray(items) ? items : [items];
+      return qExtensions.allSettled(loadbalancers.map(checkPermission)).then(afterCheck);
     }
 
-    function allowed(item) {
+    function deleteResult(deleteModalResult) {
+      // To make the result of this action generically useful, reformat the return
+      // from the deleteModal into a standard form
+      var actionResult = actionResultService.getActionResult();
+      deleteModalResult.pass.forEach(function markDeleted(item) {
+        actionResult.deleted(resourceType, item.context.id);
+      });
+      deleteModalResult.fail.forEach(function markFailed(item) {
+        actionResult.failed(resourceType, item.context.id);
+      });
+
+      if (actionResult.result.failed.length === 0 && actionResult.result.deleted.length > 0) {
+        var path = 'project/load_balancer';
+        $location.path(path);
+      }
+      return actionResult.result;
+    }
+
+    function allowed() {
       // This rule is made up and should therefore always pass. I assume at some point there
       // will be a valid rule similar to this that we will want to use.
-      var promises = [policy.ifAllowed({ rules: [['neutron', 'delete_loadbalancer']] })];
-      if (item) {
-        var status = item.provisioning_status;
-        promises.push(qExtensions.booleanAsPromise(status === 'ACTIVE' || status === 'ERROR'));
-      }
-      return $q.all(promises);
+      return policy.ifAllowed({ rules: [['neutron', 'delete_loadbalancer']] });
     }
 
     function canBeDeleted(item) {
@@ -115,7 +134,7 @@
         toast.add('error', getMessage(notAllowedMessage, result.fail));
       }
       if (result.pass.length > 0) {
-        deleteModal.open({ $emit: actionComplete }, result.pass.map(getEntity), context);
+        return deleteModal.open(scope, result.pass.map(getEntity), context).then(deleteResult);
       }
     }
 
@@ -133,21 +152,6 @@
 
     function getEntity(result) {
       return result.context;
-    }
-
-    function actionComplete(eventType) {
-      if (eventType === context.failedEvent) {
-        // Action failed, reload the page
-        $route.reload();
-      } else {
-        // If the user is on the load balancers table then just reload the page, otherwise they
-        // are on the details page and we return to the table.
-        if (/\/load_balancer(\/)?$/.test($location.path())) {
-          $route.reload();
-        } else {
-          $location.path('project/load_balancer');
-        }
-      }
     }
 
   }

@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -18,13 +19,13 @@
 
   angular
     .module('horizon.dashboard.project.lbaasv2.members')
-    .factory('horizon.dashboard.project.lbaasv2.members.actions.edit-member.modal.service',
+    .factory('horizon.dashboard.project.lbaasv2.members.actions.edit-member',
       modalService);
 
   modalService.$inject = [
-    '$q',
+    'horizon.dashboard.project.lbaasv2.members.resourceType',
+    'horizon.framework.util.actions.action-result.service',
     '$uibModal',
-    '$route',
     'horizon.dashboard.project.lbaasv2.basePath',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.framework.widgets.toast.service',
@@ -38,9 +39,9 @@
    * @description
    * Provides the service for the pool member Edit Member action.
    *
-   * @param $q The angular service for promises.
+   * @param resourceType The member resource type.
+   * @param actionResultService The horizon action result service.
    * @param $uibModal The angular bootstrap $uibModal service.
-   * @param $route The angular $route service.
    * @param basePath The LBaaS v2 module base path.
    * @param policy The horizon policy service.
    * @param toastService The horizon toast service.
@@ -50,39 +51,29 @@
    */
 
   function modalService(
-    $q,
+    resourceType,
+    actionResultService,
     $uibModal,
-    $route,
     basePath,
     policy,
     toastService,
     gettext
   ) {
-    var poolId, statePromise;
+    var member;
 
     var service = {
       perform: open,
-      allowed: allowed,
-      init: init
+      allowed: allowed
     };
 
     return service;
 
     ////////////
 
-    function init(_poolId_, _statePromise_) {
-      poolId = _poolId_;
-      statePromise = _statePromise_;
-      return service;
-    }
-
     function allowed(/*item*/) {
-      return $q.all([
-        statePromise,
-        // This rule is made up and should therefore always pass. At some point there will
-        // likely be a valid rule similar to this that we will want to use.
-        policy.ifAllowed({ rules: [['neutron', 'pool_member_update']] })
-      ]);
+      // This rule is made up and should therefore always pass. At some point there will
+      // likely be a valid rule similar to this that we will want to use.
+      return policy.ifAllowed({ rules: [['neutron', 'pool_member_update']] });
     }
 
     /**
@@ -97,13 +88,14 @@
      */
 
     function open(item) {
+      member = item;
       var spec = {
         backdrop: 'static',
         controller: 'EditMemberModalController as modal',
         templateUrl: basePath + 'members/actions/edit-member/modal.html',
         resolve: {
           poolId: function() {
-            return poolId;
+            return item.poolId;
           },
           member: function() {
             return item;
@@ -115,8 +107,9 @@
 
     function onModalClose() {
       toastService.add('success', gettext('Pool member has been updated.'));
-      $route.reload();
+      return actionResultService.getActionResult()
+        .updated(resourceType, member.id)
+        .result;
     }
-
   }
 })();

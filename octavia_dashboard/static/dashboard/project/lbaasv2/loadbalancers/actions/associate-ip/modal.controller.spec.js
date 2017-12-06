@@ -20,7 +20,6 @@
     var ctrl, network, floatingIps, floatingIpPools, $controller, $uibModalInstance;
     var associateFail = false;
 
-    beforeEach(module('horizon.framework.util.i18n'));
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     beforeEach(function() {

@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -18,7 +19,7 @@
 
   angular
     .module('horizon.dashboard.project.lbaasv2.loadbalancers')
-    .factory('horizon.dashboard.project.lbaasv2.loadbalancers.actions.associate-ip.modal.service',
+    .factory('horizon.dashboard.project.lbaasv2.loadbalancers.actions.associate-ip',
       modalService);
 
   modalService.$inject = [
@@ -35,7 +36,7 @@
 
   /**
    * @ngdoc service
-   * @ngname horizon.dashboard.project.lbaasv2.loadbalancers.actions.associate-ip.modal.service
+   * @ngname horizon.dashboard.project.lbaasv2.loadbalancers.actions.associate-ip
    *
    * @description
    * Provides the service for the Load Balancer Associate Floating IP action.

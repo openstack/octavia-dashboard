@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -19,7 +20,7 @@
   angular
     .module('horizon.dashboard.project.lbaasv2.loadbalancers')
     .factory(
-      'horizon.dashboard.project.lbaasv2.loadbalancers.actions.disassociate-ip.modal.service',
+      'horizon.dashboard.project.lbaasv2.loadbalancers.actions.disassociate-ip',
       modalService);
 
   modalService.$inject = [
@@ -34,11 +35,13 @@
 
   /**
    * @ngDoc factory
-   * @name horizon.dashboard.project.lbaasv2.loadbalancers.actions.disassociate-ip.modal.service
+   * @name horizon.dashboard.project.lbaasv2.loadbalancers.actions.disassociate-ip
+   *
    * @description
    * Brings up the disassociate floating IP confirmation modal dialog.
    * On submit, dsiassociates the floating IP address from the load balancer.
    * On cancel, does nothing.
+   *
    * @param $q The angular service for promises.
    * @param $route The angular $route service.
    * @param deleteModal The horizon delete modal service.
@@ -46,7 +49,8 @@
    * @param policy The horizon policy service.
    * @param qExtensions Horizon extensions to the $q service.
    * @param gettext The horizon gettext function for translation.
-   * @returns The load balancers table row delete service.
+   *
+   * @returns The Disassociate Floating IP modal service.
    */
 
   function modalService($q, $route, deleteModal, network, policy, qExtensions, gettext) {

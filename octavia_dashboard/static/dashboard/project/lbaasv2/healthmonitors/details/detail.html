@@ -1,0 +1,53 @@
+<div class="page-header">
+  <ol class="breadcrumb">
+    <li><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
+    <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
+    <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
+    <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
+    <li class="active">{$ ::(ctrl.healthmonitor.name || ctrl.healthmonitor.id) $}</li>
+  </ol>
+  <div class="row">
+    <div class="col-xs-12 col-sm-9 text-left">
+      <ul class="list-inline">
+        <li>
+          <strong translate>Type</strong>
+          {$ ::ctrl.healthmonitor.type $}
+        </li>
+        <li>
+          <strong translate>Operating Status</strong>
+          {$ ctrl.healthmonitor.operating_status | decode:ctrl.operatingStatus $}
+        </li>
+        <li>
+          <strong translate>Provisioning Status</strong>
+          {$ ctrl.healthmonitor.provisioning_status | decode:ctrl.provisioningStatus $}
+        </li>
+        <li>
+          <strong translate>Admin State Up</strong>
+          {$ ctrl.healthmonitor.admin_state_up | yesno $}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3 text-right details-item-actions">
+      <actions allowed="ctrl.resourceType.itemActions"
+               type="row"
+               item="ctrl.healthmonitor"
+               ng-if="ctrl.healthmonitor"
+               class="actions_column pull-right"
+               result-handler="ctrl.resultHandler"></actions>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 detail">
+    <hz-resource-property-list
+       resource-type-name="OS::Octavia::HealthMonitor"
+       cls="dl-horizontal"
+       item="ctrl.healthmonitor"
+       property-groups="[[
+       'id', 'name', 'project_id', 'created_at', 'updated_at',
+       'delay', 'timeout', 'max_retries', 'max_retries_down',
+       'http_method', 'url_path', 'expected_codes']]">
+    </hz-resource-property-list>
+  </div>
+</div>

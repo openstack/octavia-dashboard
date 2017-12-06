@@ -29,7 +29,6 @@
     };
     var scope = {};
 
-    beforeEach(module('horizon.framework.util'));
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
     beforeEach(module(function ($provide) {
       $provide.value('horizon.dashboard.project.lbaasv2.workflow.model', model);

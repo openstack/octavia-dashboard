@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -22,8 +23,8 @@
         updateMemberListService);
 
   updateMemberListService.$inject = [
-    '$q',
-    '$route',
+    'horizon.dashboard.project.lbaasv2.members.resourceType',
+    'horizon.framework.util.actions.action-result.service',
     'horizon.dashboard.project.lbaasv2.workflow.modal',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.framework.util.i18n.gettext'
@@ -31,53 +32,38 @@
 
   /**
    * @ngDoc factory
-   * @name horizon.dashboard.project.lbaasv2.listeners.actions.updateMemberListService
+   * @name horizon.dashboard.project.lbaasv2.members.actions.updateMemberListService
+   *
    * @description
    * Provides the service for updating the list of pool members.
-   * @param $q The angular service for promises.
-   * @param $route The angular $route service.
+   *
+   * @param resourceType The member resource type.
+   * @param actionResultService The horizon action result service.
    * @param workflowModal The LBaaS workflow modal service.
    * @param policy The horizon policy service.
    * @param gettext The horizon gettext function for translation.
+   *
    * @returns The load balancers members update member list service.
    */
 
   function updateMemberListService(
-    $q, $route, workflowModal, policy, gettext
+    resourceType, actionResultService, workflowModal, policy, gettext
   ) {
-    var statePromise;
-
-    var updateList = workflowModal.init({
+    return workflowModal.init({
       controller: 'UpdateMemberListWizardController',
       message: gettext('The pool members have been updated.'),
-      handle: onUpdate,
+      handle: handle,
       allowed: allowed
     });
 
-    var service = {
-      init: init,
-      update: updateList
-    };
-
-    return service;
-
-    //////////////
-
-    function init(_statePromise_) {
-      statePromise = _statePromise_;
-      return service;
-    }
-
     function allowed(/*item*/) {
-      return $q.all([
-        statePromise,
-        policy.ifAllowed({ rules: [['neutron', 'update_member_list']] })
-      ]);
+      return policy.ifAllowed({ rules: [['neutron', 'update_member_list']] });
     }
 
-    function onUpdate(/*response*/) {
-      $route.reload();
+    function handle(response) {
+      return actionResultService.getActionResult()
+        .created(resourceType, response.data.id)
+        .result;
     }
-
   }
 })();

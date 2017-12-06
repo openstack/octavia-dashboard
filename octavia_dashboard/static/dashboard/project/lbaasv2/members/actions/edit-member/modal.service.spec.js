@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -18,7 +19,7 @@
 
   describe('LBaaS v2 Member Edit Service', function() {
     var service, policy, $scope, $route, $uibModal, toast;
-    var member = { id: 'member1' };
+    var member = { poolId:'pool1', id: 'member1' };
 
     var fakePromise = function(response) {
       return {
@@ -30,14 +31,7 @@
 
     function allowed(item) {
       spyOn(policy, 'ifAllowed').and.returnValue(true);
-      var promise = service.allowed(item);
-      var allowed;
-      promise.then(function() {
-        allowed = true;
-      }, function() {
-        allowed = false;
-      });
-      $scope.$apply();
+      var allowed = service.allowed(item);
       expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'pool_member_update']]});
       return allowed;
     }
@@ -52,7 +46,7 @@
       $provide.value('$uibModal', {
         open: function() {
           return {
-            result: fakePromise()
+            result: fakePromise({config: {data: {member: {id: 1}}}})
           };
         }
       });
@@ -65,8 +59,7 @@
       $route = $injector.get('$route');
       $uibModal = $injector.get('$uibModal');
       service = $injector.get(
-        'horizon.dashboard.project.lbaasv2.members.actions.edit-member.modal.service');
-      service.init('pool1', fakePromise());
+        'horizon.dashboard.project.lbaasv2.members.actions.edit-member');
     }));
 
     it('should have the "allowed" and "perform" functions', function() {
@@ -96,13 +89,11 @@
       expect(resolve.member()).toBe(member);
     });
 
-    it('should show message and reload page upon closing modal', function() {
+    it('should show message upon closing modal', function() {
       spyOn(toast, 'add');
       spyOn($route, 'reload');
       service.perform(member);
-      $scope.$apply();
       expect(toast.add).toHaveBeenCalledWith('success', 'Pool member has been updated.');
-      expect($route.reload).toHaveBeenCalled();
     });
 
   });
