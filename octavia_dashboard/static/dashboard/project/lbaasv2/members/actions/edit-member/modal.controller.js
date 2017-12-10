@@ -50,6 +50,11 @@
     patterns, gettext, poolId, member) {
     var ctrl = this;
 
+    ctrl.adminStateUpOptions = [
+      { label: gettext('Yes'), value: true },
+      { label: gettext('No'), value: false }
+    ];
+
     // IP address validation pattern
     ctrl.ipPattern = [patterns.ipv4, patterns.ipv6].join('|');
 
@@ -58,6 +63,7 @@
     ctrl.weight = member.weight;
     ctrl.monitor_address = member.monitor_address;
     ctrl.monitor_port = member.monitor_port;
+    ctrl.admin_state_up = member.admin_state_up;
     ctrl.cancel = cancel;
     ctrl.save = save;
     ctrl.saving = false;
@@ -72,7 +78,8 @@
       return api.editMember(poolId, member.id, {
         weight: ctrl.weight,
         monitor_address: ctrl.monitor_address,
-        monitor_port: ctrl.monitor_port
+        monitor_port: ctrl.monitor_port,
+        admin_state_up: ctrl.admin_state_up
       }).then(onSuccess, onFailure);
     }
 

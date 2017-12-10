@@ -41,7 +41,8 @@
         protocol_port: '443',
         weight: 1,
         monitor_address: '1.1.1.1',
-        monitor_port: 80
+        monitor_port: 80,
+        admin_state_up: true
       });
       $provide.value('horizon.app.core.openstack-service-api.lbaasv2', {
         editMember: function() {
@@ -82,7 +83,8 @@
       expect(api.editMember).toHaveBeenCalledWith('pool1', 'member1', {
         weight: 1,
         monitor_address: '1.1.1.1',
-        monitor_port: 80
+        monitor_port: 80,
+        admin_state_up: true
       });
       expect($uibModalInstance.close).toHaveBeenCalled();
     });

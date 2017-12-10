@@ -112,7 +112,7 @@
               Can be toggled using the chevron button.
               Ensure colspan is greater or equal to number of column-headers.
             -->
-            <td class="detail" colspan="7">
+            <td class="detail" colspan="8">
 
               <div class="row">
                 <dl class="col-lg-5 col-md-5 col-sm-5">
@@ -140,15 +140,29 @@
                                                                                                                                                              ng-attr-popover="{$ memberDetailsForm[row.id + '-monitor-port'].$invalid && memberDetailsForm[row.id + '-monitor-port'].$dirty ? ctrl.portError : '' $}">
                   </dd>
                 </dl>
+                <dl class="col-lg-5 col-md-5 col-sm-5">
+                  <dt class="control-label required" translate>Admin State Up</dt>
+                  <dd class="form-group">
+                  <div class="form-field">
+                    <div class="btn-group">
+                      <label class="btn btn-default"
+                             ng-repeat="option in ctrl.adminStateUpOptions"
+                             ng-model="row.admin_state_up"
+                             ng-disabled="row.allocatedMember"
+                             uib-btn-radio="option.value">{$ ::option.label $}</label>
+                    </div>
+                  </div>
+                  </dd>
+                </dl>
               </div>
 
             </td>
           </tr>
 
-          <tr table-status table="table" column-count="7"></tr>
+          <tr table-status table="table" column-count="8"></tr>
 
           <tr>
-            <td colspan="5">
+            <td colspan="6">
               <action-list class="pull-right">
                 <action action-classes="'btn btn-sm btn-default'"
                         callback="ctrl.allocateExternalMember">

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -18,25 +18,25 @@
 
   angular
     .module('horizon.dashboard.project.lbaasv2')
-    .controller('LoadBalancerDetailsController', LoadBalancerDetailsController);
+    .controller('PoolDetailsController', PoolDetailsController);
 
-  LoadBalancerDetailsController.$inject = [
+  PoolDetailsController.$inject = [
     'horizon.dashboard.project.lbaasv2.patterns',
     'horizon.framework.util.i18n.gettext'
   ];
 
   /**
    * @ngdoc controller
-   * @name LoadBalancerDetailsController
+   * @name PoolDetailsController
    * @description
-   * The `LoadBalancerDetailsController` controller provides functions for
-   * configuring the load balancers step of the LBaaS wizard.
+   * The `PoolDetailsController` controller provides functions for
+   * configuring the pool step of the LBaaS wizard.
    * @param patterns The LBaaS v2 patterns constant.
    * @param gettext The horizon gettext function for translation.
    * @returns undefined
    */
 
-  function LoadBalancerDetailsController(patterns, gettext) {
+  function PoolDetailsController(patterns, gettext) {
 
     var ctrl = this;
 
@@ -45,10 +45,5 @@
       { label: gettext('No'), value: false }
     ];
 
-    // Error text for invalid fields
-    ctrl.ipError = gettext('The IP address is not valid.');
-
-    // IP address validation pattern
-    ctrl.ipPattern = [patterns.ipv4, patterns.ipv6].join('|');
   }
 })();

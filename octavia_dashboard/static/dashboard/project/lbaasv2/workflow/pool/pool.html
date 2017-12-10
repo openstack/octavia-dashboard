@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="PoolDetailsController as ctrl">
   <p translate>Provide the details for the pool.</p>
 
   <div class="row">
@@ -63,4 +63,23 @@
     </div>
 
   </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <label class="control-label required" translate>Admin State Up</label>
+        <div class="form-field">
+          <div class="btn-group">
+            <label class="btn btn-default"
+                   ng-repeat="option in ctrl.adminStateUpOptions"
+                   ng-model="model.spec.pool.admin_state_up"
+                   uib-btn-radio="option.value">{$ ::option.label $}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>

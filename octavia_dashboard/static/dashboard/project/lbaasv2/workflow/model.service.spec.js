@@ -26,6 +26,7 @@
     beforeEach(function() {
       listenerResources = {
         listener: {
+          admin_state_up: true,
           id: '1234',
           name: 'Listener 1',
           description: 'listener description',
@@ -36,6 +37,7 @@
           sni_container_refs: ['container2']
         },
         pool: {
+          admin_state_up: true,
           id: '1234',
           name: 'Pool 1',
           protocol: 'HTTP',
@@ -63,6 +65,7 @@
           }
         ],
         monitor: {
+          admin_state_up: true,
           id: '1234',
           type: 'HTTP',
           delay: 1,
@@ -94,6 +97,7 @@
         },
         getLoadBalancer: function() {
           var loadbalancer = {
+            admin_state_up: true,
             id: '1234',
             name: 'Load Balancer 1',
             vip_address: '1.2.3.4',
@@ -952,10 +956,10 @@
       // to implement tests for them.
       it('has the right number of properties', function() {
         expect(Object.keys(model.spec).length).toBe(8);
-        expect(Object.keys(model.spec.loadbalancer).length).toBe(4);
-        expect(Object.keys(model.spec.listener).length).toBe(6);
-        expect(Object.keys(model.spec.pool).length).toBe(7);
-        expect(Object.keys(model.spec.monitor).length).toBe(9);
+        expect(Object.keys(model.spec.loadbalancer).length).toBe(5);
+        expect(Object.keys(model.spec.listener).length).toBe(7);
+        expect(Object.keys(model.spec.pool).length).toBe(8);
+        expect(Object.keys(model.spec.monitor).length).toBe(10);
         expect(model.spec.members).toEqual([]);
       });
 
@@ -1249,18 +1253,21 @@
         expect(finalSpec.loadbalancer.description).toBeUndefined();
         expect(finalSpec.loadbalancer.ip).toBe('1.2.3.4');
         expect(finalSpec.loadbalancer.subnet).toBe(model.subnets[0].id);
+        expect(finalSpec.loadbalancer.admin_state_up).toBe(true);
 
         expect(finalSpec.listener.name).toBe('Listener 1');
         expect(finalSpec.listener.description).toBeUndefined();
         expect(finalSpec.listener.protocol).toBe('TCP');
         expect(finalSpec.listener.port).toBe(80);
         expect(finalSpec.listener.connection_limit).toBe(999);
+        expect(finalSpec.listener.admin_state_up).toBe(true);
 
         expect(finalSpec.pool.name).toBe('pool name');
         expect(finalSpec.pool.description).toBe('pool description');
         expect(finalSpec.pool.protocol).toBe('TCP');
         expect(finalSpec.pool.method).toBe('LEAST_CONNECTIONS');
         expect(finalSpec.pool.type).toBe('SOURCE_IP');
+        expect(finalSpec.pool.admin_state_up).toBe(true);
 
         expect(finalSpec.members.length).toBe(3);
         expect(finalSpec.members[0].address).toBe('1.2.3.4');
@@ -1290,6 +1297,7 @@
         expect(finalSpec.monitor.retry_down).toBe(1);
         expect(finalSpec.monitor.timeout).toBe(1);
         expect(finalSpec.certificates).toBeUndefined();
+        expect(finalSpec.monitor.admin_state_up).toBe(true);
       });
 
       it('should set final spec certificates', function() {

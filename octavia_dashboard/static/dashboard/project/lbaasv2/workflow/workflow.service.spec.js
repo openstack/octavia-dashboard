@@ -17,7 +17,7 @@
   'use strict';
 
   describe('LBaaS v2 Workflow Service', function() {
-    var workflowService;
+    var workflowService, $q;
 
     beforeEach(module('horizon.app.core'));
     beforeEach(module('horizon.framework.util'));
@@ -29,6 +29,7 @@
       workflowService = $injector.get(
         'horizon.dashboard.project.lbaasv2.workflow.workflow'
       );
+      $q = $injector.get('$q');
     }));
 
     it('should be defined', function () {
@@ -43,25 +44,24 @@
     it('should have default steps defined', function () {
       var workflow = workflowService('My Workflow');
       expect(workflow.steps).toBeDefined();
-      expect(workflow.steps.length).toBe(5);
+      expect(workflow.steps.length).toBe(6);
 
       var forms = [
         'loadBalancerDetailsForm',
         'listenerDetailsForm',
         'poolDetailsForm',
         'memberDetailsForm',
-        'monitorDetailsForm'
+        'monitorDetailsForm',
+        'certificateDetailsForm'
       ];
 
       forms.forEach(function(expectedForm, idx) {
         expect(workflow.steps[idx].formName).toBe(expectedForm);
       });
-    });
-
-    it('should have a step for ssl certificates', function () {
-      var workflow = workflowService('My Workflow');
-      expect(workflow.certificatesStep).toBeDefined();
-      expect(workflow.certificatesStep.title).toBe('SSL Certificates');
+      workflow = workflowService('My Workflow', 'foo', []);
+      forms.forEach(function(expectedForm, idx) {
+        expect(workflow.steps[idx].formName).toBe(expectedForm);
+      });
     });
 
     it('can filter steps', function () {
@@ -81,10 +81,18 @@
     });
 
     it('can wait for all steps to be ready', function () {
-      var workflow = workflowService('My Workflow', 'foo', null, 'promise');
+      var steps = ['listener', 'certificates'].map(function(step) {
+        return {
+          id: step,
+          deferred: $q.defer()
+        };
+      });
+      var workflow = workflowService('My Workflow', 'foo', steps);
 
       expect(workflow.steps[0].checkReadiness).toBeDefined();
-      expect(workflow.steps[0].checkReadiness()).toBe('promise');
+      expect(workflow.steps[0].checkReadiness()).toBe(steps[0].deferred.promise);
+      expect(workflow.steps[1].checkReadiness).toBeDefined();
+      expect(workflow.steps[1].checkReadiness()).toBe(steps[1].deferred.promise);
     });
 
     it('can be extended', function () {

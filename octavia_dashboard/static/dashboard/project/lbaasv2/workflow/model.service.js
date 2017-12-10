@@ -139,7 +139,8 @@
           name: null,
           description: null,
           ip: null,
-          subnet: null
+          subnet: null,
+          admin_state_up: true
         },
         listener: {
           id: null,
@@ -147,7 +148,8 @@
           description: null,
           protocol: null,
           port: null,
-          connection_limit: -1
+          connection_limit: -1,
+          admin_state_up: true
         },
         pool: {
           id: null,
@@ -156,7 +158,8 @@
           protocol: null,
           method: null,
           type: null,
-          cookie: null
+          cookie: null,
+          admin_state_up: true
         },
         monitor: {
           id: null,
@@ -167,7 +170,8 @@
           timeout: 5,
           method: 'GET',
           status: '200',
-          path: '/'
+          path: '/',
+          admin_state_up: true
         },
         members: [],
         certificates: []
@@ -504,7 +508,8 @@
             name: server.name,
             weight: 1,
             monitor_address: null,
-            monitor_port: null
+            monitor_port: null,
+            admin_state_up: true
           });
         }
       });
@@ -623,6 +628,7 @@
       spec.description = loadbalancer.description;
       spec.ip = loadbalancer.vip_address;
       spec.subnet = loadbalancer.vip_subnet_id;
+      spec.admin_state_up = loadbalancer.admin_state_up;
     }
 
     function setListenerSpec(listener) {
@@ -633,6 +639,7 @@
       spec.protocol = listener.protocol;
       spec.port = listener.protocol_port;
       spec.connection_limit = listener.connection_limit;
+      spec.admin_state_up = listener.admin_state_up;
     }
 
     function setPoolSpec(pool) {
@@ -642,6 +649,7 @@
       spec.description = pool.description;
       spec.protocol = pool.protocol;
       spec.method = pool.lb_algorithm;
+      spec.admin_state_up = pool.admin_state_up;
       if (angular.isObject(pool.session_persistence)) {
         var type = pool.session_persistence.type;
         var cookie = pool.session_persistence.cookie_name;
@@ -667,6 +675,7 @@
           weight: member.weight,
           monitor_address: member.monitor_address,
           monitor_port: member.monitor_port,
+          admin_state_up: member.admin_state_up,
           allocatedMember: true
         });
       });
@@ -684,6 +693,7 @@
       spec.method = monitor.http_method;
       spec.status = monitor.expected_codes;
       spec.path = monitor.url_path;
+      spec.admin_state_up = monitor.admin_state_up;
     }
 
     function onGetHealthMonitor(response) {

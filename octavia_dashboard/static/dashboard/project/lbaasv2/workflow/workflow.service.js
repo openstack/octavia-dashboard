@@ -62,36 +62,61 @@
         templateUrl: basePath + 'workflow/monitor/monitor.html',
         helpUrl: basePath + 'workflow/monitor/monitor.help.html',
         formName: 'monitorDetailsForm'
+      },
+      {
+        id: 'certificates',
+        title: gettext('SSL Certificates'),
+        templateUrl: basePath + 'workflow/certificates/certificates.html',
+        helpUrl: basePath + 'workflow/certificates/certificates.help.html',
+        formName: 'certificateDetailsForm'
       }
     ];
 
-    // This step is kept separate from the rest because it is only added to the workflow by
-    // the Listener Details step if the TERMINATED_HTTPS protocol is selected.
-    var certificatesStep = {
-      id: 'certificates',
-      title: gettext('SSL Certificates'),
-      templateUrl: basePath + 'workflow/certificates/certificates.html',
-      helpUrl: basePath + 'workflow/certificates/certificates.help.html',
-      formName: 'certificateDetailsForm'
-    };
-
     return initWorkflow;
 
-    function initWorkflow(title, icon, steps, promise) {
+    function initWorkflow(title, icon, steps) {
 
-      var filteredSteps = steps ? workflowSteps.filter(function(step) {
-        return steps.indexOf(step.id) > -1;
-      }) : workflowSteps;
+      var filteredSteps = Array.isArray(steps) ? workflowSteps
+        .filter(
+          function(workflowStep) {
+            return steps.some(function(step) {
+              if (step.id) {
+                return step.id === workflowStep.id;
+              } else {
+                return step === workflowStep.id;
+              }
+            });
+          }
+        ) : workflowSteps;
 
-      // If a promise is provided then add a checkReadiness function to the first step so
-      // that the workflow will not show until the promise is resolved. There must always
-      // be at least one step in the workflow.
-      if (promise) {
-        filteredSteps[0] = angular.copy(filteredSteps[0]);
-        filteredSteps[0].checkReadiness = function() {
-          return promise;
-        };
+      if (filteredSteps.length === 0) {
+        filteredSteps = workflowSteps;
       }
+
+      filteredSteps = filteredSteps.map(function(filteredStep) {
+        filteredStep = angular.copy(filteredStep);
+        if (!Array.isArray(steps)) {
+          return filteredStep;
+        }
+        var step = steps.filter(function(step) {
+          if (step.id) {
+            return step.id === filteredStep.id;
+          } else {
+            return step === filteredStep.id;
+          }
+        })[0];
+        var deferred;
+        if (step) {
+          deferred = step.deferred;
+        }
+        if (deferred) {
+          var promise = deferred.promise;
+          filteredStep.checkReadiness = function() {
+            return promise;
+          };
+        }
+        return filteredStep;
+      });
 
       return dashboardWorkflow({
         title: title,
@@ -101,9 +126,7 @@
         btnIcon: {
           finish: icon
         },
-        steps: filteredSteps,
-        allSteps: workflowSteps,
-        certificatesStep: certificatesStep
+        steps: filteredSteps
       });
     }
   }

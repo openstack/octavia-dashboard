@@ -81,4 +81,22 @@
 
   </div>
 
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <label class="control-label required" translate>Admin State Up</label>
+        <div class="form-field">
+          <div class="btn-group">
+            <label class="btn btn-default"
+                   ng-repeat="option in ctrl.adminStateUpOptions"
+                   ng-model="model.spec.listener.admin_state_up"
+                   uib-btn-radio="option.value">{$ ::option.label $}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
 </div>

@@ -129,7 +129,9 @@ def create_loadbalancer(request):
         vip_subnet_id=data['loadbalancer']['subnet'],
         name=data['loadbalancer'].get('name'),
         description=data['loadbalancer'].get('description'),
-        vip_address=data['loadbalancer'].get('ip'))
+        vip_address=data['loadbalancer'].get('ip'),
+        admin_state_up=data['loadbalancer'].get('admin_state_up')
+    )
 
     if data.get('listener'):
         # There is work underway to add a new API to LBaaS v2 that will
@@ -166,7 +168,9 @@ def create_listener(request, **kwargs):
         description=data['listener'].get('description'),
         connection_limit=data['listener'].get('connection_limit'),
         default_tls_container_ref=default_tls_ref,
-        sni_container_refs=None)
+        sni_container_refs=None,
+        admin_state_up=data['listener'].get('admin_state_up')
+    )
 
     if data.get('pool'):
         args = (request, kwargs['loadbalancer_id'], create_pool)
@@ -201,7 +205,9 @@ def create_pool(request, **kwargs):
         session_persistence=session_persistence,
         listener_id=kwargs['listener_id'],
         name=data['pool'].get('name'),
-        description=data['pool'].get('description'))
+        description=data['pool'].get('description'),
+        admin_state_up=data['pool'].get('admin_state_up')
+    )
 
     if data.get('members'):
         args = (request, kwargs['loadbalancer_id'], add_member)
@@ -232,7 +238,9 @@ def create_health_monitor(request, **kwargs):
         pool_id=kwargs['pool_id'],
         http_method=data['monitor'].get('method'),
         url_path=data['monitor'].get('path'),
-        expected_codes=data['monitor'].get('status'))
+        expected_codes=data['monitor'].get('status'),
+        admin_state_up=data['monitor'].get('admin_state_up')
+    )
 
     return _get_sdk_object_dict(health_mon)
 
@@ -265,7 +273,9 @@ def add_member(request, **kwargs):
         subnet_id=member['subnet'],
         weight=member.get('weight'),
         monitor_address=monitor_address if monitor_address else None,
-        monitor_port=member.get('monitor_port'))
+        monitor_port=member.get('monitor_port'),
+        admin_state_up=member.get('admin_state_up')
+    )
 
     index += 1
     if kwargs.get('members_to_add'):
@@ -326,7 +336,8 @@ def update_loadbalancer(request, **kwargs):
     loadbalancer = conn.load_balancer.update_load_balancer(
         loadbalancer_id,
         name=data['loadbalancer'].get('name'),
-        description=data['loadbalancer'].get('description'))
+        description=data['loadbalancer'].get('description'),
+        admin_state_up=data['loadbalancer'].get('admin_state_up'))
 
     return _get_sdk_object_dict(loadbalancer)
 
@@ -344,7 +355,9 @@ def update_listener(request, **kwargs):
         listener=listener_id,
         name=data['listener'].get('name'),
         description=data['listener'].get('description'),
-        connection_limit=data['listener'].get('connection_limit'))
+        connection_limit=data['listener'].get('connection_limit'),
+        admin_state_up=data['listener'].get('admin_state_up')
+    )
 
     if data.get('pool'):
         args = (request, loadbalancer_id, update_pool)
@@ -379,7 +392,9 @@ def update_pool(request, **kwargs):
         lb_algorithm=data['pool']['method'],
         session_persistence=session_persistence,
         name=data['pool'].get('name'),
-        description=data['pool'].get('description'))
+        description=data['pool'].get('description'),
+        admin_state_up=data['pool'].get('admin_state_up')
+    )
 
     # Assemble the lists of member id's to add and remove, if any exist
     request_member_data = data.get('members', [])
@@ -419,7 +434,9 @@ def update_monitor(request, **kwargs):
         max_retries_down=data['monitor'].get('retry_down'),
         http_method=data['monitor'].get('method'),
         url_path=data['monitor'].get('path'),
-        expected_codes=data['monitor'].get('status'))
+        expected_codes=data['monitor'].get('status'),
+        admin_state_up=data['monitor'].get('admin_state_up')
+    )
 
     return _get_sdk_object_dict(healthmonitor)
 
@@ -625,7 +642,7 @@ class Listener(generic.View):
                         conn.load_balancer.members(pool_id))
                     resources['members'] = member_list
 
-                if pool.get('healt_hmonitor_id'):
+                if pool.get('health_monitor_id'):
                     monitor_id = pool['health_monitor_id']
                     monitor = conn.load_balancer.find_health_monitor(
                         monitor_id)
@@ -844,7 +861,9 @@ class Member(generic.View):
         member = conn.load_balancer.update_member(
             member_id, pool_id, weight=data.get('weight'),
             monitor_address=monitor_address if monitor_address else None,
-            monitor_port=data.get('monitor_port'))
+            monitor_port=data.get('monitor_port'),
+            admin_state_up=data.get('admin_state_up')
+        )
         return _get_sdk_object_dict(member)
 
 

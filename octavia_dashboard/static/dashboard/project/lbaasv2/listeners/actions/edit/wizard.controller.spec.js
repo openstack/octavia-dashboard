@@ -30,8 +30,6 @@
     };
     var workflow = {
       steps: [{id: 'listener'}],
-      allSteps: [{id: 'listener'}, {id: 'pool'}, {id: 'monitor'}],
-      certificatesStep: {id: 'certificates'},
       append: angular.noop
     };
 
@@ -62,23 +60,16 @@
       expect(scope.workflow).toBe(workflow);
     });
 
-    it('initializes workflow with correct properties', function() {
+    it('initializes workflow with correct properties', inject(function($controller) {
+      scope.launchContext = { id: '1234', protocol: 'TERMINATED_HTTPS' };
+      ctrl = $controller('EditListenerWizardController', { $scope: scope });
       expect(workflowSpy).toHaveBeenCalledWith('Update Listener',
-        'fa fa-pencil', ['listener'], jasmine.any(Object));
-    });
+        'fa fa-pencil', jasmine.any(Object));
+    }));
 
     it('defines scope.submit', function() {
       expect(scope.submit).toBe(model.submit);
       expect(scope.submit()).toBe('updated');
-    });
-
-    it('adds necessary steps after initializing', function() {
-      model.visibleResources = ['listener', 'pool', 'monitor'];
-      spyOn(workflow, 'append');
-      scope.$apply();
-
-      expect(workflow.append).toHaveBeenCalledWith({id: 'pool'});
-      expect(workflow.append).toHaveBeenCalledWith({id: 'monitor'});
     });
   });
 

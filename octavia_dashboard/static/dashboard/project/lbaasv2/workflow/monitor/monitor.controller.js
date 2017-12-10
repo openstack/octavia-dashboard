@@ -40,6 +40,11 @@
 
     var ctrl = this;
 
+    ctrl.adminStateUpOptions = [
+      { label: gettext('Yes'), value: true },
+      { label: gettext('No'), value: false }
+    ];
+
     // Error text for invalid fields
     /* eslint-disable max-len */
     ctrl.intervalError = gettext('The health check interval must be greater than or equal to the timeout.');

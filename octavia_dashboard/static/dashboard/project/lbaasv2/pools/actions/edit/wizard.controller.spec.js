@@ -30,8 +30,6 @@
     };
     var workflow = {
       steps: [{id: 'pool'}],
-      allSteps: [{id: 'pool'}, {id: 'pool'}, {id: 'monitor'}],
-      certificatesStep: {id: 'certificates'},
       append: angular.noop
     };
 
@@ -66,20 +64,12 @@
 
     it('initializes workflow with correct properties', function() {
       expect(workflowSpy).toHaveBeenCalledWith('Update Pool',
-        'fa fa-pencil', ['pool'], jasmine.any(Object));
+        'fa fa-pencil', ['pool']);
     });
 
     it('defines scope.submit', function() {
       expect(scope.submit).toBe(model.submit);
       expect(scope.submit()).toBe('updated');
-    });
-
-    it('adds necessary steps after initializing', function() {
-      model.visibleResources = ['pool', 'monitor'];
-      spyOn(workflow, 'append');
-      scope.$apply();
-
-      expect(workflow.append).toHaveBeenCalledWith({id: 'monitor'});
     });
   });
 

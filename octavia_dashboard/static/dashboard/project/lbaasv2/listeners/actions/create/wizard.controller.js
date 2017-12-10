@@ -36,7 +36,7 @@
     scope.workflow = workflowService(
         gettext('Create Listener'),
         'fa fa-cloud-download',
-        ['listener', 'pool', 'members', 'monitor']
+        ['listener', 'certificates', 'pool', 'members', 'monitor']
     );
     scope.model.initialize('listener', false, loadbalancerId);
   }

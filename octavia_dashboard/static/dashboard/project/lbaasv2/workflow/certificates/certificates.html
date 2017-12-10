@@ -6,7 +6,7 @@
                   help-text="::ctrl.tableHelp">
 
     <!-- Allocated-->
-    <allocated validate-number-min="1" ng-model="ctrl.tableData.allocated.length">
+    <allocated validate-number-min="0" ng-model="ctrl.tableData.allocated.length">
       <table st-table="ctrl.tableData.displayedAllocated"
              st-safe-src="ctrl.tableData.allocated" hz-table
              class="table table-striped table-rsp table-detail">

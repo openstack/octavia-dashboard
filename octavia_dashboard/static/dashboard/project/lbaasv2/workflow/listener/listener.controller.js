@@ -40,6 +40,11 @@
     var ctrl = this;
     ctrl.protocolChange = protocolChange;
 
+    ctrl.adminStateUpOptions = [
+      { label: gettext('Yes'), value: true },
+      { label: gettext('No'), value: false }
+    ];
+
     // Error text for invalid fields
     ctrl.portNumberError = gettext('The port must be a number between 1 and 65535.');
     ctrl.portUniqueError = gettext(
@@ -61,16 +66,6 @@
       members.forEach(function setMemberPort(member) {
         member.port = { HTTP: 80, TERMINATED_HTTPS: 80 }[protocol];
       });
-
-      var workflow = $scope.workflow;
-      var certificates = workflow.steps.some(function checkCertificatesStep(step) {
-        return step.id === 'certificates';
-      });
-      if (protocol === 'TERMINATED_HTTPS' && !certificates) {
-        workflow.after('listener', workflow.certificatesStep);
-      } else if (protocol !== 'TERMINATED_HTTPS' && certificates) {
-        workflow.remove('certificates');
-      }
     }
 
     function listenerPortExists(port) {

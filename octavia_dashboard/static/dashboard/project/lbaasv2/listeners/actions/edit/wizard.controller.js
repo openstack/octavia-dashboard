@@ -45,40 +45,17 @@
 
   function EditListenerWizardController($scope, $q, model, workflowService, gettext) {
     var scope = $scope;
-    var defer = $q.defer();
+    var steps = ['listener'];
+    var protocol = scope.launchContext.protocol;
+    if (protocol === 'TERMINATED_HTTPS') {
+      steps = ['listener', 'certificates'];
+    }
     scope.model = model;
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Update Listener'),
-        'fa fa-pencil', ['listener'],
-        defer.promise);
-    var allSteps = scope.workflow.allSteps.concat([scope.workflow.certificatesStep]);
-    scope.model.initialize('listener', scope.launchContext.id).then(addSteps).then(ready);
-
-    function addSteps() {
-      var steps = scope.model.visibleResources;
-      steps.map(getStep).forEach(function addStep(step) {
-        if (!stepExists(step.id)) {
-          scope.workflow.append(step);
-        }
-      });
-    }
-
-    function getStep(id) {
-      return allSteps.filter(function findStep(step) {
-        return step.id === id;
-      })[0];
-    }
-
-    function stepExists(id) {
-      return scope.workflow.steps.some(function exists(step) {
-        return step.id === id;
-      });
-    }
-
-    function ready() {
-      defer.resolve();
-    }
+        'fa fa-pencil', steps);
+    scope.model.initialize('listener', scope.launchContext.id);
   }
 
 })();

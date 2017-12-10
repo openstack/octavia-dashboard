@@ -27,7 +27,6 @@
       beforeEach(inject(function($controller) {
         workflow = {
           steps: [{ id: 'listener' }],
-          certificatesStep: { id: 'certificates' },
           after: angular.noop,
           remove: angular.noop
         };
@@ -52,29 +51,6 @@
       it('should define error messages for invalid fields', function() {
         expect(ctrl.portNumberError).toBeDefined();
         expect(ctrl.portUniqueError).toBeDefined();
-      });
-
-      it('should show certificates step if selecting TERMINATED_HTTPS', function() {
-        workflow.steps.push(workflow.certificatesStep);
-        spyOn(workflow, 'after');
-
-        ctrl.protocolChange('TERMINATED_HTTPS');
-        expect(workflow.after).not.toHaveBeenCalled();
-
-        workflow.steps.splice(1, 1);
-        ctrl.protocolChange('TERMINATED_HTTPS');
-        expect(workflow.after).toHaveBeenCalledWith('listener', workflow.certificatesStep);
-      });
-
-      it('should hide certificates step if not selecting TERMINATED_HTTPS', function() {
-        spyOn(workflow, 'remove');
-
-        ctrl.protocolChange('HTTP');
-        expect(workflow.remove).not.toHaveBeenCalled();
-
-        workflow.steps.push(workflow.certificatesStep);
-        ctrl.protocolChange('HTTP');
-        expect(workflow.remove).toHaveBeenCalledWith('certificates');
       });
 
       it('should update port on protocol change to HTTP', function() {

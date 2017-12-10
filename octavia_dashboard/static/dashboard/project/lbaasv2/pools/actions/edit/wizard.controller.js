@@ -47,41 +47,13 @@
 
   function EditPoolWizardController($scope, $routeParams, $q, model, workflowService, gettext) {
     var scope = $scope;
-    var defer = $q.defer();
     var loadbalancerId = $routeParams.loadbalancerId;
     scope.model = model;
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Update Pool'),
-        'fa fa-pencil', ['pool'],
-        defer.promise);
-    scope.model.initialize(
-        'pool', scope.launchContext.id, loadbalancerId).then(addSteps).then(ready);
-
-    function addSteps() {
-      var steps = scope.model.visibleResources;
-      steps.map(getStep).forEach(function addStep(step) {
-        if (!stepExists(step.id)) {
-          scope.workflow.append(step);
-        }
-      });
-    }
-
-    function getStep(id) {
-      return scope.workflow.allSteps.filter(function findStep(step) {
-        return step.id === id;
-      })[0];
-    }
-
-    function stepExists(id) {
-      return scope.workflow.steps.some(function exists(step) {
-        return step.id === id;
-      });
-    }
-
-    function ready() {
-      defer.resolve();
-    }
+        'fa fa-pencil', ['pool']);
+    scope.model.initialize('pool', scope.launchContext.id, loadbalancerId);
   }
 
 })();
