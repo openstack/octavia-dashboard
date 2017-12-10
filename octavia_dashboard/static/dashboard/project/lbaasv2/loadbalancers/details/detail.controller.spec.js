@@ -68,7 +68,7 @@
 
       it('handles empty results', function() {
         var result = $q.defer();
-        result.resolve({});
+        result.resolve({failed: [], deleted: []});
         ctrl.resultHandler(result.promise);
         $timeout.flush();
         expect(ctrl.showDetails).not.toBe(true);
@@ -85,11 +85,21 @@
       it('handles matched results', function() {
         spyOn(actionResultService, 'getIdsOfType').and.returnValue([1, 2, 3]);
         var result = $q.defer();
-        result.resolve({some: 'thing'});
+        result.resolve({some: 'thing', failed: [], deleted: []});
         ctrl.resultHandler(result.promise);
         deferred.resolve({data: {some: 'data', floating_ip: {}}});
         $timeout.flush();
         expect(ctrl.showDetails).toBe(true);
+      });
+
+      it('handles delete race condition', function() {
+        spyOn(actionResultService, 'getIdsOfType').and.returnValue([1, 2, 3]);
+        var result = $q.defer();
+        result.resolve({some: 'thing', failed: [], deleted: [{id: 1}]});
+        ctrl.resultHandler(result.promise);
+        deferred.resolve({data: {some: 'data'}});
+        $timeout.flush();
+        expect(ctrl.showDetails).toBe(undefined);
       });
 
     });
