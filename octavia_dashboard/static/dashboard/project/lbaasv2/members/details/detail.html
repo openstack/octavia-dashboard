@@ -1,10 +1,12 @@
 <div class="page-header">
   <ol class="breadcrumb">
-    <li><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
-    <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
-    <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
-    <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
-    <li class="active">{$ ::(ctrl.member.name || ctrl.member.id) $}</li>
+    <li class="breadcrumb-item-truncate"><translate>Project</translate></li>
+    <li class="breadcrumb-item-truncate"><translate>Network</translate></li>
+    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
+    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
+    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
+    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
+    <li class="breadcrumb-item-truncate active">{$ ::(ctrl.member.name || ctrl.member.id) $}</li>
   </ol>
   <div class="row">
     <div class="col-xs-12 col-sm-9 text-left">
@@ -49,7 +51,7 @@
        item="ctrl.member"
        property-groups="[[
        'id', 'name', 'project_id', 'created_at', 'updated_at',
-       'weight', 'monitor_address', 'monitor_port']]">
+       'weight', 'subnet_id', 'monitor_address', 'monitor_port']]">
     </hz-resource-property-list>
   </div>
 </div>
