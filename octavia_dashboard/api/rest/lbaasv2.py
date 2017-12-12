@@ -311,7 +311,8 @@ def remove_member(request, **kwargs):
         kwargs = {'callback_kwargs': {
             'existing_members': kwargs.get('existing_members'),
             'members_to_add': kwargs.get('members_to_add'),
-            'members_to_delete': members_to_delete}}
+            'members_to_delete': members_to_delete,
+            'pool_id': pool_id}}
         thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
 
 
