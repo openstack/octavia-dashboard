@@ -98,7 +98,7 @@
         labels: jasmine.any(Object),
         deleteEntity: jasmine.any(Function)
       }));
-      expect(args[2].labels.title).toBe('Confirm Delete Load Balancers');
+      expect(args[2].labels.title).toBe('Confirm Delete Load Balancer');
     });
 
     it('should pass function to modal that deletes load balancers', function() {
@@ -119,7 +119,7 @@
       $scope.$apply();
       expect(modal.open).not.toHaveBeenCalled();
       expect(toast.add).toHaveBeenCalledWith('error',
-        'The following load balancers are pending and cannot be deleted: First, Second.');
+        'Unable to delete Load Balancers: First, Second.');
     });
 
     it('should show message if any items fail to be deleted', function() {
@@ -131,8 +131,8 @@
       $scope.$apply();
       expect(modal.open).toHaveBeenCalled();
       expect(lbaasv2Api.deleteLoadBalancer.calls.count()).toBe(1);
-      expect(toast.add).toHaveBeenCalledWith('error', 'The following load balancers could not ' +
-        'be deleted, possibly due to existing listeners: First.');
+      expect(toast.add).toHaveBeenCalledWith('error', 'Unable to delete Load Balancer' +
+        ': First.');
     });
 
     it('should return to panel after delete if on detail page', function() {
@@ -142,7 +142,7 @@
       service.perform(items[0], $scope);
       $scope.$apply();
       expect($location.path).toHaveBeenCalledWith('project/load_balancer');
-      expect(toast.add).toHaveBeenCalledWith('success', 'Deleted load balancers: First.');
+      expect(toast.add).toHaveBeenCalledWith('success', 'Deleted Load Balancer: First.');
     });
 
   });

@@ -26,8 +26,8 @@
     '$location',
     'horizon.framework.widgets.modal.deleteModalService',
     'horizon.app.core.openstack-service-api.lbaasv2',
-    'horizon.app.core.openstack-service-api.policy',
-    'horizon.framework.util.i18n.gettext'
+    'horizon.framework.util.i18n.gettext',
+    'horizon.app.core.openstack-service-api.policy'
   ];
 
   /**
@@ -44,28 +44,15 @@
    * @param $location The angular $location service.
    * @param deleteModal The horizon delete modal service.
    * @param api The LBaaS v2 API service.
-   * @param policy The horizon policy service.
    * @param gettext The horizon gettext function for translation.
+   * @param policy The horizon policy service.
    *
    * @returns The load balancers table delete service.
    */
 
   function deleteService(resourceType, actionResultService,
-    $location, deleteModal, api, policy, gettext) {
+    $location, deleteModal, api, gettext, policy) {
     var loadbalancerId, listenerId, poolId;
-    var context = {
-      labels: {
-        title: gettext('Confirm Delete Member'),
-        message: gettext('You have selected "%s". Please confirm your selection. Deleted members ' +
-                         'are not recoverable.'),
-        submit: gettext('Delete Member'),
-        success: gettext('Deleted member: %s.'),
-        error: gettext('The following member could not be deleted: %s.')
-      },
-      deleteEntity: deleteItem,
-      successEvent: 'success',
-      failedEvent: 'error'
-    };
 
     var service = {
       perform: perform,
@@ -84,13 +71,40 @@
     }
 
     function perform(items, scope) {
+      var context = { };
       var members = angular.isArray(items) ? items : [items];
+      context.labels = labelize(members.length);
+      context.deleteEntity = deleteItem;
       members.map(function(item) {
         loadbalancerId = item.loadbalancerId;
         listenerId = item.listenerId;
         poolId = item.poolId;
       });
       return deleteModal.open(scope, members, context).then(deleteResult);
+    }
+
+    function labelize(count) {
+      return {
+        title: ngettext(
+          'Confirm Delete Member',
+          'Confirm Delete Members', count),
+
+        message: ngettext(
+          'You have selected "%s". Deleted member is not recoverable.',
+          'You have selected "%s". Deleted members are not recoverable.', count),
+
+        submit: ngettext(
+          'Delete Member',
+          'Delete Members', count),
+
+        success: ngettext(
+          'Deleted Member: %s.',
+          'Deleted Members: %s.', count),
+
+        error: ngettext(
+          'Unable to delete Member: %s.',
+          'Unable to delete Members: %s.', count)
+      };
     }
 
     function deleteResult(deleteModalResult) {

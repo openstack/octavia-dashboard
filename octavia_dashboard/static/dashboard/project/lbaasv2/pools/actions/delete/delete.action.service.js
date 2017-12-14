@@ -27,8 +27,8 @@
     '$location',
     'horizon.framework.widgets.modal.deleteModalService',
     'horizon.app.core.openstack-service-api.lbaasv2',
-    'horizon.app.core.openstack-service-api.policy',
-    'horizon.framework.util.i18n.gettext'
+    'horizon.framework.util.i18n.gettext',
+    'horizon.app.core.openstack-service-api.policy'
   ];
 
   /**
@@ -45,30 +45,17 @@
    * @param $location The angular $location service.
    * @param deleteModal The horizon delete modal service.
    * @param api The LBaaS v2 API service.
-   * @param policy The horizon policy service.
    * @param gettext The horizon gettext function for translation.
+   * @param policy The horizon policy service.
    *
    * @returns The pool delete service.
    */
 
   function deleteService(
     resourceType, actionResultService, $location,
-    deleteModal, api, policy, gettext
+    deleteModal, api, gettext, policy
   ) {
     var loadbalancerId, listenerId;
-    var context = {
-      labels: {
-        title: gettext('Confirm Delete Pool'),
-        message: gettext('You have selected "%s". Please confirm your selection. Deleted pools ' +
-                         'are not recoverable.'),
-        submit: gettext('Delete Pool'),
-        success: gettext('Deleted pool: %s.'),
-        error: gettext('The following pool could not be deleted: %s.')
-      },
-      deleteEntity: deleteItem,
-      successEvent: 'success',
-      failedEvent: 'error'
-    };
 
     var service = {
       perform: perform,
@@ -87,12 +74,39 @@
     }
 
     function perform(items, scope) {
+      var context = { };
       var pools = angular.isArray(items) ? items : [items];
+      context.labels = labelize(pools.length);
+      context.deleteEntity = deleteItem;
       pools.map(function(item) {
         loadbalancerId = item.loadbalancerId;
         listenerId = item.listenerId;
       });
       return deleteModal.open(scope, pools, context).then(deleteResult);
+    }
+
+    function labelize(count) {
+      return {
+        title: ngettext(
+          'Confirm Delete Pool',
+          'Confirm Delete Pools', count),
+
+        message: ngettext(
+          'You have selected "%s". Deleted pool is not recoverable.',
+          'You have selected "%s". Deleted pools are not recoverable.', count),
+
+        submit: ngettext(
+          'Delete Pool',
+          'Delete Pools', count),
+
+        success: ngettext(
+          'Deleted Pool: %s.',
+          'Deleted Pools: %s.', count),
+
+        error: ngettext(
+          'Unable to delete Pool: %s.',
+          'Unable to delete Pools: %s.', count)
+      };
     }
 
     function deleteResult(deleteModalResult) {

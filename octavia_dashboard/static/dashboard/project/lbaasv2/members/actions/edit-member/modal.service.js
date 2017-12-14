@@ -102,7 +102,7 @@
           }
         }
       };
-      $uibModal.open(spec).result.then(onModalClose);
+      return $uibModal.open(spec).result.then(onModalClose);
     }
 
     function onModalClose() {

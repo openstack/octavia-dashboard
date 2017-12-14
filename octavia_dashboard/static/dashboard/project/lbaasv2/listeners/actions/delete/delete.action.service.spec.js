@@ -106,7 +106,7 @@
         labels: jasmine.any(Object),
         deleteEntity: jasmine.any(Function)
       }));
-      expect(args[2].labels.title).toBe('Confirm Delete Listeners');
+      expect(args[2].labels.title).toBe('Confirm Delete Listener');
     });
 
     it('should pass function to modal that deletes listeners', function() {
@@ -127,8 +127,8 @@
       $scope.$apply();
       expect(modal.open).toHaveBeenCalled();
       expect(lbaasv2Api.deleteListener.calls.count()).toBe(1);
-      expect(toast.add).toHaveBeenCalledWith('error', 'The following listeners could not ' +
-        'be deleted, possibly due to existing pools: First.');
+      expect(toast.add).toHaveBeenCalledWith('error', 'Unable to delete Listener' +
+        ': First.');
     });
 
     it('should return to table after delete if on detail page', function() {
@@ -138,7 +138,7 @@
       service.perform(items[0], $scope);
       $scope.$apply();
       expect($location.path).toHaveBeenCalledWith('project/load_balancer/1');
-      expect(toast.add).toHaveBeenCalledWith('success', 'Deleted listeners: First.');
+      expect(toast.add).toHaveBeenCalledWith('success', 'Deleted Listener: First.');
     });
 
     it('should show message if any selected items do not allow for delete (batch)', function() {
@@ -150,8 +150,8 @@
       $scope.$apply();
       expect(modal.open).not.toHaveBeenCalled();
       expect(toast.add).toHaveBeenCalledWith('error',
-        'The following listeners will not be deleted ' +
-        'due to existing pools: First, Second.');
+        'Unable to delete Listeners' +
+        ': First, Second.');
     });
 
   });
