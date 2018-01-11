@@ -24,8 +24,10 @@ pip-log.txt
 
 # Unit test / coverage reports
 .coverage
+*.lock
 .tox
 nosetests.xml
+.secret_key_store
 .testrepository
 .venv
 node_modules
@@ -47,6 +49,7 @@ output/*/index.html
 
 # Sphinx
 doc/build
+doc/source/contributor/modules
 
 # pbr generates these
 AUTHORS

@@ -14,11 +14,4 @@ Contents:
    readme
    installation
    contributing
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   reference

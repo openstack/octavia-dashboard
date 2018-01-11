@@ -12,18 +12,34 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import logging
 import os
 import sys
+from sphinx import apidoc
+
+import django
 
 sys.path.insert(0, os.path.abspath('../..'))
+sys.path.insert(0, os.path.abspath('.'))
+
+logging.getLogger('openstack_dashboard.settings').setLevel(logging.ERROR)
+
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'openstack_dashboard.settings')
+
+django.setup()
+
 # -- General configuration ----------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
+    'openstackdocstheme',
+    'oslosphinx',
     'sphinx.ext.autodoc',
-    #'sphinx.ext.intersphinx',
-    'oslosphinx'
+    'sphinx.ext.coverage',
+    # 'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinx.ext.viewcode',
 ]
 
 # autodoc generation is a bit aggressive and a nuisance when doing heavy
@@ -57,6 +73,13 @@ pygments_style = 'sphinx'
 # html_theme_path = ["."]
 # html_theme = '_theme'
 # html_static_path = ['static']
+html_theme = 'openstackdocs'
+
+html_theme_options = {
+    'display_toc': False
+}
+
+html_static_path = []
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = '%sdoc' % project
@@ -72,7 +95,34 @@ latex_documents = [
 ]
 
 # Example configuration for intersphinx: refer to the Python standard library.
-#intersphinx_mapping = {'http://docs.python.org/': None}
+# intersphinx_mapping = {'http://docs.python.org/': None}
 
 # A list of ignored prefixes for module index sorting.
 modindex_common_prefix = ['octavia-dashboard.']
+
+
+# TODO(mordred) We should extract this into a sphinx plugin
+def run_apidoc(_):
+    cur_dir = os.path.abspath(os.path.dirname(__file__))
+    out_dir = os.path.join(cur_dir, 'contributor', 'modules')
+    module = os.path.join(cur_dir, '..', '..', 'octavia_dashboard')
+    # Keep the order of arguments same as the sphinx-apidoc help, otherwise it
+    # would cause unexpected errors:
+    # sphinx-apidoc [options] -o <output_path> <module_path>
+    # [exclude_pattern, ...]
+    apidoc.main([
+        '--force',
+        '-o',
+        out_dir,
+        module,
+        'octavia_dashboard/tests',
+        'octavia_dashboard/enabled',
+        'octavia_dashboard/locale',
+        'octavia_dashboard/static',
+        'octavia_dashboard/post_install.sh',
+        'octavia_dashboard/karma.conf.js'
+    ])
+
+
+def setup(app):
+    app.connect('builder-inited', run_apidoc)
