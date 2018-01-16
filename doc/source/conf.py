@@ -34,7 +34,6 @@ django.setup()
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 extensions = [
     'openstackdocstheme',
-    'oslosphinx',
     'sphinx.ext.autodoc',
     'sphinx.ext.coverage',
     # 'sphinx.ext.intersphinx',
