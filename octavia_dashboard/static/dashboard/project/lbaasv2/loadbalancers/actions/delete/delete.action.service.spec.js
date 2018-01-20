@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -17,17 +18,11 @@
   'use strict';
 
   describe('LBaaS v2 Load Balancers Table Row Delete Service', function() {
-    var service, policy, modal, lbaasv2Api, $scope, $route, $location, $q, toast, items, path;
+    var service, policy, modal, lbaasv2Api, $scope, $location, $q, toast, items, path;
 
     function allowed(item) {
       spyOn(policy, 'ifAllowed').and.returnValue(true);
-      var promise = service.allowed(item);
-      var allowed;
-      promise.then(function() {
-        allowed = true;
-      }, function() {
-        allowed = false;
-      });
+      var allowed = service.allowed(item);
       $scope.$apply();
       expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'delete_loadbalancer']]});
       return allowed;
@@ -39,10 +34,6 @@
       return def.promise;
     }
 
-    beforeEach(module('horizon.framework.util'));
-    beforeEach(module('horizon.framework.conf'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     beforeEach(function() {
@@ -75,7 +66,6 @@
       lbaasv2Api = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
       modal = $injector.get('horizon.framework.widgets.modal.deleteModalService');
       $scope = $injector.get('$rootScope').$new();
-      $route = $injector.get('$route');
       $location = $injector.get('$location');
       $q = $injector.get('$q');
       toast = $injector.get('horizon.framework.widgets.toast.service');
@@ -95,24 +85,14 @@
       expect(allowed()).toBe(true);
     });
 
-    it('should not allow deleting load balancers if state check fails (single)', function() {
-      items[0].provisioning_status = 'PENDING_UPDATE';
-      expect(allowed(items[0])).toBe(false);
-    });
-
-    it('should allow batch delete even if state check fails (batch)', function() {
-      items[0].provisioning_status = 'PENDING_UPDATE';
-      expect(allowed()).toBe(true);
-    });
-
     it('should open the delete modal', function() {
-      spyOn(modal, 'open');
-      service.perform(items[0]);
+      spyOn(modal, 'open').and.callThrough();
+      service.perform(items[0], $scope);
       $scope.$apply();
       expect(modal.open.calls.count()).toBe(1);
       var args = modal.open.calls.argsFor(0);
       expect(args.length).toBe(3);
-      expect(args[0]).toEqual({ $emit: jasmine.any(Function) });
+      expect(args[0]).toEqual($scope);
       expect(args[1]).toEqual([jasmine.objectContaining({ id: '1' })]);
       expect(args[2]).toEqual(jasmine.objectContaining({
         labels: jasmine.any(Object),
@@ -124,7 +104,7 @@
     it('should pass function to modal that deletes load balancers', function() {
       spyOn(modal, 'open').and.callThrough();
       spyOn(lbaasv2Api, 'deleteLoadBalancer').and.callThrough();
-      service.perform(items[0]);
+      service.perform(items[0], $scope);
       $scope.$apply();
       expect(lbaasv2Api.deleteLoadBalancer.calls.count()).toBe(1);
       expect(lbaasv2Api.deleteLoadBalancer).toHaveBeenCalledWith('1', true);
@@ -135,7 +115,7 @@
       spyOn(toast, 'add');
       items[0].provisioning_status = 'PENDING_UPDATE';
       items[1].provisioning_status = 'PENDING_DELETE';
-      service.perform(items);
+      service.perform(items, $scope);
       $scope.$apply();
       expect(modal.open).not.toHaveBeenCalled();
       expect(toast.add).toHaveBeenCalledWith('error',
@@ -147,7 +127,7 @@
       spyOn(lbaasv2Api, 'deleteLoadBalancer').and.returnValue(makePromise(true));
       spyOn(toast, 'add');
       items.splice(1, 1);
-      service.perform(items);
+      service.perform(items, $scope);
       $scope.$apply();
       expect(modal.open).toHaveBeenCalled();
       expect(lbaasv2Api.deleteLoadBalancer.calls.count()).toBe(1);
@@ -155,19 +135,11 @@
         'be deleted, possibly due to existing listeners: First.');
     });
 
-    it('should reload table after delete', function() {
-      path = 'project/load_balancer';
-      spyOn($route, 'reload');
-      service.perform(items);
-      $scope.$apply();
-      expect($route.reload).toHaveBeenCalled();
-    });
-
-    it('should return to table after delete if on detail page', function() {
+    it('should return to panel after delete if on detail page', function() {
       path = 'project/load_balancer/1';
       spyOn($location, 'path');
       spyOn(toast, 'add');
-      service.perform(items[0]);
+      service.perform(items[0], $scope);
       $scope.$apply();
       expect($location.path).toHaveBeenCalledWith('project/load_balancer');
       expect(toast.add).toHaveBeenCalledWith('success', 'Deleted load balancers: First.');

@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -30,6 +31,7 @@
 
   function CreatePoolWizardController($scope, $routeParams, model, workflowService, gettext) {
     var loadbalancerId = $routeParams.loadbalancerId;
+    var listenerId = $routeParams.listenerId;
     var scope = $scope;
     scope.model = model;
     scope.submit = scope.model.submit;
@@ -38,7 +40,7 @@
         'fa fa-cloud-download',
         ['pool', 'members', 'monitor']
     );
-    scope.model.initialize('pool', false, loadbalancerId, scope.launchContext.id);
+    scope.model.initialize('pool', false, loadbalancerId, listenerId);
   }
 
 })();

@@ -1,0 +1,62 @@
+<div class="page-header">
+  <ol class="breadcrumb">
+    <li><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
+    <li><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
+    <li class="active">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</li>
+  </ol>
+  <div class="row">
+    <div class="col-xs-12 col-sm-9 text-left">
+      <ul class="list-inline">
+        <li>
+          <strong translate>Protocol</strong>
+          {$ ::ctrl.listener.protocol $}
+        </li>
+        <li>
+          <strong translate>Port</strong>
+          {$ ::ctrl.listener.protocol_port $}
+        </li>
+        <li>
+          <strong translate>Operating Status</strong>
+          {$ ctrl.listener.operating_status | decode:ctrl.operatingStatus $}
+        </li>
+        <li>
+          <strong translate>Provisioning Status</strong>
+          {$ ctrl.listener.provisioning_status | decode:ctrl.provisioningStatus $}
+        </li>
+        <li>
+          <strong translate>Admin State Up</strong>
+          {$ ctrl.listener.admin_state_up | yesno $}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3 text-right details-item-actions">
+      <actions allowed="ctrl.resourceType.itemActions"
+               type="row"
+               item="ctrl.listener"
+               ng-if="ctrl.listener"
+               class="actions_column pull-right"
+               result-handler="ctrl.resultHandler"></actions>
+    </div>
+  </div>
+</div>
+<uib-tabset class="octavia-tabset">
+  <uib-tab heading="{$ 'Overview' | translate $}">
+    <div class="col-md-6 detail">
+      <hz-resource-property-list
+         resource-type-name="OS::Octavia::Listener"
+         cls="dl-horizontal"
+         item="ctrl.listener"
+         property-groups="[[
+         'id', 'name', 'description', 'project_id', 'created_at', 'updated_at',
+         'connection_limit', 'default_pool_id']]">
+      </hz-resource-property-list>
+    </div>
+  </uib-tab>
+  <uib-tab heading="{$ 'Pools' | translate $}">
+    <hz-resource-table resource-type-name="OS::Octavia::Pool"
+                       track-by="trackBy"
+                       list-function-extra-params="ctrl.listFunctionExtraParams">
+    </hz-resource-table>
+  </uib-tab>
+</uib-tabset>

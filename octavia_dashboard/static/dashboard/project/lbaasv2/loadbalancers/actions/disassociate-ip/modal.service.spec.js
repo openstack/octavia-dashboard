@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -34,10 +35,6 @@
       return allowed;
     }
 
-    beforeEach(module('horizon.framework.util'));
-    beforeEach(module('horizon.framework.conf'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     beforeEach(function() {
@@ -71,7 +68,7 @@
       $scope = $injector.get('$rootScope').$new();
       $route = $injector.get('$route');
       service = $injector.get(
-        'horizon.dashboard.project.lbaasv2.loadbalancers.actions.disassociate-ip.modal.service');
+        'horizon.dashboard.project.lbaasv2.loadbalancers.actions.disassociate-ip');
     }));
 
     it('should have the "allowed" and "perform" functions', function() {

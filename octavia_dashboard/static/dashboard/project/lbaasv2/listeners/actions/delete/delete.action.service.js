@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -21,9 +22,10 @@
     .factory('horizon.dashboard.project.lbaasv2.listeners.actions.delete', deleteService);
 
   deleteService.$inject = [
+    'horizon.dashboard.project.lbaasv2.listeners.resourceType',
+    'horizon.framework.util.actions.action-result.service',
     '$q',
     '$location',
-    '$route',
     'horizon.framework.widgets.modal.deleteModalService',
     'horizon.app.core.openstack-service-api.lbaasv2',
     'horizon.app.core.openstack-service-api.policy',
@@ -35,26 +37,31 @@
   /**
    * @ngDoc factory
    * @name horizon.dashboard.project.lbaasv2.listeners.actions.deleteService
+   *
    * @description
    * Brings up the delete listeners confirmation modal dialog.
    * On submit, deletes selected listeners.
    * On cancel, does nothing.
+   *
+   * @param resourceType The listener resource type.
+   * @param actionResultService The horizon action result service.
    * @param $q The angular service for promises.
    * @param $location The angular $location service.
-   * @param $route The angular $route service.
    * @param deleteModal The horizon delete modal service.
    * @param api The LBaaS v2 API service.
    * @param policy The horizon policy service.
    * @param toast The horizon message service.
    * @param qExtensions Horizon extensions to the $q service.
    * @param gettext The horizon gettext function for translation.
-   * @returns The listeners table delete service.
+   *
+   * @returns The listeners delete service.
    */
 
   function deleteService(
-    $q, $location, $route, deleteModal, api, policy, toast, qExtensions, gettext
+    resourceType, actionResultService, $q, $location,
+    deleteModal, api, policy, toast, qExtensions, gettext
   ) {
-    var loadbalancerId, statePromise;
+    var loadbalancerId, scope;
     var notAllowedMessage = gettext('The following listeners will not be deleted ' +
                                     'due to existing pools: %s.');
     var context = {
@@ -74,54 +81,38 @@
 
     var service = {
       perform: perform,
-      allowed: allowed,
-      init: init
+      allowed: allowed
     };
 
     return service;
 
     //////////////
 
-    function init(_loadbalancerId_, _statePromise_) {
-      loadbalancerId = _loadbalancerId_;
-      statePromise = _statePromise_;
-      return service;
+    function perform(items, _scope_) {
+      scope = _scope_;
+      var listeners = angular.isArray(items) ? items : [items];
+      listeners.map(function(item) {
+        loadbalancerId = item.loadbalancerId;
+      });
+      return qExtensions.allSettled(listeners.map(checkPermission)).then(afterCheck);
     }
 
-    function perform(items) {
-      if (angular.isArray(items)) {
-        qExtensions.allSettled(items.map(checkPermission)).then(afterCheck);
-      } else {
-        deleteModal.open({ $emit: actionComplete }, [items], context);
+    function deleteResult(deleteModalResult) {
+      // To make the result of this action generically useful, reformat the return
+      // from the deleteModal into a standard form
+      var actionResult = actionResultService.getActionResult();
+      deleteModalResult.pass.forEach(function markDeleted(item) {
+        actionResult.deleted(resourceType, item.context.id);
+      });
+      deleteModalResult.fail.forEach(function markFailed(item) {
+        actionResult.failed(resourceType, item.context.id);
+      });
+
+      if (actionResult.result.failed.length === 0 && actionResult.result.deleted.length > 0) {
+        var path = 'project/load_balancer/' + loadbalancerId;
+        $location.path(path);
       }
-    }
-
-    function allowed(item) {
-      var promises = [policy.ifAllowed({ rules: [['neutron', 'delete_listener']] }), statePromise];
-      if (item) {
-        promises.push(qExtensions.booleanAsPromise(!item.default_pool_id));
-      }
-      return $q.all(promises);
-    }
-
-    function deleteItem(id) {
-      return api.deleteListener(id, true);
-    }
-
-    function actionComplete(eventType) {
-      if (eventType === context.failedEvent) {
-        // Action failed, reload the page
-        $route.reload();
-      } else {
-        // If the user is on the listeners table then just reload the page, otherwise they
-        // are on the details page and we return to the table.
-        var regex = new RegExp('project\/load_balancer\/' + loadbalancerId + '(\/)?$');
-        if (regex.test($location.path())) {
-          $route.reload();
-        } else {
-          $location.path('project/load_balancer/' + loadbalancerId);
-        }
-      }
+      return actionResult.result;
     }
 
     function checkPermission(item) {
@@ -133,7 +124,7 @@
         toast.add('error', getMessage(notAllowedMessage, result.fail));
       }
       if (result.pass.length > 0) {
-        deleteModal.open({ $emit: actionComplete }, result.pass.map(getEntity), context);
+        return deleteModal.open(scope, result.pass.map(getEntity), context).then(deleteResult);
       }
     }
 
@@ -153,5 +144,12 @@
       return result.context;
     }
 
+    function allowed() {
+      return policy.ifAllowed({ rules: [['neutron', 'delete_listener']] });
+    }
+
+    function deleteItem(id) {
+      return api.deleteListener(id, true);
+    }
   }
 })();

@@ -46,6 +46,7 @@
       createListener: createListener,
       editListener: editListener,
       deleteListener: deleteListener,
+      getPools: getPools,
       getPool: getPool,
       createPool: createPool,
       editPool: editPool,
@@ -54,6 +55,7 @@
       getMember: getMember,
       deleteMember: deleteMember,
       editMember: editMember,
+      getHealthMonitors: getHealthMonitors,
       getHealthMonitor: getHealthMonitor,
       deleteHealthMonitor: deleteHealthMonitor,
       createHealthMonitor: createHealthMonitor,
@@ -243,6 +245,38 @@
     // Pools
 
     /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getPools
+     * @description
+     * Get the list of pools.
+     * If a loadbalancer ID is passed as a parameter, the returning list of
+     * pools will be filtered to include only those pools under the
+     * specified loadbalancer.
+     * @param {string} loadbalancerId
+     * Specifies the id of the loadbalancer to request pools for.
+     * @param {string} listenerId
+     * Specifies the id of the listener to request pools for.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a pool.
+     */
+
+    function getPools(loadbalancerId, listenerId) {
+      var params = $.extend({},
+        {
+          loadbalancerId: loadbalancerId,
+          listenerId: listenerId
+        }
+      );
+      if (!$.isEmptyObject(params)) {
+        params = { params: params };
+      }
+      return apiService.get('/api/lbaas/pools/', params)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve pools.'));
+        });
+    }
+
+    /**
      * @name horizon.app.core.openstack-service-api.lbaasv2.getPool
      * @description
      * Get a single Pool by ID.
@@ -407,6 +441,28 @@
      * @param {string} monitorId
      * Specifies the id of the health monitor.
      */
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getHealthMonitors
+     * @description
+     * Get the list of healthmonitors.
+     * If a pool ID is passed as a parameter, the returning list of
+     * healthmonitors will be filtered to include only those healthmonitors under the
+     * specified pool.
+     * @param {string} id
+     * Specifies the id of the pool to request healthmonitors for.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a healthmonitor.
+     */
+
+    function getHealthMonitors(id) {
+      var params = id ? {params: {poolId: id}} : {};
+      return apiService.get('/api/lbaas/healthmonitors/', params)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve health monitors.'));
+        });
+    }
 
     function getHealthMonitor(monitorId) {
       return apiService.get('/api/lbaas/healthmonitors/' + monitorId + '/')

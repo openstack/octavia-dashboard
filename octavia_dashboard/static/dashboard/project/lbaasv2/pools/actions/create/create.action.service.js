@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -21,69 +22,59 @@
     .factory('horizon.dashboard.project.lbaasv2.pools.actions.create', createService);
 
   createService.$inject = [
+    'horizon.dashboard.project.lbaasv2.pools.resourceType',
+    'horizon.framework.util.actions.action-result.service',
     '$q',
-    '$location',
     'horizon.dashboard.project.lbaasv2.workflow.modal',
     'horizon.app.core.openstack-service-api.policy',
+    'horizon.framework.util.i18n.gettext',
     'horizon.framework.util.q.extensions',
-    'horizon.framework.util.i18n.gettext'
+    '$routeParams'
   ];
 
   /**
    * @ngDoc factory
-   * @name horizon.dashboard.project.lbaasv2.listeners.actions.createService
+   * @name horizon.dashboard.project.lbaasv2.pools.actions.createService
+   *
    * @description
    * Provides the service for creating a pool resource.
+   *
+   * @param resourceType The pool resource type.
+   * @param actionResultService The horizon action result service.
    * @param $q The angular service for promises.
-   * @param $location The angular $location service.
    * @param workflowModal The LBaaS workflow modal service.
    * @param policy The horizon policy service.
-   * @param qExtensions Horizon extensions to the $q service.
    * @param gettext The horizon gettext function for translation.
-   * @returns The load balancers pool create service.
+   * @param qExtensions horizon extensions to the $q service.
+   * @param $routeParams The angular $routeParams service.
+   *
+   * @returns The pool create service.
    */
 
   function createService(
-    $q, $location, workflowModal, policy, qExtensions, gettext
+    resourceType, actionResultService,
+    $q, workflowModal, policy, gettext, qExtensions, $routeParams
   ) {
-    var loadbalancerId, listenerId, statePromise;
-
-    var create = workflowModal.init({
+    return workflowModal.init({
       controller: 'CreatePoolWizardController',
       message: gettext('A new pool is being created.'),
-      handle: onCreate,
+      handle: handle,
       allowed: allowed
     });
 
-    var service = {
-      init: init,
-      create: create
-    };
-
-    return service;
-
     //////////////
 
-    function init(_loadbalancerId_, _statePromise_) {
-      loadbalancerId = _loadbalancerId_;
-      statePromise = _statePromise_;
-      return service;
-    }
-
-    function allowed(item) {
-      listenerId = item.id;
+    function allowed() {
       return $q.all([
-        statePromise,
-        qExtensions.booleanAsPromise(!item.default_pool_id),
+        qExtensions.booleanAsPromise(!!$routeParams.listenerId),
         policy.ifAllowed({ rules: [['neutron', 'create_pool']] })
       ]);
     }
 
-    function onCreate(response) {
-      var poolId = response.data.id;
-      $location.path('project/load_balancer/' + loadbalancerId + '/listeners/' +
-          listenerId + '/pools/' + poolId);
+    function handle(response) {
+      return actionResultService.getActionResult()
+        .created(resourceType, response.data.id)
+        .result;
     }
-
   }
 })();

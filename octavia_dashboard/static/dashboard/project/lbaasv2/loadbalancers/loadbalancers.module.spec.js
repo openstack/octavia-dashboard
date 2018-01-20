@@ -1,5 +1,6 @@
 /*
  * Copyright 2015 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -20,6 +21,50 @@
     it('should exist', function() {
       expect(angular.module('horizon.dashboard.project.lbaasv2.loadbalancers')).toBeDefined();
     });
+  });
+
+  describe('LBaaS v2 Load Balancers Registry', function () {
+    var registry, resourceType;
+
+    beforeEach(module('horizon.dashboard.project.lbaasv2'));
+
+    beforeEach(inject(function($injector) {
+      resourceType = $injector.get('horizon.dashboard.project.lbaasv2.loadbalancers.resourceType');
+      registry = $injector.get('horizon.framework.conf.resource-type-registry.service');
+    }));
+
+    it('should define resourceType', function () {
+      expect(resourceType).toBeDefined();
+    });
+
+    it('should register item actions', function () {
+      var actions = registry.getResourceType(resourceType).itemActions;
+      expect(actionHasId(actions, 'loadBalancerEdit')).toBe(true);
+      expect(actionHasId(actions, 'loadBalancerAssociateFloatingIp')).toBe(true);
+      expect(actionHasId(actions, 'loadBalancerDisassociateFloatingIp')).toBe(true);
+      expect(actionHasId(actions, 'loadBalancerDelete')).toBe(true);
+    });
+
+    it('should register global actions', function () {
+      var actions = registry.getResourceType(resourceType).globalActions;
+      expect(actionHasId(actions, 'loadBalancerCreate')).toBe(true);
+    });
+
+    it('should register batch actions', function () {
+      var actions = registry.getResourceType(resourceType).batchActions;
+      expect(actionHasId(actions, 'loadBalancerBatchDelete')).toBe(true);
+    });
+
+    function actionHasId(list, value) {
+      return list.filter(matchesId).length === 1;
+
+      function matchesId(action) {
+        if (action.id === value) {
+          return true;
+        }
+      }
+    }
+
   });
 
 })();

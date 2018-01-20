@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -17,17 +18,11 @@
   'use strict';
 
   describe('LBaaS v2 Listeners Delete Service', function() {
-    var service, policy, modal, lbaasv2Api, $scope, $route, $location, $q, toast, items, path;
+    var service, policy, modal, lbaasv2Api, $scope, $location, $q, toast, items, path;
 
     function allowed(item) {
-      spyOn(policy, 'ifAllowed').and.returnValue(makePromise());
-      var promise = service.allowed(item);
-      var allowed;
-      promise.then(function() {
-        allowed = true;
-      }, function() {
-        allowed = false;
-      });
+      spyOn(policy, 'ifAllowed').and.returnValue(true);
+      var allowed = service.allowed(item);
       $scope.$apply();
       expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'delete_listener']]});
       return allowed;
@@ -46,15 +41,19 @@
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     beforeEach(function() {
-      items = [{ id: '1', name: 'First' },
-               { id: '2', name: 'Second' }];
+      items = [{ id: '1', name: 'First', loadbalancerId: 1 },
+               { id: '2', name: 'Second', loadbalancerId: 1 }];
     });
 
     beforeEach(module(function($provide) {
       $provide.value('$uibModal', {
         open: function() {
           return {
-            result: makePromise()
+            result: {
+              then: function(func) {
+                return func({ data: { id: 'listener1' } });
+              }
+            }
           };
         }
       });
@@ -75,12 +74,10 @@
       lbaasv2Api = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
       modal = $injector.get('horizon.framework.widgets.modal.deleteModalService');
       $scope = $injector.get('$rootScope').$new();
-      $route = $injector.get('$route');
       $location = $injector.get('$location');
       $q = $injector.get('$q');
       toast = $injector.get('horizon.framework.widgets.toast.service');
       service = $injector.get('horizon.dashboard.project.lbaasv2.listeners.actions.delete');
-      service.init('1', makePromise());
     }));
 
     it('should have the "allowed" and "perform" functions', function() {
@@ -96,23 +93,14 @@
       expect(allowed()).toBe(true);
     });
 
-    it('should not allow deleting a listener from load balancer in a PENDING state', function() {
-      service.init('1', makePromise(true));
-      expect(allowed()).toBe(false);
-    });
-
-    it('should not allow deleting a listener that has a default pool', function() {
-      expect(allowed({default_pool_id: 'pool1'})).toBe(false);
-    });
-
     it('should open the delete modal', function() {
-      spyOn(modal, 'open');
-      service.perform(items[0]);
+      spyOn(modal, 'open').and.callThrough();
+      service.perform(items[0], $scope);
       $scope.$apply();
       expect(modal.open.calls.count()).toBe(1);
       var args = modal.open.calls.argsFor(0);
       expect(args.length).toBe(3);
-      expect(args[0]).toEqual({ $emit: jasmine.any(Function) });
+      expect(args[0]).toEqual($scope);
       expect(args[1]).toEqual([jasmine.objectContaining({ id: '1' })]);
       expect(args[2]).toEqual(jasmine.objectContaining({
         labels: jasmine.any(Object),
@@ -124,7 +112,7 @@
     it('should pass function to modal that deletes listeners', function() {
       spyOn(modal, 'open').and.callThrough();
       spyOn(lbaasv2Api, 'deleteListener').and.callThrough();
-      service.perform(items[0]);
+      service.perform(items[0], $scope);
       $scope.$apply();
       expect(lbaasv2Api.deleteListener.calls.count()).toBe(1);
       expect(lbaasv2Api.deleteListener).toHaveBeenCalledWith('1', true);
@@ -135,7 +123,7 @@
       spyOn(lbaasv2Api, 'deleteListener').and.returnValue(makePromise(true));
       spyOn(toast, 'add');
       items.splice(1, 1);
-      service.perform(items);
+      service.perform(items, $scope);
       $scope.$apply();
       expect(modal.open).toHaveBeenCalled();
       expect(lbaasv2Api.deleteListener.calls.count()).toBe(1);
@@ -143,19 +131,11 @@
         'be deleted, possibly due to existing pools: First.');
     });
 
-    it('should reload table after delete', function() {
-      path = 'project/load_balancer/1';
-      spyOn($route, 'reload');
-      service.perform(items);
-      $scope.$apply();
-      expect($route.reload).toHaveBeenCalled();
-    });
-
     it('should return to table after delete if on detail page', function() {
       path = 'project/load_balancer/1/listeners/2';
       spyOn($location, 'path');
       spyOn(toast, 'add');
-      service.perform(items[0]);
+      service.perform(items[0], $scope);
       $scope.$apply();
       expect($location.path).toHaveBeenCalledWith('project/load_balancer/1');
       expect(toast.add).toHaveBeenCalledWith('success', 'Deleted listeners: First.');
@@ -166,7 +146,7 @@
       spyOn(toast, 'add');
       items[0].default_pool_id = 'pool1';
       items[1].default_pool_id = 'pool2';
-      service.perform(items);
+      service.perform(items, $scope);
       $scope.$apply();
       expect(modal.open).not.toHaveBeenCalled();
       expect(toast.add).toHaveBeenCalledWith('error',

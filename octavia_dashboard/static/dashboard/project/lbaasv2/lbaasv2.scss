@@ -1,5 +1,6 @@
 /*
  * Copyright 2015 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -74,9 +75,8 @@
   }
 }
 
-/* Progress indicator while data is loading */
-[table-status],
-detail-status {
+/* Progress indicator in the table while items are loading */
+[table-status] {
   .progress {
     margin: 0px auto;
     width: 25%;
@@ -86,12 +86,9 @@ detail-status {
     }
   }
 }
-detail-status {
-  .progress {
-    margin-top: 25vh;
-  }
-  .error-actions {
-    text-align: center;
+
+.octavia-tabset {
+  .tab-content {
     margin-top: 10px;
   }
 }

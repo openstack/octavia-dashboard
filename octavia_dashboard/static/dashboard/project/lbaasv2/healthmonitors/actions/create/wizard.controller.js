@@ -32,6 +32,7 @@
     $scope, $routeParams, model, workflowService, gettext
   ) {
     var loadbalancerId = $routeParams.loadbalancerId;
+    var poolId = $routeParams.poolId;
     var scope = $scope;
     scope.model = model;
     scope.submit = scope.model.submit;
@@ -40,7 +41,7 @@
         'fa fa-cloud-download',
         ['monitor']
     );
-    scope.model.initialize('monitor', false, loadbalancerId, scope.launchContext.id);
+    scope.model.initialize('monitor', false, loadbalancerId, poolId);
   }
 
 })();

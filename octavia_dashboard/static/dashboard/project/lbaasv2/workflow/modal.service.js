@@ -64,6 +64,7 @@
 
     function init(args) {
       return {
+        handle: args.handle, // exposed just for testing
         allowed: args.allowed,
         perform: open
       };
@@ -93,13 +94,13 @@
             }
           }
         };
-        $uibModal.open(spec).result.then(onModalClose);
+        return $uibModal.open(spec).result.then(onModalClose);
       }
 
       function onModalClose(response) {
         toastService.add('success', args.message);
         if (args.handle) {
-          args.handle(response);
+          return args.handle(response);
         }
       }
     }

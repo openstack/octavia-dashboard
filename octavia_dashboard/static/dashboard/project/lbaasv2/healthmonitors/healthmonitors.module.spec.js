@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -20,6 +21,48 @@
     it('should exist', function() {
       expect(angular.module('horizon.dashboard.project.lbaasv2.healthmonitors')).toBeDefined();
     });
+  });
+
+  describe('LBaaS v2 Healthmonitors Registry', function () {
+    var registry, resourceType;
+
+    beforeEach(module('horizon.dashboard.project.lbaasv2'));
+
+    beforeEach(inject(function($injector) {
+      resourceType = $injector.get('horizon.dashboard.project.lbaasv2.healthmonitors.resourceType');
+      registry = $injector.get('horizon.framework.conf.resource-type-registry.service');
+    }));
+
+    it('should define resourceType', function () {
+      expect(resourceType).toBeDefined();
+    });
+
+    it('should register item actions', function () {
+      var actions = registry.getResourceType(resourceType).itemActions;
+      expect(actionHasId(actions, 'healthMonitorEdit')).toBe(true);
+      expect(actionHasId(actions, 'healthMonitorDelete')).toBe(true);
+    });
+
+    it('should register global actions', function () {
+      var actions = registry.getResourceType(resourceType).globalActions;
+      expect(actionHasId(actions, 'healthMonitorCreate')).toBe(true);
+    });
+
+    it('should register batch actions', function () {
+      var actions = registry.getResourceType(resourceType).batchActions;
+      expect(actionHasId(actions, 'healthMonitorBatchDelete')).toBe(true);
+    });
+
+    function actionHasId(list, value) {
+      return list.filter(matchesId).length === 1;
+
+      function matchesId(action) {
+        if (action.id === value) {
+          return true;
+        }
+      }
+    }
+
   });
 
 })();

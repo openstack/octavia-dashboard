@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -21,68 +22,46 @@
     .factory('horizon.dashboard.project.lbaasv2.healthmonitors.actions.create', createService);
 
   createService.$inject = [
-    '$q',
-    '$location',
+    'horizon.dashboard.project.lbaasv2.healthmonitors.resourceType',
+    'horizon.framework.util.actions.action-result.service',
     'horizon.dashboard.project.lbaasv2.workflow.modal',
     'horizon.app.core.openstack-service-api.policy',
-    'horizon.framework.util.i18n.gettext',
-    'horizon.framework.util.q.extensions'
+    'horizon.framework.util.i18n.gettext'
   ];
 
   /**
    * @ngDoc factory
    * @name horizon.dashboard.project.lbaasv2.healthmonitors.actions.createService
+   *
    * @description
    * Provides the service for creating a health monitor resource.
-   * @param $q The angular service for promises.
-   * @param $location The angular $location service.
+   *
+   * @param resourceType The health monitor resource type.
+   * @param actionResultService The horizon action result service.
    * @param workflowModal The LBaaS workflow modal service.
    * @param policy The horizon policy service.
    * @param gettext The horizon gettext function for translation.
-   * @param qExtensions Horizon extensions to the $q service.
+   *
    * @returns The health monitor create service.
    */
 
-  function createService($q, $location, workflowModal, policy, gettext, qExtensions) {
-    var loadbalancerId, listenerId, poolId, statePromise;
-
-    var create = workflowModal.init({
+  function createService(resourceType, actionResultService, workflowModal, policy, gettext) {
+    return workflowModal.init({
       controller: 'CreateHealthMonitorWizardController',
       message: gettext('A new health monitor is being created.'),
-      handle: onCreate,
+      handle: handle,
       allowed: allowed
     });
 
-    var service = {
-      init: init,
-      create: create
-    };
-
-    return service;
-
-    //////////////
-
-    function init(_loadbalancerId_, _listenerId_, _statePromise_) {
-      loadbalancerId = _loadbalancerId_;
-      listenerId = _listenerId_;
-      statePromise = _statePromise_;
-      return service;
+    function allowed() {
+      return policy.ifAllowed({ rules: [['neutron', 'create_health_monitor']] });
     }
 
-    function allowed(pool) {
-      poolId = pool.id;
-      return $q.all([
-        statePromise,
-        qExtensions.booleanAsPromise(!pool.health_monitor_id),
-        policy.ifAllowed({ rules: [['neutron', 'create_health_monitor']] })
-      ]);
+    function handle(response) {
+      var newHealthMonitor = response.data;
+      return actionResultService.getActionResult()
+        .created(resourceType, newHealthMonitor.id)
+        .result;
     }
-
-    function onCreate(response) {
-      var healthMonitorId = response.data.id;
-      $location.path('project/load_balancer/' + loadbalancerId + '/listeners/' +
-          listenerId + '/pools/' + poolId + '/healthmonitors/' + healthMonitorId);
-    }
-
   }
 })();

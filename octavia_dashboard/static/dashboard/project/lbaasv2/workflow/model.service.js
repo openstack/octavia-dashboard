@@ -565,7 +565,7 @@
 
       if (result.listener) {
         model.visibleResources.push('listener');
-        model.spec.loadbalancer_id = result.listener.loadbalancers[0].id;
+        model.spec.loadbalancer_id = result.listener.load_balancers[0].id;
 
         if (result.listener.protocol === 'TERMINATED_HTTPS') {
           keymanagerPromise.then(prepareCertificates).then(function addAvailableCertificates() {

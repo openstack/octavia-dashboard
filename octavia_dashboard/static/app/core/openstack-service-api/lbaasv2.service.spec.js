@@ -91,6 +91,37 @@
         testInput: [ '1234', false ]
       },
       {
+        func: 'getPools',
+        method: 'get',
+        path: '/api/lbaas/pools/',
+        error: 'Unable to retrieve pools.',
+        testInput: [ '1234' ],
+        data: { params: { loadbalancerId: '1234' } }
+      },
+      {
+        func: 'getPools',
+        method: 'get',
+        path: '/api/lbaas/pools/',
+        error: 'Unable to retrieve pools.',
+        testInput: [ '1234', '5678' ],
+        data: { params: { loadbalancerId: '1234', listenerId: '5678' } }
+      },
+      {
+        func: 'getPools',
+        method: 'get',
+        path: '/api/lbaas/pools/',
+        error: 'Unable to retrieve pools.',
+        testInput: [ undefined, '5678' ],
+        data: { params: { listenerId: '5678' } }
+      },
+      {
+        func: 'getPools',
+        method: 'get',
+        path: '/api/lbaas/pools/',
+        data: {},
+        error: 'Unable to retrieve pools.'
+      },
+      {
         func: 'getPool',
         method: 'get',
         path: '/api/lbaas/pools/1234/',
@@ -141,6 +172,21 @@
         error: 'Unable to update member.',
         data: { weight: 2 },
         testInput: [ '1234', '5678', { weight: 2 } ]
+      },
+      {
+        func: 'getHealthMonitors',
+        method: 'get',
+        path: '/api/lbaas/healthmonitors/',
+        error: 'Unable to retrieve health monitors.',
+        testInput: [ '1234' ],
+        data: { params: { poolId: '1234' } }
+      },
+      {
+        func: 'getHealthMonitors',
+        method: 'get',
+        path: '/api/lbaas/healthmonitors/',
+        data: {},
+        error: 'Unable to retrieve health monitors.'
       },
       {
         func: 'getHealthMonitor',

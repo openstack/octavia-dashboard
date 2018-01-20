@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -17,85 +18,38 @@
   'use strict';
 
   describe('LBaaS v2 Edit Pool Action Service', function() {
-    var scope, $q, $route, policy, init, editPoolService, defer;
+    var policy, service;
 
-    function allowed(item) {
-      spyOn(policy, 'ifAllowed').and.returnValue(true);
-      var promise = editPoolService.edit.allowed(item);
-      var allowed;
-      promise.then(function() {
-        allowed = true;
-      }, function() {
-        allowed = false;
-      });
-      scope.$apply();
-      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'update_pool']]});
-      return allowed;
-    }
-
-    beforeEach(module('horizon.framework.util'));
-    beforeEach(module('horizon.framework.conf'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     beforeEach(module(function($provide) {
-      var response = {
-        data: {
-          id: '9012'
-        }
-      };
-      var modal = {
+      $provide.value('$modal', {
         open: function() {
           return {
             result: {
               then: function(func) {
-                func(response);
+                func({ data: { id: 'pool1' } });
               }
             }
           };
         }
-      };
-      $provide.value('$uibModal', modal);
+      });
     }));
 
     beforeEach(inject(function ($injector) {
-      scope = $injector.get('$rootScope').$new();
-      $q = $injector.get('$q');
       policy = $injector.get('horizon.app.core.openstack-service-api.policy');
-      $route = $injector.get('$route');
-      editPoolService = $injector.get(
-        'horizon.dashboard.project.lbaasv2.pools.actions.edit');
-      init = editPoolService.init;
-      defer = $q.defer();
+      service = $injector.get('horizon.dashboard.project.lbaasv2.pools.actions.edit');
     }));
 
-    it('should define the correct service properties', function() {
-      expect(editPoolService.init).toBeDefined();
-      expect(editPoolService.edit).toBeDefined();
+    it('should check policy to allow editing a pool', function() {
+      spyOn(policy, 'ifAllowed').and.returnValue(true);
+      expect(service.allowed()).toBe(true);
+      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'update_pool']]});
     });
 
-    it('should have the "allowed" and "perform" functions', function() {
-      expect(editPoolService.edit.allowed).toBeDefined();
-      expect(editPoolService.edit.perform).toBeDefined();
-    });
-
-    it('should allow editing a pool under an ACTIVE load balancer', function() {
-      defer.resolve();
-      init(defer.promise);
-      expect(allowed({default_pool_id: '1234'})).toBe(true);
-    });
-
-    it('should not allow editing a pool under an NON-ACTIVE load balancer', function() {
-      defer.reject();
-      init(defer.promise);
-      expect(allowed({default_pool_id: '1234'})).toBe(false);
-    });
-
-    it('should redirect after edit', function() {
-      spyOn($route, 'reload').and.callThrough();
-      editPoolService.edit.perform();
-      expect($route.reload).toHaveBeenCalled();
+    it('should handle the action result properly', function() {
+      var result = service.handle({config: {data: {pool: {id: 1}}}});
+      expect(result.updated[0].id).toBe(1);
     });
 
   });

@@ -1,5 +1,6 @@
 /*
  * Copyright 2016 IBM Corp.
+ * Copyright 2017 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -17,85 +18,40 @@
   'use strict';
 
   describe('LBaaS v2 Update Member List Action Service', function() {
-    var scope, $q, $route, policy, init, updateMemberListService, defer;
+    var policy, service;
 
-    function allowed() {
-      spyOn(policy, 'ifAllowed').and.returnValue(true);
-      var promise = updateMemberListService.update.allowed();
-      var allowed;
-      promise.then(function() {
-        allowed = true;
-      }, function() {
-        allowed = false;
-      });
-      scope.$apply();
-      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'update_member_list']]});
-      return allowed;
-    }
-
-    beforeEach(module('horizon.framework.util'));
-    beforeEach(module('horizon.framework.conf'));
-    beforeEach(module('horizon.framework.widgets'));
-    beforeEach(module('horizon.app.core.openstack-service-api'));
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     beforeEach(module(function($provide) {
-      var response = {
-        data: {
-          id: '9012'
-        }
-      };
-      var modal = {
+      $provide.value('$modal', {
         open: function() {
           return {
             result: {
               then: function(func) {
-                func(response);
+                func({ data: { id: 'listener1' } });
               }
             }
           };
         }
-      };
-      $provide.value('$uibModal', modal);
+      });
     }));
 
     beforeEach(inject(function ($injector) {
-      scope = $injector.get('$rootScope').$new();
-      $q = $injector.get('$q');
       policy = $injector.get('horizon.app.core.openstack-service-api.policy');
-      $route = $injector.get('$route');
-      updateMemberListService = $injector.get(
-        'horizon.dashboard.project.lbaasv2.members.actions.update-member-list');
-      init = updateMemberListService.init;
-      defer = $q.defer();
+      service = $injector.get(
+        'horizon.dashboard.project.lbaasv2.members.actions.update-member-list'
+      );
     }));
 
-    it('should define the correct service properties', function() {
-      expect(updateMemberListService.init).toBeDefined();
-      expect(updateMemberListService.update).toBeDefined();
+    it('should check policy to allow updating member list', function() {
+      spyOn(policy, 'ifAllowed').and.returnValue(true);
+      expect(service.allowed()).toBe(true);
+      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'update_member_list']]});
     });
 
-    it('should have the "allowed" and "perform" functions', function() {
-      expect(updateMemberListService.update.allowed).toBeDefined();
-      expect(updateMemberListService.update.perform).toBeDefined();
-    });
-
-    it('should allow editing a pool under an ACTIVE load balancer', function() {
-      defer.resolve();
-      init(defer.promise);
-      expect(allowed()).toBe(true);
-    });
-
-    it('should not allow editing a pool under an NON-ACTIVE load balancer', function() {
-      defer.reject();
-      init(defer.promise);
-      expect(allowed()).toBe(false);
-    });
-
-    it('should redirect after edit', function() {
-      spyOn($route, 'reload').and.callThrough();
-      updateMemberListService.update.perform();
-      expect($route.reload).toHaveBeenCalled();
+    it('should handle the action result properly', function() {
+      var result = service.handle({data: {id: 1}});
+      expect(result.created[0].id).toBe(1);
     });
 
   });
