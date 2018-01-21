@@ -21,7 +21,9 @@
     .controller('MonitorDetailsController', MonitorDetailsController);
 
   MonitorDetailsController.$inject = [
+    '$scope',
     'horizon.dashboard.project.lbaasv2.patterns',
+    'horizon.framework.widgets.wizard.events',
     'horizon.framework.util.i18n.gettext'
   ];
 
@@ -31,14 +33,27 @@
    * @description
    * The `MonitorDetailsController` controller provides functions for
    * configuring the health monitor step of the LBaaS wizard.
+   * @param $scope The angular scope object.
    * @param patterns The LBaaS v2 patterns constant.
+   * @param wizardEvents The horizon wizard events.
    * @param gettext The horizon gettext function for translation.
    * @returns undefined
    */
 
-  function MonitorDetailsController(patterns, gettext) {
+  function MonitorDetailsController($scope, patterns, wizardEvents, gettext) {
 
     var ctrl = this;
+
+    $scope.$on(wizardEvents.ON_SWITCH, function(event, args) {
+      var nextButtonSelector = "div.modal-footer button:nth-last-of-type(2)";
+      if (args.to === $scope.$index) {
+        if ($scope.model.spec.listener.protocol !== 'TERMINATED_HTTPS') {
+          $(nextButtonSelector).attr("disabled", "");
+        }
+      } else {
+        $(nextButtonSelector).removeAttr("disabled");
+      }
+    });
 
     ctrl.adminStateUpOptions = [
       { label: gettext('Yes'), value: true },

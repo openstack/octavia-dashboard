@@ -66,6 +66,12 @@
       members.forEach(function setMemberPort(member) {
         member.port = { HTTP: 80, TERMINATED_HTTPS: 80 }[protocol];
       });
+
+      if (protocol === 'TERMINATED_HTTPS') {
+        $('#wizard-side-nav ul li:last').show();
+      } else {
+        $('#wizard-side-nav ul li:last').hide();
+      }
     }
 
     function listenerPortExists(port) {
