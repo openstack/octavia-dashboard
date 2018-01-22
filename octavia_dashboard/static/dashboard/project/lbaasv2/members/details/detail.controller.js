@@ -94,6 +94,10 @@
       // and failed item.
       // Currently just refreshes the display each time.
       if (result) {
+        if (result.failed.length === 0 && result.deleted.length > 0) {
+          // handle a race condition where the resource is already deleted
+          return;
+        }
         spinnerService.showModalSpinner(gettext('Please Wait'));
         ctrl.showDetails = false;
         ctrl.context.loadPromise = ctrl.resourceType.load(
