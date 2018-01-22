@@ -145,9 +145,18 @@
       timeout: gettext('Timeout'),
       max_retries: gettext('Max Retries'),
       max_retries_down: gettext('Max Retries Down'),
-      http_method: gettext('HTTP Method'),
-      url_path: gettext('URL Path'),
-      expected_codes: gettext('Expected Codes'),
+      http_method: {
+        label: gettext('HTTP Method'),
+        filters: ['noValue']
+      },
+      url_path: {
+        label: gettext('URL Path'),
+        filters: ['noValue']
+      },
+      expected_codes: {
+        label: gettext('Expected Codes'),
+        filters: ['noValue']
+      },
       project_id: gettext('Project ID'),
       created_at: {
         label: gettext('Created At'),
