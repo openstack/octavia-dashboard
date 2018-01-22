@@ -27,8 +27,8 @@
     '$location',
     'horizon.framework.widgets.modal.deleteModalService',
     'horizon.app.core.openstack-service-api.lbaasv2',
-    'horizon.app.core.openstack-service-api.policy',
-    'horizon.framework.util.i18n.gettext'
+    'horizon.framework.util.i18n.gettext',
+    'horizon.app.core.openstack-service-api.policy'
   ];
 
   /**
@@ -45,29 +45,16 @@
    * @param $location The angular $location service.
    * @param deleteModal The horizon delete modal service.
    * @param api The LBaaS v2 API service.
-   * @param policy The horizon policy service.
    * @param gettext The horizon gettext function for translation.
+   * @param policy The horizon policy service.
    *
    * @returns The health monitor delete service.
    */
 
   function deleteService(
-   resourceType, actionResultService, $location, deleteModal, api, policy, gettext
+   resourceType, actionResultService, $location, deleteModal, api, gettext, policy
   ) {
     var loadbalancerId, listenerId, poolId;
-    var context = {
-      labels: {
-        title: gettext('Confirm Delete Health Monitor'),
-        message: gettext('You have selected "%s". Please confirm your selection. Deleted health ' +
-                         'monitors are not recoverable.'),
-        submit: gettext('Delete Health Monitor'),
-        success: gettext('Deleted health monitor: %s.'),
-        error: gettext('The following health monitor could not be deleted: %s.')
-      },
-      deleteEntity: deleteItem,
-      successEvent: 'success',
-      failedEvent: 'error'
-    };
 
     var service = {
       perform: perform,
@@ -86,13 +73,40 @@
     }
 
     function perform(items, scope) {
+      var context = { };
       var healthMonitors = angular.isArray(items) ? items : [items];
+      context.labels = labelize(healthMonitors.length);
+      context.deleteEntity = deleteItem;
       healthMonitors.map(function(item) {
         loadbalancerId = item.loadbalancerId;
         listenerId = item.listenerId;
         poolId = item.poolId;
       });
       return deleteModal.open(scope, healthMonitors, context).then(deleteResult);
+    }
+
+    function labelize(count) {
+      return {
+        title: ngettext(
+          'Confirm Delete Health Monitor',
+          'Confirm Delete Health Monitors', count),
+
+        message: ngettext(
+          'You have selected "%s". Deleted health monitor is not recoverable.',
+          'You have selected "%s". Deleted health monitors are not recoverable.', count),
+
+        submit: ngettext(
+          'Delete Health Monitor',
+          'Delete Health Monitors', count),
+
+        success: ngettext(
+          'Deleted Health Monitor: %s.',
+          'Deleted Health Monitors: %s.', count),
+
+        error: ngettext(
+          'Unable to delete Health Monitor: %s.',
+          'Unable to delete Health Monitors: %s.', count)
+      };
     }
 
     function deleteResult(deleteModalResult) {

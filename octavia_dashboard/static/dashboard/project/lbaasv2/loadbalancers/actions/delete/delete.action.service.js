@@ -29,8 +29,8 @@
     'horizon.app.core.openstack-service-api.lbaasv2',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.framework.widgets.toast.service',
-    'horizon.framework.util.q.extensions',
-    'horizon.framework.util.i18n.gettext'
+    'horizon.framework.util.i18n.gettext',
+    'horizon.framework.util.q.extensions'
   ];
 
   /**
@@ -49,37 +49,20 @@
    * @param api The LBaaS v2 API service.
    * @param policy The horizon policy service.
    * @param toast The horizon message service.
-   * @param qExtensions Horizon extensions to the $q service.
    * @param gettext The horizon gettext function for translation.
+   * @param qExtensions Horizon extensions to the $q service.
    *
    * @returns The load balancers delete service.
    */
 
   function deleteService(
     resourceType, actionResultService, $location, deleteModal, api,
-    policy, toast, qExtensions, gettext
+    policy, toast, gettext, qExtensions
   ) {
 
     var scope;
 
-    // If a batch delete, then this message is displayed for any selected load balancers not in
-    // ACTIVE or ERROR state.
-    var notAllowedMessage = gettext('The following load balancers are pending and cannot be ' +
-                                    'deleted: %s.');
-    var context = {
-      labels: {
-        title: gettext('Confirm Delete Load Balancers'),
-        message: gettext('You have selected "%s". Please confirm your selection. Deleted load ' +
-                         'balancers are not recoverable.'),
-        submit: gettext('Delete Load Balancers'),
-        success: gettext('Deleted load balancers: %s.'),
-        error: gettext('The following load balancers could not be deleted, possibly due to ' +
-                       'existing listeners: %s.')
-      },
-      deleteEntity: deleteItem,
-      successEvent: 'success',
-      failedEvent: 'error'
-    };
+    var context = { };
 
     var service = {
       perform: perform,
@@ -93,7 +76,33 @@
     function perform(items, _scope_) {
       scope = _scope_;
       var loadbalancers = angular.isArray(items) ? items : [items];
+      context.labels = labelize(loadbalancers.length);
+      context.deleteEntity = deleteItem;
       return qExtensions.allSettled(loadbalancers.map(checkPermission)).then(afterCheck);
+    }
+
+    function labelize(count) {
+      return {
+        title: ngettext(
+          'Confirm Delete Load Balancer',
+          'Confirm Delete Load Balancers', count),
+
+        message: ngettext(
+          'You have selected "%s". Deleted load balancer is not recoverable.',
+          'You have selected "%s". Deleted load balancers are not recoverable.', count),
+
+        submit: ngettext(
+          'Delete Load Balancer',
+          'Delete Load Balancers', count),
+
+        success: ngettext(
+          'Deleted Load Balancer: %s.',
+          'Deleted Load Balancers: %s.', count),
+
+        error: ngettext(
+          'Unable to delete Load Balancer: %s.',
+          'Unable to delete Load Balancers: %s.', count)
+      };
     }
 
     function deleteResult(deleteModalResult) {
@@ -131,7 +140,7 @@
 
     function afterCheck(result) {
       if (result.fail.length > 0) {
-        toast.add('error', getMessage(notAllowedMessage, result.fail));
+        toast.add('error', getMessage(context.labels.error, result.fail));
       }
       if (result.pass.length > 0) {
         return deleteModal.open(scope, result.pass.map(getEntity), context).then(deleteResult);

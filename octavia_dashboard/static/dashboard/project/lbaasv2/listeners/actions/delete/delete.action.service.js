@@ -30,8 +30,8 @@
     'horizon.app.core.openstack-service-api.lbaasv2',
     'horizon.app.core.openstack-service-api.policy',
     'horizon.framework.widgets.toast.service',
-    'horizon.framework.util.q.extensions',
-    'horizon.framework.util.i18n.gettext'
+    'horizon.framework.util.i18n.gettext',
+    'horizon.framework.util.q.extensions'
   ];
 
   /**
@@ -51,33 +51,18 @@
    * @param api The LBaaS v2 API service.
    * @param policy The horizon policy service.
    * @param toast The horizon message service.
-   * @param qExtensions Horizon extensions to the $q service.
    * @param gettext The horizon gettext function for translation.
+   * @param qExtensions Horizon extensions to the $q service.
    *
    * @returns The listeners delete service.
    */
 
   function deleteService(
     resourceType, actionResultService, $q, $location,
-    deleteModal, api, policy, toast, qExtensions, gettext
+    deleteModal, api, policy, toast, gettext, qExtensions
   ) {
     var loadbalancerId, scope;
-    var notAllowedMessage = gettext('The following listeners will not be deleted ' +
-                                    'due to existing pools: %s.');
-    var context = {
-      labels: {
-        title: gettext('Confirm Delete Listeners'),
-        message: gettext('You have selected "%s". Please confirm your selection. Deleted ' +
-                         'listeners are not recoverable.'),
-        submit: gettext('Delete Listeners'),
-        success: gettext('Deleted listeners: %s.'),
-        error: gettext('The following listeners could not be deleted, possibly due to ' +
-                       'existing pools: %s.')
-      },
-      deleteEntity: deleteItem,
-      successEvent: 'success',
-      failedEvent: 'error'
-    };
+    var context = { };
 
     var service = {
       perform: perform,
@@ -91,10 +76,36 @@
     function perform(items, _scope_) {
       scope = _scope_;
       var listeners = angular.isArray(items) ? items : [items];
+      context.labels = labelize(listeners.length);
+      context.deleteEntity = deleteItem;
       listeners.map(function(item) {
         loadbalancerId = item.loadbalancerId;
       });
       return qExtensions.allSettled(listeners.map(checkPermission)).then(afterCheck);
+    }
+
+    function labelize(count) {
+      return {
+        title: ngettext(
+          'Confirm Delete Listener',
+          'Confirm Delete Listeners', count),
+
+        message: ngettext(
+          'You have selected "%s". Deleted listener is not recoverable.',
+          'You have selected "%s". Deleted listeners are not recoverable.', count),
+
+        submit: ngettext(
+          'Delete Listener',
+          'Delete Listeners', count),
+
+        success: ngettext(
+          'Deleted Listener: %s.',
+          'Deleted Listeners: %s.', count),
+
+        error: ngettext(
+          'Unable to delete Listener: %s.',
+          'Unable to delete Listeners: %s.', count)
+      };
     }
 
     function deleteResult(deleteModalResult) {
@@ -121,7 +132,7 @@
 
     function afterCheck(result) {
       if (result.fail.length > 0) {
-        toast.add('error', getMessage(notAllowedMessage, result.fail));
+        toast.add('error', getMessage(context.labels.error, result.fail));
       }
       if (result.pass.length > 0) {
         return deleteModal.open(scope, result.pass.map(getEntity), context).then(deleteResult);
