@@ -1,15 +1,17 @@
 # Andi Chandler <andi@gowling.com>, 2017. #zanata
 # Hengqing Hu <hudayou@hotmail.com>, 2017. #zanata
+# Andi Chandler <andi@gowling.com>, 2018. #zanata
+# Hengqing Hu <hudayou@hotmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: octavia-dashboard 1.0.0.0b3.dev4\n"
+"Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-12-15 19:58+0000\n"
+"POT-Creation-Date: 2018-01-22 05:09+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-12-18 08:41+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"PO-Revision-Date: 2018-01-22 05:04+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en-GB\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -290,9 +292,6 @@ msgstr ""
 "A pool represents a group of members over which the load balancing will be "
 "applied."
 
-msgid "Actions"
-msgstr "Actions"
-
 msgid "Active"
 msgstr "Active"
 
@@ -307,9 +306,6 @@ msgstr "Add members to the load balancer pool."
 
 msgid "Add/Remove Pool Members"
 msgstr "Add/Remove Pool Members"
-
-msgid "Address"
-msgstr "Address"
 
 msgid "Admin State Up"
 msgstr "Admin State Up"
@@ -335,29 +331,29 @@ msgstr "Associating floating IP with load balancer."
 msgid "Available Instances"
 msgstr "Available Instances"
 
-msgid "Back"
-msgstr "Back"
-
 msgid "Cancel"
 msgstr "Cancel"
 
 msgid "Certificate Name"
 msgstr "Certificate Name"
 
+#, fuzzy
 msgid "Confirm Delete Health Monitor"
-msgstr "Confirm Delete Health Monitor"
+msgid_plural "Confirm Delete Health Monitors"
+msgstr[0] "Confirm Delete Health Monitor"
+msgstr[1] ""
 
-msgid "Confirm Delete Listeners"
-msgstr "Confirm Delete Listeners"
-
-msgid "Confirm Delete Load Balancers"
-msgstr "Confirm Delete Load Balancers"
-
+#, fuzzy
 msgid "Confirm Delete Member"
-msgstr "Confirm Delete Member"
+msgid_plural "Confirm Delete Members"
+msgstr[0] "Confirm Delete Member"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Confirm Delete Pool"
-msgstr "Confirm Delete Pool"
+msgid_plural "Confirm Delete Pools"
+msgstr[0] "Confirm Delete Pool"
+msgstr[1] ""
 
 msgid "Confirm Disassociate Floating IP Address"
 msgstr "Confirm Disassociate Floating IP Address"
@@ -399,46 +395,41 @@ msgstr "Degraded"
 msgid "Delay"
 msgstr "Delay"
 
+#, fuzzy
 msgid "Delete Health Monitor"
-msgstr "Delete Health Monitor"
+msgid_plural "Delete Health Monitors"
+msgstr[0] "Delete Health Monitor"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Delete Listener"
-msgstr "Delete Listener"
+msgid_plural "Delete Listeners"
+msgstr[0] "Delete Listener"
+msgstr[1] ""
 
 msgid "Delete Listeners"
 msgstr "Delete Listeners"
 
+#, fuzzy
 msgid "Delete Load Balancer"
-msgstr "Delete Load Balancer"
+msgid_plural "Delete Load Balancers"
+msgstr[0] "Delete Load Balancer"
+msgstr[1] ""
 
 msgid "Delete Load Balancers"
 msgstr "Delete Load Balancers"
 
+#, fuzzy
 msgid "Delete Member"
-msgstr "Delete Member"
+msgid_plural "Delete Members"
+msgstr[0] "Delete Member"
+msgstr[1] ""
 
+#, fuzzy
 msgid "Delete Pool"
-msgstr "Delete Pool"
-
-#, python-format
-msgid "Deleted health monitor: %s."
-msgstr "Deleted health monitor: %s."
-
-#, python-format
-msgid "Deleted listeners: %s."
-msgstr "Deleted listeners: %s."
-
-#, python-format
-msgid "Deleted load balancers: %s."
-msgstr "Deleted load balancers: %s."
-
-#, python-format
-msgid "Deleted member: %s."
-msgstr "Deleted member: %s."
-
-#, python-format
-msgid "Deleted pool: %s."
-msgstr "Deleted pool: %s."
+msgid_plural "Delete Pools"
+msgstr[0] "Delete Pool"
+msgstr[1] ""
 
 msgid "Description"
 msgstr "Description"
@@ -466,9 +457,6 @@ msgstr ""
 "same load balancer but\n"
 "  each must use a unique port."
 
-msgid "Edit"
-msgstr "Edit"
-
 msgid "Error"
 msgstr "Error"
 
@@ -480,9 +468,6 @@ msgstr "Expected status codes"
 
 msgid "Expiration Date"
 msgstr "Expiration Date"
-
-msgid "Floating IP Address"
-msgstr "Floating IP Address"
 
 msgid ""
 "Floating IP address or pool\n"
@@ -593,9 +578,6 @@ msgstr "Listener 1"
 msgid "Listener Details"
 msgstr "Listener Details"
 
-msgid "Listener ID"
-msgstr "Listener ID"
-
 msgid "Listeners"
 msgstr "Listeners"
 
@@ -603,14 +585,8 @@ msgstr "Listeners"
 msgid "Load Balancer %(index)s"
 msgstr "Load Balancer %(index)s"
 
-msgid "Load Balancer Algorithm"
-msgstr "Load Balancer Algorithm"
-
 msgid "Load Balancer Details"
 msgstr "Load Balancer Details"
-
-msgid "Load Balancer ID"
-msgstr "Load Balancer ID"
 
 msgid "Load Balancers"
 msgstr "Load Balancers"
@@ -623,9 +599,6 @@ msgstr "Max Retries"
 
 msgid "Max Retries Down"
 msgstr "Max Retries Down"
-
-msgid "Member ID"
-msgstr "Member ID"
 
 msgid "Members"
 msgstr "Members"
@@ -651,9 +624,6 @@ msgstr "Monitor Address"
 
 msgid "Monitor Details"
 msgstr "Monitor Details"
-
-msgid "Monitor ID"
-msgstr "Monitor ID"
 
 msgid "Monitor Port"
 msgstr "Monitor Port"
@@ -710,9 +680,6 @@ msgstr "Pool 1"
 msgid "Pool Details"
 msgstr "Pool Details"
 
-msgid "Pool ID"
-msgstr "Pool ID"
-
 msgid "Pool Members"
 msgstr "Pool Members"
 
@@ -744,9 +711,6 @@ msgid ""
 msgstr ""
 "Protocol\n"
 "          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
-msgid "Protocol Port"
-msgstr "Protocol Port"
 
 msgid ""
 "Protocol Port\n"
@@ -852,42 +816,6 @@ msgstr "The connection limit must be a number greater than or equal to -1."
 
 msgid "The expected status code is not valid."
 msgstr "The expected status code is not valid."
-
-#, python-format
-msgid "The following health monitor could not be deleted: %s."
-msgstr "The following health monitor could not be deleted: %s."
-
-#, python-format
-msgid ""
-"The following listeners could not be deleted, possibly due to existing "
-"pools: %s."
-msgstr ""
-"The following listeners could not be deleted, possibly due to existing "
-"pools: %s."
-
-#, python-format
-msgid "The following listeners will not be deleted due to existing pools: %s."
-msgstr "The following listeners will not be deleted due to existing pools: %s."
-
-#, python-format
-msgid "The following load balancers are pending and cannot be deleted: %s."
-msgstr "The following load balancers are pending and cannot be deleted: %s."
-
-#, python-format
-msgid ""
-"The following load balancers could not be deleted, possibly due to existing "
-"listeners: %s."
-msgstr ""
-"The following load balancers could not be deleted, possibly due to existing "
-"listeners: %s."
-
-#, python-format
-msgid "The following member could not be deleted: %s."
-msgstr "The following member could not be deleted: %s."
-
-#, python-format
-msgid "The following pool could not be deleted: %s."
-msgstr "The following pool could not be deleted: %s."
 
 msgid "The health check interval must be greater than or equal to the timeout."
 msgstr ""
@@ -1133,43 +1061,3 @@ msgid ""
 msgstr ""
 "You are about to disassociate the floating IP address from load balancer \"%s"
 "\". Please confirm."
-
-#, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted health "
-"monitors are not recoverable."
-msgstr ""
-"You have selected \"%s\". Please confirm your selection. Deleted health "
-"monitors are not recoverable."
-
-#, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted listeners "
-"are not recoverable."
-msgstr ""
-"You have selected \"%s\". Please confirm your selection. Deleted listeners "
-"are not recoverable."
-
-#, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted load "
-"balancers are not recoverable."
-msgstr ""
-"You have selected \"%s\". Please confirm your selection. Deleted load "
-"balancers are not recoverable."
-
-#, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted members are "
-"not recoverable."
-msgstr ""
-"You have selected \"%s\". Please confirm your selection. Deleted members are "
-"not recoverable."
-
-#, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted pools are "
-"not recoverable."
-msgstr ""
-"You have selected \"%s\". Please confirm your selection. Deleted pools are "
-"not recoverable."
