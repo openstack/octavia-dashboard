@@ -40,6 +40,8 @@
 
     var ctrl = this;
 
+    $('#wizard-side-nav ul li:last').hide();
+
     ctrl.tableData = {
       available: $scope.model.certificates,
       allocated: $scope.model.spec.certificates,

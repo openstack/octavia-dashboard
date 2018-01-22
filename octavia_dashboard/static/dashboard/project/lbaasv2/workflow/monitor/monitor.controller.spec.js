@@ -22,10 +22,13 @@
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     describe('MonitorDetailsController', function() {
-      var ctrl;
+      var ctrl, scope;
 
-      beforeEach(inject(function($controller) {
-        ctrl = $controller('MonitorDetailsController');
+      beforeEach(inject(function($controller, $rootScope) {
+        scope = $rootScope.$new();
+        ctrl = $controller('MonitorDetailsController', {
+          $scope: scope
+        });
       }));
 
       it('should define error messages for invalid fields', function() {
@@ -41,6 +44,35 @@
         expect(ctrl.urlPathPattern).toBeDefined();
       });
 
+      it('should handle wizard event', function() {
+        scope.$index = 2;
+        scope.model = {
+          spec: {
+            listener: {
+              protocol: 'TERMINATED_HTTPS'
+            }
+          }
+        };
+        scope.$broadcast('ON_SWITCH', {
+          from: 1,
+          to: 2
+        });
+        scope.model = {
+          spec: {
+            listener: {
+              protocol: 'HTTP'
+            }
+          }
+        };
+        scope.$broadcast('ON_SWITCH', {
+          from: 1,
+          to: 2
+        });
+        scope.$broadcast('ON_SWITCH', {
+          from: 2,
+          to: 1
+        });
+      });
     });
   });
 })();

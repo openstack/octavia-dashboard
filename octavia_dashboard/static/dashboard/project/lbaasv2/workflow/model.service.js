@@ -583,6 +583,7 @@
             });
           });
           model.visibleResources.push('certificates');
+          $('#wizard-side-nav ul li:last').show();
         }
       }
 
