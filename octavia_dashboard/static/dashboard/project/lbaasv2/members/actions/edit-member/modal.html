@@ -11,8 +11,8 @@
       <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="form-group"
              ng-class="{ 'has-error': form.address.$invalid && form.address.$dirty }">
-          <label translate class="control-label" for="address">
-            IP Address
+          <label class="control-label" for="address">
+            <translate>IP Address</translate>
             <span class="hz-icon-required fa fa-asterisk"></span>
           </label>
           <input name="address" id="address" type="text" class="form-control"
@@ -22,8 +22,8 @@
       <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="form-group"
              ng-class="{ 'has-error': form.protocol_port.$invalid && form.protocol_port.$dirty }">
-          <label translate class="control-label" for="protocol_port">
-            Protocol Port
+          <label class="control-label" for="protocol_port">
+            <translate>Protocol Port</translate>
             <span class="hz-icon-required fa fa-asterisk"></span>
           </label>
           <input name="protocol_port" id="protocol_port" type="number" class="form-control"
@@ -36,8 +36,8 @@
       <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="form-group required"
              ng-class="{ 'has-error': form.weight.$invalid && form.weight.$dirty }">
-          <label translate class="control-label" for="weight">
-            Weight
+          <label class="control-label" for="weight">
+            <translate>Weight</translate>
             <span class="hz-icon-required fa fa-asterisk"></span>
           </label>
           <input name="weight" id="weight" type="number" class="form-control"
@@ -51,8 +51,8 @@
       <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="form-group"
              ng-class="{ 'has-error': form.monitor_address.$invalid && form.monitor_address.$dirty }">
-          <label translate class="control-label" for="monitor_address">
-            Monitor Address
+          <label class="control-label" for="monitor_address">
+            <translate>Monitor Address</translate>
           </label>
           <input name="monitor_address" id="monitor_address" type="text" class="form-control"
                  ng-model="modal.monitor_address" ng-pattern="::modal.ipPattern"
@@ -65,8 +65,8 @@
       <div class="col-sm-12 col-md-6 col-lg-4">
         <div class="form-group"
              ng-class="{ 'has-error': form.monitor_port.$invalid && form.monitor_port.$dirty }">
-          <label translate class="control-label" for="monitor_port">
-            Monitor Port
+          <label class="control-label" for="monitor_port">
+            <translate>Monitor Port</translate>
           </label>
           <input name="monitor_port" id="monitor_port" type="number" class="form-control"
                  ng-model="modal.monitor_port" ng-pattern="/^\d+$/" min="1" max="65535"

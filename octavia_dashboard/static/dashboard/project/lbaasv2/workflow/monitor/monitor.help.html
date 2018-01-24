@@ -4,35 +4,49 @@
   to determine if the member receives new connections. Each pool can only have one health
   monitor.
 </p>
-<p translate>
-  <strong>Interval:</strong>
+<p>
+  <strong translate>Interval:</strong>
+  <translate>
   The interval between health checks. Must be greater than or equal to the timeout.
+  </translate>
 </p>
-<p translate>
-  <strong>Retries:</strong>
+<p>
+  <strong translate>Retries:</strong>
+  <translate>
   The number of allowed connection failures before marking the member as inactive. Must be a
   number from 1 to 10.
+  </translate>
 </p>
-<p translate>
-  <strong>Retries down:</strong>
+<p>
+  <strong translate>Retries down:</strong>
+  <translate>
   The number of allowed connection failures before marking the member as error. Must be a
   number from 1 to 10. The default is 3.
+  </translate>
 </p>
-<p translate>
-  <strong>Timeout:</strong>
+<p>
+  <strong translate>Timeout:</strong>
+  <translate>
   The time after which a health check times out. Must be a number greater than or equal to 0
   and less than or equal to the interval.
+  </translate>
 </p>
-<p translate>
-  <strong>HTTP method:</strong>
+<p>
+  <strong translate>HTTP method:</strong>
+  <translate>
   The HTTP method used to perform the health check.
+  </translate>
 </p>
-<p translate>
-  <strong>Expected status codes:</strong>
+<p>
+  <strong translate>Expected status codes:</strong>
+  <translate>
   The expected HTTP status codes to get from a successful health check. Must be a single number,
   a comma separated list of numbers, or a range (two numbers separated by a hyphen).
+  </translate>
 </p>
-<p translate>
-  <strong>URL path:</strong>
+<p>
+  <strong translate>URL path:</strong>
+  <translate>
   The target of the health check HTTP request to the member. Must be a valid URL path.
+  </translate>
 </p>
