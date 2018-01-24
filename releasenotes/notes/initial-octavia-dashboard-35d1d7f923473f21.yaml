@@ -1,0 +1,45 @@
+---
+prelude: >
+    The Octavia team is excited to release the 1.0.0 version of the Octavia
+    dashboard. This dashboard uses the Octavia API endpoint via the
+    openstacksdk. This release includes a number of improvements over the
+    old neutron-lbaas-dashboard that worked against the neutron API endpoint.
+    These improvements are listed below in the features section of this
+    release note.
+features:
+  - |
+    The object details pages now use a tabbed navigation for child objects.
+  - |
+    Provisioning and operating status is now available on all object details
+    pages.
+  - |
+    Pools can now change the load balancing algorithm after creation.
+  - |
+    Members now display the subnet_id on the details page.
+  - |
+    Health monitors can now change the expected HTTP codes.
+  - |
+    The session persistence for a pool can now be changed.
+  - |
+    Created at and Updated at times are now visible on the details pages.
+  - |
+    Health monitors can now use alternate IP addresses and ports.
+  - |
+    Listener connection limits can now be updated.
+  - |
+    All objects now allow setting the "Admin State".
+issues:
+  - |
+    The octavia-dashboard requires openstacksdk >= 0.10.0 to resolve an issue
+    with displaying the health monitor details page. It is expected this will
+    be included in the OpenStack Queens release.
+upgrade:
+  - |
+    This dashboard can be used alongside the neutron-lbaas-dashboard, but both
+    dashboard panels will use the "Load Balancer" labels.
+other:
+  - |
+    The neutron-lbaas neutron extension is not required to use this dashboard.
+    Load balancers created with neutron-lbaas that have not been migrated to
+    Octavia may not be accessible via this dashboard. Only resources
+    accessible via the Octavia API will be visible in this dashboard.
