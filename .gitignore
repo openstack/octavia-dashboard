@@ -37,6 +37,8 @@ test-shim.js
 # Translations
 *.mo
 .zanata-cache/
+django.pot
+djangojs.pot
 
 # Mr Developer
 .mr.developer.cfg
