@@ -1,77 +1,39 @@
-# Alex Eng <loones1595@gmail.com>, 2016. #zanata
-# Yukinori Yagisawa <yukky37@gmail.com>, 2016. #zanata
-# Yusuke Higashino <yusuke_higashino@adoc.co.jp>, 2016. #zanata
-# 小羽根 陸 <riku_kobane@adoc.co.jp>, 2016. #zanata
+# Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: octavia-dashboard 1.0.1.dev41\n"
+"Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2016-11-30 19:41+0000\n"
+"POT-Creation-Date: 2018-01-25 04:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2016-12-01 02:55+0000\n"
-"Last-Translator: 小羽根 陸 <riku_kobane@adoc.co.jp>\n"
+"PO-Revision-Date: 2018-01-28 11:00+0000\n"
+"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
 msgid "%(ip)s..."
 msgstr "%(ip)s..."
 
-msgid ""
-"<strong>HTTP method:</strong>\n"
-"  The HTTP method used to perform the health check."
-msgstr ""
-"<strong>HTTP method:</strong>\n"
-"   ヘルスチェックの実行に使用されたHTTPメソッドです。"
-
-msgid ""
-"<strong>Interval:</strong>\n"
-"  The interval between health checks. Must be greater than or equal to the "
-"timeout."
-msgstr ""
-"<strong>Interval:</strong>\n"
-"ヘルスチェックの間隔はタイムアウト値以上でなければいけません。"
-
-msgid ""
-"<strong>Retries:</strong>\n"
-"  The number of allowed connection failures before marking the member as "
-"inactive. Must be a\n"
-"  number from 1 to 10."
-msgstr ""
-"<strong> 取得 :</strong>\n"
-"  接続可能数が失敗するにはメンバーを無効しなければいけません。数は1～10までで"
-"す。"
-
-msgid ""
-"<strong>Subnet:</strong>\n"
-"  The network which contains the IP address of the member."
-msgstr ""
-"<strong>Subnet:</strong>\n"
-"メンバーのIPアドレスを含むネットワーク。"
-
 msgid "A new health monitor is being created."
-msgstr "新しいヘルスモニターが作成されました。"
+msgstr "新しいヘルスモニターは作成中です。"
 
 msgid "A new listener is being created."
-msgstr "新しいリスナーが作成されました。"
+msgstr "新しいリスナーは作成中です。"
 
 msgid "A new load balancer is being created."
-msgstr "新しいロードバランサーが作成されました。"
+msgstr "新しいロードバランサーは作成中です。"
 
 msgid "A new pool is being created."
-msgstr "新しいプールが作成されました。"
+msgstr "新しいプールは作成中です。"
 
 msgid ""
 "A pool represents a group of members over which the load balancing will be "
 "applied."
 msgstr "プールは負荷分散が適用されるメンバーのグループを表します。"
-
-msgid "Actions"
-msgstr "アクション"
 
 msgid "Active"
 msgstr "稼働中"
@@ -82,17 +44,17 @@ msgstr "追加"
 msgid "Add external member"
 msgstr "メンバーの追加"
 
-msgid "Add members to the load balancer pool."
-msgstr "ロードバランサーにメンバーを追加します。"
+msgid "Add/Remove Members"
+msgstr "メンバーの追加/削除"
 
 msgid "Add/Remove Pool Members"
 msgstr "プールメンバーの追加・削除"
 
-msgid "Address"
-msgstr "アドレス"
-
 msgid "Admin State Up"
 msgstr "管理状態有効"
+
+msgid "Algorithm"
+msgstr "アルゴリズム"
 
 msgid "Allocated Members"
 msgstr "割り当て済みのメンバー"
@@ -110,7 +72,7 @@ msgid "Associate Floating IP Address"
 msgstr "Floating IP アドレス の割り当て"
 
 msgid "Associating floating IP with load balancer."
-msgstr "ロードバランサーのFloating IP アドレスの割り当て"
+msgstr "ロードバランサーの Floating IP アドレスの割り当て"
 
 msgid "Available Instances"
 msgstr "有効なインスタンス"
@@ -119,28 +81,42 @@ msgid "Cancel"
 msgstr "取り消し"
 
 msgid "Certificate Name"
-msgstr "認証名"
+msgstr "証明書名"
 
 msgid "Confirm Delete Health Monitor"
-msgstr "ヘルスモニターの削除確認"
+msgid_plural "Confirm Delete Health Monitors"
+msgstr[0] "ヘルスモニターの削除の確認"
 
-msgid "Confirm Delete Listeners"
-msgstr "リスナーの削除確認"
+msgid "Confirm Delete Listener"
+msgid_plural "Confirm Delete Listeners"
+msgstr[0] "リスナーの削除の確認"
 
-msgid "Confirm Delete Load Balancers"
-msgstr "ロードバランサーの削除確認"
+msgid "Confirm Delete Load Balancer"
+msgid_plural "Confirm Delete Load Balancers"
+msgstr[0] "ロードバランサーの削除の確認"
+
+msgid "Confirm Delete Member"
+msgid_plural "Confirm Delete Members"
+msgstr[0] "メンバーの削除の確認"
 
 msgid "Confirm Delete Pool"
-msgstr "プールの削除確認"
+msgid_plural "Confirm Delete Pools"
+msgstr[0] "プールの削除の確認"
 
 msgid "Confirm Disassociate Floating IP Address"
-msgstr "Floating IP アドレスの割り当てを解除確認"
+msgstr "Floating IP アドレスの割り当て解除の確認"
 
 msgid "Connection Limit"
 msgstr "最大接続数"
 
+msgid "Connection Limit:"
+msgstr "最大接続数:"
+
+msgid "Cookie"
+msgstr "クッキー"
+
 msgid "Create Health Monitor"
-msgstr "ヘルスモニター作成"
+msgstr "ヘルスモニターの作成"
 
 msgid "Create Listener"
 msgstr "リスナーの作成"
@@ -150,6 +126,9 @@ msgstr "ロードバランサーの作成"
 
 msgid "Create Pool"
 msgstr "プールの作成"
+
+msgid "Created At"
+msgstr "作成時刻"
 
 msgid "Default Pool ID"
 msgstr "デフォルトプール ID"
@@ -161,38 +140,64 @@ msgid "Delay"
 msgstr "遅延"
 
 msgid "Delete Health Monitor"
-msgstr "ヘルスモニター削除"
+msgid_plural "Delete Health Monitors"
+msgstr[0] "ヘルスモニターの削除"
+
+msgid "Delete Health Monitors"
+msgstr "ヘルスモニターの削除"
 
 msgid "Delete Listener"
-msgstr "リスナーの削除"
+msgid_plural "Delete Listeners"
+msgstr[0] "リスナーの削除"
 
 msgid "Delete Listeners"
 msgstr "リスナーの削除"
 
 msgid "Delete Load Balancer"
-msgstr "ロードバランサーの削除"
+msgid_plural "Delete Load Balancers"
+msgstr[0] "ロードバランサーの削除"
 
 msgid "Delete Load Balancers"
 msgstr "ロードバランサーの削除"
 
+msgid "Delete Member"
+msgid_plural "Delete Members"
+msgstr[0] "メンバーの削除"
+
+msgid "Delete Members"
+msgstr "メンバーの削除"
+
 msgid "Delete Pool"
+msgid_plural "Delete Pools"
+msgstr[0] "プールの削除"
+
+msgid "Delete Pools"
 msgstr "プールの削除"
 
 #, python-format
-msgid "Deleted health monitor: %s."
-msgstr "ヘルスモニターは削除されました:%s。"
+msgid "Deleted Health Monitor: %s."
+msgid_plural "Deleted Health Monitors: %s."
+msgstr[0] "ヘルスモニター %s を削除しました。"
 
 #, python-format
-msgid "Deleted listeners: %s."
-msgstr "リスナーを削除しました:%s。"
+msgid "Deleted Listener: %s."
+msgid_plural "Deleted Listeners: %s."
+msgstr[0] "リスナー %s を削除しました。"
 
 #, python-format
-msgid "Deleted load balancers: %s."
-msgstr "ロードバランサーが削除されました:%s。"
+msgid "Deleted Load Balancer: %s."
+msgid_plural "Deleted Load Balancers: %s."
+msgstr[0] "ロードバランサー %s を削除しました。"
 
 #, python-format
-msgid "Deleted pool: %s."
-msgstr "プールを削除しました:%s。"
+msgid "Deleted Member: %s."
+msgid_plural "Deleted Members: %s."
+msgstr[0] "メンバー %s を削除しました。"
+
+#, python-format
+msgid "Deleted Pool: %s."
+msgid_plural "Deleted Pools: %s."
+msgstr[0] "プール %s を削除しました。"
 
 msgid "Description"
 msgstr "説明"
@@ -205,10 +210,23 @@ msgstr "Floating IP の割り当て解除"
 
 #, python-format
 msgid "Disassociated floating IP address from load balancer: %s."
-msgstr "ロードバランサー:%sからFloating IP アドレスの割り当てを解除しました。"
+msgstr ""
+"ロードバランサー %s から Floating IP アドレスの割り当てを解除しました。"
 
-msgid "Edit"
-msgstr "編集"
+msgid "Edit Health Monitor"
+msgstr "ヘルスモニターの編集"
+
+msgid "Edit Listener"
+msgstr "リスナーの編集"
+
+msgid "Edit Load Balancer"
+msgstr "ロードバランサーを編集"
+
+msgid "Edit Member"
+msgstr "メンバーの編集"
+
+msgid "Edit Pool"
+msgstr "プールの編集"
 
 msgid "Error"
 msgstr "エラー"
@@ -219,18 +237,17 @@ msgstr "コードの期待値"
 msgid "Expected status codes"
 msgstr "ステータスコードの期待値"
 
+msgid "Expected status codes:"
+msgstr "ステータスコードの期待値:"
+
 msgid "Expiration Date"
-msgstr "期限切れ日"
+msgstr "有効期限"
 
-msgid "Floating IP Address"
-msgstr "Floating IP アドレス"
+msgid "Flavor"
+msgstr "フレーバー"
 
-msgid ""
-"Floating IP address or pool\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Floating IP アドレスもしくは、プール <span class=\"hz-icon-required fa fa-"
-"asterisk\"></span>"
+msgid "Floating IP"
+msgstr "Floating IP"
 
 msgid "Floating IP addresses"
 msgstr "Floating IP アドレス"
@@ -244,8 +261,17 @@ msgstr "HTTP メソッド"
 msgid "HTTP method"
 msgstr "HTTP メソッド"
 
+msgid "HTTP method:"
+msgstr "HTTP メソッド:"
+
+msgid "Health Monitor"
+msgstr "ヘルスモニター"
+
 msgid "Health Monitor ID"
 msgstr "ヘルスモニター ID"
+
+msgid "Health Monitors"
+msgstr "ヘルスモニター"
 
 msgid "ID"
 msgstr "ID"
@@ -255,49 +281,68 @@ msgstr "IP アドレス"
 
 #, python-format
 msgid "IP Addresses (%(count)s)"
-msgstr "IP アドレス(%(count)s)"
+msgstr "IP アドレス (%(count)s)"
 
 msgid "IP address"
 msgstr "IP アドレス"
 
+msgid "IP address:"
+msgstr "IP アドレス:"
+
+msgid "Inactive"
+msgstr "非稼働"
+
+msgid "Interval (sec)"
+msgstr "間隔 (秒)"
+
+msgid "Interval:"
+msgstr "間隔:"
+
+msgid "Key Manager API Guide: Creating a Certificate Container"
+msgstr "Key Manager API ガイド: 証明書コンテナーの作成"
+
+msgid "Key Manager Service Command-Line Client"
+msgstr "Key Manager サービスのコマンドラインクライアント (CLI)"
+
+msgid "L7 Policies"
+msgstr "L7 ポリシー"
+
 msgid ""
-"Interval (sec)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+"LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
+"of active\n"
+"      connections."
 msgstr ""
-"インターバル（秒）\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+"最小接続数: アクティブな接続数が最も少ないメンバーにリクエストを割り当てま"
+"す。"
 
 msgid "Least Connections"
 msgstr "最小接続数"
 
+msgid "Listener"
+msgstr "リスナー"
+
 #, python-format
 msgid "Listener %(index)s"
-msgstr "リスナー%(index)s"
+msgstr "リスナー %(index)s"
 
 msgid "Listener 1"
-msgstr "リスナー1"
+msgstr "リスナー 1"
 
 msgid "Listener Details"
 msgstr "リスナーの詳細"
 
-msgid "Listener ID"
-msgstr "リスナーID"
-
 msgid "Listeners"
 msgstr "リスナー"
 
+msgid "Load Balancer"
+msgstr "ロードバランサー"
+
 #, python-format
 msgid "Load Balancer %(index)s"
-msgstr "ロードバランサー%(index)s"
-
-msgid "Load Balancer Algorithm"
-msgstr "ロードバランサーアルゴリズム"
+msgstr "ロードバランサー %(index)s"
 
 msgid "Load Balancer Details"
 msgstr "ロードバランサーの詳細"
-
-msgid "Load Balancer ID"
-msgstr "ロードバランサーID"
 
 msgid "Load Balancers"
 msgstr "ロードバランサー"
@@ -308,35 +353,53 @@ msgstr "読み込み中"
 msgid "Max Retries"
 msgstr "最大試行回数"
 
-msgid "Member ID"
-msgstr "メンバー ID"
+msgid "Member"
+msgstr "メンバー"
 
 msgid "Members"
 msgstr "メンバー"
 
-msgid ""
-"Method\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr "メソッド<span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Method"
+msgstr "メソッド"
+
+msgid "Method:"
+msgstr "メソッド:"
+
+msgid "Monitor Address"
+msgstr "モニターアドレス"
+
+msgid "Monitor Address:"
+msgstr "モニターアドレス:"
 
 msgid "Monitor Details"
 msgstr "モニターの詳細"
 
-msgid "Monitor ID"
-msgstr "モニター ID"
+msgid "Monitor Port"
+msgstr "モニターポート"
 
-msgid ""
-"Monitor type\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"モニタータイプ\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Monitor Port:"
+msgstr "モニターポート:"
+
+msgid "Monitor type"
+msgstr "モニタータイプ"
 
 msgid "Name"
 msgstr "名前"
 
+msgid "Network"
+msgstr "ネットワーク"
+
+msgid "Network ID"
+msgstr "ネットワーク ID"
+
+msgid "No"
+msgstr "いいえ"
+
+msgid "No Monitor"
+msgstr "モニターなし"
+
 msgid "No available certificates"
-msgstr "有効な認証がありません"
+msgstr "利用可能な証明書がありません"
 
 msgid "No available instances"
 msgstr "有効なインスタンスがありません"
@@ -371,23 +434,38 @@ msgstr "削除待ち"
 msgid "Pending Update"
 msgstr "更新待ち"
 
+msgid "Please Wait"
+msgstr "お待ちください"
+
+msgid "Pool"
+msgstr "プール"
+
 msgid "Pool 1"
-msgstr "プール1"
+msgstr "プール 1"
 
 msgid "Pool Details"
 msgstr "プールの詳細"
 
-msgid "Pool ID"
-msgstr "プール ID"
-
 msgid "Pool Members"
 msgstr "プールメンバー"
+
+msgid "Pool member has been updated."
+msgstr "プールメンバーが更新されました。"
+
+msgid "Pools"
+msgstr "プール"
 
 msgid "Port"
 msgstr "ポート"
 
 msgid "Port ID"
 msgstr "ポート ID"
+
+msgid "Port:"
+msgstr "ポート:"
+
+msgid "Project"
+msgstr "プロジェクト"
 
 msgid "Project ID"
 msgstr "プロジェクト ID"
@@ -398,11 +476,23 @@ msgstr "プロトコル"
 msgid "Protocol Port"
 msgstr "ポート番号"
 
+msgid "Protocol:"
+msgstr "プロトコル:"
+
 msgid "Provide the details for the health monitor."
 msgstr "ヘルスモニターの詳細を設定してください。"
 
+msgid "Provide the details for the listener."
+msgstr "リスナーの詳細を設定してください。"
+
+msgid "Provide the details for the load balancer."
+msgstr "ロードバランサーの詳細を設定してください。"
+
+msgid "Provide the details for the member."
+msgstr "メンバーの詳細を設定してください。"
+
 msgid "Provide the details for the pool."
-msgstr "プールの詳細を設定してください"
+msgstr "プールの詳細を設定してください。"
 
 msgid "Provider"
 msgstr "プロバイダー"
@@ -410,74 +500,68 @@ msgstr "プロバイダー"
 msgid "Provisioning Status"
 msgstr "プロビジョニング状態"
 
+msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
+msgstr "ラウンドロビン: リクエストを複数のメンバーで順番に均等に割り当てます。"
+
 msgid "Remove"
 msgstr "削除"
 
-msgid ""
-"Retries\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"取得\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Retries:"
+msgstr "リトライ回数:"
 
 msgid "Round Robin"
 msgstr "ラウンドロビン"
 
+msgid ""
+"SOURCE_IP: Requests from a unique source IP address are consistently "
+"directed to the same instance."
+msgstr ""
+"送信元 IP: 同じ送信元 IP アドレスからのリクエストは同じメンバーに転送されま"
+"す。"
+
 msgid "SSL Certificates"
-msgstr "SSL認証"
+msgstr "SSL 証明書"
+
+msgid ""
+"Select a floating IP address to associate with the load balancer or a "
+"floating IP pool in which to allocate a new floating IP address."
+msgstr ""
+"ロードバランサを設定するためにフローティング IP アドレス、もしくは、新しいフ"
+"ローティング IP アドレス配置するためのフローティング IP アドレスプールを選択"
+"してください"
 
 msgid "Select certificates from the available certificates below"
-msgstr "以下の利用可能な認証から、認証を選択してください。"
+msgstr "以下の一覧から証明書を選択してください"
 
 msgid "Select one or more SSL certificates for the listener."
-msgstr "SSL認証を 1 つ以上選択してください"
+msgstr "SSL 証明書を 1 つ以上選択してください"
 
 msgid "Session Persistence"
 msgstr "セッション永続性"
 
+msgid "Session Persistence:"
+msgstr "セッション永続性:"
+
 msgid "Source IP"
 msgstr "送信元 IP"
 
-msgid ""
-"Subnet\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr "サブネット<span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Subnet"
+msgstr "サブネット"
 
 msgid "Subnet ID"
 msgstr "サブネット ID"
 
+msgid "Subnet:"
+msgstr "サブネット:"
+
+msgid "The HTTP method used to perform the health check."
+msgstr "ヘルスチェックの実行に使用される HTTP メソッドです。"
+
+msgid "The IP address is not valid."
+msgstr "IP アドレスが無効です。"
+
 msgid "The URL path is not valid."
-msgstr "URLは有効ではありません。"
-
-#, python-format
-msgid "The following health monitor could not be deleted: %s."
-msgstr "以下のヘルスモニターは削除することができません:%s。"
-
-#, python-format
-msgid ""
-"The following listeners could not be deleted, possibly due to existing "
-"pools: %s."
-msgstr "以下のリスナーはプールがあるため削除することができません:%s。"
-
-#, python-format
-msgid "The following listeners will not be deleted due to existing pools: %s."
-msgstr "以下のリスナーはプールがあるため削除することができません:%s。"
-
-#, python-format
-msgid "The following load balancers are pending and cannot be deleted: %s."
-msgstr "以下のロードバランサーは待機状態のため削除することができません:%s"
-
-#, python-format
-msgid ""
-"The following load balancers could not be deleted, possibly due to existing "
-"listeners: %s."
-msgstr ""
-"以下のロードバランサーはおそらくリスナーがあるため削除することができません:"
-"%s。"
-
-#, python-format
-msgid "The following pool could not be deleted: %s."
-msgstr "以下のプールは削除することができません:%s。"
+msgstr "URL は有効ではありません。"
 
 msgid "The health check interval must be greater than or equal to the timeout."
 msgstr "ヘルスチェックの間隔はタイムアウト値以上でなければいけません。"
@@ -485,14 +569,32 @@ msgstr "ヘルスチェックの間隔はタイムアウト値以上でなけれ
 msgid "The health monitor has been updated."
 msgstr "ヘルスモニターが更新されました。"
 
+msgid ""
+"The interval between health checks. Must be greater than or equal to the "
+"timeout."
+msgstr "ヘルスチェックの間隔はタイムアウト値以上でなければいけません。"
+
 msgid "The listener has been updated."
 msgstr "リスナーが更新されました。"
 
 msgid "The load balancer has been updated."
 msgstr "ロードバランサーが更新されました。"
 
+msgid ""
+"The load balancer occupies a neutron network port and has an IP address "
+"assigned from a subnet."
+msgstr ""
+"ロードバランサーは neutron のネットワークポートを所有し、サブネットから割り当"
+"てられた IP アドレスを持ちます。"
+
 msgid "The max retry count must be a number between 1 and 10."
-msgstr "最大試行回数は1～10までとなっています。"
+msgstr "最大試行回数は 1～10 までとなっています。"
+
+msgid "The monitor address must be a vaid IP address."
+msgstr "モニターアドレスは有効な IP アドレスでなければいけません。"
+
+msgid "The monitor port must be a number between 1 and 65535."
+msgstr "モニターポートは 1 〜 256 の数字でなければいけません。"
 
 msgid "The pool has been updated."
 msgstr "プールが更新されました。"
@@ -501,23 +603,22 @@ msgid "The pool members have been updated."
 msgstr "プールメンバーが更新されました。"
 
 msgid "The port must be a number between 1 and 65535."
-msgstr "ポートは1～65535までとなっています。"
+msgstr "ポートは 1 ～ 65535 の数字でなければいけません。"
 
 msgid "The timeout must be a number greater than or equal to 0."
 msgstr "タイムアウトの値 は 0 以上でなければなりません。"
 
 msgid "The weight must be a number between 1 and 256."
-msgstr "ウェイトは1～256までとなっています。"
+msgstr "重みは 1 〜 256 の数字でなければいけません。"
 
 msgid "Timeout"
 msgstr "タイムアウト"
 
-msgid ""
-"Timeout (sec)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"タイムアウト（秒）\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Timeout (sec)"
+msgstr "タイムアウト (秒)"
+
+msgid "Timeout:"
+msgstr "タイムアウト:"
 
 msgid "Type"
 msgstr "種別"
@@ -528,82 +629,116 @@ msgstr "URL パス"
 msgid "URL path"
 msgstr "URL パス"
 
+msgid "URL path:"
+msgstr "URL パス:"
+
 msgid "Unable to create health monitor."
-msgstr "ヘルスモニターの作成ができません。"
+msgstr "ヘルスモニターを作成できません。"
 
 msgid "Unable to create listener."
-msgstr "リスナーの作成ができません。"
+msgstr "リスナーを作成できません。"
 
 msgid "Unable to create load balancer."
-msgstr "ロードバランサーの作成ができません。"
+msgstr "ロードバランサーを作成できません。"
 
 msgid "Unable to create pool."
-msgstr "プールの作成ができません。"
+msgstr "プールを作成できません。"
+
+#, python-format
+msgid "Unable to delete Health Monitor: %s."
+msgid_plural "Unable to delete Health Monitors: %s."
+msgstr[0] "ヘルスモニターを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete Listener: %s."
+msgid_plural "Unable to delete Listeners: %s."
+msgstr[0] "リスナーを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete Load Balancer: %s."
+msgid_plural "Unable to delete Load Balancers: %s."
+msgstr[0] "ロードバランサーを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete Member: %s."
+msgid_plural "Unable to delete Members: %s."
+msgstr[0] "メンバーを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete Pool: %s."
+msgid_plural "Unable to delete Pools: %s."
+msgstr[0] "プールを削除できません: %s"
 
 msgid "Unable to delete health monitor."
-msgstr "ヘルスモニターの削除ができません。"
+msgstr "ヘルスモニターを削除できません。"
 
 msgid "Unable to delete listener."
-msgstr "リスナーの削除ができません。"
+msgstr "リスナーを削除できません。"
 
 msgid "Unable to delete load balancer."
-msgstr "ロードバランサーの削除ができません。"
+msgstr "ロードバランサーを削除できません。"
+
+msgid "Unable to delete member."
+msgstr "メンバーを削除できません。"
 
 msgid "Unable to delete pool."
-msgstr "プールの削除ができません。"
+msgstr "プールを削除できません。"
 
 #, python-format
 msgid "Unable to disassociate floating IP address from load balancer: %s."
 msgstr ""
-"ロードバランサー:%sからFloating IP アドレスの割り当て解除ができません。"
+"ロードバランサー %s から Floating IP アドレスの割り当て解除ができません。"
 
 msgid "Unable to retrieve SSL certificates."
-msgstr "SSL認証の取得ができません。"
+msgstr "SSL 証明書を取得できません。"
 
 msgid "Unable to retrieve health monitor."
-msgstr "ヘルスモニターの取得ができません。"
+msgstr "ヘルスモニターを取得できません。"
+
+msgid "Unable to retrieve health monitors."
+msgstr "ヘルスモニターの一覧を取得できません。"
 
 msgid "Unable to retrieve listener."
-msgstr "リスナーの取得ができません。"
+msgstr "リスナーを取得できません。"
 
 msgid "Unable to retrieve listeners."
-msgstr "リスター一覧の取得ができません。"
+msgstr "リスナーの一覧を取得できません。"
 
 msgid "Unable to retrieve load balancer."
-msgstr "ロードバランサーの取得ができません。"
+msgstr "ロードバランサーを取得できません。"
 
 msgid "Unable to retrieve load balancers."
-msgstr "ロードバランサー一覧の取得ができません。"
+msgstr "ロードバランサーの一覧を取得できません。"
 
 msgid "Unable to retrieve member."
-msgstr "メンバーの取得ができません。"
+msgstr "メンバーを取得できません。"
 
 msgid "Unable to retrieve members."
-msgstr "メンバー一覧の取得ができません。"
+msgstr "メンバーの一覧を取得できません。"
 
 msgid "Unable to retrieve pool."
-msgstr "プールの取得できません。"
+msgstr "プールを取得できません。"
 
-msgid "Unable to retrieve secrets."
-msgstr "事前共通鍵の取得ができません。"
+msgid "Unable to retrieve pools."
+msgstr "プールの一覧を取得できません。"
 
 msgid "Unable to update health monitor."
-msgstr "ヘルスモニターの更新ができません。"
+msgstr "ヘルスモニターを更新できません。"
 
 msgid "Unable to update listener."
-msgstr "リスナーの更新ができません。"
+msgstr "リスナーを更新できません。"
 
 msgid "Unable to update load balancer."
-msgstr "ロードバランサーの更新ができません。"
+msgstr "ロードバランサーを更新できません。"
 
 msgid "Unable to update member list."
-msgstr "メンバー一覧の更新ができません。"
+msgstr "メンバーの一覧を更新できません。"
 
 msgid "Unable to update member."
-msgstr "メンバーの更新ができません。"
+msgstr "メンバーを更新できません。"
 
 msgid "Unable to update pool."
-msgstr "プールの更新ができません。"
+msgstr "プールを更新できません。"
 
 msgid "Update"
 msgstr "更新"
@@ -617,53 +752,55 @@ msgstr "リスナーの更新"
 msgid "Update Load Balancer"
 msgstr "ロードバランサーの更新"
 
+msgid "Update Member"
+msgstr "メンバーの更新"
+
 msgid "Update Pool"
 msgstr "プールの更新"
 
-msgid "Weight"
-msgstr "ウェイト"
+msgid "Updated At"
+msgstr "最終更新"
 
-msgid ""
-"Weight\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr "ウェイト<span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Weight"
+msgstr "重み"
+
+msgid "Weight:"
+msgstr "重み:"
+
+msgid "Yes"
+msgstr "はい"
 
 #, python-format
 msgid ""
 "You are about to disassociate the floating IP address from load balancer \"%s"
 "\". Please confirm."
 msgstr ""
-"あなたはロードバランサー\"%s\"からFloating IP アドレスの割り当てを解除しよう"
-"としています。確認してください。"
+"あなたはロードバランサー \"%s\" から Floating IP アドレスの割り当てを解除しよ"
+"うとしています。確認してください。"
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted health "
-"monitors are not recoverable."
-msgstr ""
-"\"%s\" を選択しました。選択内容を確認してください。削除されたヘルスモニターは"
-"元に戻せません。"
+msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted health monitors are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたヘルスモニターは元に戻せません。"
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted listeners "
-"are not recoverable."
-msgstr ""
-"\"%s\" を選択しました。選択内容を確認してください。削除されたリスナーは元に戻"
-"せません。"
+msgid "You have selected \"%s\". Deleted listener is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたリスナーは元に戻せません。"
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted load "
-"balancers are not recoverable."
-msgstr ""
-"\"%s\" を選択しました。選択内容を確認してください。削除されたロードバランサー"
-"は元に戻せません。"
+msgid "You have selected \"%s\". Deleted load balancer is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted load balancers are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたロードバランサーは元に戻せません。"
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted pools are "
-"not recoverable."
-msgstr ""
-"\"%s\" を選択しました。選択内容を確認してください。削除されたプールは元に戻せ"
-"ません。"
+msgid "You have selected \"%s\". Deleted member is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted members are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたメンバーは元に戻せません。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted pool is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted pools are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除されたプールは元に戻せません。"
