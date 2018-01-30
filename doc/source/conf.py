@@ -83,6 +83,10 @@ html_static_path = []
 # Output file base name for HTML help builder.
 htmlhelp_basename = '%sdoc' % project
 
+# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
+# using the given strftime format.
+html_last_updated_fmt = '%Y-%m-%d %H:%M'
+
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass
 # [howto/manual]).
