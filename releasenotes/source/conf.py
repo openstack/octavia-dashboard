@@ -49,7 +49,7 @@ extensions = [
 
 # openstackdocstheme options
 repository_name = 'openstack/octavia-dashboard'
-bug_project = 'octavia'
+bug_project = '909'
 bug_tag = 'doc'
 
 # Add any paths that contain templates here, relative to this directory.

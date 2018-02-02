@@ -75,7 +75,7 @@ pygments_style = 'sphinx'
 html_theme = 'openstackdocs'
 
 html_theme_options = {
-    'display_toc': False
+    'show_other_versions': True
 }
 
 html_static_path = []
@@ -98,6 +98,12 @@ latex_documents = [
 
 # A list of ignored prefixes for module index sorting.
 modindex_common_prefix = ['octavia-dashboard.']
+
+# openstackdocstheme options
+repository_name = 'openstack/octavia-dashboard'
+bug_project = '909'
+bug_tag = 'docs'
+
 
 
 # TODO(mordred) We should extract this into a sphinx plugin
