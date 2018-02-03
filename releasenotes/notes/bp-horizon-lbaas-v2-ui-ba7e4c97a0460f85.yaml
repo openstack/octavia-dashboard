@@ -1,17 +1,17 @@
 ---
 features:
-  - A new dashboard wizard for Octavia version 2. Allows you to create a
-    version 2 load balancer and related resources such as a listener, pool,
+  - A new dashboard wizard for Octavia. Allows you to create an Octavia
+    load balancer and related resources such as a listener, pool,
     pool members, and health monitor.
-  - A view of all the existing version 2 load balancers.
-  - Ability to view details of a version 2 load balancer and drill down to see
+  - A view of all the existing Octavia load balancers.
+  - Ability to view details of a Octavia load balancer and drill down to see
     details for the listener, pool, pool member, and health monitor resources.
-  - Ability to create, update, and delete the version 2 load balancer, listener,
+  - Ability to create, update, and delete the Octavia load balancer, listener,
     pool, pool member, and health monitor resources.
-  - Ability to associate and disassociate floating IP addresses for a version
-    2 load balancer.
+  - Ability to associate and disassociate floating IP addresses for a load
+    balancer.
   - Ability to choose from SSL certificates stored by the key-manager service
-    when creating a version 2 listener using the TERMINATED_HTTPS protocol.
+    when creating a listener using the TERMINATED_HTTPS protocol.
   - Ability to choose from existing instances from the compute service or
-    specify external members when adding members to a version 2 pool.
+    specify external members when adding members to a pool.
 
