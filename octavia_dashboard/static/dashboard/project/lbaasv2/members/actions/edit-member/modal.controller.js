@@ -68,7 +68,7 @@
     ctrl.save = save;
     ctrl.saving = false;
     ctrl.weightError = gettext('The weight must be a number between 1 and 256.');
-    ctrl.monitorAddressError = gettext('The monitor address must be a vaid IP address.');
+    ctrl.monitorAddressError = gettext('The monitor address must be a valid IP address.');
     ctrl.monitorPortError = gettext('The monitor port must be a number between 1 and 65535.');
 
     ctrl.helpUrl = basePath + 'workflow/members/members.help.html';
