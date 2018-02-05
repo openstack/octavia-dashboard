@@ -1,208 +1,22 @@
-# Robert Simai <robert.simai@suse.com>, 2016. #zanata
-# Frank Kloeker <eumel@arcor.de>, 2017. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: octavia-dashboard 1.0.1.dev46\n"
+"Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-01-24 21:31+0000\n"
+"POT-Creation-Date: 2018-02-04 12:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-01-24 10:34+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2018-02-04 01:04+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 3.9.6\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
 
 #, python-format
 msgid "%(ip)s..."
 msgstr "%(ip)s..."
-
-msgid ""
-"<strong>Expected status codes:</strong>\n"
-"  The expected HTTP status codes to get from a successful health check. Must "
-"be a single number,\n"
-"  a comma separated list of numbers, or a range (two numbers separated by a "
-"hyphen)."
-msgstr ""
-"<strong>Erwartete Statuscodes:</strong>\n"
-"  Die erwarteten Statuscodes zu empfangen von einem erfolgreichen "
-"Gesundheitscheck. Muss eine einzelne Nummer,\n"
-"  eine kommaseparierte Liste von Nummern oder ein Bereich (zwei Zahlen, "
-"getrennt durch einen Bindestrich) sein."
-
-msgid ""
-"<strong>HTTP method:</strong>\n"
-"  The HTTP method used to perform the health check."
-msgstr ""
-"<strong>HTTP Methode:</strong>\n"
-"  Die HTTP Methode, mit der der Gesundheitscheck durchgeführt wird."
-
-msgid ""
-"<strong>IP address:</strong>\n"
-"  If an IP address is provided it must be a well-formed IPv4 or IPv6 "
-"address. The system will\n"
-"  attempt to assign the provided IP address to the load balancer. If an IP "
-"address is not provided\n"
-"  then one will be allocated for you."
-msgstr ""
-"<strong>IP-Adresse:</strong>\n"
-"  Wird eine IP-Adresse angegeben, so muss sie eine ordentlich formatierte "
-"IPv4 oder IPv6 Adresse sein. Das System wird\n"
-"  versuchen, die bereitgestellte IP-Adresse dem Loadbalancer zuzuweisen. "
-"Wird keine IP-Adresse angegeben, wird eine für\n"
-"  Sie reserviert."
-
-msgid ""
-"<strong>IP address:</strong>\n"
-"  The IP address of the member to receive traffic from the load balancer. "
-"Must be a well-formed\n"
-"  IPv4 or IPv6 address."
-msgstr ""
-"<strong>IP-Adresse:</strong>\n"
-"  Die IP-Adresse eines Mitglieds empfängt Datenverkehr vom Loadbalancer. Es "
-"muss eine ordentlich formatierte\n"
-"  IPv4 oder IPv6 Adresse sein."
-
-msgid ""
-"<strong>Interval:</strong>\n"
-"  The interval between health checks. Must be greater than or equal to the "
-"timeout."
-msgstr ""
-"<strong>Intervall:</strong>\n"
-"  Das Intervall zwischen Gesundheitschecks. Es muss größer oder gleich dem "
-"Zeitlimit sein."
-
-msgid ""
-"<strong>Method:</strong>\n"
-"  The load balancer algorithm that distributes traffic to the pool members.\n"
-"  <ul>\n"
-"    <li>\n"
-"      LEAST_CONNECTIONS: Allocates requests to the instance with the least "
-"number of active\n"
-"      connections.\n"
-"    </li>\n"
-"    <li>\n"
-"      ROUND_ROBIN: Rotates requests evenly between multiple instances.\n"
-"    </li>\n"
-"    <li>\n"
-"      SOURCE_IP: Requests from a unique source IP address are consistently "
-"directed to the same instance.\n"
-"    </li>\n"
-"  </ul>"
-msgstr ""
-"<strong>Methode:</strong>\n"
-"  Der Loadbalancer-Algorithmus, der den Datenverkehr an die Pool-Mitglieder "
-"verteilt.\n"
-"  <ul>\n"
-"    <li>\n"
-"      LEAST_CONNECTIONS: verweise Anfragen an die Instanz mit der geringsten "
-"Anzahl von\n"
-"      aktiven Verbindungen connections.\n"
-"    </li>\n"
-"    <li>\n"
-"      ROUND_ROBIN: Zirkuliert Anfragen gleichmäßig zwischen multiplen "
-"Instanzen.\n"
-"    </li>\n"
-"    <li>\n"
-"      SOURCE_IP: Anfragen einer bestimmten Quell-IP-Adresse werden beständig "
-"an die gleiche Instanz geleitet.\n"
-"    </li>\n"
-"  </ul>"
-
-msgid ""
-"<strong>Port:</strong>\n"
-"  The port on which the front end listens. Must be an integer from 1 to "
-"65535."
-msgstr ""
-"<strong>Port:</strong>\n"
-"  Der Port, auf den das Frontend hört. Es muss eine Ganzzahl zwischen 1 und "
-"65535 sein."
-
-msgid ""
-"<strong>Port:</strong>\n"
-"  The port on which the member listens for traffic. Must be a number from 1 "
-"to 65535."
-msgstr ""
-"<strong>Port:</strong>\n"
-"  Der Port, auf dem das Mitglied auf Datenverkehr wartet. Es muss eine Zahl "
-"zwischen 1 und 65535 sein."
-
-msgid ""
-"<strong>Protocol:</strong>\n"
-"  The protocol for which the front end listens. The TERMINATED_HTTPS "
-"protocol is only available if\n"
-"  the key-manager service is enabled and you have authority to list "
-"certificate containers and\n"
-"  secrets."
-msgstr ""
-"<strong>Protokoll:</strong>\n"
-"  Das Protokoll, auf dass das Frontend hört. Das TERMINATED_HTTPS Protokoll "
-"ist nur verfügbar,\n"
-"  wenn der Schlüsselmanager aktiviert ist und Sie die Berechtigung haben, "
-"Zertifikatcontainer\n"
-"  und Secrets aufzulisten."
-
-msgid ""
-"<strong>Retries:</strong>\n"
-"  The number of allowed connection failures before marking the member as "
-"inactive. Must be a\n"
-"  number from 1 to 10."
-msgstr ""
-"<strong>Erneute Versuche:</strong>\n"
-"  Die Anzahl der erlaubten Verbindungsfehler, bevor das Mitglied als inaktiv "
-"markiert wird.\n"
-"  Es muss eine Zahl zwischen 1 und 10 sein."
-
-msgid ""
-"<strong>Subnet:</strong>\n"
-"  The network on which to allocate the load balancer's IP address."
-msgstr ""
-"<strong>Subnetz:</strong>\n"
-"  Das Netzwerk, aus welchem dem Loadbalancer eine IP-Adresse zugewiesen wird."
-
-msgid ""
-"<strong>Subnet:</strong>\n"
-"  The network which contains the IP address of the member."
-msgstr ""
-"<strong>Subnetz:</strong>\n"
-"  Das Netzwerk, welches die IP-Adresse des Mitgliedes enthält."
-
-msgid ""
-"<strong>Timeout:</strong>\n"
-"  The time after which a health check times out. Must be a number greater "
-"than or equal to 0\n"
-"  and less than or equal to the interval."
-msgstr ""
-"<strong>Zeitlimit:</strong>\n"
-"  Die Zeit, nach der ein Gesundheitscheck abläuft.\n"
-"  Es muss eine Zahl größer oder gleich 0 sein und kleiner oder gleich dem "
-"Intervall."
-
-msgid ""
-"<strong>URL path:</strong>\n"
-"  The target of the health check HTTP request to the member. Must be a valid "
-"URL path."
-msgstr ""
-"<strong>URL Pfad:</strong>\n"
-"  Das Ziel der Gesundheitscheck-HTTP-Anfrage an das Mitglied. Muss ein "
-"gültiger URL-Pfad sein."
-
-msgid ""
-"<strong>Weight:</strong>\n"
-"  The weight of a member determines the portion of requests or connections "
-"it services compared\n"
-"  to the other members of the pool. A higher weight means it will receive "
-"more traffic. Must be\n"
-"  a number from 1 to 256."
-msgstr ""
-"<strong>Gewicht:</strong>\n"
-"  Das Gewicht eines Mitgliedes bestimmt die Menge an Anfragen oder "
-"Verbindungen, die es bedient,\n"
-"  verglichen mit den anderen Mitgliedern des Pools. Ein höheres Gewicht "
-"bedeutet es empfängt mehr\n"
-"  Datenverkehr. Muss eine Zahl zwischen 1 und 256 sein."
 
 msgid "A new health monitor is being created."
 msgstr "Ein neuer Gesundheitsmonitor wurde erstellt."
@@ -223,9 +37,6 @@ msgstr ""
 "Ein Pool repräsentiert eine Gruppe von Mitgliedern, auf die die "
 "Lastverteilung angewendet wird."
 
-msgid "Actions"
-msgstr "Aktionen"
-
 msgid "Active"
 msgstr "Aktiv"
 
@@ -238,14 +49,20 @@ msgstr "Externes Mitglied hinzufügen"
 msgid "Add members to the load balancer pool."
 msgstr "Mitglieder zum Loadbalancer-Pool hinzufügen."
 
+msgid "Add/Remove Members"
+msgstr "Hinzufügen/Löschen Mitglieder"
+
 msgid "Add/Remove Pool Members"
 msgstr "Pool-Mitglieder hinzufügen/entfernen"
 
-msgid "Address"
-msgstr "Adresse"
-
 msgid "Admin State Up"
 msgstr "Adminstatus aktiv"
+
+msgid "Algorithm"
+msgstr "Algorithmus"
+
+msgid "Algorithm:"
+msgstr "Algorithmus:"
 
 msgid "Allocated Members"
 msgstr "Zugewiesene Mitglieder"
@@ -275,22 +92,41 @@ msgid "Certificate Name"
 msgstr "Zertifikatname"
 
 msgid "Confirm Delete Health Monitor"
-msgstr "Gesundheitsmonitor löschen bestätigen"
+msgid_plural "Confirm Delete Health Monitors"
+msgstr[0] "Bestätigen Gesundheitsmonitor löschen"
+msgstr[1] "Bestätigen Gesundheitsmonitore löschen"
 
-msgid "Confirm Delete Listeners"
-msgstr "Listener löschen bestätigen"
+msgid "Confirm Delete Listener"
+msgid_plural "Confirm Delete Listeners"
+msgstr[0] "Listener löschen bestätigen"
+msgstr[1] "Listener löschen bestätigen"
 
-msgid "Confirm Delete Load Balancers"
-msgstr "Loadbalancer löschen bestätigen"
+msgid "Confirm Delete Load Balancer"
+msgid_plural "Confirm Delete Load Balancers"
+msgstr[0] "Bestätigen Loadbalancer löschen"
+msgstr[1] "Bestätigen Loadbalancer löschen"
+
+msgid "Confirm Delete Member"
+msgid_plural "Confirm Delete Members"
+msgstr[0] "Bestätigen Mitglied löschen"
+msgstr[1] "Bestätigen Mitglieder löschen"
 
 msgid "Confirm Delete Pool"
-msgstr "Pool löschen bestätigen"
+msgid_plural "Confirm Delete Pools"
+msgstr[0] "Bestätigen Pool löschen"
+msgstr[1] "Bestätigen Pools löschen"
 
 msgid "Confirm Disassociate Floating IP Address"
 msgstr "Ablösung der Floating-IP-Adresse bestätigen"
 
 msgid "Connection Limit"
 msgstr "Verbindungsgrenze"
+
+msgid "Connection Limit:"
+msgstr "Verbindungslimits:"
+
+msgid "Cookie"
+msgstr "Cookie"
 
 msgid "Create Health Monitor"
 msgstr "Gesundheitsmonitor erzeugen"
@@ -304,8 +140,14 @@ msgstr "Loadbalancer erstellen"
 msgid "Create Pool"
 msgstr "Pool erstellen"
 
+msgid "Created At"
+msgstr "Erstellt am"
+
 msgid "Default Pool ID"
 msgstr "Standard Pool-ID"
+
+msgid "Default TLS Container Ref"
+msgstr "Standard TLS Container Ref"
 
 msgid "Degraded"
 msgstr "Degradiert"
@@ -314,38 +156,74 @@ msgid "Delay"
 msgstr "Verzögerung"
 
 msgid "Delete Health Monitor"
-msgstr "Gesundheitsmonitor löschen"
+msgid_plural "Delete Health Monitors"
+msgstr[0] "Gesundheitsmonitor löschen"
+msgstr[1] "Gesundheitsmonitore löschen"
+
+msgid "Delete Health Monitors"
+msgstr "Gesundheitsmonitore löschen"
 
 msgid "Delete Listener"
-msgstr "Listener löschen"
+msgid_plural "Delete Listeners"
+msgstr[0] "Listener löschen"
+msgstr[1] "Listener löschen"
 
 msgid "Delete Listeners"
 msgstr "Listener löschen"
 
 msgid "Delete Load Balancer"
-msgstr "Loadbalancer löschen"
+msgid_plural "Delete Load Balancers"
+msgstr[0] "Loadbalancer löschen"
+msgstr[1] "Loadbalancer löschen"
 
 msgid "Delete Load Balancers"
 msgstr "Gelöschte Loadbalancer"
 
+msgid "Delete Member"
+msgid_plural "Delete Members"
+msgstr[0] "Mitglied löschen"
+msgstr[1] "Mitglieder löschen"
+
+msgid "Delete Members"
+msgstr "Mitglieder löschen"
+
 msgid "Delete Pool"
-msgstr "Pool löschen"
+msgid_plural "Delete Pools"
+msgstr[0] "Pool löschen"
+msgstr[1] "Pools löschen"
+
+msgid "Delete Pools"
+msgstr "Gelöschte Pools"
 
 #, python-format
-msgid "Deleted health monitor: %s."
-msgstr "Gelöschter Gesundheitsmonitor: %s."
+msgid "Deleted Health Monitor: %s."
+msgid_plural "Deleted Health Monitors: %s."
+msgstr[0] "Gelöschter Gesundheitsmonitor: %s."
+msgstr[1] "Gelöschte Gesundheitsmonitore: %s."
 
 #, python-format
-msgid "Deleted listeners: %s."
-msgstr "Gelöschte Listener: %s."
+msgid "Deleted Listener: %s."
+msgid_plural "Deleted Listeners: %s."
+msgstr[0] "Gelöschte Listener: %s."
+msgstr[1] "Gelöschte Listener: %s."
 
 #, python-format
-msgid "Deleted load balancers: %s."
-msgstr "Gelöschte Loadbalancer: %s."
+msgid "Deleted Load Balancer: %s."
+msgid_plural "Deleted Load Balancers: %s."
+msgstr[0] "Gelöschte Loadbalancer: %s."
+msgstr[1] "Gelöschte Loadbalancer: %s."
 
 #, python-format
-msgid "Deleted pool: %s."
-msgstr "Gelöschter Pool: %s."
+msgid "Deleted Member: %s."
+msgid_plural "Deleted Members: %s."
+msgstr[0] "Gelöschtes Mitglied: %s."
+msgstr[1] "Gelöschte Mitglieder: %s."
+
+#, python-format
+msgid "Deleted Pool: %s."
+msgid_plural "Deleted Pools: %s."
+msgstr[0] "Gelöschter Pool: %s."
+msgstr[1] "Gelöschte Pools: %s."
 
 msgid "Description"
 msgstr "Beschreibung"
@@ -373,8 +251,20 @@ msgstr ""
 "Loadbalancer zugewiesen werden aber\n"
 "  jeder muss seinen einmaligen Port haben."
 
-msgid "Edit"
-msgstr "Bearbeiten"
+msgid "Edit Health Monitor"
+msgstr "Gesundheitsmonitor bearbeiten"
+
+msgid "Edit Listener"
+msgstr "Listener bearbeiten"
+
+msgid "Edit Load Balancer"
+msgstr "Loadbalancer bearbeiten"
+
+msgid "Edit Member"
+msgstr "Mitglied bearbeiten"
+
+msgid "Edit Pool"
+msgstr "Pool bearbeiten"
 
 msgid "Error"
 msgstr "Fehler"
@@ -385,18 +275,20 @@ msgstr "Erwartete Codes"
 msgid "Expected status codes"
 msgstr "Erwartete Statuscodes"
 
+msgid "Expected status codes:"
+msgstr "Erwarteter Status-Code:"
+
 msgid "Expiration Date"
 msgstr "Ablaufdatum"
 
-msgid "Floating IP Address"
-msgstr "Floating IP-Adresse"
+msgid "Flavor"
+msgstr "Variante"
 
-msgid ""
-"Floating IP address or pool\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Floating-IP-Adresse oder Pool\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Floating IP"
+msgstr "Floating IP"
+
+msgid "Floating IP address or pool"
+msgstr "Floating IP Addresse oder Pool"
 
 msgid "Floating IP addresses"
 msgstr "Floating-IP-Adressen"
@@ -410,8 +302,17 @@ msgstr "HTTP-Methode"
 msgid "HTTP method"
 msgstr "HTTP-Methode"
 
+msgid "HTTP method:"
+msgstr "HTTP Methode:"
+
+msgid "Health Monitor"
+msgstr "Gesundheitsmonitor"
+
 msgid "Health Monitor ID"
 msgstr "Gesundheitsmonitor-ID"
+
+msgid "Health Monitors"
+msgstr "Gesundheitsmonitore"
 
 msgid "ID"
 msgstr "ID"
@@ -419,47 +320,15 @@ msgstr "ID"
 msgid "IP Address"
 msgstr "IP-Adresse"
 
-msgid ""
-"IP Address\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            \n"
-"              Subnet\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            <th class=\"rsp-p1\">\n"
-"              Port\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            Weight</th>\n"
-"            <th class=\"actions_column\"></th>"
-msgstr ""
-"IP Adresse\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            \n"
-"              Subnetz\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            <th class=\"rsp-p1\">\n"
-"              Port\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            Gewicht</th>\n"
-"            <th class=\"actions_column\"></th>"
-
 #, python-format
 msgid "IP Addresses (%(count)s)"
 msgstr "IP-Adressen (%(count)s)"
 
 msgid "IP address"
 msgstr "IP-Adresse"
+
+msgid "IP address:"
+msgstr "IP-Adresse:"
 
 msgid ""
 "If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
@@ -470,15 +339,32 @@ msgstr ""
 "mehrere Zertifikate ausgewählt sein.\n"
 " Das erste Zertifikat wird der Standard."
 
-msgid ""
-"Interval (sec)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Intervall (Sek)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Inactive"
+msgstr "Inaktiv"
+
+msgid "Insert Headers"
+msgstr "Kopfzeilen einfügen"
+
+msgid "Interval (sec)"
+msgstr "Intervall (sek)"
+
+msgid "Interval:"
+msgstr "Intervall:"
+
+msgid "Key Manager API Guide: Creating a Certificate Container"
+msgstr "Key Manager API Leitfaden: Erstellen eines Zertifikat-Containers"
+
+msgid "Key Manager Service Command-Line Client"
+msgstr "Key Manager Service Command-Line Client"
+
+msgid "L7 Policies"
+msgstr "L7 Policies"
 
 msgid "Least Connections"
 msgstr "Letzte Verbindungen"
+
+msgid "Listener"
+msgstr "Listener"
 
 #, python-format
 msgid "Listener %(index)s"
@@ -490,24 +376,18 @@ msgstr "Listener 1"
 msgid "Listener Details"
 msgstr "Listener Details"
 
-msgid "Listener ID"
-msgstr "Listener-ID"
-
 msgid "Listeners"
 msgstr "Listener"
+
+msgid "Load Balancer"
+msgstr "Loadbalancer"
 
 #, python-format
 msgid "Load Balancer %(index)s"
 msgstr "Loadbalancer %(index)s"
 
-msgid "Load Balancer Algorithm"
-msgstr "Loadbalancer-Algorithmus"
-
 msgid "Load Balancer Details"
 msgstr "Loadbalancer-Details"
-
-msgid "Load Balancer ID"
-msgstr "Loadbalancer-ID"
 
 msgid "Load Balancers"
 msgstr "Loadbalancer"
@@ -518,8 +398,11 @@ msgstr "Ladevorgang"
 msgid "Max Retries"
 msgstr "Max Wiederholungen"
 
-msgid "Member ID"
-msgstr "Mitglied-ID"
+msgid "Max Retries Down"
+msgstr "Max Wiederholungen herunter"
+
+msgid "Member"
+msgstr "Mitglied"
 
 msgid "Members"
 msgstr "Mitglieder"
@@ -533,28 +416,38 @@ msgstr ""
 "empfangen. Jedes Mitglied\n"
 "  muss eine einmalige Kombination aus IP-Adresse und Port haben."
 
-msgid ""
-"Method\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Methode\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Monitor Address"
+msgstr "Monitor Addresse"
+
+msgid "Monitor Address:"
+msgstr "Monitor-Adresse:"
 
 msgid "Monitor Details"
 msgstr "Monitordetails"
 
-msgid "Monitor ID"
-msgstr "Monitor-ID"
+msgid "Monitor Port"
+msgstr "Monitor Port"
 
-msgid ""
-"Monitor type\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Monitortyp\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Monitor Port:"
+msgstr "Monitor Port:"
+
+msgid "Monitor type"
+msgstr "Monitor-Typ"
 
 msgid "Name"
 msgstr "Name"
+
+msgid "Network"
+msgstr "Netzwerk"
+
+msgid "Network ID"
+msgstr "Netzwerk ID"
+
+msgid "No"
+msgstr "Nein"
+
+msgid "No Monitor"
+msgstr "Kein Monitor"
 
 msgid "No available certificates"
 msgstr "Keine Zertifikate verfügbar"
@@ -592,30 +485,38 @@ msgstr "Geplante Löschung"
 msgid "Pending Update"
 msgstr "Geplante Aktualisierung"
 
+msgid "Please Wait"
+msgstr "Bitte warten"
+
+msgid "Pool"
+msgstr "Pool"
+
 msgid "Pool 1"
 msgstr "Pool 1"
 
 msgid "Pool Details"
 msgstr "Pool-Details"
 
-msgid "Pool ID"
-msgstr "Pool-ID"
-
 msgid "Pool Members"
 msgstr "Pool-Mitglieder"
+
+msgid "Pool member has been updated."
+msgstr "Das Pool-Mitglied wurde aktualisiert."
+
+msgid "Pools"
+msgstr "Pool"
 
 msgid "Port"
 msgstr "Port"
 
-msgid ""
-"Port\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Port\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Port ID"
 msgstr "Port-ID"
+
+msgid "Port:"
+msgstr "Port:"
+
+msgid "Project"
+msgstr "Projekt"
 
 msgid "Project ID"
 msgstr "Projekt-ID"
@@ -623,15 +524,11 @@ msgstr "Projekt-ID"
 msgid "Protocol"
 msgstr "Protokoll"
 
-msgid ""
-"Protocol\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Protokoll\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Protocol Port"
 msgstr "Protokollport"
+
+msgid "Protocol:"
+msgstr "Protokoll:"
 
 msgid "Provide the details for the health monitor."
 msgstr "Geben Sie die Details zum Gesundheitsmonitor an."
@@ -641,6 +538,9 @@ msgstr "Geben Sie die Details für den Listener an."
 
 msgid "Provide the details for the load balancer."
 msgstr "Geben Sie die Details zum Loadbalancer an."
+
+msgid "Provide the details for the member."
+msgstr "Details über das Mitglied zur Verfügung stellen."
 
 msgid "Provide the details for the pool."
 msgstr "Geben Sie die Details zum Pool an."
@@ -654,15 +554,20 @@ msgstr "Provisionierungsstatus"
 msgid "Remove"
 msgstr "Entfernen"
 
-msgid ""
-"Retries\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Anzahl Wiederholungen\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Retries"
+msgstr "Wiederholungen"
+
+msgid "Retries down"
+msgstr "Wiederholungen herunter"
+
+msgid "Retries down:"
+msgstr "Wiederholungen herunter:"
 
 msgid "Round Robin"
 msgstr "Rundlauf-Verfahren"
+
+msgid "SNI Container Refs"
+msgstr "SNI Container Refs"
 
 msgid "SSL Certificates"
 msgstr "SSL-Zertifikate"
@@ -688,15 +593,14 @@ msgstr "Sitzungspersistenz"
 msgid "Source IP"
 msgstr "Quell-IP"
 
-msgid ""
-"Subnet\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Subnetz\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Subnet"
+msgstr "Teilnetz"
 
 msgid "Subnet ID"
 msgstr "Subnetz-ID"
+
+msgid "Subnet:"
+msgstr "Teilnetz:"
 
 msgid ""
 "The Available Instances table contains existing compute instances that can "
@@ -717,44 +621,11 @@ msgstr "Die IP-Adresse ist ungültig."
 msgid "The URL path is not valid."
 msgstr "Der URL-Pfad ist ungültig."
 
+msgid "The connection limit must be a number greater than or equal to -1."
+msgstr "Das Verbindungslimit muss eine Nummer grösser oder gleich -1 sein."
+
 msgid "The expected status code is not valid."
 msgstr "Der erwartete Statuscode ist ungültig."
-
-#, python-format
-msgid "The following health monitor could not be deleted: %s."
-msgstr "Die folgenden Gesundheitsmonitore konnten nicht gelöscht werden: %s"
-
-#, python-format
-msgid ""
-"The following listeners could not be deleted, possibly due to existing "
-"pools: %s."
-msgstr ""
-"Die folgenden Listener können nicht gelöscht werden, möglicherweise auf "
-"Grund der vorhandenen Pools: %s."
-
-#, python-format
-msgid "The following listeners will not be deleted due to existing pools: %s."
-msgstr ""
-"Die folgenden Listener werden auf Grund der vorhandenen Pools nicht "
-"gelöscht: %s."
-
-#, python-format
-msgid "The following load balancers are pending and cannot be deleted: %s."
-msgstr ""
-"Die folgenden Loadbalancer sind anhängig und können nicht gelöscht werden: "
-"%s."
-
-#, python-format
-msgid ""
-"The following load balancers could not be deleted, possibly due to existing "
-"listeners: %s."
-msgstr ""
-"Die folgenden Loadbalancer können nicht gelöscht werden, möglicherweise auf "
-"Grund der vorhandenen Listener: %s."
-
-#, python-format
-msgid "The following pool could not be deleted: %s."
-msgstr "Der folgende Pool konnte nicht gelöscht werden: %s"
 
 msgid "The health check interval must be greater than or equal to the timeout."
 msgstr ""
@@ -782,6 +653,12 @@ msgstr ""
 msgid "The listener has been updated."
 msgstr "Der Listener wurde aktualisiert."
 
+msgid ""
+"The load balancer algorithm that distributes traffic to the pool members."
+msgstr ""
+"Der L oadbalancer-Algorithmus zum Verteilen der Anfragen auf die Pool-"
+"Mitglieder."
+
 msgid "The load balancer has been updated."
 msgstr "Der Loadbalancer wurde aktualisiert."
 
@@ -795,11 +672,14 @@ msgstr ""
 msgid "The max retry count must be a number between 1 and 10."
 msgstr "Die maximale Wiederholungszahl muss eine Zahl zwischen 1 und 10 sein."
 
+msgid "The monitor port must be a number between 1 and 65535."
+msgstr "Der Monitor Port muss eine Nummer zwischen 1 und 65535 sein."
+
 msgid "The pool has been updated."
 msgstr "Der Pool wurde aktualisiert."
 
 msgid "The pool members have been updated."
-msgstr "Dei Pool-Mitglieder wurden aktualisiert."
+msgstr "Die Pool-Mitglieder wurden aktualisiert."
 
 msgid "The port must be a number between 1 and 65535."
 msgstr "Der Port muss eine Zahl zwischen 1 und 65535 sein."
@@ -810,6 +690,10 @@ msgstr ""
 "Der Port muss über alle Listener, die diesem Loadbalancer zugewiesen sind, "
 "einmalig sein. "
 
+msgid ""
+"The port on which the front end listens. Must be an integer from 1 to 65535."
+msgstr "Der Port an dem das Frontend hört. Muss integer von 1 zu 65535 sein."
+
 msgid "The timeout must be a number greater than or equal to 0."
 msgstr "Das Zeitlimit muss eine Zahl größer oder gleich 0 sein."
 
@@ -819,12 +703,11 @@ msgstr "Das Gewicht muss eine Zahl zwischen 1 und 256 sein."
 msgid "Timeout"
 msgstr "Zeitlimit"
 
-msgid ""
-"Timeout (sec)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Zeitlimit (Sek)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Timeout (sec)"
+msgstr "Timeout (sek)"
+
+msgid "Timeout:"
+msgstr "Timeout:"
 
 msgid "Type"
 msgstr "Typ"
@@ -834,6 +717,9 @@ msgstr "URL Pfad"
 
 msgid "URL path"
 msgstr "URL-Pfad"
+
+msgid "URL path:"
+msgstr "URL-Pfad:"
 
 msgid "Unable to create health monitor."
 msgstr "Gesundheitsmonitor kann nicht erzeugt werden."
@@ -847,6 +733,36 @@ msgstr "Loadbalancer kann nicht erstellt werden."
 msgid "Unable to create pool."
 msgstr "Pool kann nicht erzeugt werden."
 
+#, python-format
+msgid "Unable to delete Health Monitor: %s."
+msgid_plural "Unable to delete Health Monitors: %s."
+msgstr[0] "Konnte Gesundheitsmonitor nicht löschen: %s."
+msgstr[1] "Konnte Gesundheitsmonitore nicht löschen: %s."
+
+#, python-format
+msgid "Unable to delete Listener: %s."
+msgid_plural "Unable to delete Listeners: %s."
+msgstr[0] "Konnte Listener nicht löschen: %s."
+msgstr[1] "Konnte Listener nicht löschen: %s."
+
+#, python-format
+msgid "Unable to delete Load Balancer: %s."
+msgid_plural "Unable to delete Load Balancers: %s."
+msgstr[0] "Konnte Loadbalancer nicht löschen: %s."
+msgstr[1] "Konnte Loadbalancer nicht löschen: %s."
+
+#, python-format
+msgid "Unable to delete Member: %s."
+msgid_plural "Unable to delete Members: %s."
+msgstr[0] "Konnte Mitglied nicht löschen: %s."
+msgstr[1] "Konnte Mitglieder nicht löschen: %s."
+
+#, python-format
+msgid "Unable to delete Pool: %s."
+msgid_plural "Unable to delete Pools: %s."
+msgstr[0] "Konnte Pool nicht löschen: %s."
+msgstr[1] "Konnte Pools nicht löschen: %s."
+
 msgid "Unable to delete health monitor."
 msgstr "Gesundheitsmonitor kann nicht gelöscht werden."
 
@@ -855,6 +771,9 @@ msgstr "Listener kann nicht gelöscht werden."
 
 msgid "Unable to delete load balancer."
 msgstr "Loadbalancer kann nicht gelöscht werden."
+
+msgid "Unable to delete member."
+msgstr "Mitglied kann nicht gelöscht werden."
 
 msgid "Unable to delete pool."
 msgstr "Pool kann nicht gelöscht werden."
@@ -869,6 +788,9 @@ msgstr "SSL-Zertifikate können nicht abgerufen werden."
 
 msgid "Unable to retrieve health monitor."
 msgstr "Gesundheitsmonitor kann nicht abgerufen werden."
+
+msgid "Unable to retrieve health monitors."
+msgstr "Gesundheitsmonitore können nicht abgerufen werden."
 
 msgid "Unable to retrieve listener."
 msgstr "Listener kann nicht abgerufen werden."
@@ -890,6 +812,9 @@ msgstr "Mitglieder können nicht abgerufen werden."
 
 msgid "Unable to retrieve pool."
 msgstr "Pool kann nicht abgerufen werden."
+
+msgid "Unable to retrieve pools."
+msgstr "Pools können nicht abgerufen werden."
 
 msgid "Unable to retrieve secrets."
 msgstr "Geheimdaten können nicht abgerufen werden."
@@ -924,57 +849,23 @@ msgstr "Listener aktualisieren"
 msgid "Update Load Balancer"
 msgstr "Loadbalancer aktualisieren"
 
+msgid "Update Member"
+msgstr "Mitglied aktualisieren"
+
 msgid "Update Pool"
 msgstr "Pool aktualisieren"
 
-msgid ""
-"Use the key-manager service to create any certificate containers before "
-"creating the listener.\n"
-"  The following documentation provides information on how to create a "
-"certificate container:\n"
-"  <ul>\n"
-"    <li>\n"
-"      <a target=\"_blank\" href=\"http://developer.openstack.org/api-guide/"
-"key-manager/containers.html#certificate-containers\">\n"
-"        Key Manager API Guide: Creating a Certificate Container\n"
-"      </a>\n"
-"    </li>\n"
-"    <li>\n"
-"      <a target=\"_blank\" href=\"http://docs.openstack.org/cli-reference/"
-"barbican.html\">\n"
-"        Key Manager Service Command-Line Client\n"
-"      </a>\n"
-"    </li>\n"
-"  </ul>"
-msgstr ""
-"Verwenden Sie den Key-Manager Dienst zum Erzeugen von Zertifikatcontainern, "
-"bevor Sie den Listener erstellen.\n"
-"  Die folgende Dokumentation gibt Ihnen Informationen, wie man einen "
-"Zertifikatcontainer erstellt:\n"
-"  <ul>\n"
-"    <li>\n"
-"      <a target=\"_blank\" href=\"http://developer.openstack.org/api-guide/"
-"key-manager/containers.html#certificate-containers\">\n"
-"        Key Manager API Guide: Creating a Certificate Container\n"
-"      </a>\n"
-"    </li>\n"
-"    <li>\n"
-"      <a target=\"_blank\" href=\"http://docs.openstack.org/cli-reference/"
-"barbican.html\">\n"
-"        Key Manager Service Command-Line Client\n"
-"      </a>\n"
-"    </li>\n"
-"  </ul>"
+msgid "Updated At"
+msgstr "Aktualisiert am"
 
 msgid "Weight"
 msgstr "Gewicht"
 
-msgid ""
-"Weight\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Gewicht\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Weight:"
+msgstr "Gewicht:"
+
+msgid "Yes"
+msgstr "Ja"
 
 #, python-format
 msgid ""
@@ -985,33 +876,53 @@ msgstr ""
 "%s zu lösen. Bitte bestätigen Sie."
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted health "
-"monitors are not recoverable."
-msgstr ""
-"Sie haben \"%s\" ausgewählt. Bitte bestätigen Sie die Auswahl. Gelöschte "
-"Gesundheitsmonitore können nicht mehr hergestellt werden."
+msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted health monitors are not recoverable."
+msgstr[0] ""
+"Sie haben \"%s\" ausgewählt. Gelöschter Gesundheitsmonitor kann nicht "
+"wiederhergestellt werden."
+msgstr[1] ""
+"Sie haben \"%s\" ausgewählt. Gelöschter Gesundheitsmonitore können nicht "
+"wiederhergestellt werden."
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted listeners "
-"are not recoverable."
-msgstr ""
-"Sie haben \"%s\" ausgewählt. Bitte bestätigen Sie die Auswahl. Gelöschte "
-"Listener können nicht mehr hergestellt werden."
+msgid "You have selected \"%s\". Deleted listener is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
+msgstr[0] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Listener können nicht "
+"wiederhergestellt werden."
+msgstr[1] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Listener können nicht "
+"wiederhergestellt werden."
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted load "
-"balancers are not recoverable."
-msgstr ""
-"Sie haben \"%s\" ausgewählt. Bitte bestätigen Sie die Auswahl. Gelöschte "
-"Loadbalancer können nicht mehr hergestellt werden."
+msgid "You have selected \"%s\". Deleted load balancer is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted load balancers are not recoverable."
+msgstr[0] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Loadbalancer können nicht "
+"wiederhergestellt werden."
+msgstr[1] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Loadbalancer können nicht "
+"wiederhergestellt werden."
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted pools are "
-"not recoverable."
-msgstr ""
-"Sie haben \"%s\" ausgewählt. Bitte bestätigen Sie die Auswahl. Gelöschte "
-"Pools können nicht mehr hergestellt werden."
+msgid "You have selected \"%s\". Deleted member is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted members are not recoverable."
+msgstr[0] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Mitglieder können nicht "
+"wiederhergestellt werden."
+msgstr[1] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Mitglieder können nicht "
+"wiederhergestellt werden."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted pool is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted pools are not recoverable."
+msgstr[0] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Pools können nicht wiederhergestellt "
+"werden."
+msgstr[1] ""
+"Sie haben \"%s\" ausgewählt. Gelöschte Pools können nicht wiederhergestellt "
+"werden."
