@@ -1,9 +1,18 @@
 {
-  "version": "1.0.0b1",
+  "version": "1.0.0",
   "private": true,
   "name": "octavia-dashboard",
   "description": "Octavia Dashboard",
-  "repository": "none",
+  "homepage": "https://docs.openstack.org/octavia-dashboard/latest/",
+  "keywords": [
+    "OpenStack",
+    "octavia",
+    "octavia-dashboard",
+    "load-balancer"],
+  "repository": {
+    "type": "git",
+    "url": "https://git.openstack.org/openstack/octavia-dashboard"},
+  "bugs": "https://storyboard.openstack.org/#!/project/909",
   "license": "Apache 2.0",
   "devDependencies": {
     "eslint": "1.10.3",
