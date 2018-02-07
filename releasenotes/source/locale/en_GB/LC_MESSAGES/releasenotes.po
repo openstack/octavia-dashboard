@@ -1,0 +1,165 @@
+# Andi Chandler <andi@gowling.com>, 2017. #zanata
+# Andi Chandler <andi@gowling.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: Octavia Dashboard Release Notes\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-02-06 00:02+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-02-06 12:06+0000\n"
+"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"Language-Team: English (United Kingdom)\n"
+"Language: en-GB\n"
+"X-Generator: Zanata 3.9.6\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+
+msgid "1.0.0.0b1"
+msgstr "1.0.0.0b1"
+
+msgid "1.0.0.0b3-8"
+msgstr "1.0.0.0b3-8"
+
+msgid ""
+"A new dashboard wizard for Octavia. Allows you to create an Octavia load "
+"balancer and related resources such as a listener, pool, pool members, and "
+"health monitor."
+msgstr ""
+"A new dashboard wizard for Octavia. Allows you to create an Octavia load "
+"balancer and related resources such as a listener, pool, pool members, and "
+"health monitor."
+
+msgid "A view of all the existing Octavia load balancers."
+msgstr "A view of all the existing Octavia load balancers."
+
+msgid ""
+"Ability to associate and disassociate floating IP addresses for a load "
+"balancer."
+msgstr ""
+"Ability to associate and disassociate Floating IP addresses for a load "
+"balancer."
+
+msgid ""
+"Ability to choose from SSL certificates stored by the key-manager service "
+"when creating a listener using the TERMINATED_HTTPS protocol."
+msgstr ""
+"Ability to choose from SSL certificates stored by the key-manager service "
+"when creating a listener using the TERMINATED_HTTPS protocol."
+
+msgid ""
+"Ability to choose from existing instances from the compute service or "
+"specify external members when adding members to a pool."
+msgstr ""
+"Ability to choose from existing instances from the compute service or "
+"specify external members when adding members to a pool."
+
+msgid ""
+"Ability to create, update, and delete the Octavia load balancer, listener, "
+"pool, pool member, and health monitor resources."
+msgstr ""
+"Ability to create, update, and delete the Octavia load balancer, listener, "
+"pool, pool member, and health monitor resources."
+
+msgid ""
+"Ability to view details of a Octavia load balancer and drill down to see "
+"details for the listener, pool, pool member, and health monitor resources."
+msgstr ""
+"Ability to view details of a Octavia load balancer and drill down to see "
+"details for the listener, pool, pool member, and health monitor resources."
+
+msgid "All objects now allow setting the \"Admin State\"."
+msgstr "All objects now allow setting the \"Admin State\"."
+
+msgid "Created at and Updated at times are now visible on the details pages."
+msgstr "Created at and Updated at times are now visible on the details pages."
+
+msgid "Current Series Release Notes"
+msgstr "Current Series Release Notes"
+
+msgid "Health monitors can now change the expected HTTP codes."
+msgstr "Health monitors can now change the expected HTTP codes."
+
+msgid "Health monitors can now use alternate IP addresses and ports."
+msgstr "Health monitors can now use alternate IP addresses and ports."
+
+msgid "Known Issues"
+msgstr "Known Issues"
+
+msgid "Listener connection limits can now be updated."
+msgstr "Listener connection limits can now be updated."
+
+msgid "Members now display the subnet_id on the details page."
+msgstr "Members now display the subnet_id on the details page."
+
+msgid "New Features"
+msgstr "New Features"
+
+msgid "Octavia Dashboard Release Notes"
+msgstr "Octavia Dashboard Release Notes"
+
+msgid "Other Notes"
+msgstr "Other Notes"
+
+msgid "Pools can now change the load balancing algorithm after creation."
+msgstr "Pools can now change the load balancing algorithm after creation."
+
+msgid "Prelude"
+msgstr "Prelude"
+
+msgid ""
+"Provisioning and operating status is now available on all object details "
+"pages."
+msgstr ""
+"Provisioning and operating status is now available on all object details "
+"pages."
+
+msgid ""
+"The Octavia team is excited to release the 1.0.0 version of the Octavia "
+"dashboard. This dashboard uses the Octavia API endpoint via the "
+"openstacksdk. This release includes a number of improvements over the old "
+"neutron-lbaas-dashboard that worked against the neutron API endpoint. These "
+"improvements are listed below in the features section of this release note."
+msgstr ""
+"The Octavia team is excited to release the 1.0.0 version of the Octavia "
+"dashboard. This dashboard uses the Octavia API endpoint via the "
+"OpenStackSDK. This release includes a number of improvements over the old "
+"neutron-lbaas-dashboard that worked against the neutron API endpoint. These "
+"improvements are listed below in the features section of this release note."
+
+msgid ""
+"The neutron-lbaas neutron extension is not required to use this dashboard. "
+"Load balancers created with neutron-lbaas that have not been migrated to "
+"Octavia may not be accessible via this dashboard. Only resources accessible "
+"via the Octavia API will be visible in this dashboard."
+msgstr ""
+"The neutron-lbaas Neutron extension is not required to use this dashboard. "
+"Load balancers created with neutron-lbaas that have not been migrated to "
+"Octavia may not be accessible via this dashboard. Only resources accessible "
+"via the Octavia API will be visible in this dashboard."
+
+msgid "The object details pages now use a tabbed navigation for child objects."
+msgstr ""
+"The object details pages now use a tabbed navigation for child objects."
+
+msgid ""
+"The octavia-dashboard requires openstacksdk >= 0.10.0 to resolve an issue "
+"with displaying the health monitor details page. It is expected this will be "
+"included in the OpenStack Queens release."
+msgstr ""
+"The Octavia-Dashboard requires openstacksdk >= 0.10.0 to resolve an issue "
+"with displaying the health monitor details page. It is expected this will be "
+"included in the OpenStack Queens release."
+
+msgid "The session persistence for a pool can now be changed."
+msgstr "The session persistence for a pool can now be changed."
+
+msgid ""
+"This dashboard can be used alongside the neutron-lbaas-dashboard, but both "
+"dashboard panels will use the \"Load Balancer\" labels."
+msgstr ""
+"This dashboard can be used alongside the neutron-lbaas-dashboard, but both "
+"dashboard panels will use the \"Load Balancer\" labels."
+
+msgid "Upgrade Notes"
+msgstr "Upgrade Notes"
