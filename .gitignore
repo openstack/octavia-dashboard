@@ -29,7 +29,6 @@ pip-log.txt
 nosetests.xml
 .secret_key_store
 .testrepository
-.venv
 node_modules
 coverage*
 test-shim.js
