@@ -134,7 +134,7 @@
       },
       description: {
         label: gettext('Description'),
-        filters: ['noValue']
+        filters: ['noName']
       },
       provisioning_status: {
         label: gettext('Provisioning Status'),
@@ -167,7 +167,7 @@
       sni_container_refs: gettext('SNI Container Refs'),
       default_pool_id: {
         label: gettext('Default Pool ID'),
-        filters: ['noName']
+        filters: ['noValue']
       },
       l7_policies: gettext('L7 Policies'),
       insert_headers: {

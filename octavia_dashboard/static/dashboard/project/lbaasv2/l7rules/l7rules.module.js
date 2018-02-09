@@ -156,11 +156,11 @@
       },
       key: {
         label: gettext('Key'),
-        filters: ['noName']
+        filters: ['noValue']
       },
       rule_value: {
         label: gettext('Value'),
-        filters: ['noName']
+        filters: ['noValue']
       },
       invert: {
         label: gettext('Invert'),
