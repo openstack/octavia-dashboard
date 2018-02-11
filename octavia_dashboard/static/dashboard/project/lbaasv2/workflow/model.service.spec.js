@@ -415,11 +415,12 @@
       });
 
       it('has array of monitor types', function() {
-        expect(model.monitorTypes).toEqual(['HTTP', 'PING', 'TCP']);
+        expect(model.monitorTypes).toEqual(['HTTP', 'HTTPS', 'PING', 'TCP', 'TLS-HELLO']);
       });
 
       it('has array of monitor http_methods', function() {
-        expect(model.monitorMethods).toEqual(['GET', 'HEAD']);
+        expect(model.monitorMethods).toEqual(['GET', 'HEAD', 'POST', 'PUT', 'DELETE',
+                                              'TRACE', 'OPTIONS', 'PATCH', 'CONNECT']);
       });
 
       it('has an "initialize" function', function() {

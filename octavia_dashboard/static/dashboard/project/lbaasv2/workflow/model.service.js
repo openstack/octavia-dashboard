@@ -90,8 +90,9 @@
       poolProtocols: ['HTTP', 'HTTPS', 'PROXY', 'TCP'],
       methods: ['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP'],
       types: ['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'],
-      monitorTypes: ['HTTP', 'PING', 'TCP'],
-      monitorMethods: ['GET', 'HEAD'],
+      monitorTypes: ['HTTP', 'HTTPS', 'PING', 'TCP', 'TLS-HELLO'],
+      monitorMethods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE',
+                       'TRACE', 'OPTIONS', 'PATCH', 'CONNECT'],
       certificates: [],
       listenerPorts: [],
 
