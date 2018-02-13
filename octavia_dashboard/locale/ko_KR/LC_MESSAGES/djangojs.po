@@ -1,15 +1,16 @@
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2017. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
+# Jaewook Oh <jwoh95@dcn.ssu.ac.kr>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-01-25 04:23+0000\n"
+"POT-Creation-Date: 2018-02-07 18:25+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-22 05:04+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2018-02-12 07:53+0000\n"
+"Last-Translator: Jaewook Oh <jwoh95@dcn.ssu.ac.kr>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko-KR\n"
 "X-Generator: Zanata 3.9.6\n"
@@ -103,10 +104,17 @@ msgid "Certificate Name"
 msgstr "인증서 이름"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
-#, fuzzy
 msgid "Confirm Delete Health Monitor"
 msgid_plural "Confirm Delete Health Monitors"
 msgstr[0] "상태 모니터 삭제 확인"
+
+msgid "Confirm Delete Listener"
+msgid_plural "Confirm Delete Listeners"
+msgstr[0] "리스터 삭제 확인"
+
+msgid "Confirm Delete Load Balancer"
+msgid_plural "Confirm Delete Load Balancers"
+msgstr[0] "로드 밸런서 삭제 확인"
 
 #, fuzzy
 msgid "Confirm Delete Member"
@@ -151,6 +159,9 @@ msgstr "생성 시점"
 msgid "Default Pool ID"
 msgstr "기본 풀 ID"
 
+msgid "Default TLS Container Ref"
+msgstr "디폴트 TLS 컨테이너 참조"
+
 # auto translated by TM merge from project: horizon, version: master, DocId: openstack_dashboard/locale/djangojs
 msgid "Degraded"
 msgstr "감소됨"
@@ -160,13 +171,14 @@ msgid "Delay"
 msgstr "지연"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
-#, fuzzy
 msgid "Delete Health Monitor"
 msgid_plural "Delete Health Monitors"
 msgstr[0] "상태 모니터 삭제"
 
+msgid "Delete Health Monitors"
+msgstr "상태 모니터 삭제"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
-#, fuzzy
 msgid "Delete Listener"
 msgid_plural "Delete Listeners"
 msgstr[0] "리스너 삭제"
@@ -176,7 +188,6 @@ msgid "Delete Listeners"
 msgstr "리스너 삭제"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
-#, fuzzy
 msgid "Delete Load Balancer"
 msgid_plural "Delete Load Balancers"
 msgstr[0] "로드 밸런서 삭제"
@@ -195,6 +206,21 @@ msgstr[0] "멤버 삭제"
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
 msgstr[0] "풀 삭제"
+
+#, python-format
+msgid "Deleted Health Monitor: %s."
+msgid_plural "Deleted Health Monitors: %s."
+msgstr[0] "삭제된 상태 모니터: %s."
+
+#, python-format
+msgid "Deleted Listener: %s."
+msgid_plural "Deleted Listeners: %s."
+msgstr[0] "삭제된 리스너: %s."
+
+#, python-format
+msgid "Deleted Load Balancer: %s."
+msgid_plural "Deleted Load Balancers: %s."
+msgstr[0] "로드 밸런서 삭제됨: %s."
 
 # auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Description"
@@ -226,6 +252,21 @@ msgstr ""
 "만\n"
 "  각각 유일한 포트를 사용해야 합니다."
 
+msgid "Edit Health Monitor"
+msgstr "상태 모니터 편집"
+
+msgid "Edit Listener"
+msgstr "리스터 편집"
+
+msgid "Edit Load Balancer"
+msgstr "로드 밸런서 편집"
+
+msgid "Edit Member"
+msgstr "멤버 편집"
+
+msgid "Edit Pool"
+msgstr "풀 편집"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Error"
 msgstr "에러"
@@ -241,6 +282,15 @@ msgstr "예상된 상태 코드"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Expiration Date"
 msgstr "만기 일자"
+
+msgid "Flavor"
+msgstr "Flavor"
+
+msgid "Floating IP"
+msgstr "플로팅 IP"
+
+msgid "Floating IP address or pool"
+msgstr "플로팅 IP 주소 또는 풀"
 
 # auto translated by TM merge from project: openstack-manuals, version: stable-ocata, DocId: doc/networking-guide/source/locale/networking-guide
 msgid "Floating IP addresses"
@@ -258,9 +308,15 @@ msgstr "HTTP 메서드"
 msgid "HTTP method"
 msgstr "HTTP 메소드"
 
+msgid "Health Monitor"
+msgstr "상태 모니터"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Health Monitor ID"
 msgstr "상태 모니터 ID"
+
+msgid "Health Monitors"
+msgstr "상태 모니터"
 
 # auto translated by TM merge from project: zaqar-ui, version: master, DocId: zaqar_ui/locale/djangojs
 msgid "ID"
@@ -293,9 +349,18 @@ msgstr ""
 msgid "Inactive"
 msgstr "비활성"
 
+msgid "Insert Headers"
+msgstr "헤더 삽입"
+
+msgid "L7 Policies"
+msgstr "L7 정책"
+
 # auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Least Connections"
 msgstr "최소 연결"
+
+msgid "Listener"
+msgstr "리스너"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 #, python-format
@@ -313,6 +378,9 @@ msgstr "리스너 세부정보"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Listeners"
 msgstr "리스너"
+
+msgid "Load Balancer"
+msgstr "로드 밸런서"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 #, python-format
@@ -365,6 +433,15 @@ msgstr "모니터 포트"
 msgid "Name"
 msgstr "이름"
 
+msgid "Network"
+msgstr "네트워크"
+
+msgid "Network ID"
+msgstr "네트워크 ID"
+
+msgid "No Monitor"
+msgstr "모니터 없음"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "No available certificates"
 msgstr "이용 가능한 인증서가 없음"
@@ -413,6 +490,9 @@ msgstr "삭제 대기중"
 msgid "Pending Update"
 msgstr "업데이트 대기중"
 
+msgid "Please Wait"
+msgstr "기다려 주십시오"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Pool 1"
 msgstr "풀 1"
@@ -425,6 +505,9 @@ msgstr "풀 세부 정보"
 msgid "Pool Members"
 msgstr "풀 맴버"
 
+msgid "Pools"
+msgstr "풀"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Port"
 msgstr "포트"
@@ -432,6 +515,9 @@ msgstr "포트"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Port ID"
 msgstr "포트 ID"
+
+msgid "Project"
+msgstr "프로젝트"
 
 # auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Project ID"
@@ -476,6 +562,9 @@ msgstr "제거"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Round Robin"
 msgstr "라운드 로빈"
+
+msgid "SNI Container Refs"
+msgstr "SNI 컨테이너 참조"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "SSL Certificates"
@@ -635,6 +724,21 @@ msgstr "로드 밸런서를 생성할 수 없습니다."
 msgid "Unable to create pool."
 msgstr "풀을 생성할 수 없습니다."
 
+#, python-format
+msgid "Unable to delete Health Monitor: %s."
+msgid_plural "Unable to delete Health Monitors: %s."
+msgstr[0] "상태 모니터를 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete Listener: %s."
+msgid_plural "Unable to delete Listeners: %s."
+msgstr[0] "리스너를 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete Member: %s."
+msgid_plural "Unable to delete Members: %s."
+msgstr[0] "멤버를 삭제할 수 없습니다: %s."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to delete health monitor."
 msgstr "상태 모니터를 삭제할 수 없습니다."
@@ -667,6 +771,9 @@ msgstr "SSL 인증을 가져올 수 없습니다."
 msgid "Unable to retrieve health monitor."
 msgstr "상태 모니터를 가져올 수 없습니다."
 
+msgid "Unable to retrieve health monitors."
+msgstr "상태 모니터를 가져올 수 없습니다."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve listener."
 msgstr "리스너를 가져올 수 없습니다."
@@ -693,6 +800,9 @@ msgstr "멤버를 가져올 수 없습니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve pool."
+msgstr "풀을 가져올 수 없습니다."
+
+msgid "Unable to retrieve pools."
 msgstr "풀을 가져올 수 없습니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
@@ -759,3 +869,20 @@ msgid ""
 msgstr ""
 "Floating IP 주소를 로드 밸런서 \"%s\"에서 연결 해제하려고 합니다. 확인해주세"
 "요. "
+
+#, python-format
+msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted health monitors are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 상태 모니터는 복구할 수 없습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted listener is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 리스너는 복구할 수 없습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted load balancer is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted load balancers are not recoverable."
+msgstr[0] "\"%s\"를 선택했습니다. 삭제된 로드 밸런서는 복구할 수 없습니다."
