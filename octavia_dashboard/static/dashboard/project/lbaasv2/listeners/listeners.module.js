@@ -170,7 +170,13 @@
         filters: ['noName']
       },
       l7_policies: gettext('L7 Policies'),
-      insert_headers: gettext('Insert Headers'),
+      insert_headers: {
+        label: gettext('Insert Headers'),
+        filters: [
+          'json',
+          loadBalancerService.nullFilter
+        ]
+      },
       load_balancers: gettext('Load Balancers')
     };
   }

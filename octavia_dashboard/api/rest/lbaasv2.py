@@ -169,7 +169,8 @@ def create_listener(request, **kwargs):
         connection_limit=data['listener'].get('connection_limit'),
         default_tls_container_ref=default_tls_ref,
         sni_container_refs=None,
-        admin_state_up=data['listener'].get('admin_state_up')
+        admin_state_up=data['listener'].get('admin_state_up'),
+        insert_headers=data['listener'].get('insert_headers'),
     )
 
     if data.get('pool'):
@@ -394,6 +395,7 @@ def update_listener(request, **kwargs):
         connection_limit=data['listener'].get('connection_limit'),
         admin_state_up=data['listener'].get('admin_state_up'),
         default_pool_id=default_pool_id,
+        insert_headers=data['listener'].get('insert_headers'),
     )
 
     if data.get('pool'):

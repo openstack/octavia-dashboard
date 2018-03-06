@@ -152,7 +152,8 @@
           connection_limit: -1,
           admin_state_up: true,
           default_pool: null,
-          default_pool_id: null
+          default_pool_id: null,
+          insert_headers: {}
         },
         l7policy: {
           id: null,
@@ -455,15 +456,22 @@
         // Listener requires protocol and port
         delete finalSpec.listener;
         delete finalSpec.certificates;
-      } else if (finalSpec.listener.protocol !== 'TERMINATED_HTTPS') {
-        // Remove certificate containers if not using TERMINATED_HTTPS
-        delete finalSpec.certificates;
       } else {
-        var containers = [];
-        angular.forEach(finalSpec.certificates, function(cert) {
-          containers.push(cert.id);
-        });
-        finalSpec.certificates = containers;
+        for (var header in finalSpec.listener.insert_headers) {
+          if (!finalSpec.listener.insert_headers[header]) {
+            delete finalSpec.listener.insert_headers[header];
+          }
+        }
+        if (finalSpec.listener.protocol !== 'TERMINATED_HTTPS') {
+          // Remove certificate containers if not using TERMINATED_HTTPS
+          delete finalSpec.certificates;
+        } else {
+          var containers = [];
+          angular.forEach(finalSpec.certificates, function(cert) {
+            containers.push(cert.id);
+          });
+          finalSpec.certificates = containers;
+        }
       }
     }
 
@@ -735,6 +743,7 @@
       spec.connection_limit = listener.connection_limit;
       spec.admin_state_up = listener.admin_state_up;
       spec.default_pool_id = listener.default_pool_id;
+      spec.insert_headers = listener.insert_headers;
     }
 
     function setL7PolicySpec(l7policy) {

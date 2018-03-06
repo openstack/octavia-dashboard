@@ -96,6 +96,42 @@
 
   </div>
 
+  <h4 translate>Insert Headers</h4>
+
+  <div class="row form-group">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <div class="themable-checkbox">
+          <input type="checkbox"
+                 ng-true-value="'True'"
+                 ng-false-value="''"
+                 id="x_forwarded_for"
+                 ng-model="model.spec.listener.insert_headers['X-Forwarded-For']">
+          <label for="x_forwarded_for">
+            <span translate>X-Forwarded-For</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <div class="themable-checkbox">
+          <input type="checkbox"
+                 ng-true-value="'True'"
+                 ng-false-value="''"
+                 id="x_forwarded_port"
+                 ng-model="model.spec.listener.insert_headers['X-Forwarded-Port']">
+          <label for="x_forwarded_port">
+            <span translate>X-Forwarded-port</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <div class="row">
 
     <div class="col-xs-12 col-sm-8 col-md-6">

@@ -34,7 +34,11 @@
           protocol_port: 80,
           connection_limit: 999,
           load_balancers: [ { id: '1234' } ],
-          sni_container_refs: ['container2']
+          sni_container_refs: ['container2'],
+          insert_headers: {
+            'X-Forwarded-For': 'True',
+            'X-Forwarded-Port': 'True'
+          }
         },
         pool: {
           admin_state_up: true,
@@ -1173,7 +1177,7 @@
       it('has the right number of properties', function() {
         expect(Object.keys(model.spec).length).toBe(11);
         expect(Object.keys(model.spec.loadbalancer).length).toBe(5);
-        expect(Object.keys(model.spec.listener).length).toBe(9);
+        expect(Object.keys(model.spec.listener).length).toBe(10);
         expect(Object.keys(model.spec.l7policy).length).toBe(8);
         expect(Object.keys(model.spec.l7rule).length).toBe(7);
         expect(Object.keys(model.spec.pool).length).toBe(7);
@@ -2440,6 +2444,49 @@
         expect(finalSpec.monitor.url_path).toBe('/foo/bar');
       });
 
+    });
+
+    describe('Model visible resources (edit listener, no insert headers)', function() {
+
+      beforeEach(function() {
+        delete listenerResources.listener.insert_headers;
+        delete listenerResources.pool;
+        model.initialize('listener', '1234');
+        scope.$apply();
+      });
+
+      it('should only show listener details', function() {
+        expect(model.context.resource).toEqual('listener');
+      });
+    });
+
+    describe('Model visible resources (edit listener, no x forwared for)', function() {
+
+      beforeEach(function() {
+        listenerResources.listener.insert_headers['X-Forwarded-For'] = '';
+        delete listenerResources.pool;
+        model.initialize('listener', '1234');
+        scope.$apply();
+      });
+
+      it('should only show listener details', function() {
+        model.submit();
+        expect(model.context.resource).toEqual('listener');
+      });
+    });
+
+    describe('Model visible resources (edit listener, no x forwared port)', function() {
+
+      beforeEach(function() {
+        delete listenerResources.listener.insert_headers['X-Forwarded-Port'];
+        delete listenerResources.pool;
+        model.initialize('listener', '1234');
+        scope.$apply();
+      });
+
+      it('should only show listener details', function() {
+        expect(model.context.resource).toEqual('listener');
+      });
     });
 
     describe('Model visible resources (edit listener, no pool)', function() {
