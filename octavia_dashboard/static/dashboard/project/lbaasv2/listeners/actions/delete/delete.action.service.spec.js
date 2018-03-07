@@ -24,7 +24,13 @@
       spyOn(policy, 'ifAllowed').and.returnValue(true);
       var allowed = service.allowed(item);
       $scope.$apply();
-      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'delete_listener']]});
+      expect(policy.ifAllowed).toHaveBeenCalledWith(
+        {
+          rules: [[
+            'load-balancer', 'os_load-balancer_api:listener:delete'
+          ]]
+        }
+      );
       return allowed;
     }
 

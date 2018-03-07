@@ -109,7 +109,6 @@ bug_project = '909'
 bug_tag = 'docs'
 
 
-
 # TODO(mordred) We should extract this into a sphinx plugin
 def run_apidoc(_):
     cur_dir = os.path.abspath(os.path.dirname(__file__))
@@ -128,6 +127,8 @@ def run_apidoc(_):
         'octavia_dashboard/enabled',
         'octavia_dashboard/locale',
         'octavia_dashboard/static',
+        'octavia_dashboard/conf',
+        'octavia_dashboard/local_settings.d',
         'octavia_dashboard/post_install.sh',
         'octavia_dashboard/karma.conf.js'
     ])

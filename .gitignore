@@ -61,3 +61,6 @@ ChangeLog
 .*.swp
 .*sw?
 .ropeproject/
+
+# Conf
+octavia_dashboard/conf

@@ -43,7 +43,13 @@
     it('should check policy to allow editing a listener', function() {
       spyOn(policy, 'ifAllowed').and.returnValue(true);
       expect(service.allowed()).toBe(true);
-      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'update_listener']]});
+      expect(policy.ifAllowed).toHaveBeenCalledWith(
+        {
+          rules: [[
+            'load-balancer', 'os_load-balancer_api:listener:put'
+          ]]
+        }
+      );
     });
 
     it('should handle the action result properly', function() {

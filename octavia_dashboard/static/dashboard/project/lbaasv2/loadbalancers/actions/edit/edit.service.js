@@ -62,9 +62,9 @@
     ///////////////
 
     function allowed() {
-      // This rule is made up and should therefore always pass. At some point there will
-      // likely be a valid rule similar to this that we will want to use.
-      return policy.ifAllowed({ rules: [['neutron', 'update_loadbalancer']] });
+      return policy.ifAllowed({
+        rules: [['load-balancer', 'os_load-balancer_api:loadbalancer:put']]
+      });
     }
 
     function handle(response) {

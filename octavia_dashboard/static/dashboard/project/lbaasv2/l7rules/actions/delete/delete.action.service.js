@@ -67,9 +67,9 @@
     //////////////
 
     function allowed(/*item*/) {
-      // This rule is made up and should therefore always pass. I assume at some point there
-      // will be a valid rule similar to this that we will want to use.
-      return policy.ifAllowed({ rules: [['neutron', 'delete_l7rule']] });
+      return policy.ifAllowed({
+        rules: [['load-balancer', 'os_load-balancer_api:l7rule:delete']]
+      });
     }
 
     function perform(items, scope) {

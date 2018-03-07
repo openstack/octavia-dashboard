@@ -57,7 +57,9 @@
     });
 
     function allowed(/*item*/) {
-      return policy.ifAllowed({ rules: [['neutron', 'update_pool']] });
+      return policy.ifAllowed({
+        rules: [['load-balancer', 'os_load-balancer_api:pool:put']]
+      });
     }
 
     function handle(response) {

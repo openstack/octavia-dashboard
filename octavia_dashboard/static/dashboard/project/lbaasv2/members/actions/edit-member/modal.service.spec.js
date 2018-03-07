@@ -32,7 +32,13 @@
     function allowed(item) {
       spyOn(policy, 'ifAllowed').and.returnValue(true);
       var allowed = service.allowed(item);
-      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'pool_member_update']]});
+      expect(policy.ifAllowed).toHaveBeenCalledWith(
+        {
+          rules: [[
+            'load-balancer', 'os_load-balancer_api:member:put'
+          ]]
+        }
+      );
       return allowed;
     }
 

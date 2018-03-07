@@ -43,7 +43,13 @@
     it('should check policy to allow creating a listener', function() {
       spyOn(policy, 'ifAllowed').and.returnValue(true);
       expect(service.allowed()).toBe(true);
-      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'create_listener']]});
+      expect(policy.ifAllowed).toHaveBeenCalledWith(
+        {
+          rules: [[
+            'load-balancer', 'os_load-balancer_api:listener:post'
+          ]]
+        }
+      );
     });
 
     it('should handle the action result properly', function() {
