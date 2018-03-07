@@ -394,12 +394,19 @@ def update_listener(request, **kwargs):
     else:
         default_pool_id = default_pool_id[:36]
 
+    try:
+        default_tls_ref = data['certificates'][0]
+    except (KeyError, IndexError):
+        default_tls_ref = None
+
     conn = _get_sdk_connection(request)
     listener = conn.load_balancer.update_listener(
         listener=listener_id,
         name=data['listener'].get('name'),
         description=data['listener'].get('description'),
         connection_limit=data['listener'].get('connection_limit'),
+        default_tls_container_ref=default_tls_ref,
+        sni_container_refs=None,
         admin_state_up=data['listener'].get('admin_state_up'),
         default_pool_id=default_pool_id,
         insert_headers=data['listener'].get('insert_headers'),
