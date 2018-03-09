@@ -27,9 +27,7 @@
     '$q',
     'horizon.dashboard.project.lbaasv2.workflow.modal',
     'horizon.app.core.openstack-service-api.policy',
-    'horizon.framework.util.i18n.gettext',
-    'horizon.framework.util.q.extensions',
-    '$routeParams'
+    'horizon.framework.util.i18n.gettext'
   ];
 
   /**
@@ -45,15 +43,13 @@
    * @param workflowModal The LBaaS workflow modal service.
    * @param policy The horizon policy service.
    * @param gettext The horizon gettext function for translation.
-   * @param qExtensions horizon extensions to the $q service.
-   * @param $routeParams The angular $routeParams service.
    *
    * @returns The pool create service.
    */
 
   function createService(
     resourceType, actionResultService,
-    $q, workflowModal, policy, gettext, qExtensions, $routeParams
+    $q, workflowModal, policy, gettext
   ) {
     return workflowModal.init({
       controller: 'CreatePoolWizardController',
@@ -66,7 +62,6 @@
 
     function allowed() {
       return $q.all([
-        qExtensions.booleanAsPromise(!!$routeParams.listenerId),
         policy.ifAllowed({ rules: [['neutron', 'create_pool']] })
       ]);
     }

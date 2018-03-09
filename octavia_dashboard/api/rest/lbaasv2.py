@@ -204,6 +204,7 @@ def create_pool(request, **kwargs):
         lb_algorithm=data['pool']['method'],
         session_persistence=session_persistence,
         listener_id=kwargs['listener_id'],
+        loadbalancer_id=kwargs['loadbalancer_id'],
         name=data['pool'].get('name'),
         description=data['pool'].get('description'),
         admin_state_up=data['pool'].get('admin_state_up')

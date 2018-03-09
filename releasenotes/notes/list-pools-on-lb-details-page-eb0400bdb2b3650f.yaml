@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Pools attached to a load balancer are now listed on the load balancer
+    details page.

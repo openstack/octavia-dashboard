@@ -24,6 +24,40 @@
   <div class="row">
 
     <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group required">
+        <label class="control-label" for="method">
+          <translate>Algorithm</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <select class="form-control" name="method" id="method"
+                ng-options="method for method in model.methods"
+                ng-model="model.spec.pool.method"
+                ng-required="true">
+        </select>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.context.id || (model.spec.parentResourceId === null)">
+      <div class="form-group required">
+        <label class="control-label" for="protocol">
+          <translate>Protocol</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <select class="form-control" name="protocol" id="protocol"
+                ng-model="model.spec.pool.protocol" ng-required="true"
+                ng-disabled="model.context.id">
+          <option ng-repeat="protocol in model.poolProtocols" value="{$ protocol $}">
+            {$ protocol $}
+          </option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group">
         <label class="control-label" for="type">
           <translate>Session Persistence</translate>
@@ -41,24 +75,6 @@
         <label translate class="control-label" for="cookie">Cookie</label>
         <input name="cookie" id="cookie" type="text" class="form-control"
                ng-model="model.spec.pool.cookie">
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="form-group required">
-        <label class="control-label" for="method">
-          <translate>Algorithm</translate>
-          <span class="hz-icon-required fa fa-asterisk"></span>
-        </label>
-        <select class="form-control" name="method" id="method"
-                ng-options="method for method in model.methods"
-                ng-model="model.spec.pool.method"
-                ng-required="true">
-        </select>
       </div>
     </div>
 

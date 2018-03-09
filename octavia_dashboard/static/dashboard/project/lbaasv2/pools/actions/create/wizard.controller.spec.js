@@ -40,6 +40,16 @@
     beforeEach(inject(function ($controller) {
       spyOn(model, 'initialize');
       ctrl = $controller('CreatePoolWizardController', { $scope: scope });
+      ctrl = $controller(
+        'CreatePoolWizardController',
+        {
+          $scope: scope,
+          $routeParams: {
+            loadBalancerId: '1',
+            listenerId: '2'
+          }
+        }
+      );
     }));
 
     it('defines the controller', function() {

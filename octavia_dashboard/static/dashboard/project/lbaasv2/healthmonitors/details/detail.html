@@ -4,8 +4,9 @@
     <li class="breadcrumb-item-truncate"><translate>Network</translate></li>
     <li class="breadcrumb-item-truncate"><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
     <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
-    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
-    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
+    <li class="breadcrumb-item-truncate" ng-style="ctrl.withListenerStyle"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ :: ctrl.listener.id $}">{$ :: (ctrl.listener.name || ctrl.listener.id) $}</a></li>
+    <li class="breadcrumb-item-truncate" ng-style="ctrl.withListenerStyle"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ :: ctrl.listener.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
+    <li class="breadcrumb-item-truncate" ng-style="ctrl.withoutListenerStyle"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/pools/{$ ::ctrl.pool.id $}">{$ ::(ctrl.pool.name || ctrl.pool.id) $}</a></li>
     <li class="breadcrumb-item-truncate active">{$ ::(ctrl.healthmonitor.name || ctrl.healthmonitor.id) $}</li>
   </ol>
   <div class="row">

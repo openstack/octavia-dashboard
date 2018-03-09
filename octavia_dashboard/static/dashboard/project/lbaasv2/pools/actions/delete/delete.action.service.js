@@ -121,8 +121,13 @@
       });
 
       if (actionResult.result.failed.length === 0 && actionResult.result.deleted.length > 0) {
-        var path = 'project/load_balancer/' + loadbalancerId +
-                   '/listeners/' + listenerId;
+        var path;
+        if (listenerId) {
+          path = 'project/load_balancer/' + loadbalancerId +
+            '/listeners/' + listenerId;
+        } else {
+          path = 'project/load_balancer/' + loadbalancerId;
+        }
         $location.path(path);
       }
       return actionResult.result;

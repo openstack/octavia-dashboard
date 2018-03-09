@@ -182,7 +182,7 @@
       });
     }));
 
-    it('should route resolved pool detail', inject(function($injector) {
+    it('should route resolved listener pool detail', inject(function($injector) {
       function loadbalancerAPI() {
         var loadbalancer = { provisioning_status: 'ACTIVE' };
         return {
@@ -233,7 +233,7 @@
       });
     }));
 
-    it('should route resolved member detail', inject(function($injector) {
+    it('should route resolved listener pool member detail', inject(function($injector) {
       function loadbalancerAPI() {
         var loadbalancer = { provisioning_status: 'ACTIVE' };
         return {
@@ -297,7 +297,7 @@
       });
     }));
 
-    it('should route resolved health monitor detail', inject(function($injector) {
+    it('should route resolved listener pool health monitor detail', inject(function($injector) {
       function loadbalancerAPI() {
         var loadbalancer = { provisioning_status: 'ACTIVE' };
         return {
@@ -356,6 +356,146 @@
           '/static/dashboard/project/lbaasv2/healthmonitors/details/detail.html'
         ).respond({});
         $location.path('/project/load_balancer/1/listeners/2/pools/3/healthmonitors/4');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      });
+    }));
+
+    it('should route resolved loadbalancer pool detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      function poolAPI() {
+        var pool = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(pool);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      spyOn(lbaasv2API, 'getPool').and.callFake(poolAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/pools/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1/pools/3');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      });
+    }));
+
+    it('should route resolved loadbalancer pool member detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      function poolAPI() {
+        var pool = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(pool);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function memberAPI() {
+        var member = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(member);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      spyOn(lbaasv2API, 'getPool').and.callFake(poolAPI);
+      spyOn(lbaasv2API, 'getMember').and.callFake(memberAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/members/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1/pools/3/members/4');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      });
+    }));
+
+    it('should route resolved loadbalancer pool health monitor detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      function poolAPI() {
+        var pool = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(pool);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function healthmonitorAPI() {
+        var healthmonitor = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(healthmonitor);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      spyOn(lbaasv2API, 'getPool').and.callFake(poolAPI);
+      spyOn(lbaasv2API, 'getHealthMonitor').and.callFake(healthmonitorAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/healthmonitors/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1/pools/3/healthmonitors/4');
         $rootScope.$digest();
         expect($route.current).toBeDefined();
       });

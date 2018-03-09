@@ -62,6 +62,11 @@
     ctrl.loadBalancerAlgorithm = loadBalancersService.loadBalancerAlgorithm;
     ctrl.loadbalancer = loadbalancer;
     ctrl.listener = listener;
+    if (!angular.equals({}, ctrl.listener)) {
+      ctrl.withListenerStyle = {};
+    } else {
+      ctrl.withListenerStyle = {display: 'none'};
+    }
     ctrl.pool = pool;
     ctrl.listFunctionExtraParams = {
       loadbalancerId: ctrl.loadbalancer.id,

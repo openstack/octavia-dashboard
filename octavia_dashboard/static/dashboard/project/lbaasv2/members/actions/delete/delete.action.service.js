@@ -119,9 +119,15 @@
       });
 
       if (actionResult.result.failed.length === 0 && actionResult.result.deleted.length > 0) {
-        var path = 'project/load_balancer/' + loadbalancerId +
-                   '/listeners/' + listenerId +
-                   '/pools/' + poolId;
+        var path;
+        if (listenerId) {
+          path = 'project/load_balancer/' + loadbalancerId +
+            '/listeners/' + listenerId +
+            '/pools/' + poolId;
+        } else {
+          path = 'project/load_balancer/' + loadbalancerId +
+            '/pools/' + poolId;
+        }
         $location.path(path);
       }
       return actionResult.result;
