@@ -79,6 +79,21 @@
       </div>
     </div>
 
+    <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.context.id">
+      <div class="form-group required">
+        <label class="control-label required">
+          <translate>Default Pool ID</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <select class="form-control" name="default_pool_id" id="default_pool_id"
+                ng-model="model.spec.listener.default_pool_id" ng-required="true">
+          <option ng-repeat="pool_id in model.spec.availablePools" value="{$ pool_id $}">
+            {$ pool_id $}
+          </option>
+        </select>
+      </div>
+    </div>
+
   </div>
 
   <div class="row">
