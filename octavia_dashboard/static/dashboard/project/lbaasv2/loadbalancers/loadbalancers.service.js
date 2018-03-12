@@ -64,6 +64,28 @@
       SOURCE_IP: gettext('Source IP')
     };
 
+    var l7policyAction = {
+      REJECT: gettext('Reject'),
+      REDIRECT_TO_URL: gettext('Redirect to URL'),
+      REDIRECT_TO_POOL: gettext('Redirect to Pool')
+    };
+
+    var l7ruleType = {
+      HOST_NAME: gettext('Host Name'),
+      PATH: gettext('Path'),
+      FILE_TYPE: gettext('File Type'),
+      HEADER: gettext('Header'),
+      COOKIE: gettext('Cookie')
+    };
+
+    var l7ruleCompareType = {
+      REGEX: gettext('Regex'),
+      STARTS_WITH: gettext('Starts With'),
+      ENDS_WITH: gettext('Ends With'),
+      CONTAINS: gettext('Contains'),
+      EQUAL_TO: gettext('Equal To')
+    };
+
     var none = {
       null: gettext('None')
     };
@@ -72,6 +94,9 @@
       operatingStatus: operatingStatus,
       provisioningStatus: provisioningStatus,
       loadBalancerAlgorithm: loadBalancerAlgorithm,
+      l7policyAction: l7policyAction,
+      l7ruleType: l7ruleType,
+      l7ruleCompareType: l7ruleCompareType,
       none: none,
       nullFilter: nullFilter,
       getLoadBalancersPromise: getLoadBalancersPromise,
@@ -80,6 +105,12 @@
       getListenersPromise: getListenersPromise,
       getListenerPromise: getListenerPromise,
       getListenerDetailsPath: getListenerDetailsPath,
+      getL7PoliciesPromise: getL7PoliciesPromise,
+      getL7PolicyPromise: getL7PolicyPromise,
+      getL7PolicyDetailsPath: getL7PolicyDetailsPath,
+      getL7RulesPromise: getL7RulesPromise,
+      getL7RulePromise: getL7RulePromise,
+      getL7RuleDetailsPath: getL7RuleDetailsPath,
       getPoolsPromise: getPoolsPromise,
       getPoolPromise: getPoolPromise,
       getPoolDetailsPath: getPoolDetailsPath,
@@ -198,6 +229,58 @@
           item.loadbalancerId +
           '/pools/' + item.id;
       }
+    }
+
+    function getL7RulesPromise(params) {
+      return api.getL7Rules(params.l7policyId).then(modifyResponse);
+
+      function modifyResponse(response) {
+        return {data: {items: response.data.items.map(modifyItem)}};
+
+        function modifyItem(item) {
+          item.trackBy = item.id + item.updated_at;
+          item.loadbalancerId = params.loadbalancerId;
+          item.listenerId = params.listenerId;
+          item.l7policyId = params.l7policyId;
+          return item;
+        }
+      }
+    }
+
+    function getL7RulePromise(l7policyId, l7ruleId) {
+      return api.getL7Rule(l7policyId, l7ruleId);
+    }
+
+    function getL7RuleDetailsPath(item) {
+      return 'project/load_balancer/' +
+        item.loadbalancerId + '/listeners/' +
+        item.listenerId + '/l7policies/' +
+        item.l7policyId + '/l7rules/' + item.id;
+    }
+
+    function getL7PoliciesPromise(params) {
+      return api.getL7Policies(params.listenerId).then(modifyResponse);
+
+      function modifyResponse(response) {
+        return {data: {items: response.data.items.map(modifyItem)}};
+
+        function modifyItem(item) {
+          item.trackBy = item.id + item.updated_at;
+          item.loadbalancerId = params.loadbalancerId;
+          item.listenerId = params.listenerId;
+          return item;
+        }
+      }
+    }
+
+    function getL7PolicyPromise(identifier) {
+      return api.getL7Policy(identifier);
+    }
+
+    function getL7PolicyDetailsPath(item) {
+      return 'project/load_balancer/' +
+        item.loadbalancerId + '/listeners/' +
+        item.listenerId + '/l7policies/' + item.id;
     }
 
     function getListenersPromise(params) {

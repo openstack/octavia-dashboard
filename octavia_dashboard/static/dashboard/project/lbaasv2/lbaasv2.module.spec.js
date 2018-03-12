@@ -233,6 +233,121 @@
       });
     }));
 
+    it('should route resolved listener l7 policy detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      function listenerAPI() {
+        var listener = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(listener);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function l7policyAPI() {
+        var l7policy = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(l7policy);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      spyOn(lbaasv2API, 'getListener').and.callFake(listenerAPI);
+      spyOn(lbaasv2API, 'getL7Policy').and.callFake(l7policyAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/l7policies/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1/listeners/2/l7policies/3');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      });
+    }));
+
+    it('should route resolved listener l7 rule detail', inject(function($injector) {
+      function loadbalancerAPI() {
+        var loadbalancer = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(loadbalancer);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1, floating_ip: {}}});
+          }
+        };
+      }
+
+      function listenerAPI() {
+        var listener = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(listener);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function l7policyAPI() {
+        var l7policy = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(l7policy);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      function l7ruleAPI() {
+        var l7rule = { provisioning_status: 'ACTIVE' };
+        return {
+          success: function(callback) {
+            callback(l7rule);
+          },
+          then: function(callback) {
+            callback({ data: { id: 1}});
+          }
+        };
+      }
+
+      var lbaasv2API = $injector.get('horizon.app.core.openstack-service-api.lbaasv2');
+      spyOn(lbaasv2API, 'getLoadBalancer').and.callFake(loadbalancerAPI);
+      spyOn(lbaasv2API, 'getListener').and.callFake(listenerAPI);
+      spyOn(lbaasv2API, 'getL7Policy').and.callFake(l7policyAPI);
+      spyOn(lbaasv2API, 'getL7Rule').and.callFake(l7ruleAPI);
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/l7rules/details/detail.html'
+        ).respond({});
+        $location.path('/project/load_balancer/1/listeners/2/l7policies/3/l7rules/4');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      });
+    }));
+
     it('should route resolved listener pool member detail', inject(function($injector) {
       function loadbalancerAPI() {
         var loadbalancer = { provisioning_status: 'ACTIVE' };

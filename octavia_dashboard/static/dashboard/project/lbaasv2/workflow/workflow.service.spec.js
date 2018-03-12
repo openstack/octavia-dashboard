@@ -44,11 +44,13 @@
     it('should have default steps defined', function () {
       var workflow = workflowService('My Workflow');
       expect(workflow.steps).toBeDefined();
-      expect(workflow.steps.length).toBe(6);
+      expect(workflow.steps.length).toBe(8);
 
       var forms = [
         'loadBalancerDetailsForm',
         'listenerDetailsForm',
+        'l7policyDetailsForm',
+        'l7ruleDetailsForm',
         'poolDetailsForm',
         'memberDetailsForm',
         'monitorDetailsForm',

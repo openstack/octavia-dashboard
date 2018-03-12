@@ -91,6 +91,65 @@
         testInput: [ '1234', false ]
       },
       {
+        func: 'getL7Policies',
+        method: 'get',
+        path: '/api/lbaas/l7policies/',
+        error: 'Unable to retrieve l7 policies.',
+        testInput: [ '1234' ],
+        data: { params: { listenerId: '1234' } }
+      },
+      {
+        func: 'getL7Policies',
+        method: 'get',
+        path: '/api/lbaas/l7policies/',
+        data: {},
+        error: 'Unable to retrieve l7 policies.'
+      },
+      {
+        func: 'getL7Policy',
+        method: 'get',
+        path: '/api/lbaas/l7policies/1234/',
+        data: { params: { includeChildResources: true } },
+        error: 'Unable to retrieve l7 policy.',
+        testInput: [ '1234', true ]
+      },
+      {
+        func: 'getL7Policy',
+        method: 'get',
+        path: '/api/lbaas/l7policies/1234/',
+        data: {},
+        error: 'Unable to retrieve l7 policy.',
+        testInput: [ '1234', false ]
+      },
+      {
+        func: 'deleteL7Policy',
+        method: 'delete',
+        path: '/api/lbaas/l7policies/1234/',
+        error: 'Unable to delete l7 policy.',
+        testInput: [ '1234' ]
+      },
+      {
+        func: 'getL7Rules',
+        method: 'get',
+        path: '/api/lbaas/l7policies/1234/l7rules/',
+        error: 'Unable to retrieve l7 rules.',
+        testInput: [ '1234' ]
+      },
+      {
+        func: 'getL7Rule',
+        method: 'get',
+        path: '/api/lbaas/l7policies/1234/l7rules/5678/',
+        error: 'Unable to retrieve l7 rule.',
+        testInput: [ '1234', '5678' ]
+      },
+      {
+        func: 'deleteL7Rule',
+        method: 'delete',
+        path: '/api/lbaas/l7policies/1234/l7rules/5678/',
+        error: 'Unable to delete l7 rule.',
+        testInput: [ '1234', '5678' ]
+      },
+      {
         func: 'getPools',
         method: 'get',
         path: '/api/lbaas/pools/',
@@ -250,6 +309,38 @@
         testInput: [ '1234' ]
       },
       {
+        func: 'createL7Policy',
+        method: 'post',
+        path: '/api/lbaas/l7policies/',
+        error: 'Unable to create l7 policy.',
+        data: { name: 'l7policy-1' },
+        testInput: [ { name: 'l7policy-1' } ]
+      },
+      {
+        func: 'editL7Policy',
+        method: 'put',
+        path: '/api/lbaas/l7policies/1234/',
+        error: 'Unable to update l7 policy.',
+        data: { name: 'l7policy-1' },
+        testInput: [ '1234', { name: 'l7policy-1' } ]
+      },
+      {
+        func: 'createL7Rule',
+        method: 'post',
+        path: '/api/lbaas/l7policies/1234/l7rules/',
+        error: 'Unable to create l7 rule.',
+        data: { name: 'l7rule-1' },
+        testInput: [ '1234', { name: 'l7rule-1' } ]
+      },
+      {
+        func: 'editL7Rule',
+        method: 'put',
+        path: '/api/lbaas/l7policies/1234/l7rules/5678/',
+        error: 'Unable to update l7 rule.',
+        data: { name: 'l7rule-1' },
+        testInput: [ '1234', '5678', { name: 'l7rule-1' } ]
+      },
+      {
         func: 'createPool',
         method: 'post',
         path: '/api/lbaas/pools/',
@@ -299,6 +390,16 @@
     it('supresses the error if instructed for deleteListener', function() {
       spyOn(apiService, 'delete').and.returnValue("promise");
       expect(service.deleteListener("whatever", true)).toBe("promise");
+    });
+
+    it('supresses the error if instructed for deleteL7Policy', function() {
+      spyOn(apiService, 'delete').and.returnValue("promise");
+      expect(service.deleteL7Policy("whatever", true)).toBe("promise");
+    });
+
+    it('supresses the error if instructed for deleteL7Rule', function() {
+      spyOn(apiService, 'delete').and.returnValue("promise");
+      expect(service.deleteL7Rule("whatever", "whatever", true)).toBe("promise");
     });
 
     it('supresses the error if instructed for deletePool', function() {

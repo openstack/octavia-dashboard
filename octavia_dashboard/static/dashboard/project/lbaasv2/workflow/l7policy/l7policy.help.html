@@ -1,0 +1,38 @@
+<p translate>
+  An L7 Policy is a collection of L7 rules associated with a Listener, and which may also have an association to a back-end pool
+</p>
+<p>
+  <strong translate>Action:</strong>
+  <translate>
+  The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL.
+  </translate>
+  <ul>
+    <li translate>
+      REJECT: The request is denied with an appropriate response code, and not forwarded on to any back-end pool.
+    </li>
+    <li translate>
+      REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in the redirect_url parameter.
+    </li>
+    <li translate>
+      REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated with the L7 policy.
+    </li>
+  </ul>
+</p>
+<p>
+  <strong translate>Position:</strong>
+  <translate>
+  The position of this policy on the listener. Positions start at 1.
+  </translate>
+</p>
+<p>
+  <strong translate>Redirect Pool ID:</strong>
+  <translate>
+  Requests matching this policy will be redirected to the pool with this ID. Only valid if action is REDIRECT_TO_POOL.
+  </translate>
+</p>
+<p>
+  <strong translate>Redirect URL:</strong>
+  <translate>
+  Requests matching this policy will be redirected to this URL. Only valid if action is REDIRECT_TO_URL.
+  </translate>
+</p>

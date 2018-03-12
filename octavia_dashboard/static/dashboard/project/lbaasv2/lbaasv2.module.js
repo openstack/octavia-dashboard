@@ -28,6 +28,8 @@
     .module('horizon.dashboard.project.lbaasv2', [
       'horizon.dashboard.project.lbaasv2.loadbalancers',
       'horizon.dashboard.project.lbaasv2.listeners',
+      'horizon.dashboard.project.lbaasv2.l7policies',
+      'horizon.dashboard.project.lbaasv2.l7rules',
       'horizon.dashboard.project.lbaasv2.pools',
       'horizon.dashboard.project.lbaasv2.members',
       'horizon.dashboard.project.lbaasv2.healthmonitors',
@@ -68,6 +70,8 @@
 
     var loadbalancers = '/project/load_balancer';
     var listener = loadbalancers + '/:loadbalancerId/listeners/:listenerId';
+    var listenerL7Policy = listener + '/l7policies/:l7policyId';
+    var listenerL7Rule = listenerL7Policy + '/l7rules/:l7ruleId';
     var listenerPool = listener + '/pools/:poolId';
     var listenerPoolMember = listenerPool + '/members/:memberId';
     var listenerPoolHealthmonitor = listenerPool + '/healthmonitors/:healthmonitorId';
@@ -127,6 +131,105 @@
           ]
         },
         controller: 'ListenerDetailController',
+        controllerAs: 'ctrl'
+      })
+      .when(listenerL7Policy, {
+        templateUrl: basePath + 'l7policies/details/detail.html',
+        resolve: {
+          loadbalancer: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getLoadBalancer($route.current.params.loadbalancerId, true).then(
+                function success(response) {
+                  response.data.floating_ip_address = response.data.floating_ip.ip;
+                  return response.data;
+                }
+              );
+            }
+          ],
+          listener: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getListener($route.current.params.listenerId).then(
+                function success(response) {
+                  return response.data;
+                }
+              );
+            }
+          ],
+          l7policy: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getL7Policy($route.current.params.l7policyId).then(
+                function success(response) {
+                  response.data.loadbalancerId = $route.current.params.loadbalancerId;
+                  response.data.listenerId = $route.current.params.listenerId;
+                  return response.data;
+                }
+              );
+            }
+          ]
+        },
+        controller: 'L7PolicyDetailController',
+        controllerAs: 'ctrl'
+      })
+      .when(listenerL7Rule, {
+        templateUrl: basePath + 'l7rules/details/detail.html',
+        resolve: {
+          loadbalancer: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getLoadBalancer($route.current.params.loadbalancerId, true).then(
+                function success(response) {
+                  response.data.floating_ip_address = response.data.floating_ip.ip;
+                  return response.data;
+                }
+              );
+            }
+          ],
+          listener: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getListener($route.current.params.listenerId).then(
+                function success(response) {
+                  return response.data;
+                }
+              );
+            }
+          ],
+          l7policy: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getL7Policy($route.current.params.l7policyId).then(
+                function success(response) {
+                  return response.data;
+                }
+              );
+            }
+          ],
+          l7rule: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getL7Rule($route.current.params.l7policyId,
+                $route.current.params.l7ruleId).then(
+                function success(response) {
+                  response.data.loadbalancerId = $route.current.params.loadbalancerId;
+                  response.data.listenerId = $route.current.params.listenerId;
+                  response.data.l7policyId = $route.current.params.l7policyId;
+                  return response.data;
+                }
+              );
+            }
+          ]
+        },
+        controller: 'L7RuleDetailController',
         controllerAs: 'ctrl'
       })
       .when(listenerPool, {
