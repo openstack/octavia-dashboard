@@ -1,0 +1,160 @@
+# Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: Octavia Dashboard Release Notes\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-03 16:54+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-03-12 11:58+0000\n"
+"Last-Translator: Jaewook Oh <kyle.oh95@gmail.com>\n"
+"Language-Team: Korean (South Korea)\n"
+"Language: ko_KR\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "1.0.0"
+msgstr "1.0.0"
+
+msgid ""
+"A new dashboard wizard for Octavia. Allows you to create an Octavia load "
+"balancer and related resources such as a listener, pool, pool members, and "
+"health monitor."
+msgstr ""
+"Octavia를 위한 새로운 대시보드 마법사입니다. Octavia 로드 밸런서와 리스너, "
+"풀, 풀 멤버, 상태 모니터와 같은 연관된 리소스를 생성할 수 있습니다."
+
+msgid "A view of all the existing Octavia load balancers."
+msgstr "기존 Octavia 로드 밸런서를 모두 볼 수 있습니다."
+
+msgid ""
+"Ability to associate and disassociate floating IP addresses for a load "
+"balancer."
+msgstr "로드 밸런서에 floating IP를 연결하거나 연결 해제할 수 있습니다."
+
+msgid ""
+"Ability to choose from SSL certificates stored by the key-manager service "
+"when creating a listener using the TERMINATED_HTTPS protocol."
+msgstr ""
+"TERMINATED_HTTPS 프로토콜을 사용하여, 리스너를 생성할 때 키 관리자 서비스가 "
+"저장하는 SSL 인증서 중에서 선택할 수 있습니다."
+
+msgid ""
+"Ability to choose from existing instances from the compute service or "
+"specify external members when adding members to a pool."
+msgstr ""
+"컴퓨팅 서비스에서 기존 인스턴스를 선택하거나 풀에 멤버를 추가할 때 외부 멤버"
+"를 지정할 수 있습니다."
+
+msgid ""
+"Ability to create, update, and delete the Octavia load balancer, listener, "
+"pool, pool member, and health monitor resources."
+msgstr ""
+"Octavia 로드 밸런서, 리스너, 풀, 풀 멤버, 상태 모니터 자원을 생성, 업데이트, "
+"삭제할 수 있습니다."
+
+msgid ""
+"Ability to view details of a Octavia load balancer and drill down to see "
+"details for the listener, pool, pool member, and health monitor resources."
+msgstr ""
+"Octavia 로드 밸런서의 세부 정보를 보고 드릴 다운하여 리스너, 풀, 풀 멤버 및 "
+"상태 모니터 리소스에 대한 세부 정보를 볼 수 있습니다."
+
+msgid "All objects now allow setting the \"Admin State\"."
+msgstr "이제 모든 오브젝트가 \"Admin State\"를 설정할 수 있습니다."
+
+msgid "Created at and Updated at times are now visible on the details pages."
+msgstr "이제 생성된 시각과 업데이트된 시각을 상세 페이지에서 볼 수 있습니다."
+
+msgid "Current Series Release Notes"
+msgstr "최신 시리즈에 대한 릴리즈 노트"
+
+msgid "Health monitors can now change the expected HTTP codes."
+msgstr "이제 상태 모니터는 예상되는 HTTP 코드를 바꿀 수 있습니다."
+
+msgid "Health monitors can now use alternate IP addresses and ports."
+msgstr "이제 상태 모니터는 다른 IP 주소와 포트를 사용할 수 있습니다."
+
+msgid "Known Issues"
+msgstr "알려진 이슈"
+
+msgid "Listener connection limits can now be updated."
+msgstr "이제 리스너 연결 제한을 업데이트할 수 있습니다."
+
+msgid "Members now display the subnet_id on the details page."
+msgstr "이제 멤버는 상세 페이지에서 subnet_id를 보여줍니다."
+
+msgid "New Features"
+msgstr "새로운 기능"
+
+msgid "Octavia Dashboard Release Notes"
+msgstr "Octavia 대시보드 릴리즈 노트"
+
+msgid "Other Notes"
+msgstr "기타 노트"
+
+msgid "Pools can now change the load balancing algorithm after creation."
+msgstr "이제 풀은 생성 후에 로드 밸런싱 알고리즘을 변경할 수 있습니다."
+
+msgid "Prelude"
+msgstr "서문"
+
+msgid ""
+"Provisioning and operating status is now available on all object details "
+"pages."
+msgstr ""
+"이제 프로비저닝 상태와 작동 상태를 모든 오브젝트 상세 페이지에서 볼 수 있습니"
+"다."
+
+msgid "Queens Series Release Notes"
+msgstr "Queens 시리즈 릴리즈 노트"
+
+msgid ""
+"The Octavia team is excited to release the 1.0.0 version of the Octavia "
+"dashboard. This dashboard uses the Octavia API endpoint via the "
+"openstacksdk. This release includes a number of improvements over the old "
+"neutron-lbaas-dashboard that worked against the neutron API endpoint. These "
+"improvements are listed below in the features section of this release note."
+msgstr ""
+"Octavia 팀은 1.0.0 버전의 Octavia 대시보드를 릴리즈하게 되어 기쁩니다. 이 대"
+"시보드는 openstacksdk를 통해 Octavia API endpoint를 이용합니다. 이번 릴리즈"
+"는 neutron API endpoint에 대해 작동했던 이전의 neutron-lbaas-dashboard보다 "
+"더 많은 개선 사항을 포함하고 있습니다. 이러한 개선 사항들은 이번 릴리즈 노트"
+"의 특징 섹션에서 찾아볼 수 있습니다."
+
+msgid ""
+"The neutron-lbaas neutron extension is not required to use this dashboard. "
+"Load balancers created with neutron-lbaas that have not been migrated to "
+"Octavia may not be accessible via this dashboard. Only resources accessible "
+"via the Octavia API will be visible in this dashboard."
+msgstr ""
+"이 대시보드는 neutron-lbaas neutron 익스텐션을 필요로 하지 않습니다. Octavia"
+"로 마이그레이션되지 않은 neutron-lbaas로 만든 로드 밸런서는이 대시보드를 통"
+"해 액세스 할 수 없습니다. 이 대시보드에는 Octavia API를 통해 액세스 할 수 있"
+"는 리소스만 표시됩니다."
+
+msgid "The object details pages now use a tabbed navigation for child objects."
+msgstr "이제 오브젝트 상세 페이지는 자식 오브젝트에 대해 탭 검색이 가능합니다."
+
+msgid ""
+"The octavia-dashboard requires openstacksdk >= 0.10.0 to resolve an issue "
+"with displaying the health monitor details page. It is expected this will be "
+"included in the OpenStack Queens release."
+msgstr ""
+"octavia-dashboard는 상태 모니터 상세 페이지를 표시하는데 있어 이슈를 해결하"
+"기 위해 openstacksdk >= 0.10.0 을 필요로 합니다. 이것은 OpenStack Queens 릴리"
+"즈에 포함될 것입니다."
+
+msgid "The session persistence for a pool can now be changed."
+msgstr "이제 풀에 대한 세션 지속성을 변경할 수 있습니다."
+
+msgid ""
+"This dashboard can be used alongside the neutron-lbaas-dashboard, but both "
+"dashboard panels will use the \"Load Balancer\" labels."
+msgstr ""
+"대시보드는 neutron-lbaas-dashboard와 함께 사용될 수 있습니다. 그러나 두 대시"
+"보드 패널 모두 \"Load Balancer\" 라벨을 사용할 것입니다."
+
+msgid "Upgrade Notes"
+msgstr "업그레이드 노트"
