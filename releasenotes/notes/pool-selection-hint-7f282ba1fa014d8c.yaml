@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    The pool name is now visible in pool selection drop downs in addition to
+    the pool ID.

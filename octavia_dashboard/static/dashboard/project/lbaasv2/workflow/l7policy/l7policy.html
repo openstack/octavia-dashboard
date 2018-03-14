@@ -59,7 +59,7 @@
         </label>
         <select class="form-control" name="redirect_pool_id" id="redirect_pool_id"
                 ng-model="model.spec.l7policy.redirect_pool_id" ng-required="true">
-          <option ng-repeat="pool_id in model.spec.availablePools" value="{$ pool_id $}">
+          <option ng-repeat="pool_id in model.spec.availablePools" value="{$ pool_id.substring(0, 36) $}">
             {$ pool_id $}
           </option>
         </select>
