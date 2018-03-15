@@ -88,8 +88,10 @@
           'Confirm Delete Load Balancers', count),
 
         message: ngettext(
-          'You have selected "%s". Deleted load balancer is not recoverable.',
-          'You have selected "%s". Deleted load balancers are not recoverable.', count),
+          'You have selected "%s". Deleted load balancer is not recoverable ' +
+          'and this deletion will delete all of the sub-resources.',
+          'You have selected "%s". Deleted load balancers are not recoverable ' +
+          'and this deletion will delete all of the sub-resources.', count),
 
         submit: ngettext(
           'Delete Load Balancer',

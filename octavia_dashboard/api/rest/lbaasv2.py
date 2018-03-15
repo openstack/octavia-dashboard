@@ -653,7 +653,8 @@ class LoadBalancer(generic.View):
         """
         conn = _get_sdk_connection(request)
         conn.load_balancer.delete_load_balancer(loadbalancer_id,
-                                                ignore_missing=True)
+                                                ignore_missing=True,
+                                                cascade=True)
 
 
 @urls.register

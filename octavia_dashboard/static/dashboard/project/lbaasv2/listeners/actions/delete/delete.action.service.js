@@ -28,10 +28,7 @@
     '$location',
     'horizon.framework.widgets.modal.deleteModalService',
     'horizon.app.core.openstack-service-api.lbaasv2',
-    'horizon.app.core.openstack-service-api.policy',
-    'horizon.framework.widgets.toast.service',
-    'horizon.framework.util.i18n.gettext',
-    'horizon.framework.util.q.extensions'
+    'horizon.app.core.openstack-service-api.policy'
   ];
 
   /**
@@ -50,16 +47,13 @@
    * @param deleteModal The horizon delete modal service.
    * @param api The LBaaS v2 API service.
    * @param policy The horizon policy service.
-   * @param toast The horizon message service.
-   * @param gettext The horizon gettext function for translation.
-   * @param qExtensions Horizon extensions to the $q service.
    *
    * @returns The listeners delete service.
    */
 
   function deleteService(
     resourceType, actionResultService, $q, $location,
-    deleteModal, api, policy, toast, gettext, qExtensions
+    deleteModal, api, policy
   ) {
     var loadbalancerId, scope;
     var context = { };
@@ -81,7 +75,7 @@
       listeners.map(function(item) {
         loadbalancerId = item.loadbalancerId;
       });
-      return qExtensions.allSettled(listeners.map(checkPermission)).then(afterCheck);
+      return deleteModal.open(scope, listeners, context).then(deleteResult);
     }
 
     function labelize(count) {
@@ -124,35 +118,6 @@
         $location.path(path);
       }
       return actionResult.result;
-    }
-
-    function checkPermission(item) {
-      return { promise: canBeDeleted(item), context: item };
-    }
-
-    function afterCheck(result) {
-      if (result.fail.length > 0) {
-        toast.add('error', getMessage(context.labels.error, result.fail));
-      }
-      if (result.pass.length > 0) {
-        return deleteModal.open(scope, result.pass.map(getEntity), context).then(deleteResult);
-      }
-    }
-
-    function canBeDeleted(item) {
-      return qExtensions.booleanAsPromise(!item.default_pool_id);
-    }
-
-    function getMessage(message, entities) {
-      return interpolate(message, [entities.map(getName).join(", ")]);
-    }
-
-    function getName(result) {
-      return getEntity(result).name;
-    }
-
-    function getEntity(result) {
-      return result.context;
     }
 
     function allowed() {
