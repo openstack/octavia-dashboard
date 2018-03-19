@@ -34,7 +34,7 @@
           name: 'foo',
           description: 'bar',
           weight: 1,
-          port: 80,
+          protocol_port: 80,
           address: { ip: '1.2.3.4', subnet: '1' },
           addresses: [{ ip: '1.2.3.4', subnet: '1' },
                       { ip: '2.3.4.5', subnet: '2' }]
@@ -94,7 +94,7 @@
       expect(model.spec.members.length).toBe(1);
       expect(model.spec.members[0].id).toBe(0);
       expect(model.spec.members[0].address).toBeNull();
-      expect(model.spec.members[0].subnet).toBeNull();
+      expect(model.spec.members[0].subnet_id).toBeNull();
     });
 
     it('should allocate a given member', function() {
@@ -102,8 +102,8 @@
       expect(model.spec.members.length).toBe(1);
       expect(model.spec.members[0].id).toBe(0);
       expect(model.spec.members[0].address).toEqual(model.members[0].address);
-      expect(model.spec.members[0].subnet).toBeUndefined();
-      expect(model.spec.members[0].port).toEqual(model.members[0].port);
+      expect(model.spec.members[0].subnet_id).toBeUndefined();
+      expect(model.spec.members[0].protocol_port).toEqual(model.members[0].protocol_port);
     });
 
     it('should deallocate a given member', function() {

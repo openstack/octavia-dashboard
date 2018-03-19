@@ -31,7 +31,7 @@
         </label>
         <select class="form-control" name="method" id="method"
                 ng-options="method for method in model.methods"
-                ng-model="model.spec.pool.method"
+                ng-model="model.spec.pool.lb_algorithm"
                 ng-required="true">
         </select>
       </div>
@@ -64,17 +64,17 @@
         </label>
         <select class="form-control" name="type" id="type"
                 ng-options="type for type in model.types"
-                ng-model="model.spec.pool.type">
+                ng-model="model.spec.pool.session_persistence.type">
           <option value="">None</option>
         </select>
       </div>
     </div>
 
-    <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.spec.pool.type === 'APP_COOKIE'">
+    <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.spec.pool.session_persistence.type === 'APP_COOKIE'">
       <div class="form-group">
-        <label translate class="control-label" for="cookie">Cookie</label>
-        <input name="cookie" id="cookie" type="text" class="form-control"
-               ng-model="model.spec.pool.cookie">
+        <label translate class="control-label" for="cookie_name">Cookie Name</label>
+        <input name="cookie_name" id="cookie_name" type="text" class="form-control"
+               ng-model="model.spec.pool.session_persistence.cookie_name">
       </div>
     </div>
 

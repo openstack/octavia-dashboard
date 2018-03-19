@@ -32,7 +32,7 @@
         };
         listener = {
           protocol: null,
-          port: 80
+          protocol_port: 80
         };
         scope = {
           model: {
@@ -55,17 +55,17 @@
 
       it('should update port on protocol change to HTTP', function() {
         ctrl.protocolChange('HTTP');
-        expect(listener.port).toBe(81);
+        expect(listener.protocol_port).toBe(81);
       });
 
       it('should update port on protocol change to TERMINATED_HTTPS', function() {
         ctrl.protocolChange('TERMINATED_HTTPS');
-        expect(listener.port).toBe(443);
+        expect(listener.protocol_port).toBe(443);
       });
 
       it('should update port on protocol change to TCP', function() {
         ctrl.protocolChange('TCP');
-        expect(listener.port).toBeUndefined();
+        expect(listener.protocol_port).toBeUndefined();
       });
 
       it('should update member ports on protocol change to TERMINATED_HTTPS', function() {
