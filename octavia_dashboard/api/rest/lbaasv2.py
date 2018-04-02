@@ -358,7 +358,8 @@ def update_listener(request, **kwargs):
         name=data['listener'].get('name'),
         description=data['listener'].get('description'),
         connection_limit=data['listener'].get('connection_limit'),
-        admin_state_up=data['listener'].get('admin_state_up')
+        admin_state_up=data['listener'].get('admin_state_up'),
+        default_pool_id=data['listener'].get('default_pool_id'),
     )
 
     if data.get('pool'):

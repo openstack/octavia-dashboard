@@ -150,7 +150,8 @@
           protocol: null,
           port: null,
           connection_limit: -1,
-          admin_state_up: true
+          admin_state_up: true,
+          default_pool_id: null
         },
         pool: {
           id: null,
@@ -175,7 +176,8 @@
           admin_state_up: true
         },
         members: [],
-        certificates: []
+        certificates: [],
+        availablePools: []
       };
 
       if (!model.initializing) {
@@ -286,7 +288,8 @@
     function initEditListener() {
       model.context.submit = editListener;
       return $q.all([
-        neutronAPI.getSubnets().then(onGetSubnets).then(getListener).then(onGetListener),
+        neutronAPI.getSubnets().then(onGetSubnets).then(getListener)
+          .then(onGetListener).then(getPools).then(onGetPools),
         neutronAPI.getPorts().then(onGetPorts),
         novaAPI.getServers().then(onGetServers)
       ]).then(initMemberAddresses);
@@ -501,6 +504,20 @@
       model.spec.listener.name = name;
     }
 
+    function onGetPools(response) {
+      angular.forEach(response.data.items, function addPool(pool) {
+        if (pool.listeners.length > 0 && pool.listeners[0].id !== model.spec.listener.id) {
+          return;
+        }
+        if (pool.protocol === model.spec.listener.protocol) {
+          model.spec.availablePools.push(pool.id);
+        } else if (pool.protocol === 'HTTP' &&
+          model.spec.listener.protocol === 'TERMINATED_HTTPS') {
+          model.spec.availablePools.push(pool.id);
+        }
+      });
+    }
+
     function onGetSubnets(response) {
       model.subnets.length = 0;
       push.apply(model.subnets, response.data.items);
@@ -561,6 +578,10 @@
 
     function getPool() {
       return lbaasv2API.getPool(model.context.id, true);
+    }
+
+    function getPools() {
+      return lbaasv2API.getPools(model.spec.loadbalancer_id);
     }
 
     function getMembers() {
@@ -650,6 +671,7 @@
       spec.port = listener.protocol_port;
       spec.connection_limit = listener.connection_limit;
       spec.admin_state_up = listener.admin_state_up;
+      spec.default_pool_id = listener.default_pool_id;
     }
 
     function setPoolSpec(pool) {

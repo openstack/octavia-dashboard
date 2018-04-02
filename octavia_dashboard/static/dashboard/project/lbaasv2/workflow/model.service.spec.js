@@ -122,6 +122,18 @@
 
           return deferred.promise;
         },
+        getPools: function() {
+          var pools = [
+            { id: '1234', name: 'Pool 1', listeners: [ '1234' ], protocol: 'HTTP' },
+            { id: '5678', name: 'Pool 2', listeners: [], protocol: 'HTTP' },
+            { id: '9012', name: 'Pool 3', listeners: [], protocol: 'HTTPS' }
+          ];
+
+          var deferred = $q.defer();
+          deferred.resolve({ data: { items: pools } });
+
+          return deferred.promise;
+        },
         getListener: function() {
           var deferred = $q.defer();
           var listenerData;
@@ -993,9 +1005,9 @@
       // This is here to ensure that as people add/change spec properties, they don't forget
       // to implement tests for them.
       it('has the right number of properties', function() {
-        expect(Object.keys(model.spec).length).toBe(8);
+        expect(Object.keys(model.spec).length).toBe(9);
         expect(Object.keys(model.spec.loadbalancer).length).toBe(5);
-        expect(Object.keys(model.spec.listener).length).toBe(7);
+        expect(Object.keys(model.spec.listener).length).toBe(8);
         expect(Object.keys(model.spec.pool).length).toBe(8);
         expect(Object.keys(model.spec.monitor).length).toBe(10);
         expect(model.spec.members).toEqual([]);
