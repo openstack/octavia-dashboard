@@ -451,7 +451,7 @@
       });
     });
 
-    describe('Post initialize model (create pool)', function() {
+    describe('Post initialize model (create pool with listener)', function() {
 
       beforeEach(function() {
         includeChildResources = false;
@@ -469,6 +469,44 @@
         expect(model.spec).toBeDefined();
         expect(model.spec.loadbalancer_id).toBe('1234');
         expect(model.spec.parentResourceId).toBe('5678');
+        expect(model.spec.loadbalancer).toBeDefined();
+        expect(model.spec.listener).toBeDefined();
+        expect(model.spec.pool).toBeDefined();
+        expect(model.spec.members.length).toBe(0);
+        expect(model.spec.certificates).toEqual([]);
+        expect(model.spec.monitor).toBeDefined();
+        expect(model.certificatesError).toBe(false);
+      });
+
+      it('should initialize names', function() {
+        expect(model.spec.pool.name).toBe('Pool 1');
+      });
+
+      it('should initialize context properties', function() {
+        expect(model.context.resource).toBe('pool');
+        expect(model.context.id).toBeFalsy();
+        expect(model.context.submit).toBeDefined();
+      });
+    });
+
+    describe('Post initialize model (create pool without listener)', function() {
+
+      beforeEach(function() {
+        includeChildResources = false;
+        model.initialize('pool', false, '1234');
+        scope.$apply();
+      });
+
+      it('should initialize model properties', function() {
+        expect(model.initializing).toBe(false);
+        expect(model.initialized).toBe(true);
+        expect(model.subnets.length).toBe(2);
+        expect(model.members.length).toBe(2);
+        expect(model.certificates.length).toBe(0);
+        expect(model.listenerPorts.length).toBe(0);
+        expect(model.spec).toBeDefined();
+        expect(model.spec.loadbalancer_id).toBe('1234');
+        expect(model.spec.parentResourceId).toBeUndefined();
         expect(model.spec.loadbalancer).toBeDefined();
         expect(model.spec.listener).toBeDefined();
         expect(model.spec.pool).toBeDefined();

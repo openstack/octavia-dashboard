@@ -63,6 +63,13 @@
     ctrl.provisioningStatus = loadBalancersService.provisioningStatus;
     ctrl.loadbalancer = loadbalancer;
     ctrl.listener = listener;
+    if (!angular.equals({}, ctrl.listener)) {
+      ctrl.withListenerStyle = {};
+      ctrl.withoutListenerStyle = {display: 'none'};
+    } else {
+      ctrl.withListenerStyle = {display: 'none'};
+      ctrl.withoutListenerStyle = {};
+    }
     ctrl.pool = pool;
     ctrl.healthmonitor = healthmonitor;
     ctrl.resourceType = typeRegistry.getResourceType(resourceType);

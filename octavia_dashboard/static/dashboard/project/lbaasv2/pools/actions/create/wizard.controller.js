@@ -40,6 +40,9 @@
         'fa fa-cloud-download',
         ['pool', 'members', 'monitor']
     );
+    if (!listenerId) {
+      listenerId = null;
+    }
     scope.model.initialize('pool', false, loadbalancerId, listenerId);
   }
 

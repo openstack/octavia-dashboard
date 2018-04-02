@@ -104,10 +104,16 @@
     }
 
     function getMemberDetailsPath(item) {
-      return 'project/load_balancer/' + item.loadbalancerId +
-        '/listeners/' + item.listenerId +
-        '/pools/' + item.poolId +
-        '/members/' + item.id;
+      if (item.listenerId) {
+        return 'project/load_balancer/' + item.loadbalancerId +
+          '/listeners/' + item.listenerId +
+          '/pools/' + item.poolId +
+          '/members/' + item.id;
+      } else {
+        return 'project/load_balancer/' + item.loadbalancerId +
+          '/pools/' + item.poolId +
+          '/members/' + item.id;
+      }
     }
 
     function getMembersPromise(params) {
@@ -131,10 +137,16 @@
     }
 
     function getHealthMonitorDetailsPath(item) {
-      return 'project/load_balancer/' + item.loadbalancerId +
-        '/listeners/' + item.listenerId +
-        '/pools/' + item.poolId +
-        '/healthmonitors/' + item.id;
+      if (item.listenerId) {
+        return 'project/load_balancer/' + item.loadbalancerId +
+          '/listeners/' + item.listenerId +
+          '/pools/' + item.poolId +
+          '/healthmonitors/' + item.id;
+      } else {
+        return 'project/load_balancer/' + item.loadbalancerId +
+          '/pools/' + item.poolId +
+          '/healthmonitors/' + item.id;
+      }
     }
 
     function getHealthMonitorsPromise(params) {
@@ -177,9 +189,15 @@
     }
 
     function getPoolDetailsPath(item) {
-      return 'project/load_balancer/' +
-        item.loadbalancerId + '/listeners/' +
-        item.listeners[0].id + '/pools/' + item.id;
+      if (item.listeners.length > 0) {
+        return 'project/load_balancer/' +
+          item.loadbalancerId + '/listeners/' +
+          item.listeners[0].id + '/pools/' + item.id;
+      } else {
+        return 'project/load_balancer/' +
+          item.loadbalancerId +
+          '/pools/' + item.id;
+      }
     }
 
     function getListenersPromise(params) {

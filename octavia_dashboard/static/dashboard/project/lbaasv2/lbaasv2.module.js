@@ -68,9 +68,12 @@
 
     var loadbalancers = '/project/load_balancer';
     var listener = loadbalancers + '/:loadbalancerId/listeners/:listenerId';
-    var pool = listener + '/pools/:poolId';
-    var member = pool + '/members/:memberId';
-    var healthmonitor = pool + '/healthmonitors/:healthmonitorId';
+    var listenerPool = listener + '/pools/:poolId';
+    var listenerPoolMember = listenerPool + '/members/:memberId';
+    var listenerPoolHealthmonitor = listenerPool + '/healthmonitors/:healthmonitorId';
+    var loadbalancerPool = loadbalancers + '/:loadbalancerId/pools/:poolId';
+    var loadbalancerPoolMember = loadbalancerPool + '/members/:memberId';
+    var loadbalancerPoolHealthmonitor = loadbalancerPool + '/healthmonitors/:healthmonitorId';
 
     $routeProvider
       .when(loadbalancers, {
@@ -126,7 +129,7 @@
         controller: 'ListenerDetailController',
         controllerAs: 'ctrl'
       })
-      .when(pool, {
+      .when(listenerPool, {
         templateUrl: basePath + 'pools/details/detail.html',
         resolve: {
           loadbalancer: [
@@ -169,7 +172,7 @@
         controller: 'PoolDetailController',
         controllerAs: 'ctrl'
       })
-      .when(member, {
+      .when(listenerPoolMember, {
         templateUrl: basePath + 'members/details/detail.html',
         resolve: {
           loadbalancer: [
@@ -225,7 +228,7 @@
         controller: 'MemberDetailController',
         controllerAs: 'ctrl'
       })
-      .when(healthmonitor, {
+      .when(listenerPoolHealthmonitor, {
         templateUrl: basePath + 'healthmonitors/details/detail.html',
         resolve: {
           loadbalancer: [
@@ -251,6 +254,137 @@
               );
             }
           ],
+          pool: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getPool($route.current.params.poolId).then(
+                function success(response) {
+                  return response.data;
+                }
+              );
+            }
+          ],
+          healthmonitor: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getHealthMonitor(
+                $route.current.params.healthmonitorId).then(
+                function success(response) {
+                  response.data.loadbalancerId = $route.current.params.loadbalancerId;
+                  response.data.listenerId = $route.current.params.listenerId;
+                  response.data.poolId = $route.current.params.poolId;
+                  return response.data;
+                }
+              );
+            }
+          ]
+        },
+        controller: 'HealthMonitorDetailController',
+        controllerAs: 'ctrl'
+      })
+      .when(loadbalancerPool, {
+        templateUrl: basePath + 'pools/details/detail.html',
+        resolve: {
+          loadbalancer: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getLoadBalancer($route.current.params.loadbalancerId, true).then(
+                function success(response) {
+                  response.data.floating_ip_address = response.data.floating_ip.ip;
+                  return response.data;
+                }
+              );
+            }
+          ],
+          listener: function() {
+            return {};
+          },
+          pool: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getPool($route.current.params.poolId).then(
+                function success(response) {
+                  response.data.loadbalancerId = $route.current.params.loadbalancerId;
+                  response.data.listenerId = $route.current.params.listenerId;
+                  return response.data;
+                }
+              );
+            }
+          ]
+        },
+        controller: 'PoolDetailController',
+        controllerAs: 'ctrl'
+      })
+      .when(loadbalancerPoolMember, {
+        templateUrl: basePath + 'members/details/detail.html',
+        resolve: {
+          loadbalancer: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getLoadBalancer($route.current.params.loadbalancerId, true).then(
+                function success(response) {
+                  response.data.floating_ip_address = response.data.floating_ip.ip;
+                  return response.data;
+                }
+              );
+            }
+          ],
+          listener: function() {
+            return {};
+          },
+          pool: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getPool($route.current.params.poolId).then(
+                function success(response) {
+                  return response.data;
+                }
+              );
+            }
+          ],
+          member: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getMember($route.current.params.poolId,
+                $route.current.params.memberId).then(
+                function success(response) {
+                  response.data.loadbalancerId = $route.current.params.loadbalancerId;
+                  response.data.listenerId = $route.current.params.listenerId;
+                  response.data.poolId = $route.current.params.poolId;
+                  return response.data;
+                }
+              );
+            }
+          ]
+        },
+        controller: 'MemberDetailController',
+        controllerAs: 'ctrl'
+      })
+      .when(loadbalancerPoolHealthmonitor, {
+        templateUrl: basePath + 'healthmonitors/details/detail.html',
+        resolve: {
+          loadbalancer: [
+            '$route',
+            'horizon.app.core.openstack-service-api.lbaasv2',
+            function($route, api) {
+              return api.getLoadBalancer($route.current.params.loadbalancerId, true).then(
+                function success(response) {
+                  response.data.floating_ip_address = response.data.floating_ip.ip;
+                  return response.data;
+                }
+              );
+            }
+          ],
+          listener: function() {
+            return {};
+          },
           pool: [
             '$route',
             'horizon.app.core.openstack-service-api.lbaasv2',

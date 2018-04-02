@@ -63,7 +63,7 @@
       });
     });
 
-    it('should handle the action result properly', function() {
+    it('should handle the action result properly with listener', function() {
       spyOn($location, 'path');
       spyOn(deleteModalService, 'open').and.returnValue({then: angular.noop});
       spyOn(lbaasv2API, 'deleteMember').and.callFake(angular.noop);
@@ -77,6 +77,33 @@
         }]
       });
       var path = 'project/load_balancer/1/listeners/2/pools/3';
+      expect($location.path).toHaveBeenCalledWith(path);
+      expect(result.deleted[0].id).toBe(1);
+      result = service.deleteResult({
+        pass: [],
+        fail: [{
+          context: {
+            id: 1
+          }
+        }]
+      });
+      expect(result.failed[0].id).toBe(1);
+    });
+
+    it('should handle the action result properly without listener', function() {
+      spyOn($location, 'path');
+      spyOn(deleteModalService, 'open').and.returnValue({then: angular.noop});
+      spyOn(lbaasv2API, 'deleteMember').and.callFake(angular.noop);
+      service.perform({loadbalancerId: 1, poolId: 3, id: 1, name: 'one'});
+      var result = service.deleteResult({
+        fail: [],
+        pass: [{
+          context: {
+            id: 1
+          }
+        }]
+      });
+      var path = 'project/load_balancer/1/pools/3';
       expect($location.path).toHaveBeenCalledWith(path);
       expect(result.deleted[0].id).toBe(1);
       result = service.deleteResult({

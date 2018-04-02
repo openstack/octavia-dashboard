@@ -95,6 +95,9 @@
       var myItem = {loadbalancerId: '123', id: '789', listeners: [{id: '456'}]};
       expect(service.getPoolDetailsPath(myItem))
         .toBe('project/load_balancer/123/listeners/456/pools/789');
+      myItem = {loadbalancerId: '123', id: '789', listeners: []};
+      expect(service.getPoolDetailsPath(myItem))
+        .toBe('project/load_balancer/123/pools/789');
     });
 
     it("getPoolsPromise provides a promise", inject(function($timeout) {
@@ -127,6 +130,13 @@
       };
       expect(service.getMemberDetailsPath(myItem))
         .toBe('project/load_balancer/1/listeners/2/pools/3/members/4');
+      myItem = {
+        loadbalancerId: '1',
+        poolId: '3',
+        id: '4'
+      };
+      expect(service.getMemberDetailsPath(myItem))
+        .toBe('project/load_balancer/1/pools/3/members/4');
     });
 
     it("getMembersPromise provides a promise", inject(function($timeout) {
@@ -165,6 +175,13 @@
       };
       expect(service.getHealthMonitorDetailsPath(myItem))
         .toBe('project/load_balancer/1/listeners/2/pools/3/healthmonitors/4');
+      myItem = {
+        loadbalancerId: '1',
+        poolId: '3',
+        id: '4'
+      };
+      expect(service.getHealthMonitorDetailsPath(myItem))
+        .toBe('project/load_balancer/1/pools/3/healthmonitors/4');
     });
 
     it("getHealthMonitorsPromise provides a promise", inject(function($timeout) {

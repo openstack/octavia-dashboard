@@ -86,6 +86,7 @@
       subnets: [],
       members: [],
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS'],
+      poolProtocols: ['HTTP', 'HTTPS', 'PROXY', 'TCP'],
       methods: ['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP'],
       types: ['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'],
       monitorTypes: ['HTTP', 'PING', 'TCP'],
@@ -243,12 +244,20 @@
       model.context.submit = createPool;
       //  We get the listener details here because we need to know the listener protocol
       //  in order to default the new pool's protocol to match.
-      return $q.all([
-        lbaasv2API.getListener(model.spec.parentResourceId).then(onGetListener),
-        neutronAPI.getSubnets().then(onGetSubnets),
-        neutronAPI.getPorts().then(onGetPorts),
-        novaAPI.getServers().then(onGetServers)
-      ]).then(initMemberAddresses);
+      if (model.spec.parentResourceId) {
+        return $q.all([
+          lbaasv2API.getListener(model.spec.parentResourceId).then(onGetListener),
+          neutronAPI.getSubnets().then(onGetSubnets),
+          neutronAPI.getPorts().then(onGetPorts),
+          novaAPI.getServers().then(onGetServers)
+        ]).then(initMemberAddresses);
+      } else {
+        return $q.all([
+          neutronAPI.getSubnets().then(onGetSubnets),
+          neutronAPI.getPorts().then(onGetPorts),
+          novaAPI.getServers().then(onGetServers)
+        ]).then(initMemberAddresses);
+      }
     }
 
     function initCreateMonitor() {

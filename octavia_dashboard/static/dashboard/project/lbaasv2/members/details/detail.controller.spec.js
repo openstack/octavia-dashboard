@@ -50,6 +50,19 @@
       ctrl = $controller('MemberDetailController', {
         $scope: scope,
         loadbalancer: { id: '123' },
+        listener: {},
+        pool: { id: '123' },
+        member: { id: '123' },
+        'horizon.framework.conf.resource-type-registry.service': service,
+        'horizon.framework.util.actions.action-result.service': actionResultService,
+        'horizon.framework.widgets.modal-wait-spinner.service': {
+          showModalSpinner: angular.noop,
+          hideModalSpinner: angular.noop
+        }
+      });
+      ctrl = $controller('MemberDetailController', {
+        $scope: scope,
+        loadbalancer: { id: '123' },
         listener: { id: '123' },
         pool: { id: '123' },
         member: { id: '123' },
