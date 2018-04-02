@@ -86,6 +86,9 @@
       subnets: [],
       members: [],
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS'],
+      l7policyActions: ['REJECT', 'REDIRECT_TO_URL', 'REDIRECT_TO_POOL'],
+      l7ruleTypes: ['HOST_NAME', 'PATH', 'FILE_TYPE', 'HEADER', 'COOKIE'],
+      l7ruleCompareTypes: ['REGEX', 'STARTS_WITH', 'ENDS_WITH', 'CONTAINS', 'EQUAL_TO'],
       poolProtocols: ['HTTP', 'HTTPS', 'PROXY', 'TCP'],
       methods: ['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP'],
       types: ['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'],
@@ -153,6 +156,25 @@
           admin_state_up: true,
           default_pool_id: null
         },
+        l7policy: {
+          id: null,
+          name: gettext('L7 Policy 1'),
+          description: null,
+          action: null,
+          position: null,
+          redirect_pool_id: null,
+          redirect_url: null,
+          admin_state_up: true
+        },
+        l7rule: {
+          id: null,
+          type: null,
+          compare_type: null,
+          key: null,
+          rule_value: null,
+          invert: false,
+          admin_state_up: true
+        },
         pool: {
           id: null,
           name: gettext('Pool 1'),
@@ -198,11 +220,15 @@
       var promise = {
         createloadbalancer: initCreateLoadBalancer,
         createlistener: initCreateListener,
+        createl7policy: initCreateL7Policy,
+        createl7rule: initCreateL7Rule,
         createpool: initCreatePool,
         createmonitor: initCreateMonitor,
         createmembers: initUpdateMemberList,
         editloadbalancer: initEditLoadBalancer,
         editlistener: initEditListener,
+        editl7policy: initEditL7Policy,
+        editl7rule: initEditL7Rule,
         editpool: initEditPool,
         editmonitor: initEditMonitor
       }[type](keymanagerPromise);
@@ -240,6 +266,17 @@
         novaAPI.getServers().then(onGetServers),
         keymanagerPromise.then(prepareCertificates, angular.noop)
       ]).then(initMemberAddresses);
+    }
+
+    function initCreateL7Policy() {
+      model.context.submit = createL7Policy;
+      return lbaasv2API.getListener(model.spec.parentResourceId)
+        .then(onGetListener).then(getPools).then(onGetPools);
+    }
+
+    function initCreateL7Rule() {
+      model.context.submit = createL7Rule;
+      return $q.when();
     }
 
     function initCreatePool() {
@@ -295,6 +332,19 @@
       ]).then(initMemberAddresses);
     }
 
+    function initEditL7Policy() {
+      model.context.submit = editL7Policy;
+      return lbaasv2API
+        .getListener(model.spec.parentResourceId).then(onGetListener)
+        .then(getPools).then(onGetPools)
+        .then(getL7Policy).then(onGetL7Policy);
+    }
+
+    function initEditL7Rule() {
+      model.context.submit = editL7Rule;
+      return getL7Rule().then(onGetL7Rule);
+    }
+
     function initEditPool() {
       model.context.submit = editPool;
       return $q.all([
@@ -339,6 +389,14 @@
       return lbaasv2API.createListener(spec);
     }
 
+    function createL7Policy(spec) {
+      return lbaasv2API.createL7Policy(spec);
+    }
+
+    function createL7Rule(spec) {
+      return lbaasv2API.createL7Rule(model.spec.parentResourceId, spec);
+    }
+
     function createPool(spec) {
       return lbaasv2API.createPool(spec);
     }
@@ -353,6 +411,14 @@
 
     function editListener(spec) {
       return lbaasv2API.editListener(model.context.id, spec);
+    }
+
+    function editL7Policy(spec) {
+      return lbaasv2API.editL7Policy(model.context.id, spec);
+    }
+
+    function editL7Rule(spec) {
+      return lbaasv2API.editL7Rule(model.spec.parentResourceId, model.context.id, spec);
     }
 
     function editPool(spec) {
@@ -576,6 +642,15 @@
       return lbaasv2API.getListener(model.context.id, true);
     }
 
+    function getL7Policy() {
+      return lbaasv2API.getL7Policy(model.context.id, true);
+    }
+
+    function getL7Rule() {
+      return lbaasv2API.getL7Rule(model.spec.parentResourceId,
+        model.context.id);
+    }
+
     function getPool() {
       return lbaasv2API.getPool(model.context.id, true);
     }
@@ -633,6 +708,18 @@
       }
     }
 
+    function onGetL7Policy(response) {
+      var result = response.data;
+
+      setL7PolicySpec(result.l7policy || result);
+    }
+
+    function onGetL7Rule(response) {
+      var result = response.data;
+
+      setL7RuleSpec(result.l7rule || result);
+    }
+
     function onGetPool(response) {
       var result = response.data;
 
@@ -672,6 +759,29 @@
       spec.connection_limit = listener.connection_limit;
       spec.admin_state_up = listener.admin_state_up;
       spec.default_pool_id = listener.default_pool_id;
+    }
+
+    function setL7PolicySpec(l7policy) {
+      var spec = model.spec.l7policy;
+      spec.id = l7policy.id;
+      spec.name = l7policy.name;
+      spec.description = l7policy.description;
+      spec.action = l7policy.action;
+      spec.position = l7policy.position;
+      spec.redirect_pool_id = l7policy.redirect_pool_id;
+      spec.redirect_url = l7policy.redirect_url;
+      spec.admin_state_up = l7policy.admin_state_up;
+    }
+
+    function setL7RuleSpec(l7rule) {
+      var spec = model.spec.l7rule;
+      spec.id = l7rule.id;
+      spec.type = l7rule.type;
+      spec.compare_type = l7rule.compare_type;
+      spec.key = l7rule.key;
+      spec.rule_value = l7rule.rule_value;
+      spec.invert = l7rule.invert;
+      spec.admin_state_up = l7rule.admin_state_up;
     }
 
     function setPoolSpec(pool) {

@@ -46,6 +46,16 @@
       createListener: createListener,
       editListener: editListener,
       deleteListener: deleteListener,
+      getL7Policies: getL7Policies,
+      getL7Policy: getL7Policy,
+      createL7Policy: createL7Policy,
+      editL7Policy: editL7Policy,
+      deleteL7Policy: deleteL7Policy,
+      getL7Rules: getL7Rules,
+      getL7Rule: getL7Rule,
+      createL7Rule: createL7Rule,
+      editL7Rule: editL7Rule,
+      deleteL7Rule: deleteL7Rule,
       getPools: getPools,
       getPool: getPool,
       createPool: createPool,
@@ -108,8 +118,8 @@
      * @description
      * Delete a single load balancer by ID
      * @param {string} id
-     * @param {boolean} quiet
      * Specifies the id of the load balancer to delete.
+     * @param {boolean} quiet
      */
 
     function deleteLoadBalancer(id, quiet) {
@@ -231,8 +241,8 @@
      * @description
      * Delete a single listener by ID
      * @param {string} id
-     * @param {boolean} quiet
      * Specifies the id of the listener to delete.
+     * @param {boolean} quiet
      */
 
     function deleteListener(id, quiet) {
@@ -333,14 +343,206 @@
      * @description
      * Delete a single pool by ID
      * @param {string} id
-     * @param {boolean} quiet
      * Specifies the id of the pool to delete.
+     * @param {boolean} quiet
      */
 
     function deletePool(id, quiet) {
       var promise = apiService.delete('/api/lbaas/pools/' + id + '/');
       return quiet ? promise : promise.error(function () {
         toastService.add('error', gettext('Unable to delete pool.'));
+      });
+    }
+
+    // L7 Policies
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getL7Policies
+     * @description
+     * Get the list of l7 policies.
+     * If a listener ID is passed as a parameter, the returning list of
+     * l7 policies will be filtered to include only those l7 policies under the
+     * specified listener.
+     * @param {string} listenerId
+     * Specifies the id of the listener to request l7policies for.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a l7 policy.
+     */
+
+    function getL7Policies(listenerId) {
+      var params = $.extend({},
+        {
+          listenerId: listenerId
+        }
+      );
+      if (!$.isEmptyObject(params)) {
+        params = { params: params };
+      }
+      return apiService.get('/api/lbaas/l7policies/', params)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve l7 policies.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getL7Policy
+     * @description
+     * Get a single L7Policy by ID.
+     * @param {string} id
+     * Specifies the id of the l7 policy to request.
+     * @param {boolean} includeChildResources
+     * If truthy, all child resources below the l7 policy will be included in the response.
+     */
+
+    function getL7Policy(id, includeChildResources) {
+      var params = includeChildResources
+          ? {params: {includeChildResources: includeChildResources}}
+          : {};
+      return apiService.get('/api/lbaas/l7policies/' + id + '/', params)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve l7 policy.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.createL7Policy
+     * @description
+     * Create a new l7 policy
+     * @param {object} spec
+     * Specifies the data used to create the new l7 policy.
+     */
+
+    function createL7Policy(spec) {
+      return apiService.post('/api/lbaas/l7policies/', spec)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create l7 policy.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.editL7Policy
+     * @description
+     * Edit a l7 policy
+     * @param {string} id
+     * Specifies the id of the l7 policy to update.
+     * @param {object} spec
+     * Specifies the data used to update the l7 policy.
+     */
+
+    function editL7Policy(id, spec) {
+      return apiService.put('/api/lbaas/l7policies/' + id + '/', spec)
+        .error(function () {
+          toastService.add('error', gettext('Unable to update l7 policy.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.deleteL7Policy
+     * @description
+     * Delete a single l7 policy by ID
+     * @param {string} id
+     * Specifies the id of the l7 policy to delete.
+     * @param {boolean} quiet
+     */
+
+    function deleteL7Policy(id, quiet) {
+      var promise = apiService.delete('/api/lbaas/l7policies/' + id + '/');
+      return quiet ? promise : promise.error(function () {
+        toastService.add('error', gettext('Unable to delete l7 policy.'));
+      });
+    }
+
+    // L7 Rules
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getL7Rules
+     * @description
+     * Get the list of l7 rules under the specified l7 policy.
+     * @param {string} l7policyId
+     * Specifies the id of the l7 policy to request l7rules for.
+     *
+     * The listing result is an object with property "items".
+     * Each item is a l7 rule.
+     */
+
+    function getL7Rules(l7policyId) {
+      return apiService.get('/api/lbaas/l7policies/' + l7policyId + '/l7rules/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve l7 rules.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getL7Rule
+     * @description
+     * Get a single L7Rule by ID.
+     * @param {string} l7policyId
+     * Specifies the id of the l7 policy the l7 rule belongs to.
+     * @param {string} l7ruleId
+     * Specifies the id of the l7 rule to request.
+     */
+
+    function getL7Rule(l7policyId, l7ruleId) {
+      return apiService.get('/api/lbaas/l7policies/' + l7policyId + '/l7rules/' + l7ruleId + '/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve l7 rule.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.createL7Rule
+     * @description
+     * Create a new l7 rule
+     * @param {string} l7policyId
+     * Specifies the id of the l7 policy the l7 rule belongs to.
+     * @param {object} spec
+     * Specifies the data used to create the new l7 rule.
+     */
+
+    function createL7Rule(l7policyId, spec) {
+      return apiService.post('/api/lbaas/l7policies/' + l7policyId + '/l7rules/', spec)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create l7 rule.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.editL7Rule
+     * @description
+     * Edit a l7 rule
+     * @param {string} l7policyId
+     * Specifies the id of the l7 policy the l7 rule belongs to.
+     * @param {string} l7ruleId
+     * Specifies the id of the l7 rule to update.
+     * @param {object} spec
+     * Specifies the data used to update the l7 rule.
+     */
+
+    function editL7Rule(l7policyId, l7ruleId, spec) {
+      return apiService.put('/api/lbaas/l7policies/' + l7policyId +
+        '/l7rules/' + l7ruleId + '/', spec)
+        .error(function () {
+          toastService.add('error', gettext('Unable to update l7 rule.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.deleteL7Rule
+     * @description
+     * Delete a single l7 rule by ID
+     * @param {string} l7policyId
+     * Specifies the id of the l7 policy the l7 rule belongs to.
+     * @param {string} l7ruleId
+     * Specifies the id of the l7 rule to delete.
+     * @param {boolean} quiet
+     */
+
+    function deleteL7Rule(l7policyId, l7ruleId, quiet) {
+      var promise = apiService.delete('/api/lbaas/l7policies/' + l7policyId +
+        '/l7rules/' + l7ruleId + '/');
+      return quiet ? promise : promise.error(function () {
+        toastService.add('error', gettext('Unable to delete l7 rule.'));
       });
     }
 
@@ -493,8 +695,8 @@
      * @description
      * Delete a single health monitor by ID
      * @param {string} id
-     * @param {boolean} quiet
      * Specifies the id of the health monitor to delete.
+     * @param {boolean} quiet
      */
 
     function deleteHealthMonitor(id, quiet) {

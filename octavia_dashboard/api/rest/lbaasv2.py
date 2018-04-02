@@ -180,6 +180,47 @@ def create_listener(request, **kwargs):
     return _get_sdk_object_dict(listener)
 
 
+def create_l7_policy(request, **kwargs):
+    """Create a new l7 policy.
+
+    """
+    data = request.DATA
+
+    conn = _get_sdk_connection(request)
+    l7_policy = conn.load_balancer.create_l7_policy(
+        action=data['l7policy']['action'],
+        admin_state_up=data['l7policy'].get('admin_state_up'),
+        description=data['l7policy'].get('description'),
+        listener_id=kwargs['listener_id'],
+        name=data['l7policy'].get('name'),
+        position=data['l7policy'].get('position'),
+        redirect_pool_id=data['l7policy'].get('redirect_pool_id'),
+        redirect_url=data['l7policy'].get('redirect_url'),
+    )
+
+    return _get_sdk_object_dict(l7_policy)
+
+
+def create_l7_rule(request, **kwargs):
+    """Create a new l7 rule.
+
+    """
+    data = request.DATA
+
+    conn = _get_sdk_connection(request)
+    l7_rule = conn.load_balancer.create_l7_rule(
+        admin_state_up=data['l7rule'].get('admin_state_up'),
+        compare_type=data['l7rule']['compare_type'],
+        invert=data['l7rule'].get('invert'),
+        key=data['l7rule'].get('key'),
+        l7_policy=kwargs['l7_policy_id'],
+        type=data['l7rule']['type'],
+        rule_value=data['l7rule']['rule_value'],
+    )
+
+    return _get_sdk_object_dict(l7_rule)
+
+
 def create_pool(request, **kwargs):
     """Create a new pool.
 
@@ -367,6 +408,50 @@ def update_listener(request, **kwargs):
         thread.start_new_thread(poll_loadbalancer_status, args)
 
     return _get_sdk_object_dict(listener)
+
+
+def update_l7_policy(request, **kwargs):
+    """Update a l7 policy.
+
+    """
+    data = request.DATA
+    l7_policy_id = data['l7policy'].get('id')
+
+    conn = _get_sdk_connection(request)
+    l7_policy = conn.load_balancer.update_l7_policy(
+        action=data['l7policy']['action'],
+        admin_state_up=data['l7policy'].get('admin_state_up'),
+        description=data['l7policy'].get('description'),
+        l7_policy=l7_policy_id,
+        name=data['l7policy'].get('name'),
+        position=data['l7policy'].get('position'),
+        redirect_pool_id=data['l7policy'].get('redirect_pool_id'),
+        redirect_url=data['l7policy'].get('redirect_url'),
+    )
+
+    return _get_sdk_object_dict(l7_policy)
+
+
+def update_l7_rule(request, **kwargs):
+    """Update a l7 rule.
+
+    """
+    data = request.DATA
+    l7_rule_id = data['l7rule'].get('id')
+
+    conn = _get_sdk_connection(request)
+    l7_rule = conn.load_balancer.update_l7_rule(
+        admin_state_up=data['l7rule'].get('admin_state_up'),
+        compare_type=data['l7rule']['compare_type'],
+        invert=data['l7rule'].get('invert'),
+        key=data['l7rule'].get('key'),
+        l7_policy=kwargs['l7_policy_id'],
+        l7rule=l7_rule_id,
+        type=data['l7rule']['type'],
+        rule_value=data['l7rule']['rule_value'],
+    )
+
+    return _get_sdk_object_dict(l7_rule)
 
 
 def update_pool(request, **kwargs):
@@ -672,6 +757,148 @@ class Listener(generic.View):
         """
         conn = _get_sdk_connection(request)
         conn.load_balancer.delete_listener(listener_id, ignore_missing=True)
+
+
+@urls.register
+class L7Policies(generic.View):
+    """API for load balancer l7 policies.
+
+    """
+    url_regex = r'lbaas/l7policies/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """List of l7 policies for the current project.
+
+        The listing result is an object with property "items".
+        """
+        listener_id = request.GET.get('listenerId')
+        conn = _get_sdk_connection(request)
+        l7_policy_list = _sdk_object_to_list(conn.load_balancer.l7_policies(
+            listener_id=listener_id))
+        return {'items': l7_policy_list}
+
+    @rest_utils.ajax()
+    def post(self, request):
+        """Create a new l7 policy.
+
+        Creates a new l7 policy as well as other optional resources such as
+        l7 rules.
+        """
+        kwargs = {'listener_id': request.DATA.get('parentResourceId')}
+        return create_l7_policy(request, **kwargs)
+
+
+@urls.register
+class L7Policy(generic.View):
+    """API for retrieving a single l7 policy.
+
+    """
+    url_regex = r'lbaas/l7policies/(?P<l7_policy_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def get(self, request, l7_policy_id):
+        """Get a specific l7 policy.
+
+        If the param 'includeChildResources' is passed in as a truthy value,
+        the details of all resources that exist under the l7 policy will be
+        returned along with the l7 policy details.
+
+        http://localhost/api/lbaas/l7policies/cc758c90-3d98-4ea1-af44-aab405c9c915
+        """
+        conn = _get_sdk_connection(request)
+        l7_policy = conn.load_balancer.find_l7_policy(l7_policy_id)
+        l7_policy = _get_sdk_object_dict(l7_policy)
+
+        if request.GET.get('includeChildResources'):
+            resources = {}
+
+            if l7_policy.get('rules'):
+                l7_rules_list = _sdk_object_to_list(
+                    conn.load_balancer.l7_rules(l7_policy_id))
+                l7_policy['rules'] = l7_rules_list
+
+            resources['l7policy'] = l7_policy
+
+            return resources
+        else:
+            return l7_policy
+
+    @rest_utils.ajax()
+    def put(self, request, l7_policy_id):
+        """Edit a l7 policy as well as any resources below it.
+
+        """
+        kwargs = {'l7_policy_id': l7_policy_id}
+        update_l7_policy(request, **kwargs)
+
+    @rest_utils.ajax()
+    def delete(self, request, l7_policy_id):
+        """Delete a specific l7 policy.
+
+        http://localhost/api/lbaas/l7policies/cc758c90-3d98-4ea1-af44-aab405c9c915
+        """
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_l7_policy(l7_policy_id)
+
+
+@urls.register
+class L7Rules(generic.View):
+    """API for load balancer l7 rules.
+
+    """
+    url_regex = r'lbaas/l7policies/(?P<l7_policy_id>[^/]+)/l7rules/$'
+
+    @rest_utils.ajax()
+    def get(self, request, l7_policy_id):
+        """List of l7 rules for the current project.
+
+        The listing result is an object with property "items".
+        """
+        conn = _get_sdk_connection(request)
+        l7_rule_list = _sdk_object_to_list(conn.load_balancer.l7_rules(
+            l7_policy_id))
+        return {'items': l7_rule_list}
+
+    @rest_utils.ajax()
+    def post(self, request, l7_policy_id):
+        """Create a new l7 rule.
+
+        Creates a new l7 rule as well as other optional resources such as
+        l7 rules.
+        """
+        kwargs = {'l7_policy_id': l7_policy_id}
+        return create_l7_rule(request, **kwargs)
+
+
+@urls.register
+class L7Rule(generic.View):
+    """API for retrieving a single l7 rule.
+
+    """
+    url_regex = (
+        r'lbaas/l7policies/(?P<l7_policy_id>[^/]+)'
+        r'/l7rules/(?P<l7_rule_id>[^/]+)/$'
+    )
+
+    @rest_utils.ajax()
+    def get(self, request, l7_rule_id, l7_policy_id):
+        """Get a specific l7 rule."""
+        conn = _get_sdk_connection(request)
+        l7_rule = conn.load_balancer.find_l7_rule(l7_rule_id, l7_policy_id)
+        return _get_sdk_object_dict(l7_rule)
+
+    @rest_utils.ajax()
+    def put(self, request, l7_rule_id, l7_policy_id):
+        """Edit a specific l7 rule."""
+        kwargs = {'l7_rule_id': l7_rule_id, 'l7_policy_id': l7_policy_id}
+        update_l7_rule(request, **kwargs)
+
+    @rest_utils.ajax()
+    def delete(self, request, l7_rule_id, l7_policy_id):
+        """Delete a specific l7 rule."""
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_l7_rule(l7_rule_id, l7_policy_id)
 
 
 @urls.register

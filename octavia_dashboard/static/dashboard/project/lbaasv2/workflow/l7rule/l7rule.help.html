@@ -1,0 +1,76 @@
+<p translate>
+An L7 Rule is a single, simple logical test which returns either true or
+false.
+</p>
+<p>
+  <strong translate>Type:</strong>
+  <translate>
+  The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH.
+  </translate>
+  <ul>
+    <li translate>
+      COOKIE: The rule looks for a cookie named by the key parameter and
+      compares it against the value parameter in the rule.
+    </li>
+    <li translate>
+      HEADER: The rule looks for a header defined in the key parameter
+      and compares it against the value parameter in the rule.
+    </li>
+    <li translate>
+      FILE_TYPE: The rule compares the last portion of the URI against
+      the value parameter in the rule. (eg. “txt”, “jpg”, etc.)
+    </li>
+    <li translate>
+      PATH: The rule compares the path portion of the HTTP URI against
+      the value parameter in the rule.
+    </li>
+    <li translate>
+      HOST_NAME: The rule does a comparison between the HTTP/1.1
+      hostname in the request against the value parameter in the rule.
+    </li>
+  </ul>
+</p>
+<p>
+  <strong translate>Compare Type:</strong>
+  <translate>
+  The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,
+  EQUAL_TO, REGEX, or STARTS_WITH.
+  </translate>
+  <ul>
+    <li translate>
+      REGEX: Perl type regular expression matching.
+    </li>
+    <li translate>
+      STARTS_WITH: String starts with.
+    </li>
+    <li translate>
+      ENDS_WITH: String ends with.
+    </li>
+    <li translate>
+      CONTAINS: String contains.
+    </li>
+    <li translate>
+      EQUAL_TO: String is equal to.
+    </li>
+  </ul>
+</p>
+<p>
+  <strong translate>Key:</strong>
+  <translate>
+  The key to use for the comparison. For example, the name of the cookie
+  to evaluate.
+  </translate>
+</p>
+<p>
+  <strong translate>Value:</strong>
+  <translate>
+  The value to use for the comparison. For example, the file type to compare.
+  </translate>
+</p>
+<p>
+  <strong translate>Invert:</strong>
+  <translate>
+  When true the logic of the rule is inverted. For example, with invert
+  true, equal to would become not equal to.
+  </translate>
+</p>

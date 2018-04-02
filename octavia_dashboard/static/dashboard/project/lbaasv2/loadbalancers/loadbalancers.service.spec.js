@@ -91,6 +91,61 @@
       expect(result.$$state.value.data.updated_at).toBe('feb8');
     }));
 
+    it('getL7PolicyDetailsPath creates urls using the item\'s ID', function() {
+      var myItem = {loadbalancerId: '123', id: '789', listenerId: '456'};
+      expect(service.getL7PolicyDetailsPath(myItem))
+        .toBe('project/load_balancer/123/listeners/456/l7policies/789');
+    });
+
+    it("getL7PoliciesPromise provides a promise", inject(function($timeout) {
+      var deferred = $q.defer();
+      spyOn(api, 'getL7Policies').and.returnValue(deferred.promise);
+      var result = service.getL7PoliciesPromise({listenerId: 3});
+      deferred.resolve({data: {items: [{id: 1, updated_at: 'feb8'}]}});
+      $timeout.flush();
+      expect(result.$$state.value.data.items[0].id).toBe(1);
+      expect(result.$$state.value.data.items[0].updated_at).toBe('feb8');
+      expect(result.$$state.value.data.items[0].trackBy).toBe('1feb8');
+      expect(result.$$state.value.data.items[0].listenerId).toBe(3);
+    }));
+
+    it("getL7PolicyPromise provides a promise", inject(function() {
+      var deferred = $q.defer();
+      spyOn(api, 'getL7Policy').and.returnValue(deferred.promise);
+      var result = service.getL7PolicyPromise(1);
+      deferred.resolve({data: {id: 1, updated_at: 'feb8'}});
+      expect(result.$$state.value.data.id).toBe(1);
+      expect(result.$$state.value.data.updated_at).toBe('feb8');
+    }));
+
+    it('getL7RuleDetailsPath creates urls using the item\'s ID', function() {
+      var myItem = {loadbalancerId: '1', id: '5', listenerId: '2', l7policyId: '3'};
+      expect(service.getL7RuleDetailsPath(myItem))
+        .toBe('project/load_balancer/1/listeners/2/l7policies/3/l7rules/5');
+    });
+
+    it("getL7RulesPromise provides a promise", inject(function($timeout) {
+      var deferred = $q.defer();
+      spyOn(api, 'getL7Rules').and.returnValue(deferred.promise);
+      var result = service.getL7RulesPromise({listenerId: 3, l7policyId: 5});
+      deferred.resolve({data: {items: [{id: 1, updated_at: 'feb8'}]}});
+      $timeout.flush();
+      expect(result.$$state.value.data.items[0].id).toBe(1);
+      expect(result.$$state.value.data.items[0].updated_at).toBe('feb8');
+      expect(result.$$state.value.data.items[0].trackBy).toBe('1feb8');
+      expect(result.$$state.value.data.items[0].listenerId).toBe(3);
+      expect(result.$$state.value.data.items[0].l7policyId).toBe(5);
+    }));
+
+    it("getL7RulePromise provides a promise", inject(function() {
+      var deferred = $q.defer();
+      spyOn(api, 'getL7Rule').and.returnValue(deferred.promise);
+      var result = service.getL7RulePromise(2, 1);
+      deferred.resolve({data: {id: 1, updated_at: 'feb8'}});
+      expect(result.$$state.value.data.id).toBe(1);
+      expect(result.$$state.value.data.updated_at).toBe('feb8');
+    }));
+
     it('getPoolDetailsPath creates urls using the item\'s ID', function() {
       var myItem = {loadbalancerId: '123', id: '789', listeners: [{id: '456'}]};
       expect(service.getPoolDetailsPath(myItem))

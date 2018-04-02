@@ -141,6 +141,37 @@
           deferred.resolve({ data: listenerData });
           return deferred.promise;
         },
+        getL7Policy: function() {
+          var l7policy = {
+            admin_state_up: true,
+            id: '1234',
+            name: 'L7 Policy 1',
+            description: 'l7 policy description',
+            action: 'REDIRECT_TO_URL',
+            position: 1,
+            redirect_url: 'http://example.com'
+          };
+
+          var deferred = $q.defer();
+          deferred.resolve({ data: l7policy });
+
+          return deferred.promise;
+        },
+        getL7Rule: function() {
+          var l7rule = {
+            admin_state_up: true,
+            id: '1234',
+            type: 'HOST_NAME',
+            compare_type: 'EQUAL_TO',
+            value: 'api.example.com',
+            invert: false
+          };
+
+          var deferred = $q.defer();
+          deferred.resolve({ data: l7rule });
+
+          return deferred.promise;
+        },
         getPool: function() {
           var poolResources = angular.copy(listenerResources);
           delete poolResources.listener;
@@ -200,6 +231,18 @@
           return spec;
         },
         editListener: function(id, spec) {
+          return spec;
+        },
+        createL7Policy: function(spec) {
+          return spec;
+        },
+        editL7Policy: function(id, spec) {
+          return spec;
+        },
+        createL7Rule: function(l7policyId, spec) {
+          return spec;
+        },
+        editL7Rule: function(l7policyId, l7ruleId, spec) {
           return spec;
         },
         createPool: function(spec) {
@@ -458,6 +501,82 @@
 
       it('should initialize context properties', function() {
         expect(model.context.resource).toBe('listener');
+        expect(model.context.id).toBeFalsy();
+        expect(model.context.submit).toBeDefined();
+      });
+    });
+
+    describe('Post initialize model (create l7 policy)', function() {
+
+      beforeEach(function() {
+        includeChildResources = false;
+        model.initialize('l7policy', false, '1234', '5678');
+        scope.$apply();
+      });
+
+      it('should initialize model properties', function() {
+        expect(model.initializing).toBe(false);
+        expect(model.initialized).toBe(true);
+        expect(model.subnets.length).toBe(0);
+        expect(model.members.length).toBe(0);
+        expect(model.certificates.length).toBe(0);
+        expect(model.listenerPorts.length).toBe(0);
+        expect(model.spec).toBeDefined();
+        expect(model.spec.loadbalancer_id).toBe('1234');
+        expect(model.spec.parentResourceId).toBe('5678');
+        expect(model.spec.loadbalancer).toBeDefined();
+        expect(model.spec.listener).toBeDefined();
+        expect(model.spec.pool).toBeDefined();
+        expect(model.spec.members.length).toBe(0);
+        expect(model.spec.certificates).toEqual([]);
+        expect(model.spec.monitor).toBeDefined();
+        expect(model.certificatesError).toBe(false);
+      });
+
+      it('should initialize names', function() {
+        expect(model.spec.l7policy.name).toBe('L7 Policy 1');
+      });
+
+      it('should initialize context properties', function() {
+        expect(model.context.resource).toBe('l7policy');
+        expect(model.context.id).toBeFalsy();
+        expect(model.context.submit).toBeDefined();
+      });
+    });
+
+    describe('Post initialize model (create l7 rule)', function() {
+
+      beforeEach(function() {
+        includeChildResources = false;
+        model.initialize('l7rule', false, '1234', '5678');
+        scope.$apply();
+      });
+
+      it('should initialize model properties', function() {
+        expect(model.initializing).toBe(false);
+        expect(model.initialized).toBe(true);
+        expect(model.subnets.length).toBe(0);
+        expect(model.members.length).toBe(0);
+        expect(model.certificates.length).toBe(0);
+        expect(model.listenerPorts.length).toBe(0);
+        expect(model.spec).toBeDefined();
+        expect(model.spec.loadbalancer_id).toBe('1234');
+        expect(model.spec.parentResourceId).toBe('5678');
+        expect(model.spec.loadbalancer).toBeDefined();
+        expect(model.spec.listener).toBeDefined();
+        expect(model.spec.pool).toBeDefined();
+        expect(model.spec.members.length).toBe(0);
+        expect(model.spec.certificates).toEqual([]);
+        expect(model.spec.monitor).toBeDefined();
+        expect(model.certificatesError).toBe(false);
+      });
+
+      it('should initialize invert', function() {
+        expect(model.spec.l7rule.invert).toBe(false);
+      });
+
+      it('should initialize context properties', function() {
+        expect(model.context.resource).toBe('l7rule');
         expect(model.context.id).toBeFalsy();
         expect(model.context.submit).toBeDefined();
       });
@@ -794,6 +913,53 @@
       });
     });
 
+    describe('Post initialize model (edit l7 policy)', function() {
+
+      beforeEach(function() {
+        model.initialize('l7policy', '1234', 'loadbalancerId', 'listenerId');
+        scope.$apply();
+      });
+
+      it('should initialize model properties', function() {
+        expect(model.initializing).toBe(false);
+        expect(model.initialized).toBe(true);
+        expect(model.spec).toBeDefined();
+        expect(model.spec.loadbalancer_id).toBeDefined();
+        expect(model.spec.l7policy.id).toBe('1234');
+        expect(model.spec.l7policy.name).toBe('L7 Policy 1');
+        expect(model.spec.l7policy.description).toBe('l7 policy description');
+      });
+
+      it('should initialize context', function() {
+        expect(model.context.resource).toBe('l7policy');
+        expect(model.context.id).toBeDefined();
+        expect(model.context.submit).toBeDefined();
+      });
+    });
+
+    describe('Post initialize model (edit l7 rule)', function() {
+
+      beforeEach(function() {
+        model.initialize('l7rule', '1234', 'loadbalancerId', 'l7policyId');
+        scope.$apply();
+      });
+
+      it('should initialize model properties', function() {
+        expect(model.initializing).toBe(false);
+        expect(model.initialized).toBe(true);
+        expect(model.spec).toBeDefined();
+        expect(model.spec.loadbalancer_id).toBeDefined();
+        expect(model.spec.l7rule.id).toBe('1234');
+        expect(model.spec.l7rule.type).toBe('HOST_NAME');
+      });
+
+      it('should initialize context', function() {
+        expect(model.context.resource).toBe('l7rule');
+        expect(model.context.id).toBeDefined();
+        expect(model.context.submit).toBeDefined();
+      });
+    });
+
     describe('Post initialize model (edit pool)', function() {
 
       beforeEach(function() {
@@ -1005,9 +1171,11 @@
       // This is here to ensure that as people add/change spec properties, they don't forget
       // to implement tests for them.
       it('has the right number of properties', function() {
-        expect(Object.keys(model.spec).length).toBe(9);
+        expect(Object.keys(model.spec).length).toBe(11);
         expect(Object.keys(model.spec.loadbalancer).length).toBe(5);
         expect(Object.keys(model.spec.listener).length).toBe(8);
+        expect(Object.keys(model.spec.l7policy).length).toBe(8);
+        expect(Object.keys(model.spec.l7rule).length).toBe(7);
         expect(Object.keys(model.spec.pool).length).toBe(8);
         expect(Object.keys(model.spec.monitor).length).toBe(10);
         expect(model.spec.members).toEqual([]);
@@ -1716,6 +1884,47 @@
       });
     });
 
+    describe('Model submit function (create l7 policy)', function() {
+
+      beforeEach(function() {
+        model.initialize('l7policy', null, '1234', 'listener1');
+        scope.$apply();
+      });
+
+      it('should set final spec properties', function() {
+        model.spec.l7policy.action = 'REJECT';
+
+        var finalSpec = model.submit();
+
+        expect(finalSpec.loadbalancer_id).toBe('1234');
+        expect(finalSpec.parentResourceId).toBe('listener1');
+        expect(finalSpec.loadbalancer).toBeUndefined();
+        expect(finalSpec.listener).toBeDefined();
+
+        expect(finalSpec.l7policy.action).toBe('REJECT');
+      });
+    });
+
+    describe('Model submit function (create l7 rule)', function() {
+
+      beforeEach(function() {
+        model.initialize('l7rule', null, '1234', 'l7policy1');
+        scope.$apply();
+      });
+
+      it('should set final spec properties', function() {
+        model.spec.l7rule.type = 'PATH';
+
+        var finalSpec = model.submit();
+
+        expect(finalSpec.loadbalancer_id).toBe('1234');
+        expect(finalSpec.parentResourceId).toBe('l7policy1');
+        expect(finalSpec.loadbalancer).toBeUndefined();
+
+        expect(finalSpec.l7rule.type).toBe('PATH');
+      });
+    });
+
     describe('Model submit function (create pool)', function() {
 
       beforeEach(function() {
@@ -1975,6 +2184,45 @@
         expect(finalSpec.monitor.retry_down).toBe(1);
         expect(finalSpec.monitor.timeout).toBe(1);
       });
+    });
+
+    describe('Model submit function (edit l7 policy)', function() {
+
+      beforeEach(function() {
+        model.initialize('l7policy', 'l7policy1', '1234', '1234');
+        scope.$apply();
+      });
+
+      it('should set final spec properties', function() {
+        var finalSpec = model.submit();
+
+        expect(finalSpec.loadbalancer_id).toBe('1234');
+        expect(finalSpec.parentResourceId).toBe('1234');
+        expect(finalSpec.loadbalancer).toBeUndefined();
+        expect(finalSpec.listener).toBeDefined();
+
+        expect(finalSpec.l7policy.action).toBe('REDIRECT_TO_URL');
+      });
+
+    });
+
+    describe('Model submit function (edit l7 rule)', function() {
+
+      beforeEach(function() {
+        model.initialize('l7rule', '1234', '1234', '1234');
+        scope.$apply();
+      });
+
+      it('should set final spec properties', function() {
+        var finalSpec = model.submit();
+
+        expect(finalSpec.loadbalancer_id).toBe('1234');
+        expect(finalSpec.parentResourceId).toBe('1234');
+        expect(finalSpec.loadbalancer).toBeUndefined();
+
+        expect(finalSpec.l7rule.type).toBe('HOST_NAME');
+      });
+
     });
 
     describe('Model submit function (edit pool)', function() {

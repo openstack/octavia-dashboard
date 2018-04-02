@@ -1,0 +1,54 @@
+<div class="page-header">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item-truncate"><translate>Project</translate></li>
+    <li class="breadcrumb-item-truncate"><translate>Network</translate></li>
+    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
+    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
+    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
+    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}/l7policies/{$ ::ctrl.l7policy.id $}">{$ ::(ctrl.l7policy.name || ctrl.l7policy.id) $}</a></li>
+    <li class="breadcrumb-item-truncate active">{$ :: ctrl.l7rule.id $}</li>
+  </ol>
+  <div class="row">
+    <div class="col-xs-12 col-sm-9 text-left">
+      <ul class="list-inline">
+        <li>
+          <strong translate>Type</strong>
+          {$ ::ctrl.l7rule.type | decode:ctrl.l7ruleType $}
+        </li>
+        <li>
+          <strong translate>Operating Status</strong>
+          {$ ctrl.l7rule.operating_status | decode:ctrl.operatingStatus $}
+        </li>
+        <li>
+          <strong translate>Provisioning Status</strong>
+          {$ ctrl.l7rule.provisioning_status | decode:ctrl.provisioningStatus $}
+        </li>
+        <li>
+          <strong translate>Admin State Up</strong>
+          {$ ctrl.l7rule.admin_state_up | yesno $}
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-3 text-right details-item-actions">
+      <actions allowed="ctrl.resourceType.itemActions"
+               type="row"
+               item="ctrl.l7rule"
+               ng-if="ctrl.l7rule"
+               class="actions_column pull-right"
+               result-handler="ctrl.resultHandler"></actions>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6 detail">
+    <hz-resource-property-list
+       resource-type-name="OS::Octavia::L7Rule"
+       cls="dl-horizontal"
+       item="ctrl.l7rule"
+       property-groups="[[
+       'id', 'compare_type', 'project_id', 'created_at', 'updated_at',
+       'key', 'rule_value', 'invert']]">
+    </hz-resource-property-list>
+  </div>
+</div?

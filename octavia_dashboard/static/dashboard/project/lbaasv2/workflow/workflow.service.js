@@ -43,6 +43,20 @@
         formName: 'listenerDetailsForm'
       },
       {
+        id: 'l7policy',
+        title: gettext('L7 Policy Details'),
+        templateUrl: basePath + 'workflow/l7policy/l7policy.html',
+        helpUrl: basePath + 'workflow/l7policy/l7policy.help.html',
+        formName: 'l7policyDetailsForm'
+      },
+      {
+        id: 'l7rule',
+        title: gettext('L7 Rule Details'),
+        templateUrl: basePath + 'workflow/l7rule/l7rule.html',
+        helpUrl: basePath + 'workflow/l7rule/l7rule.help.html',
+        formName: 'l7ruleDetailsForm'
+      },
+      {
         id: 'pool',
         title: gettext('Pool Details'),
         templateUrl: basePath + 'workflow/pool/pool.html',

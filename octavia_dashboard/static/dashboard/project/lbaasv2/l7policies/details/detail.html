@@ -4,30 +4,27 @@
     <li class="breadcrumb-item-truncate"><translate>Network</translate></li>
     <li class="breadcrumb-item-truncate"><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
     <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
-    <li class="breadcrumb-item-truncate active">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</li>
+    <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
+    <li class="breadcrumb-item-truncate active">{$ ::(ctrl.l7policy.name || ctrl.l7policy.id) $}</li>
   </ol>
   <div class="row">
     <div class="col-xs-12 col-sm-9 text-left">
       <ul class="list-inline">
         <li>
-          <strong translate>Protocol</strong>
-          {$ ::ctrl.listener.protocol $}
-        </li>
-        <li>
-          <strong translate>Port</strong>
-          {$ ::ctrl.listener.protocol_port $}
+          <strong translate>Action</strong>
+          {$ ::ctrl.l7policy.action | decode:ctrl.l7policyAction $}
         </li>
         <li>
           <strong translate>Operating Status</strong>
-          {$ ctrl.listener.operating_status | decode:ctrl.operatingStatus $}
+          {$ ctrl.l7policy.operating_status | decode:ctrl.operatingStatus $}
         </li>
         <li>
           <strong translate>Provisioning Status</strong>
-          {$ ctrl.listener.provisioning_status | decode:ctrl.provisioningStatus $}
+          {$ ctrl.l7policy.provisioning_status | decode:ctrl.provisioningStatus $}
         </li>
         <li>
           <strong translate>Admin State Up</strong>
-          {$ ctrl.listener.admin_state_up | yesno $}
+          {$ ctrl.l7policy.admin_state_up | yesno $}
         </li>
       </ul>
     </div>
@@ -35,8 +32,8 @@
     <div class="col-xs-12 col-sm-3 text-right details-item-actions">
       <actions allowed="ctrl.resourceType.itemActions"
                type="row"
-               item="ctrl.listener"
-               ng-if="ctrl.listener"
+               item="ctrl.l7policy"
+               ng-if="ctrl.l7policy"
                class="actions_column pull-right"
                result-handler="ctrl.resultHandler"></actions>
     </div>
@@ -46,23 +43,17 @@
   <uib-tab heading="{$ 'Overview' | translate $}">
     <div class="col-md-6 detail">
       <hz-resource-property-list
-         resource-type-name="OS::Octavia::Listener"
+         resource-type-name="OS::Octavia::L7Policy"
          cls="dl-horizontal"
-         item="ctrl.listener"
+         item="ctrl.l7policy"
          property-groups="[[
          'id', 'name', 'description', 'project_id', 'created_at', 'updated_at',
-         'connection_limit', 'default_pool_id']]">
+         'redirect_pool_id', 'redirect_url', 'position', 'listener_id']]">
       </hz-resource-property-list>
     </div>
   </uib-tab>
-  <uib-tab heading="{$ 'Pools' | translate $}">
-    <hz-resource-table resource-type-name="OS::Octavia::Pool"
-                       track-by="trackBy"
-                       list-function-extra-params="ctrl.listFunctionExtraParams">
-    </hz-resource-table>
-  </uib-tab>
-  <uib-tab heading="{$ 'L7 Policies' | translate $}">
-    <hz-resource-table resource-type-name="OS::Octavia::L7Policy"
+  <uib-tab heading="{$ 'L7 Rules' | translate $}">
+    <hz-resource-table resource-type-name="OS::Octavia::L7Rule"
                        track-by="trackBy"
                        list-function-extra-params="ctrl.listFunctionExtraParams">
     </hz-resource-table>

@@ -1,0 +1,104 @@
+<div ng-controller="L7PolicyDetailsController as ctrl">
+  <p translate>Provide the details for the l7 policy.</p>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <label translate class="control-label" for="name">Name</label>
+        <input name="name" id="name" type="text" class="form-control"
+               ng-model="model.spec.l7policy.name">
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <label translate class="control-label" for="description">Description</label>
+        <input name="description" id="description" type="text" class="form-control"
+               ng-model="model.spec.l7policy.description">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group required">
+        <label class="control-label" for="action">
+          <translate>Action</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <select class="form-control" name="action" id="action"
+                ng-options="action for action in model.l7policyActions"
+                ng-model="model.spec.l7policy.action"
+                ng-required="true">
+        </select>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.spec.l7policy.action === 'REDIRECT_TO_URL'">
+      <div class="form-group required">
+        <label class="control-label" for="redirect_url">
+          <translate>Redirect URL</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <input name="redirect_url" id="redirect_url" placeholder="https://www.example.com" type="url" class="form-control"
+               ng-model="model.spec.l7policy.redirect_url" ng-patter="/^http[s]?:\/\//" ng-required="true">
+        <span class="help-block" ng-show="!l7policyDetailsForm.redirect_url.$valid && l7policyDetailsForm.redirect_url.$dirty">
+          {$ ::ctrl.redirectUrlError $}
+        </span>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.spec.l7policy.action === 'REDIRECT_TO_POOL'">
+      <div class="form-group required">
+        <label translate class="control-label" for="redirect_pool_id">
+          <translate>Redirect Pool ID</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <select class="form-control" name="redirect_pool_id" id="redirect_pool_id"
+                ng-model="model.spec.l7policy.redirect_pool_id" ng-required="true">
+          <option ng-repeat="pool_id in model.spec.availablePools" value="{$ pool_id $}">
+            {$ pool_id $}
+          </option>
+        </select>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <label translate class="control-label" for="position">Position</label>
+        <input name="position" id="position" type="number" class="form-control"
+               ng-model="model.spec.l7policy.position" ng-pattern="/^\d+$/" min="1" max="2147483647">
+        <span class="help-block" ng-show="!l7policyDetailsForm.position.$valid && l7policyDetailsForm.position.$dirty">
+          {$ ::ctrl.positionError $}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <label class="control-label required" translate>Admin State Up</label>
+        <div class="form-field">
+          <div class="btn-group">
+            <label class="btn btn-default"
+                   ng-repeat="option in ctrl.adminStateUpOptions"
+                   ng-model="model.spec.l7policy.admin_state_up"
+                   uib-btn-radio="option.value">{$ ::option.label $}</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,5 +1,5 @@
 /*
- * Copyright 2015 IBM Corp.
+ * Copyright 2018 Walmart.
  *
  * Licensed under the Apache License, Version 2.0 (the 'License');
  * you may not use this file except in compliance with the License.
@@ -17,28 +17,29 @@
   'use strict';
 
   angular
-    .module('horizon.dashboard.project.lbaasv2.loadbalancers')
-    .controller('CreateLoadBalancerWizardController', CreateLoadBalancerWizardController);
+    .module('horizon.dashboard.project.lbaasv2.l7policies')
+    .controller('CreateL7PolicyWizardController', CreateL7PolicyWizardController);
 
-  CreateLoadBalancerWizardController.$inject = [
+  CreateL7PolicyWizardController.$inject = [
     '$scope',
+    '$routeParams',
     'horizon.dashboard.project.lbaasv2.workflow.model',
     'horizon.dashboard.project.lbaasv2.workflow.workflow',
     'horizon.framework.util.i18n.gettext'
   ];
 
-  function CreateLoadBalancerWizardController($scope, model, workflowService, gettext) {
+  function CreateL7PolicyWizardController($scope, $routeParams, model, workflowService, gettext) {
+    var loadbalancerId = $routeParams.loadbalancerId;
+    var listenerId = $routeParams.listenerId;
     var scope = $scope;
-    // Note: We set these attributes on the $scope so that the scope inheritance used all through
-    // the wizard continues to work. Using local var to appease eslint angular/ng_controller_as.
     scope.model = model;
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
-      gettext('Create Load Balancer'),
-      'fa fa-cloud-download',
-      ['loadbalancer', 'listener', 'certificates', 'pool', 'members', 'monitor']
+        gettext('Create L7 Policy'),
+        'fa fa-cloud-download',
+        ['l7policy']
     );
-    scope.model.initialize('loadbalancer');
+    scope.model.initialize('l7policy', false, loadbalancerId, listenerId);
   }
 
 })();
