@@ -31,7 +31,11 @@
       spyOn(policy, 'ifAllowed').and.returnValue(true);
       expect(service.allowed()).toBe(true);
       expect(policy.ifAllowed)
-        .toHaveBeenCalledWith({rules: [['neutron', 'create_health_monitor']]});
+        .toHaveBeenCalledWith({
+          rules: [[
+            'load-balancer', 'os_load-balancer_api:healthmonitor:post'
+          ]]
+        });
     });
 
     it('should handle the action result properly', function() {

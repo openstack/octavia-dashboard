@@ -1,0 +1,18 @@
+---
+features:
+  - |
+    Adds RBAC support to the dashboard panels.
+upgrade:
+  - |
+    To enable RBAC support in the Octavia dashboard you need to install the
+    generated octavia_dashboard/conf/octavia_policy.yaml file into your
+    horizon openstack_dashboard/conf/ directory and also
+    copy octavia_dashboard/local_settings.d/_1499_load_balancer_settings.py
+    file into your horizon openstack_dashboard/local/local_settings.d/
+    directory.
+security:
+  - |
+    RBAC can now be enabled for the Octavia dashboard. Whether you enable RBAC
+    in the dashboard or not, the API RBAC will still be in effect. Enabling
+    RBAC in the dashboard will enforce the policies in the dashboard before
+    the API call is made.

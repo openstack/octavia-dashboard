@@ -156,7 +156,9 @@
     }
 
     function allowed() {
-      return policy.ifAllowed({ rules: [['neutron', 'delete_listener']] });
+      return policy.ifAllowed({
+        rules: [['load-balancer', 'os_load-balancer_api:listener:delete']]
+      });
     }
 
     function deleteItem(id) {

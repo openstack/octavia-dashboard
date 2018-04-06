@@ -46,7 +46,13 @@
     it('should check policy to allow updating member list', function() {
       spyOn(policy, 'ifAllowed').and.returnValue(true);
       expect(service.allowed()).toBe(true);
-      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'update_member_list']]});
+      expect(policy.ifAllowed).toHaveBeenCalledWith(
+        {
+          rules: [[
+            'load-balancer', 'os_load-balancer_api:pool:put'
+          ]]
+        }
+      );
     });
 
     it('should handle the action result properly', function() {

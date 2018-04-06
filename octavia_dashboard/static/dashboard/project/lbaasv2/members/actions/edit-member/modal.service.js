@@ -71,9 +71,9 @@
     ////////////
 
     function allowed(/*item*/) {
-      // This rule is made up and should therefore always pass. At some point there will
-      // likely be a valid rule similar to this that we will want to use.
-      return policy.ifAllowed({ rules: [['neutron', 'pool_member_update']] });
+      return policy.ifAllowed({
+        rules: [['load-balancer', 'os_load-balancer_api:member:put']]
+      });
     }
 
     /**

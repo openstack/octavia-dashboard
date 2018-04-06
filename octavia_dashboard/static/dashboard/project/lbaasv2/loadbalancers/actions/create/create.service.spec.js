@@ -44,7 +44,13 @@
     it('should check policy to allow creating a load balancer', function() {
       spyOn(policy, 'ifAllowed').and.returnValue(true);
       expect(service.allowed()).toBe(true);
-      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'create_loadbalancer']]});
+      expect(policy.ifAllowed).toHaveBeenCalledWith(
+        {
+          rules: [[
+            'load-balancer', 'os_load-balancer_api:loadbalancer:post'
+          ]]
+        }
+      );
     });
 
     it('should handle the action result properly', function() {

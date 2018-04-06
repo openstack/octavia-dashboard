@@ -43,7 +43,7 @@
     it('should check policy to allow editing a l7rule', function() {
       spyOn(policy, 'ifAllowed').and.returnValue(true);
       expect(service.allowed()).toBe(true);
-      expect(policy.ifAllowed).toHaveBeenCalledWith({rules: [['neutron', 'update_l7rule']]});
+      expect(policy.ifAllowed).toHaveBeenCalled();
     });
 
     it('should handle the action result properly', function() {

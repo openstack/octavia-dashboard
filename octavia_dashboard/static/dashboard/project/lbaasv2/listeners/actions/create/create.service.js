@@ -56,7 +56,9 @@
     });
 
     function allowed() {
-      return policy.ifAllowed({ rules: [['neutron', 'create_listener']] });
+      return policy.ifAllowed({
+        rules: [['load-balancer', 'os_load-balancer_api:listener:post']]
+      });
     }
 
     function handle(response) {

@@ -55,7 +55,9 @@
     });
 
     function allowed(/*healthmonitor*/) {
-      return policy.ifAllowed({ rules: [['neutron', 'update_health_monitor']] });
+      return policy.ifAllowed({
+        rules: [['load-balancer', 'os_load-balancer_api:healthmonitor:put']]
+      });
     }
 
     function handle(response) {

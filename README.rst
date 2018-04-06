@@ -38,12 +38,28 @@ Howto
 
 2. Copy ``_1482_project_load_balancer_panel.py`` in
    ``octavia_dashboard/enabled`` directory
-   to ``openstack_dashboard/local/enabled``.
+   to ``openstack_dashboard/local/enabled``::
 
-3. (Optional) Copy the policy file into horizon's policy files folder, and
-   add this config ``POLICY_FILES``::
+    $ cp -a \
+      ${OCTAVIA_DASHBOARD_DIR}/octavia_dashboard/enabled/_1482_*.py \
+      ${HORIZON_DIR}/openstack_dashboard/local/enabled/
 
-    'octavia': 'octavia_policy.json',
+3. (Optional) Generate the policy file and copy into horizon's policy files
+   folder, and copy ``_1499_load_balancer_settings.py`` in
+   ``octavia_dashboard/local_settings.d`` directory
+   to ``openstack_dashboard/local/local_settings.d``::
+
+    $ oslopolicy-policy-generator \
+      --config-file \
+      ${OCTAVIA_DIR}/etc/policy/octavia-policy-generator.conf \
+      --output-file \
+      ${OCTAVIA_DASHBOARD_DIR}/octavia_dashboard/conf/octavia_policy.yaml
+    $ cp -a \
+      ${OCTAVIA_DASHBOARD_DIR}/octavia_dashboard/conf/octavia_policy.yaml \
+      ${HORIZON_DIR}/openstack_dashboard/conf/
+    $ cp -a \
+      ${OCTAVIA_DASHBOARD_DIR}/octavia_dashboard/local_settings.d/_1499_*.py \
+      ${HORIZON_DIR}/openstack_dashboard/local/local_settings.d/
 
 4. Django has a compressor feature that performs many enhancements for the
    delivery of static files. If the compressor feature is enabled in your

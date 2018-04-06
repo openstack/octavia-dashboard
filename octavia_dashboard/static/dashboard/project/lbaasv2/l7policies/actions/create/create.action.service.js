@@ -61,7 +61,7 @@
 
     function allowed() {
       return $q.all([
-        policy.ifAllowed({ rules: [['neutron', 'create_l7policy']] })
+        policy.ifAllowed({ rules: [['load-balancer', 'os_load-balancer_api:l7policy:post']] })
       ]);
     }
 

@@ -54,7 +54,9 @@
     });
 
     function allowed() {
-      return policy.ifAllowed({ rules: [['neutron', 'create_health_monitor']] });
+      return policy.ifAllowed({
+        rules: [['load-balancer', 'os_load-balancer_api:healthmonitor:post']]
+      });
     }
 
     function handle(response) {
