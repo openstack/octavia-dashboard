@@ -171,6 +171,10 @@ def create_listener(request, **kwargs):
         sni_container_refs=None,
         admin_state_up=data['listener'].get('admin_state_up'),
         insert_headers=data['listener'].get('insert_headers'),
+        timeout_client_data=data['listener'].get('timeout_client_data'),
+        timeout_member_connect=data['listener'].get('timeout_member_connect'),
+        timeout_member_data=data['listener'].get('timeout_member_data'),
+        timeout_tcp_inspect=data['listener'].get('timeout_tcp_inspect'),
     )
 
     if data.get('pool'):
@@ -396,6 +400,10 @@ def update_listener(request, **kwargs):
         admin_state_up=data['listener'].get('admin_state_up'),
         default_pool_id=default_pool_id,
         insert_headers=data['listener'].get('insert_headers'),
+        timeout_client_data=data['listener'].get('timeout_client_data'),
+        timeout_member_connect=data['listener'].get('timeout_member_connect'),
+        timeout_member_data=data['listener'].get('timeout_member_data'),
+        timeout_tcp_inspect=data['listener'].get('timeout_tcp_inspect'),
     )
 
     if data.get('pool'):

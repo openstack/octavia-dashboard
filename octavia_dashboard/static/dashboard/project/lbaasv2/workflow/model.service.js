@@ -153,7 +153,11 @@
           admin_state_up: true,
           default_pool: null,
           default_pool_id: null,
-          insert_headers: {}
+          insert_headers: {},
+          timeout_client_data: 50000,
+          timeout_member_connect: 5000,
+          timeout_member_data: 50000,
+          timeout_tcp_inspect: 0
         },
         l7policy: {
           id: null,
@@ -744,6 +748,10 @@
       spec.admin_state_up = listener.admin_state_up;
       spec.default_pool_id = listener.default_pool_id;
       spec.insert_headers = listener.insert_headers;
+      spec.timeout_client_data = listener.timeout_client_data;
+      spec.timeout_member_connect = listener.timeout_member_connect;
+      spec.timeout_member_data = listener.timeout_member_data;
+      spec.timeout_tcp_inspect = listener.timeout_tcp_inspect;
     }
 
     function setL7PolicySpec(l7policy) {

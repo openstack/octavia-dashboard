@@ -52,6 +52,7 @@
     ctrl.connectionLimitError = gettext(
       'The connection limit must be a number greater than or equal to -1.'
     );
+    ctrl.timeoutError = gettext('The timeout must be a number between 0 and 31536000000.');
 
     ////////////
 
