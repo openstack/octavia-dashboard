@@ -51,7 +51,7 @@
         $scope: scope,
         loadbalancer: { id: '123' },
         listener: {},
-        pool: { id: '123' },
+        pool: { id: '123', provisioning_status: 'ACTIVE' },
         'horizon.framework.conf.resource-type-registry.service': service,
         'horizon.framework.util.actions.action-result.service': actionResultService,
         'horizon.framework.widgets.modal-wait-spinner.service': {
@@ -63,7 +63,7 @@
         $scope: scope,
         loadbalancer: { id: '123' },
         listener: { id: '123' },
-        pool: { id: '123' },
+        pool: { id: '123', provisioning_status: 'ACTIVE' },
         'horizon.framework.conf.resource-type-registry.service': service,
         'horizon.framework.util.actions.action-result.service': actionResultService,
         'horizon.framework.widgets.modal-wait-spinner.service': {
@@ -78,6 +78,30 @@
       expect(ctrl.loadbalancer).toBeDefined();
       expect(ctrl.listener).toBeDefined();
       expect(ctrl.pool).toBeDefined();
+    });
+
+    describe('data watchers', function() {
+
+      var events, loadBalancersService;
+      beforeEach(inject(function($injector) {
+        events = $injector.get('horizon.dashboard.project.lbaasv2.events');
+        loadBalancersService = $injector.get(
+          'horizon.dashboard.project.lbaasv2.loadbalancers.service'
+        );
+      }));
+
+      it('should refresh on provisioning status change', function() {
+        var loadFunctionDeferred = $q.defer();
+        spyOn(ctrl.resourceType, 'load').and.returnValue(loadFunctionDeferred.promise);
+        ctrl.pool = { id: '123', provisioning_status: 'PENDING_UPDATE' };
+        scope.$apply();
+        $timeout.flush();
+        expect(ctrl.resourceType.load).toHaveBeenCalled();
+        spyOn(loadBalancersService.backoff, 'reset').and.callThrough();
+        scope.$broadcast(events.ACTION_DONE);
+        expect(loadBalancersService.backoff.reset).toHaveBeenCalled();
+      });
+
     });
 
     describe('resultHandler', function() {

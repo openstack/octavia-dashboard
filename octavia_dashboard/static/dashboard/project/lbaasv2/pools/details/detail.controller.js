@@ -22,6 +22,9 @@
     .controller('PoolDetailController', PoolDetailController);
 
   PoolDetailController.$inject = [
+    '$timeout',
+    'horizon.dashboard.project.lbaasv2.events',
+    '$scope',
     'loadbalancer',
     'listener',
     'pool',
@@ -39,6 +42,9 @@
    * @description
    * Controller for the LBaaS v2 pool detail page.
    *
+   * @param $timeout The angular timeout object.
+   * @param events The LBaaS v2 events object.
+   * @param $scope The angular scope object.
    * @param loadbalancer The loadbalancer object.
    * @param listener The listener object.
    * @param pool The pool object.
@@ -52,7 +58,8 @@
    */
 
   function PoolDetailController(
-    loadbalancer, listener, pool, loadBalancersService,
+    $timeout, events,
+    $scope, loadbalancer, listener, pool, loadBalancersService,
     resourceType, typeRegistry, spinnerService, $q
   ) {
     var ctrl = this;
@@ -79,6 +86,34 @@
 
     ctrl.resultHandler = actionResultHandler;
 
+    $scope.$watch(
+      function() {
+        return ctrl.pool;
+      },
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+        $scope.loadTimeout = $timeout(function() {
+          ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
+          ctrl.context.loadPromise.then(loadData);
+        }, loadBalancersService.backoff.duration());
+      }
+    );
+
+    $scope.$on(
+      events.ACTION_DONE,
+      function() {
+        loadBalancersService.backoff.reset();
+        ctrl.pool = angular.copy(ctrl.pool);
+      }
+    );
+
+    $scope.$on(
+      '$destroy',
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+      }
+    );
+
     function actionResultHandler(returnValue) {
       return $q.when(returnValue, actionSuccessHandler);
     }
@@ -90,6 +125,11 @@
       ctrl.pool = response.data;
       ctrl.pool.loadbalancerId = ctrl.loadbalancer.id;
       ctrl.pool.listenerId = ctrl.listener.id;
+      ctrl.listFunctionExtraParams = {
+        loadbalancerId: ctrl.loadbalancer.id,
+        listenerId: ctrl.listener.id,
+        poolId: ctrl.pool.id
+      };
     }
 
     function actionSuccessHandler(result) {

@@ -90,6 +90,27 @@
       null: gettext('None')
     };
 
+    var backoff = (function() {
+      var min = 250;
+      var max = 5000;
+      var factor = 2;
+      var attempts = 0;
+
+      function duration() {
+        var ms = min * Math.pow(factor, attempts++);
+        return Math.min(ms, max) | 0;
+      }
+
+      function reset() {
+        attempts = 0;
+      }
+
+      return {
+        duration: duration,
+        reset: reset
+      };
+    }());
+
     var service = {
       operatingStatus: operatingStatus,
       provisioningStatus: provisioningStatus,
@@ -120,7 +141,8 @@
       getHealthMonitorPromise: getHealthMonitorPromise,
       getHealthMonitorsPromise: getHealthMonitorsPromise,
       getHealthMonitorDetailsPath: getHealthMonitorDetailsPath,
-      isActionable: isActionable
+      isActionable: isActionable,
+      backoff: backoff
     };
 
     return service;

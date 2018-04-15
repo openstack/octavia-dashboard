@@ -22,6 +22,9 @@
     .controller('LoadBalancerDetailController', LoadBalancerDetailController);
 
   LoadBalancerDetailController.$inject = [
+    '$timeout',
+    'horizon.dashboard.project.lbaasv2.events',
+    '$scope',
     'loadbalancer',
     'horizon.dashboard.project.lbaasv2.loadbalancers.service',
     'horizon.dashboard.project.lbaasv2.loadbalancers.resourceType',
@@ -37,6 +40,9 @@
    * @description
    * Controller for the LBaaS v2 load balancers detail page.
    *
+   * @param $timeout The angular timeout object.
+   * @param events The LBaaS v2 events object.
+   * @param $scope The angular scope object.
    * @param loadbalancer The loadbalancer object.
    * @param loadBalancersService The LBaaS v2 load balancers service.
    * @param resourceType The load balancer resource type.
@@ -48,8 +54,9 @@
    */
 
   function LoadBalancerDetailController(
-    loadbalancer, loadBalancersService, resourceType, typeRegistry,
-    spinnerService, $q
+    $timeout, events,
+    $scope, loadbalancer, loadBalancersService,
+    resourceType, typeRegistry, spinnerService, $q
   ) {
     var ctrl = this;
 
@@ -65,6 +72,34 @@
 
     ctrl.resultHandler = actionResultHandler;
 
+    $scope.$watch(
+      function() {
+        return ctrl.loadbalancer;
+      },
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+        $scope.loadTimeout = $timeout(function() {
+          ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
+          ctrl.context.loadPromise.then(loadData);
+        }, loadBalancersService.backoff.duration());
+      }
+    );
+
+    $scope.$on(
+      events.ACTION_DONE,
+      function() {
+        loadBalancersService.backoff.reset();
+        ctrl.loadbalancer = angular.copy(ctrl.loadbalancer);
+      }
+    );
+
+    $scope.$on(
+      '$destroy',
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+      }
+    );
+
     function actionResultHandler(returnValue) {
       return $q.when(returnValue, actionSuccessHandler);
     }
@@ -75,6 +110,9 @@
       ctrl.resourceType.initActions();
       ctrl.loadbalancer = response.data;
       ctrl.loadbalancer.floating_ip_address = response.data.floating_ip.ip;
+      ctrl.listFunctionExtraParams = {
+        loadbalancerId: ctrl.loadbalancer.id
+      };
     }
 
     function actionSuccessHandler(result) {

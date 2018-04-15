@@ -21,6 +21,9 @@
     .controller('L7PolicyDetailController', L7PolicyDetailController);
 
   L7PolicyDetailController.$inject = [
+    '$timeout',
+    'horizon.dashboard.project.lbaasv2.events',
+    '$scope',
     'loadbalancer',
     'listener',
     'l7policy',
@@ -38,6 +41,9 @@
    * @description
    * Controller for the LBaaS v2 l7policy detail page.
    *
+   * @param $timeout The angular timeout object.
+   * @param events The LBaaS v2 events object.
+   * @param $scope The angular scope object.
    * @param loadbalancer The loadbalancer object.
    * @param listener The listener object.
    * @param l7policy The l7policy object.
@@ -51,7 +57,8 @@
    */
 
   function L7PolicyDetailController(
-    loadbalancer, listener, l7policy, loadBalancersService,
+    $timeout, events,
+    $scope, loadbalancer, listener, l7policy, loadBalancersService,
     resourceType, typeRegistry, spinnerService, $q
   ) {
     var ctrl = this;
@@ -73,6 +80,34 @@
 
     ctrl.resultHandler = actionResultHandler;
 
+    $scope.$watch(
+      function() {
+        return ctrl.l7policy;
+      },
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+        $scope.loadTimeout = $timeout(function() {
+          ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
+          ctrl.context.loadPromise.then(loadData);
+        }, loadBalancersService.backoff.duration());
+      }
+    );
+
+    $scope.$on(
+      events.ACTION_DONE,
+      function() {
+        loadBalancersService.backoff.reset();
+        ctrl.l7policy = angular.copy(ctrl.l7policy);
+      }
+    );
+
+    $scope.$on(
+      '$destroy',
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+      }
+    );
+
     function actionResultHandler(returnValue) {
       return $q.when(returnValue, actionSuccessHandler);
     }
@@ -84,6 +119,11 @@
       ctrl.l7policy = response.data;
       ctrl.l7policy.loadbalancerId = ctrl.loadbalancer.id;
       ctrl.l7policy.listenerId = ctrl.listener.id;
+      ctrl.listFunctionExtraParams = {
+        loadbalancerId: ctrl.loadbalancer.id,
+        listenerId: ctrl.listener.id,
+        l7policyId: ctrl.l7policy.id
+      };
     }
 
     function actionSuccessHandler(result) {

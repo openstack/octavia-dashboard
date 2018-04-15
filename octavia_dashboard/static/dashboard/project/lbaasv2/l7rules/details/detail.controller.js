@@ -21,6 +21,9 @@
     .controller('L7RuleDetailController', L7RuleDetailController);
 
   L7RuleDetailController.$inject = [
+    '$timeout',
+    'horizon.dashboard.project.lbaasv2.events',
+    '$scope',
     'loadbalancer',
     'listener',
     'l7policy',
@@ -39,6 +42,9 @@
    * @description
    * Controller for the LBaaS v2 l7rule detail page.
    *
+   * @param $timeout The angular timeout object.
+   * @param events The LBaaS v2 events object.
+   * @param $scope The angular scope object.
    * @param loadbalancer The loadbalancer object.
    * @param listener The listener object.
    * @param l7policy The l7policy object.
@@ -53,7 +59,8 @@
    */
 
   function L7RuleDetailController(
-    loadbalancer, listener, l7policy, l7rule, loadBalancersService,
+    $timeout, events,
+    $scope, loadbalancer, listener, l7policy, l7rule, loadBalancersService,
     resourceType, typeRegistry, spinnerService, $q
   ) {
     var ctrl = this;
@@ -78,6 +85,36 @@
     ctrl.context.l7ruleId = l7rule.id;
 
     ctrl.resultHandler = actionResultHandler;
+
+    $scope.$watch(
+      function() {
+        return ctrl.l7rule;
+      },
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+        $scope.loadTimeout = $timeout(function() {
+          ctrl.context.loadPromise = ctrl.resourceType.load(
+            ctrl.context.l7policyId,
+            ctrl.context.l7ruleId
+          );
+          ctrl.context.loadPromise.then(loadData);
+        }, loadBalancersService.backoff.duration());
+      }
+    );
+
+    $scope.$on(
+      events.ACTION_DONE,
+      function() {
+        loadBalancersService.backoff.reset();
+      }
+    );
+
+    $scope.$on(
+      '$destroy',
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+      }
+    );
 
     function actionResultHandler(returnValue) {
       return $q.when(returnValue, actionSuccessHandler);

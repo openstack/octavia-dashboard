@@ -52,6 +52,7 @@
     .constant('horizon.dashboard.project.lbaasv2.popovers', {
       ipAddresses: '<ul><li ng-repeat="addr in member.addresses">{$ addr.ip $}</li></ul>'
     })
+    .constant('horizon.dashboard.project.lbaasv2.events', events())
     .run(['$rootScope', '$location', function ($rootScope, $location) {
       $rootScope.$on('$routeChangeError', function() {
         $location.path('project/load_balancer');
@@ -63,6 +64,12 @@
     '$windowProvider',
     '$routeProvider'
   ];
+
+  function events() {
+    return {
+      ACTION_DONE: 'horizon.dashboard.project.lbaasv2.ACTION_DONE'
+    };
+  }
 
   function config($provide, $windowProvider, $routeProvider) {
     var basePath = $windowProvider.$get().STATIC_URL + 'dashboard/project/lbaasv2/';
@@ -81,7 +88,9 @@
 
     $routeProvider
       .when(loadbalancers, {
-        templateUrl: basePath + 'loadbalancers/panel.html'
+        templateUrl: basePath + 'loadbalancers/panel.html',
+        controller: 'PanelController',
+        controllerAs: 'ctrl'
       })
       .when(loadbalancers + '/:loadbalancerId', {
         templateUrl: basePath + 'loadbalancers/details/detail.html',
