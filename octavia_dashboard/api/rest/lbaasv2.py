@@ -126,10 +126,10 @@ def create_loadbalancer(request):
     conn = _get_sdk_connection(request)
     loadbalancer = conn.load_balancer.create_load_balancer(
         project_id=request.user.project_id,
-        vip_subnet_id=data['loadbalancer']['subnet'],
+        vip_subnet_id=data['loadbalancer']['vip_subnet_id'],
         name=data['loadbalancer'].get('name'),
         description=data['loadbalancer'].get('description'),
-        vip_address=data['loadbalancer'].get('ip'),
+        vip_address=data['loadbalancer'].get('vip_address'),
         admin_state_up=data['loadbalancer'].get('admin_state_up')
     )
 
@@ -162,7 +162,7 @@ def create_listener(request, **kwargs):
     # https://bugs.launchpad.net/octavia/+bug/1714294
     listener = conn.load_balancer.create_listener(
         protocol=data['listener']['protocol'],
-        protocol_port=data['listener']['port'],
+        protocol_port=data['listener']['protocol_port'],
         load_balancer_id=kwargs['loadbalancer_id'],
         name=data['listener'].get('name'),
         description=data['listener'].get('description'),
@@ -227,23 +227,11 @@ def create_pool(request, **kwargs):
     """
     data = request.DATA
 
-    session_persistence_type = data['pool'].get('type')
-    if session_persistence_type is None:
-        session_persistence = None
-    else:
-        cookie = data['pool'].get('cookie')
-        if session_persistence_type != 'APP_COOKIE':
-            cookie = None
-        session_persistence = {
-            'type': session_persistence_type,
-            'cookie_name': cookie
-        }
-
     conn = _get_sdk_connection(request)
     pool = conn.load_balancer.create_pool(
         protocol=data['pool']['protocol'],
-        lb_algorithm=data['pool']['method'],
-        session_persistence=session_persistence,
+        lb_algorithm=data['pool']['lb_algorithm'],
+        session_persistence=data['pool'].get('session_persistence'),
         listener_id=kwargs['listener_id'],
         loadbalancer_id=kwargs['loadbalancer_id'],
         name=data['pool'].get('name'),
@@ -273,14 +261,14 @@ def create_health_monitor(request, **kwargs):
     conn = _get_sdk_connection(request)
     health_mon = conn.load_balancer.create_health_monitor(
         type=data['monitor']['type'],
-        delay=data['monitor']['interval'],
+        delay=data['monitor']['delay'],
         timeout=data['monitor']['timeout'],
-        max_retries=data['monitor']['retry'],
-        max_retries_down=data['monitor']['retry_down'],
+        max_retries=data['monitor']['max_retries'],
+        max_retries_down=data['monitor']['max_retries_down'],
         pool_id=kwargs['pool_id'],
-        http_method=data['monitor'].get('method'),
-        url_path=data['monitor'].get('path'),
-        expected_codes=data['monitor'].get('status'),
+        http_method=data['monitor'].get('http_method'),
+        url_path=data['monitor'].get('url_path'),
+        expected_codes=data['monitor'].get('expected_codes'),
         admin_state_up=data['monitor'].get('admin_state_up')
     )
 
@@ -311,8 +299,8 @@ def add_member(request, **kwargs):
     member = conn.load_balancer.create_member(
         pool_id,
         address=member['address'],
-        protocol_port=member['port'],
-        subnet_id=member['subnet'],
+        protocol_port=member['protocol_port'],
+        subnet_id=member['subnet_id'],
         weight=member.get('weight'),
         monitor_address=monitor_address if monitor_address else None,
         monitor_port=member.get('monitor_port'),
@@ -467,23 +455,11 @@ def update_pool(request, **kwargs):
     pool_id = data['pool'].get('id')
     loadbalancer_id = data.get('loadbalancer_id')
 
-    session_persistence_type = data['pool'].get('type')
-    if session_persistence_type is None:
-        session_persistence = None
-    else:
-        cookie = data['pool'].get('cookie')
-        if session_persistence_type != 'APP_COOKIE':
-            cookie = None
-        session_persistence = {
-            'type': session_persistence_type,
-            'cookie_name': cookie
-        }
-
     conn = _get_sdk_connection(request)
     pool = conn.load_balancer.update_pool(
         pool=pool_id,
-        lb_algorithm=data['pool']['method'],
-        session_persistence=session_persistence,
+        lb_algorithm=data['pool']['lb_algorithm'],
+        session_persistence=data['pool'].get('session_persistence'),
         name=data['pool'].get('name'),
         description=data['pool'].get('description'),
         admin_state_up=data['pool'].get('admin_state_up')
@@ -521,13 +497,13 @@ def update_monitor(request, **kwargs):
     conn = _get_sdk_connection(request)
     healthmonitor = conn.load_balancer.update_health_monitor(
         monitor_id,
-        delay=data['monitor'].get('interval'),
+        delay=data['monitor'].get('delay'),
         timeout=data['monitor'].get('timeout'),
-        max_retries=data['monitor'].get('retry'),
-        max_retries_down=data['monitor'].get('retry_down'),
-        http_method=data['monitor'].get('method'),
-        url_path=data['monitor'].get('path'),
-        expected_codes=data['monitor'].get('status'),
+        max_retries=data['monitor'].get('max_retries'),
+        max_retries_down=data['monitor'].get('max_retries_down'),
+        http_method=data['monitor'].get('http_method'),
+        url_path=data['monitor'].get('url_path'),
+        expected_codes=data['monitor'].get('expected_codes'),
         admin_state_up=data['monitor'].get('admin_state_up')
     )
 

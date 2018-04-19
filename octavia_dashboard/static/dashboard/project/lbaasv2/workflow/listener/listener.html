@@ -47,7 +47,7 @@
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
         <input name="port" id="port" type="number" class="form-control"
-               ng-model="model.spec.listener.port" ng-pattern="/^\d+$/" min="1" max="65535"
+               ng-model="model.spec.listener.protocol_port" ng-pattern="/^\d+$/" min="1" max="65535"
                ng-required="true" ng-disabled="model.context.id"
                validate-unique="model.listenerPorts">
         <span class="help-block" ng-show="(listenerDetailsForm.port.$error.number || listenerDetailsForm.port.$error.required) && listenerDetailsForm.port.$dirty">

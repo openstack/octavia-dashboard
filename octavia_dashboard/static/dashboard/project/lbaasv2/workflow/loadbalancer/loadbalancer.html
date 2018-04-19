@@ -28,7 +28,7 @@
         ng-class="{ 'has-error': loadBalancerDetailsForm.ip.$invalid && loadBalancerDetailsForm.ip.$dirty }">
         <label translate class="control-label" for="ip">IP address</label>
         <input name="ip" id="ip" type="text" class="form-control"
-               ng-model="model.spec.loadbalancer.ip" ng-pattern="::ctrl.ipPattern"
+               ng-model="model.spec.loadbalancer.vip_address" ng-pattern="::ctrl.ipPattern"
                ng-disabled="model.context.id">
         <span class="help-block" ng-show="loadBalancerDetailsForm.ip.$invalid && loadBalancerDetailsForm.ip.$dirty">
           {$ ::ctrl.ipError $}
@@ -44,7 +44,7 @@
         </label>
         <select class="form-control" name="subnet" id="subnet"
                 ng-options="subnet.name || subnet.id for subnet in model.subnets"
-                ng-model="model.spec.loadbalancer.subnet" ng-required="true"
+                ng-model="model.spec.loadbalancer.vip_subnet_id" ng-required="true"
                 ng-disabled="model.context.id">
         </select>
       </div>

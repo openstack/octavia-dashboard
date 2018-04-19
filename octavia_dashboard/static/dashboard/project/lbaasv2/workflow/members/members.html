@@ -68,7 +68,7 @@
               <div ng-if="!row.addresses" class="form-group required">
                 <select name="{$ ::row.id $}-subnet" class="form-control"
                         ng-options="subnet.name for subnet in model.subnets"
-                        ng-model="row.subnet" ng-required="true"
+                        ng-model="row.subnet_id" ng-required="true"
                         ng-disabled="row.allocatedMember">
                 </select>
               </div>
@@ -78,7 +78,7 @@
               <div class="form-group required member-port"
                    ng-class="{ 'has-error': memberDetailsForm['{$ ::row.id $}-port'].$invalid && memberDetailsForm['{$ ::row.id $}-port'].$dirty }">
                 <input name="{$ ::row.id $}-port" type="number" class="form-control"
-                       ng-model="row.port" ng-pattern="/^\d+$/" min="1" max="65535"
+                       ng-model="row.protocol_port" ng-pattern="/^\d+$/" min="1" max="65535"
                        ng-required="true" ng-disabled="row.allocatedMember"
                        popover-placement="top" popover-append-to-body="true"
                        popover-trigger="focus"

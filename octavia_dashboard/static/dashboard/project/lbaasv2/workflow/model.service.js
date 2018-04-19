@@ -57,8 +57,7 @@
     novaAPI,
     lbaasv2API,
     barbicanAPI,
-    serviceCatalog,
-    gettext
+    serviceCatalog
   ) {
     var ports, keymanagerPromise;
 
@@ -82,7 +81,6 @@
 
       spec: null,
 
-      visibleResources: [],
       subnets: [],
       members: [],
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS'],
@@ -132,7 +130,6 @@
         submit: null
       };
 
-      model.visibleResources = [];
       model.certificates = [];
       model.listenerPorts = [];
 
@@ -142,23 +139,24 @@
         loadbalancer: {
           name: null,
           description: null,
-          ip: null,
-          subnet: null,
+          vip_address: null,
+          vip_subnet_id: null,
           admin_state_up: true
         },
         listener: {
           id: null,
-          name: gettext('Listener 1'),
+          name: null,
           description: null,
           protocol: null,
-          port: null,
+          protocol_port: null,
           connection_limit: -1,
           admin_state_up: true,
+          default_pool: null,
           default_pool_id: null
         },
         l7policy: {
           id: null,
-          name: gettext('L7 Policy 1'),
+          name: null,
           description: null,
           action: null,
           position: null,
@@ -177,24 +175,27 @@
         },
         pool: {
           id: null,
-          name: gettext('Pool 1'),
+          name: null,
           description: null,
           protocol: null,
-          method: null,
-          type: null,
-          cookie: null,
+          lb_algorithm: null,
+          session_persistence: {
+            type: null,
+            cookie_name: null
+          },
           admin_state_up: true
         },
         monitor: {
           id: null,
+          name: null,
           type: null,
-          interval: 5,
-          retry: 3,
-          retry_down: 3,
+          delay: 5,
+          max_retries: 3,
+          max_retries_down: 3,
           timeout: 5,
-          method: 'GET',
-          status: '200',
-          path: '/',
+          http_method: 'GET',
+          expected_codes: '200',
+          url_path: '/',
           admin_state_up: true
         },
         members: [],
@@ -249,7 +250,6 @@
     function initCreateLoadBalancer(keymanagerPromise) {
       model.context.submit = createLoadBalancer;
       return $q.all([
-        lbaasv2API.getLoadBalancers().then(onGetLoadBalancers),
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getPorts().then(onGetPorts),
         novaAPI.getServers().then(onGetServers),
@@ -436,22 +436,22 @@
     function cleanFinalSpecLoadBalancer(finalSpec) {
       var context = model.context;
 
-      // Load balancer requires subnet
-      if (!finalSpec.loadbalancer.subnet) {
+      // Load balancer requires vip_subnet_id
+      if (!finalSpec.loadbalancer.vip_subnet_id) {
         delete finalSpec.loadbalancer;
       } else {
-        finalSpec.loadbalancer.subnet = finalSpec.loadbalancer.subnet.id;
+        finalSpec.loadbalancer.vip_subnet_id = finalSpec.loadbalancer.vip_subnet_id.id;
       }
 
       // Cannot edit the IP or subnet
       if (context.resource === 'loadbalancer' && context.id) {
-        delete finalSpec.subnet;
-        delete finalSpec.ip;
+        delete finalSpec.vip_subnet_id;
+        delete finalSpec.vip_address;
       }
     }
 
     function cleanFinalSpecListener(finalSpec) {
-      if (!finalSpec.listener.protocol || !finalSpec.listener.port) {
+      if (!finalSpec.listener.protocol || !finalSpec.listener.protocol_port) {
         // Listener requires protocol and port
         delete finalSpec.listener;
         delete finalSpec.certificates;
@@ -470,13 +470,20 @@
     function cleanFinalSpecPool(finalSpec) {
 
       // Pool requires method
-      if (!finalSpec.pool.method) {
+      if (!finalSpec.pool.lb_algorithm) {
         delete finalSpec.pool;
       } else {
         // The pool protocol must be HTTP if the listener protocol is TERMINATED_HTTPS and
         // otherwise has to match it.
         var protocol = finalSpec.listener ? finalSpec.listener.protocol : finalSpec.pool.protocol;
         finalSpec.pool.protocol = protocol === 'TERMINATED_HTTPS' ? 'HTTP' : protocol;
+        if (angular.isObject(finalSpec.pool.session_persistence)) {
+          if (!finalSpec.pool.session_persistence.type) {
+            finalSpec.pool.session_persistence = null;
+          } else if (finalSpec.pool.session_persistence.type !== 'APP_COOKIE') {
+            finalSpec.pool.session_persistence.cookie_name = null;
+          }
+        }
       }
     }
 
@@ -488,7 +495,7 @@
 
       var members = [];
       angular.forEach(finalSpec.members, function cleanMember(member) {
-        if (member.address && member.port) {
+        if (member.address && member.protocol_port) {
           var propsToRemove = ['name', 'description', 'addresses', 'allocatedMember'];
           propsToRemove.forEach(function deleteProperty(prop) {
             if (angular.isDefined(member[prop])) {
@@ -496,12 +503,12 @@
             }
           });
           if (angular.isObject(member.address)) {
-            member.subnet = member.address.subnet;
+            member.subnet_id = member.address.subnet;
             member.address = member.address.ip;
-          } else if (member.subnet) {
-            member.subnet = member.subnet.id;
+          } else if (member.subnet_id) {
+            member.subnet_id = member.subnet_id.id;
           } else {
-            delete member.subnet;
+            delete member.subnet_id;
           }
           members.push(member);
         }
@@ -515,9 +522,9 @@
 
     function cleanFinalSpecMonitor(finalSpec) {
 
-      // Monitor requires an interval, retry count, and timeout
-      if (!angular.isNumber(finalSpec.monitor.interval) ||
-          !angular.isNumber(finalSpec.monitor.retry) ||
+      // Monitor requires delay, max_retries, and timeout
+      if (!angular.isNumber(finalSpec.monitor.delay) ||
+          !angular.isNumber(finalSpec.monitor.max_retries) ||
           !angular.isNumber(finalSpec.monitor.timeout)) {
         delete finalSpec.monitor;
         return;
@@ -525,9 +532,9 @@
 
       // Only include necessary monitor properties
       if (finalSpec.monitor.type !== 'HTTP') {
-        delete finalSpec.monitor.method;
-        delete finalSpec.monitor.status;
-        delete finalSpec.monitor.path;
+        delete finalSpec.monitor.http_method;
+        delete finalSpec.monitor.expected_codes;
+        delete finalSpec.monitor.url_path;
       }
     }
 
@@ -541,33 +548,10 @@
       });
     }
 
-    function onGetLoadBalancers(response) {
-      var existingNames = {};
-      angular.forEach(response.data.items, function nameExists(lb) {
-        existingNames[lb.name] = 1;
-      });
-      var name;
-      var index = response.data.items.length;
-      do {
-        index += 1;
-        name = interpolate(gettext('Load Balancer %(index)s'), { index: index }, true);
-      } while (name in existingNames);
-      model.spec.loadbalancer.name = name;
-    }
-
     function onGetListeners(response) {
-      var existingNames = {};
-      angular.forEach(response.data.items, function nameExists(listener) {
-        existingNames[listener.name] = 1;
+      angular.forEach(response.data.items, function addPort(listener) {
         model.listenerPorts.push(listener.protocol_port);
       });
-      var name;
-      var index = response.data.items.length;
-      do {
-        index += 1;
-        name = interpolate(gettext('Listener %(index)s'), { index: index }, true);
-      } while (name in existingNames);
-      model.spec.listener.name = name;
     }
 
     function onGetPools(response) {
@@ -634,7 +618,7 @@
         member.address = member.addresses[0];
 
         if (model.spec.pool.protocol) {
-          member.port = {HTTP: 80}[model.spec.pool.protocol];
+          member.protocol_port = {HTTP: 80}[model.spec.pool.protocol];
         }
       });
     }
@@ -675,7 +659,6 @@
       setListenerSpec(result.listener || result);
 
       if (result.listener) {
-        model.visibleResources.push('listener');
         model.spec.loadbalancer_id = result.listener.load_balancers[0].id;
 
         if (result.listener.protocol === 'TERMINATED_HTTPS') {
@@ -688,15 +671,12 @@
               });
             });
           });
-          model.visibleResources.push('certificates');
           $('#wizard-side-nav ul li:last').show();
         }
       }
 
       if (result.pool) {
         setPoolSpec(result.pool);
-        model.visibleResources.push('pool');
-        model.visibleResources.push('members');
 
         if (result.members) {
           setMembersSpec(result.members);
@@ -704,7 +684,6 @@
 
         if (result.monitor) {
           setMonitorSpec(result.monitor);
-          model.visibleResources.push('monitor');
         }
       }
     }
@@ -727,16 +706,12 @@
       setPoolSpec(result.pool || result);
 
       if (result.pool) {
-        model.visibleResources.push('pool');
-        model.visibleResources.push('members');
-
         if (result.members) {
           setMembersSpec(result.members);
         }
 
         if (result.monitor) {
           setMonitorSpec(result.monitor);
-          model.visibleResources.push('monitor');
         }
       }
     }
@@ -745,8 +720,8 @@
       var spec = model.spec.loadbalancer;
       spec.name = loadbalancer.name;
       spec.description = loadbalancer.description;
-      spec.ip = loadbalancer.vip_address;
-      spec.subnet = loadbalancer.vip_subnet_id;
+      spec.vip_address = loadbalancer.vip_address;
+      spec.vip_subnet_id = loadbalancer.vip_subnet_id;
       spec.admin_state_up = loadbalancer.admin_state_up;
     }
 
@@ -756,7 +731,7 @@
       spec.name = listener.name;
       spec.description = listener.description;
       spec.protocol = listener.protocol;
-      spec.port = listener.protocol_port;
+      spec.protocol_port = listener.protocol_port;
       spec.connection_limit = listener.connection_limit;
       spec.admin_state_up = listener.admin_state_up;
       spec.default_pool_id = listener.default_pool_id;
@@ -791,18 +766,9 @@
       spec.name = pool.name;
       spec.description = pool.description;
       spec.protocol = pool.protocol;
-      spec.method = pool.lb_algorithm;
+      spec.lb_algorithm = pool.lb_algorithm;
       spec.admin_state_up = pool.admin_state_up;
-      if (angular.isObject(pool.session_persistence)) {
-        var type = pool.session_persistence.type;
-        var cookie = pool.session_persistence.cookie_name;
-        if (type) {
-          spec.type = type;
-        }
-        if (type === 'APP_COOKIE' && cookie) {
-          spec.cookie = cookie;
-        }
-      }
+      spec.session_persistence = pool.session_persistence;
     }
 
     function setMembersSpec(membersList) {
@@ -813,8 +779,8 @@
         members.push({
           id: member.id,
           address: member.address,
-          subnet: mapSubnetObj(member.subnet_id),
-          port: member.protocol_port,
+          subnet_id: mapSubnetObj(member.subnet_id),
+          protocol_port: member.protocol_port,
           weight: member.weight,
           monitor_address: member.monitor_address,
           monitor_port: member.monitor_port,
@@ -829,13 +795,13 @@
       var spec = model.spec.monitor;
       spec.id = monitor.id;
       spec.type = monitor.type;
-      spec.interval = monitor.delay;
+      spec.delay = monitor.delay;
       spec.timeout = monitor.timeout;
-      spec.retry = monitor.max_retries;
-      spec.retry_down = monitor.max_retries_down;
-      spec.method = monitor.http_method;
-      spec.status = monitor.expected_codes;
-      spec.path = monitor.url_path;
+      spec.max_retries = monitor.max_retries;
+      spec.max_retries_down = monitor.max_retries_down;
+      spec.http_method = monitor.http_method;
+      spec.expected_codes = monitor.expected_codes;
+      spec.url_path = monitor.url_path;
       spec.admin_state_up = monitor.admin_state_up;
     }
 
@@ -884,9 +850,9 @@
 
     function initSubnet() {
       var subnet = model.subnets.filter(function filterSubnetsByLoadBalancer(s) {
-        return s.id === model.spec.loadbalancer.subnet;
+        return s.id === model.spec.loadbalancer.vip_subnet_id;
       })[0];
-      model.spec.loadbalancer.subnet = subnet;
+      model.spec.loadbalancer.vip_subnet_id = subnet;
     }
 
     function mapSubnetObj(subnetId) {

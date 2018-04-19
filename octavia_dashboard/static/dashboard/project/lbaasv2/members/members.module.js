@@ -163,11 +163,11 @@
       },
       monitor_address: {
         label: gettext('Monitor Address'),
-        filters: ['noName']
+        filters: ['noValue']
       },
       monitor_port: {
         label: gettext('Monitor Port'),
-        filters: ['noName']
+        filters: ['noValue']
       }
     };
   }

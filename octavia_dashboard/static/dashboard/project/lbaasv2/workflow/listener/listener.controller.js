@@ -60,7 +60,7 @@
       while (listenerPortExists(defaultPort)) {
         defaultPort += 1;
       }
-      $scope.model.spec.listener.port = defaultPort;
+      $scope.model.spec.listener.protocol_port = defaultPort;
 
       var members = $scope.model.members.concat($scope.model.spec.members);
       members.forEach(function setMemberPort(member) {

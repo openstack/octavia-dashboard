@@ -118,8 +118,8 @@
       $scope.model.spec.members.push({
         id: memberCounter++,
         address: null,
-        subnet: null,
-        port: { HTTP: 80 }[protocol],
+        subnet_id: null,
+        protocol_port: { HTTP: 80 }[protocol],
         weight: 1,
         monitor_address: null,
         monitor_port: null,
