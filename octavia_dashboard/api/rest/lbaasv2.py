@@ -392,6 +392,11 @@ def update_listener(request, **kwargs):
     data = request.DATA
     listener_id = data['listener'].get('id')
     loadbalancer_id = data.get('loadbalancer_id')
+    default_pool_id = data['listener'].get('default_pool_id')
+    if not default_pool_id:
+        default_pool_id = None
+    else:
+        default_pool_id = default_pool_id[:36]
 
     conn = _get_sdk_connection(request)
     listener = conn.load_balancer.update_listener(
@@ -400,7 +405,7 @@ def update_listener(request, **kwargs):
         description=data['listener'].get('description'),
         connection_limit=data['listener'].get('connection_limit'),
         admin_state_up=data['listener'].get('admin_state_up'),
-        default_pool_id=data['listener'].get('default_pool_id'),
+        default_pool_id=default_pool_id,
     )
 
     if data.get('pool'):

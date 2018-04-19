@@ -575,11 +575,12 @@
         if (pool.listeners.length > 0 && pool.listeners[0].id !== model.spec.listener.id) {
           return;
         }
+        var p = pool.id + '(' + pool.name + ')';
         if (pool.protocol === model.spec.listener.protocol) {
-          model.spec.availablePools.push(pool.id);
+          model.spec.availablePools.push(p);
         } else if (pool.protocol === 'HTTP' &&
           model.spec.listener.protocol === 'TERMINATED_HTTPS') {
-          model.spec.availablePools.push(pool.id);
+          model.spec.availablePools.push(p);
         }
       });
     }
