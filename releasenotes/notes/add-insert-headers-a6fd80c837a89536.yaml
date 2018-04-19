@@ -1,0 +1,4 @@
+---
+features:
+  - |
+    Adds the ability to set the insertion headers on listeners.
