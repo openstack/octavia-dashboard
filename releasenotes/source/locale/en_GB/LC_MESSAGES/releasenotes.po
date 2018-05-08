@@ -2,13 +2,13 @@
 # Andi Chandler <andi@gowling.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Octavia Dashboard Release Notes\n"
+"Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-03 16:54+0000\n"
+"POT-Creation-Date: 2018-04-02 14:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-07 10:09+0000\n"
+"PO-Revision-Date: 2018-04-03 09:53+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -17,6 +17,9 @@ msgstr ""
 
 msgid "1.0.0"
 msgstr "1.0.0"
+
+msgid "1.0.0.0rc1-20"
+msgstr "1.0.0.0rc1-20"
 
 msgid ""
 "A new dashboard wizard for Octavia. Allows you to create an Octavia load "
@@ -98,6 +101,13 @@ msgstr "Octavia Dashboard Release Notes"
 msgid "Other Notes"
 msgstr "Other Notes"
 
+msgid ""
+"Pools attached to a load balancer are now listed on the load balancer "
+"details page."
+msgstr ""
+"Pools attached to a Load Balancer are now listed on the Load Balancer "
+"details page."
+
 msgid "Pools can now change the load balancing algorithm after creation."
 msgstr "Pools can now change the load balancing algorithm after creation."
 
@@ -163,3 +173,6 @@ msgstr ""
 
 msgid "Upgrade Notes"
 msgstr "Upgrade Notes"
+
+msgid "You can now change the default pool on listeners."
+msgstr "You can now change the default pool on listeners."

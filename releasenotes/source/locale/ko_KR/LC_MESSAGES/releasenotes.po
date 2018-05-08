@@ -1,14 +1,15 @@
+# Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: Octavia Dashboard Release Notes\n"
+"Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-03 16:54+0000\n"
+"POT-Creation-Date: 2018-04-02 14:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-03-12 11:58+0000\n"
-"Last-Translator: Jaewook Oh <kyle.oh95@gmail.com>\n"
+"PO-Revision-Date: 2018-04-12 12:21+0000\n"
+"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -16,6 +17,9 @@ msgstr ""
 
 msgid "1.0.0"
 msgstr "1.0.0"
+
+msgid "1.0.0.0rc1-20"
+msgstr "1.0.0.0rc1-20"
 
 msgid ""
 "A new dashboard wizard for Octavia. Allows you to create an Octavia load "
@@ -94,6 +98,13 @@ msgstr "Octavia 대시보드 릴리즈 노트"
 msgid "Other Notes"
 msgstr "기타 노트"
 
+msgid ""
+"Pools attached to a load balancer are now listed on the load balancer "
+"details page."
+msgstr ""
+"로드 밸런서에 연결된 포트 목록을 로그 밸런서 세부 사항 페이지에서 볼 수 있습"
+"니다."
+
 msgid "Pools can now change the load balancing algorithm after creation."
 msgstr "이제 풀은 생성 후에 로드 밸런싱 알고리즘을 변경할 수 있습니다."
 
@@ -158,3 +169,6 @@ msgstr ""
 
 msgid "Upgrade Notes"
 msgstr "업그레이드 노트"
+
+msgid "You can now change the default pool on listeners."
+msgstr "리스너에서 디폴트 풀을 이제 변경할 수 있습니다."
