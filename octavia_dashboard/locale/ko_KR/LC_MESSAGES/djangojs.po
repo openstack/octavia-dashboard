@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-04-02 14:36+0000\n"
+"POT-Creation-Date: 2018-05-09 03:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -324,13 +324,6 @@ msgid "Expected Codes"
 msgstr "예상 코드"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
-msgid "Expected status codes"
-msgstr "예상된 상태 코드"
-
-msgid "Expected status codes:"
-msgstr "예상된 상태 코드:"
-
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Expiration Date"
 msgstr "만기 일자"
 
@@ -354,13 +347,6 @@ msgstr "Floating IP 풀"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "HTTP Method"
 msgstr "HTTP 메서드"
-
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
-msgid "HTTP method"
-msgstr "HTTP 메소드"
-
-msgid "HTTP method:"
-msgstr "HTTP 메소드:"
 
 msgid "HTTP_COOKIE: Session persistence based on http cookie."
 msgstr "HTTP_COOKIE: 세션 지속성 기반의 http 쿠키."
@@ -425,12 +411,6 @@ msgstr "비활성"
 msgid "Insert Headers"
 msgstr "헤더 삽입"
 
-msgid "Interval (sec)"
-msgstr "간격 (초)"
-
-msgid "Interval:"
-msgstr "간격:"
-
 msgid "Key Manager API Guide: Creating a Certificate Container"
 msgstr "키 관리자 API 가이드: 인증서 컨테이너 생성하기"
 
@@ -456,17 +436,12 @@ msgid "Listener"
 msgstr "리스너"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
-#, python-format
-msgid "Listener %(index)s"
-msgstr "리스너 %(index)s"
-
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
-msgid "Listener 1"
-msgstr "리스너 1"
-
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Listener Details"
 msgstr "리스너 세부정보"
+
+# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
+msgid "Listener ID"
+msgstr "리스너 ID"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Listeners"
@@ -474,11 +449,6 @@ msgstr "리스너"
 
 msgid "Load Balancer"
 msgstr "로드 밸런서"
-
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
-#, python-format
-msgid "Load Balancer %(index)s"
-msgstr "로드 밸런서 %(index)s"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Load Balancer Details"
@@ -530,9 +500,6 @@ msgstr "모니터 포트"
 
 msgid "Monitor Port:"
 msgstr "모니터 포트:"
-
-msgid "Monitor type"
-msgstr "모니터 타입"
 
 # auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Name"
@@ -603,10 +570,6 @@ msgstr "기다려 주십시오"
 
 msgid "Pool"
 msgstr "풀"
-
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
-msgid "Pool 1"
-msgstr "풀 1"
 
 # auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Pool Details"
@@ -684,18 +647,6 @@ msgstr "ROUND_ROBIN: 여러 인스턴스들 사이에서 짝수로 요청을 순
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Remove"
 msgstr "제거"
-
-msgid "Retries"
-msgstr "재시도"
-
-msgid "Retries down"
-msgstr "재시도 다운"
-
-msgid "Retries down:"
-msgstr "재시도 다운:"
-
-msgid "Retries:"
-msgstr "재시도:"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Round Robin"
@@ -1001,13 +952,6 @@ msgstr "유형"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "URL Path"
 msgstr "URL 경로"
-
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
-msgid "URL path"
-msgstr "URL 경로"
-
-msgid "URL path:"
-msgstr "URL 경로:"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to create health monitor."

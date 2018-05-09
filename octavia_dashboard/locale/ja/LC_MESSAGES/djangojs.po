@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-06 00:02+0000\n"
+"POT-Creation-Date: 2018-05-09 03:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
-"X-Generator: Zanata 3.9.6\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
 #, python-format
@@ -234,12 +234,6 @@ msgstr "エラー"
 msgid "Expected Codes"
 msgstr "コードの期待値"
 
-msgid "Expected status codes"
-msgstr "ステータスコードの期待値"
-
-msgid "Expected status codes:"
-msgstr "ステータスコードの期待値:"
-
 msgid "Expiration Date"
 msgstr "有効期限"
 
@@ -257,12 +251,6 @@ msgstr "Floating IP プール"
 
 msgid "HTTP Method"
 msgstr "HTTP メソッド"
-
-msgid "HTTP method"
-msgstr "HTTP メソッド"
-
-msgid "HTTP method:"
-msgstr "HTTP メソッド:"
 
 msgid "Health Monitor"
 msgstr "ヘルスモニター"
@@ -292,12 +280,6 @@ msgstr "IP アドレス:"
 msgid "Inactive"
 msgstr "非稼働"
 
-msgid "Interval (sec)"
-msgstr "間隔 (秒)"
-
-msgid "Interval:"
-msgstr "間隔:"
-
 msgid "Key Manager API Guide: Creating a Certificate Container"
 msgstr "Key Manager API ガイド: 証明書コンテナーの作成"
 
@@ -321,13 +303,6 @@ msgstr "最小接続数"
 msgid "Listener"
 msgstr "リスナー"
 
-#, python-format
-msgid "Listener %(index)s"
-msgstr "リスナー %(index)s"
-
-msgid "Listener 1"
-msgstr "リスナー 1"
-
 msgid "Listener Details"
 msgstr "リスナーの詳細"
 
@@ -336,10 +311,6 @@ msgstr "リスナー"
 
 msgid "Load Balancer"
 msgstr "ロードバランサー"
-
-#, python-format
-msgid "Load Balancer %(index)s"
-msgstr "ロードバランサー %(index)s"
 
 msgid "Load Balancer Details"
 msgstr "ロードバランサーの詳細"
@@ -373,9 +344,6 @@ msgstr "モニターポート"
 
 msgid "Monitor Port:"
 msgstr "モニターポート:"
-
-msgid "Monitor type"
-msgstr "モニタータイプ"
 
 msgid "Name"
 msgstr "名前"
@@ -433,9 +401,6 @@ msgstr "お待ちください"
 
 msgid "Pool"
 msgstr "プール"
-
-msgid "Pool 1"
-msgstr "プール 1"
 
 msgid "Pool Details"
 msgstr "プールの詳細"
@@ -499,9 +464,6 @@ msgstr "ラウンドロビン: リクエストを複数のメンバーで順番�
 
 msgid "Remove"
 msgstr "削除"
-
-msgid "Retries:"
-msgstr "リトライ回数:"
 
 msgid "Round Robin"
 msgstr "ラウンドロビン"
@@ -616,12 +578,6 @@ msgstr "種別"
 
 msgid "URL Path"
 msgstr "URL パス"
-
-msgid "URL path"
-msgstr "URL パス"
-
-msgid "URL path:"
-msgstr "URL パス:"
 
 msgid "Unable to create health monitor."
 msgstr "ヘルスモニターを作成できません。"

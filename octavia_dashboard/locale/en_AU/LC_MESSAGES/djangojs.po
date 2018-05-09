@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-02-27 12:38+0000\n"
+"POT-Creation-Date: 2018-05-09 03:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -199,9 +199,6 @@ msgstr "Error"
 msgid "Expected Codes"
 msgstr "Expected Codes"
 
-msgid "Expected status codes"
-msgstr "Expected status codes"
-
 msgid "Expiration Date"
 msgstr "Expiration Date"
 
@@ -213,9 +210,6 @@ msgstr "Floating IP pools"
 
 msgid "HTTP Method"
 msgstr "HTTP Method"
-
-msgid "HTTP method"
-msgstr "HTTP method"
 
 msgid "Health Monitor ID"
 msgstr "Health Monitor ID"
@@ -245,22 +239,14 @@ msgstr ""
 msgid "Least Connections"
 msgstr "Least Connections"
 
-#, python-format
-msgid "Listener %(index)s"
-msgstr "Listener %(index)s"
-
-msgid "Listener 1"
-msgstr "Listener 1"
-
 msgid "Listener Details"
 msgstr "Listener Details"
 
+msgid "Listener ID"
+msgstr "Listener ID"
+
 msgid "Listeners"
 msgstr "Listeners"
-
-#, python-format
-msgid "Load Balancer %(index)s"
-msgstr "Load Balancer %(index)s"
 
 msgid "Load Balancer Details"
 msgstr "Load Balancer Details"
@@ -336,9 +322,6 @@ msgstr "Pending Delete"
 
 msgid "Pending Update"
 msgstr "Pending Update"
-
-msgid "Pool 1"
-msgstr "Pool 1"
 
 msgid "Pool Details"
 msgstr "Pool Details"
@@ -512,9 +495,6 @@ msgstr "Type"
 
 msgid "URL Path"
 msgstr "URL Path"
-
-msgid "URL path"
-msgstr "URL path"
 
 msgid "Unable to create health monitor."
 msgstr "Unable to create health monitor."

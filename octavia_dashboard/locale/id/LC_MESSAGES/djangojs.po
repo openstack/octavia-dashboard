@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-03-03 16:54+0000\n"
+"POT-Creation-Date: 2018-05-09 03:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -195,12 +195,6 @@ msgstr "Error"
 msgid "Expected Codes"
 msgstr "Expected Codes"
 
-msgid "Expected status codes"
-msgstr "Kode status yang diharapkan"
-
-msgid "Expected status codes:"
-msgstr "Kode status yang diharapkan:"
-
 msgid "Expiration Date"
 msgstr "Expiration Date"
 
@@ -221,12 +215,6 @@ msgstr "Floating IP pools"
 
 msgid "HTTP Method"
 msgstr "HTTP Method"
-
-msgid "HTTP method"
-msgstr "Metode HTTP"
-
-msgid "HTTP method:"
-msgstr "Metode HTTP:"
 
 msgid "HTTP_COOKIE: Session persistence based on http cookie."
 msgstr "HTTP_COOKIE: Sesi persistensi berdasarkan http cookie."
@@ -280,12 +268,6 @@ msgstr "Inactive"
 
 msgid "Insert Headers"
 msgstr "Memasukkan Headers"
-
-msgid "Interval (sec)"
-msgstr "Interval (sec)"
-
-msgid "Interval:"
-msgstr "Interval:"
 
 msgid "Key Manager API Guide: Creating a Certificate Container"
 msgstr "Key Manager API Guide: Creating a Certificate Container"
@@ -349,9 +331,6 @@ msgstr "Monitor Details"
 
 msgid "Monitor Port:"
 msgstr "Monitor Port:"
-
-msgid "Monitor type"
-msgstr "Tipe monitor"
 
 msgid "Name"
 msgstr "Name"
@@ -455,18 +434,6 @@ msgstr ""
 
 msgid "Remove"
 msgstr "Remove"
-
-msgid "Retries"
-msgstr "Retries"
-
-msgid "Retries down"
-msgstr "Retries down"
-
-msgid "Retries down:"
-msgstr "Retries down:"
-
-msgid "Retries:"
-msgstr "Retries (coba lagi):"
 
 msgid "Round Robin"
 msgstr "Round Robin"
@@ -736,12 +703,6 @@ msgstr "Type"
 
 msgid "URL Path"
 msgstr "URL Path"
-
-msgid "URL path"
-msgstr "Jalur URL"
-
-msgid "URL path:"
-msgstr "Jalur URL:"
 
 msgid "Unable to create health monitor."
 msgstr "Tidak dapat membuat health monitor."
