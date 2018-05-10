@@ -5,12 +5,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-09 03:37+0000\n"
+"POT-Creation-Date: 2018-05-09 19:41+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-03 09:53+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"PO-Revision-Date: 2018-05-09 10:02+0000\n"
+"Last-Translator: Jacky Hu <hudayou@hotmail.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -22,6 +22,9 @@ msgstr "%(ip)s..."
 
 msgid "A new health monitor is being created."
 msgstr "A new health monitor is being created."
+
+msgid "A new l7 policy is being created."
+msgstr "A new L7 policy is being created."
 
 msgid "A new listener is being created."
 msgstr "A new listener is being created."
@@ -42,6 +45,12 @@ msgstr ""
 msgid "APP_COOKIE: Session persistence based on application cookie."
 msgstr "APP_COOKIE: Session persistence based on application cookie."
 
+msgid "Action"
+msgstr "Action"
+
+msgid "Action:"
+msgstr "Action:"
+
 msgid "Active"
 msgstr "Active"
 
@@ -60,6 +69,13 @@ msgstr "Add/Remove Members"
 msgid "Add/Remove Pool Members"
 msgstr "Add/Remove Pool Members"
 
+msgid ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\" and \"X-Forwarded-Port\" are supported."
+msgstr ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\" and \"X-Forwarded-Port\" are supported."
+
 msgid "Admin State Up"
 msgstr "Admin State Up"
 
@@ -71,6 +87,20 @@ msgstr "Algorithm:"
 
 msgid "Allocated Members"
 msgstr "Allocated Members"
+
+msgid ""
+"An L7 Policy is a collection of L7 rules associated with a Listener, and "
+"which may also have an association to a back-end pool"
+msgstr ""
+"An L7 Policy is a collection of L7 rules associated with a Listener, and "
+"which may also have an association to a back-end pool"
+
+msgid ""
+"An L7 Rule is a single, simple logical test which returns either true or\n"
+"false."
+msgstr ""
+"An L7 Rule is a single, simple logical test which returns either true or\n"
+"false."
 
 msgid ""
 "An alternate IP address used for health monitoring a backend member.\n"
@@ -104,16 +134,42 @@ msgstr "Associating floating IP with load balancer."
 msgid "Available Instances"
 msgstr "Available Instances"
 
+msgid "CONTAINS: String contains."
+msgstr "CONTAINS: String contains."
+
+msgid ""
+"COOKIE: The rule looks for a cookie named by the key parameter and\n"
+"      compares it against the value parameter in the rule."
+msgstr ""
+"COOKIE: The rule looks for a cookie named by the key parameter and\n"
+"      compares it against the value parameter in the rule."
+
 msgid "Cancel"
 msgstr "Cancel"
 
 msgid "Certificate Name"
 msgstr "Certificate Name"
 
+msgid "Compare Type"
+msgstr "Compare Type"
+
+msgid "Compare Type:"
+msgstr "Compare Type:"
+
 msgid "Confirm Delete Health Monitor"
 msgid_plural "Confirm Delete Health Monitors"
 msgstr[0] "Confirm Delete Health Monitor"
 msgstr[1] "Confirm Delete Health Monitors"
+
+msgid "Confirm Delete L7 Policy"
+msgid_plural "Confirm Delete L7 Policies"
+msgstr[0] "Confirm Delete L7 Policy"
+msgstr[1] "Confirm Delete L7 Policies"
+
+msgid "Confirm Delete L7 Rule"
+msgid_plural "Confirm Delete L7 Rules"
+msgstr[0] "Confirm Delete L7 Rule"
+msgstr[1] "Confirm Delete L7 Rules"
 
 msgid "Confirm Delete Listener"
 msgid_plural "Confirm Delete Listeners"
@@ -144,11 +200,23 @@ msgstr "Connection Limit"
 msgid "Connection Limit:"
 msgstr "Connection Limit:"
 
+msgid "Contains"
+msgstr "Contains"
+
 msgid "Cookie"
 msgstr "Cookie"
 
+msgid "Cookie Name"
+msgstr "Cookie Name"
+
 msgid "Create Health Monitor"
 msgstr "Create Health Monitor"
+
+msgid "Create L7 Policy"
+msgstr "Create L7 Policy"
+
+msgid "Create L7 Rule"
+msgstr "Create L7 Rule"
 
 msgid "Create Listener"
 msgstr "Create Listener"
@@ -177,6 +245,12 @@ msgstr "Degraded"
 msgid "Delay"
 msgstr "Delay"
 
+msgid "Delay (sec)"
+msgstr "Delay (sec)"
+
+msgid "Delay:"
+msgstr "Delay:"
+
 msgid "Delete Health Monitor"
 msgid_plural "Delete Health Monitors"
 msgstr[0] "Delete Health Monitor"
@@ -184,6 +258,22 @@ msgstr[1] "Delete Health Monitors"
 
 msgid "Delete Health Monitors"
 msgstr "Delete Health Monitors"
+
+msgid "Delete L7 Policies"
+msgstr "Delete L7 Policies"
+
+msgid "Delete L7 Policy"
+msgid_plural "Delete L7 Policies"
+msgstr[0] "Delete L7 Policy"
+msgstr[1] "Delete L7 Policies"
+
+msgid "Delete L7 Rule"
+msgid_plural "Delete L7 Rules"
+msgstr[0] "Delete L7 Rule"
+msgstr[1] "Delete L7 Rules"
+
+msgid "Delete L7 Rules"
+msgstr "Delete L7 Rules"
 
 msgid "Delete Listener"
 msgid_plural "Delete Listeners"
@@ -224,6 +314,18 @@ msgstr[0] "Deleted Health Monitor: %s."
 msgstr[1] "Deleted Health Monitors: %s."
 
 #, python-format
+msgid "Deleted L7 Policy: %s."
+msgid_plural "Deleted L7 Policies: %s."
+msgstr[0] "Deleted L7 Policy: %s."
+msgstr[1] "Deleted L7 Policies: %s."
+
+#, python-format
+msgid "Deleted L7 Rule: %s."
+msgid_plural "Deleted L7 Rules: %s."
+msgstr[0] "Deleted L7 Rule: %s."
+msgstr[1] "Deleted L7 Rules: %s."
+
+#, python-format
 msgid "Deleted Listener: %s."
 msgid_plural "Deleted Listeners: %s."
 msgstr[0] "Deleted Listener: %s."
@@ -260,6 +362,12 @@ msgstr "Disassociate Floating IP"
 msgid "Disassociated floating IP address from load balancer: %s."
 msgstr "Disassociated floating IP address from load balancer: %s."
 
+msgid "ENDS_WITH: String ends with."
+msgstr "ENDS_WITH: String ends with."
+
+msgid "EQUAL_TO: String is equal to."
+msgstr "EQUAL_TO: String is equal to."
+
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
 "configured separately and\n"
@@ -276,6 +384,12 @@ msgstr ""
 msgid "Edit Health Monitor"
 msgstr "Edit Health Monitor"
 
+msgid "Edit L7 Policy"
+msgstr "Edit L7 Policy"
+
+msgid "Edit L7 Rule"
+msgstr "Edit L7 Rule"
+
 msgid "Edit Listener"
 msgstr "Edit Listener"
 
@@ -288,14 +402,33 @@ msgstr "Edit Member"
 msgid "Edit Pool"
 msgstr "Edit Pool"
 
+msgid "Ends With"
+msgstr "Ends With"
+
+msgid "Equal To"
+msgstr "Equal To"
+
 msgid "Error"
 msgstr "Error"
 
 msgid "Expected Codes"
 msgstr "Expected Codes"
 
+msgid "Expected Codes:"
+msgstr "Expected Codes:"
+
 msgid "Expiration Date"
 msgstr "Expiration Date"
+
+msgid ""
+"FILE_TYPE: The rule compares the last portion of the URI against\n"
+"      the value parameter in the rule. (eg. “txt”, “jpg”, etc.)"
+msgstr ""
+"FILE_TYPE: The rule compares the last portion of the URI against\n"
+"      the value parameter in the rule. (e.g. “txt”, “jpg”, etc.)"
+
+msgid "File Type"
+msgstr "File Type"
 
 msgid "Flavor"
 msgstr "Flavour"
@@ -312,11 +445,31 @@ msgstr "Floating IP addresses"
 msgid "Floating IP pools"
 msgstr "Floating IP pools"
 
+msgid ""
+"HEADER: The rule looks for a header defined in the key parameter\n"
+"      and compares it against the value parameter in the rule."
+msgstr ""
+"HEADER: The rule looks for a header defined in the key parameter\n"
+"      and compares it against the value parameter in the rule."
+
+msgid ""
+"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
+"      hostname in the request against the value parameter in the rule."
+msgstr ""
+"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
+"      hostname in the request against the value parameter in the rule."
+
 msgid "HTTP Method"
 msgstr "HTTP Method"
 
+msgid "HTTP Method:"
+msgstr "HTTP Method:"
+
 msgid "HTTP_COOKIE: Session persistence based on http cookie."
 msgstr "HTTP_COOKIE: Session persistence based on HTTP cookie."
+
+msgid "Header"
+msgstr "Header"
 
 msgid "Health Monitor"
 msgstr "Health Monitor"
@@ -326,6 +479,9 @@ msgstr "Health Monitor ID"
 
 msgid "Health Monitors"
 msgstr "Health Monitors"
+
+msgid "Host Name"
+msgstr "Host Name"
 
 msgid "ID"
 msgstr "ID"
@@ -371,14 +527,44 @@ msgstr "Inactive"
 msgid "Insert Headers"
 msgstr "Insert Headers"
 
+msgid "Insert Headers:"
+msgstr "Insert Headers:"
+
+msgid "Invert"
+msgstr "Invert"
+
+msgid "Invert:"
+msgstr "Invert:"
+
+msgid "Key"
+msgstr "Key"
+
 msgid "Key Manager API Guide: Creating a Certificate Container"
 msgstr "Key Manager API Guide: Creating a Certificate Container"
 
 msgid "Key Manager Service Command-Line Client"
 msgstr "Key Manager Service Command-Line Client"
 
+msgid "Key:"
+msgstr "Key:"
+
 msgid "L7 Policies"
 msgstr "L7 Policies"
+
+msgid "L7 Policy"
+msgstr "L7 Policy"
+
+msgid "L7 Policy Details"
+msgstr "L7 Policy Details"
+
+msgid "L7 Rule"
+msgstr "L7 Rule"
+
+msgid "L7 Rule Details"
+msgstr "L7 Rule Details"
+
+msgid "L7 Rules"
+msgstr "L7 Rules"
 
 msgid ""
 "LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
@@ -421,6 +607,12 @@ msgstr "Max Retries"
 
 msgid "Max Retries Down"
 msgstr "Max Retries Down"
+
+msgid "Max Retries Down:"
+msgstr "Max Retries Down:"
+
+msgid "Max Retries:"
+msgstr "Max Retries:"
 
 msgid "Member"
 msgstr "Member"
@@ -494,6 +686,16 @@ msgstr "Operating Status"
 msgid "Overview"
 msgstr "Overview"
 
+msgid ""
+"PATH: The rule compares the path portion of the HTTP URI against\n"
+"      the value parameter in the rule."
+msgstr ""
+"PATH: The rule compares the path portion of the HTTP URI against\n"
+"      the value parameter in the rule."
+
+msgid "Path"
+msgstr "Path"
+
 msgid "Pending Create"
 msgstr "Pending Create"
 
@@ -530,6 +732,12 @@ msgstr "Port ID"
 msgid "Port:"
 msgstr "Port:"
 
+msgid "Position"
+msgstr "Position"
+
+msgid "Position:"
+msgstr "Position:"
+
 msgid "Project"
 msgstr "Project"
 
@@ -547,6 +755,12 @@ msgstr "Protocol:"
 
 msgid "Provide the details for the health monitor."
 msgstr "Provide the details for the health monitor."
+
+msgid "Provide the details for the l7 policy."
+msgstr "Provide the details for the L7 policy."
+
+msgid "Provide the details for the l7 rule."
+msgstr "Provide the details for the L7 rule."
 
 msgid "Provide the details for the listener."
 msgstr "Provide the details for the listener."
@@ -566,14 +780,79 @@ msgstr "Provider"
 msgid "Provisioning Status"
 msgstr "Provisioning Status"
 
+msgid ""
+"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
+"with the L7 policy."
+msgstr ""
+"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
+"with the L7 policy."
+
+msgid ""
+"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
+"the redirect_url parameter."
+msgstr ""
+"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
+"the redirect_url parameter."
+
+msgid "REGEX: Perl type regular expression matching."
+msgstr "REGEX: Perl type regular expression matching."
+
+msgid ""
+"REJECT: The request is denied with an appropriate response code, and not "
+"forwarded on to any back-end pool."
+msgstr ""
+"REJECT: The request is denied with an appropriate response code, and not "
+"forwarded on to any back-end pool."
+
 msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
 msgstr "ROUND_ROBIN: Rotates requests evenly between multiple instances."
+
+msgid "Redirect Pool ID"
+msgstr "Redirect Pool ID"
+
+msgid "Redirect Pool ID:"
+msgstr "Redirect Pool ID:"
+
+msgid "Redirect URL"
+msgstr "Redirect URL"
+
+msgid "Redirect URL:"
+msgstr "Redirect URL:"
+
+msgid "Redirect to Pool"
+msgstr "Redirect to Pool"
+
+msgid "Redirect to URL"
+msgstr "Redirect to URL"
+
+msgid "Regex"
+msgstr "Regex"
+
+msgid "Reject"
+msgstr "Reject"
 
 msgid "Remove"
 msgstr "Remove"
 
+msgid ""
+"Requests matching this policy will be redirected to the pool with this ID. "
+"Only valid if action is REDIRECT_TO_POOL."
+msgstr ""
+"Requests matching this policy will be redirected to the pool with this ID. "
+"Only valid if action is REDIRECT_TO_POOL."
+
+msgid ""
+"Requests matching this policy will be redirected to this URL. Only valid if "
+"action is REDIRECT_TO_URL."
+msgstr ""
+"Requests matching this policy will be redirected to this URL. Only valid if "
+"action is REDIRECT_TO_URL."
+
 msgid "Round Robin"
 msgstr "Round Robin"
+
+msgid "Rules"
+msgstr "Rules"
 
 msgid "SNI Container Refs"
 msgstr "SNI Container Refs"
@@ -590,6 +869,9 @@ msgstr "SOURCE_IP: Session persistence based on source IP."
 
 msgid "SSL Certificates"
 msgstr "SSL Certificates"
+
+msgid "STARTS_WITH: String starts with."
+msgstr "STARTS_WITH: String starts with."
 
 msgid ""
 "Select a floating IP address to associate with the load balancer or a "
@@ -612,6 +894,9 @@ msgstr "Session Persistence:"
 
 msgid "Source IP"
 msgstr "Source IP"
+
+msgid "Starts With"
+msgstr "Starts With"
 
 msgid "Subnet"
 msgstr "Subnet"
@@ -653,8 +938,24 @@ msgstr ""
 "be a well-formed\n"
 "  IPv4 or IPv6 address."
 
+msgid ""
+"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
+msgstr ""
+"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
+
+msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
+msgstr ""
+"The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
+
 msgid "The URL path is not valid."
 msgstr "The URL path is not valid."
+
+msgid ""
+"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, or STARTS_WITH."
+msgstr ""
+"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, or STARTS_WITH."
 
 msgid "The connection limit must be a number greater than or equal to -1."
 msgstr "The connection limit must be a number greater than or equal to -1."
@@ -703,6 +1004,19 @@ msgid ""
 msgstr ""
 "The interval between health checks. Must be greater than or equal to the "
 "timeout."
+
+msgid ""
+"The key to use for the comparison. For example, the name of the cookie\n"
+"  to evaluate."
+msgstr ""
+"The key to use for the comparison. For example, the name of the cookie\n"
+"  to evaluate."
+
+msgid "The l7policy has been updated."
+msgstr "The L7policy has been updated."
+
+msgid "The l7rule has been updated."
+msgstr "The L7rule has been updated."
 
 msgid "The listener has been updated."
 msgstr "The listener has been updated."
@@ -791,6 +1105,12 @@ msgstr ""
 "The port on which the member listens for traffic. Must be a number from 1 to "
 "65535."
 
+msgid "The position must be a number between 1 and 2147483647."
+msgstr "The position must be a number between 1 and 2147483647."
+
+msgid "The position of this policy on the listener. Positions start at 1."
+msgstr "The position of this policy on the listener. Positions start at 1."
+
 msgid ""
 "The protocol for which the front end listens. The TERMINATED_HTTPS protocol "
 "is only available if\n"
@@ -810,6 +1130,9 @@ msgid ""
 msgstr ""
 "The protocol for which this pool and its members listen. A valid value is "
 "HTTP, HTTPS, PROXY, or TCP."
+
+msgid "The redirect url must be a valid http or https url."
+msgstr "The redirect URL must be a valid HTTP or HTTPS URL."
 
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
@@ -834,6 +1157,11 @@ msgid ""
 "The type of session persistence for distributing traffic to the pool members."
 msgstr ""
 "The type of session persistence for distributing traffic to the pool members."
+
+msgid ""
+"The value to use for the comparison. For example, the file type to compare."
+msgstr ""
+"The value to use for the comparison. For example, the file type to compare."
 
 msgid "The weight must be a number between 1 and 256."
 msgstr "The weight must be a number between 1 and 256."
@@ -863,11 +1191,23 @@ msgstr "Timeout:"
 msgid "Type"
 msgstr "Type"
 
+msgid "Type:"
+msgstr "Type:"
+
 msgid "URL Path"
 msgstr "URL Path"
 
+msgid "URL Path:"
+msgstr "URL Path:"
+
 msgid "Unable to create health monitor."
 msgstr "Unable to create health monitor."
+
+msgid "Unable to create l7 policy."
+msgstr "Unable to create L7 policy."
+
+msgid "Unable to create l7 rule."
+msgstr "Unable to create L7 rule."
 
 msgid "Unable to create listener."
 msgstr "Unable to create listener."
@@ -883,6 +1223,18 @@ msgid "Unable to delete Health Monitor: %s."
 msgid_plural "Unable to delete Health Monitors: %s."
 msgstr[0] "Unable to delete Health Monitor: %s."
 msgstr[1] "Unable to delete Health Monitors: %s."
+
+#, python-format
+msgid "Unable to delete L7 Policy: %s."
+msgid_plural "Unable to delete L7 Policies: %s."
+msgstr[0] "Unable to delete L7 Policy: %s."
+msgstr[1] "Unable to delete L7 Policies: %s."
+
+#, python-format
+msgid "Unable to delete L7 Rule: %s."
+msgid_plural "Unable to delete L7 Rules: %s."
+msgstr[0] "Unable to delete L7 Rule: %s."
+msgstr[1] "Unable to delete L7 Rules: %s."
 
 #, python-format
 msgid "Unable to delete Listener: %s."
@@ -911,6 +1263,12 @@ msgstr[1] "Unable to delete Pools: %s."
 msgid "Unable to delete health monitor."
 msgstr "Unable to delete health monitor."
 
+msgid "Unable to delete l7 policy."
+msgstr "Unable to delete L7 policy."
+
+msgid "Unable to delete l7 rule."
+msgstr "Unable to delete L7 rule."
+
 msgid "Unable to delete listener."
 msgstr "Unable to delete listener."
 
@@ -935,6 +1293,18 @@ msgstr "Unable to retrieve health monitor."
 
 msgid "Unable to retrieve health monitors."
 msgstr "Unable to retrieve health monitors."
+
+msgid "Unable to retrieve l7 policies."
+msgstr "Unable to retrieve L7 policies."
+
+msgid "Unable to retrieve l7 policy."
+msgstr "Unable to retrieve L7 policy."
+
+msgid "Unable to retrieve l7 rule."
+msgstr "Unable to retrieve L7 rule."
+
+msgid "Unable to retrieve l7 rules."
+msgstr "Unable to retrieve L7 rules."
 
 msgid "Unable to retrieve listener."
 msgstr "Unable to retrieve listener."
@@ -966,6 +1336,12 @@ msgstr "Unable to retrieve secrets."
 msgid "Unable to update health monitor."
 msgstr "Unable to update health monitor."
 
+msgid "Unable to update l7 policy."
+msgstr "Unable to update L7 policy."
+
+msgid "Unable to update l7 rule."
+msgstr "Unable to update L7 rule."
+
 msgid "Unable to update listener."
 msgstr "Unable to update listener."
 
@@ -986,6 +1362,12 @@ msgstr "Update"
 
 msgid "Update Health Monitor"
 msgstr "Update Health Monitor"
+
+msgid "Update L7 Policy"
+msgstr "Update L7 Policy"
+
+msgid "Update L7 Rule"
+msgstr "Update L7 Rule"
 
 msgid "Update Listener"
 msgstr "Update Listener"
@@ -1013,11 +1395,30 @@ msgstr ""
 "    The following documentation provides information on how to create a "
 "certificate container:"
 
+msgid "Value"
+msgstr "Value"
+
+msgid "Value:"
+msgstr "Value:"
+
 msgid "Weight"
 msgstr "Weight"
 
 msgid "Weight:"
 msgstr "Weight:"
+
+msgid ""
+"When true the logic of the rule is inverted. For example, with invert\n"
+"  true, equal to would become not equal to."
+msgstr ""
+"When true the logic of the rule is inverted. For example, with invert\n"
+"  true, equal to would become not equal to."
+
+msgid "X-Forwarded-For"
+msgstr "X-Forwarded-For"
+
+msgid "X-Forwarded-port"
+msgstr "X-Forwarded-port"
 
 msgid "Yes"
 msgstr "Yes"
@@ -1029,6 +1430,19 @@ msgid ""
 msgstr ""
 "You are about to disassociate the floating IP address from load balancer \"%s"
 "\". Please confirm."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Policy is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted L7 Policies are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted L7 Policy is not recoverable."
+msgstr[1] "You have selected \"%s\". Deleted L7 Policies are not recoverable."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Rule is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted L7 Rules are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted L7 Rule is not recoverable."
+msgstr[1] "You have selected \"%s\". Deleted L7 Rules are not recoverable."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
