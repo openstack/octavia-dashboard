@@ -134,7 +134,7 @@
       },
       description: {
         label: gettext('Description'),
-        filters: ['noValue']
+        filters: ['noName']
       },
       provisioning_status: {
         label: gettext('Provisioning Status'),
@@ -162,7 +162,7 @@
       },
       health_monitor_id: {
         label: gettext('Health Monitor ID'),
-        filters: ['noName']
+        filters: ['noValue']
       },
       project_id: gettext('Project ID'),
       created_at: {

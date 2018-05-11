@@ -133,7 +133,7 @@
       },
       description: {
         label: gettext('Description'),
-        filters: ['noValue']
+        filters: ['noName']
       },
       provisioning_status: {
         label: gettext('Provisioning Status'),
@@ -153,11 +153,11 @@
       },
       redirect_url: {
         label: gettext('Redirect URL'),
-        filters: ['noName']
+        filters: ['noValue']
       },
       redirect_pool_id: {
         label: gettext('Redirect Pool ID'),
-        filters: ['noName']
+        filters: ['noValue']
       },
       project_id: gettext('Project ID'),
       created_at: {

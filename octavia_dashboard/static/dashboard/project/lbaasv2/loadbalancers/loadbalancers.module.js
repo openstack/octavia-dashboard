@@ -148,7 +148,7 @@
       },
       description: {
         label: gettext('Description'),
-        filters: ['noValue']
+        filters: ['noName']
       },
       provisioning_status: {
         label: gettext('Provisioning Status'),
@@ -184,7 +184,7 @@
       },
       floating_ip_address: {
         label: gettext('Floating IP'),
-        filters: ['noName']
+        filters: ['noValue']
       }
     };
   }
