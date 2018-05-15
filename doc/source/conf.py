@@ -15,7 +15,6 @@
 import logging
 import os
 import sys
-from sphinx import apidoc
 
 import django
 
@@ -39,6 +38,7 @@ extensions = [
     # 'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
+    'sphinxcontrib.apidoc'
 ]
 
 # autodoc generation is a bit aggressive and a nuisance when doing heavy
@@ -108,31 +108,15 @@ repository_name = 'openstack/octavia-dashboard'
 bug_project = '909'
 bug_tag = 'docs'
 
-
-# TODO(mordred) We should extract this into a sphinx plugin
-def run_apidoc(_):
-    cur_dir = os.path.abspath(os.path.dirname(__file__))
-    out_dir = os.path.join(cur_dir, 'contributor', 'modules')
-    module = os.path.join(cur_dir, '..', '..', 'octavia_dashboard')
-    # Keep the order of arguments same as the sphinx-apidoc help, otherwise it
-    # would cause unexpected errors:
-    # sphinx-apidoc [options] -o <output_path> <module_path>
-    # [exclude_pattern, ...]
-    apidoc.main([
-        '--force',
-        '-o',
-        out_dir,
-        module,
-        'octavia_dashboard/tests',
-        'octavia_dashboard/enabled',
-        'octavia_dashboard/locale',
-        'octavia_dashboard/static',
-        'octavia_dashboard/conf',
-        'octavia_dashboard/local_settings.d',
-        'octavia_dashboard/post_install.sh',
-        'octavia_dashboard/karma.conf.js'
-    ])
-
-
-def setup(app):
-    app.connect('builder-inited', run_apidoc)
+apidoc_output_dir = 'contributor/modules'
+apidoc_module_dir = '../../octavia_dashboard'
+apidoc_excluded_paths = [
+    'tests',
+    'enabled',
+    'locale',
+    'static',
+    'conf',
+    'local_settings.d',
+    'post_install.sh',
+    'karma.conf.js'
+]
