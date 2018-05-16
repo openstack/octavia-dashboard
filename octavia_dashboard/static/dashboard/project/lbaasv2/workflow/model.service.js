@@ -57,7 +57,8 @@
     novaAPI,
     lbaasv2API,
     barbicanAPI,
-    serviceCatalog
+    serviceCatalog,
+    gettext
   ) {
     var ports, keymanagerPromise;
 
@@ -86,7 +87,8 @@
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS'],
       l7policyActions: ['REJECT', 'REDIRECT_TO_URL', 'REDIRECT_TO_POOL'],
       l7ruleTypes: ['HOST_NAME', 'PATH', 'FILE_TYPE', 'HEADER', 'COOKIE'],
-      l7ruleCompareTypes: ['REGEX', 'STARTS_WITH', 'ENDS_WITH', 'CONTAINS', 'EQUAL_TO'],
+      l7ruleCompareTypes: ['REGEX', 'EQUAL_TO', 'STARTS_WITH', 'ENDS_WITH', 'CONTAINS'],
+      l7ruleFileTypeCompareTypes: ['REGEX', 'EQUAL_TO'],
       poolProtocols: ['HTTP', 'HTTPS', 'PROXY', 'TCP'],
       methods: ['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP'],
       types: ['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'],
@@ -95,6 +97,10 @@
                        'TRACE', 'OPTIONS', 'PATCH', 'CONNECT'],
       certificates: [],
       listenerPorts: [],
+      yesNoOptions: [
+        { label: gettext('Yes'), value: true },
+        { label: gettext('No'), value: false }
+      ],
 
       /**
        * api methods for UI controllers
@@ -505,7 +511,7 @@
       var members = [];
       angular.forEach(finalSpec.members, function cleanMember(member) {
         if (member.address && member.protocol_port) {
-          var propsToRemove = ['name', 'description', 'addresses', 'allocatedMember'];
+          var propsToRemove = ['description', 'addresses', 'allocatedMember'];
           propsToRemove.forEach(function deleteProperty(prop) {
             if (angular.isDefined(member[prop])) {
               delete member[prop];
@@ -795,6 +801,7 @@
           monitor_address: member.monitor_address,
           monitor_port: member.monitor_port,
           admin_state_up: member.admin_state_up,
+          name: member.name,
           allocatedMember: true
         });
       });
@@ -813,6 +820,7 @@
       spec.expected_codes = monitor.expected_codes;
       spec.url_path = monitor.url_path;
       spec.admin_state_up = monitor.admin_state_up;
+      spec.name = monitor.name;
     }
 
     function onGetHealthMonitor(response) {

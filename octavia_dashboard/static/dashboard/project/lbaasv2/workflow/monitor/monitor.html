@@ -4,6 +4,16 @@
   <div class="row">
 
     <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+      <div class="form-group">
+        <label class="control-label" for="name">
+          <translate>Name</translate>
+        </label>
+        <input name="name" id="name" type="text" class="form-control"
+               ng-model="model.spec.monitor.name">
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
       <div class="form-group required">
         <label class="control-label" for="type">
           <translate>Type</translate>
@@ -133,7 +143,7 @@
         <div class="form-field">
           <div class="btn-group">
             <label class="btn btn-default"
-                   ng-repeat="option in ctrl.adminStateUpOptions"
+                   ng-repeat="option in model.yesNoOptions"
                    ng-model="model.spec.monitor.admin_state_up"
                    uib-btn-radio="option.value">{$ ::option.label $}</label>
           </div>

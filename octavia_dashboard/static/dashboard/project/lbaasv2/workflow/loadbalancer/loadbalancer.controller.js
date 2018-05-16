@@ -40,11 +40,6 @@
 
     var ctrl = this;
 
-    ctrl.adminStateUpOptions = [
-      { label: gettext('Yes'), value: true },
-      { label: gettext('No'), value: false }
-    ];
-
     // Error text for invalid fields
     ctrl.ipError = gettext('The IP address is not valid.');
 

@@ -40,11 +40,6 @@
 
     var ctrl = this;
 
-    ctrl.adminStateUpOptions = [
-      { label: gettext('Yes'), value: true },
-      { label: gettext('No'), value: false }
-    ];
-
     ctrl.redirectUrlError = gettext('The redirect url must be a valid http or https url.');
     ctrl.positionError = gettext('The position must be a number between 1 and 2147483647.');
 

@@ -270,7 +270,8 @@ def create_health_monitor(request, **kwargs):
         http_method=data['monitor'].get('http_method'),
         url_path=data['monitor'].get('url_path'),
         expected_codes=data['monitor'].get('expected_codes'),
-        admin_state_up=data['monitor'].get('admin_state_up')
+        admin_state_up=data['monitor'].get('admin_state_up'),
+        name=data['monitor'].get('name')
     )
 
     return _get_sdk_object_dict(health_mon)
@@ -305,7 +306,8 @@ def add_member(request, **kwargs):
         weight=member.get('weight'),
         monitor_address=monitor_address if monitor_address else None,
         monitor_port=member.get('monitor_port'),
-        admin_state_up=member.get('admin_state_up')
+        admin_state_up=member.get('admin_state_up'),
+        name=member.get('name'),
     )
 
     index += 1
@@ -506,7 +508,8 @@ def update_monitor(request, **kwargs):
         http_method=data['monitor'].get('http_method'),
         url_path=data['monitor'].get('url_path'),
         expected_codes=data['monitor'].get('expected_codes'),
-        admin_state_up=data['monitor'].get('admin_state_up')
+        admin_state_up=data['monitor'].get('admin_state_up'),
+        name=data['monitor'].get('name')
     )
 
     return _get_sdk_object_dict(healthmonitor)
@@ -1075,7 +1078,8 @@ class Member(generic.View):
             member_id, pool_id, weight=data.get('weight'),
             monitor_address=monitor_address if monitor_address else None,
             monitor_port=data.get('monitor_port'),
-            admin_state_up=data.get('admin_state_up')
+            admin_state_up=data.get('admin_state_up'),
+            name=data.get('name'),
         )
         return _get_sdk_object_dict(member)
 

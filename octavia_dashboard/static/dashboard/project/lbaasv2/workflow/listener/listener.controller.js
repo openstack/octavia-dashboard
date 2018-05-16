@@ -40,11 +40,6 @@
     var ctrl = this;
     ctrl.protocolChange = protocolChange;
 
-    ctrl.adminStateUpOptions = [
-      { label: gettext('Yes'), value: true },
-      { label: gettext('No'), value: false }
-    ];
-
     // Error text for invalid fields
     ctrl.portNumberError = gettext('The port must be a number between 1 and 65535.');
     ctrl.portUniqueError = gettext(
