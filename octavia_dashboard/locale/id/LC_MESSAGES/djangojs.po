@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-09 03:37+0000\n"
+"POT-Creation-Date: 2018-05-16 01:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-22 12:05+0000\n"
+"PO-Revision-Date: 2018-05-10 02:50+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -21,8 +21,17 @@ msgstr "%(ip)s..."
 msgid "A new health monitor is being created."
 msgstr "Monitor kesehatan baru sedang dibuat."
 
+msgid "A new l7 policy is being created."
+msgstr "Kebijakan l7 baru sedang dibuat."
+
 msgid "A new listener is being created."
 msgstr "Pendengar (listener) baru sedang dibuat."
+
+msgid "A new load balancer is being created."
+msgstr "Penyeimbang beban baru sedang dibuat."
+
+msgid "A new pool is being created."
+msgstr "Pool baru sedang dibuat."
 
 msgid ""
 "A pool represents a group of members over which the load balancing will be "
@@ -33,6 +42,12 @@ msgstr ""
 
 msgid "APP_COOKIE: Session persistence based on application cookie."
 msgstr "APP_COOKIE: Sesi persistensi berdasarkan aplikasi cookie."
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Action:"
+msgstr "Action:"
 
 msgid "Active"
 msgstr "Active"
@@ -46,14 +61,44 @@ msgstr "Tambahkan anggota eksternal"
 msgid "Add members to the load balancer pool."
 msgstr "Tambahkan anggota ke load balancer pool."
 
+msgid "Add/Remove Members"
+msgstr "Add/Remove Members"
+
+msgid "Add/Remove Pool Members"
+msgstr "Add/Remove Pool Members"
+
+msgid ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\" and \"X-Forwarded-Port\" are supported."
+msgstr ""
+"Tambahan penyisipan header ke header HTTP,\n"
+"   hanya \"X-Forwarded-For\" dan \"X-Forwarded-Port\" yang didukung."
+
 msgid "Admin State Up"
 msgstr "Admin State Up"
+
+msgid "Algorithm"
+msgstr "Algorithm"
 
 msgid "Algorithm:"
 msgstr "Algoritma:"
 
 msgid "Allocated Members"
 msgstr "Allocated Members"
+
+msgid ""
+"An L7 Policy is a collection of L7 rules associated with a Listener, and "
+"which may also have an association to a back-end pool"
+msgstr ""
+"Kebijakan L7 adalah kumpulan aturan L7 yang terkait dengan Listener, dan "
+"yang mungkin juga memiliki asosiasi ke kumpulan back-end"
+
+msgid ""
+"An L7 Rule is a single, simple logical test which returns either true or\n"
+"false."
+msgstr ""
+"Aturan L7 adalah tes logis tunggal, sederhana yang mengembalikan baik benar "
+"atau salah."
 
 msgid ""
 "An alternate IP address used for health monitoring a backend member.\n"
@@ -71,6 +116,9 @@ msgstr ""
 "backend.\n"
 "   Default adalah null yang memonitor port protokol anggota."
 
+msgid "An error occurred. Please try again later."
+msgstr "Terjadi kesalahan. Silakan coba lagi nanti."
+
 msgid "Associate"
 msgstr "Associate"
 
@@ -80,8 +128,21 @@ msgstr "Associate Floating IP"
 msgid "Associate Floating IP Address"
 msgstr "Associate Floating IP Address"
 
+msgid "Associating floating IP with load balancer."
+msgstr "Mengaitkan IP mengambang dengan penyeimbang beban."
+
 msgid "Available Instances"
 msgstr "Available Instances"
+
+msgid "CONTAINS: String contains."
+msgstr "CONTAINS: String mengandung."
+
+msgid ""
+"COOKIE: The rule looks for a cookie named by the key parameter and\n"
+"      compares it against the value parameter in the rule."
+msgstr ""
+"COOKIE: Aturan mencari cookie yang dinamai oleh parameter kunci dan "
+"membandingkannya dengan parameter nilai dalam aturan."
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -89,13 +150,42 @@ msgstr "Cancel"
 msgid "Certificate Name"
 msgstr "Certificate Name"
 
+msgid "Compare Type"
+msgstr "Compare Type"
+
+msgid "Compare Type:"
+msgstr "Compare Type:"
+
 msgid "Confirm Delete Health Monitor"
 msgid_plural "Confirm Delete Health Monitors"
 msgstr[0] "Confirm Delete Health Monitor"
 
+msgid "Confirm Delete L7 Policy"
+msgid_plural "Confirm Delete L7 Policies"
+msgstr[0] "Confirm Delete L7 Policy"
+
+msgid "Confirm Delete L7 Rule"
+msgid_plural "Confirm Delete L7 Rules"
+msgstr[0] "Confirm Delete L7 Rule"
+
 msgid "Confirm Delete Listener"
 msgid_plural "Confirm Delete Listeners"
 msgstr[0] "Confirm Delete Listener"
+
+msgid "Confirm Delete Load Balancer"
+msgid_plural "Confirm Delete Load Balancers"
+msgstr[0] "Confirm Delete Load Balancer"
+
+msgid "Confirm Delete Member"
+msgid_plural "Confirm Delete Members"
+msgstr[0] "Confirm Delete Member"
+
+msgid "Confirm Delete Pool"
+msgid_plural "Confirm Delete Pools"
+msgstr[0] "Confirm Delete Pool"
+
+msgid "Confirm Disassociate Floating IP Address"
+msgstr "Konfirmasikan Disassociate Floating IP Address"
 
 msgid "Connection Limit"
 msgstr "Connection Limit"
@@ -103,11 +193,23 @@ msgstr "Connection Limit"
 msgid "Connection Limit:"
 msgstr "Connection Limit:"
 
+msgid "Contains"
+msgstr "Contains"
+
 msgid "Cookie"
 msgstr "Cookie"
 
+msgid "Cookie Name"
+msgstr "Cookie Name"
+
 msgid "Create Health Monitor"
 msgstr "Create Health Monitor"
+
+msgid "Create L7 Policy"
+msgstr "Buat Kebijakan L7"
+
+msgid "Create L7 Rule"
+msgstr "Buat Aturan L7"
 
 msgid "Create Listener"
 msgstr "Create Listener"
@@ -115,11 +217,17 @@ msgstr "Create Listener"
 msgid "Create Load Balancer"
 msgstr "Membuat Load Balancer"
 
+msgid "Create Pool"
+msgstr "Create Pool"
+
 msgid "Created At"
 msgstr "Created At"
 
 msgid "Default Pool ID"
 msgstr "Default Pool ID"
+
+msgid "Default Pool ID:"
+msgstr "Default Pool ID:"
 
 msgid "Default TLS Container Ref"
 msgstr "Default TLS Container Ref"
@@ -130,12 +238,32 @@ msgstr "Degraded"
 msgid "Delay"
 msgstr "Delay"
 
+msgid "Delay (sec)"
+msgstr "Delay (sec)"
+
+msgid "Delay:"
+msgstr "Delay:"
+
 msgid "Delete Health Monitor"
 msgid_plural "Delete Health Monitors"
 msgstr[0] "Delete Health Monitor"
 
 msgid "Delete Health Monitors"
 msgstr "Delete Health Monitors"
+
+msgid "Delete L7 Policies"
+msgstr "Hapus Kebijakan L7"
+
+msgid "Delete L7 Policy"
+msgid_plural "Delete L7 Policies"
+msgstr[0] "Delete L7 Policy"
+
+msgid "Delete L7 Rule"
+msgid_plural "Delete L7 Rules"
+msgstr[0] "Delete L7 Rule"
+
+msgid "Delete L7 Rules"
+msgstr "Hapus Aturan L7"
 
 msgid "Delete Listener"
 msgid_plural "Delete Listeners"
@@ -151,21 +279,73 @@ msgstr[0] "Delete Load Balancer"
 msgid "Delete Load Balancers"
 msgstr "Menghapus Load Balancers"
 
+msgid "Delete Member"
+msgid_plural "Delete Members"
+msgstr[0] "Delete Member"
+
+msgid "Delete Members"
+msgstr "Delete Members"
+
+msgid "Delete Pool"
+msgid_plural "Delete Pools"
+msgstr[0] "Delete Pool"
+
+msgid "Delete Pools"
+msgstr "Delete Pools"
+
 #, python-format
 msgid "Deleted Health Monitor: %s."
 msgid_plural "Deleted Health Monitors: %s."
 msgstr[0] "Deleted Health Monitor: %s."
 
 #, python-format
+msgid "Deleted L7 Policy: %s."
+msgid_plural "Deleted L7 Policies: %s."
+msgstr[0] "Deleted L7 Policy: %s."
+
+#, python-format
+msgid "Deleted L7 Rule: %s."
+msgid_plural "Deleted L7 Rules: %s."
+msgstr[0] "Deleted L7 Rule: %s."
+
+#, python-format
 msgid "Deleted Listener: %s."
 msgid_plural "Deleted Listeners: %s."
 msgstr[0] "Deleted Listener: %s."
 
+#, python-format
+msgid "Deleted Load Balancer: %s."
+msgid_plural "Deleted Load Balancers: %s."
+msgstr[0] "Deleted Load Balancer: %s."
+
+#, python-format
+msgid "Deleted Member: %s."
+msgid_plural "Deleted Members: %s."
+msgstr[0] "Deleted Member: %s."
+
+#, python-format
+msgid "Deleted Pool: %s."
+msgid_plural "Deleted Pools: %s."
+msgstr[0] "Deleted Pool: %s."
+
 msgid "Description"
 msgstr "Deskripsi"
 
+msgid "Disassociate"
+msgstr "Disassociate"
+
 msgid "Disassociate Floating IP"
 msgstr "Disassociate Floating IP"
+
+#, python-format
+msgid "Disassociated floating IP address from load balancer: %s."
+msgstr "Alamat IP mengambang yang dipisahkan dari load balancer: %s."
+
+msgid "ENDS_WITH: String ends with."
+msgstr "ENDS_WITH: String berakhir dengan."
+
+msgid "EQUAL_TO: String is equal to."
+msgstr "EQUAL_TO: String sama dengan."
 
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
@@ -183,11 +363,29 @@ msgstr ""
 msgid "Edit Health Monitor"
 msgstr "Edit Health Monitor"
 
+msgid "Edit L7 Policy"
+msgstr "Edit Kebijakan L7"
+
+msgid "Edit L7 Rule"
+msgstr "Edit Aturan L7"
+
 msgid "Edit Listener"
 msgstr "Edit Listener"
 
 msgid "Edit Load Balancer"
 msgstr "Edit Load Balancer"
+
+msgid "Edit Member"
+msgstr "Edit Member"
+
+msgid "Edit Pool"
+msgstr "Edit Pool"
+
+msgid "Ends With"
+msgstr "Ends With"
+
+msgid "Equal To"
+msgstr "Equal To"
 
 msgid "Error"
 msgstr "Error"
@@ -195,8 +393,21 @@ msgstr "Error"
 msgid "Expected Codes"
 msgstr "Expected Codes"
 
+msgid "Expected Codes:"
+msgstr "Expected Codes:"
+
 msgid "Expiration Date"
 msgstr "Expiration Date"
+
+msgid ""
+"FILE_TYPE: The rule compares the last portion of the URI against\n"
+"      the value parameter in the rule. (eg. “txt”, “jpg”, etc.)"
+msgstr ""
+"FILE_TYPE: Aturan membandingkan bagian terakhir dari URI dengan parameter "
+"nilai dalam aturan. (mis. “txt”, “jpg”, dll.)"
+
+msgid "File Type"
+msgstr "File Type"
 
 msgid "Flavor"
 msgstr "Flavor"
@@ -213,17 +424,43 @@ msgstr "Floating IP addresses"
 msgid "Floating IP pools"
 msgstr "Floating IP pools"
 
+msgid ""
+"HEADER: The rule looks for a header defined in the key parameter\n"
+"      and compares it against the value parameter in the rule."
+msgstr ""
+"HEADER: Aturan mencari header yang ditentukan dalam parameter kunci dan "
+"membandingkannya dengan parameter nilai dalam aturan."
+
+msgid ""
+"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
+"      hostname in the request against the value parameter in the rule."
+msgstr ""
+"HOST_NAME: Aturan melakukan perbandingan antara HTTP / 1.1 nama host dalam "
+"permintaan terhadap parameter nilai dalam aturan."
+
 msgid "HTTP Method"
 msgstr "HTTP Method"
+
+msgid "HTTP Method:"
+msgstr "HTTP Method:"
 
 msgid "HTTP_COOKIE: Session persistence based on http cookie."
 msgstr "HTTP_COOKIE: Sesi persistensi berdasarkan http cookie."
 
+msgid "Header"
+msgstr "Header"
+
 msgid "Health Monitor"
 msgstr "Health Monitor"
 
+msgid "Health Monitor ID"
+msgstr "Health Monitor ID"
+
 msgid "Health Monitors"
 msgstr "Health Monitors"
+
+msgid "Host Name"
+msgstr "Host Name"
 
 msgid "ID"
 msgstr "ID"
@@ -269,14 +506,44 @@ msgstr "Inactive"
 msgid "Insert Headers"
 msgstr "Memasukkan Headers"
 
+msgid "Insert Headers:"
+msgstr "Insert Headers:"
+
+msgid "Invert"
+msgstr "Invert"
+
+msgid "Invert:"
+msgstr "Invert:"
+
+msgid "Key"
+msgstr "Key"
+
 msgid "Key Manager API Guide: Creating a Certificate Container"
 msgstr "Key Manager API Guide: Creating a Certificate Container"
 
 msgid "Key Manager Service Command-Line Client"
 msgstr "Key Manager Service Command-Line Client"
 
+msgid "Key:"
+msgstr "Key:"
+
 msgid "L7 Policies"
 msgstr "L7 Policies"
+
+msgid "L7 Policy"
+msgstr "Kebijakan L7"
+
+msgid "L7 Policy Details"
+msgstr "L7 Policy Details"
+
+msgid "L7 Rule"
+msgstr "Peraturan L7"
+
+msgid "L7 Rule Details"
+msgstr "L7 Rule Details"
+
+msgid "L7 Rules"
+msgstr "Peraturan L7"
 
 msgid ""
 "LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
@@ -296,6 +563,9 @@ msgstr "Listener"
 msgid "Listener Details"
 msgstr "Listener Details"
 
+msgid "Listener ID"
+msgstr "Listener ID"
+
 msgid "Listeners"
 msgstr "Listeners"
 
@@ -308,11 +578,26 @@ msgstr "Load Balancer Details"
 msgid "Load Balancers"
 msgstr "Load Balancers"
 
+msgid "Loading"
+msgstr "Loading"
+
 msgid "Max Retries"
 msgstr "Max Retries"
 
 msgid "Max Retries Down"
 msgstr "Max Retries Down"
+
+msgid "Max Retries Down:"
+msgstr "Max Retries Down:"
+
+msgid "Max Retries:"
+msgstr "Max Retries:"
+
+msgid "Member"
+msgstr "Member"
+
+msgid "Members"
+msgstr "Members"
 
 msgid ""
 "Members are the actual IP addresses that will receive traffic from the load "
@@ -323,11 +608,17 @@ msgstr ""
 "penyeimbang beban. Setiap\n"
 "   member harus memiliki kombinasi unik dari alamat IP dan port."
 
+msgid "Monitor Address"
+msgstr "Monitor Address"
+
 msgid "Monitor Address:"
 msgstr "Monitor Address:"
 
 msgid "Monitor Details"
 msgstr "Monitor Details"
+
+msgid "Monitor Port"
+msgstr "Monitor Port"
 
 msgid "Monitor Port:"
 msgstr "Monitor Port:"
@@ -341,6 +632,9 @@ msgstr "Network"
 msgid "Network ID"
 msgstr "Network ID"
 
+msgid "No"
+msgstr "No"
+
 msgid "No Monitor"
 msgstr "No Monitor"
 
@@ -349,6 +643,9 @@ msgstr "Tidak ada sertifikat yang tersedia"
 
 msgid "No available instances"
 msgstr "Tidak ada instance yang tersedia"
+
+msgid "No items to display."
+msgstr "Tidak ada item untuk ditampilkan."
 
 msgid "No members have been allocated"
 msgstr "Tidak ada anggota (member) yang dialokasikan"
@@ -368,6 +665,16 @@ msgstr "Operating Status"
 msgid "Overview"
 msgstr "Overview"
 
+msgid ""
+"PATH: The rule compares the path portion of the HTTP URI against\n"
+"      the value parameter in the rule."
+msgstr ""
+"PATH: Aturan membandingkan bagian path HTTP URI dengan parameter nilai dalam "
+"aturan."
+
+msgid "Path"
+msgstr "Path"
+
 msgid "Pending Create"
 msgstr "Pending Create"
 
@@ -380,11 +687,17 @@ msgstr "Pending Update"
 msgid "Please Wait"
 msgstr "Please Wait"
 
+msgid "Pool"
+msgstr "Pool"
+
 msgid "Pool Details"
 msgstr "Pool Details"
 
 msgid "Pool Members"
 msgstr "Pool Members"
+
+msgid "Pool member has been updated."
+msgstr "Anggota pool telah diperbarui."
 
 msgid "Pools"
 msgstr "Pool"
@@ -398,6 +711,12 @@ msgstr "Port ID"
 msgid "Port:"
 msgstr "Port:"
 
+msgid "Position"
+msgstr "Position"
+
+msgid "Position:"
+msgstr "Posisi:"
+
 msgid "Project"
 msgstr "Project"
 
@@ -407,17 +726,29 @@ msgstr "Project ID"
 msgid "Protocol"
 msgstr "Protocol"
 
+msgid "Protocol Port"
+msgstr "Protocol Port"
+
 msgid "Protocol:"
 msgstr "Protocol:"
 
 msgid "Provide the details for the health monitor."
 msgstr "Berikan detil untuk monitor kesehatan."
 
+msgid "Provide the details for the l7 policy."
+msgstr "Berikan detail untuk kebijakan l7."
+
+msgid "Provide the details for the l7 rule."
+msgstr "Berikan detail untuk aturan l7."
+
 msgid "Provide the details for the listener."
 msgstr "Berikan detil untuk listener."
 
 msgid "Provide the details for the load balancer."
 msgstr "Berikan detil untuk penyeimbang beban."
+
+msgid "Provide the details for the member."
+msgstr "Berikan detail untuk anggota."
 
 msgid "Provide the details for the pool."
 msgstr "Berikan rincian untuk pool."
@@ -428,15 +759,80 @@ msgstr "Provider"
 msgid "Provisioning Status"
 msgstr "Provisioning Status"
 
+msgid ""
+"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
+"with the L7 policy."
+msgstr ""
+"REDIRECT_TO_POOL: Permintaan diteruskan ke kumpulan back-end yang terkait "
+"dengan kebijakan L7."
+
+msgid ""
+"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
+"the redirect_url parameter."
+msgstr ""
+"REDIRECT_TO_URL: Permintaan dikirim redirect HTTP ke URL yang ditentukan "
+"dalam parameter redirect_url."
+
+msgid "REGEX: Perl type regular expression matching."
+msgstr "REGEX: Pencocokan ekspresi reguler tipe Perl."
+
+msgid ""
+"REJECT: The request is denied with an appropriate response code, and not "
+"forwarded on to any back-end pool."
+msgstr ""
+"REJECT: Permintaan ditolak dengan kode respons yang sesuai, dan tidak "
+"diteruskan ke kumpulan back-end apa pun."
+
 msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
 msgstr ""
 "ROUND_ROBIN: Memutar permintaan secara merata di antara beberapa instance."
 
+msgid "Redirect Pool ID"
+msgstr "Redirect Pool ID"
+
+msgid "Redirect Pool ID:"
+msgstr "Redirect Pool ID:"
+
+msgid "Redirect URL"
+msgstr "Redirect URL"
+
+msgid "Redirect URL:"
+msgstr "Redirect URL:"
+
+msgid "Redirect to Pool"
+msgstr "Redirect to Pool"
+
+msgid "Redirect to URL"
+msgstr "Redirect to URL"
+
+msgid "Regex"
+msgstr "Regex"
+
+msgid "Reject"
+msgstr "Reject"
+
 msgid "Remove"
 msgstr "Remove"
 
+msgid ""
+"Requests matching this policy will be redirected to the pool with this ID. "
+"Only valid if action is REDIRECT_TO_POOL."
+msgstr ""
+"Permintaan yang cocok dengan kebijakan ini akan dialihkan ke kumpulan dengan "
+"ID ini. Hanya valid jika tindakan REDIRECT_TO_POOL."
+
+msgid ""
+"Requests matching this policy will be redirected to this URL. Only valid if "
+"action is REDIRECT_TO_URL."
+msgstr ""
+"Permintaan yang cocok dengan kebijakan ini akan dialihkan ke URL ini. Hanya "
+"valid jika tindakan REDIRECT_TO_URL."
+
 msgid "Round Robin"
 msgstr "Round Robin"
+
+msgid "Rules"
+msgstr "Rules"
 
 msgid "SNI Container Refs"
 msgstr "SNI Container Refs"
@@ -454,6 +850,9 @@ msgstr "SOURCE_IP:Sesi persistensi berbasis sumber ip."
 msgid "SSL Certificates"
 msgstr "SSL Certificates"
 
+msgid "STARTS_WITH: String starts with."
+msgstr "STARTS_WITH: String dimulai dengan."
+
 msgid ""
 "Select a floating IP address to associate with the load balancer or a "
 "floating IP pool in which to allocate a new floating IP address."
@@ -468,11 +867,17 @@ msgstr "Pilih sertifikat dari sertifikat yang tersedia di bawah ini"
 msgid "Select one or more SSL certificates for the listener."
 msgstr "Pilih satu atau beberapa sertifikat SSL untuk pendengarnya."
 
+msgid "Session Persistence"
+msgstr "Session Persistence"
+
 msgid "Session Persistence:"
 msgstr "Session Persistence (sesi persistensi):"
 
 msgid "Source IP"
 msgstr "Source IP"
+
+msgid "Starts With"
+msgstr "Starts With"
 
 msgid "Subnet"
 msgstr "Subnet"
@@ -499,6 +904,11 @@ msgstr ""
 msgid "The HTTP method used to perform the health check."
 msgstr "Metode HTTP digunakan untuk melakukan pemeriksaan kesehatan."
 
+msgid "The ID of the pool used by the listener if no L7 policies match."
+msgstr ""
+"ID dari pool yang digunakan oleh pendengar (listener) jika tidak ada "
+"kebijakan L7 yang cocok."
+
 msgid "The IP address is not valid."
 msgstr "Alamat IP tidak valid."
 
@@ -511,8 +921,25 @@ msgstr ""
 "balancer).  Harus menjadi well-formed\n"
 "   Alamat IPv4 atau IPv6"
 
+msgid ""
+"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
+msgstr ""
+"Tindakan kebijakan L7. Salah satu REJECT, REDIRECT_TO_URL, atau "
+"REDIRECT_TO_POOL."
+
+msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
+msgstr ""
+"The L7 rule type. Salah satu COOKIE, FILE_TYPE, HEADER, HOST_NAME, atau PATH."
+
 msgid "The URL path is not valid."
 msgstr "URL path tidak valid."
+
+msgid ""
+"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, or STARTS_WITH."
+msgstr ""
+"The comparison type untuk aturan L7. Salah satu CONTAINS, ENDS_WITH,\n"
+"   EQUAL_TO, REGEX, atau STARTS_WITH."
 
 msgid "The connection limit must be a number greater than or equal to -1."
 msgstr ""
@@ -564,6 +991,19 @@ msgstr ""
 "Selang waktu antara pemeriksaan kesehatan. Harus lebih besar dari atau sama "
 "dengan timeout."
 
+msgid ""
+"The key to use for the comparison. For example, the name of the cookie\n"
+"  to evaluate."
+msgstr ""
+"The key untuk digunakan sebagai pembanding. Misalnya, nama cookie untuk "
+"mengevaluasi."
+
+msgid "The l7policy has been updated."
+msgstr "Kebijakan l7 telah diperbarui."
+
+msgid "The l7rule has been updated."
+msgstr "L7rule telah diperbarui."
+
 msgid "The listener has been updated."
 msgstr "The listener has been updated."
 
@@ -571,6 +1011,9 @@ msgid ""
 "The load balancer algorithm that distributes traffic to the pool members."
 msgstr ""
 "Algoritma load balancer yang mendistribusikan lalu lintas ke pool member."
+
+msgid "The load balancer has been updated."
+msgstr "Load balancer telah diperbarui."
 
 msgid ""
 "The load balancer occupies a neutron network port and has an IP address "
@@ -591,6 +1034,12 @@ msgid ""
 msgstr ""
 "Jumlah maksimum koneksi yang diizinkan untuk listener ini.\n"
 "   Nilai default adalah -1 yang mewakili koneksi tak terbatas."
+
+msgid "The monitor address must be a valid IP address."
+msgstr "Alamat monitor harus merupakan alamat IP yang valid."
+
+msgid "The monitor port must be a number between 1 and 65535."
+msgstr "Port monitor harus berupa angka antara 1 dan 65535."
 
 msgid "The network on which to allocate the load balancer's IP address."
 msgstr "Jaringan untuk mengalokasikan alamat IP penyeimbang beban."
@@ -616,6 +1065,12 @@ msgstr ""
 "tidak aktif. Harus \n"
 "   nomor dari 1 sampai 10."
 
+msgid "The pool has been updated."
+msgstr "Pool telah diperbarui."
+
+msgid "The pool members have been updated."
+msgstr "Anggota pool telah diperbarui."
+
 msgid "The port must be a number between 1 and 65535."
 msgstr "Port harus berupa angka antara 1 dan 65535."
 
@@ -638,6 +1093,12 @@ msgstr ""
 "Port di mana anggota (member) mendengarkan lalu lintas. Harus nomor dari 1 "
 "sampai 65535."
 
+msgid "The position must be a number between 1 and 2147483647."
+msgstr "Posisi harus berupa angka antara 1 dan 2147483647."
+
+msgid "The position of this policy on the listener. Positions start at 1."
+msgstr "Posisi kebijakan ini pada pendengar. Posisi mulai 1."
+
 msgid ""
 "The protocol for which the front end listens. The TERMINATED_HTTPS protocol "
 "is only available if\n"
@@ -650,6 +1111,16 @@ msgstr ""
 "   layanan key-manager diaktifkan dan Anda memiliki wewenang untuk "
 "mencantumkan daftar sertifikat dan\n"
 "   rahasia"
+
+msgid ""
+"The protocol for which this pool and its members listen. A valid value is "
+"HTTP, HTTPS, PROXY, or TCP."
+msgstr ""
+"Protokol yang digunakan pool ini dan anggotanya. Nilai yang valid adalah "
+"HTTP, HTTPS, PROXY, atau TCP."
+
+msgid "The redirect url must be a valid http or https url."
+msgstr "URL pengalihan harus berupa http atau https url yang valid."
 
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
@@ -677,6 +1148,15 @@ msgstr ""
 "renang."
 
 msgid ""
+"The value to use for the comparison. For example, the file type to compare."
+msgstr ""
+"The value yang akan digunakan untuk perbandingan. Misalnya, jenis file (file "
+"type) untuk dibandingkan."
+
+msgid "The weight must be a number between 1 and 256."
+msgstr "Bobot harus berupa angka antara 1 dan 256."
+
+msgid ""
 "The weight of a member determines the portion of requests or connections it "
 "services compared\n"
 "  to the other members of the pool. A higher weight means it will receive "
@@ -701,11 +1181,23 @@ msgstr "Timeout (waktu habis):"
 msgid "Type"
 msgstr "Type"
 
+msgid "Type:"
+msgstr "Type:"
+
 msgid "URL Path"
 msgstr "URL Path"
 
+msgid "URL Path:"
+msgstr "URL Path:"
+
 msgid "Unable to create health monitor."
 msgstr "Tidak dapat membuat health monitor."
+
+msgid "Unable to create l7 policy."
+msgstr "Tidak dapat membuat kebijakan l7."
+
+msgid "Unable to create l7 rule."
+msgstr "Tidak dapat membuat aturan l7."
 
 msgid "Unable to create listener."
 msgstr "Tidak dapat membuat listener."
@@ -722,12 +1214,43 @@ msgid_plural "Unable to delete Health Monitors: %s."
 msgstr[0] "Unable to delete Health Monitor: %s."
 
 #, python-format
+msgid "Unable to delete L7 Policy: %s."
+msgid_plural "Unable to delete L7 Policies: %s."
+msgstr[0] "Unable to delete L7 Policy: %s."
+
+#, python-format
+msgid "Unable to delete L7 Rule: %s."
+msgid_plural "Unable to delete L7 Rules: %s."
+msgstr[0] "Unable to delete L7 Rule: %s."
+
+#, python-format
 msgid "Unable to delete Listener: %s."
 msgid_plural "Unable to delete Listeners: %s."
 msgstr[0] "Unable to delete Listener: %s."
 
+#, python-format
+msgid "Unable to delete Load Balancer: %s."
+msgid_plural "Unable to delete Load Balancers: %s."
+msgstr[0] "Unable to delete Load Balancer: %s."
+
+#, python-format
+msgid "Unable to delete Member: %s."
+msgid_plural "Unable to delete Members: %s."
+msgstr[0] "Unable to delete Member: %s."
+
+#, python-format
+msgid "Unable to delete Pool: %s."
+msgid_plural "Unable to delete Pools: %s."
+msgstr[0] "Unable to delete Pool: %s."
+
 msgid "Unable to delete health monitor."
 msgstr "Tidak dapat menghapus health monitor."
+
+msgid "Unable to delete l7 policy."
+msgstr "Tidak dapat menghapus kebijakan l7."
+
+msgid "Unable to delete l7 rule."
+msgstr "Tidak dapat menghapus aturan l7."
 
 msgid "Unable to delete listener."
 msgstr "Tidak dapat menghapus listener."
@@ -741,6 +1264,10 @@ msgstr "Tidak dapat menghapus member."
 msgid "Unable to delete pool."
 msgstr "Tidak dapat menghapus pool."
 
+#, python-format
+msgid "Unable to disassociate floating IP address from load balancer: %s."
+msgstr "Tidak dapat memisahkan alamat IP mengambang dari load balancer: %s."
+
 msgid "Unable to retrieve SSL certificates."
 msgstr "Tidak dapat mengambil sertifikat SSL."
 
@@ -749,6 +1276,18 @@ msgstr "Tidak dapat mengambil health monitor."
 
 msgid "Unable to retrieve health monitors."
 msgstr "Tidak dapat mengambil health monitor."
+
+msgid "Unable to retrieve l7 policies."
+msgstr "Tidak dapat mengambil kebijakan l7."
+
+msgid "Unable to retrieve l7 policy."
+msgstr "Tidak dapat mengambil kebijakan l7."
+
+msgid "Unable to retrieve l7 rule."
+msgstr "Tidak dapat mengambil aturan l7."
+
+msgid "Unable to retrieve l7 rules."
+msgstr "Tidak dapat mengambil aturan l7."
 
 msgid "Unable to retrieve listener."
 msgstr "Tidak dapat mengambil listener."
@@ -780,6 +1319,12 @@ msgstr "Tidak dapat mengambil rahasia."
 msgid "Unable to update health monitor."
 msgstr "Tidak dapat memperbarui health monitor."
 
+msgid "Unable to update l7 policy."
+msgstr "Tidak dapat memperbarui kebijakan l7."
+
+msgid "Unable to update l7 rule."
+msgstr "Tidak dapat memperbarui aturan l7."
+
 msgid "Unable to update listener."
 msgstr "Tidak dapat memperbarui listener."
 
@@ -795,11 +1340,29 @@ msgstr "Tidak dapat memperbarui member."
 msgid "Unable to update pool."
 msgstr "Tidak dapat memperbarui pool."
 
+msgid "Update"
+msgstr "Update"
+
 msgid "Update Health Monitor"
 msgstr "Memperbarui Health Monitor"
 
+msgid "Update L7 Policy"
+msgstr "Perbarui Kebijakan L7"
+
+msgid "Update L7 Rule"
+msgstr "Perbarui Aturan L7"
+
 msgid "Update Listener"
 msgstr "Update Listener"
+
+msgid "Update Load Balancer"
+msgstr "Update Load Balancer"
+
+msgid "Update Member"
+msgstr "Update Member"
+
+msgid "Update Pool"
+msgstr "Update Pool"
 
 msgid "Updated At"
 msgstr "Updated At"
@@ -815,8 +1378,52 @@ msgstr ""
 "     Dokumentasi berikut memberikan informasi tentang cara membuat "
 "certificate container:"
 
+msgid "Value"
+msgstr "Value"
+
+msgid "Value:"
+msgstr "Value:"
+
+msgid "Weight"
+msgstr "Weight"
+
 msgid "Weight:"
 msgstr "Weight (bobot):"
+
+msgid ""
+"When true the logic of the rule is inverted. For example, with invert\n"
+"  true, equal to would become not equal to."
+msgstr ""
+"Ketika benar logika aturan dibalik. Misalnya, dengan membalikkan benar, sama "
+"dengan menjadi tidak sama dengan."
+
+msgid "X-Forwarded-For"
+msgstr "X-Forwarded-For"
+
+msgid "X-Forwarded-port"
+msgstr "X-Forwarded-port"
+
+msgid "Yes"
+msgstr "Yes"
+
+#, python-format
+msgid ""
+"You are about to disassociate the floating IP address from load balancer \"%s"
+"\". Please confirm."
+msgstr ""
+"Anda akan memutuskan kaitan alamat IP mengambang dari load balancer \"%s\". "
+"Tolong konfirmasi."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Policy is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted L7 Policies are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted L7 Policy is not recoverable."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Rule is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted L7 Rules are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted L7 Rule is not recoverable."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
@@ -829,3 +1436,19 @@ msgstr[0] ""
 msgid "You have selected \"%s\". Deleted listener is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
 msgstr[0] "You have selected \"%s\". Deleted listener is not recoverable."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted load balancer is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted load balancers are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted load balancer is not recoverable."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted member is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted members are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted member is not recoverable."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted pool is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted pools are not recoverable."
+msgstr[0] "You have selected \"%s\". Deleted pool is not recoverable."

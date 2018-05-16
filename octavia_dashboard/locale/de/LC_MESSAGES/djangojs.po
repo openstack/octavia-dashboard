@@ -1,14 +1,15 @@
 # Frank Kloeker <eumel@arcor.de>, 2018. #zanata
+# Robert Simai <robert.simai@suse.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-09 03:37+0000\n"
+"POT-Creation-Date: 2018-05-16 01:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-02-09 04:54+0000\n"
-"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
+"PO-Revision-Date: 2018-05-11 02:37+0000\n"
+"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -39,6 +40,12 @@ msgstr ""
 
 msgid "APP_COOKIE: Session persistence based on application cookie."
 msgstr "APP_COOKIE: Sitzungsdauer basiert auf einen Anwendungs-Cookie."
+
+msgid "Action"
+msgstr "Aktion"
+
+msgid "Action:"
+msgstr "Aktion:"
 
 msgid "Active"
 msgstr "Aktiv"
@@ -110,6 +117,9 @@ msgstr "Abbrechen"
 msgid "Certificate Name"
 msgstr "Zertifikatname"
 
+msgid "Compare Type"
+msgstr "Typ vergleichen"
+
 msgid "Confirm Delete Health Monitor"
 msgid_plural "Confirm Delete Health Monitors"
 msgstr[0] "Bestätigen Gesundheitsmonitor löschen"
@@ -144,8 +154,14 @@ msgstr "Verbindungsgrenze"
 msgid "Connection Limit:"
 msgstr "Verbindungslimits:"
 
+msgid "Contains"
+msgstr "Enthält"
+
 msgid "Cookie"
 msgstr "Cookie"
+
+msgid "Cookie Name"
+msgstr "Cookie-Name"
 
 msgid "Create Health Monitor"
 msgstr "Gesundheitsmonitor erzeugen"
@@ -173,6 +189,12 @@ msgstr "Degradiert"
 
 msgid "Delay"
 msgstr "Verzögerung"
+
+msgid "Delay (sec)"
+msgstr "Verzögerung (Sek)"
+
+msgid "Delay:"
+msgstr "Verzögerung:"
 
 msgid "Delete Health Monitor"
 msgid_plural "Delete Health Monitors"
@@ -285,14 +307,26 @@ msgstr "Mitglied bearbeiten"
 msgid "Edit Pool"
 msgstr "Pool bearbeiten"
 
+msgid "Ends With"
+msgstr "Endet mit"
+
+msgid "Equal To"
+msgstr "Entspricht"
+
 msgid "Error"
 msgstr "Fehler"
 
 msgid "Expected Codes"
 msgstr "Erwartete Codes"
 
+msgid "Expected Codes:"
+msgstr "Erwartete Codes:"
+
 msgid "Expiration Date"
 msgstr "Ablaufdatum"
+
+msgid "File Type"
+msgstr "Dateityp"
 
 msgid "Flavor"
 msgstr "Variante"
@@ -315,6 +349,9 @@ msgstr "HTTP-Methode"
 msgid "HTTP_COOKIE: Session persistence based on http cookie."
 msgstr "HTTP_COOKIE: Sitzungsdauer basiert auf HTTP-Cookie."
 
+msgid "Header"
+msgstr "Header"
+
 msgid "Health Monitor"
 msgstr "Gesundheitsmonitor"
 
@@ -323,6 +360,9 @@ msgstr "Gesundheitsmonitor-ID"
 
 msgid "Health Monitors"
 msgstr "Gesundheitsmonitore"
+
+msgid "Host Name"
+msgstr "Hostname"
 
 msgid "ID"
 msgstr "ID"
@@ -368,11 +408,26 @@ msgstr "Inaktiv"
 msgid "Insert Headers"
 msgstr "Kopfzeilen einfügen"
 
+msgid "Insert Headers:"
+msgstr "Header einfügen:"
+
+msgid "Invert"
+msgstr "Invertieren"
+
+msgid "Invert:"
+msgstr "Invertieren:"
+
+msgid "Key"
+msgstr "Schlüssel"
+
 msgid "Key Manager API Guide: Creating a Certificate Container"
 msgstr "Key Manager API Leitfaden: Erstellen eines Zertifikat-Containers"
 
 msgid "Key Manager Service Command-Line Client"
 msgstr "Key Manager Service Command-Line Client"
+
+msgid "Key:"
+msgstr "Schlüssel:"
 
 msgid "L7 Policies"
 msgstr "L7 Policies"
@@ -414,6 +469,9 @@ msgstr "Max Wiederholungen"
 
 msgid "Max Retries Down"
 msgstr "Max Wiederholungen herunter"
+
+msgid "Max Retries:"
+msgstr "Max Versuche:"
 
 msgid "Member"
 msgstr "Mitglied"
@@ -487,6 +545,9 @@ msgstr "Betriebsstatus"
 msgid "Overview"
 msgstr "Übersicht"
 
+msgid "Path"
+msgstr "Pfad"
+
 msgid "Pending Create"
 msgstr "Geplante Erstellung"
 
@@ -522,6 +583,12 @@ msgstr "Port-ID"
 
 msgid "Port:"
 msgstr "Port:"
+
+msgid "Position"
+msgstr "Position"
+
+msgid "Position:"
+msgstr "Position:"
 
 msgid "Project"
 msgstr "Projekt"
@@ -563,11 +630,32 @@ msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
 msgstr ""
 "ROUND_ROBIN: Rotiert Anfragen zufällig zwischen verschiedenen Instanzen."
 
+msgid "Redirect Pool ID"
+msgstr "Umleitungs-Pool-ID"
+
+msgid "Redirect URL"
+msgstr "Umleitungs-URL"
+
+msgid "Redirect to Pool"
+msgstr "Zu Pool umleiten"
+
+msgid "Redirect to URL"
+msgstr "Zu URL umleiten"
+
+msgid "Regex"
+msgstr "Regex"
+
+msgid "Reject"
+msgstr "Abweisen"
+
 msgid "Remove"
 msgstr "Entfernen"
 
 msgid "Round Robin"
 msgstr "Rundlauf-Verfahren"
+
+msgid "Rules"
+msgstr "Regeln"
 
 msgid "SNI Container Refs"
 msgstr "SNI Container Refs"
@@ -608,6 +696,9 @@ msgstr "Sitzungsdauer:"
 
 msgid "Source IP"
 msgstr "Quell-IP"
+
+msgid "Starts With"
+msgstr "Beginnt mit"
 
 msgid "Subnet"
 msgstr "Teilnetz"
@@ -799,6 +890,13 @@ msgstr ""
 "haben, Zertifikats-Container und Geheimnisse aufzulisten."
 
 msgid ""
+"The protocol for which this pool and its members listen. A valid value is "
+"HTTP, HTTPS, PROXY, or TCP."
+msgstr ""
+"Das Protokoll, auf das dieser Pool und seine Mitglieder hören. Ein gültiger "
+"Wert ist HTTP, HTTPS, PROXY oder TCP."
+
+msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
 "URL path."
 msgstr ""
@@ -851,8 +949,14 @@ msgstr "Timeout:"
 msgid "Type"
 msgstr "Typ"
 
+msgid "Type:"
+msgstr "Typ:"
+
 msgid "URL Path"
 msgstr "URL Pfad"
+
+msgid "URL Path:"
+msgstr "URL-Pfad:"
 
 msgid "Unable to create health monitor."
 msgstr "Gesundheitsmonitor kann nicht erzeugt werden."
@@ -1001,6 +1105,12 @@ msgstr ""
 "Zertifikat-Container, bevor die Listener erstellt werden.\n"
 "    Die folgende Dokumentation stellt Informationen bereit, wie Zertifikat-"
 "Container zu erstellen sind:"
+
+msgid "Value"
+msgstr "Wert"
+
+msgid "Value:"
+msgstr "Wert:"
 
 msgid "Weight"
 msgstr "Gewicht"
