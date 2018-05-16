@@ -64,6 +64,7 @@
     ctrl.monitor_address = member.monitor_address;
     ctrl.monitor_port = member.monitor_port;
     ctrl.admin_state_up = member.admin_state_up;
+    ctrl.backup = member.backup;
     ctrl.name = member.name;
     ctrl.cancel = cancel;
     ctrl.save = save;
@@ -81,6 +82,7 @@
         monitor_address: ctrl.monitor_address,
         monitor_port: ctrl.monitor_port,
         admin_state_up: ctrl.admin_state_up,
+        backup: ctrl.backup,
         name: ctrl.name
       }).then(onSuccess, onFailure);
     }

@@ -119,6 +119,7 @@
         monitor_address: null,
         monitor_port: null,
         admin_state_up: true,
+        backup: false,
         name: null
       });
     }

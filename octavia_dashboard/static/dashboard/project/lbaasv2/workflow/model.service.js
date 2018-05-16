@@ -601,7 +601,8 @@
             weight: 1,
             monitor_address: null,
             monitor_port: null,
-            admin_state_up: true
+            admin_state_up: true,
+            backup: false
           });
         }
       });
@@ -801,6 +802,7 @@
           monitor_address: member.monitor_address,
           monitor_port: member.monitor_port,
           admin_state_up: member.admin_state_up,
+          backup: member.backup,
           name: member.name,
           allocatedMember: true
         });

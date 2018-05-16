@@ -79,6 +79,10 @@
         priority: 1
       })
       .append({
+        id: 'backup',
+        priority: 1
+      })
+      .append({
         id: 'operating_status',
         priority: 1
       })
@@ -146,6 +150,10 @@
       },
       admin_state_up: {
         label: gettext('Admin State Up'),
+        filters: ['yesno']
+      },
+      backup: {
+        label: gettext('Backup'),
         filters: ['yesno']
       },
       address: gettext('IP Address'),

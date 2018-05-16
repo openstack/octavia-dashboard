@@ -112,7 +112,7 @@
               Can be toggled using the chevron button.
               Ensure colspan is greater or equal to number of column-headers.
             -->
-            <td class="detail" colspan="9">
+            <td class="detail" colspan="10">
 
               <div class="row">
                 <dl class="col-lg-5 col-md-5 col-sm-5">
@@ -155,6 +155,20 @@
                   </dd>
                 </dl>
                 <dl class="col-lg-5 col-md-5 col-sm-5">
+                  <dt class="control-label required" translate>Backup</dt>
+                  <dd class="form-group">
+                  <div class="form-field">
+                    <div class="btn-group">
+                      <label class="btn btn-default"
+                             ng-repeat="option in model.yesNoOptions"
+                             ng-model="row.backup"
+                             ng-disabled="row.allocatedMember"
+                             uib-btn-radio="option.value">{$ ::option.label $}</label>
+                    </div>
+                  </div>
+                  </dd>
+                </dl>
+                <dl class="col-lg-5 col-md-5 col-sm-5">
                   <dt class="control-label required" translate>Name</dt>
                   <dd class="form-group">
                   <div class="form-field">
@@ -171,7 +185,7 @@
             </td>
           </tr>
 
-          <tr table-status table="table" column-count="9"></tr>
+          <tr table-status table="table" column-count="10"></tr>
 
           <tr>
             <td colspan="6">

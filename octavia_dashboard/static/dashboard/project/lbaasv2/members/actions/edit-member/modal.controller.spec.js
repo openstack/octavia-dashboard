@@ -43,6 +43,7 @@
         monitor_address: '1.1.1.1',
         monitor_port: 80,
         admin_state_up: true,
+        backup: false,
         name: 'member name'
       });
       $provide.value('horizon.app.core.openstack-service-api.lbaasv2', {
@@ -86,6 +87,7 @@
         monitor_address: '1.1.1.1',
         monitor_port: 80,
         admin_state_up: true,
+        backup: false,
         name: 'member name'
       });
       expect($uibModalInstance.close).toHaveBeenCalled();
