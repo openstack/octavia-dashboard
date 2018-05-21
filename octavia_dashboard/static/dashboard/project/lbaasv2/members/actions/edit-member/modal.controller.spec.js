@@ -42,7 +42,8 @@
         weight: 1,
         monitor_address: '1.1.1.1',
         monitor_port: 80,
-        admin_state_up: true
+        admin_state_up: true,
+        name: 'member name'
       });
       $provide.value('horizon.app.core.openstack-service-api.lbaasv2', {
         editMember: function() {
@@ -84,7 +85,8 @@
         weight: 1,
         monitor_address: '1.1.1.1',
         monitor_port: 80,
-        admin_state_up: true
+        admin_state_up: true,
+        name: 'member name'
       });
       expect($uibModalInstance.close).toHaveBeenCalled();
     });

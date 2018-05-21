@@ -1499,7 +1499,7 @@
         expect(finalSpec.members[0].weight).toBe(1);
         expect(finalSpec.members[0].id).toBe('1');
         expect(finalSpec.members[0].addresses).toBeUndefined();
-        expect(finalSpec.members[0].name).toBeUndefined();
+        expect(finalSpec.members[0].name).toBe('foo');
         expect(finalSpec.members[0].allocatedMember).toBeUndefined();
         expect(finalSpec.members[1].id).toBe('external-member-0');
         expect(finalSpec.members[1].address).toBe('2.3.4.5');
@@ -1746,7 +1746,7 @@
         expect(finalSpec.members[0].weight).toBe(1);
         expect(finalSpec.members[0].id).toBe('1');
         expect(finalSpec.members[0].addresses).toBeUndefined();
-        expect(finalSpec.members[0].name).toBeUndefined();
+        expect(finalSpec.members[0].name).toBe('foo');
         expect(finalSpec.members[0].allocatedMember).toBeUndefined();
         expect(finalSpec.members[1].id).toBe('external-member-0');
         expect(finalSpec.members[1].address).toBe('2.3.4.5');
@@ -1995,7 +1995,7 @@
         expect(finalSpec.members[0].weight).toBe(1);
         expect(finalSpec.members[0].id).toBe('1');
         expect(finalSpec.members[0].addresses).toBeUndefined();
-        expect(finalSpec.members[0].name).toBeUndefined();
+        expect(finalSpec.members[0].name).toBe('foo');
         expect(finalSpec.members[0].allocatedMember).toBeUndefined();
         expect(finalSpec.members[1].id).toBe('external-member-0');
         expect(finalSpec.members[1].address).toBe('2.3.4.5');

@@ -50,7 +50,7 @@
     patterns, gettext, poolId, member) {
     var ctrl = this;
 
-    ctrl.adminStateUpOptions = [
+    ctrl.yesNoOptions = [
       { label: gettext('Yes'), value: true },
       { label: gettext('No'), value: false }
     ];
@@ -64,6 +64,7 @@
     ctrl.monitor_address = member.monitor_address;
     ctrl.monitor_port = member.monitor_port;
     ctrl.admin_state_up = member.admin_state_up;
+    ctrl.name = member.name;
     ctrl.cancel = cancel;
     ctrl.save = save;
     ctrl.saving = false;
@@ -79,7 +80,8 @@
         weight: ctrl.weight,
         monitor_address: ctrl.monitor_address,
         monitor_port: ctrl.monitor_port,
-        admin_state_up: ctrl.admin_state_up
+        admin_state_up: ctrl.admin_state_up,
+        name: ctrl.name
       }).then(onSuccess, onFailure);
     }
 

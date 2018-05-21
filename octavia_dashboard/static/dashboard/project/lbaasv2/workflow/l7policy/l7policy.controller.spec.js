@@ -28,8 +28,9 @@
         ctrl = $controller('L7PolicyDetailsController');
       }));
 
-      it('should define adminStateUpOptions', function() {
-        expect(ctrl.adminStateUpOptions).toBeDefined();
+      it('should define error messages', function() {
+        expect(ctrl.redirectUrlError).toBeDefined();
+        expect(ctrl.positionError).toBeDefined();
       });
 
     });

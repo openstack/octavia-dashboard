@@ -45,11 +45,6 @@
     var ctrl = this;
     var memberCounter = 0;
 
-    ctrl.adminStateUpOptions = [
-      { label: gettext('Yes'), value: true },
-      { label: gettext('No'), value: false }
-    ];
-
     // Error text for invalid fields
     ctrl.portError = gettext('The port must be a number between 1 and 65535.');
     ctrl.weightError = gettext('The weight must be a number between 1 and 256.');
@@ -123,7 +118,8 @@
         weight: 1,
         monitor_address: null,
         monitor_port: null,
-        admin_state_up: true
+        admin_state_up: true,
+        name: null
       });
     }
 
