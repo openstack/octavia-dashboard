@@ -311,6 +311,7 @@ def add_member(request, **kwargs):
         monitor_address=monitor_address if monitor_address else None,
         monitor_port=member.get('monitor_port'),
         admin_state_up=member.get('admin_state_up'),
+        backup=member.get('backup', False),
         name=member.get('name'),
     )
 
@@ -1087,6 +1088,7 @@ class Member(generic.View):
             monitor_address=monitor_address if monitor_address else None,
             monitor_port=data.get('monitor_port'),
             admin_state_up=data.get('admin_state_up'),
+            backup=data.get('backup', False),
             name=data.get('name'),
         )
         return _get_sdk_object_dict(member)

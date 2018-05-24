@@ -21,6 +21,10 @@
           {$ ::ctrl.member.protocol_port $}
         </li>
         <li>
+          <strong translate>Backup</strong>
+          {$ ctrl.member.backup | yesno $}
+        </li>
+        <li>
           <strong translate>Operating Status</strong>
           {$ ctrl.member.operating_status | decode:ctrl.operatingStatus $}
         </li>
