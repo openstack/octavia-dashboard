@@ -64,6 +64,66 @@
   <div class="row">
 
     <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group required">
+        <label class="control-label" for="protocol">
+          <translate>Client Data Timeout</translate>
+        </label>
+        <input name="timeout_client_data" id="timeout_client_data" type="number" class="form-control"
+               ng-model="model.spec.listener.timeout_client_data" ng-pattern="/^\d+$/" min="0" max="31536000000">
+        <span class="help-block" ng-show="listenerDetailsForm.timeout_client_data.$error.number && listenerDetailsForm.timeout_client_data.$dirty">
+          {$ ::ctrl.timeoutError $}
+        </span>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group required">
+        <label class="control-label" for="protocol">
+          <translate>TCP Inspect Timeout</translate>
+        </label>
+        <input name="timeout_tcp_inspect" id="timeout_tcp_inspect" type="number" class="form-control"
+               ng-model="model.spec.listener.timeout_tcp_inspect" ng-pattern="/^\d+$/" min="0" max="31536000000">
+        <span class="help-block" ng-show="listenerDetailsForm.timeout_tcp_inspect.$error.number && listenerDetailsForm.timeout_tcp_inspect.$dirty">
+          {$ ::ctrl.timeoutError $}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group required">
+        <label class="control-label" for="protocol">
+          <translate>Member Connect Timeout</translate>
+        </label>
+        <input name="timeout_member_connect" id="timeout_member_connect" type="number" class="form-control"
+               ng-model="model.spec.listener.timeout_member_connect" ng-pattern="/^\d+$/" min="0" max="31536000000">
+        <span class="help-block" ng-show="listenerDetailsForm.timeout_member_connect.$error.number && listenerDetailsForm.timeout_member_connect.$dirty">
+          {$ ::ctrl.timeoutError $}
+        </span>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group required">
+        <label class="control-label" for="protocol">
+          <translate>Member Data Timeout</translate>
+        </label>
+        <input name="timeout_member_data" id="timeout_member_data" type="number" class="form-control"
+               ng-model="model.spec.listener.timeout_member_data" ng-pattern="/^\d+$/" min="0" max="31536000000">
+        <span class="help-block" ng-show="listenerDetailsForm.timeout_member_data.$error.number && listenerDetailsForm.timeout_member_data.$dirty">
+          {$ ::ctrl.timeoutError $}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group required"
            ng-class="{ 'has-error': listenerDetailsForm.connection_limit.$invalid && listenerDetailsForm.connection_limit.$dirty }">
         <label class="control-label" for="connection_limit">
