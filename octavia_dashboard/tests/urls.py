@@ -1,3 +1,4 @@
+# Copyright 2018 Walmart.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -11,9 +12,10 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from django.conf import urls
-from openstack_dashboard import urls as dashboard_urls
+from django.conf.urls import include
+from django.conf.urls import url
+import openstack_dashboard.urls
 
 urlpatterns = [
-    urls.url(r'', urls.include(dashboard_urls))
+    url(r'', include(openstack_dashboard.urls))
 ]
