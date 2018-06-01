@@ -5,12 +5,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-24 21:12+0000\n"
+"POT-Creation-Date: 2018-05-29 14:37+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-05-25 07:28+0000\n"
-"Last-Translator: Andi Chandler <andi@gowling.com>\n"
+"PO-Revision-Date: 2018-06-01 12:56+0000\n"
+"Last-Translator: Jacky Hu <hudayou@hotmail.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -134,6 +134,18 @@ msgstr "Associating floating IP with load balancer."
 msgid "Available Instances"
 msgstr "Available Instances"
 
+msgid "Backend member connection timeout in milliseconds. Default: 5000."
+msgstr "Backend member connection timeout in milliseconds. Default: 5000."
+
+msgid "Backend member inactivity timeout in milliseconds. Default: 50000."
+msgstr "Backend member inactivity timeout in milliseconds. Default: 50000."
+
+msgid "Backup"
+msgstr "Backup"
+
+msgid "Backup:"
+msgstr "Backup:"
+
 msgid "CONTAINS: String contains."
 msgstr "CONTAINS: String contains."
 
@@ -149,6 +161,12 @@ msgstr "Cancel"
 
 msgid "Certificate Name"
 msgstr "Certificate Name"
+
+msgid "Client Data Timeout"
+msgstr "Client Data Timeout"
+
+msgid "Client Data Timeout:"
+msgstr "Client Data Timeout:"
 
 msgid "Compare Type"
 msgstr "Compare Type"
@@ -445,6 +463,9 @@ msgstr "Floating IP addresses"
 msgid "Floating IP pools"
 msgstr "Floating IP pools"
 
+msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
+msgstr "Frontend client inactivity timeout in milliseconds. Default: 50000."
+
 msgid ""
 "HEADER: The rule looks for a header defined in the key parameter\n"
 "      and compares it against the value parameter in the rule."
@@ -536,6 +557,13 @@ msgstr "Invert"
 msgid "Invert:"
 msgstr "Invert:"
 
+msgid ""
+"Is the member a backup? Backup members only receive traffic when all\n"
+"  non-backup members are down."
+msgstr ""
+"Is the member a backup? Backup members only receive traffic when all\n"
+"  non-backup members are down."
+
 msgid "Key"
 msgstr "Key"
 
@@ -616,6 +644,18 @@ msgstr "Max Retries:"
 
 msgid "Member"
 msgstr "Member"
+
+msgid "Member Connect Timeout"
+msgstr "Member Connect Timeout"
+
+msgid "Member Connect Timeout:"
+msgstr "Member Connect Timeout:"
+
+msgid "Member Data Timeout"
+msgstr "Member Data Timeout"
+
+msgid "Member Data Timeout:"
+msgstr "Member Data Timeout:"
 
 msgid "Members"
 msgstr "Members"
@@ -907,6 +947,12 @@ msgstr "Subnet ID"
 msgid "Subnet:"
 msgstr "Subnet:"
 
+msgid "TCP Inspect Timeout"
+msgstr "TCP Inspect Timeout"
+
+msgid "TCP Inspect Timeout:"
+msgstr "TCP Inspect Timeout:"
+
 msgid ""
 "The Available Instances table contains existing compute instances that can "
 "be added as members\n"
@@ -1150,6 +1196,9 @@ msgstr ""
 "or equal to 0\n"
 "  and less than or equal to the interval."
 
+msgid "The timeout must be a number between 0 and 31536000000."
+msgstr "The timeout must be a number between 0 and 31536000000."
+
 msgid "The timeout must be a number greater than or equal to 0."
 msgstr "The timeout must be a number greater than or equal to 0."
 
@@ -1178,6 +1227,13 @@ msgstr ""
 "  to the other members of the pool. A higher weight means it will receive "
 "more traffic. Must be\n"
 "  a number from 1 to 256."
+
+msgid ""
+"Time, in milliseconds, to wait for additional TCP packets for content\n"
+"  inspection. Default: 0."
+msgstr ""
+"Time, in milliseconds, to wait for additional TCP packets for content\n"
+"  inspection. Default: 0."
 
 msgid "Timeout"
 msgstr "Timeout"
