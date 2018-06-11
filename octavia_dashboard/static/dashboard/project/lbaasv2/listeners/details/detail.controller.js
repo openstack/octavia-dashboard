@@ -22,6 +22,9 @@
     .controller('ListenerDetailController', ListenerDetailController);
 
   ListenerDetailController.$inject = [
+    '$timeout',
+    'horizon.dashboard.project.lbaasv2.events',
+    '$scope',
     'loadbalancer',
     'listener',
     'horizon.dashboard.project.lbaasv2.loadbalancers.service',
@@ -38,6 +41,7 @@
    * @description
    * Controller for the LBaaS v2 listener detail page.
    *
+   * @param $scope The angular scope object.
    * @param loadbalancer The loadbalancer object.
    * @param listener The listener object.
    * @param loadBalancersService The LBaaS v2 load balancers service.
@@ -50,7 +54,8 @@
    */
 
   function ListenerDetailController(
-    loadbalancer, listener, loadBalancersService, resourceType, typeRegistry,
+    $timeout, events,
+    $scope, loadbalancer, listener, loadBalancersService, resourceType, typeRegistry,
     spinnerService, $q
   ) {
     var ctrl = this;
@@ -69,6 +74,34 @@
 
     ctrl.resultHandler = actionResultHandler;
 
+    $scope.$watch(
+      function() {
+        return ctrl.listener;
+      },
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+        $scope.loadTimeout = $timeout(function() {
+          ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
+          ctrl.context.loadPromise.then(loadData);
+        }, loadBalancersService.backoff.duration());
+      }
+    );
+
+    $scope.$on(
+      events.ACTION_DONE,
+      function() {
+        loadBalancersService.backoff.reset();
+        ctrl.listener = angular.copy(ctrl.listener);
+      }
+    );
+
+    $scope.$on(
+      '$destroy',
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+      }
+    );
+
     function actionResultHandler(returnValue) {
       return $q.when(returnValue, actionSuccessHandler);
     }
@@ -79,6 +112,10 @@
       ctrl.resourceType.initActions();
       ctrl.listener = response.data;
       ctrl.listener.loadbalancerId = ctrl.loadbalancer.id;
+      ctrl.listFunctionExtraParams = {
+        loadbalancerId: ctrl.loadbalancer.id,
+        listenerId: ctrl.listener.id
+      };
     }
 
     function actionSuccessHandler(result) {

@@ -88,7 +88,7 @@
   });
 
   describe('LBaaS v2 Module Config', function () {
-    var $routeProvider, basePath;
+    var $routeProvider, basePath; // eslint-disable-line no-unused-vars
 
     beforeEach(function() {
       // Create a dummy module so that we can test $routeProvider calls in our actual
@@ -105,18 +105,16 @@
       inject();
     });
 
-    it('should route to loadbalancer panel', function () {
-      var loadbalancers = '/project/load_balancer';
-      var routes = [[
-        loadbalancers, {
-          templateUrl: basePath + 'loadbalancers/panel.html'
-        }
-      ]];
-
-      routes.forEach(function(route) {
-        expect($routeProvider.when).toHaveBeenCalledWith(route[0], route[1]);
-      });
-    });
+    it('should route resolved loadbalancer panel',
+      inject(function($route, $location, $rootScope, $httpBackend) {
+        $httpBackend.expectGET(
+          '/static/dashboard/project/lbaasv2/loadbalancers/panel.html'
+        ).respond({});
+        $location.path('/project/load_balancer/');
+        $rootScope.$digest();
+        expect($route.current).toBeDefined();
+      })
+    );
 
     it('should route resolved loadbalancer detail', inject(function($injector) {
       function loadbalancerAPI() {

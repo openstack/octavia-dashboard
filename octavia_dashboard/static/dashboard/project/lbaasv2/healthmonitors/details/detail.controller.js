@@ -22,6 +22,9 @@
     .controller('HealthMonitorDetailController', HealthMonitorDetailController);
 
   HealthMonitorDetailController.$inject = [
+    '$timeout',
+    'horizon.dashboard.project.lbaasv2.events',
+    '$scope',
     'loadbalancer',
     'listener',
     'pool',
@@ -40,6 +43,9 @@
    * @description
    * Controller for the LBaaS v2 health monitor detail page.
    *
+   * @param $timeout The angular timeout object.
+   * @param events The LBaaS v2 events object.
+   * @param $scope The angular scope object.
    * @param loadbalancer The loadbalancer object.
    * @param listener The listener object.
    * @param pool The pool object.
@@ -54,7 +60,8 @@
    */
 
   function HealthMonitorDetailController(
-    loadbalancer, listener, pool, healthmonitor, loadBalancersService,
+    $timeout, events,
+    $scope, loadbalancer, listener, pool, healthmonitor, loadBalancersService,
     resourceType, typeRegistry, spinnerService, $q
   ) {
     var ctrl = this;
@@ -77,6 +84,33 @@
     ctrl.context.identifier = ctrl.resourceType.parsePath(ctrl.healthmonitor.id);
 
     ctrl.resultHandler = actionResultHandler;
+
+    $scope.$watch(
+      function() {
+        return ctrl.healthmonitor;
+      },
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+        $scope.loadTimeout = $timeout(function() {
+          ctrl.context.loadPromise = ctrl.resourceType.load(ctrl.context.identifier);
+          ctrl.context.loadPromise.then(loadData);
+        }, loadBalancersService.backoff.duration());
+      }
+    );
+
+    $scope.$on(
+      events.ACTION_DONE,
+      function() {
+        loadBalancersService.backoff.reset();
+      }
+    );
+
+    $scope.$on(
+      '$destroy',
+      function() {
+        $timeout.cancel($scope.loadTimeout);
+      }
+    );
 
     function actionResultHandler(returnValue) {
       return $q.when(returnValue, actionSuccessHandler);

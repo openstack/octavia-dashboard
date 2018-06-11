@@ -5,14 +5,14 @@
     <li class="breadcrumb-item-truncate"><a href="project/load_balancer/"><translate>Load Balancers</translate></a></li>
     <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}">{$ ::(ctrl.loadbalancer.name || ctrl.loadbalancer.id) $}</a></li>
     <li class="breadcrumb-item-truncate"><a href="project/load_balancer/{$ ::ctrl.loadbalancer.id $}/listeners/{$ ::ctrl.listener.id $}">{$ ::(ctrl.listener.name || ctrl.listener.id) $}</a></li>
-    <li class="breadcrumb-item-truncate active">{$ ::(ctrl.l7policy.name || ctrl.l7policy.id) $}</li>
+    <li class="breadcrumb-item-truncate active">{$ (ctrl.l7policy.name || ctrl.l7policy.id) $}</li>
   </ol>
   <div class="row">
     <div class="col-xs-12 col-sm-9 text-left">
       <ul class="list-inline">
         <li>
           <strong translate>Action</strong>
-          {$ ::ctrl.l7policy.action | decode:ctrl.l7policyAction $}
+          {$ ctrl.l7policy.action | decode:ctrl.l7policyAction $}
         </li>
         <li>
           <strong translate>Operating Status</strong>

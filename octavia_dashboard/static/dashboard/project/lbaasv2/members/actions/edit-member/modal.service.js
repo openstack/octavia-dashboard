@@ -23,6 +23,8 @@
       modalService);
 
   modalService.$inject = [
+    '$rootScope',
+    'horizon.dashboard.project.lbaasv2.events',
     'horizon.dashboard.project.lbaasv2.members.resourceType',
     'horizon.framework.util.actions.action-result.service',
     '$uibModal',
@@ -39,6 +41,8 @@
    * @description
    * Provides the service for the pool member Edit Member action.
    *
+   * @param $rootScope The angular root scope object.
+   * @param events The LBaaS v2 events object.
    * @param resourceType The member resource type.
    * @param actionResultService The horizon action result service.
    * @param $uibModal The angular bootstrap $uibModal service.
@@ -51,6 +55,7 @@
    */
 
   function modalService(
+    $rootScope, events,
     resourceType,
     actionResultService,
     $uibModal,
@@ -107,6 +112,7 @@
 
     function onModalClose() {
       toastService.add('success', gettext('Pool member has been updated.'));
+      $rootScope.$broadcast(events.ACTION_DONE);
       return actionResultService.getActionResult()
         .updated(resourceType, member.id)
         .result;

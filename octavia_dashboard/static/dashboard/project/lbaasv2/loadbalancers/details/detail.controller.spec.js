@@ -49,7 +49,7 @@
       scope = $rootScope.$new();
       ctrl = $controller('LoadBalancerDetailController', {
         $scope: scope,
-        loadbalancer: { id: '123' },
+        loadbalancer: { id: '123', provisioning_status: 'ACTIVE' },
         'horizon.framework.conf.resource-type-registry.service': service,
         'horizon.framework.util.actions.action-result.service': actionResultService,
         'horizon.framework.widgets.modal-wait-spinner.service': {
@@ -62,6 +62,30 @@
     it('should create a controller', function() {
       expect(ctrl).toBeDefined();
       expect(ctrl.loadbalancer).toBeDefined();
+    });
+
+    describe('data watchers', function() {
+
+      var events, loadBalancersService;
+      beforeEach(inject(function($injector) {
+        events = $injector.get('horizon.dashboard.project.lbaasv2.events');
+        loadBalancersService = $injector.get(
+          'horizon.dashboard.project.lbaasv2.loadbalancers.service'
+        );
+      }));
+
+      it('should refresh on provisioning status change', function() {
+        var loadFunctionDeferred = $q.defer();
+        spyOn(ctrl.resourceType, 'load').and.returnValue(loadFunctionDeferred.promise);
+        ctrl.loadbalancer = { id: '123', provisioning_status: 'PENDING_UPDATE' };
+        scope.$apply();
+        $timeout.flush();
+        expect(ctrl.resourceType.load).toHaveBeenCalled();
+        spyOn(loadBalancersService.backoff, 'reset').and.callThrough();
+        scope.$broadcast(events.ACTION_DONE);
+        expect(loadBalancersService.backoff.reset).toHaveBeenCalled();
+      });
+
     });
 
     describe('resultHandler', function() {
@@ -97,7 +121,7 @@
         var result = $q.defer();
         result.resolve({some: 'thing', failed: [], deleted: [{id: 1}]});
         ctrl.resultHandler(result.promise);
-        deferred.resolve({data: {some: 'data'}});
+        deferred.resolve({data: {some: 'data', floating_ip: {}}});
         $timeout.flush();
         expect(ctrl.showDetails).toBe(undefined);
       });
