@@ -61,6 +61,7 @@ ChangeLog
 .*.swp
 .*sw?
 .ropeproject/
+.DS_Store
 
 # Conf
 octavia_dashboard/conf
