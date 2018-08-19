@@ -2,15 +2,16 @@
 # ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
+# Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-09 03:37+0000\n"
+"POT-Creation-Date: 2018-08-15 05:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-12 12:23+0000\n"
+"PO-Revision-Date: 2018-08-18 03:10+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -25,6 +26,9 @@ msgstr "%(ip)s..."
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "A new health monitor is being created."
 msgstr "새로운 상태 모니터가 생성되고 있습니다."
+
+msgid "A new l7 policy is being created."
+msgstr "새로운 l7 정책이 생성되고 있습니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "A new listener is being created."
@@ -46,6 +50,12 @@ msgstr "풀은 로드 밸런싱이 적용되는 멤버의 그룹을 나타냅니
 
 msgid "APP_COOKIE: Session persistence based on application cookie."
 msgstr "APP_COOKIE:  세션 지속성 기반의 어플리케이션 쿠키."
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Action:"
+msgstr "동작:"
 
 # auto translated by TM merge from project: murano-dashboard, version: master, DocId: muranodashboard/locale/django
 msgid "Active"
@@ -122,6 +132,12 @@ msgstr "Floating IP와 로드 밸런서 연결"
 msgid "Available Instances"
 msgstr "사용 가능한 인스턴스"
 
+msgid "Backup"
+msgstr "백업"
+
+msgid "Backup:"
+msgstr "백업:"
+
 # auto translated by TM merge from project: magnum-ui, version: master, DocId: magnum_ui/locale/djangojs
 msgid "Cancel"
 msgstr "취소"
@@ -130,10 +146,27 @@ msgstr "취소"
 msgid "Certificate Name"
 msgstr "인증서 이름"
 
+msgid "Client Data Timeout"
+msgstr "클라이언트 데이터 타임아웃"
+
+msgid "Client Data Timeout:"
+msgstr "클라이언트 데이터 타임아웃:"
+
+msgid "Compare Type"
+msgstr "타입 비교"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Confirm Delete Health Monitor"
 msgid_plural "Confirm Delete Health Monitors"
 msgstr[0] "상태 모니터 삭제 확인"
+
+msgid "Confirm Delete L7 Policy"
+msgid_plural "Confirm Delete L7 Policies"
+msgstr[0] "L7 정책 삭제 확인"
+
+msgid "Confirm Delete L7 Rule"
+msgid_plural "Confirm Delete L7 Rules"
+msgstr[0] "L7 규칙 삭제 확인"
 
 msgid "Confirm Delete Listener"
 msgid_plural "Confirm Delete Listeners"
@@ -163,12 +196,24 @@ msgstr "연결 제한"
 msgid "Connection Limit:"
 msgstr "접속 제한:"
 
+msgid "Contains"
+msgstr "Contains"
+
 msgid "Cookie"
 msgstr "쿠키"
+
+msgid "Cookie Name"
+msgstr "쿠키 이름"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Create Health Monitor"
 msgstr "상태 모니터 생성"
+
+msgid "Create L7 Policy"
+msgstr "L7 정책 생성"
+
+msgid "Create L7 Rule"
+msgstr "L7 규칙 생성"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Create Listener"
@@ -204,6 +249,12 @@ msgstr "감소됨"
 msgid "Delay"
 msgstr "지연"
 
+msgid "Delay (sec)"
+msgstr "지연 시간 (초)"
+
+msgid "Delay:"
+msgstr "지연:"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delete Health Monitor"
 msgid_plural "Delete Health Monitors"
@@ -211,6 +262,20 @@ msgstr[0] "상태 모니터 삭제"
 
 msgid "Delete Health Monitors"
 msgstr "상태 모니터 삭제"
+
+msgid "Delete L7 Policies"
+msgstr "L7 정책들 삭제"
+
+msgid "Delete L7 Policy"
+msgid_plural "Delete L7 Policies"
+msgstr[0] "L7 정책 삭제"
+
+msgid "Delete L7 Rule"
+msgid_plural "Delete L7 Rules"
+msgstr[0] "L7 규칙 삭제"
+
+msgid "Delete L7 Rules"
+msgstr "L7 규칙들 삭제"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delete Listener"
@@ -249,6 +314,16 @@ msgstr "풀 삭제"
 msgid "Deleted Health Monitor: %s."
 msgid_plural "Deleted Health Monitors: %s."
 msgstr[0] "삭제된 상태 모니터: %s."
+
+#, python-format
+msgid "Deleted L7 Policy: %s."
+msgid_plural "Deleted L7 Policies: %s."
+msgstr[0] "삭제된 L7 정책: %s."
+
+#, python-format
+msgid "Deleted L7 Rule: %s."
+msgid_plural "Deleted L7 Rules: %s."
+msgstr[0] "L7 규칙 삭제됨: %s"
 
 #, python-format
 msgid "Deleted Listener: %s."
@@ -303,6 +378,12 @@ msgstr ""
 msgid "Edit Health Monitor"
 msgstr "상태 모니터 편집"
 
+msgid "Edit L7 Policy"
+msgstr "L7 정책 수정"
+
+msgid "Edit L7 Rule"
+msgstr "L7 규칙 수정"
+
 msgid "Edit Listener"
 msgstr "리스터 편집"
 
@@ -315,6 +396,12 @@ msgstr "멤버 편집"
 msgid "Edit Pool"
 msgstr "풀 편집"
 
+msgid "Ends With"
+msgstr "Ends With"
+
+msgid "Equal To"
+msgstr "Equal To"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Error"
 msgstr "에러"
@@ -323,9 +410,15 @@ msgstr "에러"
 msgid "Expected Codes"
 msgstr "예상 코드"
 
+msgid "Expected Codes:"
+msgstr "예상 코드:"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Expiration Date"
 msgstr "만기 일자"
+
+msgid "File Type"
+msgstr "파일 타입"
 
 msgid "Flavor"
 msgstr "Flavor"
@@ -348,8 +441,14 @@ msgstr "Floating IP 풀"
 msgid "HTTP Method"
 msgstr "HTTP 메서드"
 
+msgid "HTTP Method:"
+msgstr "HTTP 메소드:"
+
 msgid "HTTP_COOKIE: Session persistence based on http cookie."
 msgstr "HTTP_COOKIE: 세션 지속성 기반의 http 쿠키."
+
+msgid "Header"
+msgstr "해더"
 
 msgid "Health Monitor"
 msgstr "상태 모니터"
@@ -360,6 +459,9 @@ msgstr "상태 모니터 ID"
 
 msgid "Health Monitors"
 msgstr "상태 모니터"
+
+msgid "Host Name"
+msgstr "호스트 이름"
 
 # auto translated by TM merge from project: zaqar-ui, version: master, DocId: zaqar_ui/locale/djangojs
 msgid "ID"
@@ -411,14 +513,41 @@ msgstr "비활성"
 msgid "Insert Headers"
 msgstr "헤더 삽입"
 
+msgid "Insert Headers:"
+msgstr "규칙 추가:"
+
+msgid "Invert"
+msgstr "Invert"
+
+msgid "Key"
+msgstr "키"
+
 msgid "Key Manager API Guide: Creating a Certificate Container"
 msgstr "키 관리자 API 가이드: 인증서 컨테이너 생성하기"
 
 msgid "Key Manager Service Command-Line Client"
 msgstr "키 관리자 서비스 커맨드라인 클라이언트"
 
+msgid "Key:"
+msgstr "키:"
+
 msgid "L7 Policies"
 msgstr "L7 정책"
+
+msgid "L7 Policy"
+msgstr "L7 정책"
+
+msgid "L7 Policy Details"
+msgstr "L7 정책 상세 정보"
+
+msgid "L7 Rule"
+msgstr "l7 규칙"
+
+msgid "L7 Rule Details"
+msgstr "L7 규칙 상세 정보"
+
+msgid "L7 Rules"
+msgstr "L7 규칙"
 
 msgid ""
 "LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
@@ -469,8 +598,23 @@ msgstr "최대 재시도"
 msgid "Max Retries Down"
 msgstr "최대 재시도 다운"
 
+msgid "Max Retries Down:"
+msgstr "최대 재시도 다운:"
+
+msgid "Max Retries:"
+msgstr "최대 재시도:"
+
 msgid "Member"
 msgstr "멤버"
+
+msgid "Member Connect Timeout"
+msgstr "멤버 연결 타임아웃"
+
+msgid "Member Connect Timeout:"
+msgstr "멤버 연결 타임아웃:"
+
+msgid "Member Data Timeout"
+msgstr "멤버 데이터 타이아웃"
 
 # auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Members"
@@ -553,6 +697,9 @@ msgstr "운영 상태"
 msgid "Overview"
 msgstr "개요"
 
+msgid "Path"
+msgstr "Path"
+
 # auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Pending Create"
 msgstr "생성 대기중"
@@ -595,6 +742,9 @@ msgstr "포트 ID"
 
 msgid "Port:"
 msgstr "포트:"
+
+msgid "Position"
+msgstr "위치"
 
 msgid "Project"
 msgstr "프로젝트"
@@ -644,6 +794,30 @@ msgstr "프로비저닝 상태"
 msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
 msgstr "ROUND_ROBIN: 여러 인스턴스들 사이에서 짝수로 요청을 순환합니다."
 
+msgid "Redirect Pool ID"
+msgstr "리디렉션 Pool ID"
+
+msgid "Redirect Pool ID:"
+msgstr "리디렉션 풀 ID:"
+
+msgid "Redirect URL"
+msgstr "리디렉션 URL"
+
+msgid "Redirect URL:"
+msgstr "리디렉션 URL:"
+
+msgid "Redirect to Pool"
+msgstr "Pool로 리디렉션"
+
+msgid "Redirect to URL"
+msgstr "URL로 리디렉션"
+
+msgid "Regex"
+msgstr "Regex"
+
+msgid "Reject"
+msgstr "Reject"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Remove"
 msgstr "제거"
@@ -651,6 +825,9 @@ msgstr "제거"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Round Robin"
 msgstr "라운드 로빈"
+
+msgid "Rules"
+msgstr "규칙"
 
 msgid "SNI Container Refs"
 msgstr "SNI 컨테이너 참조"
@@ -695,6 +872,9 @@ msgstr "세션 지속성:"
 msgid "Source IP"
 msgstr "소스 IP"
 
+msgid "Starts With"
+msgstr "Starts With"
+
 msgid "Subnet"
 msgstr "서브넷"
 
@@ -704,6 +884,12 @@ msgstr "서브넷 ID"
 
 msgid "Subnet:"
 msgstr "서브넷:"
+
+msgid "TCP Inspect Timeout"
+msgstr "TCP 검사 타임아웃"
+
+msgid "TCP Inspect Timeout:"
+msgstr "TCP 검사 타임아웃:"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
@@ -787,6 +973,12 @@ msgid ""
 "The interval between health checks. Must be greater than or equal to the "
 "timeout."
 msgstr "상태 체크 사이의 간격. 타임아웃 설정값 이상이어야 합니다."
+
+msgid "The l7policy has been updated."
+msgstr "l7policy이 업데이트 되었습니다."
+
+msgid "The l7rule has been updated."
+msgstr "L7 규칙이 업데이트 되었습니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The listener has been updated."
@@ -879,6 +1071,9 @@ msgstr ""
 "트래픽을 수신하는 멤버의 포트 번호입니다. 포트 번호는 1 ~ 65535 사이 숫자이어"
 "야 합니다."
 
+msgid "The position must be a number between 1 and 2147483647."
+msgstr "위치는 1에서 2147483647까지의 숫자여야 합니다."
+
 msgid ""
 "The protocol for which the front end listens. The TERMINATED_HTTPS protocol "
 "is only available if\n"
@@ -898,6 +1093,9 @@ msgstr ""
 "풀 및 풀 구성원이 리스닝하는 프로토콜. 유효한 값은 HTTP, HTTPS, PROXY, 또는 "
 "TCP가 있습니다."
 
+msgid "The redirect url must be a valid http or https url."
+msgstr "리디렉션 url은 유효한 http 또는 https url이어야 합니다."
+
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
 "URL path."
@@ -911,6 +1109,9 @@ msgid ""
 msgstr ""
 "상태 체크 시간이 종료되는 시간. 0 이상의 숫자이어야 하고\n"
 "  타임아웃 값은 상태 체크 간격 값 이하이어야 합니다."
+
+msgid "The timeout must be a number between 0 and 31536000000."
+msgstr "타임아웃은 0에서 3153600000까지의 숫자여야 합니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The timeout must be a number greater than or equal to 0."
@@ -949,13 +1150,25 @@ msgstr "타임아웃:"
 msgid "Type"
 msgstr "유형"
 
+msgid "Type:"
+msgstr "유형:"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "URL Path"
 msgstr "URL 경로"
 
+msgid "URL Path:"
+msgstr "URL 경로:"
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to create health monitor."
 msgstr "상태 모니터를 생성할 수 없습니다."
+
+msgid "Unable to create l7 policy."
+msgstr "L7 정책을 생성하지 못했습니다."
+
+msgid "Unable to create l7 rule."
+msgstr "L7 규칙을 생성하지 못했습니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to create listener."
@@ -973,6 +1186,16 @@ msgstr "풀을 생성할 수 없습니다."
 msgid "Unable to delete Health Monitor: %s."
 msgid_plural "Unable to delete Health Monitors: %s."
 msgstr[0] "상태 모니터를 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete L7 Policy: %s."
+msgid_plural "Unable to delete L7 Policies: %s."
+msgstr[0] "L7 정책을 삭제할 수 없습니다: %s."
+
+#, python-format
+msgid "Unable to delete L7 Rule: %s."
+msgid_plural "Unable to delete L7 Rules: %s."
+msgstr[0] "L7 규칙을 삭제할 수 없습니다: %s"
 
 #, python-format
 msgid "Unable to delete Listener: %s."
@@ -997,6 +1220,12 @@ msgstr[0] "다음 풀을 삭제할 수 없습니다: %s."
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to delete health monitor."
 msgstr "상태 모니터를 삭제할 수 없습니다."
+
+msgid "Unable to delete l7 policy."
+msgstr "L7 정책을 삭제하지 못했습니다."
+
+msgid "Unable to delete l7 rule."
+msgstr "L7 규칙을 삭제하지 못했습니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to delete listener."
@@ -1028,6 +1257,18 @@ msgstr "상태 모니터를 가져올 수 없습니다."
 
 msgid "Unable to retrieve health monitors."
 msgstr "상태 모니터를 가져올 수 없습니다."
+
+msgid "Unable to retrieve l7 policies."
+msgstr "L7 정책들을 찾을 수 없습니다."
+
+msgid "Unable to retrieve l7 policy."
+msgstr "L7 정책을 찾을 수 없습니다."
+
+msgid "Unable to retrieve l7 rule."
+msgstr "L7 규칙을 찾을 수 없습니다."
+
+msgid "Unable to retrieve l7 rules."
+msgstr "L7 규칙들을 찾을 수 없습니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve listener."
@@ -1068,6 +1309,12 @@ msgstr "비밀키를 가져올 수 없습니다."
 msgid "Unable to update health monitor."
 msgstr "상태 모니터를 업데이트할 수 없습니다."
 
+msgid "Unable to update l7 policy."
+msgstr "L7 정책을 갱신하지 못했습니다."
+
+msgid "Unable to update l7 rule."
+msgstr "L7 규칙을 갱신하지 못했습니다."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to update listener."
 msgstr "리스너를 업데이트할 수 없습니다."
@@ -1095,6 +1342,12 @@ msgstr "업데이트"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Update Health Monitor"
 msgstr "상태 모니터 업데이트"
+
+msgid "Update L7 Policy"
+msgstr "L7 정책 업데이트"
+
+msgid "Update L7 Rule"
+msgstr "L7 규칙 업데이트"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Update Listener"
@@ -1125,12 +1378,24 @@ msgstr ""
 "세요.\n"
 "  다음 문서는 인증서 컨테이너를 어떻게 만드는지에 대한 정보를 제공합니다:"
 
+msgid "Value"
+msgstr "값"
+
+msgid "Value:"
+msgstr "값:"
+
 # auto translated by TM merge from project: zaqar-ui, version: master, DocId: zaqar_ui/locale/djangojs
 msgid "Weight"
 msgstr "가중치"
 
 msgid "Weight:"
 msgstr "가중치:"
+
+msgid "X-Forwarded-For"
+msgstr "X-Forwarded-For"
+
+msgid "X-Forwarded-port"
+msgstr "X-Forwarded-port"
 
 msgid "Yes"
 msgstr "예"
@@ -1143,6 +1408,17 @@ msgid ""
 msgstr ""
 "Floating IP 주소를 로드 밸런서 \"%s\"에서 연결 해제하려고 합니다. 확인해주세"
 "요. "
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Policy is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted L7 Policies are not recoverable."
+msgstr[0] "\"%s\" 를 선택하였습니다. 삭제된 L7 정책은 복구할 수 없습니다."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Rule is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted L7 Rules are not recoverable."
+msgstr[0] "\"%s\" 를 선택했습니다. 삭제된 L7 규칙은 복구할 수 없습니다."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted health monitor is not recoverable."

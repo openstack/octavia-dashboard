@@ -1,0 +1,200 @@
+# Jacky Hu <hudayou@hotmail.com>, 2018. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: octavia-dashboard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-15 05:34+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-06-03 09:44+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh_CN\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+
+msgid "1.0.0"
+msgstr "1.0.0"
+
+msgid "2.0.0.0b1"
+msgstr "2.0.0.0b1"
+
+msgid ""
+"A new dashboard wizard for Octavia. Allows you to create an Octavia load "
+"balancer and related resources such as a listener, pool, pool members, and "
+"health monitor."
+msgstr ""
+"一个新的 Octavia 控制面板. 允许你创建一个 Octavia 负载均衡器及相关的资源例如"
+"监听器,资源池,成员和健康监控。"
+
+msgid "A view of all the existing Octavia load balancers."
+msgstr "一个已创建的 Octavia 负载均衡器的视图。"
+
+msgid ""
+"Ability to associate and disassociate floating IP addresses for a load "
+"balancer."
+msgstr "允许关联和解除关联在一个负载均衡器上的浮动 IP。"
+
+msgid ""
+"Ability to choose from SSL certificates stored by the key-manager service "
+"when creating a listener using the TERMINATED_HTTPS protocol."
+msgstr ""
+"允许选择 key-manager 服务中存储的 SSL 证书来创建 TERMINATED_HTTPS 协议的监听"
+"器。"
+
+msgid ""
+"Ability to choose from existing instances from the compute service or "
+"specify external members when adding members to a pool."
+msgstr "允许从计算服务里的已有实例和指定外部成员中选择要向资源池中添加的成员。"
+
+msgid ""
+"Ability to create, update, and delete the Octavia load balancer, listener, "
+"pool, pool member, and health monitor resources."
+msgstr ""
+"允许创建，更新和删除 Octavia 负载均衡器，监听器，资源池及成员和健康监控资源。"
+
+msgid ""
+"Ability to view details of a Octavia load balancer and drill down to see "
+"details for the listener, pool, pool member, and health monitor resources."
+msgstr ""
+"允许查看 Octavia 负载均衡器的详情，及下拉菜单查看监听器，资源池及成员和健康监"
+"控资源的详情。"
+
+msgid "Adds L7 policy support to the dashboard."
+msgstr "添加对七层策略的支持到控制面板。"
+
+msgid "Adds RBAC support to the dashboard panels."
+msgstr "添加 RBAC 的支持到控制面板。"
+
+msgid "Adds the ability to set the insertion headers on listeners."
+msgstr "允许插入报头到监听器。"
+
+msgid "All objects now allow setting the \"Admin State\"."
+msgstr "允许所有资源设置管理状态。"
+
+msgid "Created at and Updated at times are now visible on the details pages."
+msgstr "创建和更新时间现在在详情页可见。"
+
+msgid "Current Series Release Notes"
+msgstr "当前版本信息"
+
+msgid "Health monitors can now change the expected HTTP codes."
+msgstr "允许健康监控改变期待 HTTP 返回码。"
+
+msgid "Health monitors can now use alternate IP addresses and ports."
+msgstr "健康监控现在可以使用外部的 IP 地址和端口。"
+
+msgid "Known Issues"
+msgstr "已知错误"
+
+msgid "Listener connection limits can now be updated."
+msgstr "监听器连接限制现在可以被更新。"
+
+msgid "Members now display the subnet_id on the details page."
+msgstr "成员在详情页面现在可显示子网号。"
+
+msgid "New Features"
+msgstr "新功能"
+
+msgid "Octavia Dashboard Release Notes"
+msgstr "Octavia 控制面板版本信息"
+
+msgid "Other Notes"
+msgstr "其他信息"
+
+msgid ""
+"Pools attached to a load balancer are now listed on the load balancer "
+"details page."
+msgstr "负载均衡起关联的资源池现在被列出在其详情页面。"
+
+msgid "Pools can now change the load balancing algorithm after creation."
+msgstr "资源池现在可以在创建后更改负载均衡算法。"
+
+msgid "Prelude"
+msgstr "序言"
+
+msgid ""
+"Provisioning and operating status is now available on all object details "
+"pages."
+msgstr "配置状态和操作状态在所有资源详情页面可用。"
+
+msgid "Queens Series Release Notes"
+msgstr "Queens 版本信息"
+
+msgid ""
+"RBAC can now be enabled for the Octavia dashboard. Whether you enable RBAC "
+"in the dashboard or not, the API RBAC will still be in effect. Enabling RBAC "
+"in the dashboard will enforce the policies in the dashboard before the API "
+"call is made."
+msgstr ""
+"RBAC 现在可以在 Octavia 控制面板被启用。不管你是否已在控制面板中启用 RBAC，"
+"RBAC API 都生效。在控制面板中启用使其在 API 调用之前强制执行 RBAC 策略。"
+
+msgid "Security Issues"
+msgstr "安全信息"
+
+msgid ""
+"The Octavia team is excited to release the 1.0.0 version of the Octavia "
+"dashboard. This dashboard uses the Octavia API endpoint via the "
+"openstacksdk. This release includes a number of improvements over the old "
+"neutron-lbaas-dashboard that worked against the neutron API endpoint. These "
+"improvements are listed below in the features section of this release note."
+msgstr ""
+"Octavia 团队很荣幸的分布 Octavia 控制面板 1.0.0 版本。该控制面板通过 "
+"openstacksdk 调用 Octavia API。该版本包含针对老的 neutron-lbaas-dashboard 的"
+"一系列改进。这些改进被列在发布信息的功能章节。"
+
+msgid ""
+"The neutron-lbaas neutron extension is not required to use this dashboard. "
+"Load balancers created with neutron-lbaas that have not been migrated to "
+"Octavia may not be accessible via this dashboard. Only resources accessible "
+"via the Octavia API will be visible in this dashboard."
+msgstr ""
+"当使用该控制面板时不需要 neutron 的 neutron-lbaas 插件。在 neutron-lbaas 中创"
+"建没有迁移到 Octavia 中的负载均衡器不一定能在该控制面板中访问。仅当其能通过 "
+"Octavia API 访问时才能在该控制面板中可见。"
+
+msgid "The object details pages now use a tabbed navigation for child objects."
+msgstr "资源详情页面通过标签导航栏来访问子资源。"
+
+msgid ""
+"The octavia-dashboard requires openstacksdk >= 0.10.0 to resolve an issue "
+"with displaying the health monitor details page. It is expected this will be "
+"included in the OpenStack Queens release."
+msgstr ""
+"该项目需要 openstacksdk >= 0.10.0 来解决一个健康监控详情页面的显示问题。预期"
+"它将包含在 OpenStack Queens 版本中。"
+
+msgid ""
+"The pool name is now visible in pool selection drop downs in addition to the "
+"pool ID."
+msgstr "在资源池选择下拉菜单中除了资源池 ID 外资源池名称现在也可见。"
+
+msgid "The session persistence for a pool can now be changed."
+msgstr "资源池的会话持久化选项现在可以被更改。"
+
+msgid ""
+"This dashboard can be used alongside the neutron-lbaas-dashboard, but both "
+"dashboard panels will use the \"Load Balancer\" labels."
+msgstr ""
+"该面板可以和 neutron-lbaas-dashboard 同时使用，两者都将使用 “负载均衡器”标"
+"签。"
+
+msgid ""
+"To enable RBAC support in the Octavia dashboard you need to install the "
+"generated octavia_dashboard/conf/octavia_policy.yaml file into your horizon "
+"openstack_dashboard/conf/ directory and also copy octavia_dashboard/"
+"local_settings.d/_1499_load_balancer_settings.py file into your horizon "
+"openstack_dashboard/local/local_settings.d/ directory."
+msgstr ""
+"要在 Octavia 控制面板中启用 RBAC 支持，你需要把生成的 octavia_dashboard/conf/"
+"octavia_policy.yaml 文件拷贝到 horizon 的 openstack_dashboard/conf/ 目录，并"
+"将 octavia_dashboard/local_settings.d/_1499_load_balancer_settings.py 文件拷"
+"贝到 horizon 的 openstack_dashboard/local/local_settings.d/ directory 目录。"
+
+msgid "Upgrade Notes"
+msgstr "升级信息"
+
+msgid "You can now change the default pool on listeners."
+msgstr "允许改变监听器的默认资源池。"
