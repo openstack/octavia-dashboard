@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-09 03:37+0000\n"
+"POT-Creation-Date: 2018-08-15 05:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-04-12 12:21+0000\n"
+"PO-Revision-Date: 2018-08-18 03:14+0000\n"
 "Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -17,6 +17,15 @@ msgstr ""
 
 msgid "1.0.0"
 msgstr "1.0.0"
+
+msgid "2.0.0.0b1"
+msgstr "2.0.0.0b1"
+
+msgid "2.0.0.0b2"
+msgstr "2.0.0.0b2"
+
+msgid "2.0.0.0rc1"
+msgstr "2.0.0.0rc1"
 
 msgid ""
 "A new dashboard wizard for Octavia. Allows you to create an Octavia load "
@@ -61,6 +70,25 @@ msgid ""
 msgstr ""
 "Octavia 로드 밸런서의 세부 정보를 보고 드릴 다운하여 리스너, 풀, 풀 멤버 및 "
 "상태 모니터 리소스에 대한 세부 정보를 볼 수 있습니다."
+
+msgid "Adds L7 policy support to the dashboard."
+msgstr "L7 정책 지원을 대시보드에 추가하였습니다."
+
+msgid "Adds RBAC support to the dashboard panels."
+msgstr "RBAC 지원을 대시보드 패널에 추가하였습니다."
+
+msgid "Adds the ability to auto refresh detail pages upon action."
+msgstr ""
+"동작에 따라 세부 사항 페이지에 대한 자동 갱신하는 기능을 추가하였습니다."
+
+msgid "Adds the ability to set member as backup."
+msgstr "멤버를 백업을 설정하는 기능을 추가하였습니다."
+
+msgid "Adds the ability to set the insertion headers on listeners."
+msgstr "삽입 헤더를 리스너에 설정하는 기능을 추가하였습니다."
+
+msgid "Adds the ability to set the timeout options on listeners."
+msgstr "타임아웃 옵션을 리스터에 설정하는 기능을 추가하였습니다."
 
 msgid "All objects now allow setting the \"Admin State\"."
 msgstr "이제 모든 오브젝트가 \"Admin State\"를 설정할 수 있습니다."
@@ -117,6 +145,23 @@ msgstr ""
 
 msgid "Queens Series Release Notes"
 msgstr "Queens 시리즈 릴리즈 노트"
+
+msgid ""
+"RBAC can now be enabled for the Octavia dashboard. Whether you enable RBAC "
+"in the dashboard or not, the API RBAC will still be in effect. Enabling RBAC "
+"in the dashboard will enforce the policies in the dashboard before the API "
+"call is made."
+msgstr ""
+"이제 RBAC를 Octavia 대시보드에서 활성화할 수 있습니다. RBAC를 대시보드에서 활"
+"성화를 하던 그렇지 않던, API RBAC는 여전히 동작할 것입니다. RBAC를 대시보드에"
+"서 활성화하면 API 요청이 만들어지기 이전에 대시보드에서 정책을 집행할 것입니"
+"다."
+
+msgid "Rocky Series Release Notes"
+msgstr "Rocky 시리즈 릴리즈 노트"
+
+msgid "Security Issues"
+msgstr "보안 이슈"
 
 msgid ""
 "The Octavia team is excited to release the 1.0.0 version of the Octavia "

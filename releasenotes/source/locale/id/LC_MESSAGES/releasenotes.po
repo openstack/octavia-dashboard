@@ -3,11 +3,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-05-16 01:28+0000\n"
+"POT-Creation-Date: 2018-08-15 05:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-05-10 05:27+0000\n"
+"PO-Revision-Date: 2018-06-13 02:03+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -19,6 +19,9 @@ msgstr "1.0.0"
 
 msgid "2.0.0.0b1"
 msgstr "2.0.0.0b1"
+
+msgid "2.0.0.0b2"
+msgstr "2.0.0.0b2"
 
 msgid ""
 "A new dashboard wizard for Octavia. Allows you to create an Octavia load "
@@ -74,8 +77,14 @@ msgstr "Menambahkan dukungan kebijakan L7 ke dasbor."
 msgid "Adds RBAC support to the dashboard panels."
 msgstr "Menambahkan dukungan RBAC ke panel dasbor."
 
+msgid "Adds the ability to set member as backup."
+msgstr "Menambahkan kemampuan untuk mengatur anggota sebagai cadangan."
+
 msgid "Adds the ability to set the insertion headers on listeners."
 msgstr "Menambahkan kemampuan untuk mengatur header penyisipan pada pendengar."
+
+msgid "Adds the ability to set the timeout options on listeners."
+msgstr "Menambahkan kemampuan untuk mengatur opsi timeout pada pendengar."
 
 msgid "All objects now allow setting the \"Admin State\"."
 msgstr "Semua objek sekarang memungkinkan pengaturan \"Admin State\"."
