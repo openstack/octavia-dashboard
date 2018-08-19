@@ -1,4 +1,4 @@
-# suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+# Jacky Hu <hudayou@hotmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
@@ -7,10 +7,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-13 02:01+0000\n"
-"Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
-"Language-Team: Indonesian\n"
-"Language: id\n"
+"PO-Revision-Date: 2018-08-18 02:55+0000\n"
+"Last-Translator: Jacky Hu <hudayou@hotmail.com>\n"
+"Language-Team: Chinese (China)\n"
+"Language: zh_TW\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
@@ -19,351 +19,340 @@ msgid "%(ip)s..."
 msgstr "%(ip)s..."
 
 msgid "A new health monitor is being created."
-msgstr "Monitor kesehatan baru sedang dibuat."
+msgstr "一個新的健康監控器正在創建。"
 
 msgid "A new l7 policy is being created."
-msgstr "Kebijakan l7 baru sedang dibuat."
+msgstr "一個新的七層策略正在被創建"
 
 msgid "A new listener is being created."
-msgstr "Pendengar (listener) baru sedang dibuat."
+msgstr "一個新的監聽器正在創建。"
 
 msgid "A new load balancer is being created."
-msgstr "Penyeimbang beban baru sedang dibuat."
+msgstr "一個新的負載均衡器正在創建。"
 
 msgid "A new pool is being created."
-msgstr "Pool baru sedang dibuat."
+msgstr "一個新的資源池正在創建。"
 
 msgid ""
 "A pool represents a group of members over which the load balancing will be "
 "applied."
-msgstr ""
-"Sebuah pool mewakili sekelompok anggota dimana load balancing akan "
-"diterapkan."
+msgstr "資源池代表提供負載均衡器的一組成員。"
 
 msgid "APP_COOKIE: Session persistence based on application cookie."
-msgstr "APP_COOKIE: Sesi persistensi berdasarkan aplikasi cookie."
+msgstr "APP_COOKIE：基于應用 COOKIE 的會話持久化。"
 
 msgid "Action"
-msgstr "Action"
+msgstr "行為"
 
 msgid "Action:"
-msgstr "Action:"
+msgstr "行為："
 
 msgid "Active"
-msgstr "Active"
+msgstr "運行中"
 
 msgid "Add"
-msgstr "Menambahkan"
+msgstr "添加"
 
 msgid "Add external member"
-msgstr "Tambahkan anggota eksternal"
+msgstr "添加外部成員"
 
 msgid "Add members to the load balancer pool."
-msgstr "Tambahkan anggota ke load balancer pool."
+msgstr "為負載均衡池添加成員。"
 
 msgid "Add/Remove Members"
-msgstr "Add/Remove Members"
+msgstr "添加/移除成員"
 
 msgid "Add/Remove Pool Members"
-msgstr "Add/Remove Pool Members"
+msgstr "添加/移除資源池成員"
 
 msgid ""
 "Additional headers insertion into HTTP header,\n"
 "  only \"X-Forwarded-For\" and \"X-Forwarded-Port\" are supported."
 msgstr ""
-"Tambahan penyisipan header ke header HTTP,\n"
-"   hanya \"X-Forwarded-For\" dan \"X-Forwarded-Port\" yang didukung."
+"插入到 HTTP 頭部的額外報頭。僅支持“X-Forwarded-For”和“X-Forwarded-Port”。"
 
 msgid "Admin State Up"
-msgstr "Admin State Up"
+msgstr "管理狀態：啟動"
 
 msgid "Algorithm"
-msgstr "Algorithm"
+msgstr "算法"
 
 msgid "Algorithm:"
-msgstr "Algoritma:"
+msgstr "算法："
 
 msgid "Allocated Members"
-msgstr "Allocated Members"
+msgstr "分配成員"
 
 msgid ""
 "An L7 Policy is a collection of L7 rules associated with a Listener, and "
 "which may also have an association to a back-end pool"
-msgstr ""
-"Kebijakan L7 adalah kumpulan aturan L7 yang terkait dengan Listener, dan "
-"yang mungkin juga memiliki asosiasi ke kumpulan back-end"
+msgstr "一個七層策略是關聯于監聽器的七層規則的集，監聽器可能有一個關聯的資源池"
 
 msgid ""
 "An L7 Rule is a single, simple logical test which returns either true or\n"
 "false."
-msgstr ""
-"Aturan L7 adalah tes logis tunggal, sederhana yang mengembalikan baik benar "
-"atau salah."
+msgstr "一個七層規則是返回是或否的單一簡單邏輯測試"
 
 msgid ""
 "An alternate IP address used for health monitoring a backend member.\n"
 "  Default is null which monitors the member address."
 msgstr ""
-"Alamat IP alternatif yang digunakan untuk memantau kesehatan anggota "
-"backend.\n"
-"   Default adalah null yang memonitor alamat anggota."
+"用於後端成員健康監控的 IP 地址。\n"
+"預設是空時監測該成員地址。"
 
 msgid ""
 "An alternate protocol port used for health monitoring a backend member.\n"
 "  Default is null which monitors the member protocol port."
 msgstr ""
-"Port protokol alternatif yang digunakan untuk pemantauan kesehatan anggota "
-"backend.\n"
-"   Default adalah null yang memonitor port protokol anggota."
+"用於後端成員健康監控的協議連接埠。\n"
+"預設是空時監測該成員協議連接埠。"
 
 msgid "An error occurred. Please try again later."
-msgstr "Terjadi kesalahan. Silakan coba lagi nanti."
+msgstr "發生錯誤，請稍後重試。"
 
 msgid "Associate"
-msgstr "Associate"
+msgstr "關聯"
 
 msgid "Associate Floating IP"
-msgstr "Associate Floating IP"
+msgstr "關聯浮動 IP"
 
 msgid "Associate Floating IP Address"
-msgstr "Associate Floating IP Address"
+msgstr "關聯浮動 IP 地址"
 
 msgid "Associating floating IP with load balancer."
-msgstr "Mengaitkan IP mengambang dengan penyeimbang beban."
+msgstr "為負載均衡器關聯浮動 IP。"
 
 msgid "Available Instances"
-msgstr "Available Instances"
+msgstr "可用實例"
 
 msgid "Backend member connection timeout in milliseconds. Default: 5000."
-msgstr "Waktu koneksi anggota backend dalam milidetik. Default: 5000."
+msgstr "後端成員連接超時時限，單位是毫秒，預設值：5000。"
 
 msgid "Backend member inactivity timeout in milliseconds. Default: 50000."
-msgstr "Waktu tidak aktif anggota backend dalam milidetik. Default: 50000."
+msgstr "後端成員閒置超時時限，單位是毫秒，預設值：50000。"
 
 msgid "Backup"
-msgstr "Backup (cadangan)"
+msgstr "備份"
 
 msgid "Backup:"
-msgstr "Backup (cadangan):"
+msgstr "備份："
 
 msgid "CONTAINS: String contains."
-msgstr "CONTAINS: String mengandung."
+msgstr "包含：字元串包含。"
 
 msgid ""
 "COOKIE: The rule looks for a cookie named by the key parameter and\n"
 "      compares it against the value parameter in the rule."
-msgstr ""
-"COOKIE: Aturan mencari cookie yang dinamai oleh parameter kunci dan "
-"membandingkannya dengan parameter nilai dalam aturan."
+msgstr "COOKIE：該規則查找以鍵參數命名的 COOKIE 並將其與值參數相比較。"
 
 msgid "Cancel"
-msgstr "Cancel"
+msgstr "取消"
 
 msgid "Certificate Name"
-msgstr "Certificate Name"
+msgstr "證書名稱"
 
 msgid "Client Data Timeout"
-msgstr "Client Data Timeout (batas waktu data klien)"
+msgstr "客戶數據超時時限"
 
 msgid "Client Data Timeout:"
-msgstr "Batas Waktu Data Klien:"
+msgstr "客戶數據超時時限："
 
 msgid "Compare Type"
-msgstr "Compare Type"
+msgstr "比較類型"
 
 msgid "Compare Type:"
-msgstr "Compare Type:"
+msgstr "比較類型："
 
 msgid "Confirm Delete Health Monitor"
 msgid_plural "Confirm Delete Health Monitors"
-msgstr[0] "Confirm Delete Health Monitor"
+msgstr[0] "確認刪除健康監控器"
 
 msgid "Confirm Delete L7 Policy"
 msgid_plural "Confirm Delete L7 Policies"
-msgstr[0] "Confirm Delete L7 Policy"
+msgstr[0] "確認刪除七層策略"
 
 msgid "Confirm Delete L7 Rule"
 msgid_plural "Confirm Delete L7 Rules"
-msgstr[0] "Confirm Delete L7 Rule"
+msgstr[0] "確認刪除七層規則"
 
 msgid "Confirm Delete Listener"
 msgid_plural "Confirm Delete Listeners"
-msgstr[0] "Confirm Delete Listener"
+msgstr[0] "確認刪除監聽器"
 
 msgid "Confirm Delete Load Balancer"
 msgid_plural "Confirm Delete Load Balancers"
-msgstr[0] "Confirm Delete Load Balancer"
+msgstr[0] "確認刪除負載均衡器"
 
 msgid "Confirm Delete Member"
 msgid_plural "Confirm Delete Members"
-msgstr[0] "Confirm Delete Member"
+msgstr[0] "確認刪除成員"
 
 msgid "Confirm Delete Pool"
 msgid_plural "Confirm Delete Pools"
-msgstr[0] "Confirm Delete Pool"
+msgstr[0] "確認刪除資源池"
 
 msgid "Confirm Disassociate Floating IP Address"
-msgstr "Konfirmasikan Disassociate Floating IP Address"
+msgstr "確認解除關聯浮動 IP 地址。"
 
 msgid "Connection Limit"
-msgstr "Connection Limit"
+msgstr "連接限制"
 
 msgid "Connection Limit:"
-msgstr "Connection Limit:"
+msgstr "連接限制："
 
 msgid "Contains"
-msgstr "Contains"
+msgstr "包含"
 
 msgid "Cookie"
 msgstr "Cookie"
 
 msgid "Cookie Name"
-msgstr "Cookie Name"
+msgstr "Cookie 名稱"
 
 msgid "Create Health Monitor"
-msgstr "Create Health Monitor"
+msgstr "創建健康監控器。"
 
 msgid "Create L7 Policy"
-msgstr "Buat Kebijakan L7"
+msgstr "創建七層策略"
 
 msgid "Create L7 Rule"
-msgstr "Buat Aturan L7"
+msgstr "創建七層規則"
 
 msgid "Create Listener"
-msgstr "Create Listener"
+msgstr "創建監控器"
 
 msgid "Create Load Balancer"
-msgstr "Membuat Load Balancer"
+msgstr "創建負載均衡器"
 
 msgid "Create Pool"
-msgstr "Create Pool"
+msgstr "創建資源池"
 
 msgid "Created At"
-msgstr "Created At"
+msgstr "創建於"
 
 msgid "Default Pool ID"
-msgstr "Default Pool ID"
+msgstr "預設資源池 ID"
 
 msgid "Default Pool ID:"
-msgstr "Default Pool ID:"
+msgstr "預設資源池 ID："
 
 msgid "Default TLS Container Ref"
-msgstr "Default TLS Container Ref"
+msgstr "預設 TLS 容器編號"
 
 msgid "Degraded"
-msgstr "Degraded"
+msgstr "衰退"
 
 msgid "Delay"
-msgstr "Delay"
+msgstr "延遲"
 
 msgid "Delay (sec)"
-msgstr "Delay (sec)"
+msgstr "延遲（秒）"
 
 msgid "Delay:"
-msgstr "Delay:"
+msgstr "延遲："
 
 msgid "Delete Health Monitor"
 msgid_plural "Delete Health Monitors"
-msgstr[0] "Delete Health Monitor"
+msgstr[0] "刪除健康監控"
 
 msgid "Delete Health Monitors"
-msgstr "Delete Health Monitors"
+msgstr "刪除健康監控"
 
 msgid "Delete L7 Policies"
-msgstr "Hapus Kebijakan L7"
+msgstr "刪除七層策略"
 
 msgid "Delete L7 Policy"
 msgid_plural "Delete L7 Policies"
-msgstr[0] "Delete L7 Policy"
+msgstr[0] "刪除七層策略"
 
 msgid "Delete L7 Rule"
 msgid_plural "Delete L7 Rules"
-msgstr[0] "Delete L7 Rule"
+msgstr[0] "刪除七層規則"
 
 msgid "Delete L7 Rules"
-msgstr "Hapus Aturan L7"
+msgstr "刪除七層規則"
 
 msgid "Delete Listener"
 msgid_plural "Delete Listeners"
-msgstr[0] "Delete Listener"
+msgstr[0] "刪除監控器"
 
 msgid "Delete Listeners"
-msgstr "Delete Listeners"
+msgstr "刪除監控器"
 
 msgid "Delete Load Balancer"
 msgid_plural "Delete Load Balancers"
-msgstr[0] "Delete Load Balancer"
+msgstr[0] "刪除負載均衡器"
 
 msgid "Delete Load Balancers"
-msgstr "Menghapus Load Balancers"
+msgstr "刪除負載均衡器"
 
 msgid "Delete Member"
 msgid_plural "Delete Members"
-msgstr[0] "Delete Member"
+msgstr[0] "刪除成員"
 
 msgid "Delete Members"
-msgstr "Delete Members"
+msgstr "刪除成員"
 
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
-msgstr[0] "Delete Pool"
+msgstr[0] "刪除資源池"
 
 msgid "Delete Pools"
-msgstr "Delete Pools"
+msgstr "刪除資源池"
 
 #, python-format
 msgid "Deleted Health Monitor: %s."
 msgid_plural "Deleted Health Monitors: %s."
-msgstr[0] "Deleted Health Monitor: %s."
+msgstr[0] "刪除的健康監控器：%s。"
 
 #, python-format
 msgid "Deleted L7 Policy: %s."
 msgid_plural "Deleted L7 Policies: %s."
-msgstr[0] "Deleted L7 Policy: %s."
+msgstr[0] "刪除的七層策略：%s。"
 
 #, python-format
 msgid "Deleted L7 Rule: %s."
 msgid_plural "Deleted L7 Rules: %s."
-msgstr[0] "Deleted L7 Rule: %s."
+msgstr[0] "刪除的七層規則：%s。"
 
 #, python-format
 msgid "Deleted Listener: %s."
 msgid_plural "Deleted Listeners: %s."
-msgstr[0] "Deleted Listener: %s."
+msgstr[0] "刪除的監聽器：%s。"
 
 #, python-format
 msgid "Deleted Load Balancer: %s."
 msgid_plural "Deleted Load Balancers: %s."
-msgstr[0] "Deleted Load Balancer: %s."
+msgstr[0] "刪除的負載均衡器：%s。"
 
 #, python-format
 msgid "Deleted Member: %s."
 msgid_plural "Deleted Members: %s."
-msgstr[0] "Deleted Member: %s."
+msgstr[0] "刪除的成員：%s。"
 
 #, python-format
 msgid "Deleted Pool: %s."
 msgid_plural "Deleted Pools: %s."
-msgstr[0] "Deleted Pool: %s."
+msgstr[0] "刪除的資源池：%s。"
 
 msgid "Description"
-msgstr "Deskripsi"
+msgstr "描述"
 
 msgid "Disassociate"
-msgstr "Disassociate"
+msgstr "取消關聯"
 
 msgid "Disassociate Floating IP"
-msgstr "Disassociate Floating IP"
+msgstr "解除關聯浮動 IP"
 
 #, python-format
 msgid "Disassociated floating IP address from load balancer: %s."
-msgstr "Alamat IP mengambang yang dipisahkan dari load balancer: %s."
+msgstr "已從負載均衡器取解除浮動IP關聯：%s。"
 
 msgid "ENDS_WITH: String ends with."
-msgstr "ENDS_WITH: String berakhir dengan."
+msgstr "ENDS_WITH：字元串尾碼。"
 
 msgid "EQUAL_TO: String is equal to."
-msgstr "EQUAL_TO: String sama dengan."
+msgstr "EQUAL_TO：字元串相同。"
 
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
@@ -372,133 +361,124 @@ msgid ""
 "same load balancer but\n"
 "  each must use a unique port."
 msgstr ""
-"Setiap port yang mendengarkan lalu lintas pada load balancer tertentu "
-"dikonfigurasi secara terpisah dan\n"
-"   terkait dengan load balancer. Beberapa listener dapat dikaitkan dengan "
-"load balancer yang sama namun\n"
-"   masing harus menggunakan port yang unik."
+"負載均衡器中的每一個監聽的連接埠獨立地配置並與負載均衡器關聯。\n"
+"多個監聽器可以關聯到同一個負載均衡器上，\n"
+"但每個都必須使用唯一的連接埠。"
 
 msgid "Edit Health Monitor"
-msgstr "Edit Health Monitor"
+msgstr "編輯健康監控"
 
 msgid "Edit L7 Policy"
-msgstr "Edit Kebijakan L7"
+msgstr "編輯七層策略"
 
 msgid "Edit L7 Rule"
-msgstr "Edit Aturan L7"
+msgstr "編輯七層規則"
 
 msgid "Edit Listener"
-msgstr "Edit Listener"
+msgstr "編輯監控器"
 
 msgid "Edit Load Balancer"
-msgstr "Edit Load Balancer"
+msgstr "編輯負載均衡器"
 
 msgid "Edit Member"
-msgstr "Edit Member"
+msgstr "編輯成員"
 
 msgid "Edit Pool"
-msgstr "Edit Pool"
+msgstr "編輯資源池"
 
 msgid "Ends With"
-msgstr "Ends With"
+msgstr "結束于"
 
 msgid "Equal To"
-msgstr "Equal To"
+msgstr "等於"
 
 msgid "Error"
-msgstr "Error"
+msgstr "錯誤"
 
 msgid "Expected Codes"
-msgstr "Expected Codes"
+msgstr "預期的狀態碼"
 
 msgid "Expected Codes:"
-msgstr "Expected Codes:"
+msgstr "預期的狀態碼："
 
 msgid "Expiration Date"
-msgstr "Expiration Date"
+msgstr "截止日期"
 
 msgid ""
 "FILE_TYPE: The rule compares the last portion of the URI against\n"
 "      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
-msgstr ""
-"FILE_TYPE: Aturannya membandingkan bagian terakhir dari URI terhadap\n"
-"       parameter nilai dalam aturan. (eg. \"txt\", \"jpg\", etc.)"
+msgstr "FILE_TYPE：該規則將 URI 的尾碼與值參數相比較。（例如：“txt”，“jpg”。）"
 
 msgid "File Type"
-msgstr "File Type"
+msgstr "檔案類型"
 
 msgid "Flavor"
-msgstr "Flavor"
+msgstr "類型"
 
 msgid "Floating IP"
-msgstr "Floating IP"
+msgstr "浮動 IP"
 
 msgid "Floating IP address or pool"
-msgstr "Mengambang alamat IP atau pool"
+msgstr "浮動 IP 地址或浮動 IP 地址池"
 
 msgid "Floating IP addresses"
-msgstr "Floating IP addresses"
+msgstr "浮動 IP 地址"
 
 msgid "Floating IP pools"
-msgstr "Floating IP pools"
+msgstr "浮動 IP 資源池"
 
 msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
-msgstr ""
-"Batas waktu ketidakstabilan klien frontend dalam milidetik. Default: 50000."
+msgstr "前端客戶閒置超時時限，單位是毫秒，預設值：50000。"
 
 msgid ""
 "HEADER: The rule looks for a header defined in the key parameter\n"
 "      and compares it against the value parameter in the rule."
-msgstr ""
-"HEADER: Aturan mencari header yang ditentukan dalam parameter kunci dan "
-"membandingkannya dengan parameter nilai dalam aturan."
+msgstr "HEADER：該規則查找以鍵參數命名的報頭並將其與值參數相比較。"
 
 msgid ""
 "HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
 "      hostname in the request against the value parameter in the rule."
-msgstr ""
-"HOST_NAME: Aturan melakukan perbandingan antara HTTP / 1.1 nama host dalam "
-"permintaan terhadap parameter nilai dalam aturan."
+msgstr "HOST_NAME：該規則將請求中的 HTTP/1.1 主機名與值參數相比較。"
 
 msgid "HTTP Method"
-msgstr "HTTP Method"
+msgstr "HTTP 方法"
 
 msgid "HTTP Method:"
-msgstr "HTTP Method:"
+msgstr "HTTP 方法："
 
 msgid "HTTP_COOKIE: Session persistence based on http cookie."
-msgstr "HTTP_COOKIE: Sesi persistensi berdasarkan http cookie."
+msgstr "HTTP_COOKIE：基于 HTTP COOKIE 的會話持久化。"
 
 msgid "Header"
-msgstr "Header"
+msgstr "報頭"
 
 msgid "Health Monitor"
-msgstr "Health Monitor"
+msgstr "健康監控"
 
 msgid "Health Monitor ID"
-msgstr "Health Monitor ID"
+msgstr "健康監控器 ID"
 
 msgid "Health Monitors"
-msgstr "Health Monitors"
+msgstr "健康監控"
 
 msgid "Host Name"
-msgstr "Host Name"
+msgstr "主機名"
 
 msgid "ID"
 msgstr "ID"
 
 msgid "IP Address"
-msgstr "IP Address"
+msgstr "IP 地址"
 
 #, python-format
 msgid "IP Addresses (%(count)s)"
-msgstr "IP Addresses (%(count)s)"
+msgstr "IP 地址（%(count)s）"
 
 msgid "IP address"
-msgstr "IP address"
+msgstr "IP 地址"
 
 msgid "IP address:"
-msgstr "IP address (alamat IP):"
+msgstr "IP 地址："
 
 msgid ""
 "If an IP address is provided it must be a well-formed IPv4 or IPv6 address. "
@@ -507,434 +487,413 @@ msgid ""
 "address is not provided\n"
 "  then one will be allocated for you."
 msgstr ""
-"Jika alamat IP disediakan maka alamat IPv4 atau IPv6 akan terjalin dengan "
-"baik. Sistem akan\n"
-"   mencoba untuk menetapkan alamat IP yang diberikan ke penyeimbang beban. "
-"Jika alamat IP tidak tersedia\n"
-"   maka satu akan dialokasikan untuk Anda."
+"IP地址必須為格式良好的 IPv4 或 IPv6 地址。\n"
+"系統嘗試為負載均衡器分配提供的 IP 地址。\n"
+"如果沒有提供 IP 地址，則需要你手動分配一個 IP。"
 
 msgid ""
 "If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
 "certificates must\n"
 "  be selected. The first certificate will be the default."
 msgstr ""
-"Jika listener menggunakan protokol TERMINATED_HTTPS, maka satu atau beberapa "
-"sertifikat SSL harus\n"
-"   dipilih. Sertifikat pertama akan menjadi default."
+"如果監聽器使用 TERMINATED_HTTPS 協議，則必須選擇一個或多個 SSL 證書。\n"
+"預設選擇第一個。"
 
 msgid "Inactive"
-msgstr "Inactive"
+msgstr "閒置"
 
 msgid "Insert Headers"
-msgstr "Memasukkan Headers"
+msgstr "插入報頭"
 
 msgid "Insert Headers:"
-msgstr "Insert Headers:"
+msgstr "插入報頭："
 
 msgid "Invert"
-msgstr "Invert"
+msgstr "反轉"
 
 msgid "Invert:"
-msgstr "Invert:"
+msgstr "反轉："
 
 msgid ""
 "Is the member a backup? Backup members only receive traffic when all\n"
 "  non-backup members are down."
-msgstr ""
-"Apakah anggota itu cadangan? Anggota cadangan hanya menerima lalu lintas "
-"saat semua\n"
-"   anggota non-cadangan mati."
+msgstr "該成員是否為備份？備份成員僅當所有非備份成員不可用時才接收通信。"
 
 msgid "Key"
-msgstr "Key"
+msgstr "鍵"
 
 msgid "Key Manager API Guide: Creating a Certificate Container"
-msgstr "Key Manager API Guide: Creating a Certificate Container"
+msgstr "Key Manager API 指南：創建證書容器"
 
 msgid "Key Manager Service Command-Line Client"
-msgstr "Key Manager Service Command-Line Client"
+msgstr "Key Manager 服務命令行客戶端"
 
 msgid "Key:"
-msgstr "Key:"
+msgstr "鍵："
 
 msgid "L7 Policies"
-msgstr "L7 Policies"
+msgstr "七層策略"
 
 msgid "L7 Policy"
-msgstr "Kebijakan L7"
+msgstr "七層策略"
 
 msgid "L7 Policy Details"
-msgstr "L7 Policy Details"
+msgstr "七層策略詳情"
 
 msgid "L7 Rule"
-msgstr "Peraturan L7"
+msgstr "七層規則"
 
 msgid "L7 Rule Details"
-msgstr "L7 Rule Details"
+msgstr "七層規則詳情"
 
 msgid "L7 Rules"
-msgstr "Peraturan L7"
+msgstr "七層規則"
 
 msgid ""
 "LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
 "of active\n"
 "      connections."
-msgstr ""
-"LEAST_CONNECTIONS: Alokasikan permintaan ke instance dengan jumlah paling "
-"sedikit yang aktif\n"
-"       koneksi."
+msgstr "LEAST_CONNECTIONS：分發至最少活動連接次數的實例。"
 
 msgid "Least Connections"
-msgstr "Least Connections"
+msgstr "最少連接數"
 
 msgid "Listener"
-msgstr "Listener"
+msgstr "監控器"
 
 msgid "Listener Details"
-msgstr "Listener Details"
+msgstr "監聽器詳情"
 
 msgid "Listener ID"
-msgstr "Listener ID"
+msgstr "監聽器ID"
 
 msgid "Listeners"
-msgstr "Listeners"
+msgstr "監控器"
 
 msgid "Load Balancer"
-msgstr "Load Balancer"
+msgstr "負載均衡器"
 
 msgid "Load Balancer Details"
-msgstr "Load Balancer Details"
+msgstr "負載均衡器詳情"
 
 msgid "Load Balancers"
-msgstr "Load Balancers"
+msgstr "負載均衡器"
 
 msgid "Loading"
-msgstr "Loading"
+msgstr "加載中"
 
 msgid "Max Retries"
-msgstr "Max Retries"
+msgstr "最大嘗試次數"
 
 msgid "Max Retries Down"
-msgstr "Max Retries Down"
+msgstr "最大失敗嘗試次數"
 
 msgid "Max Retries Down:"
-msgstr "Max Retries Down:"
+msgstr "最大失敗重試次數："
 
 msgid "Max Retries:"
-msgstr "Max Retries:"
+msgstr "最大重試次數："
 
 msgid "Member"
-msgstr "Member"
+msgstr "成員"
 
 msgid "Member Connect Timeout"
-msgstr "Member Connect Timeout (batas waktu koneksi anggota)"
+msgstr "成員連接超時時限"
 
 msgid "Member Connect Timeout:"
-msgstr "Member Connect Timeout (batas waktu data anggota):"
+msgstr "成員連接超時時限："
 
 msgid "Member Data Timeout"
-msgstr "Member Data Timeout (batas waktu data anggota)"
+msgstr "成員數據超時時限"
 
 msgid "Member Data Timeout:"
-msgstr "Member Data Timeout (batas waktu data anggota):"
+msgstr "成員數據超時時限："
 
 msgid "Members"
-msgstr "Members"
+msgstr "成員"
 
 msgid ""
 "Members are the actual IP addresses that will receive traffic from the load "
 "balancer. Each\n"
 "  member must have a unique combination of IP address and port."
 msgstr ""
-"Members adalah alamat IP sebenarnya yang akan menerima lalu lintas dari "
-"penyeimbang beban. Setiap\n"
-"   member harus memiliki kombinasi unik dari alamat IP dan port."
+"成員是在負載均衡器中通信的實際 IP 地址。\n"
+"每個成員必須有一個唯一關聯的 IP 地址和連接埠。"
 
 msgid "Monitor Address"
-msgstr "Monitor Address"
+msgstr "健康監聽器地址"
 
 msgid "Monitor Address:"
-msgstr "Monitor Address:"
+msgstr "健康監控器地址："
 
 msgid "Monitor Details"
-msgstr "Monitor Details"
+msgstr "健康監控器詳情"
 
 msgid "Monitor Port"
-msgstr "Monitor Port"
+msgstr "健康監聽器連接埠"
 
 msgid "Monitor Port:"
-msgstr "Monitor Port:"
+msgstr "健康監控器連接埠："
 
 msgid "Name"
-msgstr "Name"
+msgstr "名稱"
 
 msgid "Network"
-msgstr "Network"
+msgstr "網絡"
 
 msgid "Network ID"
-msgstr "Network ID"
+msgstr "網絡 ID"
 
 msgid "No"
-msgstr "No"
+msgstr "否"
 
 msgid "No Monitor"
-msgstr "No Monitor"
+msgstr "無健康監控"
 
 msgid "No available certificates"
-msgstr "Tidak ada sertifikat yang tersedia"
+msgstr "無可用證書"
 
 msgid "No available instances"
-msgstr "Tidak ada instance yang tersedia"
+msgstr "無可用實例"
 
 msgid "No items to display."
-msgstr "Tidak ada item untuk ditampilkan."
+msgstr "沒有要顯示的項目。"
 
 msgid "No members have been allocated"
-msgstr "Tidak ada anggota (member) yang dialokasikan"
+msgstr "沒有成員已分配"
 
 msgid "None"
-msgstr "None"
+msgstr "無"
 
 msgid "Offline"
-msgstr "Offline"
+msgstr "離線"
 
 msgid "Online"
-msgstr "Online"
+msgstr "在綫"
 
 msgid "Operating Status"
-msgstr "Operating Status"
+msgstr "操作狀態"
 
 msgid "Overview"
-msgstr "Overview"
+msgstr "概覽"
 
 msgid ""
 "PATH: The rule compares the path portion of the HTTP URI against\n"
 "      the value parameter in the rule."
-msgstr ""
-"PATH: Aturan membandingkan bagian path HTTP URI dengan parameter nilai dalam "
-"aturan."
+msgstr "PATH：該規則將 HTTP URI 的路徑部分與值參數相比較。"
 
 msgid "Path"
-msgstr "Path"
+msgstr "路徑"
 
 msgid "Pending Create"
-msgstr "Pending Create"
+msgstr "暫掛創建"
 
 msgid "Pending Delete"
-msgstr "Pending Delete"
+msgstr "暫掛刪除"
 
 msgid "Pending Update"
-msgstr "Pending Update"
+msgstr "暫掛更新"
 
 msgid "Please Wait"
-msgstr "Please Wait"
+msgstr "請等待"
 
 msgid "Pool"
-msgstr "Pool"
+msgstr "資源池"
 
 msgid "Pool Details"
-msgstr "Pool Details"
+msgstr "資源池詳情"
 
 msgid "Pool Members"
-msgstr "Pool Members"
+msgstr "資源池成員"
 
 msgid "Pool member has been updated."
-msgstr "Anggota pool telah diperbarui."
+msgstr "資源池成員已更新"
 
 msgid "Pools"
-msgstr "Pool"
+msgstr "資源池"
 
 msgid "Port"
-msgstr "Port"
+msgstr "連接埠"
 
 msgid "Port ID"
-msgstr "Port ID"
+msgstr "連接埠 ID"
 
 msgid "Port:"
-msgstr "Port:"
+msgstr "連接埠："
 
 msgid "Position"
-msgstr "Position"
+msgstr "位置"
 
 msgid "Position:"
-msgstr "Posisi:"
+msgstr "位置："
 
 msgid "Project"
-msgstr "Project"
+msgstr "項目"
 
 msgid "Project ID"
-msgstr "Project ID"
+msgstr "項目 ID"
 
 msgid "Protocol"
-msgstr "Protocol"
+msgstr "協議"
 
 msgid "Protocol Port"
-msgstr "Protocol Port"
+msgstr "協議連接埠"
 
 msgid "Protocol:"
-msgstr "Protocol:"
+msgstr "協議："
 
 msgid "Provide the details for the health monitor."
-msgstr "Berikan detil untuk monitor kesehatan."
+msgstr "為健康監控提供詳情。"
 
 msgid "Provide the details for the l7 policy."
-msgstr "Berikan detail untuk kebijakan l7."
+msgstr "提供七層策略的詳情。"
 
 msgid "Provide the details for the l7 rule."
-msgstr "Berikan detail untuk aturan l7."
+msgstr "提供七層規則的詳情。"
 
 msgid "Provide the details for the listener."
-msgstr "Berikan detil untuk listener."
+msgstr "為監聽器提供詳情。"
 
 msgid "Provide the details for the load balancer."
-msgstr "Berikan detil untuk penyeimbang beban."
+msgstr "為負載均衡器提供詳情。"
 
 msgid "Provide the details for the member."
-msgstr "Berikan detail untuk anggota."
+msgstr "為成員提供詳情。"
 
 msgid "Provide the details for the pool."
-msgstr "Berikan rincian untuk pool."
+msgstr "為資源池提供詳情。"
 
 msgid "Provider"
-msgstr "Provider"
+msgstr "提供者"
 
 msgid "Provisioning Status"
-msgstr "Provisioning Status"
+msgstr "配置狀態"
 
 msgid ""
 "REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
 "with the L7 policy."
-msgstr ""
-"REDIRECT_TO_POOL: Permintaan diteruskan ke kumpulan back-end yang terkait "
-"dengan kebijakan L7."
+msgstr "REDIRECT_TO_POOL：請求被轉發到該七層策略關聯的資源池。"
 
 msgid ""
 "REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
 "the redirect_url parameter."
 msgstr ""
-"REDIRECT_TO_URL: Permintaan dikirim redirect HTTP ke URL yang ditentukan "
-"dalam parameter redirect_url."
+"REDIRECT_TO_URL：請求被作為一個 HTTP 重定向發送到 redirect_url 參數里定義的 "
+"URL。"
 
 msgid "REGEX: Perl type regular expression matching."
-msgstr "REGEX: Pencocokan ekspresi reguler tipe Perl."
+msgstr "REGEX：Perl 正則表達式匹配。"
 
 msgid ""
 "REJECT: The request is denied with an appropriate response code, and not "
 "forwarded on to any back-end pool."
-msgstr ""
-"REJECT: Permintaan ditolak dengan kode respons yang sesuai, dan tidak "
-"diteruskan ke kumpulan back-end apa pun."
+msgstr "REJECT：請求被拒絶並返回合適的狀態碼，並不被轉發給任何資源池"
 
 msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
-msgstr ""
-"ROUND_ROBIN: Memutar permintaan secara merata di antara beberapa instance."
+msgstr "ROUND_ROBIN：在多個實例之間輪詢分發。"
 
 msgid "Redirect Pool ID"
-msgstr "Redirect Pool ID"
+msgstr "重定向資源池 ID"
 
 msgid "Redirect Pool ID:"
-msgstr "Redirect Pool ID:"
+msgstr "重定向資源池 ID："
 
 msgid "Redirect URL"
-msgstr "Redirect URL"
+msgstr "重定向 URL"
 
 msgid "Redirect URL:"
-msgstr "Redirect URL:"
+msgstr "重定向 URL："
 
 msgid "Redirect to Pool"
-msgstr "Redirect to Pool"
+msgstr "重定向到資源池"
 
 msgid "Redirect to URL"
-msgstr "Redirect to URL"
+msgstr "重定向到 URL"
 
 msgid "Regex"
-msgstr "Regex"
+msgstr "正則表達式"
 
 msgid "Reject"
-msgstr "Reject"
+msgstr "拒絶"
 
 msgid "Remove"
-msgstr "Remove"
+msgstr "移除"
 
 msgid ""
 "Requests matching this policy will be redirected to the pool with this ID. "
 "Only valid if action is REDIRECT_TO_POOL."
 msgstr ""
-"Permintaan yang cocok dengan kebijakan ini akan dialihkan ke kumpulan dengan "
-"ID ini. Hanya valid jika tindakan REDIRECT_TO_POOL."
+"與該策略相匹配的請求將被重定向到由 ID 指定的資源池。僅當行為是 "
+"REDIRECT_TO_POOL 時有效。"
 
 msgid ""
 "Requests matching this policy will be redirected to this URL. Only valid if "
 "action is REDIRECT_TO_URL."
 msgstr ""
-"Permintaan yang cocok dengan kebijakan ini akan dialihkan ke URL ini. Hanya "
-"valid jika tindakan REDIRECT_TO_URL."
+"與該策略相匹配的請求將被重定向指定的 URL。僅當行為是 REDIRECT_TO_URL 時有效。"
 
 msgid "Round Robin"
-msgstr "Round Robin"
+msgstr "輪詢"
 
 msgid "Rules"
-msgstr "Rules"
+msgstr "規則"
 
 msgid "SNI Container Refs"
-msgstr "SNI Container Refs"
+msgstr "SNI 容器編號"
 
 msgid ""
 "SOURCE_IP: Requests from a unique source IP address are consistently "
 "directed to the same instance."
-msgstr ""
-"SOURCE_IP: Permintaan dari alamat IP sumber unik secara konsisten diarahkan "
-"ke instance yang sama."
+msgstr "SOURCE_IP：來自相同源IP地址的請求連續的發送到同一實例。"
 
 msgid "SOURCE_IP: Session persistence based on source ip."
-msgstr "SOURCE_IP:Sesi persistensi berbasis sumber ip."
+msgstr "SOURCE_IP：基于源 IP 地址的會話持久化。"
 
 msgid "SSL Certificates"
-msgstr "SSL Certificates"
+msgstr "SSL 證書"
 
 msgid "STARTS_WITH: String starts with."
-msgstr "STARTS_WITH: String dimulai dengan."
+msgstr "STARTS_WITH：字元串首碼。"
 
 msgid ""
 "Select a floating IP address to associate with the load balancer or a "
 "floating IP pool in which to allocate a new floating IP address."
 msgstr ""
-"Pilih alamat IP mengambang (floating IP address) untuk diasosiasikan dengan "
-"penyeimbang beban (load balancer) atau kolam IP mengambang di mana untuk "
-"mengalokasikan alamat IP mengambang baru."
+"選擇一個浮動 IP 地址關聯一個負載均衡器或為浮動 IP 池分配一個新的浮動 IP 地址"
+"池。"
 
 msgid "Select certificates from the available certificates below"
-msgstr "Pilih sertifikat dari sertifikat yang tersedia di bawah ini"
+msgstr "從下面可選的證書中選擇證書"
 
 msgid "Select one or more SSL certificates for the listener."
-msgstr "Pilih satu atau beberapa sertifikat SSL untuk pendengarnya."
+msgstr "為監聽器選擇一個或多個 SSL 證書。"
 
 msgid "Session Persistence"
-msgstr "Session Persistence"
+msgstr "會話持久化"
 
 msgid "Session Persistence:"
-msgstr "Session Persistence (sesi persistensi):"
+msgstr "會話持久化："
 
 msgid "Source IP"
-msgstr "Source IP"
+msgstr "源IP"
 
 msgid "Starts With"
-msgstr "Starts With"
+msgstr "開始於"
 
 msgid "Subnet"
-msgstr "Subnet"
+msgstr "子網"
 
 msgid "Subnet ID"
-msgstr "Subnet ID"
+msgstr "子網 ID"
 
 msgid "Subnet:"
-msgstr "Subnet:"
+msgstr "子網："
 
 msgid "TCP Inspect Timeout"
-msgstr "TCP Inspect Timeout (batas waktu periksa TCP)"
+msgstr "TCP 監測超時時限"
 
 msgid "TCP Inspect Timeout:"
-msgstr "TCP Inspect Timeout (batas waktu periksa TCP):"
+msgstr "TCP 監測超時時限："
 
 msgid ""
 "The Available Instances table contains existing compute instances that can "
@@ -943,55 +902,45 @@ msgid ""
 "found in the Available\n"
 "  Instances table."
 msgstr ""
-"Table Available Instances berisi Instance perhitungan yang ada yang dapat "
-"ditambahkan sebagai member\n"
-"   dari pool.  Gunakan tombol \"Add external member\" untuk menambahkan "
-"member yang tidak ditemukan di tabel Available\n"
-"   Instances."
+"可用實例表顯示了存在的可以添加為資源池成員的計算實例。\n"
+"使用“添加外部成員”按鈕可以添加在可用實例表中找不到的成員。"
 
 msgid "The HTTP method used to perform the health check."
-msgstr "Metode HTTP digunakan untuk melakukan pemeriksaan kesehatan."
+msgstr "用來進行健康檢查的 HTTP 請求方式。"
 
 msgid "The ID of the pool used by the listener if no L7 policies match."
-msgstr ""
-"ID dari pool yang digunakan oleh pendengar (listener) jika tidak ada "
-"kebijakan L7 yang cocok."
+msgstr "無七層策略匹配時用於該監聽器的資源池 ID。"
 
 msgid "The IP address is not valid."
-msgstr "Alamat IP tidak valid."
+msgstr "IP 地址無效。"
 
 msgid ""
 "The IP address of the member to receive traffic from the load balancer. Must "
 "be a well-formed\n"
 "  IPv4 or IPv6 address."
 msgstr ""
-"Alamat IP member untuk menerima lalu lintas dari penyeimbang beban (load "
-"balancer).  Harus menjadi well-formed\n"
-"   Alamat IPv4 atau IPv6"
+"用於從負載均衡器中接收消息成員的 IP 地址。\n"
+"必須使用格式良好的 IPv4 或 IPv6 地址。"
 
 msgid ""
 "The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
-msgstr ""
-"Tindakan kebijakan L7. Salah satu REJECT, REDIRECT_TO_URL, atau "
-"REDIRECT_TO_POOL."
+msgstr "七層策略行為。REJECT，REDIRECT_TO_URL，REDIRECT_TO_POOL 其中之一"
 
 msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
-msgstr ""
-"The L7 rule type. Salah satu COOKIE, FILE_TYPE, HEADER, HOST_NAME, atau PATH."
+msgstr "七層規則類型。COOKIE，FILE_TYPE，HEADER，HOST_NAME，PATH 之中之一。"
 
 msgid "The URL path is not valid."
-msgstr "URL path tidak valid."
+msgstr "URL 路徑無效。"
 
 msgid ""
 "The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
 "  EQUAL_TO, REGEX, or STARTS_WITH."
 msgstr ""
-"The comparison type untuk aturan L7. Salah satu CONTAINS, ENDS_WITH,\n"
-"   EQUAL_TO, REGEX, atau STARTS_WITH."
+"七層規則的比較類型。CONTAINS，ENDS_WITH，EQUAL_TO，REGEX，STARTS_WITH 其中之"
+"一。"
 
 msgid "The connection limit must be a number greater than or equal to -1."
-msgstr ""
-"Batas koneksi harus berupa angka yang lebih besar dari atau sama dengan -1."
+msgstr "連接限制必須是大於或等於 -1 的整數。"
 
 msgid ""
 "The expected HTTP status codes to get from a successful health check. Must "
@@ -999,21 +948,14 @@ msgid ""
 "  a comma separated list of numbers, or a range (two numbers separated by a "
 "hyphen)."
 msgstr ""
-"Kode status HTTP yang diharapkan dapat diperoleh dari pemeriksaan kesehatan "
-"yang berhasil. Harus nomor tunggal,\n"
-"   daftar bilangan koma yang dipisahkan, atau kisaran (dua angka yang "
-"dipisahkan oleh tanda hubung)."
+"健康檢查成功返回的期望 HTTP 狀態碼。\n"
+"必須為單個數字，逗號分隔的一組數字或一個範圍（用連接符分隔的兩個數字）。"
 
 msgid "The expected status code is not valid."
-msgstr "Kode status yang diharapkan tidak valid."
-
-msgid "The health check interval must be greater than or equal to the timeout."
-msgstr ""
-"Interval pemeriksaan kesehatan harus lebih besar dari atau sama dengan batas "
-"waktu."
+msgstr "期望狀態碼無效。"
 
 msgid "The health monitor has been updated."
-msgstr "Health Monitor telah diperbarui."
+msgstr "健康監控器已經更新。"
 
 msgid ""
 "The health monitor is used to determine the health of your pool members. "
@@ -1024,128 +966,108 @@ msgid ""
 "have one health\n"
 "  monitor."
 msgstr ""
-"Monitor kesehatan digunakan untuk menentukan kesehatan pool member Anda. Cek "
-"kesehatan\n"
-"   secara rutin jalankan terhadap setiap anggota di dalam kolam dan hasil "
-"pemeriksaan kesehatan digunakan\n"
-"   untuk menentukan apakah anggota menerima koneksi baru. Setiap pool hanya "
-"bisa memiliki satu kesehatan\n"
-"   monitor."
+"健康監控用來確定你的資源池成員的健康狀況。\n"
+"健康檢查通常在資源池中與每個成員隔離運行，健康檢查的結果通過成員接收到新的連"
+"接來確定。\n"
+"每個資源池只能有一個健康監控。"
 
 msgid ""
 "The interval between health checks. Must be greater than or equal to the "
 "timeout."
-msgstr ""
-"Selang waktu antara pemeriksaan kesehatan. Harus lebih besar dari atau sama "
-"dengan timeout."
+msgstr "健康檢查之間時間間隔，必須大於或等於超時時限。"
 
 msgid ""
 "The key to use for the comparison. For example, the name of the cookie\n"
 "  to evaluate."
-msgstr ""
-"The key untuk digunakan sebagai pembanding. Misalnya, nama cookie untuk "
-"mengevaluasi."
+msgstr "用於比較的鍵。例如 COOKIE 的名字。"
 
 msgid "The l7policy has been updated."
-msgstr "Kebijakan l7 telah diperbarui."
+msgstr "七層策略已更新"
 
 msgid "The l7rule has been updated."
-msgstr "L7rule telah diperbarui."
+msgstr "七層規則已更新"
 
 msgid "The listener has been updated."
-msgstr "The listener has been updated."
+msgstr "監聽器已更新。"
 
 msgid ""
 "The load balancer algorithm that distributes traffic to the pool members."
-msgstr ""
-"Algoritma load balancer yang mendistribusikan lalu lintas ke pool member."
+msgstr "用於分發消息給資源池成員的負載均衡算法。"
 
 msgid "The load balancer has been updated."
-msgstr "Load balancer telah diperbarui."
+msgstr "負載均衡器已更新。"
 
 msgid ""
 "The load balancer occupies a neutron network port and has an IP address "
 "assigned from a subnet."
-msgstr ""
-"Penyeimbang beban (load balancer) menempati port jaringan neutron dan "
-"memiliki alamat IP yang ditetapkan dari subnet."
+msgstr "負載均衡器占用一個 neutron 網絡連接埠和一個子網分配的 IP 地址。"
 
 msgid "The max retry count must be a number between 1 and 10."
-msgstr "Count coba ulang maksimum harus berupa angka antara 1 dan 10."
+msgstr "健康檢查間隔必須大於或等於超時時限。"
 
 msgid "The max retry down count must be a number between 1 and 10."
-msgstr "Down count coba ulang maksimum harus berupa angka antara 1 dan 10."
+msgstr "最大失敗嘗試次數必須是 1 至 10 之間的整數。"
 
 msgid ""
 "The maximum number of connections permitted for this listener.\n"
 "  Default value is -1 which represents infinite connections."
-msgstr ""
-"Jumlah maksimum koneksi yang diizinkan untuk listener ini.\n"
-"   Nilai default adalah -1 yang mewakili koneksi tak terbatas."
+msgstr "該監聽器允許的最大連接數。預設值 -1 表示無限制。"
 
 msgid "The monitor address must be a valid IP address."
-msgstr "Alamat monitor harus merupakan alamat IP yang valid."
+msgstr "健康監聽器地址必須是有效的 IP 地址。"
 
 msgid "The monitor port must be a number between 1 and 65535."
-msgstr "Port monitor harus berupa angka antara 1 dan 65535."
+msgstr "健康監聽器連接埠必須是 1 至 65535 的整數"
 
 msgid "The network on which to allocate the load balancer's IP address."
-msgstr "Jaringan untuk mengalokasikan alamat IP penyeimbang beban."
+msgstr "給分配負載均衡器 IP 地址的網絡。"
 
 msgid "The network which contains the IP address of the member."
-msgstr "Jaringan yang berisi alamat IP member."
+msgstr "關聯成員 IP 地址的網絡。"
 
 msgid ""
 "The number of allowed connection failures before marking the member as "
 "error. Must be a\n"
 "  number from 1 to 10. The default is 3."
 msgstr ""
-"Jumlah kegagalan koneksi yang diijinkan sebelum menandai member sebagai "
-"error. Harus \n"
-"   nomor dari 1 sampai 10. Defaultnya adalah 3."
+"在將成員標記為錯誤之前，允許連接失敗的次數。\n"
+"必須是 1 至 10 之間的整數。預設值是 3。"
 
 msgid ""
 "The number of allowed connection failures before marking the member as "
 "inactive. Must be a\n"
 "  number from 1 to 10."
 msgstr ""
-"Jumlah kegagalan koneksi yang diizinkan sebelum menandai anggota sebagai "
-"tidak aktif. Harus \n"
-"   nomor dari 1 sampai 10."
+"在將成員標記為未活動狀態之前，允許連接失敗的次數。\n"
+"必須是 1 至 10 之間的整數。"
 
 msgid "The pool has been updated."
-msgstr "Pool telah diperbarui."
+msgstr "資源池已更新。"
 
 msgid "The pool members have been updated."
-msgstr "Anggota pool telah diperbarui."
+msgstr "資源池成員已更新"
 
 msgid "The port must be a number between 1 and 65535."
-msgstr "Port harus berupa angka antara 1 dan 65535."
+msgstr "連接埠必須是 1 至 65536 之間的整數。"
 
 msgid ""
 "The port must be unique among all listeners attached to this load balancer."
-msgstr ""
-"Port harus unik di antara semua listener yang terpasang pada load balancer "
-"ini."
+msgstr "負載均衡器上的所有監聽器的連接埠號必須唯一。"
 
 msgid ""
 "The port on which the front end listens. Must be an integer from 1 to 65535."
-msgstr ""
-"Port yang ujung depannya mendengarkan. Harus bilangan bulat dari 1 sampai "
-"65535."
+msgstr "用來通信的成員監聽連接埠。必須是 1 至 65536 之間的整數。"
 
 msgid ""
 "The port on which the member listens for traffic. Must be a number from 1 to "
 "65535."
-msgstr ""
-"Port di mana anggota (member) mendengarkan lalu lintas. Harus nomor dari 1 "
-"sampai 65535."
+msgstr "用來通信的成員監聽連接埠。必須是 1 至 65536 之間的整數。"
 
 msgid "The position must be a number between 1 and 2147483647."
-msgstr "Posisi harus berupa angka antara 1 dan 2147483647."
+msgstr "位置必須是一個 1 至 2147483647 的整數。"
 
 msgid "The position of this policy on the listener. Positions start at 1."
-msgstr "Posisi kebijakan ini pada pendengar. Posisi mulai 1."
+msgstr "該策略在監聽器裡的位置。位置從一開始。"
 
 msgid ""
 "The protocol for which the front end listens. The TERMINATED_HTTPS protocol "
@@ -1154,58 +1076,47 @@ msgid ""
 "certificate containers and\n"
 "  secrets."
 msgstr ""
-"Protokol yang ujung depannya mendengarkan. Protokol TERMINATED_HTTPS hanya "
-"tersedia jika\n"
-"   layanan key-manager diaktifkan dan Anda memiliki wewenang untuk "
-"mencantumkan daftar sertifikat dan\n"
-"   rahasia"
+"監聽器之間通信的協議。\n"
+"TERMINATED_HTTPS 協議只有在 key-manager 服務可用\n"
+"並且你有權限查詢證書容器和密鑰的情況下才有用。"
 
 msgid ""
 "The protocol for which this pool and its members listen. A valid value is "
 "HTTP, HTTPS, PROXY, or TCP."
-msgstr ""
-"Protokol yang digunakan pool ini dan anggotanya. Nilai yang valid adalah "
-"HTTP, HTTPS, PROXY, atau TCP."
+msgstr "該資源池及其成員監聽的協議。HTTP，HTTPS，PROXY，TCP 其中之一。"
 
 msgid "The redirect url must be a valid http or https url."
-msgstr "URL pengalihan harus berupa http atau https url yang valid."
+msgstr "重定向 URL 必須是一個有效的 HTTP 或 HTTPS URL"
 
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
 "URL path."
-msgstr ""
-"Target pemeriksaan kesehatan meminta HTTP ke member. Harus berupa jalur URL "
-"yang valid."
+msgstr "成員發送健康檢查 HTTP 請求的目標地址，必須為合法的 URL 路徑。"
 
 msgid ""
 "The time after which a health check times out. Must be a number greater than "
 "or equal to 0\n"
 "  and less than or equal to the interval."
 msgstr ""
-"Waktu setelah waktu pemeriksaan kesehatan habis. Harus angka lebih besar "
-"dari atau sama dengan 0\n"
-"   dan kurang dari atau sama dengan interval."
+"健康檢查請求超時的時間。\n"
+"必須為大於或等於 0 的整數，並小於或等於間隔時間。"
 
 msgid "The timeout must be a number between 0 and 31536000000."
-msgstr "Batas waktu harus berupa angka antara 0 dan 31536000000."
+msgstr "超時時限必須是 0 至 31536000000 的整數。"
 
 msgid "The timeout must be a number greater than or equal to 0."
-msgstr "Timeout harus berupa angka yang lebih besar dari atau sama dengan 0."
+msgstr "超時時限必須是一個大於等於 0 的整數。"
 
 msgid ""
 "The type of session persistence for distributing traffic to the pool members."
-msgstr ""
-"Jenis sesi persistensi untuk mendistribusikan lalu lintas ke anggota kolam "
-"renang."
+msgstr "用於為資源池成員分發消息的會話持久化類型。"
 
 msgid ""
 "The value to use for the comparison. For example, the file type to compare."
-msgstr ""
-"The value yang akan digunakan untuk perbandingan. Misalnya, jenis file (file "
-"type) untuk dibandingkan."
+msgstr "用於比較的值。例如要比較的檔案類型。"
 
 msgid "The weight must be a number between 1 and 256."
-msgstr "Bobot harus berupa angka antara 1 dan 256."
+msgstr "權重必須是 1 至 256 的整數。"
 
 msgid ""
 "The weight of a member determines the portion of requests or connections it "
@@ -1214,216 +1125,212 @@ msgid ""
 "more traffic. Must be\n"
 "  a number from 1 to 256."
 msgstr ""
-"Bobot anggota menentukan porsi permintaan atau koneksi yang layanannya "
-"dibandingkan\n"
-"   ke anggota pool lainnya. Bobot yang lebih tinggi berarti akan menerima "
-"lebih banyak lalu lintas. Harus\n"
-"   nomor dari 1 sampai 256."
+"成員的權重決定了它在服務中與其他池成員的請求和連接的占比。\n"
+"權重越高意味着接收的消息越多。\n"
+"必須是 1 至 256 之間的整數。"
 
 msgid ""
 "Time, in milliseconds, to wait for additional TCP packets for content\n"
 "  inspection. Default: 0."
-msgstr ""
-"Waktu, dalam milidetik, untuk menunggu paket TCP tambahan untuk konten\n"
-"   inspeksi. Default: 0."
+msgstr "等待額外 TCP 內容監測包的超時時限，單位是毫秒，預設值：0。"
 
 msgid "Timeout"
-msgstr "Timeout"
+msgstr "超時時限"
 
 msgid "Timeout (sec)"
-msgstr "Timeout (sec)"
+msgstr "超時時限（秒）"
 
 msgid "Timeout:"
-msgstr "Timeout (waktu habis):"
+msgstr "超時時限："
 
 msgid "Type"
-msgstr "Type"
+msgstr "類型"
 
 msgid "Type:"
-msgstr "Type:"
+msgstr "類型："
 
 msgid "URL Path"
-msgstr "URL Path"
+msgstr "URL 路徑"
 
 msgid "URL Path:"
-msgstr "URL Path:"
+msgstr "URL 路徑："
 
 msgid "Unable to create health monitor."
-msgstr "Tidak dapat membuat health monitor."
+msgstr "無法創建健康監控。"
 
 msgid "Unable to create l7 policy."
-msgstr "Tidak dapat membuat kebijakan l7."
+msgstr "無法創建七層策略。"
 
 msgid "Unable to create l7 rule."
-msgstr "Tidak dapat membuat aturan l7."
+msgstr "無法創建七層規則。"
 
 msgid "Unable to create listener."
-msgstr "Tidak dapat membuat listener."
+msgstr "無法創建監聽器。"
 
 msgid "Unable to create load balancer."
-msgstr "Tidak dapat membuat load balancer."
+msgstr "無法創建負載均衡器。"
 
 msgid "Unable to create pool."
-msgstr "Tidak dapat membuat pool."
+msgstr "無法創建資源池。"
 
 #, python-format
 msgid "Unable to delete Health Monitor: %s."
 msgid_plural "Unable to delete Health Monitors: %s."
-msgstr[0] "Unable to delete Health Monitor: %s."
+msgstr[0] "無法刪除健康監控：%s。"
 
 #, python-format
 msgid "Unable to delete L7 Policy: %s."
 msgid_plural "Unable to delete L7 Policies: %s."
-msgstr[0] "Unable to delete L7 Policy: %s."
+msgstr[0] "無法刪除七層策略：%s。"
 
 #, python-format
 msgid "Unable to delete L7 Rule: %s."
 msgid_plural "Unable to delete L7 Rules: %s."
-msgstr[0] "Unable to delete L7 Rule: %s."
+msgstr[0] "無法刪除七層規則：%s。"
 
 #, python-format
 msgid "Unable to delete Listener: %s."
 msgid_plural "Unable to delete Listeners: %s."
-msgstr[0] "Unable to delete Listener: %s."
+msgstr[0] "無法刪除監聽器：%s。"
 
 #, python-format
 msgid "Unable to delete Load Balancer: %s."
 msgid_plural "Unable to delete Load Balancers: %s."
-msgstr[0] "Unable to delete Load Balancer: %s."
+msgstr[0] "無法刪除負載均衡器：%s。"
 
 #, python-format
 msgid "Unable to delete Member: %s."
 msgid_plural "Unable to delete Members: %s."
-msgstr[0] "Unable to delete Member: %s."
+msgstr[0] "無法刪除成員：%s。"
 
 #, python-format
 msgid "Unable to delete Pool: %s."
 msgid_plural "Unable to delete Pools: %s."
-msgstr[0] "Unable to delete Pool: %s."
+msgstr[0] "無法刪除資源池：%s。"
 
 msgid "Unable to delete health monitor."
-msgstr "Tidak dapat menghapus health monitor."
+msgstr "無法刪除健康監控。"
 
 msgid "Unable to delete l7 policy."
-msgstr "Tidak dapat menghapus kebijakan l7."
+msgstr "無法刪除七層策略。"
 
 msgid "Unable to delete l7 rule."
-msgstr "Tidak dapat menghapus aturan l7."
+msgstr "無法刪除七層規則。"
 
 msgid "Unable to delete listener."
-msgstr "Tidak dapat menghapus listener."
+msgstr "無法刪除監聽器。"
 
 msgid "Unable to delete load balancer."
-msgstr "Tidak dapat menghapus load balancer."
+msgstr "無法刪除負載均衡器。"
 
 msgid "Unable to delete member."
-msgstr "Tidak dapat menghapus member."
+msgstr "無法刪除成員。"
 
 msgid "Unable to delete pool."
-msgstr "Tidak dapat menghapus pool."
+msgstr "無法刪除資源池。"
 
 #, python-format
 msgid "Unable to disassociate floating IP address from load balancer: %s."
-msgstr "Tidak dapat memisahkan alamat IP mengambang dari load balancer: %s."
+msgstr "無法從負載均衡器解除浮動IP地址關聯：%s。"
 
 msgid "Unable to retrieve SSL certificates."
-msgstr "Tidak dapat mengambil sertifikat SSL."
+msgstr "不能獲取 SSL 證書。"
 
 msgid "Unable to retrieve health monitor."
-msgstr "Tidak dapat mengambil health monitor."
+msgstr "無法獲取健康監控。"
 
 msgid "Unable to retrieve health monitors."
-msgstr "Tidak dapat mengambil health monitor."
+msgstr "無法獲取健康監控。"
 
 msgid "Unable to retrieve l7 policies."
-msgstr "Tidak dapat mengambil kebijakan l7."
+msgstr "無法獲取七層策略。"
 
 msgid "Unable to retrieve l7 policy."
-msgstr "Tidak dapat mengambil kebijakan l7."
+msgstr "無法獲取七層策略。"
 
 msgid "Unable to retrieve l7 rule."
-msgstr "Tidak dapat mengambil aturan l7."
+msgstr "無法獲取七層規則。"
 
 msgid "Unable to retrieve l7 rules."
-msgstr "Tidak dapat mengambil aturan l7."
+msgstr "無法獲取七層規則。"
 
 msgid "Unable to retrieve listener."
-msgstr "Tidak dapat mengambil listener."
+msgstr "無法檢索監聽器。"
 
 msgid "Unable to retrieve listeners."
-msgstr "Tidak dapat mengambil listener."
+msgstr "無法檢索監聽器。"
 
 msgid "Unable to retrieve load balancer."
-msgstr "Tidak dapat mengambil load balancer."
+msgstr "無法檢索負載均衡器。"
 
 msgid "Unable to retrieve load balancers."
-msgstr "Tidak dapat mengambil load balancer."
+msgstr "無法檢索負載均衡器。"
 
 msgid "Unable to retrieve member."
-msgstr "Tidak dapat mengambil member."
+msgstr "無法檢索成員。"
 
 msgid "Unable to retrieve members."
-msgstr "Tidak dapat mengambil member."
+msgstr "無法檢索成員。"
 
 msgid "Unable to retrieve pool."
-msgstr "Tidak dapat mengambil pool."
+msgstr "無法檢索資源池。"
 
 msgid "Unable to retrieve pools."
-msgstr "Tidak dapat mengambil pool."
+msgstr "無法檢索資源池。"
 
 msgid "Unable to retrieve secrets."
-msgstr "Tidak dapat mengambil rahasia."
+msgstr "無法獲取密匙。"
 
 msgid "Unable to update health monitor."
-msgstr "Tidak dapat memperbarui health monitor."
+msgstr "無法更新健康監控。"
 
 msgid "Unable to update l7 policy."
-msgstr "Tidak dapat memperbarui kebijakan l7."
+msgstr "無法更新七層策略。"
 
 msgid "Unable to update l7 rule."
-msgstr "Tidak dapat memperbarui aturan l7."
+msgstr "無法更新七層規則。"
 
 msgid "Unable to update listener."
-msgstr "Tidak dapat memperbarui listener."
+msgstr "無法更新監聽器。"
 
 msgid "Unable to update load balancer."
-msgstr "Tidak dapat memperbarui load balancer."
+msgstr "無法更新負載均衡器。"
 
 msgid "Unable to update member list."
-msgstr "Tidak dapat memperbarui member list."
+msgstr "無法更新成員列表。"
 
 msgid "Unable to update member."
-msgstr "Tidak dapat memperbarui member."
+msgstr "無法更新成員。"
 
 msgid "Unable to update pool."
-msgstr "Tidak dapat memperbarui pool."
+msgstr "無法更新資源池。"
 
 msgid "Update"
-msgstr "Update"
+msgstr "更新"
 
 msgid "Update Health Monitor"
-msgstr "Memperbarui Health Monitor"
+msgstr "更新健康監控器。"
 
 msgid "Update L7 Policy"
-msgstr "Perbarui Kebijakan L7"
+msgstr "更新七層策略"
 
 msgid "Update L7 Rule"
-msgstr "Perbarui Aturan L7"
+msgstr "更新七層規則"
 
 msgid "Update Listener"
-msgstr "Update Listener"
+msgstr "更新監聽器"
 
 msgid "Update Load Balancer"
-msgstr "Update Load Balancer"
+msgstr "更新負載均衡器"
 
 msgid "Update Member"
-msgstr "Update Member"
+msgstr "更新成員"
 
 msgid "Update Pool"
-msgstr "Update Pool"
+msgstr "更新資源池"
 
 msgid "Updated At"
-msgstr "Updated At"
+msgstr "更新于"
 
 msgid ""
 "Use the key-manager service to create any certificate containers before "
@@ -1431,29 +1338,25 @@ msgid ""
 "    The following documentation provides information on how to create a "
 "certificate container:"
 msgstr ""
-"Gunakan layanan key-manager untuk membuat wadah sertifikat sebelum membuat "
-"listener.\n"
-"     Dokumentasi berikut memberikan informasi tentang cara membuat "
-"certificate container:"
+"創建監聽器前，使用 key-manager 服務創建所有證書容器。\n"
+"下面的文檔介紹了如何創建一個證書容器："
 
 msgid "Value"
-msgstr "Value"
+msgstr "值"
 
 msgid "Value:"
-msgstr "Value:"
+msgstr "值："
 
 msgid "Weight"
-msgstr "Weight"
+msgstr "權重"
 
 msgid "Weight:"
-msgstr "Weight (bobot):"
+msgstr "權重："
 
 msgid ""
 "When true the logic of the rule is inverted. For example, with invert\n"
 "  true, equal to would become not equal to."
-msgstr ""
-"Ketika benar logika aturan dibalik. Misalnya, dengan membalikkan benar, sama "
-"dengan menjadi tidak sama dengan."
+msgstr "為是時該規則將被反轉。例如，反轉為是時相同將變成不相同。"
 
 msgid "X-Forwarded-For"
 msgstr "X-Forwarded-For"
@@ -1462,51 +1365,48 @@ msgid "X-Forwarded-port"
 msgstr "X-Forwarded-port"
 
 msgid "Yes"
-msgstr "Yes"
+msgstr "是"
 
 #, python-format
 msgid ""
 "You are about to disassociate the floating IP address from load balancer \"%s"
 "\". Please confirm."
-msgstr ""
-"Anda akan memutuskan kaitan alamat IP mengambang dari load balancer \"%s\". "
-"Tolong konfirmasi."
+msgstr "你將從負載均衡器解除浮動 IP 地址關聯“%s”，請確認。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted L7 Policy is not recoverable."
 msgid_plural ""
 "You have selected \"%s\". Deleted L7 Policies are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted L7 Policy is not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的七層策略無法恢復。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted L7 Rule is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted L7 Rules are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted L7 Rule is not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的七層規則無法恢復。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
 msgid_plural ""
 "You have selected \"%s\". Deleted health monitors are not recoverable."
-msgstr[0] ""
-"You have selected \"%s\". Deleted health monitor is not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的健康監控器無法恢復。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted listener is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted listener is not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的監聽器無法恢復。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted load balancer is not recoverable."
 msgid_plural ""
 "You have selected \"%s\". Deleted load balancers are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted load balancer is not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的負載均衡器無法恢復。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted member is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted members are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted member is not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的成員無法恢復。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted pool is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted pools are not recoverable."
-msgstr[0] "You have selected \"%s\". Deleted pool is not recoverable."
+msgstr[0] "你選擇了“%s”。刪除的資源池無法恢復。"
