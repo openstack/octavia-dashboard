@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-08-16 01:35+0000\n"
+"POT-Creation-Date: 2018-08-19 18:07+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-17 06:50+0000\n"
+"PO-Revision-Date: 2018-08-19 11:24+0000\n"
 "Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
@@ -567,6 +567,10 @@ msgstr "読み込み中"
 msgid "Max Retries"
 msgstr "最大試行回数"
 
+#, fuzzy
+msgid "Max Retries Down"
+msgstr "最大試行回数 (Down)"
+
 msgid "Max Retries:"
 msgstr "最大試行回数:"
 
@@ -914,6 +918,14 @@ msgstr ""
 msgid "The URL path is not valid."
 msgstr "URL は有効ではありません。"
 
+#, fuzzy
+msgid ""
+"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, or STARTS_WITH."
+msgstr ""
+"L7 ルールの比較タイプ。CONTAINS、ENDS_WITH、\n"
+"  EQUAL_TO、REGEX、STARTS_WITH のいずれか 1 つ。"
+
 msgid "The connection limit must be a number greater than or equal to -1."
 msgstr "最大接続数は -1 以上の数字でなければいけません。"
 
@@ -955,6 +967,13 @@ msgid ""
 "The interval between health checks. Must be greater than or equal to the "
 "timeout."
 msgstr "ヘルスチェックの間隔はタイムアウト値以上でなければいけません。"
+
+msgid ""
+"The key to use for the comparison. For example, the name of the cookie\n"
+"  to evaluate."
+msgstr ""
+"比較に使用するキー。\n"
+"  例: 評価するクッキーの名前"
 
 msgid "The l7policy has been updated."
 msgstr "L7 ポリシーが更新されました。"
