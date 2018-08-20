@@ -1,5 +1,0 @@
-#!/bin/bash
-
-set -ex
-
-export OCTAVIA_DASHBOARD_SCREENSHOTS_DIR=/opt/stack/new/octavia-dashboard/.tox/py27integration/src/horizon/openstack_dashboard/test/integration_tests/integration_tests_screenshots
