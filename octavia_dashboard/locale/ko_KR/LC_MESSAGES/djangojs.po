@@ -7,12 +7,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-08-15 05:34+0000\n"
+"POT-Creation-Date: 2018-08-20 21:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-18 03:10+0000\n"
-"Last-Translator: Ian Y. Choi <ianyrchoi@gmail.com>\n"
+"PO-Revision-Date: 2018-08-21 11:43+0000\n"
+"Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -153,7 +153,7 @@ msgid "Client Data Timeout:"
 msgstr "클라이언트 데이터 타임아웃:"
 
 msgid "Compare Type"
-msgstr "타입 비교"
+msgstr "유형 비교"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Confirm Delete Health Monitor"
@@ -264,7 +264,7 @@ msgid "Delete Health Monitors"
 msgstr "상태 모니터 삭제"
 
 msgid "Delete L7 Policies"
-msgstr "L7 정책들 삭제"
+msgstr "L7 정책 삭제"
 
 msgid "Delete L7 Policy"
 msgid_plural "Delete L7 Policies"
@@ -275,7 +275,7 @@ msgid_plural "Delete L7 Rules"
 msgstr[0] "L7 규칙 삭제"
 
 msgid "Delete L7 Rules"
-msgstr "L7 규칙들 삭제"
+msgstr "L7 규칙 삭제"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delete Listener"
@@ -517,7 +517,7 @@ msgid "Insert Headers:"
 msgstr "규칙 추가:"
 
 msgid "Invert"
-msgstr "Invert"
+msgstr "반전"
 
 msgid "Key"
 msgstr "키"
@@ -698,7 +698,7 @@ msgid "Overview"
 msgstr "개요"
 
 msgid "Path"
-msgstr "Path"
+msgstr "경로"
 
 # auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Pending Create"
@@ -795,7 +795,7 @@ msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
 msgstr "ROUND_ROBIN: 여러 인스턴스들 사이에서 짝수로 요청을 순환합니다."
 
 msgid "Redirect Pool ID"
-msgstr "리디렉션 Pool ID"
+msgstr "리디렉션 풀 ID"
 
 msgid "Redirect Pool ID:"
 msgstr "리디렉션 풀 ID:"
@@ -807,7 +807,7 @@ msgid "Redirect URL:"
 msgstr "리디렉션 URL:"
 
 msgid "Redirect to Pool"
-msgstr "Pool로 리디렉션"
+msgstr "풀로 리디렉션"
 
 msgid "Redirect to URL"
 msgstr "URL로 리디렉션"
@@ -816,7 +816,7 @@ msgid "Regex"
 msgstr "Regex"
 
 msgid "Reject"
-msgstr "Reject"
+msgstr "거부"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Remove"
@@ -975,7 +975,7 @@ msgid ""
 msgstr "상태 체크 사이의 간격. 타임아웃 설정값 이상이어야 합니다."
 
 msgid "The l7policy has been updated."
-msgstr "l7policy이 업데이트 되었습니다."
+msgstr "L7 정책이 업데이트 되었습니다."
 
 msgid "The l7rule has been updated."
 msgstr "L7 규칙이 업데이트 되었습니다."
