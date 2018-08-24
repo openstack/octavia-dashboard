@@ -8,10 +8,12 @@
     "OpenStack",
     "octavia",
     "octavia-dashboard",
-    "load-balancer"],
+    "load-balancer"
+  ],
   "repository": {
     "type": "git",
-    "url": "https://git.openstack.org/openstack/octavia-dashboard"},
+    "url": "https://git.openstack.org/openstack/octavia-dashboard"
+  },
   "bugs": "https://storyboard.openstack.org/#!/project/909",
   "license": "Apache 2.0",
   "devDependencies": {

@@ -1,3 +1,5 @@
+# Copyright 2018 Walmart.
+#
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
 #    a copy of the License at
@@ -10,18 +12,14 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 
-from openstack_dashboard.test.integration_tests import helpers
+import horizon
+from octavia_dashboard.dashboards.project.load_balancer import panel as o_panel
+from openstack_dashboard.test import helpers as test
 
 
-class TestLoadbalancers(helpers.TestCase):
+class RegistrationTests(test.TestCase):
+    def test_registered(self):
+        dashboard = horizon.get_dashboard('project')
+        panel = dashboard.get_panel('load_balancer')
 
-    def setUp(self):
-        super(TestLoadbalancers, self).setUp()
-        self.home_pg.go_to_network_loadbalancerspage()
-
-    def test_loadbalancers(self):
-        self._save_screenshot(None)
-        # TODO(MRV): Place holder for tests
-
-    def tearDown(self):
-        super(TestLoadbalancers, self).tearDown()
+        self.assertEqual(panel.__class__, o_panel.NGLoadBalancers)
