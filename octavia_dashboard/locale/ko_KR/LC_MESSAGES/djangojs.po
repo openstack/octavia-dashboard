@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-08-20 21:35+0000\n"
+"POT-Creation-Date: 2018-08-25 00:45+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-21 11:43+0000\n"
+"PO-Revision-Date: 2018-08-28 10:51+0000\n"
 "Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -80,6 +80,13 @@ msgstr "멤버 추가/삭제"
 msgid "Add/Remove Pool Members"
 msgstr "풀 멤버 추가/삭제"
 
+msgid ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\" and \"X-Forwarded-Port\" are supported."
+msgstr ""
+"HTTP 헤더에 삽입하는 부가적인 헤더에는,\n"
+"  \"X-Forwarded-For\"와 \"X-Forwarded-Port\"만 지원됩니다."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Admin State Up"
 msgstr "관리자 업 상태"
@@ -93,6 +100,18 @@ msgstr "알고리즘:"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Allocated Members"
 msgstr "할당된 멤버"
+
+msgid ""
+"An L7 Policy is a collection of L7 rules associated with a Listener, and "
+"which may also have an association to a back-end pool"
+msgstr ""
+"L7 정책은 리스너와 연결된 L7 규칙의 집합이고, 백엔드 풀과 연결되어 있을 수도 "
+"있습니다."
+
+msgid ""
+"An L7 Rule is a single, simple logical test which returns either true or\n"
+"false."
+msgstr "L7 규칙은 참 또는 거짓으로 응답하는 간단한 단일 논리 검사입니다."
 
 msgid ""
 "An alternate IP address used for health monitoring a backend member.\n"
@@ -132,11 +151,27 @@ msgstr "Floating IP와 로드 밸런서 연결"
 msgid "Available Instances"
 msgstr "사용 가능한 인스턴스"
 
+msgid "Backend member connection timeout in milliseconds. Default: 5000."
+msgstr "백엔드 멤버 연결 타임아웃(밀리 초). 기본 값: 5000."
+
+msgid "Backend member inactivity timeout in milliseconds. Default: 50000."
+msgstr "벡엔드 멤버 비활성 타임아웃 (밀리 초). 기본값: 50000."
+
 msgid "Backup"
 msgstr "백업"
 
 msgid "Backup:"
 msgstr "백업:"
+
+msgid "CONTAINS: String contains."
+msgstr "CONTAINS: 문자열 포함"
+
+msgid ""
+"COOKIE: The rule looks for a cookie named by the key parameter and\n"
+"      compares it against the value parameter in the rule."
+msgstr ""
+"COOKIE: 규칙은 키 매개변수로 이름붙여진 쿠키를 찾고\n"
+"      규칙 내의 값 매개변수와 비교합니다."
 
 # auto translated by TM merge from project: magnum-ui, version: master, DocId: magnum_ui/locale/djangojs
 msgid "Cancel"
@@ -154,6 +189,9 @@ msgstr "클라이언트 데이터 타임아웃:"
 
 msgid "Compare Type"
 msgstr "유형 비교"
+
+msgid "Compare Type:"
+msgstr "유형 비교:"
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Confirm Delete Health Monitor"
@@ -250,7 +288,7 @@ msgid "Delay"
 msgstr "지연"
 
 msgid "Delay (sec)"
-msgstr "지연 시간 (초)"
+msgstr "지연 (초)"
 
 msgid "Delay:"
 msgstr "지연:"
@@ -362,6 +400,12 @@ msgstr "Floating IP 연결 해제"
 msgid "Disassociated floating IP address from load balancer: %s."
 msgstr "로드 밸런서에서 Floating IP 주소가 연결 해제됨 : %s."
 
+msgid "ENDS_WITH: String ends with."
+msgstr "ENDS_WITH: 문자열로 종료."
+
+msgid "EQUAL_TO: String is equal to."
+msgstr "EQUAL_TO: 문자열과 동일."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
@@ -417,6 +461,13 @@ msgstr "예상 코드:"
 msgid "Expiration Date"
 msgstr "만기 일자"
 
+msgid ""
+"FILE_TYPE: The rule compares the last portion of the URI against\n"
+"      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
+msgstr ""
+"FILE_TYPE: 규칙은 URI의 마지막 위치와\n"
+"      규칙 내의 값 매개변수를 비교합니다. (예: \"txt\", \"jpg\" 등)"
+
 msgid "File Type"
 msgstr "파일 타입"
 
@@ -436,6 +487,23 @@ msgstr "Floating IP 주소"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Floating IP pools"
 msgstr "Floating IP 풀"
+
+msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
+msgstr "프론트엔드 클라이언트의 비활성 타임아웃 (밀리 초). 기본값: 50000."
+
+msgid ""
+"HEADER: The rule looks for a header defined in the key parameter\n"
+"      and compares it against the value parameter in the rule."
+msgstr ""
+"HEADER: 규칙은 키 파라미터로 정의된 헤더를 찾고\n"
+"      규칙 내의 값 매개변수와 비교합니다."
+
+msgid ""
+"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
+"      hostname in the request against the value parameter in the rule."
+msgstr ""
+"HOST_NAME: 규칙은 요청의 HTTP/1.1 호스트이름과\n"
+"      규칙 내의 값 매개변수를 비교합니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "HTTP Method"
@@ -514,10 +582,20 @@ msgid "Insert Headers"
 msgstr "헤더 삽입"
 
 msgid "Insert Headers:"
-msgstr "규칙 추가:"
+msgstr "헤더 추가:"
 
 msgid "Invert"
 msgstr "반전"
+
+msgid "Invert:"
+msgstr "반전:"
+
+msgid ""
+"Is the member a backup? Backup members only receive traffic when all\n"
+"  non-backup members are down."
+msgstr ""
+"멤버가 백업인가요? 백업 멤버는 모든 비 백업 멤버가 다운됐을 때만\n"
+"  트래픽을 수신합니다."
 
 msgid "Key"
 msgstr "키"
@@ -616,6 +694,9 @@ msgstr "멤버 연결 타임아웃:"
 msgid "Member Data Timeout"
 msgstr "멤버 데이터 타이아웃"
 
+msgid "Member Data Timeout:"
+msgstr "멤버 데이터 타임아웃:"
+
 # auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Members"
 msgstr "멤버"
@@ -697,6 +778,13 @@ msgstr "운영 상태"
 msgid "Overview"
 msgstr "개요"
 
+msgid ""
+"PATH: The rule compares the path portion of the HTTP URI against\n"
+"      the value parameter in the rule."
+msgstr ""
+"PATH: 규칙은 HTTP URI의 경로 위치와\n"
+"      규칙 내의 값 매개변수를 비교합니다."
+
 msgid "Path"
 msgstr "경로"
 
@@ -746,6 +834,9 @@ msgstr "포트:"
 msgid "Position"
 msgstr "위치"
 
+msgid "Position:"
+msgstr "위치: "
+
 msgid "Project"
 msgstr "프로젝트"
 
@@ -767,6 +858,12 @@ msgstr "프로토콜:"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Provide the details for the health monitor."
 msgstr "상태 모니터의 세부 사항을 제공하십시오."
+
+msgid "Provide the details for the l7 policy."
+msgstr "L7 정책의 세부 사항을 제공하세요."
+
+msgid "Provide the details for the l7 rule."
+msgstr "L7 규칙에 대한 세부 사항 제공."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Provide the details for the listener."
@@ -790,6 +887,28 @@ msgstr "프로바이더"
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Provisioning Status"
 msgstr "프로비저닝 상태"
+
+msgid ""
+"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
+"with the L7 policy."
+msgstr "REDIRECT_TO_POOL: 요청은 L7 정책과 함께 연결된 백엔드 풀로 전달됩니다."
+
+msgid ""
+"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
+"the redirect_url parameter."
+msgstr ""
+"REDIRECT_TO_URL: redirect_url 매개변수에 정의된 URL로 HTTP 리디렉션이 요청자"
+"에게 전송됩니다."
+
+msgid "REGEX: Perl type regular expression matching."
+msgstr "REGEX: 펄 유형의 정규 표현식 일치."
+
+msgid ""
+"REJECT: The request is denied with an appropriate response code, and not "
+"forwarded on to any back-end pool."
+msgstr ""
+"REJECT: 요청은 적절한 응답 코드로 거부되고, 어떠한 백엔드 풀로도 전달되지 않"
+"습니다."
 
 msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
 msgstr "ROUND_ROBIN: 여러 인스턴스들 사이에서 짝수로 요청을 순환합니다."
@@ -822,6 +941,20 @@ msgstr "거부"
 msgid "Remove"
 msgstr "제거"
 
+msgid ""
+"Requests matching this policy will be redirected to the pool with this ID. "
+"Only valid if action is REDIRECT_TO_POOL."
+msgstr ""
+"이 정책에 매칭되는 요청은 이 ID로 풀에 리디렉트 됩니다. REDIRECT_TO_POOL 동작"
+"일때만 유효합니다."
+
+msgid ""
+"Requests matching this policy will be redirected to this URL. Only valid if "
+"action is REDIRECT_TO_URL."
+msgstr ""
+"이 정책에 매칭되는 요청은 이 URL로 리디렉트 됩니다. REDIRECT_TO_URL 동작일때"
+"만 유효합니다."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Round Robin"
 msgstr "라운드 로빈"
@@ -845,6 +978,9 @@ msgstr "SOURCE_IP: 세션 지속성 기반의 소스 ip."
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "SSL Certificates"
 msgstr "SSL 인증서"
+
+msgid "STARTS_WITH: String starts with."
+msgstr "STARTS_WITH: 문자열로 시작."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
@@ -923,9 +1059,23 @@ msgstr ""
 "로드 밸런서에서 트래픽을 받는 멤버의 IP 주소입니다. 양식에 맞는 \n"
 "  IPv4나 IPv6 주소이어야 합니다."
 
+msgid ""
+"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
+msgstr "L7 정책 동작. REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL 중 하나."
+
+msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
+msgstr "L7 규칙 유형. COOKIE, FILE_TYPE, HEADER, HOST_NAME, PATH 중 하나."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The URL path is not valid."
 msgstr "URL 경로가 유효하지 않습니다."
+
+msgid ""
+"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, or STARTS_WITH."
+msgstr ""
+"L7 규칙의 비교 유형. CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, STARTS_WITH 중 하나."
 
 msgid "The connection limit must be a number greater than or equal to -1."
 msgstr "접속 제한은 -1 이상이어야 합니다."
@@ -973,6 +1123,13 @@ msgid ""
 "The interval between health checks. Must be greater than or equal to the "
 "timeout."
 msgstr "상태 체크 사이의 간격. 타임아웃 설정값 이상이어야 합니다."
+
+msgid ""
+"The key to use for the comparison. For example, the name of the cookie\n"
+"  to evaluate."
+msgstr ""
+"비교에 사용되는 키. 예를 들어, 평가에 사용될\n"
+" 쿠키의 이름."
 
 msgid "The l7policy has been updated."
 msgstr "L7 정책이 업데이트 되었습니다."
@@ -1074,6 +1231,9 @@ msgstr ""
 msgid "The position must be a number between 1 and 2147483647."
 msgstr "위치는 1에서 2147483647까지의 숫자여야 합니다."
 
+msgid "The position of this policy on the listener. Positions start at 1."
+msgstr "리스너에서의 이 정책의 위치. 위치는 1에서 시작합니다."
+
 msgid ""
 "The protocol for which the front end listens. The TERMINATED_HTTPS protocol "
 "is only available if\n"
@@ -1121,6 +1281,10 @@ msgid ""
 "The type of session persistence for distributing traffic to the pool members."
 msgstr "풀 펨버에게 트래픽을 분배시키는 세션 지속성 유형."
 
+msgid ""
+"The value to use for the comparison. For example, the file type to compare."
+msgstr "비교에 사용되는 키. 예를 들어, 비교에 사용되는 파일 유형."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The weight must be a number between 1 and 256."
 msgstr "가중치는 반드시 숫자 1과 256사이여야 합니다."
@@ -1135,6 +1299,13 @@ msgstr ""
 "멤버의 가중치는 풀의 다른 멤버와 비교하여 요청이나 연결의\n"
 "  양을 결정합니다. 가중치가 높을수록 더 많은 트래픽을 받게 됩니다.\n"
 "  가중치는 숫자 1과 256사이여야 합니다."
+
+msgid ""
+"Time, in milliseconds, to wait for additional TCP packets for content\n"
+"  inspection. Default: 0."
+msgstr ""
+"컨텐츠 검사 용으로 부가적인 TCP 패킷을 기다리기 위한\n"
+"  시간 (밀리 초). 기본값: 0."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Timeout"
@@ -1390,6 +1561,13 @@ msgstr "가중치"
 
 msgid "Weight:"
 msgstr "가중치:"
+
+msgid ""
+"When true the logic of the rule is inverted. For example, with invert\n"
+"  true, equal to would become not equal to."
+msgstr ""
+"값이 참일 때 규칙의 논리가 반전됩니다. 예를 들어,\n"
+"  invert true일 때, equal to는 not equal to가 됩니다."
 
 msgid "X-Forwarded-For"
 msgstr "X-Forwarded-For"
