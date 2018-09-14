@@ -4,12 +4,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-08-15 05:34+0000\n"
+"POT-Creation-Date: 2018-09-10 02:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-07-31 12:23+0000\n"
-"Last-Translator: Robert Simai <robert.simai@suse.com>\n"
+"PO-Revision-Date: 2018-08-11 10:48+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -67,6 +67,13 @@ msgstr "Hinzufügen/Löschen Mitglieder"
 
 msgid "Add/Remove Pool Members"
 msgstr "Pool-Mitglieder hinzufügen/entfernen"
+
+msgid ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\" and \"X-Forwarded-Port\" are supported."
+msgstr ""
+"Zusätzliche Header einfügen in HTTP-Header,\n"
+"   nur \"X-Forwarded-For\" und \"X-Forwarded-Port\" werden unterstützt."
 
 msgid "Admin State Up"
 msgstr "Adminstatus aktiv"
@@ -128,6 +135,14 @@ msgstr "Floating-IP mit Loadbalancer verbinden."
 msgid "Available Instances"
 msgstr "Verfügbare Instanzen"
 
+msgid "Backend member connection timeout in milliseconds. Default: 5000."
+msgstr "Back-End-Mitgliedsverbindungs-Timeout in Millisekunden Standard: 5000."
+
+msgid "Backend member inactivity timeout in milliseconds. Default: 50000."
+msgstr ""
+"Inaktivitätszeitlimit des Back-End-Mitglieds in Millisekunden. Standard: "
+"50000."
+
 msgid "Backup"
 msgstr "Sicherungskopie"
 
@@ -137,11 +152,25 @@ msgstr "Sicherungskopie:"
 msgid "CONTAINS: String contains."
 msgstr "CONTAINS: Zeichenkette enthält."
 
+msgid ""
+"COOKIE: The rule looks for a cookie named by the key parameter and\n"
+"      compares it against the value parameter in the rule."
+msgstr ""
+"COOKIE: Die Regel sucht nach einem Cookie, das mit dem Schlüsselparameter "
+"benannt ist und\n"
+"       vergleicht es mit dem Wertparameter in der Regel."
+
 msgid "Cancel"
 msgstr "Abbrechen"
 
 msgid "Certificate Name"
 msgstr "Zertifikatname"
+
+msgid "Client Data Timeout"
+msgstr "Client Data Timeout"
+
+msgid "Client Data Timeout:"
+msgstr "Client Data Timeout:"
 
 msgid "Compare Type"
 msgstr "Typ vergleichen"
@@ -413,6 +442,13 @@ msgstr "Erwartete Codes:"
 msgid "Expiration Date"
 msgstr "Ablaufdatum"
 
+msgid ""
+"FILE_TYPE: The rule compares the last portion of the URI against\n"
+"      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
+msgstr ""
+"FILE_TYPE: Die Regel vergleicht den letzten Teil des URIs mit\n"
+"       der Wertparameter in der Regel (z.B. \"txt\", \"jpg\" usw.)"
+
 msgid "File Type"
 msgstr "Dateityp"
 
@@ -430,6 +466,26 @@ msgstr "Floating-IP-Adressen"
 
 msgid "Floating IP pools"
 msgstr "Floating-IP-Pools"
+
+msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
+msgstr ""
+"Inaktivitätszeitlimit des Front-End-Clients in Millisekunden. Standard: "
+"50000."
+
+msgid ""
+"HEADER: The rule looks for a header defined in the key parameter\n"
+"      and compares it against the value parameter in the rule."
+msgstr ""
+"HEADER: Die Regel sucht nach einem Header, der im Schlüsselparameter "
+"definiert ist\n"
+"       und vergleicht sie mit dem Wertparameter in der Regel."
+
+msgid ""
+"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
+"      hostname in the request against the value parameter in the rule."
+msgstr ""
+"HOST_NAME: Die Regel führt einen Vergleich zwischen HTTP/1.1 durch\n"
+"       Hostname in der Anforderung für den Wertparameter in der Regel."
 
 msgid "HTTP Method"
 msgstr "HTTP-Methode"
@@ -508,6 +564,14 @@ msgstr "Invertieren"
 msgid "Invert:"
 msgstr "Invertieren:"
 
+msgid ""
+"Is the member a backup? Backup members only receive traffic when all\n"
+"  non-backup members are down."
+msgstr ""
+"Ist das Mitglied ein Backup? Backup-Mitglieder erhalten nur Datenverkehr, "
+"wenn alle vorhanden sind\n"
+"   Nicht-Backup-Mitglieder sind nicht erreichbar."
+
 msgid "Key"
 msgstr "Schlüssel"
 
@@ -579,11 +643,26 @@ msgstr "Max Wiederholungen"
 msgid "Max Retries Down"
 msgstr "Max Wiederholungen herunter"
 
+msgid "Max Retries Down:"
+msgstr "Maximale Wiederholungen:"
+
 msgid "Max Retries:"
 msgstr "Max Versuche:"
 
 msgid "Member"
 msgstr "Mitglied"
+
+msgid "Member Connect Timeout"
+msgstr "Member Connect Timeout"
+
+msgid "Member Connect Timeout:"
+msgstr "Member Connect Timeout:"
+
+msgid "Member Data Timeout"
+msgstr "Member Data Timeout"
+
+msgid "Member Data Timeout:"
+msgstr "Member Data Timeout:"
 
 msgid "Members"
 msgstr "Mitglieder"
@@ -653,6 +732,13 @@ msgstr "Betriebsstatus"
 
 msgid "Overview"
 msgstr "Übersicht"
+
+msgid ""
+"PATH: The rule compares the path portion of the HTTP URI against\n"
+"      the value parameter in the rule."
+msgstr ""
+"PATH: Die Regel vergleicht den Pfadabschnitt des HTTP-URIs mit\n"
+"       der Wertparameter in der Regel"
 
 msgid "Path"
 msgstr "Pfad"
@@ -874,6 +960,9 @@ msgstr "Teilnetz:"
 msgid "TCP Inspect Timeout"
 msgstr "Auszeit"
 
+msgid "TCP Inspect Timeout:"
+msgstr "TCP Inspect Timeout:"
+
 msgid ""
 "The Available Instances table contains existing compute instances that can "
 "be added as members\n"
@@ -890,6 +979,11 @@ msgstr ""
 msgid "The HTTP method used to perform the health check."
 msgstr ""
 "Die HTTP-Methode die zur Durchführung des Gesundheitchecks angewendet wird."
+
+msgid "The ID of the pool used by the listener if no L7 policies match."
+msgstr ""
+"Die ID des vom Listener verwendeten Pools, wenn keine L7-Richtlinien "
+"übereinstimmen."
 
 msgid "The IP address is not valid."
 msgstr "Die IP-Adresse ist ungültig."
@@ -915,6 +1009,13 @@ msgstr ""
 
 msgid "The URL path is not valid."
 msgstr "Der URL-Pfad ist ungültig."
+
+msgid ""
+"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, or STARTS_WITH."
+msgstr ""
+"Der Vergleichstyp für die L7-Regel. Eine von CONTAINS, ENDS_WITH,\n"
+"  EQUAL_TO, REGEX, or STARTS_WITH."
 
 msgid "The connection limit must be a number greater than or equal to -1."
 msgstr "Das Verbindungslimit muss eine Nummer grösser oder gleich -1 sein."
@@ -962,6 +1063,13 @@ msgid ""
 msgstr ""
 "Das Intervall zwischen Gesundheitschecks. Muss groesser oder gleich dem "
 "Timeout sein."
+
+msgid ""
+"The key to use for the comparison. For example, the name of the cookie\n"
+"  to evaluate."
+msgstr ""
+"Der Schlüssel zum Vergleich. Zum Beispiel der Name des Cookies\n"
+" zur Evaluierung."
 
 msgid "The l7policy has been updated."
 msgstr "Die L7 Richtlinie wurde aktualisiert."
@@ -1114,6 +1222,10 @@ msgstr ""
 "Der Typ der Sitzungsdauer für Verkehrsverteilung zwischen den "
 "Poolmitgliedern."
 
+msgid ""
+"The value to use for the comparison. For example, the file type to compare."
+msgstr "Der Schlüssel zum Vergleich. Zum Beispiel der Dateityp zum Vergleich."
+
 msgid "The weight must be a number between 1 and 256."
 msgstr "Das Gewicht muss eine Zahl zwischen 1 und 256 sein."
 
@@ -1129,6 +1241,14 @@ msgstr ""
 "  zu anderen Mitgliedern des Pools. Ein höheres Gewicht wird mehr Verkehr "
 "erzeugen. Muss eine Zahl\n"
 "  zwischen 1 und 256 sein."
+
+msgid ""
+"Time, in milliseconds, to wait for additional TCP packets for content\n"
+"  inspection. Default: 0."
+msgstr ""
+"Zeit in Millisekunden, um auf zusätzliche TCP-Pakete für den Inhalt zu "
+"warten\n"
+"   Inspektion. Standard: 0."
 
 msgid "Timeout"
 msgstr "Zeitlimit"
@@ -1358,6 +1478,13 @@ msgstr "Gewicht"
 
 msgid "Weight:"
 msgstr "Gewicht:"
+
+msgid ""
+"When true the logic of the rule is inverted. For example, with invert\n"
+"  true, equal to would become not equal to."
+msgstr ""
+"Wenn wahr, ist die Logik der Regel invertiert. Zum Beispiel mit Invertieren\n"
+"   wahr, gleich zu würde nicht gleich sein"
 
 msgid "X-Forwarded-For"
 msgstr "X-Forwarded-For"

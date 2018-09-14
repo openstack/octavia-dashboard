@@ -1,14 +1,15 @@
 # Akihiro Motoki <amotoki@gmail.com>, 2018. #zanata
+# Yuko Katabami <yukokatabami@gmail.com>, 2018. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2018-05-09 03:37+0000\n"
+"POT-Creation-Date: 2018-09-10 02:57+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-01-28 11:00+0000\n"
-"Last-Translator: Akihiro Motoki <amotoki@gmail.com>\n"
+"PO-Revision-Date: 2018-08-19 11:24+0000\n"
+"Last-Translator: Yuko Katabami <yukokatabami@gmail.com>\n"
 "Language-Team: Japanese\n"
 "Language: ja\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -20,6 +21,9 @@ msgstr "%(ip)s..."
 
 msgid "A new health monitor is being created."
 msgstr "新しいヘルスモニターは作成中です。"
+
+msgid "A new l7 policy is being created."
+msgstr "新しい L7 ポリシーは作成中です。"
 
 msgid "A new listener is being created."
 msgstr "新しいリスナーは作成中です。"
@@ -35,6 +39,12 @@ msgid ""
 "applied."
 msgstr "プールは負荷分散が適用されるメンバーのグループを表します。"
 
+msgid "Action"
+msgstr "アクション"
+
+msgid "Action:"
+msgstr "アクション:"
+
 msgid "Active"
 msgstr "稼働中"
 
@@ -44,11 +54,21 @@ msgstr "追加"
 msgid "Add external member"
 msgstr "メンバーの追加"
 
+msgid "Add members to the load balancer pool."
+msgstr "ロードバランサーにメンバーを追加します。"
+
 msgid "Add/Remove Members"
 msgstr "メンバーの追加/削除"
 
 msgid "Add/Remove Pool Members"
 msgstr "プールメンバーの追加・削除"
+
+msgid ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\" and \"X-Forwarded-Port\" are supported."
+msgstr ""
+"HTTP ヘッダーへの追加ヘッダー挿入で、\n"
+"  \"X-Forwarded-For\" と \"X-Forwarded-Port\" のみがサポートされています。"
 
 msgid "Admin State Up"
 msgstr "管理状態有効"
@@ -56,8 +76,25 @@ msgstr "管理状態有効"
 msgid "Algorithm"
 msgstr "アルゴリズム"
 
+msgid "Algorithm:"
+msgstr "アルゴリズム:"
+
 msgid "Allocated Members"
 msgstr "割り当て済みのメンバー"
+
+msgid ""
+"An L7 Policy is a collection of L7 rules associated with a Listener, and "
+"which may also have an association to a back-end pool"
+msgstr ""
+"L7 ポリシーは、リスナーに関連付けられた L7 ルールのコレクションで、バックエン"
+"ドプールに関連付けられている場合もあります。"
+
+msgid ""
+"An L7 Rule is a single, simple logical test which returns either true or\n"
+"false."
+msgstr ""
+"L7 ルールは、単一の簡単な論理テストで、\n"
+"true または false が返されます。"
 
 msgid "An error occurred. Please try again later."
 msgstr "エラーが発生しました。後からもう一度お試しください。"
@@ -77,15 +114,55 @@ msgstr "ロードバランサーの Floating IP アドレスの割り当て"
 msgid "Available Instances"
 msgstr "有効なインスタンス"
 
+msgid "Backend member connection timeout in milliseconds. Default: 5000."
+msgstr "バックエンドメンバーの接続タイムアウト (ミリ秒)。デフォルト: 5000"
+
+msgid "Backend member inactivity timeout in milliseconds. Default: 50000."
+msgstr ""
+"バックエンドメンバーの非アクティブタイムアウト (ミリ秒)。デフォルト: 50000"
+
+msgid "Backup"
+msgstr "バックアップ"
+
+msgid "Backup:"
+msgstr "バックアップ:"
+
+msgid ""
+"COOKIE: The rule looks for a cookie named by the key parameter and\n"
+"      compares it against the value parameter in the rule."
+msgstr ""
+"クッキー: ルールは、key パラメーターで命名されたクッキーを探して、\n"
+"      ルール内の value パラメーターと比較します。"
+
 msgid "Cancel"
 msgstr "取り消し"
 
 msgid "Certificate Name"
 msgstr "証明書名"
 
+msgid "Client Data Timeout"
+msgstr "クライアントデータタイムアウト"
+
+msgid "Client Data Timeout:"
+msgstr "クライアントデータタイムアウト:"
+
+msgid "Compare Type"
+msgstr "比較の種別"
+
+msgid "Compare Type:"
+msgstr "比較の種別:"
+
 msgid "Confirm Delete Health Monitor"
 msgid_plural "Confirm Delete Health Monitors"
 msgstr[0] "ヘルスモニターの削除の確認"
+
+msgid "Confirm Delete L7 Policy"
+msgid_plural "Confirm Delete L7 Policies"
+msgstr[0] "L7 ポリシーの削除の確認"
+
+msgid "Confirm Delete L7 Rule"
+msgid_plural "Confirm Delete L7 Rules"
+msgstr[0] "L7 ルールの削除の確認"
 
 msgid "Confirm Delete Listener"
 msgid_plural "Confirm Delete Listeners"
@@ -115,8 +192,17 @@ msgstr "最大接続数:"
 msgid "Cookie"
 msgstr "クッキー"
 
+msgid "Cookie Name"
+msgstr "クッキー名"
+
 msgid "Create Health Monitor"
 msgstr "ヘルスモニターの作成"
+
+msgid "Create L7 Policy"
+msgstr "L7 ポリシーの作成"
+
+msgid "Create L7 Rule"
+msgstr "L7 ルールの作成"
 
 msgid "Create Listener"
 msgstr "リスナーの作成"
@@ -133,11 +219,23 @@ msgstr "作成時刻"
 msgid "Default Pool ID"
 msgstr "デフォルトプール ID"
 
+msgid "Default Pool ID:"
+msgstr "デフォルトプール ID:"
+
+msgid "Default TLS Container Ref"
+msgstr "デフォルトの TLS コンテナー参照"
+
 msgid "Degraded"
 msgstr "縮退中"
 
 msgid "Delay"
 msgstr "遅延"
+
+msgid "Delay (sec)"
+msgstr "遅延 (秒)"
+
+msgid "Delay:"
+msgstr "遅延:"
 
 msgid "Delete Health Monitor"
 msgid_plural "Delete Health Monitors"
@@ -145,6 +243,20 @@ msgstr[0] "ヘルスモニターの削除"
 
 msgid "Delete Health Monitors"
 msgstr "ヘルスモニターの削除"
+
+msgid "Delete L7 Policies"
+msgstr "L7 ポリシーの削除"
+
+msgid "Delete L7 Policy"
+msgid_plural "Delete L7 Policies"
+msgstr[0] "L7 ポリシーの削除"
+
+msgid "Delete L7 Rule"
+msgid_plural "Delete L7 Rules"
+msgstr[0] "L7 ルールの削除"
+
+msgid "Delete L7 Rules"
+msgstr "L7 ルールの削除"
 
 msgid "Delete Listener"
 msgid_plural "Delete Listeners"
@@ -180,6 +292,16 @@ msgid_plural "Deleted Health Monitors: %s."
 msgstr[0] "ヘルスモニター %s を削除しました。"
 
 #, python-format
+msgid "Deleted L7 Policy: %s."
+msgid_plural "Deleted L7 Policies: %s."
+msgstr[0] "L7 ポリシー %s を削除しました。"
+
+#, python-format
+msgid "Deleted L7 Rule: %s."
+msgid_plural "Deleted L7 Rules: %s."
+msgstr[0] "L7 ルール %s を削除しました。"
+
+#, python-format
 msgid "Deleted Listener: %s."
 msgid_plural "Deleted Listeners: %s."
 msgstr[0] "リスナー %s を削除しました。"
@@ -213,8 +335,26 @@ msgid "Disassociated floating IP address from load balancer: %s."
 msgstr ""
 "ロードバランサー %s から Floating IP アドレスの割り当てを解除しました。"
 
+msgid ""
+"Each port that listens for traffic on a particular load balancer is "
+"configured separately and\n"
+"  tied to the load balancer. Multiple listeners can be associated with the "
+"same load balancer but\n"
+"  each must use a unique port."
+msgstr ""
+"あるロードバランサーでトラフィックをリッスンするポート番号は、個別に設定し"
+"て、ロードバランサーに関連付けできます。\n"
+"  同じロードバランサーに複数のリスナーを関連付けできますが、\n"
+"  それぞれが一意のポートを使用しなければいけません。"
+
 msgid "Edit Health Monitor"
 msgstr "ヘルスモニターの編集"
+
+msgid "Edit L7 Policy"
+msgstr "L7 ポリシーの編集"
+
+msgid "Edit L7 Rule"
+msgstr "L7 ルールの編集"
 
 msgid "Edit Listener"
 msgstr "リスナーの編集"
@@ -234,8 +374,22 @@ msgstr "エラー"
 msgid "Expected Codes"
 msgstr "コードの期待値"
 
+msgid "Expected Codes:"
+msgstr "コードの期待値:"
+
 msgid "Expiration Date"
 msgstr "有効期限"
+
+msgid ""
+"FILE_TYPE: The rule compares the last portion of the URI against\n"
+"      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
+msgstr ""
+"ファイルタイプ: ルールは URI の最後の部分を\n"
+"      ルール内の value パラメーター (例: \"txt\"、\"jpg\" など) と比較しま"
+"す。"
+
+msgid "File Type"
+msgstr "ファイルタイプ"
 
 msgid "Flavor"
 msgstr "フレーバー"
@@ -243,14 +397,42 @@ msgstr "フレーバー"
 msgid "Floating IP"
 msgstr "Floating IP"
 
+msgid "Floating IP address or pool"
+msgstr "Floating IP アドレスまたはプール"
+
 msgid "Floating IP addresses"
 msgstr "Floating IP アドレス"
 
 msgid "Floating IP pools"
 msgstr "Floating IP プール"
 
+msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
+msgstr ""
+"フロントエンドクライアントの非アクティブタイムアウト (ミリ秒)。デフォルト: "
+"50000"
+
+msgid ""
+"HEADER: The rule looks for a header defined in the key parameter\n"
+"      and compares it against the value parameter in the rule."
+msgstr ""
+"ヘッダー: ルールは、key パラメーターで定義されたヘッダーを探して、\n"
+"      ルール内の value パラメーターと比較します。"
+
+msgid ""
+"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
+"      hostname in the request against the value parameter in the rule."
+msgstr ""
+"ホスト名: ルールはリクエスト内の HTTP/1.1 ホスト名を\n"
+"      ルール内の value パラメーターと比較します。"
+
 msgid "HTTP Method"
 msgstr "HTTP メソッド"
+
+msgid "HTTP Method:"
+msgstr "HTTP メソッド:"
+
+msgid "Header"
+msgstr "ヘッダー"
 
 msgid "Health Monitor"
 msgstr "ヘルスモニター"
@@ -260,6 +442,9 @@ msgstr "ヘルスモニター ID"
 
 msgid "Health Monitors"
 msgstr "ヘルスモニター"
+
+msgid "Host Name"
+msgstr "ホスト名"
 
 msgid "ID"
 msgstr "ID"
@@ -277,8 +462,45 @@ msgstr "IP アドレス"
 msgid "IP address:"
 msgstr "IP アドレス:"
 
+msgid ""
+"If an IP address is provided it must be a well-formed IPv4 or IPv6 address. "
+"The system will\n"
+"  attempt to assign the provided IP address to the load balancer. If an IP "
+"address is not provided\n"
+"  then one will be allocated for you."
+msgstr ""
+"IP アドレスを指定する場合には、正しい形式の IPv4 または IPv6 アドレスを使用す"
+"る必要があります。\n"
+"  システムは、指定された IP アドレスをロードバランサーに割り当てるように試み"
+"ます。IP アドレスが指定されていない場合には、\n"
+"  システムによって確保されます。"
+
+msgid ""
+"If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
+"certificates must\n"
+"  be selected. The first certificate will be the default."
+msgstr ""
+"リスナーが TERMINATED_HTTPS プロトコルを使用する場合には、SSL 証明書を1 つま"
+"たは複数選択する必要があります。\n"
+" 最初の証明書がデフォルトとなります。"
+
 msgid "Inactive"
 msgstr "非稼働"
+
+msgid "Insert Headers"
+msgstr "ヘッダーの挿入"
+
+msgid "Insert Headers:"
+msgstr "ヘッダーの挿入:"
+
+msgid "Invert"
+msgstr "反転"
+
+msgid "Invert:"
+msgstr "反転:"
+
+msgid "Key"
+msgstr "キー"
 
 msgid "Key Manager API Guide: Creating a Certificate Container"
 msgstr "Key Manager API ガイド: 証明書コンテナーの作成"
@@ -286,8 +508,26 @@ msgstr "Key Manager API ガイド: 証明書コンテナーの作成"
 msgid "Key Manager Service Command-Line Client"
 msgstr "Key Manager サービスのコマンドラインクライアント (CLI)"
 
+msgid "Key:"
+msgstr "キー:"
+
 msgid "L7 Policies"
 msgstr "L7 ポリシー"
+
+msgid "L7 Policy"
+msgstr "L7 ポリシー"
+
+msgid "L7 Policy Details"
+msgstr "L7 ポリシーの詳細"
+
+msgid "L7 Rule"
+msgstr "L7 ルール"
+
+msgid "L7 Rule Details"
+msgstr "L7 ルールの詳細"
+
+msgid "L7 Rules"
+msgstr "L7 ルール"
 
 msgid ""
 "LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
@@ -305,6 +545,9 @@ msgstr "リスナー"
 
 msgid "Listener Details"
 msgstr "リスナーの詳細"
+
+msgid "Listener ID"
+msgstr "リスナー ID"
 
 msgid "Listeners"
 msgstr "リスナー"
@@ -324,11 +567,35 @@ msgstr "読み込み中"
 msgid "Max Retries"
 msgstr "最大試行回数"
 
+msgid "Max Retries:"
+msgstr "最大試行回数:"
+
 msgid "Member"
 msgstr "メンバー"
 
+msgid "Member Connect Timeout"
+msgstr "メンバー接続タイムアウト"
+
+msgid "Member Connect Timeout:"
+msgstr "メンバー接続タイムアウト:"
+
+msgid "Member Data Timeout"
+msgstr "メンバーデータタイムアウト"
+
+msgid "Member Data Timeout:"
+msgstr "メンバーデータタイムアウト:"
+
 msgid "Members"
 msgstr "メンバー"
+
+msgid ""
+"Members are the actual IP addresses that will receive traffic from the load "
+"balancer. Each\n"
+"  member must have a unique combination of IP address and port."
+msgstr ""
+"メンバーは、ロードバランサーからのトラフィックを受信する実際の IP アドレスで"
+"す。\n"
+"メンバーには、IP アドレスとポートの一意の組み合わせが必要です。"
 
 msgid "Monitor Address"
 msgstr "モニターアドレス"
@@ -387,6 +654,16 @@ msgstr "作動状態"
 msgid "Overview"
 msgstr "概要"
 
+msgid ""
+"PATH: The rule compares the path portion of the HTTP URI against\n"
+"      the value parameter in the rule."
+msgstr ""
+"パス: ルールは HTTP URI のパスの部分を\n"
+"      ルール内の value パラメーターと比較します。"
+
+msgid "Path"
+msgstr "パス"
+
 msgid "Pending Create"
 msgstr "作成待ち"
 
@@ -423,6 +700,12 @@ msgstr "ポート ID"
 msgid "Port:"
 msgstr "ポート:"
 
+msgid "Position"
+msgstr "位置"
+
+msgid "Position:"
+msgstr "位置:"
+
 msgid "Project"
 msgstr "プロジェクト"
 
@@ -440,6 +723,12 @@ msgstr "プロトコル:"
 
 msgid "Provide the details for the health monitor."
 msgstr "ヘルスモニターの詳細を設定してください。"
+
+msgid "Provide the details for the l7 policy."
+msgstr "L7 ポリシーの詳細を設定してください。"
+
+msgid "Provide the details for the l7 rule."
+msgstr "L7 ルールの詳細を設定してください。"
 
 msgid "Provide the details for the listener."
 msgstr "リスナーの詳細を設定してください。"
@@ -459,14 +748,80 @@ msgstr "プロバイダー"
 msgid "Provisioning Status"
 msgstr "プロビジョニング状態"
 
+msgid ""
+"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
+"with the L7 policy."
+msgstr ""
+"プールにリダイレクト: L7 ポリシーに関連付けられたバックエンドに要求が転送され"
+"ます。"
+
+msgid ""
+"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
+"the redirect_url parameter."
+msgstr ""
+"URL にリダイレクト: リクエストは、redirect_url パラメーターで定義されている "
+"URL に HTTP リダイレクトされるように送信されます。"
+
+msgid ""
+"REJECT: The request is denied with an appropriate response code, and not "
+"forwarded on to any back-end pool."
+msgstr ""
+"拒否: リクエストは、適切な応答コードで拒否され、どのバックエンドプールにも転"
+"送されません。"
+
 msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
 msgstr "ラウンドロビン: リクエストを複数のメンバーで順番に均等に割り当てます。"
+
+msgid "Redirect Pool ID"
+msgstr "リダイレクト先プール ID"
+
+msgid "Redirect Pool ID:"
+msgstr "リダイレクト先プール ID"
+
+msgid "Redirect URL"
+msgstr "リダイレクト先 URL"
+
+msgid "Redirect URL:"
+msgstr "リダイレクト先 URL:"
+
+msgid "Redirect to Pool"
+msgstr "プールにリダイレクト"
+
+msgid "Redirect to URL"
+msgstr "URL にリダイレクト"
+
+msgid "Regex"
+msgstr "正規表現"
+
+msgid "Reject"
+msgstr "拒否"
 
 msgid "Remove"
 msgstr "削除"
 
+msgid ""
+"Requests matching this policy will be redirected to the pool with this ID. "
+"Only valid if action is REDIRECT_TO_POOL."
+msgstr ""
+"このポリシーに適合する要求は、この ID のプールにリダイレクトされます。アク"
+"ションが REDIRECT_TO_POOL (プールにリダイレクト) に指定されている場合にのみ有"
+"効です。"
+
+msgid ""
+"Requests matching this policy will be redirected to this URL. Only valid if "
+"action is REDIRECT_TO_URL."
+msgstr ""
+"このポリシーに適合する要求は、この URL にリダイレクトされます。アクションが "
+"REDIRECT_TO_URL (URL にリダイレクト) に指定されている場合にのみ有効です。"
+
 msgid "Round Robin"
 msgstr "ラウンドロビン"
+
+msgid "Rules"
+msgstr "ルール"
+
+msgid "SNI Container Refs"
+msgstr "SNI コンテナー参照"
 
 msgid ""
 "SOURCE_IP: Requests from a unique source IP address are consistently "
@@ -510,14 +865,70 @@ msgstr "サブネット ID"
 msgid "Subnet:"
 msgstr "サブネット:"
 
+msgid "TCP Inspect Timeout"
+msgstr "TCP 検査タイムアウト"
+
+msgid "TCP Inspect Timeout:"
+msgstr "TCP 検査タイムアウト:"
+
+msgid ""
+"The Available Instances table contains existing compute instances that can "
+"be added as members\n"
+"  of the pool. Use the \"Add external member\" button to add a member not "
+"found in the Available\n"
+"  Instances table."
+msgstr ""
+"利用可能なインスタンスの表には、プールのメンバーとして追加可能な既存のコン"
+"ピュートインスタンスが含まれます。\n"
+"  利用可能なインスタンスの表にないメンバーを追加するには、\n"
+"  「メンバーの追加」ボタンを使用します。"
+
 msgid "The HTTP method used to perform the health check."
 msgstr "ヘルスチェックの実行に使用される HTTP メソッドです。"
+
+msgid "The ID of the pool used by the listener if no L7 policies match."
+msgstr "一致する L7 ポリシーがない場合にリスナーが使用するプールの ID"
 
 msgid "The IP address is not valid."
 msgstr "IP アドレスが無効です。"
 
+msgid ""
+"The IP address of the member to receive traffic from the load balancer. Must "
+"be a well-formed\n"
+"  IPv4 or IPv6 address."
+msgstr ""
+"ロードバランサーからトラフィックを受信するメンバーの IP アドレス。\n"
+"  正しい形式の IPv4 または IPv6 アドレスでなければいけません。"
+
+msgid ""
+"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
+msgstr ""
+"L7 ポリシーのアクション、拒否、URL にリダイレクト、プールにリダイレクトのいず"
+"れかです。"
+
+msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
+msgstr ""
+"L7 ルールのタイプ。クッキー、ファイルタイプ、ヘッダー、ホスト名、パスのいずれ"
+"か 1 つです。"
+
 msgid "The URL path is not valid."
 msgstr "URL は有効ではありません。"
+
+msgid "The connection limit must be a number greater than or equal to -1."
+msgstr "最大接続数は -1 以上の数字でなければいけません。"
+
+msgid ""
+"The expected HTTP status codes to get from a successful health check. Must "
+"be a single number,\n"
+"  a comma separated list of numbers, or a range (two numbers separated by a "
+"hyphen)."
+msgstr ""
+"ヘルスチェックが成功した場合の HTTP ステータスコードの期待値。\n"
+"  単一の値、複数の値のコンマ区切りリスト、範囲 (ハイフンで区切られた 2 つの"
+"値) のいずれかにする必要があります。"
+
+msgid "The expected status code is not valid."
+msgstr "ステータスコードの期待値が有効ではありません。"
 
 msgid "The health check interval must be greater than or equal to the timeout."
 msgstr "ヘルスチェックの間隔はタイムアウト値以上でなければいけません。"
@@ -526,12 +937,44 @@ msgid "The health monitor has been updated."
 msgstr "ヘルスモニターが更新されました。"
 
 msgid ""
+"The health monitor is used to determine the health of your pool members. "
+"Health checks\n"
+"  routinely run against each member within the pool and the result of the "
+"health check is used\n"
+"  to determine if the member receives new connections. Each pool can only "
+"have one health\n"
+"  monitor."
+msgstr ""
+"ヘルスモニターは、プールメンバーの正常性の確認に使用されます。\n"
+"  ヘルスチェックは、プール内の各メンバーに対して定期的に実行され、ヘルス"
+"チェックの結果は、\n"
+"  そのメンバーが新規接続を受けるかどうかの決定に使用されます。\n"
+"  1 つのプールで使用できるヘルスモニターは 1 つのみです。"
+
+msgid ""
 "The interval between health checks. Must be greater than or equal to the "
 "timeout."
 msgstr "ヘルスチェックの間隔はタイムアウト値以上でなければいけません。"
 
+msgid ""
+"The key to use for the comparison. For example, the name of the cookie\n"
+"  to evaluate."
+msgstr ""
+"比較に使用するキー。\n"
+"  例: 評価するクッキーの名前"
+
+msgid "The l7policy has been updated."
+msgstr "L7 ポリシーが更新されました。"
+
+msgid "The l7rule has been updated."
+msgstr "L7 ルールが更新されました。"
+
 msgid "The listener has been updated."
 msgstr "リスナーが更新されました。"
+
+msgid ""
+"The load balancer algorithm that distributes traffic to the pool members."
+msgstr "トラフィックをプールメンバーに分配するロードバランサーのアルゴリズム。"
 
 msgid "The load balancer has been updated."
 msgstr "ロードバランサーが更新されました。"
@@ -546,8 +989,32 @@ msgstr ""
 msgid "The max retry count must be a number between 1 and 10."
 msgstr "最大試行回数は 1～10 までとなっています。"
 
+msgid ""
+"The maximum number of connections permitted for this listener.\n"
+"  Default value is -1 which represents infinite connections."
+msgstr ""
+"このリスナーで許可する最大接続数。\n"
+"  デフォルト値は -1 で、無制限の接続を表します。"
+
+msgid "The monitor address must be a valid IP address."
+msgstr "モニターアドレスは有効な IP アドレスでなければいけません。"
+
 msgid "The monitor port must be a number between 1 and 65535."
 msgstr "モニターポートは 1 〜 256 の数字でなければいけません。"
+
+msgid "The network on which to allocate the load balancer's IP address."
+msgstr "ロードバランサーの IP アドレスを割り当てるネットワーク"
+
+msgid "The network which contains the IP address of the member."
+msgstr "メンバーの IP アドレスを含むネットワーク。"
+
+msgid ""
+"The number of allowed connection failures before marking the member as "
+"inactive. Must be a\n"
+"  number from 1 to 10."
+msgstr ""
+"メンバーが無効になるまで許容可能な接続エラー回数。\n"
+"  1 から 10 までの数字でなければいけません。"
 
 msgid "The pool has been updated."
 msgstr "プールが更新されました。"
@@ -558,11 +1025,89 @@ msgstr "プールメンバーが更新されました。"
 msgid "The port must be a number between 1 and 65535."
 msgstr "ポートは 1 ～ 65535 の数字でなければいけません。"
 
+msgid ""
+"The port must be unique among all listeners attached to this load balancer."
+msgstr ""
+"ポートは、このロードバランサーにアタッチされた全リスナーの間で、一意でなけれ"
+"ばいけません。"
+
+msgid ""
+"The port on which the front end listens. Must be an integer from 1 to 65535."
+msgstr ""
+"フロントエンドがリッスンするポート。1 から 65535 までの整数でなければいけませ"
+"ん。"
+
+msgid ""
+"The port on which the member listens for traffic. Must be a number from 1 to "
+"65535."
+msgstr ""
+"メンバーがトラフィックをリッスンするポート。1 から 65535 までの数字でなければ"
+"いけません。"
+
+msgid "The position must be a number between 1 and 2147483647."
+msgstr "位置は 1 〜 2147483647 の数字でなければいけません。"
+
+msgid "The position of this policy on the listener. Positions start at 1."
+msgstr "リスナー上でのこのポリシーの位置。位置は 1 から開始します。"
+
+msgid ""
+"The protocol for which the front end listens. The TERMINATED_HTTPS protocol "
+"is only available if\n"
+"  the key-manager service is enabled and you have authority to list "
+"certificate containers and\n"
+"  secrets."
+msgstr ""
+"フロントエンドがリッスンするプロトコル。TERMINATED_HTTPS プロトコルは、key-"
+"manager サービスが有効化されており、\n"
+"  証明書のコンテナーとシークレットを一覧表示する権限がある場合にのみ\n"
+"  利用可能です。"
+
+msgid "The redirect url must be a valid http or https url."
+msgstr ""
+"リダイレクト先 URL は有効な http または https の URL でなければいけません。"
+
+msgid ""
+"The target of the health check HTTP request to the member. Must be a valid "
+"URL path."
+msgstr ""
+"メンバーに対するヘルスチェックの HTTP リクエストのターゲット。有効な URL パス"
+"でなければいけません。"
+
+msgid ""
+"The time after which a health check times out. Must be a number greater than "
+"or equal to 0\n"
+"  and less than or equal to the interval."
+msgstr ""
+"ヘルスチェックがタイムアウトになる時間。\n"
+"  0 以上の数字でなければいけません。"
+
+msgid "The timeout must be a number between 0 and 31536000000."
+msgstr "タイムアウトは 0 〜 31536000000 の数字でなければいけません。"
+
 msgid "The timeout must be a number greater than or equal to 0."
 msgstr "タイムアウトの値 は 0 以上でなければなりません。"
 
 msgid "The weight must be a number between 1 and 256."
 msgstr "重みは 1 〜 256 の数字でなければいけません。"
+
+msgid ""
+"The weight of a member determines the portion of requests or connections it "
+"services compared\n"
+"  to the other members of the pool. A higher weight means it will receive "
+"more traffic. Must be\n"
+"  a number from 1 to 256."
+msgstr ""
+"メンバーの重みによって、そのメンバーが処理するリクエストまたは接続の割合 "
+"(プールの他のメンバーに対する割合) が決定されます。\n"
+"  重みが高いと、より多くのトラフィックを受信することになります。\n"
+"  1 から 256 までの数字でなければいけません。"
+
+msgid ""
+"Time, in milliseconds, to wait for additional TCP packets for content\n"
+"  inspection. Default: 0."
+msgstr ""
+"コンテンツの検査に向けて追加の TCP パケットを待つ時間 (ミリ秒)。\n"
+"  デフォルト: 0"
 
 msgid "Timeout"
 msgstr "タイムアウト"
@@ -576,11 +1121,23 @@ msgstr "タイムアウト:"
 msgid "Type"
 msgstr "種別"
 
+msgid "Type:"
+msgstr "種別:"
+
 msgid "URL Path"
 msgstr "URL パス"
 
+msgid "URL Path:"
+msgstr "URL パス:"
+
 msgid "Unable to create health monitor."
 msgstr "ヘルスモニターを作成できません。"
+
+msgid "Unable to create l7 policy."
+msgstr "L7 ポリシーを作成できません。"
+
+msgid "Unable to create l7 rule."
+msgstr "L7 ルールを作成できません。"
 
 msgid "Unable to create listener."
 msgstr "リスナーを作成できません。"
@@ -595,6 +1152,16 @@ msgstr "プールを作成できません。"
 msgid "Unable to delete Health Monitor: %s."
 msgid_plural "Unable to delete Health Monitors: %s."
 msgstr[0] "ヘルスモニターを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete L7 Policy: %s."
+msgid_plural "Unable to delete L7 Policies: %s."
+msgstr[0] "L7 ポリシーを削除できません: %s"
+
+#, python-format
+msgid "Unable to delete L7 Rule: %s."
+msgid_plural "Unable to delete L7 Rules: %s."
+msgstr[0] "L7 ルールを削除できません: %s"
 
 #, python-format
 msgid "Unable to delete Listener: %s."
@@ -618,6 +1185,12 @@ msgstr[0] "プールを削除できません: %s"
 
 msgid "Unable to delete health monitor."
 msgstr "ヘルスモニターを削除できません。"
+
+msgid "Unable to delete l7 policy."
+msgstr "L7 ポリシーを削除できません。"
+
+msgid "Unable to delete l7 rule."
+msgstr "L7 ルールを削除できません。"
 
 msgid "Unable to delete listener."
 msgstr "リスナーを削除できません。"
@@ -645,6 +1218,18 @@ msgstr "ヘルスモニターを取得できません。"
 msgid "Unable to retrieve health monitors."
 msgstr "ヘルスモニターの一覧を取得できません。"
 
+msgid "Unable to retrieve l7 policies."
+msgstr "L7 ポリシーの一覧を取得できません。"
+
+msgid "Unable to retrieve l7 policy."
+msgstr "L7 ポリシーを取得できません。"
+
+msgid "Unable to retrieve l7 rule."
+msgstr "L7 ルールを取得できません。"
+
+msgid "Unable to retrieve l7 rules."
+msgstr "L7 ルールの一覧を取得できません。"
+
 msgid "Unable to retrieve listener."
 msgstr "リスナーを取得できません。"
 
@@ -669,8 +1254,17 @@ msgstr "プールを取得できません。"
 msgid "Unable to retrieve pools."
 msgstr "プールの一覧を取得できません。"
 
+msgid "Unable to retrieve secrets."
+msgstr "シークレットの一覧を取得できません。"
+
 msgid "Unable to update health monitor."
 msgstr "ヘルスモニターを更新できません。"
+
+msgid "Unable to update l7 policy."
+msgstr "L7 ポリシーを更新できません。"
+
+msgid "Unable to update l7 rule."
+msgstr "L7 ルールを更新できません。"
 
 msgid "Unable to update listener."
 msgstr "リスナーを更新できません。"
@@ -693,6 +1287,12 @@ msgstr "更新"
 msgid "Update Health Monitor"
 msgstr "ヘルスモニターの更新"
 
+msgid "Update L7 Policy"
+msgstr "L7 ポリシーの更新"
+
+msgid "Update L7 Rule"
+msgstr "L7 ルールの更新"
+
 msgid "Update Listener"
 msgstr "リスナーの更新"
 
@@ -708,11 +1308,34 @@ msgstr "プールの更新"
 msgid "Updated At"
 msgstr "最終更新"
 
+msgid ""
+"Use the key-manager service to create any certificate containers before "
+"creating the listener.\n"
+"    The following documentation provides information on how to create a "
+"certificate container:"
+msgstr ""
+"リスナーを作成する前に key-manager サービスを使用して証明書のコンテナーを作成"
+"します。\n"
+"    以下のドキュメントには、証明書のコンテナーの作成に関する情報が記載されて"
+"います。"
+
+msgid "Value"
+msgstr "値"
+
+msgid "Value:"
+msgstr "値:"
+
 msgid "Weight"
 msgstr "重み"
 
 msgid "Weight:"
 msgstr "重み:"
+
+msgid "X-Forwarded-For"
+msgstr "X-Forwarded-For"
+
+msgid "X-Forwarded-port"
+msgstr "X-Forwarded-Port"
 
 msgid "Yes"
 msgstr "はい"
@@ -724,6 +1347,17 @@ msgid ""
 msgstr ""
 "あなたはロードバランサー \"%s\" から Floating IP アドレスの割り当てを解除しよ"
 "うとしています。確認してください。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Policy is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted L7 Policies are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除された L7 ポリシーは元に戻せません。"
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Rule is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted L7 Rules are not recoverable."
+msgstr[0] "\"%s\" を選択しました。削除された L7 ルールは元に戻せません。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
