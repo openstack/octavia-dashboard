@@ -3,6 +3,7 @@
       - check-requirements
       - openstack-python-jobs-horizon
       - openstack-python35-jobs-horizon
+      - openstack-python36-jobs-horizon
       - publish-openstack-docs-pti
       - release-notes-jobs-python3
     check:
