@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Adds the ability to set the X-Forwarded-Proto insertion header on
+    listeners.

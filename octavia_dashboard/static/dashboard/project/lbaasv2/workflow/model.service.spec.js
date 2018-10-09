@@ -37,7 +37,8 @@
           sni_container_refs: ['container2'],
           insert_headers: {
             'X-Forwarded-For': 'True',
-            'X-Forwarded-Port': 'True'
+            'X-Forwarded-Port': 'True',
+            'X-Forwarded-Proto': 'True'
           }
         },
         pool: {
@@ -2480,6 +2481,20 @@
 
       beforeEach(function() {
         delete listenerResources.listener.insert_headers['X-Forwarded-Port'];
+        delete listenerResources.pool;
+        model.initialize('listener', '1234');
+        scope.$apply();
+      });
+
+      it('should only show listener details', function() {
+        expect(model.context.resource).toEqual('listener');
+      });
+    });
+
+    describe('Model visible resources (edit listener, no x forwared proto)', function() {
+
+      beforeEach(function() {
+        delete listenerResources.listener.insert_headers['X-Forwarded-Proto'];
         delete listenerResources.pool;
         model.initialize('listener', '1234');
         scope.$apply();

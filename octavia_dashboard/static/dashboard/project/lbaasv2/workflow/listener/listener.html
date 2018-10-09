@@ -184,7 +184,22 @@
                  id="x_forwarded_port"
                  ng-model="model.spec.listener.insert_headers['X-Forwarded-Port']">
           <label for="x_forwarded_port">
-            <span translate>X-Forwarded-port</span>
+            <span translate>X-Forwarded-Port</span>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <div class="themable-checkbox">
+          <input type="checkbox"
+                 ng-true-value="'True'"
+                 ng-false-value="''"
+                 id="x_forwarded_proto"
+                 ng-model="model.spec.listener.insert_headers['X-Forwarded-Proto']">
+          <label for="x_forwarded_proto">
+            <span translate>X-Forwarded-Proto</span>
           </label>
         </div>
       </div>
