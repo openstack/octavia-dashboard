@@ -156,9 +156,9 @@
 
   </div>
 
-  <h4 translate>Insert Headers</h4>
+  <h4 translate ng-if="model.spec.listener.protocol === 'HTTP' || model.spec.listener.protocol === 'TERMINATED_HTTPS'">Insert Headers</h4>
 
-  <div class="row form-group">
+  <div class="row form-group" ng-if="model.spec.listener.protocol === 'HTTP' || model.spec.listener.protocol === 'TERMINATED_HTTPS'">
 
     <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group">
