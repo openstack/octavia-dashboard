@@ -92,3 +92,35 @@
     margin-top: 10px;
   }
 }
+
+/* Filtering select widget */
+.filter-select-options {
+  padding: 10px;
+  background-color: $dropdown-bg;
+  min-width: 100%;
+
+  thead {
+    th {
+      color: $dropdown-header-color;
+    }
+  }
+
+  tbody {
+    tr:hover {
+      color: $dropdown-link-hover-color;
+      background-color: $dropdown-link-hover-bg;
+    }
+    tr {
+      color:$dropdown-link-color;
+      .highlighted {
+        background-color: darken($dropdown-link-hover-bg, 15%);
+      }
+      .empty-options {
+        text-align: center;
+        font-style: italic;
+      }
+    }
+  }
+
+}
+

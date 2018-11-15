@@ -1,0 +1,43 @@
+<div class="horizon-loading-bar" ng-if="!$ctrl.loaded">
+  <div class="progress progress-striped active">
+    <div class="progress-bar"></div>
+  </div>
+</div>
+<div uib-dropdown is-open="$ctrl.isOpen" auto-close="disabled" ng-if="$ctrl.loaded">
+  <div class="input-group">
+      <input type="text" ng-model="$ctrl.text" ng-change="$ctrl.onTextChange()"
+             class="form-control" ng-focus="$ctrl.openPopup($event)"
+             ng-disabled="$ctrl.disabled">
+    <div class="input-group-btn">
+      <button type="button" class="btn btn-default dropdown-toggle"
+              ng-click="$ctrl.togglePopup()" ng-disabled="$ctrl.disabled">
+        <span class="caret"></span>
+      </button>
+    </div>
+  </div>
+  <div uib-dropdown-menu ng-class="'filter-select-options'">
+    <table class="table" ng-if="$ctrl.loaded">
+      <thead>
+        <tr>
+          <th ng-repeat="column in $ctrl.columns track by $index" scope="col">
+            {$ column.label $}
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="row in $ctrl.rows track by $index"
+            ng-if="$ctrl.rows.length > 0"
+            ng-click="$ctrl.selectOption($index)">
+          <td ng-repeat="column in row track by $index">
+              {$ column[0] $}<span ng-class="'highlighted'">{$ column[1] $}</span>{$ column[2] $}
+          </td>
+        </tr>
+        <tr ng-if="$ctrl.rows.length <= 0">
+          <td colspan="{$ $ctrl.columns.length $}" ng-class="'empty-options'">
+            <translate>No matching options</translate>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

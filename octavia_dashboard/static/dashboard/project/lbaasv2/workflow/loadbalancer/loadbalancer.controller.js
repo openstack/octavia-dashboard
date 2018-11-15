@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-(function () {
+(function() {
   'use strict';
 
   angular
@@ -22,7 +22,8 @@
 
   LoadBalancerDetailsController.$inject = [
     'horizon.dashboard.project.lbaasv2.patterns',
-    'horizon.framework.util.i18n.gettext'
+    'horizon.framework.util.i18n.gettext',
+    '$scope'
   ];
 
   /**
@@ -31,13 +32,12 @@
    * @description
    * The `LoadBalancerDetailsController` controller provides functions for
    * configuring the load balancers step of the LBaaS wizard.
-   * @param patterns The LBaaS v2 patterns constant.
-   * @param gettext The horizon gettext function for translation.
-   * @returns undefined
+   * @param {object} patterns The LBaaS v2 patterns constant.
+   * @param {function} gettext The horizon gettext function for translation.
+   * @param {object} $scope Allows access to the model
+   * @returns {undefined} undefined
    */
-
-  function LoadBalancerDetailsController(patterns, gettext) {
-
+  function LoadBalancerDetailsController(patterns, gettext, $scope) {
     var ctrl = this;
 
     // Error text for invalid fields
@@ -45,5 +45,81 @@
 
     // IP address validation pattern
     ctrl.ipPattern = [patterns.ipv4, patterns.ipv6].join('|');
+
+    // Defines columns for the subnet selection filtered pop-up
+    ctrl.subnetColumns = [{
+      label: gettext('Network'),
+      value: function(subnet) {
+        var network = $scope.model.networks[subnet.network_id];
+        return network ? network.name : '';
+      }
+    }, {
+      label: gettext('Network ID'),
+      value: 'network_id'
+    }, {
+      label: gettext('Subnet'),
+      value: 'name'
+    }, {
+      label: gettext('Subnet ID'),
+      value: 'id'
+    }, {
+      label: gettext('CIDR'),
+      value: 'cidr'
+    }];
+
+    ctrl.subnetOptions = [];
+
+    ctrl.shorthand = function(subnet) {
+      var network = $scope.model.networks[subnet.network_id];
+
+      var networkText = network ? network.name : subnet.network_id.substring(0, 10) + '...';
+      var cidrText = subnet.cidr;
+      var subnetText = subnet.name || subnet.id.substring(0, 10) + '...';
+
+      return networkText + ': ' + cidrText + ' (' + subnetText + ')';
+    };
+
+    ctrl.setSubnet = function(option) {
+      if (option) {
+        $scope.model.spec.loadbalancer.vip_subnet_id = option;
+      } else {
+        $scope.model.spec.loadbalancer.vip_subnet_id = null;
+      }
+    };
+
+    ctrl.dataLoaded = false;
+    ctrl._checkLoaded = function() {
+      if ($scope.model.initialized) {
+        ctrl.buildSubnetOptions();
+        ctrl.dataLoaded = true;
+      }
+    };
+
+    /*
+    The watchers in this component are a bit of a workaround for the way
+    data is loaded asynchornously in the model service. First data loads
+    are marked by a change of 'model.initialized' from false to true, which
+    should replace the striped loading bar with a functional dropdown.
+
+    Additional changes to networks and subnets have to be watched even after
+    first loads, however, as those changes need to be applied to the select
+    options
+    */
+    ctrl.$onInit = function() {
+      $scope.$watchCollection('model.subnets', function() {
+        ctrl._checkLoaded();
+      });
+      $scope.$watchCollection('model.networks', function() {
+        ctrl._checkLoaded();
+      });
+      $scope.$watch('model.initialized', function() {
+        ctrl._checkLoaded();
+      });
+    };
+
+    ctrl.buildSubnetOptions = function() {
+      // Subnets are sliced to maintain data immutability
+      ctrl.subnetOptions = $scope.model.subnets.slice(0);
+    };
   }
 })();

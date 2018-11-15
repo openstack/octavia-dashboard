@@ -17,7 +17,8 @@
   'use strict';
 
   describe('LBaaS v2 Workflow Model Service', function() {
-    var model, $q, scope, listenerResources, barbicanEnabled, certificatesError;
+    var model, $q, scope, listenerResources, barbicanEnabled,
+      certificatesError, mockNetworks;
     var includeChildResources = true;
 
     beforeEach(module('horizon.framework.util.i18n'));
@@ -33,7 +34,7 @@
           protocol: 'HTTP',
           protocol_port: 80,
           connection_limit: 999,
-          load_balancers: [ { id: '1234' } ],
+          load_balancers: [{id: '1234'}],
           sni_container_refs: ['container2'],
           insert_headers: {
             'X-Forwarded-For': 'True',
@@ -84,19 +85,29 @@
       };
       barbicanEnabled = true;
       certificatesError = false;
+      mockNetworks = {
+        a1: {
+          name: 'network_1',
+          id: 'a1'
+        },
+        b2: {
+          name: 'network_2',
+          id: 'b2'
+        }
+      };
     });
 
     beforeEach(module(function($provide) {
       $provide.value('horizon.app.core.openstack-service-api.lbaasv2', {
         getLoadBalancers: function() {
           var loadbalancers = [
-            { id: '1234', name: 'Load Balancer 1' },
-            { id: '5678', name: 'Load Balancer 2' },
-            { id: '9012', name: 'myLoadBalancer3' }
+            {id: '1234', name: 'Load Balancer 1'},
+            {id: '5678', name: 'Load Balancer 2'},
+            {id: '9012', name: 'myLoadBalancer3'}
           ];
 
           var deferred = $q.defer();
-          deferred.resolve({ data: { items: loadbalancers } });
+          deferred.resolve({data: {items: loadbalancers}});
 
           return deferred.promise;
         },
@@ -111,31 +122,36 @@
           };
 
           var deferred = $q.defer();
-          deferred.resolve({ data: loadbalancer });
+          deferred.resolve({data: loadbalancer});
 
           return deferred.promise;
         },
         getListeners: function() {
           var listeners = [
-            { id: '1234', name: 'Listener 1', protocol_port: 80 },
-            { id: '5678', name: 'Listener 2', protocol_port: 81 },
-            { id: '9012', name: 'myListener3', protocol_port: 82 }
+            {id: '1234', name: 'Listener 1', protocol_port: 80},
+            {id: '5678', name: 'Listener 2', protocol_port: 81},
+            {id: '9012', name: 'myListener3', protocol_port: 82}
           ];
 
           var deferred = $q.defer();
-          deferred.resolve({ data: { items: listeners } });
+          deferred.resolve({data: {items: listeners}});
 
           return deferred.promise;
         },
         getPools: function() {
           var pools = [
-            { id: '1234', name: 'Pool 1', listeners: [ '1234' ], protocol: 'HTTP' },
-            { id: '5678', name: 'Pool 2', listeners: [], protocol: 'HTTP' },
-            { id: '9012', name: 'Pool 3', listeners: [], protocol: 'HTTPS' }
+            {
+              id: '1234',
+              name: 'Pool 1',
+              listeners: ['1234'],
+              protocol: 'HTTP'
+            },
+            {id: '5678', name: 'Pool 2', listeners: [], protocol: 'HTTP'},
+            {id: '9012', name: 'Pool 3', listeners: [], protocol: 'HTTPS'}
           ];
 
           var deferred = $q.defer();
-          deferred.resolve({ data: { items: pools } });
+          deferred.resolve({data: {items: pools}});
 
           return deferred.promise;
         },
@@ -143,7 +159,7 @@
           var deferred = $q.defer();
           var listenerData;
           listenerData = includeChildResources ? listenerResources : listenerResources.listener;
-          deferred.resolve({ data: listenerData });
+          deferred.resolve({data: listenerData});
           return deferred.promise;
         },
         getL7Policy: function() {
@@ -158,7 +174,7 @@
           };
 
           var deferred = $q.defer();
-          deferred.resolve({ data: l7policy });
+          deferred.resolve({data: l7policy});
 
           return deferred.promise;
         },
@@ -173,7 +189,7 @@
           };
 
           var deferred = $q.defer();
-          deferred.resolve({ data: l7rule });
+          deferred.resolve({data: l7rule});
 
           return deferred.promise;
         },
@@ -183,7 +199,7 @@
           var deferred = $q.defer();
           var poolData;
           poolData = includeChildResources ? poolResources : poolResources.pool;
-          deferred.resolve({ data: poolData });
+          deferred.resolve({data: poolData});
           return deferred.promise;
         },
         getMembers: function() {
@@ -204,7 +220,7 @@
             }];
 
           var deferred = $q.defer();
-          deferred.resolve({ data: { items: members } });
+          deferred.resolve({data: {items: members}});
 
           return deferred.promise;
         },
@@ -222,7 +238,7 @@
           };
 
           var deferred = $q.defer();
-          deferred.resolve({ data: monitor });
+          deferred.resolve({data: monitor});
 
           return deferred.promise;
         },
@@ -276,12 +292,12 @@
             }, {
               container_ref: 'container2',
               secret_refs: [{name: 'certificate', secret_ref: 'certificate1'},
-                            {name: 'private_key', secret_ref: 'privatekey1'}]
+                {name: 'private_key', secret_ref: 'privatekey1'}]
             },
             {
               container_ref: 'container3',
               secret_refs: [{name: 'certificate', secret_ref: 'certificate2'},
-                            {name: 'private_key', secret_ref: 'privatekey2'}]
+                {name: 'private_key', secret_ref: 'privatekey2'}]
             }
           ];
 
@@ -289,7 +305,7 @@
           if (certificatesError) {
             deferred.reject();
           } else {
-            deferred.resolve({ data: { items: containers } });
+            deferred.resolve({data: {items: containers}});
           }
 
           return deferred.promise;
@@ -300,18 +316,18 @@
               name: 'foo',
               expiration: '2016-03-26T21:10:45.417835',
               secret_ref: 'certificate1'
-            },{
+            }, {
               expiration: '2016-03-28T21:10:45.417835',
               secret_ref: 'certificate2'
-            },{
+            }, {
               secret_ref: 'privatekey1'
-            },{
+            }, {
               secret_ref: 'privatekey2'
             }
           ];
 
           var deferred = $q.defer();
-          deferred.resolve({ data: { items: secrets } });
+          deferred.resolve({data: {items: secrets}});
 
           return deferred.promise;
         }
@@ -319,37 +335,54 @@
 
       $provide.value('horizon.app.core.openstack-service-api.neutron', {
         getSubnets: function() {
-          var subnets = [ { id: 'subnet-1', name: 'subnet-1' },
-                          { id: 'subnet-2', name: 'subnet-2' } ];
+          var subnets = [{id: 'subnet-1', name: 'subnet-1'},
+            {id: 'subnet-2', name: 'subnet-2'}];
 
           var deferred = $q.defer();
-          deferred.resolve({ data: { items: subnets } });
+          deferred.resolve({data: {items: subnets}});
 
           return deferred.promise;
         },
         getPorts: function() {
-          var ports = [ { device_id: '1',
-                          fixed_ips: [{ ip_address: '1.2.3.4', subnet_id: '1' },
-                                      { ip_address: '2.3.4.5', subnet_id: '2' }] },
-                        { device_id: '2',
-                          fixed_ips: [{ ip_address: '3.4.5.6', subnet_id: '1' },
-                                      { ip_address: '4.5.6.7', subnet_id: '2' }] } ];
+          var ports = [{
+            device_id: '1',
+            fixed_ips: [{ip_address: '1.2.3.4', subnet_id: '1'},
+              {ip_address: '2.3.4.5', subnet_id: '2'}]
+          },
+            {
+              device_id: '2',
+              fixed_ips: [{ip_address: '3.4.5.6', subnet_id: '1'},
+                {ip_address: '4.5.6.7', subnet_id: '2'}]
+            }];
 
           var deferred = $q.defer();
-          deferred.resolve({ data: { items: ports } });
+          deferred.resolve({data: {items: ports}});
 
+          return deferred.promise;
+        },
+        getNetworks: function() {
+          var networks = [{
+            name: 'network_1',
+            id: 'a1'
+          }, {
+            name: 'network_2',
+            id: 'b2'
+          }];
+
+          var deferred = $q.defer();
+          deferred.resolve({data: {items: networks}});
           return deferred.promise;
         }
       });
 
       $provide.value('horizon.app.core.openstack-service-api.nova', {
         getServers: function() {
-          var servers = [ { id: '1', name: 'server-1', addresses: { foo: 'bar' } },
-                          { id: '2', name: 'server-2', addresses: { foo: 'bar' } },
-                          { id: '3', name: 'server-3' }];
+          var servers = [{id: '1', name: 'server-1', addresses: {foo: 'bar'}},
+            {id: '2', name: 'server-2', addresses: {foo: 'bar'}},
+            {id: '3', name: 'server-3'}];
 
           var deferred = $q.defer();
-          deferred.resolve({ data: { items: servers } });
+          deferred.resolve({data: {items: servers}});
 
           return deferred.promise;
         }
@@ -364,7 +397,7 @@
       });
     }));
 
-    beforeEach(inject(function ($injector) {
+    beforeEach(inject(function($injector) {
       model = $injector.get(
         'horizon.dashboard.project.lbaasv2.workflow.model'
       );
@@ -389,6 +422,10 @@
 
       it('has empty subnets array', function() {
         expect(model.subnets).toEqual([]);
+      });
+
+      it('has empty networks', function() {
+        expect(model.networks).toEqual({});
       });
 
       it('has empty members array', function() {
@@ -421,7 +458,7 @@
 
       it('has array of monitor http_methods', function() {
         expect(model.monitorMethods).toEqual(['GET', 'HEAD', 'POST', 'PUT', 'DELETE',
-                                              'TRACE', 'OPTIONS', 'PATCH', 'CONNECT']);
+          'TRACE', 'OPTIONS', 'PATCH', 'CONNECT']);
       });
 
       it('has an "initialize" function', function() {
@@ -448,6 +485,7 @@
         expect(model.initializing).toBe(false);
         expect(model.initialized).toBe(true);
         expect(model.subnets.length).toBe(2);
+        expect(model.networks).toEqual(mockNetworks);
         expect(model.members.length).toBe(2);
         expect(model.certificates.length).toBe(2);
         expect(model.listenerPorts.length).toBe(0);
@@ -703,6 +741,7 @@
         expect(model.initializing).toBe(false);
         expect(model.initialized).toBe(true);
         expect(model.subnets.length).toBe(2);
+        expect(model.networks).toEqual(mockNetworks);
         expect(model.members.length).toBe(0);
         expect(model.certificates.length).toBe(0);
         expect(model.listenerPorts.length).toBe(0);
@@ -721,7 +760,10 @@
         expect(model.spec.loadbalancer.name).toEqual('Load Balancer 1');
         expect(model.spec.loadbalancer.description).toEqual('');
         expect(model.spec.loadbalancer.vip_address).toEqual('1.2.3.4');
-        expect(model.spec.loadbalancer.vip_subnet_id).toEqual({ id: 'subnet-1', name: 'subnet-1' });
+        expect(model.spec.loadbalancer.vip_subnet_id).toEqual({
+          id: 'subnet-1',
+          name: 'subnet-1'
+        });
       });
 
       it('should not initialize listener model spec properties', function() {
@@ -902,12 +944,18 @@
       it('should initialize members and properties', function() {
         expect(model.spec.members[0].id).toBe('1234');
         expect(model.spec.members[0].address).toBe('1.2.3.4');
-        expect(model.spec.members[0].subnet_id).toEqual({ id: 'subnet-1', name: 'subnet-1' });
+        expect(model.spec.members[0].subnet_id).toEqual({
+          id: 'subnet-1',
+          name: 'subnet-1'
+        });
         expect(model.spec.members[0].protocol_port).toBe(80);
         expect(model.spec.members[0].weight).toBe(1);
         expect(model.spec.members[1].id).toBe('5678');
         expect(model.spec.members[1].address).toBe('5.6.7.8');
-        expect(model.spec.members[1].subnet_id).toEqual({ id: 'subnet-1', name: 'subnet-1' });
+        expect(model.spec.members[1].subnet_id).toEqual({
+          id: 'subnet-1',
+          name: 'subnet-1'
+        });
         expect(model.spec.members[1].protocol_port).toBe(80);
         expect(model.spec.members[1].weight).toBe(1);
       });
@@ -1033,12 +1081,18 @@
       it('should initialize members and properties', function() {
         expect(model.spec.members[0].id).toBe('1234');
         expect(model.spec.members[0].address).toBe('1.2.3.4');
-        expect(model.spec.members[0].subnet_id).toEqual({ id: 'subnet-1', name: 'subnet-1' });
+        expect(model.spec.members[0].subnet_id).toEqual({
+          id: 'subnet-1',
+          name: 'subnet-1'
+        });
         expect(model.spec.members[0].protocol_port).toBe(80);
         expect(model.spec.members[0].weight).toBe(1);
         expect(model.spec.members[1].id).toBe('5678');
         expect(model.spec.members[1].address).toBe('5.6.7.8');
-        expect(model.spec.members[1].subnet_id).toEqual({ id: 'subnet-1', name: 'subnet-1' });
+        expect(model.spec.members[1].subnet_id).toEqual({
+          id: 'subnet-1',
+          name: 'subnet-1'
+        });
         expect(model.spec.members[1].protocol_port).toBe(80);
         expect(model.spec.members[1].weight).toBe(1);
       });
@@ -1117,12 +1171,18 @@
       it('should initialize members and properties', function() {
         expect(model.spec.members[0].id).toBe('1234');
         expect(model.spec.members[0].address).toBe('1.2.3.4');
-        expect(model.spec.members[0].subnet_id).toEqual({ id: 'subnet-1', name: 'subnet-1' });
+        expect(model.spec.members[0].subnet_id).toEqual({
+          id: 'subnet-1',
+          name: 'subnet-1'
+        });
         expect(model.spec.members[0].protocol_port).toBe(80);
         expect(model.spec.members[0].weight).toBe(1);
         expect(model.spec.members[1].id).toBe('5678');
         expect(model.spec.members[1].address).toBe('5.6.7.8');
-        expect(model.spec.members[1].subnet_id).toEqual({ id: 'subnet-1', name: 'subnet-1' });
+        expect(model.spec.members[1].subnet_id).toEqual({
+          id: 'subnet-1',
+          name: 'subnet-1'
+        });
         expect(model.spec.members[1].protocol_port).toBe(80);
         expect(model.spec.members[1].weight).toBe(1);
       });
@@ -1294,7 +1354,7 @@
 
     describe('Initialization failure', function() {
 
-      beforeEach(inject(function ($injector) {
+      beforeEach(inject(function($injector) {
         var neutronAPI = $injector.get('horizon.app.core.openstack-service-api.neutron');
         neutronAPI.getSubnets = function() {
           var deferred = $q.defer();
@@ -1434,9 +1494,9 @@
         model.spec.pool.lb_algorithm = 'LEAST_CONNECTIONS';
         model.spec.pool.session_persistence.type = 'SOURCE_IP';
         model.spec.members = [{
-          address: { ip: '1.2.3.4', subnet: '1' },
-          addresses: [{ ip: '1.2.3.4', subnet: '1' },
-                      { ip: '2.3.4.5', subnet: '2' }],
+          address: {ip: '1.2.3.4', subnet: '1'},
+          addresses: [{ip: '1.2.3.4', subnet: '1'},
+            {ip: '2.3.4.5', subnet: '2'}],
           id: '1',
           name: 'foo',
           protocol_port: 80,
@@ -1456,7 +1516,7 @@
         }, {
           id: 'external-member-2',
           address: '3.4.5.6',
-          subnet_id: { id: '1' },
+          subnet_id: {id: '1'},
           protocol_port: 80,
           weight: 1
         }];
@@ -1690,9 +1750,9 @@
         model.spec.pool.description = 'pool description';
         model.spec.pool.lb_algorithm = 'LEAST_CONNECTIONS';
         model.spec.members = [{
-          address: { ip: '1.2.3.4', subnet: '1' },
-          addresses: [{ ip: '1.2.3.4', subnet: '1' },
-                      { ip: '2.3.4.5', subnet: '2' }],
+          address: {ip: '1.2.3.4', subnet: '1'},
+          addresses: [{ip: '1.2.3.4', subnet: '1'},
+            {ip: '2.3.4.5', subnet: '2'}],
           id: '1',
           name: 'foo',
           protocol_port: 80,
@@ -1712,7 +1772,7 @@
         }, {
           id: 'external-member-2',
           address: '3.4.5.6',
-          subnet_id: { id: '1' },
+          subnet_id: {id: '1'},
           protocol_port: 80,
           weight: 1
         }];
@@ -1945,9 +2005,9 @@
         model.spec.pool.description = 'pool description';
         model.spec.pool.lb_algorithm = 'LEAST_CONNECTIONS';
         model.spec.members = [{
-          address: { ip: '1.2.3.4', subnet: '1' },
-          addresses: [{ ip: '1.2.3.4', subnet: '1' },
-                      { ip: '2.3.4.5', subnet: '2' }],
+          address: {ip: '1.2.3.4', subnet: '1'},
+          addresses: [{ip: '1.2.3.4', subnet: '1'},
+            {ip: '2.3.4.5', subnet: '2'}],
           id: '1',
           name: 'foo',
           protocol_port: 80,
@@ -1967,7 +2027,7 @@
         }, {
           id: 'external-member-2',
           address: '3.4.5.6',
-          subnet_id: { id: '1' },
+          subnet_id: {id: '1'},
           protocol_port: 80,
           weight: 1
         }];

@@ -84,6 +84,7 @@
 
       subnets: [],
       members: [],
+      networks: {},
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS'],
       l7policyActions: ['REJECT', 'REDIRECT_TO_URL', 'REDIRECT_TO_POOL'],
       l7ruleTypes: ['HOST_NAME', 'PATH', 'FILE_TYPE', 'HEADER', 'COOKIE'],
@@ -264,9 +265,16 @@
       return $q.all([
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getPorts().then(onGetPorts),
+        neutronAPI.getNetworks().then(onGetNetworks),
         novaAPI.getServers().then(onGetServers),
         keymanagerPromise.then(prepareCertificates, angular.noop)
       ]).then(initMemberAddresses);
+    }
+
+    function onGetNetworks(response) {
+      angular.forEach(response.data.items, function(value) {
+        model.networks[value.id] = value;
+      });
     }
 
     function initCreateListener(keymanagerPromise) {
@@ -330,7 +338,8 @@
       model.context.submit = editLoadBalancer;
       return $q.all([
         lbaasv2API.getLoadBalancer(model.context.id).then(onGetLoadBalancer),
-        neutronAPI.getSubnets().then(onGetSubnets)
+        neutronAPI.getSubnets().then(onGetSubnets),
+        neutronAPI.getNetworks().then(onGetNetworks)
       ]).then(initSubnet);
     }
 

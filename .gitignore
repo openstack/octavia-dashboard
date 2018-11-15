@@ -63,5 +63,8 @@ ChangeLog
 .ropeproject/
 .DS_Store
 
+# IntelliJ editors
+.idea
+
 # Conf
 octavia_dashboard/conf

@@ -1,0 +1,11 @@
+---
+features:
+  - |
+    Adds a new UI component which works as a standard select control
+    alternative. Options in the component are presented in a table which may be
+    filtered using the select input field. Filtering is done across all table
+    fields.
+upgrade:
+  - |
+    The new component replaces the standard select for subnet selection in
+    the Load Balancer creation modal wizard.

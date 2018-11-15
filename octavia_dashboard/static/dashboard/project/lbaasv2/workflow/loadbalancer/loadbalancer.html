@@ -12,18 +12,6 @@
     </div>
 
     <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="form-group">
-        <label translate class="control-label" for="description">Description</label>
-        <input name="description" id="description" type="text" class="form-control"
-               ng-model="model.spec.loadbalancer.description">
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group"
         ng-class="{ 'has-error': loadBalancerDetailsForm.ip.$invalid && loadBalancerDetailsForm.ip.$dirty }">
         <label translate class="control-label" for="ip">IP address</label>
@@ -35,25 +23,43 @@
         </span>
       </div>
     </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="form-group required">
-        <label class="control-label" for="subnet">
-          <translate>Subnet</translate>
-          <span class="hz-icon-required fa fa-asterisk"></span>
-        </label>
-        <select class="form-control" name="subnet" id="subnet"
-                ng-options="subnet.name || subnet.id for subnet in model.subnets"
-                ng-model="model.spec.loadbalancer.vip_subnet_id" ng-required="true"
-                ng-disabled="model.context.id">
-        </select>
-      </div>
-    </div>
-
   </div>
 
   <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <label translate class="control-label" for="description">Description</label>
+        <input name="description" id="description" type="text" class="form-control"
+               ng-model="model.spec.loadbalancer.description">
+      </div>
+    </div>
+  </div>
 
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <label class="control-label">
+          <translate>Subnet</translate>
+          <span class="hz-icon-required fa fa-asterisk"></span>
+        </label>
+        <!-- value="model.spec.loadbalancer.vip_subnet_id" -->
+        <filter-select
+          shorthand="ctrl.shorthand"
+
+          on-select="ctrl.setSubnet(option)"
+          disabled="model.context.id"
+          columns="ctrl.subnetColumns"
+          options="ctrl.subnetOptions"
+          loaded="ctrl.dataLoaded"
+
+          ng-required="true"
+          ng-model="model.spec.loadbalancer.vip_subnet_id"
+        ></filter-select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
     <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group">
         <label class="control-label required" translate>Admin State Up</label>
@@ -67,7 +73,6 @@
         </div>
       </div>
     </div>
-
   </div>
 
 </div>
