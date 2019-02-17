@@ -49,7 +49,7 @@ def _get_sdk_connection(request):
     # Pass interface to honor 'OPENSTACK_ENDPOINT_TYPE'
     interface = getattr(settings, 'OPENSTACK_ENDPOINT_TYPE', 'publicURL')
     # Pass load_yaml_config as this is a Django service with its own config
-    # and we don't want to accidentaly pick up a clouds.yaml file. We want to
+    # and we don't want to accidentally pick up a clouds.yaml file. We want to
     # use the settings we're passing in.
     cloud_config = occ.OpenStackConfig(load_yaml_config=False).get_one_cloud(
         verify=not insecure,
