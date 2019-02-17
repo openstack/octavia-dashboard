@@ -1,0 +1,8 @@
+---
+features:
+  - |
+    Allow cascade deletion of load balancer.
+other:
+  - |
+    This changed the default behavior of load balancer deletion from
+    non-cascade deletion to cascade deletion.

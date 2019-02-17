@@ -147,18 +147,5 @@
       expect(toast.add).toHaveBeenCalledWith('success', 'Deleted Listener: First.');
     });
 
-    it('should show message if any selected items do not allow for delete (batch)', function() {
-      spyOn(modal, 'open');
-      spyOn(toast, 'add');
-      items[0].default_pool_id = 'pool1';
-      items[1].default_pool_id = 'pool2';
-      service.perform(items, $scope);
-      $scope.$apply();
-      expect(modal.open).not.toHaveBeenCalled();
-      expect(toast.add).toHaveBeenCalledWith('error',
-        'Unable to delete Listeners' +
-        ': First, Second.');
-    });
-
   });
 })();
