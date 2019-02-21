@@ -126,15 +126,28 @@ def poll_loadbalancer_status(request, loadbalancer_id, callback,
 def create_loadbalancer(request):
     data = request.DATA
 
+    flavor_id = data['loadbalancer'].get('flavor_id')
+
     conn = _get_sdk_connection(request)
-    loadbalancer = conn.load_balancer.create_load_balancer(
-        project_id=request.user.project_id,
-        vip_subnet_id=data['loadbalancer']['vip_subnet_id'],
-        name=data['loadbalancer'].get('name'),
-        description=data['loadbalancer'].get('description'),
-        vip_address=data['loadbalancer'].get('vip_address'),
-        admin_state_up=data['loadbalancer'].get('admin_state_up')
-    )
+    if flavor_id:
+        loadbalancer = conn.load_balancer.create_load_balancer(
+            project_id=request.user.project_id,
+            vip_subnet_id=data['loadbalancer']['vip_subnet_id'],
+            name=data['loadbalancer'].get('name'),
+            description=data['loadbalancer'].get('description'),
+            vip_address=data['loadbalancer'].get('vip_address'),
+            admin_state_up=data['loadbalancer'].get('admin_state_up'),
+            flavor_id=flavor_id
+        )
+    else:
+        loadbalancer = conn.load_balancer.create_load_balancer(
+            project_id=request.user.project_id,
+            vip_subnet_id=data['loadbalancer']['vip_subnet_id'],
+            name=data['loadbalancer'].get('name'),
+            description=data['loadbalancer'].get('description'),
+            vip_address=data['loadbalancer'].get('vip_address'),
+            admin_state_up=data['loadbalancer'].get('admin_state_up'),
+        )
 
     if data.get('listener'):
         # There is work underway to add a new API to LBaaS v2 that will
@@ -282,6 +295,39 @@ def create_health_monitor(request, **kwargs):
     )
 
     return _get_sdk_object_dict(health_mon)
+
+
+def create_flavor(request, **kwargs):
+    """Create a new flavor.
+
+    """
+    data = request.DATA
+
+    conn = _get_sdk_connection(request)
+    flavor = conn.load_balancer.create_flavor(
+        name=data['flavor']['name'],
+        flavor_profile_id=data['flavor']['flavor_profile_id'],
+        description=data['flavor'].get('description'),
+        enabled=data['flavor'].get('enabled'),
+    )
+
+    return _get_sdk_object_dict(flavor)
+
+
+def create_flavor_profile(request, **kwargs):
+    """Create a new flavor profile.
+
+    """
+    data = request.DATA
+
+    conn = _get_sdk_connection(request)
+    flavor_profile = conn.load_balancer.create_flavor(
+        name=data['flavor_profile']['name'],
+        provider_name=data['flavor_profile']['provider_name'],
+        flavor_data=data['flavor_profile']['flavor_data'],
+    )
+
+    return _get_sdk_object_dict(flavor_profile)
 
 
 def add_member(request, **kwargs):
@@ -532,6 +578,42 @@ def update_monitor(request, **kwargs):
     )
 
     return _get_sdk_object_dict(healthmonitor)
+
+
+def update_flavor(request, **kwargs):
+    """Update a flavor.
+
+    """
+    data = request.DATA
+    flavor_id = data['flavor']['id']
+
+    conn = _get_sdk_connection(request)
+    flavor = conn.load_balancer.update_flavor(
+        flavor_id,
+        name=data['flavor'].get('name'),
+        description=data['flavor'].get('description'),
+        enabled=data['flavor'].get('enabled'),
+    )
+
+    return _get_sdk_object_dict(flavor)
+
+
+def update_flavor_profile(request, **kwargs):
+    """Update a flavor profile.
+
+    """
+    data = request.DATA
+    flavor_profile_id = data['flavor_profile']['id']
+
+    conn = _get_sdk_connection(request)
+    flavor_profile = conn.load_balancer.update_flavor_profile(
+        flavor_profile_id,
+        name=data['flavor_profile'].get('name'),
+        provider_name=data['flavor_profile'].get('provider_name'),
+        flavor_data=data['flavor_profile'].get('flavor_data'),
+    )
+
+    return _get_sdk_object_dict(flavor_profile)
 
 
 def update_member_list(request, **kwargs):
@@ -1183,3 +1265,134 @@ class HealthMonitor(generic.View):
 
         """
         update_monitor(request)
+
+
+@urls.register
+class Flavors(generic.View):
+    """API for load balancer flavors.
+
+    """
+    url_regex = r'lbaas/flavors/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """List of flavors for the current project.
+
+        The listing result is an object with property "items".
+        """
+        conn = _get_sdk_connection(request)
+        flavor_list = _sdk_object_to_list(
+            conn.load_balancer.flavors()
+        )
+
+        return {'items': flavor_list}
+
+    @rest_utils.ajax()
+    def post(self, request):
+        """Create a new flavor.
+
+        """
+        kwargs = {
+            'flavor': request.DATA.get('flavor')
+        }
+        return create_flavor(request, **kwargs)
+
+
+@urls.register
+class Flavor(generic.View):
+    """API for retrieving a single flavor.
+
+    """
+    url_regex = r'lbaas/flavors/(?P<flavor_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def get(self, request, flavor_id):
+        """Get a specific flavor.
+
+        """
+        conn = _get_sdk_connection(request)
+        flavor = conn.load_balancer.find_flavor(flavor_id)
+        return _get_sdk_object_dict(flavor)
+
+    @rest_utils.ajax()
+    def delete(self, request, flavor_id):
+        """Delete a specific flavor.
+
+        http://localhost/api/lbaas/flavors/3971d368-ca9b-4770-929a-3adca5bf89eb
+        """
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_flavor(flavor_id,
+                                         ignore_missing=True)
+
+    @rest_utils.ajax()
+    def put(self, request, flavor_id):
+        """Edit a flavor.
+
+        """
+        update_flavor(request)
+
+
+@urls.register
+class FlavorProfiles(generic.View):
+    """API for load balancer flavor profiles.
+
+    """
+    url_regex = r'lbaas/flavorprofiles/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """List of flavor profiles for the current project.
+
+        The listing result is an object with property "items".
+        """
+        conn = _get_sdk_connection(request)
+        flavor_profile_list = _sdk_object_to_list(
+            conn.load_balancer.flavor_profiles()
+        )
+
+        return {'items': flavor_profile_list}
+
+    @rest_utils.ajax()
+    def post(self, request):
+        """Create a new flavor_profile.
+
+        """
+        kwargs = {
+            'flavor_profile': request.DATA.get('flavor_profile')
+        }
+        return create_flavor_profile(request, **kwargs)
+
+
+@urls.register
+class FlavorProfile(generic.View):
+    """API for retrieving a single flavor profile.
+
+    """
+    url_regex = r'lbaas/flavorprofiles/(?P<flavor_profile_id>[^/]+)/$'
+
+    @rest_utils.ajax()
+    def get(self, request, flavor_profile_id):
+        """Get a specific flavor profile.
+
+        """
+        conn = _get_sdk_connection(request)
+        flavor_profile = conn.load_balancer.find_flavor_profile(
+            flavor_profile_id)
+        return _get_sdk_object_dict(flavor_profile)
+
+    @rest_utils.ajax()
+    def delete(self, request, flavor_profile_id):
+        """Delete a specific flavor profile.
+
+        http://localhost/api/lbaas/flavorprofiles/e8150eab-aefa-42cc-867e-3fb336da52bd
+        """
+        conn = _get_sdk_connection(request)
+        conn.load_balancer.delete_flavor_profile(flavor_profile_id,
+                                                 ignore_missing=True)
+
+    @rest_utils.ajax()
+    def put(self, request, flavor_profile_id):
+        """Edit a flavor profile.
+
+        """
+        update_flavor_profile(request)

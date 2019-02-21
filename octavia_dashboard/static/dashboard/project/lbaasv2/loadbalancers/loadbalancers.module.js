@@ -178,8 +178,8 @@
       listeners: gettext('Listeners'),
       pools: gettext('Pools'),
       provider: gettext('Provider'),
-      flavor: {
-        label: gettext('Flavor'),
+      flavor_id: {
+        label: gettext('Flavor ID'),
         filters: ['noValue']
       },
       floating_ip_address: {

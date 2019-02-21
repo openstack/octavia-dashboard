@@ -18,7 +18,7 @@
 
   describe('LBaaS v2 Workflow Model Service', function() {
     var model, $q, scope, listenerResources, barbicanEnabled,
-      certificatesError, mockNetworks;
+      certificatesError, mockNetworks, mockFlavors, mockFlavorProfiles;
     var includeChildResources = true;
 
     beforeEach(module('horizon.framework.util.i18n'));
@@ -95,6 +95,26 @@
           id: 'b2'
         }
       };
+      mockFlavors = {
+        f1: {
+          name: 'flavor_1',
+          id: 'f1'
+        },
+        f2: {
+          name: 'flavor_2',
+          id: 'f2'
+        }
+      };
+      mockFlavorProfiles = {
+        p1: {
+          name: 'flavor_profile_1',
+          id: 'p1'
+        },
+        p2: {
+          name: 'flavor_profile_2',
+          id: 'p2'
+        }
+      };
     });
 
     beforeEach(module(function($provide) {
@@ -118,6 +138,7 @@
             name: 'Load Balancer 1',
             vip_address: '1.2.3.4',
             vip_subnet_id: 'subnet-1',
+            flavor_id: 'flavor-1',
             description: ''
           };
 
@@ -240,6 +261,32 @@
           var deferred = $q.defer();
           deferred.resolve({data: monitor});
 
+          return deferred.promise;
+        },
+        getFlavors: function() {
+          var flavors = [{
+            name: 'flavor_1',
+            id: 'f1'
+          }, {
+            name: 'flavor_2',
+            id: 'f2'
+          }];
+
+          var deferred = $q.defer();
+          deferred.resolve({data: {items: flavors}});
+          return deferred.promise;
+        },
+        getFlavorProfiles: function() {
+          var flavorProfiles = [{
+            name: 'flavor_profile_1',
+            id: 'p1'
+          }, {
+            name: 'flavor_profile_2',
+            id: 'p2'
+          }];
+
+          var deferred = $q.defer();
+          deferred.resolve({data: {items: flavorProfiles}});
           return deferred.promise;
         },
         createLoadBalancer: function(spec) {
@@ -486,6 +533,8 @@
         expect(model.initialized).toBe(true);
         expect(model.subnets.length).toBe(2);
         expect(model.networks).toEqual(mockNetworks);
+        expect(model.flavors).toEqual(mockFlavors);
+        expect(model.flavorProfiles).toEqual(mockFlavorProfiles);
         expect(model.members.length).toBe(2);
         expect(model.certificates.length).toBe(2);
         expect(model.listenerPorts.length).toBe(0);
@@ -742,6 +791,8 @@
         expect(model.initialized).toBe(true);
         expect(model.subnets.length).toBe(2);
         expect(model.networks).toEqual(mockNetworks);
+        expect(model.flavors).toEqual(mockFlavors);
+        expect(model.flavorProfiles).toEqual(mockFlavorProfiles);
         expect(model.members.length).toBe(0);
         expect(model.certificates.length).toBe(0);
         expect(model.listenerPorts.length).toBe(0);
@@ -1238,7 +1289,7 @@
       // to implement tests for them.
       it('has the right number of properties', function() {
         expect(Object.keys(model.spec).length).toBe(11);
-        expect(Object.keys(model.spec.loadbalancer).length).toBe(5);
+        expect(Object.keys(model.spec.loadbalancer).length).toBe(6);
         expect(Object.keys(model.spec.listener).length).toBe(14);
         expect(Object.keys(model.spec.l7policy).length).toBe(8);
         expect(Object.keys(model.spec.l7rule).length).toBe(7);
@@ -1486,6 +1537,7 @@
       it('should set final spec properties', function() {
         model.spec.loadbalancer.vip_address = '1.2.3.4';
         model.spec.loadbalancer.vip_subnet_id = model.subnets[0];
+        model.spec.loadbalancer.flavor_id = model.flavors[Object.keys(model.flavors)[0]];
         model.spec.listener.protocol = 'TCP';
         model.spec.listener.protocol_port = 80;
         model.spec.listener.connection_limit = 999;
@@ -1587,6 +1639,7 @@
       it('should set final spec certificates', function() {
         model.spec.loadbalancer.vip_address = '1.2.3.4';
         model.spec.loadbalancer.vip_subnet_id = model.subnets[0];
+        model.spec.loadbalancer.flavor_id = model.flavors[Object.keys(model.flavors)[0]];
         model.spec.listener.protocol = 'TERMINATED_HTTPS';
         model.spec.listener.protocol_port = 443;
         model.spec.listener.connection_limit = 9999;
