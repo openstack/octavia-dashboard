@@ -1,15 +1,16 @@
 # ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
+# ByungYeol Woo <wby1089@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-09-29 04:29+0000\n"
+"POT-Creation-Date: 2019-02-17 22:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-10-11 10:43+0000\n"
+"PO-Revision-Date: 2019-03-05 12:33+0000\n"
 "Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -21,6 +22,9 @@ msgstr "1.0.0"
 
 msgid "2.0.0"
 msgstr "2.0.0"
+
+msgid "2.0.0.0rc1-53"
+msgstr "2.0.0.0rc1-53"
 
 msgid ""
 "A new dashboard wizard for Octavia. Allows you to create an Octavia load "
@@ -72,12 +76,26 @@ msgstr "L7 정책 지원을 대시보드에 추가하였습니다."
 msgid "Adds RBAC support to the dashboard panels."
 msgstr "RBAC 지원을 대시보드 패널에 추가하였습니다."
 
+msgid ""
+"Adds a new UI component which works as a standard select control "
+"alternative. Options in the component are presented in a table which may be "
+"filtered using the select input field. Filtering is done across all table "
+"fields."
+msgstr ""
+"표준 선택 컨트롤의 대안으로 동작하는 새로운 UI 구성요소를 추가합니다. 구성요"
+"소의 옵션은 선택 입력 필드를 사용하여 필터될 수 있는 테이블에서 보여집니다. "
+"필터링은 모든 테이블 필드에서 수행됩니다."
+
 msgid "Adds the ability to auto refresh detail pages upon action."
 msgstr ""
 "동작에 따라 세부 사항 페이지에 대한 자동 갱신하는 기능을 추가하였습니다."
 
 msgid "Adds the ability to set member as backup."
 msgstr "멤버를 백업을 설정하는 기능을 추가하였습니다."
+
+msgid ""
+"Adds the ability to set the X-Forwarded-Proto insertion header on listeners."
+msgstr "리스너에 X-Forwarded-Proto 헤더 삽입을 설정하는 기능을 추가하였습니다."
 
 msgid "Adds the ability to set the insertion headers on listeners."
 msgstr "삽입 헤더를 리스너에 설정하는 기능을 추가하였습니다."
@@ -87,6 +105,9 @@ msgstr "타임아웃 옵션을 리스터에 설정하는 기능을 추가하였�
 
 msgid "All objects now allow setting the \"Admin State\"."
 msgstr "이제 모든 오브젝트가 \"Admin State\"를 설정할 수 있습니다."
+
+msgid "Allow cascade deletion of load balancer."
+msgstr "로드 밸런서의 단계적 삭제를 허용합니다."
 
 msgid "Created at and Updated at times are now visible on the details pages."
 msgstr "이제 생성된 시각과 업데이트된 시각을 상세 페이지에서 볼 수 있습니다."
@@ -182,6 +203,13 @@ msgstr ""
 "해 액세스 할 수 없습니다. 이 대시보드에는 Octavia API를 통해 액세스 할 수 있"
 "는 리소스만 표시됩니다."
 
+msgid ""
+"The new component replaces the standard select for subnet selection in the "
+"Load Balancer creation modal wizard."
+msgstr ""
+"새로운 구성요소는 로드 밸런서 생성 양식 마법사에서 서브넷 선택을 위한 표준 선"
+"택을 대체합니다."
+
 msgid "The object details pages now use a tabbed navigation for child objects."
 msgstr "이제 오브젝트 상세 페이지는 자식 오브젝트에 대해 탭 검색이 가능합니다."
 
@@ -201,6 +229,13 @@ msgstr "풀 선택 드롭다운에서 풀 ID 뿐만이 아니라 풀 이름도 �
 
 msgid "The session persistence for a pool can now be changed."
 msgstr "이제 풀에 대한 세션 지속성을 변경할 수 있습니다."
+
+msgid ""
+"This changed the default behavior of load balancer deletion from non-cascade "
+"deletion to cascade deletion."
+msgstr ""
+"이로 인하여 로드밸런서 삭제의 기본 동작이 비 단계별 삭제에서 단계별 삭제로 변"
+"경되었습니다."
 
 msgid ""
 "This dashboard can be used alongside the neutron-lbaas-dashboard, but both "
