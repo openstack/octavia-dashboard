@@ -17,33 +17,25 @@
 from barbicanclient import client as barbican_client
 from django.conf import settings
 from django.views import generic
-from keystoneclient.auth.identity import v2 as auth_v2
-from keystoneclient.auth.identity import v3 as auth_v3
+from keystoneclient.auth import token_endpoint
 from keystoneclient import session
 
 from horizon.utils.memoized import memoized  # noqa
+from openstack_auth import utils as auth_utils
 
 from openstack_dashboard.api import base
-from openstack_dashboard.api import keystone
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
 
 
 @memoized
 def barbicanclient(request):
-    project_id = request.user.project_id
     region = request.user.services_region
     endpoint = base.url_for(request, 'key-manager')
-    if keystone.get_version() < 3:
-        auth = auth_v2.Token(settings.OPENSTACK_KEYSTONE_URL,
-                             request.user.token.id,
-                             tenant_id=project_id)
-    else:
-        domain_id = request.session.get('domain_context')
-        auth = auth_v3.Token(settings.OPENSTACK_KEYSTONE_URL,
-                             request.user.token.id,
-                             project_id=project_id,
-                             project_domain_id=domain_id)
+    auth_url, _ = auth_utils.fix_auth_url_version_prefix(
+        settings.OPENSTACK_KEYSTONE_URL)
+    auth = token_endpoint.Token(auth_url, request.user.token.id)
+
     insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
     cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
     # If 'insecure' is True, 'verify' is False in all cases; otherwise
