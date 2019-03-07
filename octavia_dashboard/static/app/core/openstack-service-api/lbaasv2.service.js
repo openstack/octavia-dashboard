@@ -70,7 +70,17 @@
       deleteHealthMonitor: deleteHealthMonitor,
       createHealthMonitor: createHealthMonitor,
       editHealthMonitor: editHealthMonitor,
-      updateMemberList: updateMemberList
+      updateMemberList: updateMemberList,
+      getFlavors: getFlavors,
+      getFlavor: getFlavor,
+      deleteFlavor: deleteFlavor,
+      createFlavor: createFlavor,
+      editFlavor: editFlavor,
+      getFlavorProfiles: getFlavorProfiles,
+      getFlavorProfile: getFlavorProfile,
+      deleteFlavorProfile: deleteFlavorProfile,
+      createFlavorProfile: createFlavorProfile,
+      editFlavorProfile: editFlavorProfile
     };
 
     return service;
@@ -718,6 +728,170 @@
       return apiService.post('/api/lbaas/healthmonitors/', spec)
         .error(function () {
           toastService.add('error', gettext('Unable to create health monitor.'));
+        });
+    }
+
+    // Flavors
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getFlavor
+     * @description
+     * Get a single load balancer flavor by ID.
+     * @param {string} flavorId
+     * Specifies the id of the flavor.
+     */
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getFlavors
+     * @description
+     * Get the list of flavors.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a flavor.
+     */
+
+    function getFlavors() {
+      var params = {params: {}};
+      return apiService.get('/api/lbaas/flavors/', params)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve flavors.'));
+        });
+    }
+
+    function getFlavor(flavorId) {
+      return apiService.get('/api/lbaas/flavors/' + flavorId + '/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve flavor.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.editFlavor
+     * @description
+     * Edit a flavor
+     * @param {string} id
+     * Specifies the id of the flavor to update.
+     * @param {object} spec
+     * Specifies the data used to update the flavor.
+     */
+
+    function editFlavor(id, spec) {
+      return apiService.put('/api/lbaas/flavors/' + id + '/', spec)
+        .error(function () {
+          toastService.add('error', gettext('Unable to update flavor.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.deleteFlavor
+     * @description
+     * Delete a single flavor by ID
+     * @param {string} id
+     * Specifies the id of the flavor to delete.
+     * @param {boolean} quiet
+     */
+
+    function deleteFlavor(id, quiet) {
+      var promise = apiService.delete('/api/lbaas/flavors/' + id + '/');
+      return quiet ? promise : promise.error(function () {
+        toastService.add('error', gettext('Unable to delete flavor.'));
+      });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.createFlavor
+     * @description
+     * Create a new flavor
+     * @param {object} spec
+     * Specifies the data used to create the new flavor.
+     */
+
+    function createFlavor(spec) {
+      return apiService.post('/api/lbaas/flavors/', spec)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create flavor.'));
+        });
+    }
+
+    // Flavor Profiles
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getFlavorProfile
+     * @description
+     * Get a single load balancer flavor profile by ID.
+     * @param {string} flavorProfileId
+     * Specifies the id of the flavor profile.
+     */
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getFlavorProfiles
+     * @description
+     * Get the list of flavor profiles.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a flavor profile.
+     */
+
+    function getFlavorProfiles() {
+      var params = {params: {}};
+      return apiService.get('/api/lbaas/flavorprofiles/', params)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve flavor profiles.'));
+        });
+    }
+
+    function getFlavorProfile(flavorProfileId) {
+      return apiService.get('/api/lbaas/flavorprofiles/' + flavorProfileId + '/')
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve flavor profile.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.editFlavorProfile
+     * @description
+     * Edit a flavor Profile
+     * @param {string} id
+     * Specifies the id of the flavor profile to update.
+     * @param {object} spec
+     * Specifies the data used to update the flavor profile.
+     */
+
+    function editFlavorProfile(id, spec) {
+      return apiService.put('/api/lbaas/flavorprofiles/' + id + '/', spec)
+        .error(function () {
+          toastService.add('error', gettext('Unable to update flavor profile.'));
+        });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.deleteFlavorProfile
+     * @description
+     * Delete a single flavor profile by ID
+     * @param {string} id
+     * Specifies the id of the flavor profile to delete.
+     * @param {boolean} quiet
+     */
+
+    function deleteFlavorProfile(id, quiet) {
+      var promise = apiService.delete('/api/lbaas/flavorprofiles/' + id + '/');
+      return quiet ? promise : promise.error(function () {
+        toastService.add('error', gettext('Unable to delete flavor profile.'));
+      });
+    }
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.createFlavorProfile
+     * @description
+     * Create a new flavor profile
+     * @param {object} spec
+     * Specifies the data used to create the new flavor profile.
+     */
+
+    function createFlavorProfile(spec) {
+      return apiService.post('/api/lbaas/flavorprofiles/', spec)
+        .error(function () {
+          toastService.add('error', gettext('Unable to create flavor profile.'));
         });
     }
 

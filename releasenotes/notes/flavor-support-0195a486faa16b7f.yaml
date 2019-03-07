@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    Add load balancer flavor support.
+issues:
+  - |
+    The octavia-dashboard requires openstacksdk > 0.24.0 for flavor support.

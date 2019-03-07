@@ -270,6 +270,66 @@
         testInput: [ '1234' ]
       },
       {
+        func: 'getFlavors',
+        method: 'get',
+        path: '/api/lbaas/flavors/',
+        error: 'Unable to retrieve flavors.',
+        testInput: [],
+        data: { params: {} }
+      },
+      {
+        func: 'getFlavor',
+        method: 'get',
+        path: '/api/lbaas/flavors/1234/',
+        error: 'Unable to retrieve flavor.',
+        testInput: [ '1234' ]
+      },
+      {
+        func: 'editFlavor',
+        method: 'put',
+        path: '/api/lbaas/flavors/1234/',
+        error: 'Unable to update flavor.',
+        data: { name: 'flavor-1' },
+        testInput: [ '1234', { name: 'flavor-1' } ]
+      },
+      {
+        func: 'deleteFlavor',
+        method: 'delete',
+        path: '/api/lbaas/flavors/1234/',
+        error: 'Unable to delete flavor.',
+        testInput: [ '1234' ]
+      },
+      {
+        func: 'getFlavorProfiles',
+        method: 'get',
+        path: '/api/lbaas/flavorprofiles/',
+        error: 'Unable to retrieve flavor profiles.',
+        testInput: [],
+        data: { params: {} }
+      },
+      {
+        func: 'getFlavorProfile',
+        method: 'get',
+        path: '/api/lbaas/flavorprofiles/1234/',
+        error: 'Unable to retrieve flavor profile.',
+        testInput: [ '1234' ]
+      },
+      {
+        func: 'editFlavorProfile',
+        method: 'put',
+        path: '/api/lbaas/flavorprofiles/1234/',
+        error: 'Unable to update flavor profile.',
+        data: { name: 'flavorprofile-1' },
+        testInput: [ '1234', { name: 'flavorprofile-1' } ]
+      },
+      {
+        func: 'deleteFlavorProfile',
+        method: 'delete',
+        path: '/api/lbaas/flavorprofiles/1234/',
+        error: 'Unable to delete flavor profile.',
+        testInput: [ '1234' ]
+      },
+      {
         func: 'createLoadBalancer',
         method: 'post',
         path: '/api/lbaas/loadbalancers/',
@@ -365,6 +425,22 @@
         testInput: [ { name: 'healthmonitor-1' } ]
       },
       {
+        func: 'createFlavor',
+        method: 'post',
+        path: '/api/lbaas/flavors/',
+        error: 'Unable to create flavor.',
+        data: { name: 'flavor-1' },
+        testInput: [ { name: 'flavor-1' } ]
+      },
+      {
+        func: 'createFlavorProfile',
+        method: 'post',
+        path: '/api/lbaas/flavorprofiles/',
+        error: 'Unable to create flavor profile.',
+        data: { name: 'flavorprofile-1' },
+        testInput: [ { name: 'flavorprofile-1' } ]
+      },
+      {
         func: 'updateMemberList',
         method: 'put',
         path: '/api/lbaas/pools/1234/members/',
@@ -410,6 +486,16 @@
     it('supresses the error if instructed for deleteHealthMonitor', function() {
       spyOn(apiService, 'delete').and.returnValue("promise");
       expect(service.deleteHealthMonitor("whatever", true)).toBe("promise");
+    });
+
+    it('supresses the error if instructed for deleteFlavor', function() {
+      spyOn(apiService, 'delete').and.returnValue("promise");
+      expect(service.deleteFlavor("whatever", true)).toBe("promise");
+    });
+
+    it('supresses the error if instructed for deleteFlavorProfile', function() {
+      spyOn(apiService, 'delete').and.returnValue("promise");
+      expect(service.deleteFlavorProfile("whatever", true)).toBe("promise");
     });
 
   });

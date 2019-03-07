@@ -87,10 +87,52 @@
       }
     };
 
+    // Defines columns for the flavor selection filtered pop-up
+    ctrl.flavorColumns = [{
+      label: gettext('Flavor'),
+      value: 'name'
+    }, {
+      label: gettext('Flavor ID'),
+      value: 'id'
+    }, {
+      label: gettext('Flavor Description'),
+      value: 'description'
+    }, {
+      label: gettext('Provider'),
+      value: function(flavor) {
+        var flavorProfile = $scope.model.flavorProfiles[flavor.flavor_profile_id];
+        return flavorProfile ? flavorProfile.provider_name : '';
+      }
+    }];
+
+    ctrl.flavorOptions = [];
+
+    ctrl.flavorShorthand = function(flavor) {
+      var flavorProfile = $scope.model.flavorProfiles[flavor.flavor_profile_id];
+
+      var providerText =
+        flavorProfile
+        ? flavorProfile.provider_name
+        : '';
+      var flavorText = flavor.name || flavor.id.substring(0, 10) + '...';
+      var flavorDescription = flavor.description || '';
+
+      return flavorText + ' (' + providerText + '): ' + flavorDescription;
+    };
+
+    ctrl.setFlavor = function(option) {
+      if (option) {
+        $scope.model.spec.loadbalancer.flavor_id = option;
+      } else {
+        $scope.model.spec.loadbalancer.flavor_id = null;
+      }
+    };
+
     ctrl.dataLoaded = false;
     ctrl._checkLoaded = function() {
       if ($scope.model.initialized) {
         ctrl.buildSubnetOptions();
+        ctrl.buildFlavorOptions();
         ctrl.dataLoaded = true;
       }
     };
@@ -112,6 +154,12 @@
       $scope.$watchCollection('model.networks', function() {
         ctrl._checkLoaded();
       });
+      $scope.$watchCollection('model.flavors', function() {
+        ctrl._checkLoaded();
+      });
+      $scope.$watchCollection('model.flavorProfiles', function() {
+        ctrl._checkLoaded();
+      });
       $scope.$watch('model.initialized', function() {
         ctrl._checkLoaded();
       });
@@ -120,6 +168,14 @@
     ctrl.buildSubnetOptions = function() {
       // Subnets are sliced to maintain data immutability
       ctrl.subnetOptions = $scope.model.subnets.slice(0);
+    };
+
+    ctrl.buildFlavorOptions = function() {
+      ctrl.flavorOptions = Object.keys($scope.model.flavors).filter(function(key) {
+        return $scope.model.flavors[key].is_enabled;
+      }).map(function(key) {
+        return $scope.model.flavors[key];
+      });
     };
   }
 })();

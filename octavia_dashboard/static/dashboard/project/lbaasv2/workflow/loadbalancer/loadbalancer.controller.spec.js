@@ -22,7 +22,7 @@
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     describe('LoadBalancerDetailsController', function() {
-      var ctrl, scope, mockSubnets;
+      var ctrl, scope, mockSubnets, mockFlavors;
       beforeEach(inject(function($controller, $rootScope) {
         mockSubnets = [{
           id: '7262744a-e1e4-40d7-8833-18193e8de191',
@@ -41,12 +41,45 @@
           cidr: '2.2.2.2/16'
         }];
 
+        mockFlavors = [{
+          id: '15d990e1-3438-4073-89b8-6e4706f0b176',
+          flavor_profile_id: '79e16118-daba-4255-9d1d-9cc7812e18a1',
+          name: 'flavor_1',
+          description: 'Flavor 1 description',
+          is_enabled: true
+        }, {
+          id: 'b0703ed4-dd30-4dbe-92bb-dccc945365e9',
+          flavor_profile_id: 'ace487e6-9946-4bdc-882e-c889af43fc3b',
+          name: 'flavor_2',
+          is_enabled: true
+        }, {
+          id: '94306089-567a-44ed-ab16-87653adbece3',
+          flavor_profile_id: 'b272d5fb-0021-4002-beb5-db758e59a763',
+          name: '',
+          is_enabled: true
+        }];
+
         scope = $rootScope.$new();
         scope.model = {
           networks: {
             '5d658cef-3402-4474-bb8a-0c1162efd9a9': {
               id: '5d658cef-3402-4474-bb8a-0c1162efd9a9',
               name: 'network_1'
+            }
+          },
+          flavors: {
+            '15d990e1-3438-4073-89b8-6e4706f0b176': {
+              id: '15d990e1-3438-4073-89b8-6e4706f0b176',
+              name: 'flavor_1',
+              flavor_profile_id: '79e16118-daba-4255-9d1d-9cc7812e18a1',
+              is_enabled: true
+            }
+          },
+          flavorProfiles: {
+            '79e16118-daba-4255-9d1d-9cc7812e18a1': {
+              id: '79e16118-daba-4255-9d1d-9cc7812e18a1',
+              name: 'flavor_profile_1',
+              provider_name: 'amphora'
             }
           },
           subnets: [{}, {}],
@@ -61,6 +94,7 @@
         ctrl = $controller('LoadBalancerDetailsController', {$scope: scope});
 
         spyOn(ctrl, 'buildSubnetOptions').and.callThrough();
+        spyOn(ctrl, 'buildFlavorOptions').and.callThrough();
         spyOn(ctrl, '_checkLoaded').and.callThrough();
       }));
 
@@ -87,11 +121,30 @@
         );
       });
 
+      it('should create flavor shorthand text', function() {
+        expect(ctrl.flavorShorthand(mockFlavors[0])).toBe(
+          'flavor_1 (amphora): Flavor 1 description'
+        );
+        expect(ctrl.flavorShorthand(mockFlavors[1])).toBe(
+          'flavor_2 (): '
+        );
+        expect(ctrl.flavorShorthand(mockFlavors[2])).toBe(
+          '94306089-5... (): '
+        );
+      });
+
       it('should set subnet', function() {
         ctrl.setSubnet(mockSubnets[0]);
         expect(scope.model.spec.loadbalancer.vip_subnet_id).toBe(mockSubnets[0]);
         ctrl.setSubnet(null);
         expect(scope.model.spec.loadbalancer.vip_subnet_id).toBe(null);
+      });
+
+      it('should set flavor', function() {
+        ctrl.setFlavor(mockFlavors[0]);
+        expect(scope.model.spec.loadbalancer.flavor_id).toBe(mockFlavors[0]);
+        ctrl.setFlavor(null);
+        expect(scope.model.spec.loadbalancer.flavor_id).toBe(null);
       });
 
       it('should initialize watchers', function() {
@@ -102,6 +155,14 @@
         expect(ctrl._checkLoaded).toHaveBeenCalled();
 
         scope.model.networks = {};
+        scope.$apply();
+        expect(ctrl._checkLoaded).toHaveBeenCalled();
+
+        scope.model.flavors = {};
+        scope.$apply();
+        expect(ctrl._checkLoaded).toHaveBeenCalled();
+
+        scope.model.flavorProfiles = {};
         scope.$apply();
         expect(ctrl._checkLoaded).toHaveBeenCalled();
 
@@ -158,6 +219,34 @@
         expect(ctrl.buildSubnetOptions).toHaveBeenCalled();
         expect(ctrl.dataLoaded).toBe(true);
       });
+
+      it('should initialize flavors watcher', function() {
+        ctrl.$onInit();
+
+        scope.model.flavors = {};
+        scope.$apply();
+        //expect(ctrl.buildSubnetOptions).toHaveBeenCalled();
+      });
+
+      it('should produce flavor column data', function() {
+        expect(ctrl.flavorColumns).toBeDefined();
+
+        expect(ctrl.flavorColumns[0].label).toBe('Flavor');
+        expect(ctrl.flavorColumns[0].value).toBe('name');
+
+        expect(ctrl.flavorColumns[1].label).toBe('Flavor ID');
+        expect(ctrl.flavorColumns[1].value).toBe('id');
+
+        expect(ctrl.flavorColumns[2].label).toBe('Flavor Description');
+        expect(ctrl.flavorColumns[2].value).toBe('description');
+
+        expect(ctrl.flavorColumns[3].label).toBe('Provider');
+        var flavorLabel3 = ctrl.flavorColumns[3].value(mockFlavors[0]);
+        expect(flavorLabel3).toBe('amphora');
+        flavorLabel3 = ctrl.flavorColumns[3].value(mockFlavors[1]);
+        expect(flavorLabel3).toBe('');
+      });
+
     });
   });
 })();

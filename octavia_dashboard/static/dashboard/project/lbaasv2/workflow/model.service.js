@@ -85,6 +85,8 @@
       subnets: [],
       members: [],
       networks: {},
+      flavors: {},
+      flavorProfiles: {},
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS'],
       l7policyActions: ['REJECT', 'REDIRECT_TO_URL', 'REDIRECT_TO_POOL'],
       l7ruleTypes: ['HOST_NAME', 'PATH', 'FILE_TYPE', 'HEADER', 'COOKIE'],
@@ -149,6 +151,7 @@
           description: null,
           vip_address: null,
           vip_subnet_id: null,
+          flavor_id: null,
           admin_state_up: true
         },
         listener: {
@@ -263,6 +266,8 @@
     function initCreateLoadBalancer(keymanagerPromise) {
       model.context.submit = createLoadBalancer;
       return $q.all([
+        lbaasv2API.getFlavors().then(onGetFlavors),
+        lbaasv2API.getFlavorProfiles().then(onGetFlavorProfiles),
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getPorts().then(onGetPorts),
         neutronAPI.getNetworks().then(onGetNetworks),
@@ -274,6 +279,18 @@
     function onGetNetworks(response) {
       angular.forEach(response.data.items, function(value) {
         model.networks[value.id] = value;
+      });
+    }
+
+    function onGetFlavors(response) {
+      angular.forEach(response.data.items, function(value) {
+        model.flavors[value.id] = value;
+      });
+    }
+
+    function onGetFlavorProfiles(response) {
+      angular.forEach(response.data.items, function(value) {
+        model.flavorProfiles[value.id] = value;
       });
     }
 
@@ -337,10 +354,12 @@
     function initEditLoadBalancer() {
       model.context.submit = editLoadBalancer;
       return $q.all([
+        lbaasv2API.getFlavors().then(onGetFlavors),
+        lbaasv2API.getFlavorProfiles().then(onGetFlavorProfiles),
         lbaasv2API.getLoadBalancer(model.context.id).then(onGetLoadBalancer),
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getNetworks().then(onGetNetworks)
-      ]).then(initSubnet);
+      ]).then(initSubnet).then(initFlavor);
     }
 
     function initEditListener() {
@@ -457,6 +476,10 @@
     function cleanFinalSpecLoadBalancer(finalSpec) {
       var context = model.context;
 
+      if (angular.isObject(finalSpec.loadbalancer.flavor_id)) {
+        finalSpec.loadbalancer.flavor_id = finalSpec.loadbalancer.flavor_id.id;
+      }
+
       // Load balancer requires vip_subnet_id
       if (!finalSpec.loadbalancer.vip_subnet_id) {
         delete finalSpec.loadbalancer;
@@ -466,6 +489,7 @@
 
       // Cannot edit the IP or subnet
       if (context.resource === 'loadbalancer' && context.id) {
+        delete finalSpec.flavor_id;
         delete finalSpec.vip_subnet_id;
         delete finalSpec.vip_address;
       }
@@ -751,6 +775,7 @@
       spec.description = loadbalancer.description;
       spec.vip_address = loadbalancer.vip_address;
       spec.vip_subnet_id = loadbalancer.vip_subnet_id;
+      spec.flavor_id = loadbalancer.flavor_id;
       spec.admin_state_up = loadbalancer.admin_state_up;
     }
 
@@ -890,6 +915,10 @@
         return s.id === model.spec.loadbalancer.vip_subnet_id;
       })[0];
       model.spec.loadbalancer.vip_subnet_id = subnet;
+    }
+
+    function initFlavor() {
+      model.spec.loadbalancer.flavor_id = model.flavors[model.spec.loadbalancer.flavor_id];
     }
 
     function mapSubnetObj(subnetId) {
