@@ -1,6 +1,7 @@
 - project:
     templates:
       - check-requirements
+      - horizon-nodejs4-jobs
       - openstack-python-jobs-horizon
       - openstack-python35-jobs-horizon
       - openstack-python36-jobs-horizon
@@ -10,27 +11,6 @@
     check:
       jobs:
         - openstack-tox-lower-constraints
-        - nodejs-npm-run-lint:
-            vars:
-              node_version: 4
-            required-projects:
-              - openstack/horizon
-        - nodejs-npm-run-test:
-            vars:
-              node_version: 4
-            required-projects:
-              - openstack/horizon
     gate:
       jobs:
         - openstack-tox-lower-constraints
-        - nodejs-npm-run-lint:
-            vars:
-              node_version: 4
-            required-projects:
-              - openstack/horizon
-        - nodejs-npm-run-test:
-            vars:
-              node_version: 4
-            required-projects:
-              - openstack/horizon
-
