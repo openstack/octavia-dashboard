@@ -8,11 +8,13 @@
     check:
       jobs:
         - nodejs-npm-run-lint:
+            nodeset: ubuntu-xenial
             vars:
               node_version: 4
             required-projects:
               - openstack/horizon
         - nodejs-npm-run-test:
+            nodeset: ubuntu-xenial
             vars:
               node_version: 4
             required-projects:
@@ -20,11 +22,13 @@
     gate:
       jobs:
         - nodejs-npm-run-lint:
+            nodeset: ubuntu-xenial
             vars:
               node_version: 4
             required-projects:
               - openstack/horizon
         - nodejs-npm-run-test:
+            nodeset: ubuntu-xenial
             vars:
               node_version: 4
             required-projects:
