@@ -1,14 +1,15 @@
 # Jacky Hu <hudayou@hotmail.com>, 2018. #zanata
+# Tony <tfu@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-17 22:34+0000\n"
+"POT-Creation-Date: 2019-03-20 08:15+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-18 02:53+0000\n"
-"Last-Translator: Jacky Hu <hudayou@hotmail.com>\n"
+"PO-Revision-Date: 2019-03-21 01:01+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -64,6 +65,14 @@ msgstr "添加/移除成员"
 
 msgid "Add/Remove Pool Members"
 msgstr "添加/移除资源池成员"
+
+msgid ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\", \"X-Forwarded-Port\" and \"X-Forwarded-Proto\" "
+"are supported."
+msgstr ""
+"插入到 HTTP 头部的额外报头。\n"
+"仅支持 \"X-Forwarded-For\"、\"X-Forwarded-Port\" 和 \"X-Forwarded-Proto\"。"
 
 msgid "Admin State Up"
 msgstr "管理状态：启动"
@@ -130,6 +139,9 @@ msgstr "备份"
 
 msgid "Backup:"
 msgstr "备份："
+
+msgid "CIDR"
+msgstr "CIDR"
 
 msgid "CONTAINS: String contains."
 msgstr "包含：字符串包含。"
@@ -409,6 +421,12 @@ msgstr "文件类型"
 msgid "Flavor"
 msgstr "类型"
 
+msgid "Flavor Description"
+msgstr "实例类型描述"
+
+msgid "Flavor ID"
+msgstr "实例类型 ID"
+
 msgid "Floating IP"
 msgstr "浮动 IP"
 
@@ -652,6 +670,9 @@ msgstr "无可用实例"
 
 msgid "No items to display."
 msgstr "没有要显示的项目。"
+
+msgid "No matching options"
+msgstr "没有匹配的选项"
 
 msgid "No members have been allocated"
 msgstr "没有成员已分配"
@@ -948,6 +969,9 @@ msgstr ""
 msgid "The expected status code is not valid."
 msgstr "期望状态码无效。"
 
+msgid "The health check interval must be greater than or equal to the timeout."
+msgstr "健康检查间隔必须大于或等于超时时限。"
+
 msgid "The health monitor has been updated."
 msgstr "健康监控器已经更新。"
 
@@ -1149,6 +1173,12 @@ msgstr "URL 路径"
 msgid "URL Path:"
 msgstr "URL 路径："
 
+msgid "Unable to create flavor profile."
+msgstr "无法创建实例类型配置集。"
+
+msgid "Unable to create flavor."
+msgstr "无法创建实例类型。"
+
 msgid "Unable to create health monitor."
 msgstr "无法创建健康监控。"
 
@@ -1202,6 +1232,12 @@ msgid "Unable to delete Pool: %s."
 msgid_plural "Unable to delete Pools: %s."
 msgstr[0] "无法删除资源池：%s。"
 
+msgid "Unable to delete flavor profile."
+msgstr "无法删除实例类型配置集。"
+
+msgid "Unable to delete flavor."
+msgstr "无法删除实例类型。"
+
 msgid "Unable to delete health monitor."
 msgstr "无法删除健康监控。"
 
@@ -1229,6 +1265,18 @@ msgstr "无法从负载均衡器解除浮动IP地址关联：%s。"
 
 msgid "Unable to retrieve SSL certificates."
 msgstr "不能获取 SSL 证书。"
+
+msgid "Unable to retrieve flavor profile."
+msgstr "无法获取实例类型配置集。"
+
+msgid "Unable to retrieve flavor profiles."
+msgstr "无法获取实例类型配置集。"
+
+msgid "Unable to retrieve flavor."
+msgstr "无法获取实例类型。"
+
+msgid "Unable to retrieve flavors."
+msgstr "无法获取实例类型。"
 
 msgid "Unable to retrieve health monitor."
 msgstr "无法获取健康监控。"
@@ -1274,6 +1322,12 @@ msgstr "无法检索资源池。"
 
 msgid "Unable to retrieve secrets."
 msgstr "无法获取密匙。"
+
+msgid "Unable to update flavor profile."
+msgstr "无法更新实例类型配置集。"
+
+msgid "Unable to update flavor."
+msgstr "无法更新实例类型。"
 
 msgid "Unable to update health monitor."
 msgstr "无法更新健康监控。"
@@ -1355,6 +1409,12 @@ msgstr "为是时该规则将被反转。例如，反转为是时相同将变成
 msgid "X-Forwarded-For"
 msgstr "X-Forwarded-For"
 
+msgid "X-Forwarded-Port"
+msgstr "X-Forwarded-Port"
+
+msgid "X-Forwarded-Proto"
+msgstr "X-Forwarded-Proto"
+
 msgid "Yes"
 msgstr "是"
 
@@ -1385,6 +1445,16 @@ msgstr[0] "你选择了“%s”。删除的健康监控器无法恢复。"
 msgid "You have selected \"%s\". Deleted listener is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
 msgstr[0] "你选择了“%s”。删除的监听器无法恢复。"
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Deleted load balancer is not recoverable and this "
+"deletion will delete all of the sub-resources."
+msgid_plural ""
+"You have selected \"%s\". Deleted load balancers are not recoverable and "
+"this deletion will delete all of the sub-resources."
+msgstr[0] ""
+"您选择了 \"%s\"。删除的负载均衡器将无法被恢复，这个删除操作将删除所有子资源。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted member is not recoverable."
