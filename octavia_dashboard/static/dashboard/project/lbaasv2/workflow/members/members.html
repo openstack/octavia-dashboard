@@ -67,7 +67,7 @@
             <td class="rsp-p1">
               <div ng-if="!row.addresses" class="form-group required">
                 <select name="{$ ::row.id $}-subnet" class="form-control"
-                        ng-options="subnet.name for subnet in model.subnets"
+                        ng-options="(subnet.name||subnet.id) for subnet in model.subnets"
                         ng-model="row.subnet_id" ng-required="true"
                         ng-disabled="row.allocatedMember">
                 </select>
