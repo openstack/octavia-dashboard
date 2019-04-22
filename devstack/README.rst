@@ -15,7 +15,7 @@ where
 
 For example:
 
-    enable_plugin octavia-dashboard https://git.openstack.org/openstack/octavia-dashboard
+    enable_plugin octavia-dashboard https://opendev.org/openstack/octavia-dashboard
 
 Once you enable the plugin in your local.conf, ensure ``horizon`` and
 ``o-api`` services are enabled. If both of them are enabled,
