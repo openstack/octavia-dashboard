@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-17 22:34+0000\n"
+"POT-Creation-Date: 2019-04-01 14:36+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-05 12:26+0000\n"
+"PO-Revision-Date: 2019-05-01 10:54+0000\n"
 "Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
@@ -479,6 +479,12 @@ msgstr "파일 타입"
 
 msgid "Flavor"
 msgstr "Flavor"
+
+msgid "Flavor Description"
+msgstr "Flavor 설명"
+
+msgid "Flavor ID"
+msgstr "Flavor ID"
 
 msgid "Floating IP"
 msgstr "플로팅 IP"
@@ -1340,6 +1346,12 @@ msgstr "URL 경로"
 msgid "URL Path:"
 msgstr "URL 경로:"
 
+msgid "Unable to create flavor profile."
+msgstr "Flavor 프로필을 생성할 수 없습니다."
+
+msgid "Unable to create flavor."
+msgstr "Flavor를 생성할 수 없습니다."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to create health monitor."
 msgstr "상태 모니터를 생성할 수 없습니다."
@@ -1397,6 +1409,12 @@ msgid "Unable to delete Pool: %s."
 msgid_plural "Unable to delete Pools: %s."
 msgstr[0] "다음 풀을 삭제할 수 없습니다: %s."
 
+msgid "Unable to delete flavor profile."
+msgstr "Flavor 프로필을 삭제할 수 없습니다."
+
+msgid "Unable to delete flavor."
+msgstr "Flavor를 삭제할 수 없습니다."
+
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to delete health monitor."
 msgstr "상태 모니터를 삭제할 수 없습니다."
@@ -1430,6 +1448,18 @@ msgstr "다음 로드 밸런서에서 Floating IP를 연결 해제 할 수 없�
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve SSL certificates."
 msgstr "SSL 인증을 가져올 수 없습니다."
+
+msgid "Unable to retrieve flavor profile."
+msgstr "Flavor 프로필을 가져올 수 없습니다."
+
+msgid "Unable to retrieve flavor profiles."
+msgstr "Flavor 프로필을 가져올 수 없습니다."
+
+msgid "Unable to retrieve flavor."
+msgstr "Flavor를 가져올 수 없습니다."
+
+msgid "Unable to retrieve flavors."
+msgstr "Flavor를 가져올 수 없습니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve health monitor."
@@ -1484,6 +1514,12 @@ msgstr "풀을 가져올 수 없습니다."
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve secrets."
 msgstr "비밀키를 가져올 수 없습니다."
+
+msgid "Unable to update flavor profile."
+msgstr "Flavor 프로필을 업데이트할 수 없습니다."
+
+msgid "Unable to update flavor."
+msgstr "Flavor를 업데이트할 수 없습니다."
 
 # auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to update health monitor."
