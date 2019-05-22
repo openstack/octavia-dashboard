@@ -75,13 +75,6 @@
               is_enabled: true
             }
           },
-          flavorProfiles: {
-            '79e16118-daba-4255-9d1d-9cc7812e18a1': {
-              id: '79e16118-daba-4255-9d1d-9cc7812e18a1',
-              name: 'flavor_profile_1',
-              provider_name: 'amphora'
-            }
-          },
           subnets: [{}, {}],
           spec: {
             loadbalancer: {
@@ -123,13 +116,13 @@
 
       it('should create flavor shorthand text', function() {
         expect(ctrl.flavorShorthand(mockFlavors[0])).toBe(
-          'flavor_1 (amphora): Flavor 1 description'
+          'flavor_1: Flavor 1 description'
         );
         expect(ctrl.flavorShorthand(mockFlavors[1])).toBe(
-          'flavor_2 (): '
+          'flavor_2: '
         );
         expect(ctrl.flavorShorthand(mockFlavors[2])).toBe(
-          '94306089-5... (): '
+          '94306089-5...: '
         );
       });
 
@@ -159,10 +152,6 @@
         expect(ctrl._checkLoaded).toHaveBeenCalled();
 
         scope.model.flavors = {};
-        scope.$apply();
-        expect(ctrl._checkLoaded).toHaveBeenCalled();
-
-        scope.model.flavorProfiles = {};
         scope.$apply();
         expect(ctrl._checkLoaded).toHaveBeenCalled();
 
@@ -239,12 +228,6 @@
 
         expect(ctrl.flavorColumns[2].label).toBe('Flavor Description');
         expect(ctrl.flavorColumns[2].value).toBe('description');
-
-        expect(ctrl.flavorColumns[3].label).toBe('Provider');
-        var flavorLabel3 = ctrl.flavorColumns[3].value(mockFlavors[0]);
-        expect(flavorLabel3).toBe('amphora');
-        flavorLabel3 = ctrl.flavorColumns[3].value(mockFlavors[1]);
-        expect(flavorLabel3).toBe('');
       });
 
     });

@@ -97,27 +97,15 @@
     }, {
       label: gettext('Flavor Description'),
       value: 'description'
-    }, {
-      label: gettext('Provider'),
-      value: function(flavor) {
-        var flavorProfile = $scope.model.flavorProfiles[flavor.flavor_profile_id];
-        return flavorProfile ? flavorProfile.provider_name : '';
-      }
     }];
 
     ctrl.flavorOptions = [];
 
     ctrl.flavorShorthand = function(flavor) {
-      var flavorProfile = $scope.model.flavorProfiles[flavor.flavor_profile_id];
-
-      var providerText =
-        flavorProfile
-        ? flavorProfile.provider_name
-        : '';
       var flavorText = flavor.name || flavor.id.substring(0, 10) + '...';
       var flavorDescription = flavor.description || '';
 
-      return flavorText + ' (' + providerText + '): ' + flavorDescription;
+      return flavorText + ': ' + flavorDescription;
     };
 
     ctrl.setFlavor = function(option) {
@@ -155,9 +143,6 @@
         ctrl._checkLoaded();
       });
       $scope.$watchCollection('model.flavors', function() {
-        ctrl._checkLoaded();
-      });
-      $scope.$watchCollection('model.flavorProfiles', function() {
         ctrl._checkLoaded();
       });
       $scope.$watch('model.initialized', function() {
