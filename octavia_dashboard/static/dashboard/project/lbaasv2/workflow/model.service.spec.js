@@ -18,7 +18,7 @@
 
   describe('LBaaS v2 Workflow Model Service', function() {
     var model, $q, scope, listenerResources, barbicanEnabled,
-      certificatesError, mockNetworks, mockFlavors, mockFlavorProfiles;
+      certificatesError, mockNetworks, mockFlavors;
     var includeChildResources = true;
 
     beforeEach(module('horizon.framework.util.i18n'));
@@ -103,16 +103,6 @@
         f2: {
           name: 'flavor_2',
           id: 'f2'
-        }
-      };
-      mockFlavorProfiles = {
-        p1: {
-          name: 'flavor_profile_1',
-          id: 'p1'
-        },
-        p2: {
-          name: 'flavor_profile_2',
-          id: 'p2'
         }
       };
     });
@@ -274,19 +264,6 @@
 
           var deferred = $q.defer();
           deferred.resolve({data: {items: flavors}});
-          return deferred.promise;
-        },
-        getFlavorProfiles: function() {
-          var flavorProfiles = [{
-            name: 'flavor_profile_1',
-            id: 'p1'
-          }, {
-            name: 'flavor_profile_2',
-            id: 'p2'
-          }];
-
-          var deferred = $q.defer();
-          deferred.resolve({data: {items: flavorProfiles}});
           return deferred.promise;
         },
         createLoadBalancer: function(spec) {
@@ -534,7 +511,6 @@
         expect(model.subnets.length).toBe(2);
         expect(model.networks).toEqual(mockNetworks);
         expect(model.flavors).toEqual(mockFlavors);
-        expect(model.flavorProfiles).toEqual(mockFlavorProfiles);
         expect(model.members.length).toBe(2);
         expect(model.certificates.length).toBe(2);
         expect(model.listenerPorts.length).toBe(0);
@@ -792,7 +768,6 @@
         expect(model.subnets.length).toBe(2);
         expect(model.networks).toEqual(mockNetworks);
         expect(model.flavors).toEqual(mockFlavors);
-        expect(model.flavorProfiles).toEqual(mockFlavorProfiles);
         expect(model.members.length).toBe(0);
         expect(model.certificates.length).toBe(0);
         expect(model.listenerPorts.length).toBe(0);

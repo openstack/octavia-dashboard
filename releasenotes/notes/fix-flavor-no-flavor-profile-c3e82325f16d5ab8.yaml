@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    Fixes an issue in the Octavia dashboard where users receive a 403
+    error when attempting to create a load balancer. This was due to
+    the dashboard attempting to access the flavor profile information
+    which is an administrator only object by default.

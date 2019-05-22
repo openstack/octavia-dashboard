@@ -86,7 +86,6 @@
       members: [],
       networks: {},
       flavors: {},
-      flavorProfiles: {},
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS'],
       l7policyActions: ['REJECT', 'REDIRECT_TO_URL', 'REDIRECT_TO_POOL'],
       l7ruleTypes: ['HOST_NAME', 'PATH', 'FILE_TYPE', 'HEADER', 'COOKIE'],
@@ -267,7 +266,6 @@
       model.context.submit = createLoadBalancer;
       return $q.all([
         lbaasv2API.getFlavors().then(onGetFlavors),
-        lbaasv2API.getFlavorProfiles().then(onGetFlavorProfiles),
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getPorts().then(onGetPorts),
         neutronAPI.getNetworks().then(onGetNetworks),
@@ -285,12 +283,6 @@
     function onGetFlavors(response) {
       angular.forEach(response.data.items, function(value) {
         model.flavors[value.id] = value;
-      });
-    }
-
-    function onGetFlavorProfiles(response) {
-      angular.forEach(response.data.items, function(value) {
-        model.flavorProfiles[value.id] = value;
       });
     }
 
@@ -355,7 +347,6 @@
       model.context.submit = editLoadBalancer;
       return $q.all([
         lbaasv2API.getFlavors().then(onGetFlavors),
-        lbaasv2API.getFlavorProfiles().then(onGetFlavorProfiles),
         lbaasv2API.getLoadBalancer(model.context.id).then(onGetLoadBalancer),
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getNetworks().then(onGetNetworks)
