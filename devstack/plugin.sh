@@ -8,7 +8,7 @@ function octavia_dashboard_configure {
     oslopolicy-policy-generator --config-file ${OCTAVIA_DIR}/etc/policy/octavia-policy-generator.conf --output-file ${OCTAVIA_DASHBOARD_DIR}/octavia_dashboard/conf/octavia_policy.yaml
     cp -a ${OCTAVIA_DASHBOARD_DIR}/octavia_dashboard/conf/octavia_policy.yaml ${HORIZON_DIR}/openstack_dashboard/conf/
     if [[ -d ${OCTAVIA_DASHBOARD_DIR}/octavia_dashboard/locale ]]; then
-        (cd ${OCTAVIA_DASHBOARD_DIR}/octavia_dashboard; DJANGO_SETTINGS_MODULE=openstack_dashboard.settings python ../manage.py compilemessages)
+        (cd ${OCTAVIA_DASHBOARD_DIR}/octavia_dashboard; DJANGO_SETTINGS_MODULE=openstack_dashboard.settings $PYTHON ../manage.py compilemessages)
     fi
 }
 
