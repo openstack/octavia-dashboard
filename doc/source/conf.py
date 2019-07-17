@@ -52,7 +52,6 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'octavia-dashboard'
 copyright = u'2017, OpenStack Foundation'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
@@ -81,19 +80,15 @@ html_theme_options = {
 html_static_path = []
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = '%sdoc' % project
-
-# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
-# using the given strftime format.
-html_last_updated_fmt = '%Y-%m-%d %H:%M'
+htmlhelp_basename = 'octavia-dashboarddoc'
 
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass
 # [howto/manual]).
 latex_documents = [
     ('index',
-     '%s.tex' % project,
-     u'%s Documentation' % project,
+     'octavia-dashboard.tex',
+     u'octavia-dashboard Documentation',
      u'OpenStack Foundation', 'manual'),
 ]
 
