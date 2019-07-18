@@ -1,13 +1,14 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-02-17 22:34+0000\n"
+"POT-Creation-Date: 2019-07-15 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-13 02:01+0000\n"
+"PO-Revision-Date: 2019-07-17 04:17+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -66,6 +67,15 @@ msgstr "Add/Remove Members"
 
 msgid "Add/Remove Pool Members"
 msgstr "Add/Remove Pool Members"
+
+msgid ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\", \"X-Forwarded-Port\" and \"X-Forwarded-Proto\" "
+"are supported."
+msgstr ""
+"Tambahan headers ke dalam headers HTTP,\n"
+"   hanya \"X-Forwarded-For\", \"X-Forwarded-Port\" dan \"X-Forwarded-Proto\" "
+"didukung."
 
 msgid "Admin State Up"
 msgstr "Admin State Up"
@@ -138,6 +148,9 @@ msgstr "Backup (cadangan)"
 
 msgid "Backup:"
 msgstr "Backup (cadangan):"
+
+msgid "CIDR"
+msgstr "CIDR"
 
 msgid "CONTAINS: String contains."
 msgstr "CONTAINS: String mengandung."
@@ -423,6 +436,12 @@ msgstr "File Type"
 msgid "Flavor"
 msgstr "Flavor"
 
+msgid "Flavor Description"
+msgstr "Deskripsi Flavor"
+
+msgid "Flavor ID"
+msgstr "Flavor ID"
+
 msgid "Floating IP"
 msgstr "Floating IP"
 
@@ -681,6 +700,9 @@ msgstr "Tidak ada instance yang tersedia"
 
 msgid "No items to display."
 msgstr "Tidak ada item untuk ditampilkan."
+
+msgid "No matching options"
+msgstr "Tidak ada opsi yang cocok"
 
 msgid "No members have been allocated"
 msgstr "Tidak ada anggota (member) yang dialokasikan"
@@ -1241,6 +1263,12 @@ msgstr "URL Path"
 msgid "URL Path:"
 msgstr "URL Path:"
 
+msgid "Unable to create flavor profile."
+msgstr "Tidak dapat membuat profil flavor."
+
+msgid "Unable to create flavor."
+msgstr "Tidak dapat membuat flavor."
+
 msgid "Unable to create health monitor."
 msgstr "Tidak dapat membuat health monitor."
 
@@ -1294,6 +1322,12 @@ msgid "Unable to delete Pool: %s."
 msgid_plural "Unable to delete Pools: %s."
 msgstr[0] "Unable to delete Pool: %s."
 
+msgid "Unable to delete flavor profile."
+msgstr "Tidak dapat menghapus profil flavor."
+
+msgid "Unable to delete flavor."
+msgstr "Tidak dapat menghapus flavor."
+
 msgid "Unable to delete health monitor."
 msgstr "Tidak dapat menghapus health monitor."
 
@@ -1321,6 +1355,18 @@ msgstr "Tidak dapat memisahkan alamat IP mengambang dari load balancer: %s."
 
 msgid "Unable to retrieve SSL certificates."
 msgstr "Tidak dapat mengambil sertifikat SSL."
+
+msgid "Unable to retrieve flavor profile."
+msgstr "Tidak dapat mengambil profil flavor."
+
+msgid "Unable to retrieve flavor profiles."
+msgstr "Tidak dapat mengambil profil flavor."
+
+msgid "Unable to retrieve flavor."
+msgstr "Tidak dapat mengambil flavor."
+
+msgid "Unable to retrieve flavors."
+msgstr "Tidak dapat mengambil flavors."
 
 msgid "Unable to retrieve health monitor."
 msgstr "Tidak dapat mengambil health monitor."
@@ -1366,6 +1412,12 @@ msgstr "Tidak dapat mengambil pool."
 
 msgid "Unable to retrieve secrets."
 msgstr "Tidak dapat mengambil rahasia."
+
+msgid "Unable to update flavor profile."
+msgstr "Tidak dapat memperbarui profil flavor."
+
+msgid "Unable to update flavor."
+msgstr "Tidak dapat memperbarui flavor."
 
 msgid "Unable to update health monitor."
 msgstr "Tidak dapat memperbarui health monitor."
@@ -1451,6 +1503,12 @@ msgstr ""
 msgid "X-Forwarded-For"
 msgstr "X-Forwarded-For"
 
+msgid "X-Forwarded-Port"
+msgstr "X-Forwarded-Port"
+
+msgid "X-Forwarded-Proto"
+msgstr "X-Forwarded-Proto"
+
 msgid "Yes"
 msgstr "Yes"
 
@@ -1484,6 +1542,17 @@ msgstr[0] ""
 msgid "You have selected \"%s\". Deleted listener is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
 msgstr[0] "You have selected \"%s\". Deleted listener is not recoverable."
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Deleted load balancer is not recoverable and this "
+"deletion will delete all of the sub-resources."
+msgid_plural ""
+"You have selected \"%s\". Deleted load balancers are not recoverable and "
+"this deletion will delete all of the sub-resources."
+msgstr[0] ""
+"You have selected \"%s\". Deleted load balancer is not recoverable and this "
+"deletion will delete all of the sub-resources."
 
 #, python-format
 msgid "You have selected \"%s\". Deleted member is not recoverable."

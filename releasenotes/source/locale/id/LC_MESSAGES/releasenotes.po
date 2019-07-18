@@ -1,13 +1,14 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-30 22:04+0000\n"
+"POT-Creation-Date: 2019-07-15 08:59+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-06-13 02:03+0000\n"
+"PO-Revision-Date: 2019-07-17 04:31+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -16,6 +17,24 @@ msgstr ""
 
 msgid "1.0.0"
 msgstr "1.0.0"
+
+msgid "1.0.1-6"
+msgstr "1.0.1-6"
+
+msgid "2.0.0"
+msgstr "2.0.0"
+
+msgid "2.0.0-8"
+msgstr "2.0.0-8"
+
+msgid "3.0.0"
+msgstr "3.0.0"
+
+msgid "3.0.0-13"
+msgstr "3.0.0-13"
+
+msgid "3.0.1"
+msgstr "3.0.1"
 
 msgid ""
 "A new dashboard wizard for Octavia. Allows you to create an Octavia load "
@@ -65,14 +84,38 @@ msgstr ""
 "untuk melihat detail bagi pendengar, pool, anggota pool, dan sumber daya "
 "monitor kesehatan."
 
+msgid "Add load balancer flavor support."
+msgstr "Tambahkan dukungan penyeimbang beban."
+
 msgid "Adds L7 policy support to the dashboard."
 msgstr "Menambahkan dukungan kebijakan L7 ke dasbor."
 
 msgid "Adds RBAC support to the dashboard panels."
 msgstr "Menambahkan dukungan RBAC ke panel dasbor."
 
+msgid ""
+"Adds a new UI component which works as a standard select control "
+"alternative. Options in the component are presented in a table which may be "
+"filtered using the select input field. Filtering is done across all table "
+"fields."
+msgstr ""
+"Menambahkan komponen UI baru yang berfungsi sebagai alternatif kontrol pilih "
+"standar. Opsi dalam komponen disajikan dalam tabel yang dapat difilter "
+"menggunakan field input pilih. Pemfilteran dilakukan di semua field tabel."
+
+msgid "Adds the ability to auto refresh detail pages upon action."
+msgstr ""
+"Menambahkan kemampuan untuk me-refresh halaman detail secara otomatis saat "
+"beraksi."
+
 msgid "Adds the ability to set member as backup."
 msgstr "Menambahkan kemampuan untuk mengatur anggota sebagai cadangan."
+
+msgid ""
+"Adds the ability to set the X-Forwarded-Proto insertion header on listeners."
+msgstr ""
+"Menambahkan kemampuan untuk mengatur header penyisipan X-Forwarded-Proto "
+"pada pendengar."
 
 msgid "Adds the ability to set the insertion headers on listeners."
 msgstr "Menambahkan kemampuan untuk mengatur header penyisipan pada pendengar."
@@ -83,12 +126,33 @@ msgstr "Menambahkan kemampuan untuk mengatur opsi timeout pada pendengar."
 msgid "All objects now allow setting the \"Admin State\"."
 msgstr "Semua objek sekarang memungkinkan pengaturan \"Admin State\"."
 
+msgid "Allow cascade deletion of load balancer."
+msgstr "Izinkan penghapusan cascade penyeimbang beban."
+
+msgid "Bug Fixes"
+msgstr "Perbaikan Bug"
+
 msgid "Created at and Updated at times are now visible on the details pages."
 msgstr ""
 "Dibuat dan Diperbarui pada waktu sekarang terlihat pada halaman detail."
 
 msgid "Current Series Release Notes"
 msgstr "Catatan Rilis Seri Saat Ini"
+
+msgid "Fixed an issue where TERMINATED_HTTPS listener type was greyed out."
+msgstr ""
+"Memperbaiki masalah ketika TERMINATED_HTTPS jenis pendengar berwarna kelabu."
+
+msgid ""
+"Fixes an issue in the Octavia dashboard where users receive a 403 error when "
+"attempting to create a load balancer. This was due to the dashboard "
+"attempting to access the flavor profile information which is an "
+"administrator only object by default."
+msgstr ""
+"Memperbaiki masalah di dasbor Octavia tempat pengguna menerima kesalahan 403 "
+"saat mencoba membuat penyeimbang beban. Ini disebabkan oleh dasbor yang "
+"mencoba mengakses informasi profil flavor yang merupakan objek hanya "
+"administrator secara default."
 
 msgid "Health monitors can now change the expected HTTP codes."
 msgstr "Monitor kesehatan sekarang dapat mengubah kode HTTP yang diharapkan."
@@ -150,8 +214,14 @@ msgstr ""
 "Mengaktifkan RBAC di dasbor akan menerapkan kebijakan di dasbor sebelum "
 "panggilan API dibuat."
 
+msgid "Rocky Series Release Notes"
+msgstr "Catatan Rilis Seri Rocky"
+
 msgid "Security Issues"
 msgstr "Masalah Keamanan"
+
+msgid "Stein Series Release Notes"
+msgstr "Catatan Rilis Seri Stein"
 
 msgid ""
 "The Octavia team is excited to release the 1.0.0 version of the Octavia "
@@ -177,9 +247,21 @@ msgstr ""
 "Octavia mungkin tidak dapat diakses melalui dasbor ini. Hanya sumber daya "
 "yang dapat diakses melalui Octavia API yang akan terlihat di dasbor ini."
 
+msgid ""
+"The new component replaces the standard select for subnet selection in the "
+"Load Balancer creation modal wizard."
+msgstr ""
+"Komponen baru menggantikan pemilihan standar untuk pemilihan subnet dalam "
+"panduan modal (modal wizard) pembuatan Load Balancer."
+
 msgid "The object details pages now use a tabbed navigation for child objects."
 msgstr ""
 "Detail objek halaman sekarang menggunakan navigasi tab untuk objek anak."
+
+msgid ""
+"The octavia-dashboard requires openstacksdk > 0.24.0 for flavor support."
+msgstr ""
+"Octavia-dashboard membutuhkan openstacksdk > 0.24.0 untuk dukungan flavor."
 
 msgid ""
 "The octavia-dashboard requires openstacksdk >= 0.10.0 to resolve an issue "
@@ -197,6 +279,13 @@ msgstr "Nama pool sekarang terlihat di drop down pilihan pool selain ID pool."
 
 msgid "The session persistence for a pool can now be changed."
 msgstr "Persistensi sesi untuk pool sekarang dapat diubah."
+
+msgid ""
+"This changed the default behavior of load balancer deletion from non-cascade "
+"deletion to cascade deletion."
+msgstr ""
+"Ini mengubah perilaku default penghapusan penyeimbang beban dari penghapusan "
+"non-cascade menjadi penghapusan cascade."
 
 msgid ""
 "This dashboard can be used alongside the neutron-lbaas-dashboard, but both "
