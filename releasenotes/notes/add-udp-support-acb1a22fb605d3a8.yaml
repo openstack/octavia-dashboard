@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Added UDP protocol support in listeners and pools, added UDP-CONNECT method
+    for health-monitor resources.
