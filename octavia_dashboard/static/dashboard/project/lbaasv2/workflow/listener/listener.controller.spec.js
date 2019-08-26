@@ -68,6 +68,11 @@
         expect(listener.protocol_port).toBeUndefined();
       });
 
+      it('should update port on protocol change to UDP', function() {
+        ctrl.protocolChange('UDP');
+        expect(listener.protocol_port).toBeUndefined();
+      });
+
       it('should update member ports on protocol change to TERMINATED_HTTPS', function() {
         ctrl.protocolChange('TERMINATED_HTTPS');
 
@@ -86,6 +91,14 @@
 
       it('should update member ports on protocol change to TCP', function() {
         ctrl.protocolChange('TCP');
+
+        scope.model.members.concat(scope.model.spec.members).forEach(function(member) {
+          expect(member.port).toBeUndefined();
+        });
+      });
+
+      it('should update member ports on protocol change to UDP', function() {
+        ctrl.protocolChange('UDP');
 
         scope.model.members.concat(scope.model.spec.members).forEach(function(member) {
           expect(member.port).toBeUndefined();
