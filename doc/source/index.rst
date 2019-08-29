@@ -4,9 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to octavia-dashboard's documentation!
-========================================================
-
-Contents:
+=============================================
 
 .. toctree::
    :maxdepth: 2

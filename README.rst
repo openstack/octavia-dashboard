@@ -1,4 +1,7 @@
-========================
+=================
+Octavia Dashboard
+=================
+
 Team and repository tags
 ========================
 
@@ -7,7 +10,6 @@ Team and repository tags
 
 .. Change things from this point on
 
-=================
 octavia-dashboard
 =================
 

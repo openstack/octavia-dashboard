@@ -2,15 +2,21 @@
 Reference
 =========
 
-Indices and search
-------------------
+.. only:: latex
 
-.. toctree::
-   :hidden:
+   Module Reference
+   ----------------
 
-   contributor/modules/modules
+   .. toctree::
+      :hidden:
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+      contributor/modules/modules
 
+.. only:: html
+
+   Indices and search
+   ------------------
+
+   * :ref:`genindex`
+   * :ref:`modindex`
+   * :ref:`search`

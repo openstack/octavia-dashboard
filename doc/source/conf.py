@@ -12,6 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import datetime
 import logging
 import os
 import sys
@@ -35,10 +36,10 @@ extensions = [
     'openstackdocstheme',
     'sphinx.ext.autodoc',
     'sphinx.ext.coverage',
-    # 'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
-    'sphinxcontrib.apidoc'
+    'sphinxcontrib.apidoc',
+    'sphinxcontrib.rsvgconverter'
 ]
 
 # autodoc generation is a bit aggressive and a nuisance when doing heavy
@@ -52,7 +53,17 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-copyright = u'2017, OpenStack Foundation'
+copyright = u'2017-2019, OpenStack Foundation'
+
+# The version info for the project you're documenting, acts as replacement for
+# |version| and |release|, also used in various other places throughout the
+# built documents.
+#
+# Version info
+from octavia_dashboard.version import version_info as octavia_dash_version
+release = octavia_dash_version.release_string()
+# The short X.Y version.
+version = octavia_dash_version.version_string()
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 add_function_parentheses = True
@@ -63,6 +74,23 @@ add_module_names = True
 
 # The name of the Pygments (syntax highlighting) style to use.
 pygments_style = 'sphinx'
+
+# openstackdocstheme options
+repository_name = 'openstack/octavia-dashboard'
+use_storyboard = True
+
+apidoc_output_dir = 'contributor/modules'
+apidoc_module_dir = '../../octavia_dashboard'
+apidoc_excluded_paths = [
+    'tests',
+    'enabled',
+    'locale',
+    'static',
+    'conf',
+    'local_settings.d',
+    'post_install.sh',
+    'karma.conf.js'
+]
 
 # -- Options for HTML output --------------------------------------------------
 
@@ -82,36 +110,69 @@ html_static_path = []
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'octavia-dashboarddoc'
 
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title, author, documentclass
-# [howto/manual]).
-latex_documents = [
-    ('index',
-     'octavia-dashboard.tex',
-     u'octavia-dashboard Documentation',
-     u'OpenStack Foundation', 'manual'),
-]
-
-# Example configuration for intersphinx: refer to the Python standard library.
-# intersphinx_mapping = {'http://docs.python.org/': None}
-
 # A list of ignored prefixes for module index sorting.
 modindex_common_prefix = ['octavia-dashboard.']
 
-# openstackdocstheme options
-repository_name = 'openstack/octavia-dashboard'
-bug_project = '909'
-bug_tag = 'docs'
+# -- Options for LaTeX output -------------------------------------------------
 
-apidoc_output_dir = 'contributor/modules'
-apidoc_module_dir = '../../octavia_dashboard'
-apidoc_excluded_paths = [
-    'tests',
-    'enabled',
-    'locale',
-    'static',
-    'conf',
-    'local_settings.d',
-    'post_install.sh',
-    'karma.conf.js'
-]
+# Fix Unicode character for sphinx_feature_classification
+# Sphinx default latex engine (pdflatex) doesn't know much unicode
+latex_preamble = r"""
+\usepackage{newunicodechar}
+\newunicodechar{✖}{\sffamily X}
+\setcounter{tocdepth}{2}
+\authoraddress{\textcopyright %s OpenStack Foundation}
+""" % datetime.datetime.now().year
+
+latex_elements = {
+    # The paper size ('letterpaper' or 'a4paper').
+    # 'papersize': 'letterpaper',
+
+    # The font size ('10pt', '11pt' or '12pt').
+    # 'pointsize': '10pt',
+
+    # Additional stuff for the LaTeX preamble.
+    # openany: Skip blank pages in generated PDFs
+    'extraclassoptions': 'openany,oneside',
+    'makeindex': '',
+    'printindex': '',
+    'preamble': latex_preamble
+}
+
+# Disable usage of xindy https://bugzilla.redhat.com/show_bug.cgi?id=1643664
+# Some distros are missing xindy
+latex_use_xindy = False
+
+# Fix missing apostrophe
+smartquotes_excludes = {'builders': ['latex']}
+
+# Grouping the document tree into LaTeX files. List of tuples
+# (source start file, target name, title, author, documentclass
+# [howto/manual]).
+latex_documents = [(
+    'index',
+    'doc-octavia-dashboard.tex',
+    u'Octavia Dashboard Documentation',
+    u'OpenStack Octavia Team',
+    'manual'
+)]
+
+# The name of an image file (relative to this directory) to place at the top of
+# the title page.
+# latex_logo = None
+
+# For "manual" documents, if this is true, then toplevel headings are parts,
+# not chapters.
+# latex_use_parts = False
+
+# If true, show page references after internal links.
+# latex_show_pagerefs = False
+
+# If true, show URL addresses after external links.
+# latex_show_urls = False
+
+# Documents to append as an appendix to all manuals.
+# latex_appendices = []
+
+# If false, no module index is generated.
+latex_domain_indices = False
