@@ -7,3 +7,5 @@
       - openstack-python3-train-jobs-horizon
       - publish-openstack-docs-pti
       - release-notes-jobs-python3
+    gate:
+      fail-fast: true
