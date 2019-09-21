@@ -886,6 +886,7 @@
         });
         return 'certificate' in container.refs && 'private_key' in container.refs;
       });
+      var certHrefs = [];
       var secrets = {};
       results[1].data.items.forEach(function addSecret(secret) {
         secrets[secret.secret_ref] = secret;
@@ -897,7 +898,23 @@
           name: secret.name || secret.secret_ref.split('/').reverse()[0],
           expiration: secret.expiration
         });
+        certHrefs.push(secret.secret_ref);
       });
+      // Octavia now supports pkcs12 bundles which are stored as secrets.
+      // If the secret hasn't already been loaded, add it to the list.
+      for (var key in secrets) {
+        if (secrets[key].secret_type !== "opaque") {continue;}
+        var cert = {
+          id: key,
+          name: secrets[key].name || key,
+          expiration: secrets[key].expiration
+        };
+        if (certHrefs.indexOf(key) === -1) {
+          certificates.push(cert);
+          certHrefs.push(key);
+        }
+      }
+
       push.apply(model.certificates, certificates);
     }
 

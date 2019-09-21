@@ -342,11 +342,15 @@
               secret_ref: 'certificate1'
             }, {
               expiration: '2016-03-28T21:10:45.417835',
-              secret_ref: 'certificate2'
+              secret_ref: 'certificate2',
+              secret_type: 'opaque'
             }, {
               secret_ref: 'privatekey1'
             }, {
               secret_ref: 'privatekey2'
+            }, {
+              secret_ref: 'pkcs12',
+              secret_type: 'opaque'
             }
           ];
 
@@ -512,7 +516,7 @@
         expect(model.networks).toEqual(mockNetworks);
         expect(model.flavors).toEqual(mockFlavors);
         expect(model.members.length).toBe(2);
-        expect(model.certificates.length).toBe(2);
+        expect(model.certificates.length).toBe(3);
         expect(model.listenerPorts.length).toBe(0);
         expect(model.spec).toBeDefined();
         expect(model.spec.loadbalancer_id).toBeUndefined();
@@ -550,7 +554,7 @@
         expect(model.initialized).toBe(true);
         expect(model.subnets.length).toBe(2);
         expect(model.members.length).toBe(2);
-        expect(model.certificates.length).toBe(2);
+        expect(model.certificates.length).toBe(3);
         expect(model.listenerPorts.length).toBe(3);
         expect(model.spec).toBeDefined();
         expect(model.spec.loadbalancer_id).toBe('1234');
@@ -1230,7 +1234,7 @@
       });
 
       it('should initialize certificates', function() {
-        expect(model.certificates.length).toBe(2);
+        expect(model.certificates.length).toBe(3);
         expect(model.spec.certificates.length).toBe(1);
         expect(model.spec.certificates[0].id).toBe('container2');
       });
