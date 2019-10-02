@@ -8,42 +8,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-08-26 15:40+0000\n"
+"POT-Creation-Date: 2019-10-01 10:00+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-05-01 10:54+0000\n"
+"PO-Revision-Date: 2019-10-02 04:05+0000\n"
 "Last-Translator: ByungYeol Woo <wby1089@gmail.com>\n"
 "Language-Team: Korean (South Korea)\n"
 "Language: ko_KR\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 #, python-format
 msgid "%(ip)s..."
 msgstr "%(ip)s..."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "A new health monitor is being created."
 msgstr "새로운 상태 모니터가 생성되고 있습니다."
 
 msgid "A new l7 policy is being created."
 msgstr "새로운 l7 정책이 생성되고 있습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "A new listener is being created."
 msgstr "새로운 리스너를 생성하고 있습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "A new load balancer is being created."
 msgstr "새로운 로드 밸런서를 생성하고 있습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "A new pool is being created."
 msgstr "새로운 풀이 생성되고 있습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "A pool represents a group of members over which the load balancing will be "
 "applied."
@@ -58,26 +52,21 @@ msgstr "Action"
 msgid "Action:"
 msgstr "동작:"
 
-# auto translated by TM merge from project: murano-dashboard, version: master, DocId: muranodashboard/locale/django
 msgid "Active"
 msgstr "활성"
 
-# auto translated by TM merge from project: horizon, version: master, DocId: horizon/locale/djangojs
 msgid "Add"
 msgstr "추가"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Add external member"
 msgstr "외부 멤버 추가"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Add members to the load balancer pool."
 msgstr "로드 밸런서 풀에 멤버를 추가합니다."
 
 msgid "Add/Remove Members"
 msgstr "멤버 추가/삭제"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Add/Remove Pool Members"
 msgstr "풀 멤버 추가/삭제"
 
@@ -90,7 +79,6 @@ msgstr ""
 "  \"X-Forwarded-For\", \"X-Forwarded-Port\", \"X-Forwarded-Proto\"만 지원됩니"
 "다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Admin State Up"
 msgstr "관리자 업 상태"
 
@@ -100,7 +88,6 @@ msgstr "알고리즘"
 msgid "Algorithm:"
 msgstr "알고리즘:"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Allocated Members"
 msgstr "할당된 멤버"
 
@@ -130,27 +117,21 @@ msgstr ""
 "백엔드 멤버의 상태 모니터링에 사용되는 대체 프로토콜 포트입니다.\n"
 "  멤버 프로토콜 포트를 모니터하는 기본 설정은 null입니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "An error occurred. Please try again later."
 msgstr "오류가 발생했습니다. 나중에 다시 시도하십시오."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Associate"
 msgstr "연결"
 
-# auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Associate Floating IP"
 msgstr "Floating IP 연결"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Associate Floating IP Address"
 msgstr "Floating IP 주소와 연결"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Associating floating IP with load balancer."
 msgstr "Floating IP와 로드 밸런서 연결"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Available Instances"
 msgstr "사용 가능한 인스턴스"
 
@@ -179,11 +160,9 @@ msgstr ""
 "COOKIE: 규칙은 키 매개변수로 이름붙여진 쿠키를 찾고\n"
 "      규칙 내의 값 매개변수와 비교합니다."
 
-# auto translated by TM merge from project: magnum-ui, version: master, DocId: magnum_ui/locale/djangojs
 msgid "Cancel"
 msgstr "취소"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Certificate Name"
 msgstr "인증서 이름"
 
@@ -199,7 +178,6 @@ msgstr "유형 비교"
 msgid "Compare Type:"
 msgstr "유형 비교:"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Confirm Delete Health Monitor"
 msgid_plural "Confirm Delete Health Monitors"
 msgstr[0] "상태 모니터 삭제 확인"
@@ -224,16 +202,13 @@ msgid "Confirm Delete Member"
 msgid_plural "Confirm Delete Members"
 msgstr[0] "멤버 삭제 확인"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Confirm Delete Pool"
 msgid_plural "Confirm Delete Pools"
 msgstr[0] "풀 삭제 확인"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Confirm Disassociate Floating IP Address"
 msgstr "Floating IP 주소 연결 해제 확인"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Connection Limit"
 msgstr "연결 제한"
 
@@ -249,7 +224,6 @@ msgstr "쿠키"
 msgid "Cookie Name"
 msgstr "쿠키 이름"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Create Health Monitor"
 msgstr "상태 모니터 생성"
 
@@ -259,23 +233,18 @@ msgstr "L7 정책 생성"
 msgid "Create L7 Rule"
 msgstr "L7 규칙 생성"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Create Listener"
 msgstr "리스너 생성"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Create Load Balancer"
 msgstr "로드 밸런서 생성"
 
-# auto translated by TM merge from project: zaqar-ui, version: stable-ocata, DocId: zaqar_ui/locale/djangojs
 msgid "Create Pool"
 msgstr "풀 생성"
 
-# auto translated by TM merge from project: manila-ui, version: master, DocId: manila_ui/locale/django
 msgid "Created At"
 msgstr "생성 시점"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Default Pool ID"
 msgstr "기본 풀 ID"
 
@@ -285,11 +254,9 @@ msgstr "기본 풀 ID:"
 msgid "Default TLS Container Ref"
 msgstr "디폴트 TLS 컨테이너 참조"
 
-# auto translated by TM merge from project: horizon, version: master, DocId: openstack_dashboard/locale/djangojs
 msgid "Degraded"
 msgstr "감소됨"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delay"
 msgstr "지연"
 
@@ -299,7 +266,6 @@ msgstr "지연 (초)"
 msgid "Delay:"
 msgstr "지연:"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delete Health Monitor"
 msgid_plural "Delete Health Monitors"
 msgstr[0] "상태 모니터 삭제"
@@ -321,21 +287,17 @@ msgstr[0] "L7 규칙 삭제"
 msgid "Delete L7 Rules"
 msgstr "L7 규칙 삭제"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delete Listener"
 msgid_plural "Delete Listeners"
 msgstr[0] "리스너 삭제"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delete Listeners"
 msgstr "리스너 삭제"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delete Load Balancer"
 msgid_plural "Delete Load Balancers"
 msgstr[0] "로드 밸런서 삭제"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delete Load Balancers"
 msgstr "로드 밸런서 삭제"
 
@@ -346,7 +308,6 @@ msgstr[0] "멤버 삭제"
 msgid "Delete Members"
 msgstr "멤버 삭제"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
 msgstr[0] "풀 삭제"
@@ -389,19 +350,15 @@ msgid "Deleted Pool: %s."
 msgid_plural "Deleted Pools: %s."
 msgstr[0] "삭제된 풀: %s."
 
-# auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Description"
 msgstr "설명"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Disassociate"
 msgstr "연결 해제"
 
-# auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Disassociate Floating IP"
 msgstr "Floating IP 연결 해제"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 #, python-format
 msgid "Disassociated floating IP address from load balancer: %s."
 msgstr "로드 밸런서에서 Floating IP 주소가 연결 해제됨 : %s."
@@ -412,7 +369,6 @@ msgstr "ENDS_WITH: 문자열로 종료."
 msgid "EQUAL_TO: String is equal to."
 msgstr "EQUAL_TO: 문자열과 동일."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
 "configured separately and\n"
@@ -452,18 +408,15 @@ msgstr "Ends With"
 msgid "Equal To"
 msgstr "Equal To"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Error"
 msgstr "에러"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Expected Codes"
 msgstr "예상 코드"
 
 msgid "Expected Codes:"
 msgstr "예상 코드:"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Expiration Date"
 msgstr "만기 일자"
 
@@ -492,11 +445,9 @@ msgstr "플로팅 IP"
 msgid "Floating IP address or pool"
 msgstr "플로팅 IP 주소 또는 풀"
 
-# auto translated by TM merge from project: openstack-manuals, version: stable-ocata, DocId: doc/networking-guide/source/locale/networking-guide
 msgid "Floating IP addresses"
 msgstr "Floating IP 주소"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Floating IP pools"
 msgstr "Floating IP 풀"
 
@@ -517,7 +468,6 @@ msgstr ""
 "HOST_NAME: 규칙은 요청의 HTTP/1.1 호스트이름과\n"
 "      규칙 내의 값 매개변수를 비교합니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "HTTP Method"
 msgstr "HTTP 메서드"
 
@@ -533,7 +483,6 @@ msgstr "해더"
 msgid "Health Monitor"
 msgstr "상태 모니터"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Health Monitor ID"
 msgstr "상태 모니터 ID"
 
@@ -543,20 +492,16 @@ msgstr "상태 모니터"
 msgid "Host Name"
 msgstr "호스트 이름"
 
-# auto translated by TM merge from project: zaqar-ui, version: master, DocId: zaqar_ui/locale/djangojs
 msgid "ID"
 msgstr "ID"
 
-# auto translated by TM merge from project: tripleo-ui, version: master, DocId: i18n/messages
 msgid "IP Address"
 msgstr "IP 주소"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 #, python-format
 msgid "IP Addresses (%(count)s)"
 msgstr "IP 주소 (%(count)s)"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "IP address"
 msgstr "IP 주소"
 
@@ -576,7 +521,6 @@ msgstr ""
 "않은 경우\n"
 "   하나가 할당될 것입니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
 "certificates must\n"
@@ -586,7 +530,6 @@ msgstr ""
 "가 \n"
 "선택되어야 합니다. 첫 인증서는 기본값이 됩니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Inactive"
 msgstr "비활성"
 
@@ -647,41 +590,33 @@ msgstr ""
 "LEAST_CONNECTIONS: 활성화된 연결이 가장 적은 인스턴스로\n"
 "      요청을 할당합니다."
 
-# auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Least Connections"
 msgstr "최소 연결"
 
 msgid "Listener"
 msgstr "리스너"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Listener Details"
 msgstr "리스너 세부정보"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Listener ID"
 msgstr "리스너 ID"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Listeners"
 msgstr "리스너"
 
 msgid "Load Balancer"
 msgstr "로드 밸런서"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Load Balancer Details"
 msgstr "로드 밸런서 세부정보"
 
-# auto translated by TM merge from project: octavia-dashboard, version: master, DocId: octavia_dashboard/locale/django
 msgid "Load Balancers"
 msgstr "로드 밸런서"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Loading"
 msgstr "불러오는 중"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Max Retries"
 msgstr "최대 재시도"
 
@@ -709,11 +644,9 @@ msgstr "멤버 데이터 타임아웃"
 msgid "Member Data Timeout:"
 msgstr "멤버 데이터 타임아웃:"
 
-# auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Members"
 msgstr "멤버"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "Members are the actual IP addresses that will receive traffic from the load "
 "balancer. Each\n"
@@ -728,7 +661,6 @@ msgstr "모니터 주소"
 msgid "Monitor Address:"
 msgstr "모니터 주소:"
 
-# auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Monitor Details"
 msgstr "모니터 세부 정보"
 
@@ -738,7 +670,6 @@ msgstr "모니터 포트"
 msgid "Monitor Port:"
 msgstr "모니터 포트:"
 
-# auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Name"
 msgstr "이름"
 
@@ -754,42 +685,33 @@ msgstr "아니오"
 msgid "No Monitor"
 msgstr "모니터 없음"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "No available certificates"
 msgstr "이용 가능한 인증서가 없음"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "No available instances"
 msgstr "사용 가능한 인스턴스가 없음"
 
-# auto translated by TM merge from project: horizon, version: master, DocId: openstack_dashboard/locale/djangojs
 msgid "No items to display."
 msgstr "표시할 항목이 없습니다."
 
 msgid "No matching options"
 msgstr "매칭되는 옵션이 없음"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "No members have been allocated"
 msgstr "할당된 멤버가 없음"
 
-# auto translated by TM merge from project: horizon, version: master, DocId: openstack_dashboard/locale/djangojs
 msgid "None"
 msgstr "없음"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Offline"
 msgstr "오프라인"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Online"
 msgstr "온라인"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Operating Status"
 msgstr "운영 상태"
 
-# auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Overview"
 msgstr "개요"
 
@@ -803,15 +725,12 @@ msgstr ""
 msgid "Path"
 msgstr "경로"
 
-# auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Pending Create"
 msgstr "생성 대기중"
 
-# auto translated by TM merge from project: horizon, version: master-old-keepforstatistics, DocId: openstack_dashboard/locale/djangojs
 msgid "Pending Delete"
 msgstr "삭제 대기중"
 
-# auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Pending Update"
 msgstr "업데이트 대기중"
 
@@ -821,11 +740,9 @@ msgstr "기다려 주십시오"
 msgid "Pool"
 msgstr "풀"
 
-# auto translated by TM merge from project: horizon, version: stable-mitaka, DocId: openstack_dashboard/locale/django
 msgid "Pool Details"
 msgstr "풀 세부 정보"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Pool Members"
 msgstr "풀 멤버"
 
@@ -835,11 +752,9 @@ msgstr "풀 멤버가 업데이트 되었습니다."
 msgid "Pools"
 msgstr "풀"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Port"
 msgstr "포트"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Port ID"
 msgstr "포트 ID"
 
@@ -855,22 +770,18 @@ msgstr "위치: "
 msgid "Project"
 msgstr "프로젝트"
 
-# auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Project ID"
 msgstr "프로젝트 ID"
 
-# auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Protocol"
 msgstr "프로토콜"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Protocol Port"
 msgstr "프로토콜 포트"
 
 msgid "Protocol:"
 msgstr "프로토콜:"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Provide the details for the health monitor."
 msgstr "상태 모니터의 세부 사항을 제공하십시오."
 
@@ -880,26 +791,21 @@ msgstr "L7 정책의 세부 사항을 제공하세요."
 msgid "Provide the details for the l7 rule."
 msgstr "L7 규칙에 대한 세부 사항 제공."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Provide the details for the listener."
 msgstr "리스너에 대한 자세한 정보를 제공하십시오."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Provide the details for the load balancer."
 msgstr "로드 밸런서에 대한 자세한 정보를 제공하십시오."
 
 msgid "Provide the details for the member."
 msgstr "멤버에 대한 세부 사항을 제공하십시오."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Provide the details for the pool."
 msgstr "풀에 대한 세부 사항을 제공하십시오."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Provider"
 msgstr "프로바이더"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Provisioning Status"
 msgstr "프로비저닝 상태"
 
@@ -952,7 +858,6 @@ msgstr "정규표현식"
 msgid "Reject"
 msgstr "거부"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Remove"
 msgstr "제거"
 
@@ -970,7 +875,6 @@ msgstr ""
 "이 정책에 매칭되는 요청은 이 URL로 리디렉트 됩니다. REDIRECT_TO_URL 동작일때"
 "만 유효합니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Round Robin"
 msgstr "라운드 로빈"
 
@@ -990,36 +894,30 @@ msgstr ""
 msgid "SOURCE_IP: Session persistence based on source ip."
 msgstr "SOURCE_IP: 세션 지속성 기반의 소스 ip."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "SSL Certificates"
 msgstr "SSL 인증서"
 
 msgid "STARTS_WITH: String starts with."
 msgstr "STARTS_WITH: 문자열로 시작."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "Select a floating IP address to associate with the load balancer or a "
 "floating IP pool in which to allocate a new floating IP address."
 msgstr ""
 "로드밸런서나 Floating IP 풀과 연결하기 위하여 Floating IP 주소를 선택합니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Select certificates from the available certificates below"
 msgstr "아래의 이용 가능한 인증서 중에서 선택"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Select one or more SSL certificates for the listener."
 msgstr "리스너에 대한 하나 이상의 SSL 인증서를 선택하십시오."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Session Persistence"
 msgstr "세션 지속성"
 
 msgid "Session Persistence:"
 msgstr "세션 지속성:"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Source IP"
 msgstr "소스 IP"
 
@@ -1029,7 +927,6 @@ msgstr "Starts With"
 msgid "Subnet"
 msgstr "서브넷"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Subnet ID"
 msgstr "서브넷 ID"
 
@@ -1042,7 +939,6 @@ msgstr "TCP 검사 타임아웃"
 msgid "TCP Inspect Timeout:"
 msgstr "TCP 검사 타임아웃:"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "The Available Instances table contains existing compute instances that can "
 "be added as members\n"
@@ -1062,7 +958,6 @@ msgstr "상태 체크를 수행하기 위한 HTTP 메소드."
 msgid "The ID of the pool used by the listener if no L7 policies match."
 msgstr "매칭되는 L7 정책이 없는 경우 리스너에서 사용하는 풀 ID"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The IP address is not valid."
 msgstr "IP 주소가 유효하지 않습니다."
 
@@ -1081,7 +976,6 @@ msgstr "L7 정책 동작. REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL 중 하�
 msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
 msgstr "L7 규칙 유형. COOKIE, FILE_TYPE, HEADER, HOST_NAME, PATH 중 하나."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The URL path is not valid."
 msgstr "URL 경로가 유효하지 않습니다."
 
@@ -1106,19 +1000,15 @@ msgstr ""
 "  쉼표로 구분된 숫자 리스트이거나 두 개의 숫자가 하이픈으로 구별된 범주이어"
 "야 합니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The expected status code is not valid."
 msgstr "예상된 상태 코드가 유효하지 않습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The health check interval must be greater than or equal to the timeout."
 msgstr "상태 체크 간격은 타임아웃 값 이상이어야 합니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The health monitor has been updated."
 msgstr "상태 모니터가 업데이트 되었습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "The health monitor is used to determine the health of your pool members. "
 "Health checks\n"
@@ -1152,7 +1042,6 @@ msgstr "L7 정책이 업데이트 되었습니다."
 msgid "The l7rule has been updated."
 msgstr "L7 규칙이 업데이트 되었습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The listener has been updated."
 msgstr "리스너가 업데이트 되었습니다."
 
@@ -1160,11 +1049,9 @@ msgid ""
 "The load balancer algorithm that distributes traffic to the pool members."
 msgstr "풀 멤버에게 트래픽을 분배시키는 로드 밸런서 알고리즘."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The load balancer has been updated."
 msgstr "로드 밸런서가 업데이트 되었습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "The load balancer occupies a neutron network port and has an IP address "
 "assigned from a subnet."
@@ -1172,7 +1059,6 @@ msgstr ""
 "로드 밸런서는 뉴트론 네트워크 포트를 사용하고 서브넷에서 할당된 IP를 가집니"
 "다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The max retry count must be a number between 1 and 10."
 msgstr "최대 재시도 횟수는 1 ~ 10 사이입니다."
 
@@ -1215,19 +1101,15 @@ msgstr ""
 "재시도 횟수를 초과하여 연결이 실패하면 멤버는 비활성화 되고, 재시도 횟수는\n"
 "   1에서 10까지의 숫자이어야 합니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The pool has been updated."
 msgstr "풀이 업데이트 되었습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The pool members have been updated."
 msgstr "풀 멤버가 업데이트 되었습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The port must be a number between 1 and 65535."
 msgstr "포트 번호는 1 ~ 65535 사이 숫자이어야 합니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid ""
 "The port must be unique among all listeners attached to this load balancer."
 msgstr "이 로드 밸런서에 연결되는 모든 리스너에서 포트는 유일해야 합니다."
@@ -1261,6 +1143,13 @@ msgstr ""
 "는 \n"
 "  권한이 있어야 이용이 가능합니다."
 
+msgid ""
+"The protocol for which this pool and its members listen. A valid value is "
+"HTTP, HTTPS, PROXY, TCP or UDP."
+msgstr ""
+"풀 및 풀 구성원이 리스닝하는 프로토콜. 유효한 값은 HTTP, HTTPS, PROXY, TCP 또"
+"는 UDP가 있습니다."
+
 msgid "The redirect url must be a valid http or https url."
 msgstr "리디렉션 url은 유효한 http 또는 https url이어야 합니다."
 
@@ -1281,7 +1170,6 @@ msgstr ""
 msgid "The timeout must be a number between 0 and 31536000000."
 msgstr "타임아웃은 0에서 3153600000까지의 숫자여야 합니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The timeout must be a number greater than or equal to 0."
 msgstr "타임아웃 시간은 0 이상이어야 합니다."
 
@@ -1293,7 +1181,6 @@ msgid ""
 "The value to use for the comparison. For example, the file type to compare."
 msgstr "비교에 사용되는 키. 예를 들어, 비교에 사용되는 파일 유형."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "The weight must be a number between 1 and 256."
 msgstr "가중치는 반드시 숫자 1과 256사이여야 합니다."
 
@@ -1315,7 +1202,6 @@ msgstr ""
 "컨텐츠 검사 용으로 부가적인 TCP 패킷을 기다리기 위한\n"
 "  시간 (밀리 초). 기본값: 0."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Timeout"
 msgstr "제한시간"
 
@@ -1325,14 +1211,12 @@ msgstr "타임아웃 (초)"
 msgid "Timeout:"
 msgstr "타임아웃:"
 
-# auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Type"
 msgstr "유형"
 
 msgid "Type:"
 msgstr "유형:"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "URL Path"
 msgstr "URL 경로"
 
@@ -1345,7 +1229,6 @@ msgstr "Flavor 프로필을 생성할 수 없습니다."
 msgid "Unable to create flavor."
 msgstr "Flavor를 생성할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to create health monitor."
 msgstr "상태 모니터를 생성할 수 없습니다."
 
@@ -1355,15 +1238,12 @@ msgstr "L7 정책을 생성하지 못했습니다."
 msgid "Unable to create l7 rule."
 msgstr "L7 규칙을 생성하지 못했습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to create listener."
 msgstr "리스너를 생성할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to create load balancer."
 msgstr "로드 밸런서를 생성할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to create pool."
 msgstr "풀을 생성할 수 없습니다."
 
@@ -1408,7 +1288,6 @@ msgstr "Flavor 프로필을 삭제할 수 없습니다."
 msgid "Unable to delete flavor."
 msgstr "Flavor를 삭제할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to delete health monitor."
 msgstr "상태 모니터를 삭제할 수 없습니다."
 
@@ -1418,27 +1297,22 @@ msgstr "L7 정책을 삭제하지 못했습니다."
 msgid "Unable to delete l7 rule."
 msgstr "L7 규칙을 삭제하지 못했습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to delete listener."
 msgstr "리스너를 삭제할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to delete load balancer."
 msgstr "로드 밸런서를 삭제할 수 없습니다."
 
 msgid "Unable to delete member."
 msgstr "멤버를 삭제할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to delete pool."
 msgstr "풀을 삭제할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 #, python-format
 msgid "Unable to disassociate floating IP address from load balancer: %s."
 msgstr "다음 로드 밸런서에서 Floating IP를 연결 해제 할 수 없습니다: %s"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve SSL certificates."
 msgstr "SSL 인증을 가져올 수 없습니다."
 
@@ -1454,7 +1328,6 @@ msgstr "Flavor를 가져올 수 없습니다."
 msgid "Unable to retrieve flavors."
 msgstr "Flavor를 가져올 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve health monitor."
 msgstr "상태 모니터를 가져올 수 없습니다."
 
@@ -1473,38 +1346,30 @@ msgstr "L7 규칙을 찾을 수 없습니다."
 msgid "Unable to retrieve l7 rules."
 msgstr "L7 규칙들을 찾을 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve listener."
 msgstr "리스너를 가져올 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve listeners."
 msgstr "리스너를 가져올 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve load balancer."
 msgstr "로드 밸런서를 가져올 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve load balancers."
 msgstr "로드 밸런서를 가져올 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve member."
 msgstr "멤버를 가져올 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve members."
 msgstr "멤버를 가져올 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve pool."
 msgstr "풀을 가져올 수 없습니다."
 
 msgid "Unable to retrieve pools."
 msgstr "풀을 가져올 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to retrieve secrets."
 msgstr "비밀키를 가져올 수 없습니다."
 
@@ -1514,7 +1379,6 @@ msgstr "Flavor 프로필을 업데이트할 수 없습니다."
 msgid "Unable to update flavor."
 msgstr "Flavor를 업데이트할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to update health monitor."
 msgstr "상태 모니터를 업데이트할 수 없습니다."
 
@@ -1524,31 +1388,24 @@ msgstr "L7 정책을 갱신하지 못했습니다."
 msgid "Unable to update l7 rule."
 msgstr "L7 규칙을 갱신하지 못했습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to update listener."
 msgstr "리스너를 업데이트할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to update load balancer."
 msgstr "로드 밸런서를 업데이트할 수 없습니다. "
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to update member list."
 msgstr "멤버 목록을 업데이트할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to update member."
 msgstr "멤버를 업데이트할 수 없습니다."
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Unable to update pool."
 msgstr "풀을 업데이트할 수 없습니다."
 
-# auto translated by TM merge from project: zun-ui, version: master, DocId: zun_ui/locale/djangojs
 msgid "Update"
 msgstr "업데이트"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Update Health Monitor"
 msgstr "상태 모니터 업데이트"
 
@@ -1558,22 +1415,18 @@ msgstr "L7 정책 업데이트"
 msgid "Update L7 Rule"
 msgstr "L7 규칙 업데이트"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Update Listener"
 msgstr "리스너 업데이트"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: master, DocId: neutron_lbaas_dashboard/locale/djangojs
 msgid "Update Load Balancer"
 msgstr "로드 밸런서 업데이트"
 
 msgid "Update Member"
 msgstr "멤버 업데이트"
 
-# auto translated by TM merge from project: zaqar-ui, version: stable-ocata, DocId: zaqar_ui/locale/djangojs
 msgid "Update Pool"
 msgstr "풀 업데이트"
 
-# auto translated by TM merge from project: manila-ui, version: master, DocId: manila_ui/locale/django
 msgid "Updated At"
 msgstr "업데이트"
 
@@ -1593,7 +1446,6 @@ msgstr "값"
 msgid "Value:"
 msgstr "값:"
 
-# auto translated by TM merge from project: zaqar-ui, version: master, DocId: zaqar_ui/locale/djangojs
 msgid "Weight"
 msgstr "가중치"
 
@@ -1619,7 +1471,6 @@ msgstr "X-Forwarded-Proto"
 msgid "Yes"
 msgstr "예"
 
-# auto translated by TM merge from project: neutron-lbaas-dashboard, version: stable-ocata, DocId: neutron_lbaas_dashboard/locale/djangojs
 #, python-format
 msgid ""
 "You are about to disassociate the floating IP address from load balancer \"%s"
