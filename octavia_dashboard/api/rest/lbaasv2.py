@@ -662,7 +662,7 @@ def add_floating_ip_info(request, loadbalancers):
     for lb in loadbalancers:
         floating_ip = {}
         associated_ip = next((fip for fip in floating_ips
-                              if fip['fixed_ip'] == lb['vip_address']), None)
+                              if fip['port_id'] == lb['vip_port_id']), None)
         if associated_ip is not None:
             floating_ip['id'] = associated_ip['id']
             floating_ip['ip'] = associated_ip['ip']
