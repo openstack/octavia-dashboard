@@ -17,7 +17,7 @@
   "bugs": "https://storyboard.openstack.org/#!/project/909",
   "license": "Apache 2.0",
   "devDependencies": {
-    "eslint": "1.10.3",
+    "eslint": "4.18.2",
     "eslint-config-openstack": "1.2.4",
     "eslint-plugin-angular": "1.0.1",
     "jasmine-core": "2.4.1",
