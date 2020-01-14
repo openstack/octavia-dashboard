@@ -14,7 +14,7 @@
 """API over the neutron LBaaS v2 service.
 """
 
-from six.moves import _thread as thread
+import _thread as thread
 from time import sleep
 
 from django.conf import settings
