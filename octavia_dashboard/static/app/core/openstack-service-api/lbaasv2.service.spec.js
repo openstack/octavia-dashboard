@@ -330,6 +330,14 @@
         testInput: [ '1234' ]
       },
       {
+        func: 'getAvailabilityZones',
+        method: 'get',
+        path: '/api/lbaas/availabilityzones/',
+        error: 'Unable to retrieve availability zones.',
+        testInput: [],
+        data: { params: {} }
+      },
+      {
         func: 'createLoadBalancer',
         method: 'post',
         path: '/api/lbaas/loadbalancers/',

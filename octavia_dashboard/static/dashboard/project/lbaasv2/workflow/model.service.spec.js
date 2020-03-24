@@ -18,7 +18,8 @@
 
   describe('LBaaS v2 Workflow Model Service', function() {
     var model, $q, scope, listenerResources, barbicanEnabled,
-      certificatesError, mockNetworks, mockFlavors;
+      certificatesError, mockNetworks, mockFlavors,
+      mockAvailabilityZones;
     var includeChildResources = true;
 
     beforeEach(module('horizon.framework.util.i18n'));
@@ -105,6 +106,16 @@
           id: 'f2'
         }
       };
+      mockAvailabilityZones = {
+        az_1: {
+          name: 'az_1',
+          id: 'az1'
+        },
+        az_2: {
+          name: 'az_2',
+          id: 'az2'
+        }
+      };
     });
 
     beforeEach(module(function($provide) {
@@ -129,6 +140,7 @@
             vip_address: '1.2.3.4',
             vip_subnet_id: 'subnet-1',
             flavor_id: 'flavor-1',
+            availability_zone: 'az-1',
             description: ''
           };
 
@@ -264,6 +276,19 @@
 
           var deferred = $q.defer();
           deferred.resolve({data: {items: flavors}});
+          return deferred.promise;
+        },
+        getAvailabilityZones: function() {
+          var availabilityZones = [{
+            name: 'az_1',
+            id: 'az1'
+          }, {
+            name: 'az_2',
+            id: 'az2'
+          }];
+
+          var deferred = $q.defer();
+          deferred.resolve({data: {items: availabilityZones}});
           return deferred.promise;
         },
         createLoadBalancer: function(spec) {
@@ -517,6 +542,7 @@
         expect(model.subnets.length).toBe(2);
         expect(model.networks).toEqual(mockNetworks);
         expect(model.flavors).toEqual(mockFlavors);
+        expect(model.availability_zones).toEqual(mockAvailabilityZones);
         expect(model.members.length).toBe(2);
         expect(model.certificates.length).toBe(3);
         expect(model.listenerPorts.length).toBe(0);
@@ -774,6 +800,7 @@
         expect(model.subnets.length).toBe(2);
         expect(model.networks).toEqual(mockNetworks);
         expect(model.flavors).toEqual(mockFlavors);
+        expect(model.availability_zones).toEqual(mockAvailabilityZones);
         expect(model.members.length).toBe(0);
         expect(model.certificates.length).toBe(0);
         expect(model.listenerPorts.length).toBe(0);
@@ -1270,7 +1297,7 @@
       // to implement tests for them.
       it('has the right number of properties', function() {
         expect(Object.keys(model.spec).length).toBe(11);
-        expect(Object.keys(model.spec.loadbalancer).length).toBe(6);
+        expect(Object.keys(model.spec.loadbalancer).length).toBe(7);
         expect(Object.keys(model.spec.listener).length).toBe(14);
         expect(Object.keys(model.spec.l7policy).length).toBe(8);
         expect(Object.keys(model.spec.l7rule).length).toBe(7);
@@ -1519,6 +1546,8 @@
         model.spec.loadbalancer.vip_address = '1.2.3.4';
         model.spec.loadbalancer.vip_subnet_id = model.subnets[0];
         model.spec.loadbalancer.flavor_id = model.flavors[Object.keys(model.flavors)[0]];
+        model.spec.loadbalancer.availability_zone = model.availability_zones[
+          Object.keys(model.availability_zones)[0]];
         model.spec.listener.protocol = 'TCP';
         model.spec.listener.protocol_port = 80;
         model.spec.listener.connection_limit = 999;
@@ -1621,6 +1650,8 @@
         model.spec.loadbalancer.vip_address = '1.2.3.4';
         model.spec.loadbalancer.vip_subnet_id = model.subnets[0];
         model.spec.loadbalancer.flavor_id = model.flavors[Object.keys(model.flavors)[0]];
+        model.spec.loadbalancer.availability_zone = model.availability_zones[
+          Object.keys(model.availability_zones)[0]];
         model.spec.listener.protocol = 'TERMINATED_HTTPS';
         model.spec.listener.protocol_port = 443;
         model.spec.listener.connection_limit = 9999;

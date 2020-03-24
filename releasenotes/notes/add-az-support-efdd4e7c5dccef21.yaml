@@ -1,0 +1,4 @@
+---
+features:
+  - |
+    Added support for availability zones. Can now create a LB in a specific AZ.

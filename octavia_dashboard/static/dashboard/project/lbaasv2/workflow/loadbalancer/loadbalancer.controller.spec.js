@@ -22,7 +22,7 @@
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     describe('LoadBalancerDetailsController', function() {
-      var ctrl, scope, mockSubnets, mockFlavors;
+      var ctrl, scope, mockSubnets, mockFlavors, mockAvailabilityZones;
       beforeEach(inject(function($controller, $rootScope) {
         mockSubnets = [{
           id: '7262744a-e1e4-40d7-8833-18193e8de191',
@@ -59,6 +59,26 @@
           is_enabled: true
         }];
 
+        mockAvailabilityZones = [{
+          id: '11eddb23-1f01-4926-9af7-36d9a8938ae4',
+          availability_zone_profile_id: 'f44f46ee-5f19-4515-b930-b62c9649081d',
+          name: 'az_1',
+          description: 'AZ 1 description',
+          is_enabled: true
+        }, {
+          id: '2a83c5f3-c2e6-44cb-ac02-e06617c2b7ca',
+          availability_zone_profile_id: '52dacdb9-c20d-4f49-9c0a-a957befaf27a',
+          name: 'az_2',
+          description: 'AZ 2 description',
+          is_enabled: true
+        }, {
+          id: 'ff89a83c-3819-44e6-8383-f42d3a270f5f',
+          availability_zone_profile_id: '9fe93b65-85cc-4f86-a2d9-45f78eb909d0',
+          name: 'az_3',
+          description: 'AZ 3 description',
+          is_enabled: true
+        }];
+
         scope = $rootScope.$new();
         scope.model = {
           networks: {
@@ -75,6 +95,15 @@
               is_enabled: true
             }
           },
+          availability_zones: {
+            '11eddb23-1f01-4926-9af7-36d9a8938ae4': {
+              id: '11eddb23-1f01-4926-9af7-36d9a8938ae4',
+              availability_zone_profile_id: 'f44f46ee-5f19-4515-b930-b62c9649081d',
+              name: 'az_1',
+              description: 'AZ 1 description',
+              is_enabled: true
+            }
+          },
           subnets: [{}, {}],
           spec: {
             loadbalancer: {
@@ -88,6 +117,7 @@
 
         spyOn(ctrl, 'buildSubnetOptions').and.callThrough();
         spyOn(ctrl, 'buildFlavorOptions').and.callThrough();
+        spyOn(ctrl, 'buildAvailabilityZoneOptions').and.callThrough();
         spyOn(ctrl, '_checkLoaded').and.callThrough();
       }));
 
@@ -126,6 +156,18 @@
         );
       });
 
+      it('should create az shorthand text', function() {
+        expect(ctrl.availabilityZoneShorthand(mockAvailabilityZones[0])).toBe(
+          'az_1'
+        );
+        expect(ctrl.availabilityZoneShorthand(mockAvailabilityZones[1])).toBe(
+          'az_2'
+        );
+        expect(ctrl.availabilityZoneShorthand(mockAvailabilityZones[2])).toBe(
+          'az_3'
+        );
+      });
+
       it('should set subnet', function() {
         ctrl.setSubnet(mockSubnets[0]);
         expect(scope.model.spec.loadbalancer.vip_subnet_id).toBe(mockSubnets[0]);
@@ -140,6 +182,13 @@
         expect(scope.model.spec.loadbalancer.flavor_id).toBe(null);
       });
 
+      it('should set availability zone', function() {
+        ctrl.setAvailabilityZone(mockAvailabilityZones[0]);
+        expect(scope.model.spec.loadbalancer.availability_zone).toBe(mockAvailabilityZones[0].name);
+        ctrl.setAvailabilityZone(null);
+        expect(scope.model.spec.loadbalancer.availability_zone).toBe(null);
+      });
+
       it('should initialize watchers', function() {
         ctrl.$onInit();
 
@@ -152,6 +201,10 @@
         expect(ctrl._checkLoaded).toHaveBeenCalled();
 
         scope.model.flavors = {};
+        scope.$apply();
+        expect(ctrl._checkLoaded).toHaveBeenCalled();
+
+        scope.model.availability_zones = {};
         scope.$apply();
         expect(ctrl._checkLoaded).toHaveBeenCalled();
 
@@ -217,6 +270,14 @@
         //expect(ctrl.buildSubnetOptions).toHaveBeenCalled();
       });
 
+      it('should initialize availability zone watcher', function() {
+        ctrl.$onInit();
+
+        scope.model.availability_zones = {};
+        scope.$apply();
+        //expect(ctrl.buildSubnetOptions).toHaveBeenCalled();
+      });
+
       it('should produce flavor column data', function() {
         expect(ctrl.flavorColumns).toBeDefined();
 
@@ -228,6 +289,13 @@
 
         expect(ctrl.flavorColumns[2].label).toBe('Flavor Description');
         expect(ctrl.flavorColumns[2].value).toBe('description');
+      });
+
+      it('should produce availability zone column data', function() {
+        expect(ctrl.availabilityZoneColumns).toBeDefined();
+
+        expect(ctrl.availabilityZoneColumns[0].label).toBe('Availability Zone');
+        expect(ctrl.availabilityZoneColumns[0].value).toBe('name');
       });
 
     });

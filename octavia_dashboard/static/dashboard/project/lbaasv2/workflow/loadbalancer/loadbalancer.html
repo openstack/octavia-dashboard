@@ -39,6 +39,28 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="form-group">
         <label class="control-label">
+          <translate>Availability Zone</translate>
+        </label>
+        <!-- value="model.spec.loadbalancer.availability_zone" -->
+        <filter-select
+          shorthand="ctrl.availabilityZoneShorthand"
+
+          on-select="ctrl.setAvailabilityZone(option)"
+          disabled="model.context.id"
+          columns="ctrl.availabilityZoneColumns"
+          options="ctrl.availabilityZoneOptions"
+          loaded="ctrl.dataLoaded"
+
+          ng-model="model.spec.loadbalancer.availability_zone"
+        ></filter-select>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <label class="control-label">
           <translate>Flavor</translate>
         </label>
         <!-- value="model.spec.loadbalancer.flavor_id" -->

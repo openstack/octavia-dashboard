@@ -126,29 +126,23 @@ def poll_loadbalancer_status(request, loadbalancer_id, callback,
 def create_loadbalancer(request):
     data = request.DATA
 
-    flavor_id = data['loadbalancer'].get('flavor_id')
-
     conn = _get_sdk_connection(request)
+    build_kwargs = dict(
+        project_id=request.user.project_id,
+        vip_subnet_id=data['loadbalancer']['vip_subnet_id'],
+        name=data['loadbalancer'].get('name'),
+        description=data['loadbalancer'].get('description'),
+        vip_address=data['loadbalancer'].get('vip_address'),
+        admin_state_up=data['loadbalancer'].get('admin_state_up'),
+    )
+    flavor_id = data['loadbalancer'].get('flavor_id')
     if flavor_id:
-        loadbalancer = conn.load_balancer.create_load_balancer(
-            project_id=request.user.project_id,
-            vip_subnet_id=data['loadbalancer']['vip_subnet_id'],
-            name=data['loadbalancer'].get('name'),
-            description=data['loadbalancer'].get('description'),
-            vip_address=data['loadbalancer'].get('vip_address'),
-            admin_state_up=data['loadbalancer'].get('admin_state_up'),
-            flavor_id=flavor_id
-        )
-    else:
-        loadbalancer = conn.load_balancer.create_load_balancer(
-            project_id=request.user.project_id,
-            vip_subnet_id=data['loadbalancer']['vip_subnet_id'],
-            name=data['loadbalancer'].get('name'),
-            description=data['loadbalancer'].get('description'),
-            vip_address=data['loadbalancer'].get('vip_address'),
-            admin_state_up=data['loadbalancer'].get('admin_state_up'),
-        )
+        build_kwargs['flavor_id'] = flavor_id
+    availability_zone = data['loadbalancer'].get('availability_zone')
+    if availability_zone:
+        build_kwargs['availability_zone'] = availability_zone
 
+    loadbalancer = conn.load_balancer.create_load_balancer(**build_kwargs)
     if data.get('listener'):
         # There is work underway to add a new API to LBaaS v2 that will
         # allow us to pass in all information at once. Until that is
@@ -1396,3 +1390,24 @@ class FlavorProfile(generic.View):
 
         """
         update_flavor_profile(request)
+
+
+@urls.register
+class AvailabilityZones(generic.View):
+    """API for load balancer availability zones.
+
+    """
+    url_regex = r'lbaas/availabilityzones/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """List of availability zones for the current project.
+
+        The listing result is an object with property "items".
+        """
+        conn = _get_sdk_connection(request)
+        availability_zone_list = _sdk_object_to_list(
+            conn.load_balancer.availability_zones()
+        )
+
+        return {'items': availability_zone_list}

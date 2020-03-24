@@ -71,6 +71,7 @@
       createHealthMonitor: createHealthMonitor,
       editHealthMonitor: editHealthMonitor,
       updateMemberList: updateMemberList,
+      getAvailabilityZones: getAvailabilityZones,
       getFlavors: getFlavors,
       getFlavor: getFlavor,
       deleteFlavor: deleteFlavor,
@@ -892,6 +893,25 @@
       return apiService.post('/api/lbaas/flavorprofiles/', spec)
         .error(function () {
           toastService.add('error', gettext('Unable to create flavor profile.'));
+        });
+    }
+
+    // Availability Zones
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getAvailabilityZones
+     * @description
+     * Get the list of availability zones.
+     *
+     * The listing result is an object with property "items". Each item is
+     * an availability zone.
+     */
+
+    function getAvailabilityZones() {
+      var params = {params: {}};
+      return apiService.get('/api/lbaas/availabilityzones/', params)
+        .error(function () {
+          toastService.add('error', gettext('Unable to retrieve availability zones.'));
         });
     }
 

@@ -87,6 +87,7 @@
       networks: {},
       flavors: {},
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS', 'UDP'],
+      availability_zones: {},
       l7policyActions: ['REJECT', 'REDIRECT_TO_URL', 'REDIRECT_TO_POOL'],
       l7ruleTypes: ['HOST_NAME', 'PATH', 'FILE_TYPE', 'HEADER', 'COOKIE'],
       l7ruleCompareTypes: ['REGEX', 'EQUAL_TO', 'STARTS_WITH', 'ENDS_WITH', 'CONTAINS'],
@@ -151,6 +152,7 @@
           vip_address: null,
           vip_subnet_id: null,
           flavor_id: null,
+          availability_zone: null,
           admin_state_up: true
         },
         listener: {
@@ -266,6 +268,7 @@
       model.context.submit = createLoadBalancer;
       return $q.all([
         lbaasv2API.getFlavors().then(onGetFlavors),
+        lbaasv2API.getAvailabilityZones().then(onGetAvailabilityZones),
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getPorts().then(onGetPorts),
         neutronAPI.getNetworks().then(onGetNetworks),
@@ -283,6 +286,12 @@
     function onGetFlavors(response) {
       angular.forEach(response.data.items, function(value) {
         model.flavors[value.id] = value;
+      });
+    }
+
+    function onGetAvailabilityZones(response) {
+      angular.forEach(response.data.items, function(value) {
+        model.availability_zones[value.name] = value;
       });
     }
 
@@ -347,10 +356,11 @@
       model.context.submit = editLoadBalancer;
       return $q.all([
         lbaasv2API.getFlavors().then(onGetFlavors),
+        lbaasv2API.getAvailabilityZones().then(onGetAvailabilityZones),
         lbaasv2API.getLoadBalancer(model.context.id).then(onGetLoadBalancer),
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getNetworks().then(onGetNetworks)
-      ]).then(initSubnet).then(initFlavor);
+      ]).then(initSubnet).then(initFlavor).then(initAvailabilityZone);
     }
 
     function initEditListener() {
@@ -481,6 +491,7 @@
       // Cannot edit the IP or subnet
       if (context.resource === 'loadbalancer' && context.id) {
         delete finalSpec.flavor_id;
+        delete finalSpec.availability_zone;
         delete finalSpec.vip_subnet_id;
         delete finalSpec.vip_address;
       }
@@ -767,6 +778,7 @@
       spec.vip_address = loadbalancer.vip_address;
       spec.vip_subnet_id = loadbalancer.vip_subnet_id;
       spec.flavor_id = loadbalancer.flavor_id;
+      spec.availability_zone = loadbalancer.availability_zone;
       spec.admin_state_up = loadbalancer.admin_state_up;
     }
 
@@ -927,6 +939,11 @@
 
     function initFlavor() {
       model.spec.loadbalancer.flavor_id = model.flavors[model.spec.loadbalancer.flavor_id];
+    }
+
+    function initAvailabilityZone() {
+      model.spec.loadbalancer.availability_zone = model.availability_zones[
+        model.spec.loadbalancer.availability_zone];
     }
 
     function mapSubnetObj(subnetId) {

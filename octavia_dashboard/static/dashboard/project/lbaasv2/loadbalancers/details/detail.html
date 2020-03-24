@@ -13,6 +13,10 @@
           {$ ::ctrl.loadbalancer.vip_address $}
         </li>
         <li>
+          <strong translate>Availability Zone</strong>
+          {$ ::ctrl.loadbalancer.availability_zone $}
+        </li>
+        <li>
           <strong translate>Operating Status</strong>
           {$ ctrl.loadbalancer.operating_status | decode:ctrl.operatingStatus $}
         </li>
@@ -47,7 +51,7 @@
          property-groups="[[
          'id', 'name', 'description', 'project_id', 'created_at', 'updated_at',
          'vip_port_id', 'vip_subnet_id', 'vip_network_id', 'provider', 'flavor_id',
-         'floating_ip_address']]">
+         'availability_zone', 'floating_ip_address']]">
       </hz-resource-property-list>
     </div>
   </uib-tab>

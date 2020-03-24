@@ -75,6 +75,10 @@
         priority: 1
       })
       .append({
+        id: 'availability_zone',
+        priority: 1
+      })
+      .append({
         id: 'operating_status',
         priority: 1
       })
@@ -178,6 +182,10 @@
       listeners: gettext('Listeners'),
       pools: gettext('Pools'),
       provider: gettext('Provider'),
+      availability_zone: {
+        label: gettext('Availability Zone'),
+        filters: ['noValue']
+      },
       flavor_id: {
         label: gettext('Flavor ID'),
         filters: ['noValue']
