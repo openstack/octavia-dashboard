@@ -574,7 +574,7 @@
       }
 
       // Only include necessary monitor properties
-      if (finalSpec.monitor.type !== 'HTTP') {
+      if (finalSpec.monitor.type !== 'HTTP' && finalSpec.monitor.type !== 'HTTPS') {
         delete finalSpec.monitor.http_method;
         delete finalSpec.monitor.expected_codes;
         delete finalSpec.monitor.url_path;
