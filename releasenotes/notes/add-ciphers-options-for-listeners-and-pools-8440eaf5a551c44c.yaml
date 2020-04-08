@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Added option to specify TLS ciphers for listeners and pools.
+    The ciphers are represented in OpenSSL syntax.

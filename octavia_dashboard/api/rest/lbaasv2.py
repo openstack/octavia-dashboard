@@ -185,7 +185,9 @@ def create_listener(request, **kwargs):
         timeout_member_connect=data['listener'].get('timeout_member_connect'),
         timeout_member_data=data['listener'].get('timeout_member_data'),
         timeout_tcp_inspect=data['listener'].get('timeout_tcp_inspect'),
-        allowed_cidrs=data['listener'].get('allowed_cidrs')
+        allowed_cidrs=data['listener'].get('allowed_cidrs'),
+        # Replace empty string by None (uses default tls cipher string)
+        tls_ciphers=data['listener'].get('tls_ciphers') or None,
     )
 
     if data.get('pool'):
@@ -252,7 +254,9 @@ def create_pool(request, **kwargs):
         loadbalancer_id=kwargs['loadbalancer_id'],
         name=data['pool'].get('name'),
         description=data['pool'].get('description'),
-        admin_state_up=data['pool'].get('admin_state_up')
+        admin_state_up=data['pool'].get('admin_state_up'),
+        # Replace empty string by None (uses default tls cipher string)
+        tls_ciphers=data['pool'].get('tls_ciphers') or None,
     )
 
     if data.get('members'):
@@ -458,7 +462,9 @@ def update_listener(request, **kwargs):
         timeout_member_connect=data['listener'].get('timeout_member_connect'),
         timeout_member_data=data['listener'].get('timeout_member_data'),
         timeout_tcp_inspect=data['listener'].get('timeout_tcp_inspect'),
-        allowed_cidrs=data['listener'].get('allowed_cidrs')
+        allowed_cidrs=data['listener'].get('allowed_cidrs'),
+        # Replace empty string by None (uses default tls cipher string)
+        tls_ciphers=data['listener'].get('tls_ciphers') or None,
     )
 
     if data.get('pool'):
@@ -527,7 +533,9 @@ def update_pool(request, **kwargs):
         session_persistence=data['pool'].get('session_persistence'),
         name=data['pool'].get('name'),
         description=data['pool'].get('description'),
-        admin_state_up=data['pool'].get('admin_state_up')
+        admin_state_up=data['pool'].get('admin_state_up'),
+        # Replace empty string by None (uses default tls cipher string)
+        tls_ciphers=data['pool'].get('tls_ciphers') or None,
     )
 
     # Assemble the lists of member id's to add and remove, if any exist

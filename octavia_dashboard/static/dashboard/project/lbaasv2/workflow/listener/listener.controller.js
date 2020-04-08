@@ -48,6 +48,7 @@
       'The connection limit must be a number greater than or equal to -1.'
     );
     ctrl.timeoutError = gettext('The timeout must be a number between 0 and 31536000000.');
+    ctrl.tls_ciphersError = gettext('The cipher string must conform to OpenSSL syntax.');
 
     ////////////
 

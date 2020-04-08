@@ -170,7 +170,8 @@
           timeout_member_connect: 5000,
           timeout_member_data: 50000,
           timeout_tcp_inspect: 0,
-          allowed_cidrs: null
+          allowed_cidrs: null,
+          tls_ciphers: null
         },
         l7policy: {
           id: null,
@@ -201,7 +202,8 @@
             type: null,
             cookie_name: null
           },
-          admin_state_up: true
+          admin_state_up: true,
+          tls_ciphers: null
         },
         monitor: {
           id: null,
@@ -516,6 +518,7 @@
         if (finalSpec.listener.protocol !== 'TERMINATED_HTTPS') {
           // Remove certificate containers if not using TERMINATED_HTTPS
           delete finalSpec.certificates;
+          delete finalSpec.listener.tls_ciphers;
         } else {
           var containers = [];
           angular.forEach(finalSpec.certificates, function(cert) {
@@ -803,6 +806,7 @@
       spec.timeout_member_data = listener.timeout_member_data;
       spec.timeout_tcp_inspect = listener.timeout_tcp_inspect;
       spec.allowed_cidrs = listener.allowed_cidrs;
+      spec.tls_ciphers = listener.tls_ciphers;
     }
 
     function setL7PolicySpec(l7policy) {
@@ -837,6 +841,7 @@
       spec.lb_algorithm = pool.lb_algorithm;
       spec.admin_state_up = pool.admin_state_up;
       spec.session_persistence = pool.session_persistence;
+      spec.tls_ciphers = pool.tls_ciphers;
     }
 
     function setMembersSpec(membersList) {

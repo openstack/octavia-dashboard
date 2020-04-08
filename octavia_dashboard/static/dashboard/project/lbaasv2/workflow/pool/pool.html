@@ -1,4 +1,4 @@
-<div>
+<div ng-controller="PoolDetailsController as ctrl">
   <p translate>Provide the details for the pool.</p>
 
   <div class="row">
@@ -79,6 +79,23 @@
         <label translate class="control-label" for="cookie_name">Cookie Name</label>
         <input name="cookie_name" id="cookie_name" type="text" class="form-control"
                ng-model="model.spec.pool.session_persistence.cookie_name">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group"
+           ng-class="{ 'has-error': poolDetailsForm.tls_ciphers.$invalid && poolDetailsForm.tls_ciphers.$dirty }">
+        <label translate class="control-label" for="tls_ciphers">TLS Cipher String</label>
+        <textarea name="tls_ciphers" id="tls_ciphers" class="form-control"
+               ng-model="model.spec.pool.tls_ciphers" ng-pattern="/^([A-Z0-9_-]+:)*[A-Z0-9_-]+$/">
+        </textarea>
+        <span class="help-block" ng-show="poolDetailsForm.tls_ciphers.$invalid && poolDetailsForm.tls_ciphers.$dirty">
+          {$ ::ctrl.tls_ciphersError $}
+        </span>
       </div>
     </div>
 

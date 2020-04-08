@@ -185,7 +185,8 @@
       timeout_member_connect: gettext('Member Connect Timeout'),
       timeout_member_data: gettext('Member Data Timeout'),
       timeout_tcp_inspect: gettext('TCP Inspect Timeout'),
-      load_balancers: gettext('Load Balancers')
+      load_balancers: gettext('Load Balancers'),
+      tls_ciphers: gettext('TLS Cipher String')
     };
   }
 
