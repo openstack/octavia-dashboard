@@ -1039,7 +1039,7 @@ class Pools(generic.View):
                         filtered_pools.append(pool)
             elif (pool['listeners'] and
                   pool['listeners'][0]['id'] == listener_id):
-                    filtered_pools.append(pool)
+                filtered_pools.append(pool)
 
         return filtered_pools
 
