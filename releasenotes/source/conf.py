@@ -48,9 +48,8 @@ extensions = [
 ]
 
 # openstackdocstheme options
-repository_name = 'openstack/octavia-dashboard'
-bug_project = '909'
-bug_tag = 'doc'
+openstackdocs_repo_name = 'openstack/octavia-dashboard'
+openstackdocs_use_storyboard = True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -81,7 +80,7 @@ author = u'Octavia Developers'
 exclude_patterns = []
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'native'
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
 # todo_include_todos = False

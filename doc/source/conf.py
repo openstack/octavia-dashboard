@@ -55,16 +55,6 @@ master_doc = 'index'
 # General information about the project.
 copyright = u'2017-2019, OpenStack Foundation'
 
-# The version info for the project you're documenting, acts as replacement for
-# |version| and |release|, also used in various other places throughout the
-# built documents.
-#
-# Version info
-from octavia_dashboard.version import version_info as octavia_dash_version
-release = octavia_dash_version.release_string()
-# The short X.Y version.
-version = octavia_dash_version.version_string()
-
 # If true, '()' will be appended to :func: etc. cross-reference text.
 add_function_parentheses = True
 
@@ -73,11 +63,12 @@ add_function_parentheses = True
 add_module_names = True
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'native'
 
 # openstackdocstheme options
-repository_name = 'openstack/octavia-dashboard'
-use_storyboard = True
+openstackdocs_repo_name = 'openstack/octavia-dashboard'
+openstackdocs_pdf_link = True
+openstackdocs_use_storyboard = True
 
 apidoc_output_dir = 'contributor/modules'
 apidoc_module_dir = '../../octavia_dashboard'
