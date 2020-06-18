@@ -1600,6 +1600,7 @@
         expect(finalSpec.loadbalancer.vip_address).toBe('1.2.3.4');
         expect(finalSpec.loadbalancer.vip_subnet_id).toBe(model.subnets[0].id);
         expect(finalSpec.loadbalancer.admin_state_up).toBe(true);
+        expect(finalSpec.loadbalancer.availability_zone).toBe('az_1');
 
         expect(finalSpec.listener.name).toBeUndefined();
         expect(finalSpec.listener.description).toBeUndefined();

@@ -130,7 +130,7 @@
 
     ctrl.setAvailabilityZone = function(option) {
       if (option) {
-        $scope.model.spec.loadbalancer.availability_zone = option.name;
+        $scope.model.spec.loadbalancer.availability_zone = option;
       } else {
         $scope.model.spec.loadbalancer.availability_zone = null;
       }

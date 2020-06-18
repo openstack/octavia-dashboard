@@ -184,7 +184,7 @@
 
       it('should set availability zone', function() {
         ctrl.setAvailabilityZone(mockAvailabilityZones[0]);
-        expect(scope.model.spec.loadbalancer.availability_zone).toBe(mockAvailabilityZones[0].name);
+        expect(scope.model.spec.loadbalancer.availability_zone).toBe(mockAvailabilityZones[0]);
         ctrl.setAvailabilityZone(null);
         expect(scope.model.spec.loadbalancer.availability_zone).toBe(null);
       });

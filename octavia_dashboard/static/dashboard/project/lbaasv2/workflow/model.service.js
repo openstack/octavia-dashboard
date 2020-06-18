@@ -481,6 +481,10 @@
         finalSpec.loadbalancer.flavor_id = finalSpec.loadbalancer.flavor_id.id;
       }
 
+      if (angular.isObject(finalSpec.loadbalancer.availability_zone)) {
+        finalSpec.loadbalancer.availability_zone = finalSpec.loadbalancer.availability_zone.name;
+      }
+
       // Load balancer requires vip_subnet_id
       if (!finalSpec.loadbalancer.vip_subnet_id) {
         delete finalSpec.loadbalancer;
