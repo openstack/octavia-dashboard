@@ -21,7 +21,7 @@ var path = require('path');
 
 module.exports = function (config) {
   // This tox venv is setup in the post-install npm step
-  var toxPath = '../.tox/karma/lib/python3.6//site-packages/';
+  var toxPath = '../.tox/karma/lib/python3.8//site-packages/';
 
   config.set({
     preprocessors: {
