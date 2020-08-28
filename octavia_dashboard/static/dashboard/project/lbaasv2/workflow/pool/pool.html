@@ -66,7 +66,7 @@
                 ng-model="model.spec.pool.session_persistence.type">
           <option value="">None</option>
           <option ng-repeat="type in model.types"
-                  ng-disabled="model.spec.listener.protocol === 'UDP' && type !== 'SOURCE_IP'"
+                  ng-disabled="(model.spec.listener.protocol === 'UDP' || model.spec.listener.protocol === 'SCTP') && type !== 'SOURCE_IP'"
                   value="{$ type $}">
             {$ type $}
           </option>
