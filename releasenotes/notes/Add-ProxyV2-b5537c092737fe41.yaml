@@ -1,0 +1,4 @@
+---
+features:
+  - |
+    Added Octavia dashboard support for proxy protocol version 2.

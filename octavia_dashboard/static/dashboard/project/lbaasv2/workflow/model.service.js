@@ -92,7 +92,7 @@
       l7ruleTypes: ['HOST_NAME', 'PATH', 'FILE_TYPE', 'HEADER', 'COOKIE'],
       l7ruleCompareTypes: ['REGEX', 'EQUAL_TO', 'STARTS_WITH', 'ENDS_WITH', 'CONTAINS'],
       l7ruleFileTypeCompareTypes: ['REGEX', 'EQUAL_TO'],
-      poolProtocols: ['HTTP', 'HTTPS', 'PROXY', 'TCP', 'UDP'],
+      poolProtocols: ['HTTP', 'HTTPS', 'PROXY', 'PROXYV2', 'TCP', 'UDP'],
       methods: ['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP'],
       types: ['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'],
       monitorTypes: ['HTTP', 'HTTPS', 'PING', 'TCP', 'TLS-HELLO', 'UDP-CONNECT'],
