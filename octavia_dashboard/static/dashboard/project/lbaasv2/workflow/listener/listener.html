@@ -154,6 +154,17 @@
       </div>
     </div>
 
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group">
+        <label class="control-label" for="allowed_cidrs">
+          <translate>Allowed Cidrs</translate>
+        </label>
+        <textarea ng-model="model.spec.listener.allowed_cidrs" ng-trim="false" ng-list="&#10;"
+          rows="2" placeholder="0.0.0.0/0" id="allowed_cidrs" name="allowed_cidrs" class="form-control">
+        </textarea>
+
+      </div>
+    </div>
   </div>
 
   <h4 translate ng-if="model.spec.listener.protocol === 'HTTP' || model.spec.listener.protocol === 'TERMINATED_HTTPS'">Insert Headers</h4>

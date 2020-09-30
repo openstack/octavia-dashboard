@@ -177,6 +177,10 @@
           loadBalancerService.nullFilter
         ]
       },
+      allowed_cidrs: {
+        label: gettext('Allowed Cidrs'),
+        filters: ['noValue']
+      },
       timeout_client_data: gettext('Client Data Timeout'),
       timeout_member_connect: gettext('Member Connect Timeout'),
       timeout_member_data: gettext('Member Data Timeout'),
