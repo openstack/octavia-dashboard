@@ -6,11 +6,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-06-09 20:53+0000\n"
+"POT-Creation-Date: 2020-09-25 16:30+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-06-15 05:38+0000\n"
+"PO-Revision-Date: 2020-10-03 10:32+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -43,6 +43,9 @@ msgstr "5.0.0"
 
 msgid "5.0.0.0rc1"
 msgstr "5.0.0.0rc1"
+
+msgid "6.0.0.0rc1"
+msgstr "6.0.0.0rc1"
 
 msgid ""
 "A new dashboard wizard for Octavia. Allows you to create an Octavia load "
@@ -93,6 +96,9 @@ msgstr ""
 
 msgid "Add load balancer flavor support."
 msgstr "Add load balancer flavour support."
+
+msgid "Added Octavia dashboard support for proxy protocol version 2."
+msgstr "Added Octavia dashboard support for proxy protocol version 2."
 
 msgid ""
 "Added UDP protocol support in listeners and pools, added UDP-CONNECT method "
@@ -339,6 +345,9 @@ msgstr "Upgrade Notes"
 
 msgid "Ussuri Series Release Notes"
 msgstr "Ussuri Series Release Notes"
+
+msgid "Victoria Series Release Notes"
+msgstr "Victoria Series Release Notes"
 
 msgid "You can now change the default pool on listeners."
 msgstr "You can now change the default pool on listeners."
