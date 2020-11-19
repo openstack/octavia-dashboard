@@ -41,7 +41,7 @@ msgpack-python==0.4.0
 munch==2.1.0
 netaddr==0.7.18
 netifaces==0.10.4
-openstacksdk==0.46.0
+openstacksdk==0.53.0
 os-client-config==1.28.0
 os-service-types==1.7.0
 osc-lib==1.8.0
@@ -86,7 +86,7 @@ python-novaclient==9.1.0
 python-subunit==1.0.0
 python-swiftclient==3.2.0
 pytz==2013.6
-PyYAML==3.12
+PyYAML==3.13
 rcssmin==1.0.6
 repoze.lru==0.7
 requests==2.14.2

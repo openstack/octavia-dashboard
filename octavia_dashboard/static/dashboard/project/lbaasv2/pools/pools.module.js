@@ -176,6 +176,10 @@
       loadbalancers: gettext('Load Balancers'),
       listeners: gettext('Listeners'),
       members: gettext('Members'),
+      tls_enabled: {
+        label: gettext('TLS Enabled'),
+        filters: ['yesno']
+      },
       tls_ciphers: gettext('TLS Cipher String')
     };
   }

@@ -1301,7 +1301,7 @@
         expect(Object.keys(model.spec.listener).length).toBe(16);
         expect(Object.keys(model.spec.l7policy).length).toBe(8);
         expect(Object.keys(model.spec.l7rule).length).toBe(7);
-        expect(Object.keys(model.spec.pool).length).toBe(8);
+        expect(Object.keys(model.spec.pool).length).toBe(9);
         expect(Object.keys(model.spec.monitor).length).toBe(11);
         expect(model.spec.members).toEqual([]);
       });
@@ -2378,6 +2378,53 @@
         expect(finalSpec.pool.lb_algorithm).toBe('ROUND_ROBIN');
         expect(finalSpec.pool.session_persistence.type).toBe('APP_COOKIE');
         expect(finalSpec.pool.session_persistence.cookie_name).toBe('cookie_name');
+        expect(finalSpec.pool.tls_ciphers).toBeUndefined();
+
+        expect(finalSpec.members.length).toBe(2);
+        expect(finalSpec.members[0].id).toBe('1234');
+        expect(finalSpec.members[0].address).toBe('1.2.3.4');
+        expect(finalSpec.members[0].subnet_id).toBe('subnet-1');
+        expect(finalSpec.members[0].protocol_port).toBe(80);
+        expect(finalSpec.members[0].weight).toBe(1);
+        expect(finalSpec.members[1].id).toBe('5678');
+        expect(finalSpec.members[1].address).toBe('5.6.7.8');
+        expect(finalSpec.members[1].subnet_id).toBe('subnet-1');
+        expect(finalSpec.members[1].protocol_port).toBe(80);
+        expect(finalSpec.members[1].weight).toBe(1);
+
+        expect(finalSpec.monitor.type).toBe('HTTP');
+        expect(finalSpec.monitor.delay).toBe(1);
+        expect(finalSpec.monitor.max_retries).toBe(1);
+        expect(finalSpec.monitor.max_retries_down).toBe(1);
+        expect(finalSpec.monitor.timeout).toBe(1);
+      });
+    });
+
+    describe('Model submit function (edit pool tls_enabled)', function() {
+
+      beforeEach(function() {
+        includeChildResources = true;
+        listenerResources.pool.tls_enabled = true;
+        listenerResources.pool.tls_ciphers = "A:B:C";
+        model.initialize('pool', 'poolId', 'loadbalancerId');
+        scope.$apply();
+      });
+
+      it('should set final spec properties', function() {
+
+        var finalSpec = model.submit();
+
+        expect(finalSpec.loadbalancer).toBeUndefined();
+        expect(finalSpec.listener).toBeUndefined();
+
+        expect(finalSpec.pool.name).toBe('Pool 1');
+        expect(finalSpec.pool.description).toBe('pool description');
+        expect(finalSpec.pool.protocol).toBe('HTTP');
+        expect(finalSpec.pool.lb_algorithm).toBe('ROUND_ROBIN');
+        expect(finalSpec.pool.session_persistence.type).toBe('APP_COOKIE');
+        expect(finalSpec.pool.session_persistence.cookie_name).toBe('cookie_name');
+        expect(finalSpec.pool.tls_enabled).toBe(true);
+        expect(finalSpec.pool.tls_ciphers).toBe("A:B:C");
 
         expect(finalSpec.members.length).toBe(2);
         expect(finalSpec.members[0].id).toBe('1234');

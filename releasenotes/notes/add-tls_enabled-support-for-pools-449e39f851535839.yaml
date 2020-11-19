@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Add TLS Enabled switch in the pool control form, allowing to enable/disable
+    TLS communications between a load balancer and its members.

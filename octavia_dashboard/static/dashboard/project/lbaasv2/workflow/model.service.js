@@ -203,6 +203,7 @@
             cookie_name: null
           },
           admin_state_up: true,
+          tls_enabled: false,
           tls_ciphers: null
         },
         monitor: {
@@ -539,6 +540,9 @@
         // otherwise has to match it.
         var protocol = finalSpec.listener ? finalSpec.listener.protocol : finalSpec.pool.protocol;
         finalSpec.pool.protocol = protocol === 'TERMINATED_HTTPS' ? 'HTTP' : protocol;
+        if (!finalSpec.pool.tls_enabled) {
+          delete finalSpec.pool.tls_ciphers;
+        }
         if (angular.isObject(finalSpec.pool.session_persistence)) {
           if (!finalSpec.pool.session_persistence.type) {
             finalSpec.pool.session_persistence = null;
@@ -841,6 +845,7 @@
       spec.lb_algorithm = pool.lb_algorithm;
       spec.admin_state_up = pool.admin_state_up;
       spec.session_persistence = pool.session_persistence;
+      spec.tls_enabled = pool.tls_enabled;
       spec.tls_ciphers = pool.tls_ciphers;
     }
 
