@@ -39,6 +39,7 @@
   function ListenerDetailsController($scope, gettext) {
     var ctrl = this;
     ctrl.protocolChange = protocolChange;
+    ctrl.createChange = createChange;
 
     // Error text for invalid fields
     ctrl.portNumberError = gettext('The port must be a number between 1 and 65535.');
@@ -68,6 +69,14 @@
         $('#wizard-side-nav ul li:last').show();
       } else {
         $('#wizard-side-nav ul li:last').hide();
+      }
+    }
+
+    function createChange() {
+      if ($scope.model.context.create_listener === false) {
+        // Disabling listener form disables pool form and monitor form
+        $scope.model.context.create_pool = false;
+        $scope.model.context.create_monitor = false;
       }
     }
 

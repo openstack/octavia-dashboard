@@ -38,6 +38,17 @@
 
   function PoolDetailsController($scope, gettext) {
     var ctrl = this;
+    ctrl.createChange = createChange;
+
+    function createChange() {
+      if ($scope.model.context.create_pool) {
+        // Enabling pool form enables listener form
+        $scope.model.context.create_listener = true;
+      } else {
+        // Disabling pool form disables monitor form
+        $scope.model.context.create_monitor = false;
+      }
+    }
 
     // Error text for invalid fields
     ctrl.tls_ciphersError = gettext('The cipher string must conform to OpenSSL syntax.');

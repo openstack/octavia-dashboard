@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    Allows the creation of single resources (i.e Load Balancer) without
+    enforcing the creation of children resources (Listeners, Pools, Health
+    monitors). A switch has been added in the children resource wizards to
+    avoid resource creation.

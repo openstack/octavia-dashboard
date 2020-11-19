@@ -36,6 +36,11 @@
         };
         scope = {
           model: {
+            context: {
+              create_listener: true,
+              create_pool: true,
+              create_monitor: true
+            },
             listenerPorts: [80],
             members: [{port: ''}, {port: ''}],
             spec: {
@@ -116,6 +121,18 @@
         scope.model.members.concat(scope.model.spec.members).forEach(function(member) {
           expect(member.port).toBeUndefined();
         });
+      });
+
+      it('should update create_pool and create_monitor flags', function() {
+        scope.model.context.create_listener = true;
+        ctrl.createChange();
+        expect(scope.model.context.create_pool).toBe(true);
+        expect(scope.model.context.create_monitor).toBe(true);
+
+        scope.model.context.create_listener = false;
+        ctrl.createChange();
+        expect(scope.model.context.create_pool).toBe(false);
+        expect(scope.model.context.create_monitor).toBe(false);
       });
 
     });

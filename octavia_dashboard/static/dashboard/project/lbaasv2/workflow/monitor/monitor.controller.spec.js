@@ -73,6 +73,30 @@
           to: 1
         });
       });
+
+      it('should update create_pool and create_monitor flags', function() {
+        scope.model = {
+          context: {
+            create_listener: false,
+            create_pool: false,
+            create_monitor: true
+          }
+        };
+        ctrl.createChange();
+        expect(scope.model.context.create_listener).toBe(true);
+        expect(scope.model.context.create_pool).toBe(true);
+
+        scope.model = {
+          context: {
+            create_listener: false,
+            create_pool: false,
+            create_monitor: false
+          }
+        };
+        ctrl.createChange();
+        expect(scope.model.context.create_listener).toBe(false);
+        expect(scope.model.context.create_pool).toBe(false);
+      });
     });
   });
 })();
