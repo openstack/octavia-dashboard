@@ -185,6 +185,7 @@ def create_listener(request, **kwargs):
         timeout_member_connect=data['listener'].get('timeout_member_connect'),
         timeout_member_data=data['listener'].get('timeout_member_data'),
         timeout_tcp_inspect=data['listener'].get('timeout_tcp_inspect'),
+        allowed_cidrs=data['listener'].get('allowed_cidrs')
     )
 
     if data.get('pool'):
@@ -457,6 +458,7 @@ def update_listener(request, **kwargs):
         timeout_member_connect=data['listener'].get('timeout_member_connect'),
         timeout_member_data=data['listener'].get('timeout_member_data'),
         timeout_tcp_inspect=data['listener'].get('timeout_tcp_inspect'),
+        allowed_cidrs=data['listener'].get('allowed_cidrs')
     )
 
     if data.get('pool'):

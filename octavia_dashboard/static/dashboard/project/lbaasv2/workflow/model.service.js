@@ -169,7 +169,8 @@
           timeout_client_data: 50000,
           timeout_member_connect: 5000,
           timeout_member_data: 50000,
-          timeout_tcp_inspect: 0
+          timeout_tcp_inspect: 0,
+          allowed_cidrs: null
         },
         l7policy: {
           id: null,
@@ -801,6 +802,7 @@
       spec.timeout_member_connect = listener.timeout_member_connect;
       spec.timeout_member_data = listener.timeout_member_data;
       spec.timeout_tcp_inspect = listener.timeout_tcp_inspect;
+      spec.allowed_cidrs = listener.allowed_cidrs;
     }
 
     function setL7PolicySpec(l7policy) {

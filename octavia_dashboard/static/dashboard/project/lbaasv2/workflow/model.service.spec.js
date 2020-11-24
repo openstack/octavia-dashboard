@@ -1298,7 +1298,7 @@
       it('has the right number of properties', function() {
         expect(Object.keys(model.spec).length).toBe(11);
         expect(Object.keys(model.spec.loadbalancer).length).toBe(7);
-        expect(Object.keys(model.spec.listener).length).toBe(14);
+        expect(Object.keys(model.spec.listener).length).toBe(15);
         expect(Object.keys(model.spec.l7policy).length).toBe(8);
         expect(Object.keys(model.spec.l7rule).length).toBe(7);
         expect(Object.keys(model.spec.pool).length).toBe(7);
