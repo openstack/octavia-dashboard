@@ -61,7 +61,7 @@
 
   </div>
 
-  <div class="row" ng-if="model.spec.listener.protocol !== 'UDP'">
+  <div class="row" ng-if="model.spec.listener.protocol !== 'UDP' && model.spec.listener.protocol !== 'SCTP'">
 
     <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group required">
@@ -91,7 +91,7 @@
 
   </div>
 
-  <div class="row" ng-if="model.spec.listener.protocol !== 'UDP'">
+  <div class="row" ng-if="model.spec.listener.protocol !== 'UDP' && model.spec.listener.protocol !== 'SCTP'">
 
     <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group required">

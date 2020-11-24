@@ -495,7 +495,7 @@
 
       it('has array of listener protocols', function() {
         expect(model.listenerProtocols).toEqual(['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS',
-          'UDP']);
+          'UDP', 'SCTP']);
       });
 
       it('has array of pool lb_algorithms', function() {
@@ -508,7 +508,7 @@
 
       it('has array of monitor types', function() {
         expect(model.monitorTypes).toEqual(['HTTP', 'HTTPS', 'PING', 'TCP', 'TLS-HELLO',
-          'UDP-CONNECT']);
+          'UDP-CONNECT', 'SCTP']);
       });
 
       it('has array of monitor http_methods', function() {
@@ -866,7 +866,7 @@
       });
 
       it('should initialize listener protocols', function() {
-        expect(model.listenerProtocols.length).toBe(5);
+        expect(model.listenerProtocols.length).toBe(6);
         expect(model.listenerProtocols.indexOf('TERMINATED_HTTPS')).toBe(2);
       });
     });
@@ -917,7 +917,7 @@
       });
 
       it('should initialize listener protocols', function() {
-        expect(model.listenerProtocols.length).toBe(4);
+        expect(model.listenerProtocols.length).toBe(5);
         expect(model.listenerProtocols.indexOf('TERMINATED_HTTPS')).toBe(-1);
       });
     });
