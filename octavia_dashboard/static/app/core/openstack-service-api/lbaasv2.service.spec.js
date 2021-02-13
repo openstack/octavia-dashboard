@@ -338,6 +338,14 @@
         data: { params: {} }
       },
       {
+        func: 'getProviders',
+        method: 'get',
+        path: '/api/lbaas/providers/',
+        error: 'Unable to retrieve providers.',
+        testInput: [],
+        data: { params: {} }
+      },
+      {
         func: 'createLoadBalancer',
         method: 'post',
         path: '/api/lbaas/loadbalancers/',

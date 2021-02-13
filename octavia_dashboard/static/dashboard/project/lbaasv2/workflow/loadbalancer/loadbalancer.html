@@ -35,6 +35,28 @@
     </div>
   </div>
 
+  <div class="row" ng-if="ctrl.providerOptions.length > 1">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div class="form-group">
+        <label class="control-label">
+          <translate>Provider</translate>
+        </label>
+        <!-- value="model.spec.loadbalancer.provider " -->
+        <filter-select
+          shorthand="ctrl.providerShorthand"
+
+          on-select="ctrl.setProvider(option)"
+          disabled="model.context.id"
+          columns="ctrl.providerColumns"
+          options="ctrl.providerOptions"
+          loaded="ctrl.dataLoaded"
+
+          ng-model="model.spec.loadbalancer.provider"
+        ></filter-select>
+      </div>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
       <div class="form-group">

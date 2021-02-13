@@ -19,7 +19,7 @@
   describe('LBaaS v2 Workflow Model Service', function() {
     var model, $q, scope, listenerResources, barbicanEnabled,
       certificatesError, mockNetworks, mockFlavors,
-      mockAvailabilityZones;
+      mockAvailabilityZones, mockProviders;
     var includeChildResources = true;
 
     beforeEach(module('horizon.framework.util.i18n'));
@@ -116,6 +116,16 @@
           id: 'az2'
         }
       };
+      mockProviders = {
+        amphora: {
+          name: 'amphora',
+          description: 'amphora description'
+        },
+        octavia: {
+          name: 'octavia',
+          description: 'octavia description'
+        }
+      };
     });
 
     beforeEach(module(function($provide) {
@@ -141,7 +151,8 @@
             vip_subnet_id: 'subnet-1',
             flavor_id: 'flavor-1',
             availability_zone: 'az-1',
-            description: ''
+            description: '',
+            provider: 'amphora'
           };
 
           var deferred = $q.defer();
@@ -289,6 +300,19 @@
 
           var deferred = $q.defer();
           deferred.resolve({data: {items: availabilityZones}});
+          return deferred.promise;
+        },
+        getProviders: function() {
+          var providers = [{
+            name: 'amphora',
+            description: 'amphora description'
+          }, {
+            name: 'octavia',
+            description: 'octavia description'
+          }];
+
+          var deferred = $q.defer();
+          deferred.resolve({data: {items: providers}});
           return deferred.promise;
         },
         createLoadBalancer: function(spec) {
@@ -499,7 +523,8 @@
       });
 
       it('has array of pool lb_algorithms', function() {
-        expect(model.methods).toEqual(['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP']);
+        expect(model.methods).toEqual(['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP',
+          'SOURCE_IP_PORT']);
       });
 
       it('has array of pool session persistence types', function() {
@@ -543,6 +568,7 @@
         expect(model.networks).toEqual(mockNetworks);
         expect(model.flavors).toEqual(mockFlavors);
         expect(model.availability_zones).toEqual(mockAvailabilityZones);
+        expect(model.providers).toEqual(mockProviders);
         expect(model.members.length).toBe(2);
         expect(model.certificates.length).toBe(3);
         expect(model.listenerPorts.length).toBe(0);
@@ -801,6 +827,7 @@
         expect(model.networks).toEqual(mockNetworks);
         expect(model.flavors).toEqual(mockFlavors);
         expect(model.availability_zones).toEqual(mockAvailabilityZones);
+        expect(model.providers).toEqual(mockProviders);
         expect(model.members.length).toBe(0);
         expect(model.certificates.length).toBe(0);
         expect(model.listenerPorts.length).toBe(0);
@@ -1358,7 +1385,7 @@
       // to implement tests for them.
       it('has the right number of properties', function() {
         expect(Object.keys(model.spec).length).toBe(11);
-        expect(Object.keys(model.spec.loadbalancer).length).toBe(7);
+        expect(Object.keys(model.spec.loadbalancer).length).toBe(8);
         expect(Object.keys(model.spec.listener).length).toBe(16);
         expect(Object.keys(model.spec.l7policy).length).toBe(8);
         expect(Object.keys(model.spec.l7rule).length).toBe(7);
@@ -1609,6 +1636,8 @@
         model.spec.loadbalancer.flavor_id = model.flavors[Object.keys(model.flavors)[0]];
         model.spec.loadbalancer.availability_zone = model.availability_zones[
           Object.keys(model.availability_zones)[0]];
+        model.spec.loadbalancer.provider = model.providers[
+          Object.keys(model.providers)[0]];
         model.spec.listener.protocol = 'TCP';
         model.spec.listener.protocol_port = 80;
         model.spec.listener.connection_limit = 999;
@@ -1662,6 +1691,7 @@
         expect(finalSpec.loadbalancer.vip_subnet_id).toBe(model.subnets[0].id);
         expect(finalSpec.loadbalancer.admin_state_up).toBe(true);
         expect(finalSpec.loadbalancer.availability_zone).toBe('az_1');
+        expect(finalSpec.loadbalancer.provider).toBe('amphora');
 
         expect(finalSpec.listener.name).toBeUndefined();
         expect(finalSpec.listener.description).toBeUndefined();
@@ -1714,6 +1744,8 @@
         model.spec.loadbalancer.flavor_id = model.flavors[Object.keys(model.flavors)[0]];
         model.spec.loadbalancer.availability_zone = model.availability_zones[
           Object.keys(model.availability_zones)[0]];
+        model.spec.loadbalancer.provider = model.providers[
+          Object.keys(model.providers)[0]];
         model.spec.listener.protocol = 'TERMINATED_HTTPS';
         model.spec.listener.protocol_port = 443;
         model.spec.listener.connection_limit = 9999;

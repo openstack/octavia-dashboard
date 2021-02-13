@@ -1,0 +1,6 @@
+---
+features:
+  - |
+    Add the possibility to select the provider for a new load balancer. A
+    select box displays the list of available providers, if only one provider is
+    enabled, the box is hidden.

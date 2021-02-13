@@ -81,7 +81,8 @@
       getFlavorProfile: getFlavorProfile,
       deleteFlavorProfile: deleteFlavorProfile,
       createFlavorProfile: createFlavorProfile,
-      editFlavorProfile: editFlavorProfile
+      editFlavorProfile: editFlavorProfile,
+      getProviders: getProviders
     };
 
     return service;
@@ -916,6 +917,25 @@
       return apiService.get('/api/lbaas/availabilityzones/', params)
         .catch(function (error) {
           handleError(gettext('Unable to retrieve availability zones.'), error);
+        });
+    }
+
+    // Providers
+
+    /**
+     * @name horizon.app.core.openstack-service-api.lbaasv2.getProviders
+     * @description
+     * Get the list of providers.
+     *
+     * The listing result is an object with property "items". Each item is
+     * a provider.
+     */
+
+    function getProviders() {
+      var params = {params: {}};
+      return apiService.get('/api/lbaas/providers/', params)
+        .catch(function (error) {
+          handleError(gettext('Unable to retrieve providers.'), error);
         });
     }
 
