@@ -1,16 +1,17 @@
 # Jacky Hu <hudayou@hotmail.com>, 2018. #zanata
+# Tony <tfu@redhat.com>, 2019. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2019-08-26 15:40+0000\n"
+"POT-Creation-Date: 2021-02-28 17:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-08-18 02:54+0000\n"
-"Last-Translator: Jacky Hu <hudayou@hotmail.com>\n"
+"PO-Revision-Date: 2019-03-21 01:01+0000\n"
+"Last-Translator: Tony <tfu@redhat.com>\n"
 "Language-Team: Chinese (China)\n"
-"Language: zh_TW\n"
+"Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
@@ -19,54 +20,62 @@ msgid "%(ip)s..."
 msgstr "%(ip)s..."
 
 msgid "A new health monitor is being created."
-msgstr "一個新的健康監控器正在創建。"
+msgstr "一个新的健康监控器正在创建。"
 
 msgid "A new l7 policy is being created."
-msgstr "一個新的七層策略正在被創建"
+msgstr "一个新的七层策略正在被创建"
 
 msgid "A new listener is being created."
-msgstr "一個新的監聽器正在創建。"
+msgstr "一个新的监听器正在创建。"
 
 msgid "A new load balancer is being created."
-msgstr "一個新的負載均衡器正在創建。"
+msgstr "一个新的负载均衡器正在创建。"
 
 msgid "A new pool is being created."
-msgstr "一個新的資源池正在創建。"
+msgstr "一个新的资源池正在创建。"
 
 msgid ""
 "A pool represents a group of members over which the load balancing will be "
 "applied."
-msgstr "資源池代表提供負載均衡器的一組成員。"
+msgstr "资源池代表提供负载均衡器的一组成员。"
 
 msgid "APP_COOKIE: Session persistence based on application cookie."
-msgstr "APP_COOKIE：基于應用 COOKIE 的會話持久化。"
+msgstr "APP_COOKIE：基于应用 COOKIE 的会话持久化。"
 
 msgid "Action"
-msgstr "行為"
+msgstr "行为"
 
 msgid "Action:"
-msgstr "行為："
+msgstr "行为："
 
 msgid "Active"
-msgstr "運行中"
+msgstr "运行中"
 
 msgid "Add"
 msgstr "添加"
 
 msgid "Add external member"
-msgstr "添加外部成員"
+msgstr "添加外部成员"
 
 msgid "Add members to the load balancer pool."
-msgstr "為負載均衡池添加成員。"
+msgstr "为负载均衡池添加成员。"
 
 msgid "Add/Remove Members"
-msgstr "添加/移除成員"
+msgstr "添加/移除成员"
 
 msgid "Add/Remove Pool Members"
-msgstr "添加/移除資源池成員"
+msgstr "添加/移除资源池成员"
+
+msgid ""
+"Additional headers insertion into HTTP header,\n"
+"  only \"X-Forwarded-For\", \"X-Forwarded-Port\" and \"X-Forwarded-Proto\" "
+"are supported."
+msgstr ""
+"插入到 HTTP 头部的额外报头。\n"
+"仅支持 \"X-Forwarded-For\"、\"X-Forwarded-Port\" 和 \"X-Forwarded-Proto\"。"
 
 msgid "Admin State Up"
-msgstr "管理狀態：啟動"
+msgstr "管理状态：启动"
 
 msgid "Algorithm"
 msgstr "算法"
@@ -75,124 +84,127 @@ msgid "Algorithm:"
 msgstr "算法："
 
 msgid "Allocated Members"
-msgstr "分配成員"
+msgstr "分配成员"
 
 msgid ""
 "An L7 Policy is a collection of L7 rules associated with a Listener, and "
 "which may also have an association to a back-end pool"
-msgstr "一個七層策略是關聯于監聽器的七層規則的集，監聽器可能有一個關聯的資源池"
+msgstr "一个七层策略是关联于监听器的七层规则的集，监听器可能有一个关联的资源池"
 
 msgid ""
 "An L7 Rule is a single, simple logical test which returns either true or\n"
 "false."
-msgstr "一個七層規則是返回是或否的單一簡單邏輯測試"
+msgstr "一个七层规则是返回是或否的单一简单逻辑测试"
 
 msgid ""
 "An alternate IP address used for health monitoring a backend member.\n"
 "  Default is null which monitors the member address."
 msgstr ""
-"用於後端成員健康監控的 IP 地址。\n"
-"預設是空時監測該成員地址。"
+"用于后端成员健康监控的 IP 地址。\n"
+"默认是空时监测该成员地址。"
 
 msgid ""
 "An alternate protocol port used for health monitoring a backend member.\n"
 "  Default is null which monitors the member protocol port."
 msgstr ""
-"用於後端成員健康監控的協議連接埠。\n"
-"預設是空時監測該成員協議連接埠。"
+"用于后端成员健康监控的协议端口。\n"
+"默认是空时监测该成员协议端口。"
 
 msgid "An error occurred. Please try again later."
-msgstr "發生錯誤，請稍後重試。"
+msgstr "发生错误，请稍后重试。"
 
 msgid "Associate"
-msgstr "關聯"
+msgstr "关联"
 
 msgid "Associate Floating IP"
-msgstr "關聯浮動 IP"
+msgstr "关联浮动 IP"
 
 msgid "Associate Floating IP Address"
-msgstr "關聯浮動 IP 地址"
+msgstr "关联浮动 IP 地址"
 
 msgid "Associating floating IP with load balancer."
-msgstr "為負載均衡器關聯浮動 IP。"
+msgstr "为负载均衡器关联浮动 IP。"
 
 msgid "Available Instances"
-msgstr "可用實例"
+msgstr "可用实例"
 
 msgid "Backend member connection timeout in milliseconds. Default: 5000."
-msgstr "後端成員連接超時時限，單位是毫秒，預設值：5000。"
+msgstr "后端成员连接超时时限，单位是毫秒，默认值：5000。"
 
 msgid "Backend member inactivity timeout in milliseconds. Default: 50000."
-msgstr "後端成員閒置超時時限，單位是毫秒，預設值：50000。"
+msgstr "后端成员闲置超时时限，单位是毫秒，默认值：50000。"
 
 msgid "Backup"
-msgstr "備份"
+msgstr "备份"
 
 msgid "Backup:"
-msgstr "備份："
+msgstr "备份："
+
+msgid "CIDR"
+msgstr "CIDR"
 
 msgid "CONTAINS: String contains."
-msgstr "包含：字元串包含。"
+msgstr "包含：字符串包含。"
 
 msgid ""
 "COOKIE: The rule looks for a cookie named by the key parameter and\n"
 "      compares it against the value parameter in the rule."
-msgstr "COOKIE：該規則查找以鍵參數命名的 COOKIE 並將其與值參數相比較。"
+msgstr "COOKIE：该规则查找以键参数命名的 COOKIE 并将其与值参数相比较。"
 
 msgid "Cancel"
 msgstr "取消"
 
 msgid "Certificate Name"
-msgstr "證書名稱"
+msgstr "证书名称"
 
 msgid "Client Data Timeout"
-msgstr "客戶數據超時時限"
+msgstr "客户数据超时时限"
 
 msgid "Client Data Timeout:"
-msgstr "客戶數據超時時限："
+msgstr "客户数据超时时限："
 
 msgid "Compare Type"
-msgstr "比較類型"
+msgstr "比较类型"
 
 msgid "Compare Type:"
-msgstr "比較類型："
+msgstr "比较类型："
 
 msgid "Confirm Delete Health Monitor"
 msgid_plural "Confirm Delete Health Monitors"
-msgstr[0] "確認刪除健康監控器"
+msgstr[0] "确认删除健康监控器"
 
 msgid "Confirm Delete L7 Policy"
 msgid_plural "Confirm Delete L7 Policies"
-msgstr[0] "確認刪除七層策略"
+msgstr[0] "确认删除七层策略"
 
 msgid "Confirm Delete L7 Rule"
 msgid_plural "Confirm Delete L7 Rules"
-msgstr[0] "確認刪除七層規則"
+msgstr[0] "确认删除七层规则"
 
 msgid "Confirm Delete Listener"
 msgid_plural "Confirm Delete Listeners"
-msgstr[0] "確認刪除監聽器"
+msgstr[0] "确认删除监听器"
 
 msgid "Confirm Delete Load Balancer"
 msgid_plural "Confirm Delete Load Balancers"
-msgstr[0] "確認刪除負載均衡器"
+msgstr[0] "确认删除负载均衡器"
 
 msgid "Confirm Delete Member"
 msgid_plural "Confirm Delete Members"
-msgstr[0] "確認刪除成員"
+msgstr[0] "确认删除成员"
 
 msgid "Confirm Delete Pool"
 msgid_plural "Confirm Delete Pools"
-msgstr[0] "確認刪除資源池"
+msgstr[0] "确认删除资源池"
 
 msgid "Confirm Disassociate Floating IP Address"
-msgstr "確認解除關聯浮動 IP 地址。"
+msgstr "确认解除关联浮动 IP 地址。"
 
 msgid "Connection Limit"
-msgstr "連接限制"
+msgstr "连接限制"
 
 msgid "Connection Limit:"
-msgstr "連接限制："
+msgstr "连接限制："
 
 msgid "Contains"
 msgstr "包含"
@@ -201,152 +213,152 @@ msgid "Cookie"
 msgstr "Cookie"
 
 msgid "Cookie Name"
-msgstr "Cookie 名稱"
+msgstr "Cookie 名称"
 
 msgid "Create Health Monitor"
-msgstr "創建健康監控器。"
+msgstr "创建健康监控器。"
 
 msgid "Create L7 Policy"
-msgstr "創建七層策略"
+msgstr "创建七层策略"
 
 msgid "Create L7 Rule"
-msgstr "創建七層規則"
+msgstr "创建七层规则"
 
 msgid "Create Listener"
-msgstr "創建監控器"
+msgstr "创建监控器"
 
 msgid "Create Load Balancer"
-msgstr "創建負載均衡器"
+msgstr "创建负载均衡器"
 
 msgid "Create Pool"
-msgstr "創建資源池"
+msgstr "创建资源池"
 
 msgid "Created At"
-msgstr "創建於"
+msgstr "创建于"
 
 msgid "Default Pool ID"
-msgstr "預設資源池 ID"
+msgstr "默认资源池 ID"
 
 msgid "Default Pool ID:"
-msgstr "預設資源池 ID："
+msgstr "默认资源池 ID："
 
 msgid "Default TLS Container Ref"
-msgstr "預設 TLS 容器編號"
+msgstr "默认 TLS 容器编号"
 
 msgid "Degraded"
 msgstr "衰退"
 
 msgid "Delay"
-msgstr "延遲"
+msgstr "延迟"
 
 msgid "Delay (sec)"
-msgstr "延遲（秒）"
+msgstr "延迟（秒）"
 
 msgid "Delay:"
-msgstr "延遲："
+msgstr "延迟："
 
 msgid "Delete Health Monitor"
 msgid_plural "Delete Health Monitors"
-msgstr[0] "刪除健康監控"
+msgstr[0] "删除健康监控"
 
 msgid "Delete Health Monitors"
-msgstr "刪除健康監控"
+msgstr "删除健康监控"
 
 msgid "Delete L7 Policies"
-msgstr "刪除七層策略"
+msgstr "删除七层策略"
 
 msgid "Delete L7 Policy"
 msgid_plural "Delete L7 Policies"
-msgstr[0] "刪除七層策略"
+msgstr[0] "删除七层策略"
 
 msgid "Delete L7 Rule"
 msgid_plural "Delete L7 Rules"
-msgstr[0] "刪除七層規則"
+msgstr[0] "删除七层规则"
 
 msgid "Delete L7 Rules"
-msgstr "刪除七層規則"
+msgstr "删除七层规则"
 
 msgid "Delete Listener"
 msgid_plural "Delete Listeners"
-msgstr[0] "刪除監控器"
+msgstr[0] "删除监控器"
 
 msgid "Delete Listeners"
-msgstr "刪除監控器"
+msgstr "删除监控器"
 
 msgid "Delete Load Balancer"
 msgid_plural "Delete Load Balancers"
-msgstr[0] "刪除負載均衡器"
+msgstr[0] "删除负载均衡器"
 
 msgid "Delete Load Balancers"
-msgstr "刪除負載均衡器"
+msgstr "删除负载均衡器"
 
 msgid "Delete Member"
 msgid_plural "Delete Members"
-msgstr[0] "刪除成員"
+msgstr[0] "删除成员"
 
 msgid "Delete Members"
-msgstr "刪除成員"
+msgstr "删除成员"
 
 msgid "Delete Pool"
 msgid_plural "Delete Pools"
-msgstr[0] "刪除資源池"
+msgstr[0] "删除资源池"
 
 msgid "Delete Pools"
-msgstr "刪除資源池"
+msgstr "删除资源池"
 
 #, python-format
 msgid "Deleted Health Monitor: %s."
 msgid_plural "Deleted Health Monitors: %s."
-msgstr[0] "刪除的健康監控器：%s。"
+msgstr[0] "删除的健康监控器：%s。"
 
 #, python-format
 msgid "Deleted L7 Policy: %s."
 msgid_plural "Deleted L7 Policies: %s."
-msgstr[0] "刪除的七層策略：%s。"
+msgstr[0] "删除的七层策略：%s。"
 
 #, python-format
 msgid "Deleted L7 Rule: %s."
 msgid_plural "Deleted L7 Rules: %s."
-msgstr[0] "刪除的七層規則：%s。"
+msgstr[0] "删除的七层规则：%s。"
 
 #, python-format
 msgid "Deleted Listener: %s."
 msgid_plural "Deleted Listeners: %s."
-msgstr[0] "刪除的監聽器：%s。"
+msgstr[0] "删除的监听器：%s。"
 
 #, python-format
 msgid "Deleted Load Balancer: %s."
 msgid_plural "Deleted Load Balancers: %s."
-msgstr[0] "刪除的負載均衡器：%s。"
+msgstr[0] "删除的负载均衡器：%s。"
 
 #, python-format
 msgid "Deleted Member: %s."
 msgid_plural "Deleted Members: %s."
-msgstr[0] "刪除的成員：%s。"
+msgstr[0] "删除的成员：%s。"
 
 #, python-format
 msgid "Deleted Pool: %s."
 msgid_plural "Deleted Pools: %s."
-msgstr[0] "刪除的資源池：%s。"
+msgstr[0] "删除的资源池：%s。"
 
 msgid "Description"
 msgstr "描述"
 
 msgid "Disassociate"
-msgstr "取消關聯"
+msgstr "取消关联"
 
 msgid "Disassociate Floating IP"
-msgstr "解除關聯浮動 IP"
+msgstr "解除关联浮动 IP"
 
 #, python-format
 msgid "Disassociated floating IP address from load balancer: %s."
-msgstr "已從負載均衡器取解除浮動IP關聯：%s。"
+msgstr "已从负载均衡器取解除浮动IP关联：%s。"
 
 msgid "ENDS_WITH: String ends with."
-msgstr "ENDS_WITH：字元串尾碼。"
+msgstr "ENDS_WITH：字符串后缀。"
 
 msgid "EQUAL_TO: String is equal to."
-msgstr "EQUAL_TO：字元串相同。"
+msgstr "EQUAL_TO：字符串相同。"
 
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
@@ -355,45 +367,45 @@ msgid ""
 "same load balancer but\n"
 "  each must use a unique port."
 msgstr ""
-"負載均衡器中的每一個監聽的連接埠獨立地配置並與負載均衡器關聯。\n"
-"多個監聽器可以關聯到同一個負載均衡器上，\n"
-"但每個都必須使用唯一的連接埠。"
+"负载均衡器中的每一个监听的端口独立地配置并与负载均衡器关联。\n"
+"多个监听器可以关联到同一个负载均衡器上，\n"
+"但每个都必须使用唯一的端口。"
 
 msgid "Edit Health Monitor"
-msgstr "編輯健康監控"
+msgstr "编辑健康监控"
 
 msgid "Edit L7 Policy"
-msgstr "編輯七層策略"
+msgstr "编辑七层策略"
 
 msgid "Edit L7 Rule"
-msgstr "編輯七層規則"
+msgstr "编辑七层规则"
 
 msgid "Edit Listener"
-msgstr "編輯監控器"
+msgstr "编辑监控器"
 
 msgid "Edit Load Balancer"
-msgstr "編輯負載均衡器"
+msgstr "编辑负载均衡器"
 
 msgid "Edit Member"
-msgstr "編輯成員"
+msgstr "编辑成员"
 
 msgid "Edit Pool"
-msgstr "編輯資源池"
+msgstr "编辑资源池"
 
 msgid "Ends With"
-msgstr "結束于"
+msgstr "结束于"
 
 msgid "Equal To"
-msgstr "等於"
+msgstr "等于"
 
 msgid "Error"
-msgstr "錯誤"
+msgstr "错误"
 
 msgid "Expected Codes"
-msgstr "預期的狀態碼"
+msgstr "预期的状态码"
 
 msgid "Expected Codes:"
-msgstr "預期的狀態碼："
+msgstr "预期的状态码："
 
 msgid "Expiration Date"
 msgstr "截止日期"
@@ -401,38 +413,44 @@ msgstr "截止日期"
 msgid ""
 "FILE_TYPE: The rule compares the last portion of the URI against\n"
 "      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
-msgstr "FILE_TYPE：該規則將 URI 的尾碼與值參數相比較。（例如：“txt”，“jpg”。）"
+msgstr "FILE_TYPE：该规则将 URI 的后缀与值参数相比较。（例如：“txt”，“jpg”。）"
 
 msgid "File Type"
-msgstr "檔案類型"
+msgstr "文件类型"
 
 msgid "Flavor"
-msgstr "類型"
+msgstr "类型"
+
+msgid "Flavor Description"
+msgstr "实例类型描述"
+
+msgid "Flavor ID"
+msgstr "实例类型 ID"
 
 msgid "Floating IP"
-msgstr "浮動 IP"
+msgstr "浮动 IP"
 
 msgid "Floating IP address or pool"
-msgstr "浮動 IP 地址或浮動 IP 地址池"
+msgstr "浮动 IP 地址或浮动 IP 地址池"
 
 msgid "Floating IP addresses"
-msgstr "浮動 IP 地址"
+msgstr "浮动 IP 地址"
 
 msgid "Floating IP pools"
-msgstr "浮動 IP 資源池"
+msgstr "浮动 IP 资源池"
 
 msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
-msgstr "前端客戶閒置超時時限，單位是毫秒，預設值：50000。"
+msgstr "前端客户闲置超时时限，单位是毫秒，默认值：50000。"
 
 msgid ""
 "HEADER: The rule looks for a header defined in the key parameter\n"
 "      and compares it against the value parameter in the rule."
-msgstr "HEADER：該規則查找以鍵參數命名的報頭並將其與值參數相比較。"
+msgstr "HEADER：该规则查找以键参数命名的报头并将其与值参数相比较。"
 
 msgid ""
 "HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
 "      hostname in the request against the value parameter in the rule."
-msgstr "HOST_NAME：該規則將請求中的 HTTP/1.1 主機名與值參數相比較。"
+msgstr "HOST_NAME：该规则将请求中的 HTTP/1.1 主机名与值参数相比较。"
 
 msgid "HTTP Method"
 msgstr "HTTP 方法"
@@ -441,22 +459,22 @@ msgid "HTTP Method:"
 msgstr "HTTP 方法："
 
 msgid "HTTP_COOKIE: Session persistence based on http cookie."
-msgstr "HTTP_COOKIE：基于 HTTP COOKIE 的會話持久化。"
+msgstr "HTTP_COOKIE：基于 HTTP COOKIE 的会话持久化。"
 
 msgid "Header"
-msgstr "報頭"
+msgstr "报头"
 
 msgid "Health Monitor"
-msgstr "健康監控"
+msgstr "健康监控"
 
 msgid "Health Monitor ID"
-msgstr "健康監控器 ID"
+msgstr "健康监控器 ID"
 
 msgid "Health Monitors"
-msgstr "健康監控"
+msgstr "健康监控"
 
 msgid "Host Name"
-msgstr "主機名"
+msgstr "主机名"
 
 msgid "ID"
 msgstr "ID"
@@ -481,239 +499,242 @@ msgid ""
 "address is not provided\n"
 "  then one will be allocated for you."
 msgstr ""
-"IP地址必須為格式良好的 IPv4 或 IPv6 地址。\n"
-"系統嘗試為負載均衡器分配提供的 IP 地址。\n"
-"如果沒有提供 IP 地址，則需要你手動分配一個 IP。"
+"IP地址必须为格式良好的 IPv4 或 IPv6 地址。\n"
+"系统尝试为负载均衡器分配提供的 IP 地址。\n"
+"如果没有提供 IP 地址，则需要你手动分配一个 IP。"
 
 msgid ""
 "If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
 "certificates must\n"
 "  be selected. The first certificate will be the default."
 msgstr ""
-"如果監聽器使用 TERMINATED_HTTPS 協議，則必須選擇一個或多個 SSL 證書。\n"
-"預設選擇第一個。"
+"如果监听器使用 TERMINATED_HTTPS 协议，则必须选择一个或多个 SSL 证书。\n"
+"默认选择第一个。"
 
 msgid "Inactive"
-msgstr "閒置"
+msgstr "闲置"
 
 msgid "Insert Headers"
-msgstr "插入報頭"
+msgstr "插入报头"
 
 msgid "Insert Headers:"
-msgstr "插入報頭："
+msgstr "插入报头："
 
 msgid "Invert"
-msgstr "反轉"
+msgstr "反转"
 
 msgid "Invert:"
-msgstr "反轉："
+msgstr "反转："
 
 msgid ""
 "Is the member a backup? Backup members only receive traffic when all\n"
 "  non-backup members are down."
-msgstr "該成員是否為備份？備份成員僅當所有非備份成員不可用時才接收通信。"
+msgstr "该成员是否为备份？备份成员仅当所有非备份成员不可用时才接收通信。"
 
 msgid "Key"
-msgstr "鍵"
+msgstr "键"
 
 msgid "Key Manager API Guide: Creating a Certificate Container"
-msgstr "Key Manager API 指南：創建證書容器"
+msgstr "Key Manager API 指南：创建证书容器"
 
 msgid "Key Manager Service Command-Line Client"
-msgstr "Key Manager 服務命令行客戶端"
+msgstr "Key Manager 服务命令行客户端"
 
 msgid "Key:"
-msgstr "鍵："
+msgstr "键："
 
 msgid "L7 Policies"
-msgstr "七層策略"
+msgstr "七层策略"
 
 msgid "L7 Policy"
-msgstr "七層策略"
+msgstr "七层策略"
 
 msgid "L7 Policy Details"
-msgstr "七層策略詳情"
+msgstr "七层策略详情"
 
 msgid "L7 Rule"
-msgstr "七層規則"
+msgstr "七层规则"
 
 msgid "L7 Rule Details"
-msgstr "七層規則詳情"
+msgstr "七层规则详情"
 
 msgid "L7 Rules"
-msgstr "七層規則"
+msgstr "七层规则"
 
 msgid ""
 "LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
 "of active\n"
 "      connections."
-msgstr "LEAST_CONNECTIONS：分發至最少活動連接次數的實例。"
+msgstr "LEAST_CONNECTIONS：分发至最少活动连接次数的实例。"
 
 msgid "Least Connections"
-msgstr "最少連接數"
+msgstr "最少连接数"
 
 msgid "Listener"
-msgstr "監控器"
+msgstr "监控器"
 
 msgid "Listener Details"
-msgstr "監聽器詳情"
+msgstr "监听器详情"
 
 msgid "Listener ID"
-msgstr "監聽器ID"
+msgstr "监听器ID"
 
 msgid "Listeners"
-msgstr "監控器"
+msgstr "监控器"
 
 msgid "Load Balancer"
-msgstr "負載均衡器"
+msgstr "负载均衡器"
 
 msgid "Load Balancer Details"
-msgstr "負載均衡器詳情"
+msgstr "负载均衡器详情"
 
 msgid "Load Balancers"
-msgstr "負載均衡器"
+msgstr "负载均衡器"
 
 msgid "Loading"
-msgstr "加載中"
+msgstr "加载中"
 
 msgid "Max Retries"
-msgstr "最大嘗試次數"
+msgstr "最大尝试次数"
 
 msgid "Max Retries Down"
-msgstr "最大失敗嘗試次數"
+msgstr "最大失败尝试次数"
 
 msgid "Max Retries Down:"
-msgstr "最大失敗重試次數："
+msgstr "最大失败重试次数："
 
 msgid "Max Retries:"
-msgstr "最大重試次數："
+msgstr "最大重试次数："
 
 msgid "Member"
-msgstr "成員"
+msgstr "成员"
 
 msgid "Member Connect Timeout"
-msgstr "成員連接超時時限"
+msgstr "成员连接超时时限"
 
 msgid "Member Connect Timeout:"
-msgstr "成員連接超時時限："
+msgstr "成员连接超时时限："
 
 msgid "Member Data Timeout"
-msgstr "成員數據超時時限"
+msgstr "成员数据超时时限"
 
 msgid "Member Data Timeout:"
-msgstr "成員數據超時時限："
+msgstr "成员数据超时时限："
 
 msgid "Members"
-msgstr "成員"
+msgstr "成员"
 
 msgid ""
 "Members are the actual IP addresses that will receive traffic from the load "
 "balancer. Each\n"
 "  member must have a unique combination of IP address and port."
 msgstr ""
-"成員是在負載均衡器中通信的實際 IP 地址。\n"
-"每個成員必須有一個唯一關聯的 IP 地址和連接埠。"
+"成员是在负载均衡器中通信的实际 IP 地址。\n"
+"每个成员必须有一个唯一关联的 IP 地址和端口。"
 
 msgid "Monitor Address"
-msgstr "健康監聽器地址"
+msgstr "健康监听器地址"
 
 msgid "Monitor Address:"
-msgstr "健康監控器地址："
+msgstr "健康监控器地址："
 
 msgid "Monitor Details"
-msgstr "健康監控器詳情"
+msgstr "健康监控器详情"
 
 msgid "Monitor Port"
-msgstr "健康監聽器連接埠"
+msgstr "健康监听器端口"
 
 msgid "Monitor Port:"
-msgstr "健康監控器連接埠："
+msgstr "健康监控器端口："
 
 msgid "Name"
-msgstr "名稱"
+msgstr "名称"
 
 msgid "Network"
-msgstr "網絡"
+msgstr "网络"
 
 msgid "Network ID"
-msgstr "網絡 ID"
+msgstr "网络 ID"
 
 msgid "No"
 msgstr "否"
 
 msgid "No Monitor"
-msgstr "無健康監控"
+msgstr "无健康监控"
 
 msgid "No available certificates"
-msgstr "無可用證書"
+msgstr "无可用证书"
 
 msgid "No available instances"
-msgstr "無可用實例"
+msgstr "无可用实例"
 
 msgid "No items to display."
-msgstr "沒有要顯示的項目。"
+msgstr "没有要显示的项目。"
+
+msgid "No matching options"
+msgstr "没有匹配的选项"
 
 msgid "No members have been allocated"
-msgstr "沒有成員已分配"
+msgstr "没有成员已分配"
 
 msgid "None"
-msgstr "無"
+msgstr "无"
 
 msgid "Offline"
-msgstr "離線"
+msgstr "离线"
 
 msgid "Online"
-msgstr "在綫"
+msgstr "在线"
 
 msgid "Operating Status"
-msgstr "操作狀態"
+msgstr "操作状态"
 
 msgid "Overview"
-msgstr "概覽"
+msgstr "概览"
 
 msgid ""
 "PATH: The rule compares the path portion of the HTTP URI against\n"
 "      the value parameter in the rule."
-msgstr "PATH：該規則將 HTTP URI 的路徑部分與值參數相比較。"
+msgstr "PATH：该规则将 HTTP URI 的路径部分与值参数相比较。"
 
 msgid "Path"
-msgstr "路徑"
+msgstr "路径"
 
 msgid "Pending Create"
-msgstr "暫掛創建"
+msgstr "暂挂创建"
 
 msgid "Pending Delete"
-msgstr "暫掛刪除"
+msgstr "暂挂删除"
 
 msgid "Pending Update"
-msgstr "暫掛更新"
+msgstr "暂挂更新"
 
 msgid "Please Wait"
-msgstr "請等待"
+msgstr "请等待"
 
 msgid "Pool"
-msgstr "資源池"
+msgstr "资源池"
 
 msgid "Pool Details"
-msgstr "資源池詳情"
+msgstr "资源池详情"
 
 msgid "Pool Members"
-msgstr "資源池成員"
+msgstr "资源池成员"
 
 msgid "Pool member has been updated."
-msgstr "資源池成員已更新"
+msgstr "资源池成员已更新"
 
 msgid "Pools"
-msgstr "資源池"
+msgstr "资源池"
 
 msgid "Port"
-msgstr "連接埠"
+msgstr "端口"
 
 msgid "Port ID"
-msgstr "連接埠 ID"
+msgstr "端口 ID"
 
 msgid "Port:"
-msgstr "連接埠："
+msgstr "端口："
 
 msgid "Position"
 msgstr "位置"
@@ -722,75 +743,75 @@ msgid "Position:"
 msgstr "位置："
 
 msgid "Project"
-msgstr "項目"
+msgstr "项目"
 
 msgid "Project ID"
-msgstr "項目 ID"
+msgstr "项目 ID"
 
 msgid "Protocol"
-msgstr "協議"
+msgstr "协议"
 
 msgid "Protocol Port"
-msgstr "協議連接埠"
+msgstr "协议端口"
 
 msgid "Protocol:"
-msgstr "協議："
+msgstr "协议："
 
 msgid "Provide the details for the health monitor."
-msgstr "為健康監控提供詳情。"
+msgstr "为健康监控提供详情。"
 
 msgid "Provide the details for the l7 policy."
-msgstr "提供七層策略的詳情。"
+msgstr "提供七层策略的详情。"
 
 msgid "Provide the details for the l7 rule."
-msgstr "提供七層規則的詳情。"
+msgstr "提供七层规则的详情。"
 
 msgid "Provide the details for the listener."
-msgstr "為監聽器提供詳情。"
+msgstr "为监听器提供详情。"
 
 msgid "Provide the details for the load balancer."
-msgstr "為負載均衡器提供詳情。"
+msgstr "为负载均衡器提供详情。"
 
 msgid "Provide the details for the member."
-msgstr "為成員提供詳情。"
+msgstr "为成员提供详情。"
 
 msgid "Provide the details for the pool."
-msgstr "為資源池提供詳情。"
+msgstr "为资源池提供详情。"
 
 msgid "Provider"
 msgstr "提供者"
 
 msgid "Provisioning Status"
-msgstr "配置狀態"
+msgstr "配置状态"
 
 msgid ""
 "REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
 "with the L7 policy."
-msgstr "REDIRECT_TO_POOL：請求被轉發到該七層策略關聯的資源池。"
+msgstr "REDIRECT_TO_POOL：请求被转发到该七层策略关联的资源池。"
 
 msgid ""
 "REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
 "the redirect_url parameter."
 msgstr ""
-"REDIRECT_TO_URL：請求被作為一個 HTTP 重定向發送到 redirect_url 參數里定義的 "
+"REDIRECT_TO_URL：请求被作为一个 HTTP 重定向发送到 redirect_url 参数里定义的 "
 "URL。"
 
 msgid "REGEX: Perl type regular expression matching."
-msgstr "REGEX：Perl 正則表達式匹配。"
+msgstr "REGEX：Perl 正则表达式匹配。"
 
 msgid ""
 "REJECT: The request is denied with an appropriate response code, and not "
 "forwarded on to any back-end pool."
-msgstr "REJECT：請求被拒絶並返回合適的狀態碼，並不被轉發給任何資源池"
+msgstr "REJECT：请求被拒绝并返回合适的状态码，并不被转发给任何资源池"
 
 msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
-msgstr "ROUND_ROBIN：在多個實例之間輪詢分發。"
+msgstr "ROUND_ROBIN：在多个实例之间轮询分发。"
 
 msgid "Redirect Pool ID"
-msgstr "重定向資源池 ID"
+msgstr "重定向资源池 ID"
 
 msgid "Redirect Pool ID:"
-msgstr "重定向資源池 ID："
+msgstr "重定向资源池 ID："
 
 msgid "Redirect URL"
 msgstr "重定向 URL"
@@ -799,16 +820,16 @@ msgid "Redirect URL:"
 msgstr "重定向 URL："
 
 msgid "Redirect to Pool"
-msgstr "重定向到資源池"
+msgstr "重定向到资源池"
 
 msgid "Redirect to URL"
 msgstr "重定向到 URL"
 
 msgid "Regex"
-msgstr "正則表達式"
+msgstr "正则表达式"
 
 msgid "Reject"
-msgstr "拒絶"
+msgstr "拒绝"
 
 msgid "Remove"
 msgstr "移除"
@@ -817,77 +838,77 @@ msgid ""
 "Requests matching this policy will be redirected to the pool with this ID. "
 "Only valid if action is REDIRECT_TO_POOL."
 msgstr ""
-"與該策略相匹配的請求將被重定向到由 ID 指定的資源池。僅當行為是 "
-"REDIRECT_TO_POOL 時有效。"
+"与该策略相匹配的请求将被重定向到由 ID 指定的资源池。仅当行为是 "
+"REDIRECT_TO_POOL 时有效。"
 
 msgid ""
 "Requests matching this policy will be redirected to this URL. Only valid if "
 "action is REDIRECT_TO_URL."
 msgstr ""
-"與該策略相匹配的請求將被重定向指定的 URL。僅當行為是 REDIRECT_TO_URL 時有效。"
+"与该策略相匹配的请求将被重定向指定的 URL。仅当行为是 REDIRECT_TO_URL 时有效。"
 
 msgid "Round Robin"
-msgstr "輪詢"
+msgstr "轮询"
 
 msgid "Rules"
-msgstr "規則"
+msgstr "规则"
 
 msgid "SNI Container Refs"
-msgstr "SNI 容器編號"
+msgstr "SNI 容器编号"
 
 msgid ""
 "SOURCE_IP: Requests from a unique source IP address are consistently "
 "directed to the same instance."
-msgstr "SOURCE_IP：來自相同源IP地址的請求連續的發送到同一實例。"
+msgstr "SOURCE_IP：来自相同源IP地址的请求连续的发送到同一实例。"
 
 msgid "SOURCE_IP: Session persistence based on source ip."
-msgstr "SOURCE_IP：基于源 IP 地址的會話持久化。"
+msgstr "SOURCE_IP：基于源 IP 地址的会话持久化。"
 
 msgid "SSL Certificates"
-msgstr "SSL 證書"
+msgstr "SSL 证书"
 
 msgid "STARTS_WITH: String starts with."
-msgstr "STARTS_WITH：字元串首碼。"
+msgstr "STARTS_WITH：字符串前缀。"
 
 msgid ""
 "Select a floating IP address to associate with the load balancer or a "
 "floating IP pool in which to allocate a new floating IP address."
 msgstr ""
-"選擇一個浮動 IP 地址關聯一個負載均衡器或為浮動 IP 池分配一個新的浮動 IP 地址"
+"选择一个浮动 IP 地址关联一个负载均衡器或为浮动 IP 池分配一个新的浮动 IP 地址"
 "池。"
 
 msgid "Select certificates from the available certificates below"
-msgstr "從下面可選的證書中選擇證書"
+msgstr "从下面可选的证书中选择证书"
 
 msgid "Select one or more SSL certificates for the listener."
-msgstr "為監聽器選擇一個或多個 SSL 證書。"
+msgstr "为监听器选择一个或多个 SSL 证书。"
 
 msgid "Session Persistence"
-msgstr "會話持久化"
+msgstr "会话持久化"
 
 msgid "Session Persistence:"
-msgstr "會話持久化："
+msgstr "会话持久化："
 
 msgid "Source IP"
 msgstr "源IP"
 
 msgid "Starts With"
-msgstr "開始於"
+msgstr "开始于"
 
 msgid "Subnet"
-msgstr "子網"
+msgstr "子网"
 
 msgid "Subnet ID"
-msgstr "子網 ID"
+msgstr "子网 ID"
 
 msgid "Subnet:"
-msgstr "子網："
+msgstr "子网："
 
 msgid "TCP Inspect Timeout"
-msgstr "TCP 監測超時時限"
+msgstr "TCP 监测超时时限"
 
 msgid "TCP Inspect Timeout:"
-msgstr "TCP 監測超時時限："
+msgstr "TCP 监测超时时限："
 
 msgid ""
 "The Available Instances table contains existing compute instances that can "
@@ -896,45 +917,45 @@ msgid ""
 "found in the Available\n"
 "  Instances table."
 msgstr ""
-"可用實例表顯示了存在的可以添加為資源池成員的計算實例。\n"
-"使用“添加外部成員”按鈕可以添加在可用實例表中找不到的成員。"
+"可用实例表显示了存在的可以添加为资源池成员的计算实例。\n"
+"使用“添加外部成员”按钮可以添加在可用实例表中找不到的成员。"
 
 msgid "The HTTP method used to perform the health check."
-msgstr "用來進行健康檢查的 HTTP 請求方式。"
+msgstr "用来进行健康检查的 HTTP 请求方式。"
 
 msgid "The ID of the pool used by the listener if no L7 policies match."
-msgstr "無七層策略匹配時用於該監聽器的資源池 ID。"
+msgstr "无七层策略匹配时用于该监听器的资源池 ID。"
 
 msgid "The IP address is not valid."
-msgstr "IP 地址無效。"
+msgstr "IP 地址无效。"
 
 msgid ""
 "The IP address of the member to receive traffic from the load balancer. Must "
 "be a well-formed\n"
 "  IPv4 or IPv6 address."
 msgstr ""
-"用於從負載均衡器中接收消息成員的 IP 地址。\n"
-"必須使用格式良好的 IPv4 或 IPv6 地址。"
+"用于从负载均衡器中接收消息成员的 IP 地址。\n"
+"必须使用格式良好的 IPv4 或 IPv6 地址。"
 
 msgid ""
 "The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
-msgstr "七層策略行為。REJECT，REDIRECT_TO_URL，REDIRECT_TO_POOL 其中之一"
+msgstr "七层策略行为。REJECT，REDIRECT_TO_URL，REDIRECT_TO_POOL 其中之一"
 
 msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
-msgstr "七層規則類型。COOKIE，FILE_TYPE，HEADER，HOST_NAME，PATH 之中之一。"
+msgstr "七层规则类型。COOKIE，FILE_TYPE，HEADER，HOST_NAME，PATH 之中之一。"
 
 msgid "The URL path is not valid."
-msgstr "URL 路徑無效。"
+msgstr "URL 路径无效。"
 
 msgid ""
 "The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
 "  EQUAL_TO, REGEX, or STARTS_WITH."
 msgstr ""
-"七層規則的比較類型。CONTAINS，ENDS_WITH，EQUAL_TO，REGEX，STARTS_WITH 其中之"
+"七层规则的比较类型。CONTAINS，ENDS_WITH，EQUAL_TO，REGEX，STARTS_WITH 其中之"
 "一。"
 
 msgid "The connection limit must be a number greater than or equal to -1."
-msgstr "連接限制必須是大於或等於 -1 的整數。"
+msgstr "连接限制必须是大于或等于 -1 的整数。"
 
 msgid ""
 "The expected HTTP status codes to get from a successful health check. Must "
@@ -942,14 +963,17 @@ msgid ""
 "  a comma separated list of numbers, or a range (two numbers separated by a "
 "hyphen)."
 msgstr ""
-"健康檢查成功返回的期望 HTTP 狀態碼。\n"
-"必須為單個數字，逗號分隔的一組數字或一個範圍（用連接符分隔的兩個數字）。"
+"健康检查成功返回的期望 HTTP 状态码。\n"
+"必须为单个数字，逗号分隔的一组数字或一个范围（用连接符分隔的两个数字）。"
 
 msgid "The expected status code is not valid."
-msgstr "期望狀態碼無效。"
+msgstr "期望状态码无效。"
+
+msgid "The health check interval must be greater than or equal to the timeout."
+msgstr "健康检查间隔必须大于或等于超时时限。"
 
 msgid "The health monitor has been updated."
-msgstr "健康監控器已經更新。"
+msgstr "健康监控器已经更新。"
 
 msgid ""
 "The health monitor is used to determine the health of your pool members. "
@@ -960,108 +984,108 @@ msgid ""
 "have one health\n"
 "  monitor."
 msgstr ""
-"健康監控用來確定你的資源池成員的健康狀況。\n"
-"健康檢查通常在資源池中與每個成員隔離運行，健康檢查的結果通過成員接收到新的連"
-"接來確定。\n"
-"每個資源池只能有一個健康監控。"
+"健康监控用来确定你的资源池成员的健康状况。\n"
+"健康检查通常在资源池中与每个成员隔离运行，健康检查的结果通过成员接收到新的连"
+"接来确定。\n"
+"每个资源池只能有一个健康监控。"
 
 msgid ""
 "The interval between health checks. Must be greater than or equal to the "
 "timeout."
-msgstr "健康檢查之間時間間隔，必須大於或等於超時時限。"
+msgstr "健康检查之间时间间隔，必须大于或等于超时时限。"
 
 msgid ""
 "The key to use for the comparison. For example, the name of the cookie\n"
 "  to evaluate."
-msgstr "用於比較的鍵。例如 COOKIE 的名字。"
+msgstr "用于比较的键。例如 COOKIE 的名字。"
 
 msgid "The l7policy has been updated."
-msgstr "七層策略已更新"
+msgstr "七层策略已更新"
 
 msgid "The l7rule has been updated."
-msgstr "七層規則已更新"
+msgstr "七层规则已更新"
 
 msgid "The listener has been updated."
-msgstr "監聽器已更新。"
+msgstr "监听器已更新。"
 
 msgid ""
 "The load balancer algorithm that distributes traffic to the pool members."
-msgstr "用於分發消息給資源池成員的負載均衡算法。"
+msgstr "用于分发消息给资源池成员的负载均衡算法。"
 
 msgid "The load balancer has been updated."
-msgstr "負載均衡器已更新。"
+msgstr "负载均衡器已更新。"
 
 msgid ""
 "The load balancer occupies a neutron network port and has an IP address "
 "assigned from a subnet."
-msgstr "負載均衡器占用一個 neutron 網絡連接埠和一個子網分配的 IP 地址。"
+msgstr "负载均衡器占用一个 neutron 网络端口和一个子网分配的 IP 地址。"
 
 msgid "The max retry count must be a number between 1 and 10."
-msgstr "健康檢查間隔必須大於或等於超時時限。"
+msgstr "健康检查间隔必须大于或等于超时时限。"
 
 msgid "The max retry down count must be a number between 1 and 10."
-msgstr "最大失敗嘗試次數必須是 1 至 10 之間的整數。"
+msgstr "最大失败尝试次数必须是 1 至 10 之间的整数。"
 
 msgid ""
 "The maximum number of connections permitted for this listener.\n"
 "  Default value is -1 which represents infinite connections."
-msgstr "該監聽器允許的最大連接數。預設值 -1 表示無限制。"
+msgstr "该监听器允许的最大连接数。默认值 -1 表示无限制。"
 
 msgid "The monitor address must be a valid IP address."
-msgstr "健康監聽器地址必須是有效的 IP 地址。"
+msgstr "健康监听器地址必须是有效的 IP 地址。"
 
 msgid "The monitor port must be a number between 1 and 65535."
-msgstr "健康監聽器連接埠必須是 1 至 65535 的整數"
+msgstr "健康监听器端口必须是 1 至 65535 的整数"
 
 msgid "The network on which to allocate the load balancer's IP address."
-msgstr "給分配負載均衡器 IP 地址的網絡。"
+msgstr "给分配负载均衡器 IP 地址的网络。"
 
 msgid "The network which contains the IP address of the member."
-msgstr "關聯成員 IP 地址的網絡。"
+msgstr "关联成员 IP 地址的网络。"
 
 msgid ""
 "The number of allowed connection failures before marking the member as "
 "error. Must be a\n"
 "  number from 1 to 10. The default is 3."
 msgstr ""
-"在將成員標記為錯誤之前，允許連接失敗的次數。\n"
-"必須是 1 至 10 之間的整數。預設值是 3。"
+"在将成员标记为错误之前，允许连接失败的次数。\n"
+"必须是 1 至 10 之间的整数。默认值是 3。"
 
 msgid ""
 "The number of allowed connection failures before marking the member as "
 "inactive. Must be a\n"
 "  number from 1 to 10."
 msgstr ""
-"在將成員標記為未活動狀態之前，允許連接失敗的次數。\n"
-"必須是 1 至 10 之間的整數。"
+"在将成员标记为未活动状态之前，允许连接失败的次数。\n"
+"必须是 1 至 10 之间的整数。"
 
 msgid "The pool has been updated."
-msgstr "資源池已更新。"
+msgstr "资源池已更新。"
 
 msgid "The pool members have been updated."
-msgstr "資源池成員已更新"
+msgstr "资源池成员已更新"
 
 msgid "The port must be a number between 1 and 65535."
-msgstr "連接埠必須是 1 至 65536 之間的整數。"
+msgstr "端口必须是 1 至 65536 之间的整数。"
 
 msgid ""
 "The port must be unique among all listeners attached to this load balancer."
-msgstr "負載均衡器上的所有監聽器的連接埠號必須唯一。"
+msgstr "负载均衡器上的所有监听器的端口号必须唯一。"
 
 msgid ""
 "The port on which the front end listens. Must be an integer from 1 to 65535."
-msgstr "用來通信的成員監聽連接埠。必須是 1 至 65536 之間的整數。"
+msgstr "用来通信的成员监听端口。必须是 1 至 65536 之间的整数。"
 
 msgid ""
 "The port on which the member listens for traffic. Must be a number from 1 to "
 "65535."
-msgstr "用來通信的成員監聽連接埠。必須是 1 至 65536 之間的整數。"
+msgstr "用来通信的成员监听端口。必须是 1 至 65536 之间的整数。"
 
 msgid "The position must be a number between 1 and 2147483647."
-msgstr "位置必須是一個 1 至 2147483647 的整數。"
+msgstr "位置必须是一个 1 至 2147483647 的整数。"
 
 msgid "The position of this policy on the listener. Positions start at 1."
-msgstr "該策略在監聽器裡的位置。位置從一開始。"
+msgstr "该策略在监听器里的位置。位置从一开始。"
 
 msgid ""
 "The protocol for which the front end listens. The TERMINATED_HTTPS protocol "
@@ -1070,42 +1094,42 @@ msgid ""
 "certificate containers and\n"
 "  secrets."
 msgstr ""
-"監聽器之間通信的協議。\n"
-"TERMINATED_HTTPS 協議只有在 key-manager 服務可用\n"
-"並且你有權限查詢證書容器和密鑰的情況下才有用。"
+"监听器之间通信的协议。\n"
+"TERMINATED_HTTPS 协议只有在 key-manager 服务可用\n"
+"并且你有权限查询证书容器和密钥的情况下才有用。"
 
 msgid "The redirect url must be a valid http or https url."
-msgstr "重定向 URL 必須是一個有效的 HTTP 或 HTTPS URL"
+msgstr "重定向 URL 必须是一个有效的 HTTP 或 HTTPS URL"
 
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
 "URL path."
-msgstr "成員發送健康檢查 HTTP 請求的目標地址，必須為合法的 URL 路徑。"
+msgstr "成员发送健康检查 HTTP 请求的目标地址，必须为合法的 URL 路径。"
 
 msgid ""
 "The time after which a health check times out. Must be a number greater than "
 "or equal to 0\n"
 "  and less than or equal to the interval."
 msgstr ""
-"健康檢查請求超時的時間。\n"
-"必須為大於或等於 0 的整數，並小於或等於間隔時間。"
+"健康检查请求超时的时间。\n"
+"必须为大于或等于 0 的整数，并小于或等于间隔时间。"
 
 msgid "The timeout must be a number between 0 and 31536000000."
-msgstr "超時時限必須是 0 至 31536000000 的整數。"
+msgstr "超时时限必须是 0 至 31536000000 的整数。"
 
 msgid "The timeout must be a number greater than or equal to 0."
-msgstr "超時時限必須是一個大於等於 0 的整數。"
+msgstr "超时时限必须是一个大于等于 0 的整数。"
 
 msgid ""
 "The type of session persistence for distributing traffic to the pool members."
-msgstr "用於為資源池成員分發消息的會話持久化類型。"
+msgstr "用于为资源池成员分发消息的会话持久化类型。"
 
 msgid ""
 "The value to use for the comparison. For example, the file type to compare."
-msgstr "用於比較的值。例如要比較的檔案類型。"
+msgstr "用于比较的值。例如要比较的文件类型。"
 
 msgid "The weight must be a number between 1 and 256."
-msgstr "權重必須是 1 至 256 的整數。"
+msgstr "权重必须是 1 至 256 的整数。"
 
 msgid ""
 "The weight of a member determines the portion of requests or connections it "
@@ -1114,209 +1138,239 @@ msgid ""
 "more traffic. Must be\n"
 "  a number from 1 to 256."
 msgstr ""
-"成員的權重決定了它在服務中與其他池成員的請求和連接的占比。\n"
-"權重越高意味着接收的消息越多。\n"
-"必須是 1 至 256 之間的整數。"
+"成员的权重决定了它在服务中与其他池成员的请求和连接的占比。\n"
+"权重越高意味着接收的消息越多。\n"
+"必须是 1 至 256 之间的整数。"
 
 msgid ""
 "Time, in milliseconds, to wait for additional TCP packets for content\n"
 "  inspection. Default: 0."
-msgstr "等待額外 TCP 內容監測包的超時時限，單位是毫秒，預設值：0。"
+msgstr "等待额外 TCP 内容监测包的超时时限，单位是毫秒，默认值：0。"
 
 msgid "Timeout"
-msgstr "超時時限"
+msgstr "超时时限"
 
 msgid "Timeout (sec)"
-msgstr "超時時限（秒）"
+msgstr "超时时限（秒）"
 
 msgid "Timeout:"
-msgstr "超時時限："
+msgstr "超时时限："
 
 msgid "Type"
-msgstr "類型"
+msgstr "类型"
 
 msgid "Type:"
-msgstr "類型："
+msgstr "类型："
 
 msgid "URL Path"
-msgstr "URL 路徑"
+msgstr "URL 路径"
 
 msgid "URL Path:"
-msgstr "URL 路徑："
+msgstr "URL 路径："
+
+msgid "Unable to create flavor profile."
+msgstr "无法创建实例类型配置集。"
+
+msgid "Unable to create flavor."
+msgstr "无法创建实例类型。"
 
 msgid "Unable to create health monitor."
-msgstr "無法創建健康監控。"
+msgstr "无法创建健康监控。"
 
 msgid "Unable to create l7 policy."
-msgstr "無法創建七層策略。"
+msgstr "无法创建七层策略。"
 
 msgid "Unable to create l7 rule."
-msgstr "無法創建七層規則。"
+msgstr "无法创建七层规则。"
 
 msgid "Unable to create listener."
-msgstr "無法創建監聽器。"
+msgstr "无法创建监听器。"
 
 msgid "Unable to create load balancer."
-msgstr "無法創建負載均衡器。"
+msgstr "无法创建负载均衡器。"
 
 msgid "Unable to create pool."
-msgstr "無法創建資源池。"
+msgstr "无法创建资源池。"
 
 #, python-format
 msgid "Unable to delete Health Monitor: %s."
 msgid_plural "Unable to delete Health Monitors: %s."
-msgstr[0] "無法刪除健康監控：%s。"
+msgstr[0] "无法删除健康监控：%s。"
 
 #, python-format
 msgid "Unable to delete L7 Policy: %s."
 msgid_plural "Unable to delete L7 Policies: %s."
-msgstr[0] "無法刪除七層策略：%s。"
+msgstr[0] "无法删除七层策略：%s。"
 
 #, python-format
 msgid "Unable to delete L7 Rule: %s."
 msgid_plural "Unable to delete L7 Rules: %s."
-msgstr[0] "無法刪除七層規則：%s。"
+msgstr[0] "无法删除七层规则：%s。"
 
 #, python-format
 msgid "Unable to delete Listener: %s."
 msgid_plural "Unable to delete Listeners: %s."
-msgstr[0] "無法刪除監聽器：%s。"
+msgstr[0] "无法删除监听器：%s。"
 
 #, python-format
 msgid "Unable to delete Load Balancer: %s."
 msgid_plural "Unable to delete Load Balancers: %s."
-msgstr[0] "無法刪除負載均衡器：%s。"
+msgstr[0] "无法删除负载均衡器：%s。"
 
 #, python-format
 msgid "Unable to delete Member: %s."
 msgid_plural "Unable to delete Members: %s."
-msgstr[0] "無法刪除成員：%s。"
+msgstr[0] "无法删除成员：%s。"
 
 #, python-format
 msgid "Unable to delete Pool: %s."
 msgid_plural "Unable to delete Pools: %s."
-msgstr[0] "無法刪除資源池：%s。"
+msgstr[0] "无法删除资源池：%s。"
+
+msgid "Unable to delete flavor profile."
+msgstr "无法删除实例类型配置集。"
+
+msgid "Unable to delete flavor."
+msgstr "无法删除实例类型。"
 
 msgid "Unable to delete health monitor."
-msgstr "無法刪除健康監控。"
+msgstr "无法删除健康监控。"
 
 msgid "Unable to delete l7 policy."
-msgstr "無法刪除七層策略。"
+msgstr "无法删除七层策略。"
 
 msgid "Unable to delete l7 rule."
-msgstr "無法刪除七層規則。"
+msgstr "无法删除七层规则。"
 
 msgid "Unable to delete listener."
-msgstr "無法刪除監聽器。"
+msgstr "无法删除监听器。"
 
 msgid "Unable to delete load balancer."
-msgstr "無法刪除負載均衡器。"
+msgstr "无法删除负载均衡器。"
 
 msgid "Unable to delete member."
-msgstr "無法刪除成員。"
+msgstr "无法删除成员。"
 
 msgid "Unable to delete pool."
-msgstr "無法刪除資源池。"
+msgstr "无法删除资源池。"
 
 #, python-format
 msgid "Unable to disassociate floating IP address from load balancer: %s."
-msgstr "無法從負載均衡器解除浮動IP地址關聯：%s。"
+msgstr "无法从负载均衡器解除浮动IP地址关联：%s。"
 
 msgid "Unable to retrieve SSL certificates."
-msgstr "不能獲取 SSL 證書。"
+msgstr "不能获取 SSL 证书。"
+
+msgid "Unable to retrieve flavor profile."
+msgstr "无法获取实例类型配置集。"
+
+msgid "Unable to retrieve flavor profiles."
+msgstr "无法获取实例类型配置集。"
+
+msgid "Unable to retrieve flavor."
+msgstr "无法获取实例类型。"
+
+msgid "Unable to retrieve flavors."
+msgstr "无法获取实例类型。"
 
 msgid "Unable to retrieve health monitor."
-msgstr "無法獲取健康監控。"
+msgstr "无法获取健康监控。"
 
 msgid "Unable to retrieve health monitors."
-msgstr "無法獲取健康監控。"
+msgstr "无法获取健康监控。"
 
 msgid "Unable to retrieve l7 policies."
-msgstr "無法獲取七層策略。"
+msgstr "无法获取七层策略。"
 
 msgid "Unable to retrieve l7 policy."
-msgstr "無法獲取七層策略。"
+msgstr "无法获取七层策略。"
 
 msgid "Unable to retrieve l7 rule."
-msgstr "無法獲取七層規則。"
+msgstr "无法获取七层规则。"
 
 msgid "Unable to retrieve l7 rules."
-msgstr "無法獲取七層規則。"
+msgstr "无法获取七层规则。"
 
 msgid "Unable to retrieve listener."
-msgstr "無法檢索監聽器。"
+msgstr "无法检索监听器。"
 
 msgid "Unable to retrieve listeners."
-msgstr "無法檢索監聽器。"
+msgstr "无法检索监听器。"
 
 msgid "Unable to retrieve load balancer."
-msgstr "無法檢索負載均衡器。"
+msgstr "无法检索负载均衡器。"
 
 msgid "Unable to retrieve load balancers."
-msgstr "無法檢索負載均衡器。"
+msgstr "无法检索负载均衡器。"
 
 msgid "Unable to retrieve member."
-msgstr "無法檢索成員。"
+msgstr "无法检索成员。"
 
 msgid "Unable to retrieve members."
-msgstr "無法檢索成員。"
+msgstr "无法检索成员。"
 
 msgid "Unable to retrieve pool."
-msgstr "無法檢索資源池。"
+msgstr "无法检索资源池。"
 
 msgid "Unable to retrieve pools."
-msgstr "無法檢索資源池。"
+msgstr "无法检索资源池。"
 
 msgid "Unable to retrieve secrets."
-msgstr "無法獲取密匙。"
+msgstr "无法获取密匙。"
+
+msgid "Unable to update flavor profile."
+msgstr "无法更新实例类型配置集。"
+
+msgid "Unable to update flavor."
+msgstr "无法更新实例类型。"
 
 msgid "Unable to update health monitor."
-msgstr "無法更新健康監控。"
+msgstr "无法更新健康监控。"
 
 msgid "Unable to update l7 policy."
-msgstr "無法更新七層策略。"
+msgstr "无法更新七层策略。"
 
 msgid "Unable to update l7 rule."
-msgstr "無法更新七層規則。"
+msgstr "无法更新七层规则。"
 
 msgid "Unable to update listener."
-msgstr "無法更新監聽器。"
+msgstr "无法更新监听器。"
 
 msgid "Unable to update load balancer."
-msgstr "無法更新負載均衡器。"
+msgstr "无法更新负载均衡器。"
 
 msgid "Unable to update member list."
-msgstr "無法更新成員列表。"
+msgstr "无法更新成员列表。"
 
 msgid "Unable to update member."
-msgstr "無法更新成員。"
+msgstr "无法更新成员。"
 
 msgid "Unable to update pool."
-msgstr "無法更新資源池。"
+msgstr "无法更新资源池。"
 
 msgid "Update"
 msgstr "更新"
 
 msgid "Update Health Monitor"
-msgstr "更新健康監控器。"
+msgstr "更新健康监控器。"
 
 msgid "Update L7 Policy"
-msgstr "更新七層策略"
+msgstr "更新七层策略"
 
 msgid "Update L7 Rule"
-msgstr "更新七層規則"
+msgstr "更新七层规则"
 
 msgid "Update Listener"
-msgstr "更新監聽器"
+msgstr "更新监听器"
 
 msgid "Update Load Balancer"
-msgstr "更新負載均衡器"
+msgstr "更新负载均衡器"
 
 msgid "Update Member"
-msgstr "更新成員"
+msgstr "更新成员"
 
 msgid "Update Pool"
-msgstr "更新資源池"
+msgstr "更新资源池"
 
 msgid "Updated At"
 msgstr "更新于"
@@ -1327,8 +1381,8 @@ msgid ""
 "    The following documentation provides information on how to create a "
 "certificate container:"
 msgstr ""
-"創建監聽器前，使用 key-manager 服務創建所有證書容器。\n"
-"下面的文檔介紹了如何創建一個證書容器："
+"创建监听器前，使用 key-manager 服务创建所有证书容器。\n"
+"下面的文档介绍了如何创建一个证书容器："
 
 msgid "Value"
 msgstr "值"
@@ -1337,18 +1391,24 @@ msgid "Value:"
 msgstr "值："
 
 msgid "Weight"
-msgstr "權重"
+msgstr "权重"
 
 msgid "Weight:"
-msgstr "權重："
+msgstr "权重："
 
 msgid ""
 "When true the logic of the rule is inverted. For example, with invert\n"
 "  true, equal to would become not equal to."
-msgstr "為是時該規則將被反轉。例如，反轉為是時相同將變成不相同。"
+msgstr "为是时该规则将被反转。例如，反转为是时相同将变成不相同。"
 
 msgid "X-Forwarded-For"
 msgstr "X-Forwarded-For"
+
+msgid "X-Forwarded-Port"
+msgstr "X-Forwarded-Port"
+
+msgid "X-Forwarded-Proto"
+msgstr "X-Forwarded-Proto"
 
 msgid "Yes"
 msgstr "是"
@@ -1357,36 +1417,46 @@ msgstr "是"
 msgid ""
 "You are about to disassociate the floating IP address from load balancer \"%s"
 "\". Please confirm."
-msgstr "你將從負載均衡器解除浮動 IP 地址關聯“%s”，請確認。"
+msgstr "你将从负载均衡器解除浮动 IP 地址关联“%s”，请确认。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted L7 Policy is not recoverable."
 msgid_plural ""
 "You have selected \"%s\". Deleted L7 Policies are not recoverable."
-msgstr[0] "你選擇了“%s”。刪除的七層策略無法恢復。"
+msgstr[0] "你选择了“%s”。删除的七层策略无法恢复。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted L7 Rule is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted L7 Rules are not recoverable."
-msgstr[0] "你選擇了“%s”。刪除的七層規則無法恢復。"
+msgstr[0] "你选择了“%s”。删除的七层规则无法恢复。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
 msgid_plural ""
 "You have selected \"%s\". Deleted health monitors are not recoverable."
-msgstr[0] "你選擇了“%s”。刪除的健康監控器無法恢復。"
+msgstr[0] "你选择了“%s”。删除的健康监控器无法恢复。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted listener is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
-msgstr[0] "你選擇了“%s”。刪除的監聽器無法恢復。"
+msgstr[0] "你选择了“%s”。删除的监听器无法恢复。"
+
+#, python-format
+msgid ""
+"You have selected \"%s\". Deleted load balancer is not recoverable and this "
+"deletion will delete all of the sub-resources."
+msgid_plural ""
+"You have selected \"%s\". Deleted load balancers are not recoverable and "
+"this deletion will delete all of the sub-resources."
+msgstr[0] ""
+"您选择了 \"%s\"。删除的负载均衡器将无法被恢复，这个删除操作将删除所有子资源。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted member is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted members are not recoverable."
-msgstr[0] "你選擇了“%s”。刪除的成員無法恢復。"
+msgstr[0] "你选择了“%s”。删除的成员无法恢复。"
 
 #, python-format
 msgid "You have selected \"%s\". Deleted pool is not recoverable."
 msgid_plural "You have selected \"%s\". Deleted pools are not recoverable."
-msgstr[0] "你選擇了“%s”。刪除的資源池無法恢復。"
+msgstr[0] "你选择了“%s”。删除的资源池无法恢复。"
