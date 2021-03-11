@@ -175,7 +175,8 @@
       },
       loadbalancers: gettext('Load Balancers'),
       listeners: gettext('Listeners'),
-      members: gettext('Members')
+      members: gettext('Members'),
+      tls_ciphers: gettext('TLS Cipher String')
     };
   }
 

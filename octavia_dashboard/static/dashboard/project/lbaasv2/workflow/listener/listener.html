@@ -167,6 +167,23 @@
     </div>
   </div>
 
+  <div class="row" ng-if="model.spec.listener.protocol === 'TERMINATED_HTTPS'">
+
+    <div class="col-xs-12 col-sm-8 col-md-6">
+      <div class="form-group"
+           ng-class="{ 'has-error': listenerDetailsForm.tls_ciphers.$invalid && listenerDetailsForm.tls_ciphers.$dirty }">
+        <label translate class="control-label" for="tls_ciphers">TLS Cipher String</label>
+        <textarea name="tls_ciphers" id="tls_ciphers" class="form-control"
+               ng-model="model.spec.listener.tls_ciphers" ng-pattern="/^([A-Z0-9_-]+:)*[A-Z0-9_-]+$/">
+        </textarea>
+        <span class="help-block" ng-show="listenerDetailsForm.tls_ciphers.$invalid && listenerDetailsForm.tls_ciphers.$dirty">
+          {$ ::ctrl.tls_ciphersError $}
+        </span>
+      </div>
+    </div>
+
+  </div>
+
   <h4 translate ng-if="model.spec.listener.protocol === 'HTTP' || model.spec.listener.protocol === 'TERMINATED_HTTPS'">Insert Headers</h4>
 
   <div class="row form-group" ng-if="model.spec.listener.protocol === 'HTTP' || model.spec.listener.protocol === 'TERMINATED_HTTPS'">
