@@ -1,99 +1,17 @@
 <div ng-controller="PoolDetailsController as ctrl">
   <p translate>Provide the details for the pool.</p>
 
-  <div class="row">
+  <div class="row" ng-if="model.context.resource !== 'pool' && !model.context.id">
 
     <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group">
-        <label translate class="control-label" for="name">Name</label>
-        <input name="name" id="name" type="text" class="form-control"
-               ng-model="model.spec.pool.name">
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="form-group">
-        <label translate class="control-label" for="description">Description</label>
-        <input name="description" id="description" type="text" class="form-control"
-               ng-model="model.spec.pool.description">
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="form-group required">
-        <label class="control-label" for="method">
-          <translate>Algorithm</translate>
-          <span class="hz-icon-required fa fa-asterisk"></span>
-        </label>
-        <select class="form-control" name="method" id="method"
-                ng-options="method for method in model.methods"
-                ng-model="model.spec.pool.lb_algorithm"
-                ng-required="true">
-        </select>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.context.id || (model.spec.parentResourceId === null)">
-      <div class="form-group required">
-        <label class="control-label" for="protocol">
-          <translate>Protocol</translate>
-          <span class="hz-icon-required fa fa-asterisk"></span>
-        </label>
-        <select class="form-control" name="protocol" id="protocol"
-                ng-model="model.spec.pool.protocol" ng-required="true"
-                ng-disabled="model.context.id">
-          <option ng-repeat="protocol in model.poolProtocols" value="{$ protocol $}">
-            {$ protocol $}
-          </option>
-        </select>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="form-group">
-        <label class="control-label" for="type">
-          <translate>Session Persistence</translate>
-        </label>
-        <select class="form-control" name="type" id="type"
-                ng-model="model.spec.pool.session_persistence.type">
-          <option value="">None</option>
-          <option ng-repeat="type in model.types"
-                  ng-disabled="(model.spec.listener.protocol === 'UDP' || model.spec.listener.protocol === 'SCTP') && type !== 'SOURCE_IP'"
-                  value="{$ type $}">
-            {$ type $}
-          </option>
-        </select>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.spec.pool.session_persistence.type === 'APP_COOKIE'">
-      <div class="form-group">
-        <label translate class="control-label" for="cookie_name">Cookie Name</label>
-        <input name="cookie_name" id="cookie_name" type="text" class="form-control"
-               ng-model="model.spec.pool.session_persistence.cookie_name">
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="form-group">
-        <label class="control-label required" translate>TLS Enabled</label>
+        <label class="control-label required" translate>Create Pool</label>
         <div class="form-field">
           <div class="btn-group">
             <label class="btn btn-default"
                    ng-repeat="option in model.yesNoOptions"
-                   ng-model="model.spec.pool.tls_enabled"
+                   ng-model="model.context.create_pool"
+                   ng-change="ctrl.createChange()"
                    uib-btn-radio="option.value">{$ ::option.label $}</label>
           </div>
         </div>
@@ -102,39 +20,141 @@
 
   </div>
 
-  <div class="row" ng-if="model.spec.pool.tls_enabled">
+  <div ng-if="model.context.create_pool">
+    <div class="row">
 
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="form-group"
-           ng-class="{ 'has-error': poolDetailsForm.tls_ciphers.$invalid && poolDetailsForm.tls_ciphers.$dirty }">
-        <label translate class="control-label" for="tls_ciphers">TLS Cipher String</label>
-        <textarea name="tls_ciphers" id="tls_ciphers" class="form-control"
-               ng-model="model.spec.pool.tls_ciphers" ng-pattern="/^([A-Z0-9_-]+:)*[A-Z0-9_-]+$/">
-        </textarea>
-        <span class="help-block" ng-show="poolDetailsForm.tls_ciphers.$invalid && poolDetailsForm.tls_ciphers.$dirty">
-          {$ ::ctrl.tls_ciphersError $}
-        </span>
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <div class="form-group">
+          <label translate class="control-label" for="name">Name</label>
+          <input name="name" id="name" type="text" class="form-control"
+                ng-model="model.spec.pool.name">
+        </div>
       </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <div class="form-group">
+          <label translate class="control-label" for="description">Description</label>
+          <input name="description" id="description" type="text" class="form-control"
+                ng-model="model.spec.pool.description">
+        </div>
+      </div>
+
     </div>
 
-  </div>
+    <div class="row">
 
-  <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <div class="form-group required">
+          <label class="control-label" for="method">
+            <translate>Algorithm</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <select class="form-control" name="method" id="method"
+                  ng-options="method for method in model.methods"
+                  ng-model="model.spec.pool.lb_algorithm"
+                  ng-required="true">
+          </select>
+        </div>
+      </div>
 
-    <div class="col-xs-12 col-sm-8 col-md-6">
-      <div class="form-group">
-        <label class="control-label required" translate>Admin State Up</label>
-        <div class="form-field">
-          <div class="btn-group">
-            <label class="btn btn-default"
-                   ng-repeat="option in model.yesNoOptions"
-                   ng-model="model.spec.pool.admin_state_up"
-                   uib-btn-radio="option.value">{$ ::option.label $}</label>
+      <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.context.id || (model.spec.parentResourceId === null)">
+        <div class="form-group required">
+          <label class="control-label" for="protocol">
+            <translate>Protocol</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <select class="form-control" name="protocol" id="protocol"
+                  ng-model="model.spec.pool.protocol" ng-required="true"
+                  ng-disabled="model.context.id">
+            <option ng-repeat="protocol in model.poolProtocols" value="{$ protocol $}">
+              {$ protocol $}
+            </option>
+          </select>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <div class="form-group">
+          <label class="control-label" for="type">
+            <translate>Session Persistence</translate>
+          </label>
+          <select class="form-control" name="type" id="type"
+                  ng-model="model.spec.pool.session_persistence.type">
+            <option value="">None</option>
+            <option ng-repeat="type in model.types"
+                    ng-disabled="model.spec.listener.protocol === 'UDP' && type !== 'SOURCE_IP'"
+                    value="{$ type $}">
+              {$ type $}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-6" ng-if="model.spec.pool.session_persistence.type === 'APP_COOKIE'">
+        <div class="form-group">
+          <label translate class="control-label" for="cookie_name">Cookie Name</label>
+          <input name="cookie_name" id="cookie_name" type="text" class="form-control"
+                ng-model="model.spec.pool.session_persistence.cookie_name">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <div class="form-group">
+          <label class="control-label required" translate>TLS Enabled</label>
+          <div class="form-field">
+            <div class="btn-group">
+              <label class="btn btn-default"
+                    ng-repeat="option in model.yesNoOptions"
+                    ng-model="model.spec.pool.tls_enabled"
+                    uib-btn-radio="option.value">{$ ::option.label $}</label>
+            </div>
           </div>
         </div>
       </div>
+
     </div>
 
-  </div>
+    <div class="row" ng-if="model.spec.pool.tls_enabled">
 
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <div class="form-group"
+            ng-class="{ 'has-error': poolDetailsForm.tls_ciphers.$invalid && poolDetailsForm.tls_ciphers.$dirty }">
+          <label translate class="control-label" for="tls_ciphers">TLS Cipher String</label>
+          <textarea name="tls_ciphers" id="tls_ciphers" class="form-control"
+                ng-model="model.spec.pool.tls_ciphers" ng-pattern="/^([A-Z0-9_-]+:)*[A-Z0-9_-]+$/">
+          </textarea>
+          <span class="help-block" ng-show="poolDetailsForm.tls_ciphers.$invalid && poolDetailsForm.tls_ciphers.$dirty">
+            {$ ::ctrl.tls_ciphersError $}
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <div class="form-group">
+          <label class="control-label required" translate>Admin State Up</label>
+          <div class="form-field">
+            <div class="btn-group">
+              <label class="btn btn-default"
+                    ng-repeat="option in model.yesNoOptions"
+                    ng-model="model.spec.pool.admin_state_up"
+                    uib-btn-radio="option.value">{$ ::option.label $}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>

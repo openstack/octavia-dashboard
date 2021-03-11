@@ -137,7 +137,10 @@
       model.context = {
         resource: resource,
         id: id,
-        submit: null
+        submit: null,
+        create_listener: true,
+        create_pool: true,
+        create_monitor: true
       };
 
       model.certificates = [];

@@ -55,6 +55,16 @@
       }
     });
 
+    ctrl.createChange = createChange;
+
+    function createChange() {
+      if ($scope.model.context.create_monitor) {
+        // Enabling pool form enables listener form and pool form
+        $scope.model.context.create_listener = true;
+        $scope.model.context.create_pool = true;
+      }
+    }
+
     // Error text for invalid fields
     /* eslint-disable max-len */
     ctrl.intervalError = gettext('The health check interval must be greater than or equal to the timeout.');

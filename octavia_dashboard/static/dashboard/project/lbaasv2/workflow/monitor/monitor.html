@@ -1,156 +1,177 @@
 <div ng-controller="MonitorDetailsController as ctrl">
   <p translate>Provide the details for the health monitor.</p>
 
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="form-group">
-        <label class="control-label" for="name">
-          <translate>Name</translate>
-        </label>
-        <input name="name" id="name" type="text" class="form-control"
-               ng-model="model.spec.monitor.name">
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="form-group required">
-        <label class="control-label" for="type">
-          <translate>Type</translate>
-          <span class="hz-icon-required fa fa-asterisk"></span>
-        </label>
-        <select class="form-control" name="type" id="type"
-                ng-options="type for type in model.monitorTypes"
-                ng-model="model.spec.monitor.type"
-                ng-disabled="model.context.id" ng-required="true">
-        </select>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="form-group required"
-           ng-class="{ 'has-error': monitorDetailsForm.retry_down.$invalid && monitorDetailsForm.retry_down.$dirty }">
-        <label class="control-label" for="retry_down">
-          <translate>Max Retries Down</translate>
-          <span class="hz-icon-required fa fa-asterisk"></span>
-        </label>
-        <input name="retry_down" id="retry_down" type="number" class="form-control"
-               ng-model="model.spec.monitor.max_retries_down" ng-pattern="/^\d+$/" min="1" max="10"
-               ng-required="true">
-        <span class="help-block" ng-show="monitorDetailsForm.retry_down.$invalid && monitorDetailsForm.retry_down.$dirty">
-          {$ ::ctrl.retryDownError $}
-        </span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
-
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="form-group required"
-           ng-class="{ 'has-error': monitorDetailsForm.interval.$invalid && monitorDetailsForm.interval.$dirty }">
-        <label class="control-label" for="interval">
-          <translate>Delay (sec)</translate>
-          <span class="hz-icon-required fa fa-asterisk"></span>
-        </label>
-        <input name="interval" id="interval" type="number" class="form-control"
-               ng-model="model.spec.monitor.delay" ng-pattern="/^\d+$/"
-               ng-min="model.spec.monitor.timeout" ng-required="true">
-        <span class="help-block" ng-show="monitorDetailsForm.interval.$invalid && monitorDetailsForm.interval.$dirty">
-          {$ ::ctrl.intervalError $}
-        </span>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="form-group required"
-           ng-class="{ 'has-error': monitorDetailsForm.retry.$invalid && monitorDetailsForm.retry.$dirty }">
-        <label class="control-label" for="retry">
-          <translate>Max Retries</translate>
-          <span class="hz-icon-required fa fa-asterisk"></span>
-        </label>
-        <input name="retry" id="retry" type="number" class="form-control"
-               ng-model="model.spec.monitor.max_retries" ng-pattern="/^\d+$/" min="1" max="10"
-               ng-required="true">
-        <span class="help-block" ng-show="monitorDetailsForm.retry.$invalid && monitorDetailsForm.retry.$dirty">
-          {$ ::ctrl.retryError $}
-        </span>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="form-group required"
-           ng-class="{ 'has-error': monitorDetailsForm.timeout.$invalid && monitorDetailsForm.timeout.$dirty }">
-        <label class="control-label" for="timeout">
-          <translate>Timeout (sec)</translate>
-          <span class="hz-icon-required fa fa-asterisk"></span>
-        </label>
-        <input name="timeout" id="timeout" type="number" class="form-control"
-               ng-model="model.spec.monitor.timeout" ng-pattern="/^\d+$/" min="0"
-               ng-required="true">
-        <span class="help-block" ng-show="monitorDetailsForm.timeout.$invalid && monitorDetailsForm.timeout.$dirty">
-          {$ ::ctrl.timeoutError $}
-        </span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row" ng-if="model.spec.monitor.type === 'HTTP' || model.spec.monitor.type === 'HTTPS'">
-
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="form-group">
-        <label translate class="control-label" for="method">HTTP Method</label>
-        <select class="form-control" name="method" id="method"
-                ng-options="method for method in model.monitorMethods"
-                ng-model="model.spec.monitor.http_method">
-        </select>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="form-group"
-           ng-class="{ 'has-error': monitorDetailsForm.status.$invalid && monitorDetailsForm.status.$dirty }">
-        <label translate class="control-label" for="status">Expected Codes</label>
-        <input name="status" id="status" type="text" class="form-control"
-               ng-model="model.spec.monitor.expected_codes" ng-pattern="::ctrl.statusPattern">
-        <span class="help-block" ng-show="monitorDetailsForm.status.$invalid && monitorDetailsForm.status.$dirty">
-          {$ ::ctrl.statusError $}
-        </span>
-      </div>
-    </div>
-
-    <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
-      <div class="form-group"
-           ng-class="{ 'has-error': monitorDetailsForm.path.$invalid && monitorDetailsForm.path.$dirty }">
-        <label translate class="control-label" for="path">URL Path</label>
-        <input name="path" id="path" type="text" class="form-control"
-               ng-model="model.spec.monitor.url_path" ng-pattern="::ctrl.urlPathPattern">
-        <span class="help-block" ng-show="monitorDetailsForm.path.$invalid && monitorDetailsForm.path.$dirty">
-          {$ ::ctrl.pathError $}
-        </span>
-      </div>
-    </div>
-
-  </div>
-
-  <div class="row">
+  <div class="row" ng-if="model.context.resource !== 'monitor' && !model.context.id">
 
     <div class="col-xs-12 col-sm-8 col-md-6">
       <div class="form-group">
-        <label class="control-label required" translate>Admin State Up</label>
+        <label class="control-label required" translate>Create Health Monitor</label>
         <div class="form-field">
           <div class="btn-group">
             <label class="btn btn-default"
                    ng-repeat="option in model.yesNoOptions"
-                   ng-model="model.spec.monitor.admin_state_up"
+                   ng-model="model.context.create_monitor"
+                   ng-change="ctrl.createChange()"
                    uib-btn-radio="option.value">{$ ::option.label $}</label>
           </div>
         </div>
       </div>
     </div>
 
+  </div>
+
+  <div ng-if="model.context.create_monitor">
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="form-group">
+          <label class="control-label" for="name">
+            <translate>Name</translate>
+          </label>
+          <input name="name" id="name" type="text" class="form-control"
+                ng-model="model.spec.monitor.name">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="form-group required">
+          <label class="control-label" for="type">
+            <translate>Type</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <select class="form-control" name="type" id="type"
+                  ng-options="type for type in model.monitorTypes"
+                  ng-model="model.spec.monitor.type"
+                  ng-disabled="model.context.id" ng-required="true">
+          </select>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="form-group required"
+            ng-class="{ 'has-error': monitorDetailsForm.retry_down.$invalid && monitorDetailsForm.retry_down.$dirty }">
+          <label class="control-label" for="retry_down">
+            <translate>Max Retries Down</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <input name="retry_down" id="retry_down" type="number" class="form-control"
+                ng-model="model.spec.monitor.max_retries_down" ng-pattern="/^\d+$/" min="1" max="10"
+                ng-required="true">
+          <span class="help-block" ng-show="monitorDetailsForm.retry_down.$invalid && monitorDetailsForm.retry_down.$dirty">
+            {$ ::ctrl.retryDownError $}
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="form-group required"
+            ng-class="{ 'has-error': monitorDetailsForm.interval.$invalid && monitorDetailsForm.interval.$dirty }">
+          <label class="control-label" for="interval">
+            <translate>Delay (sec)</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <input name="interval" id="interval" type="number" class="form-control"
+                ng-model="model.spec.monitor.delay" ng-pattern="/^\d+$/"
+                ng-min="model.spec.monitor.timeout" ng-required="true">
+          <span class="help-block" ng-show="monitorDetailsForm.interval.$invalid && monitorDetailsForm.interval.$dirty">
+            {$ ::ctrl.intervalError $}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="form-group required"
+            ng-class="{ 'has-error': monitorDetailsForm.retry.$invalid && monitorDetailsForm.retry.$dirty }">
+          <label class="control-label" for="retry">
+            <translate>Max Retries</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <input name="retry" id="retry" type="number" class="form-control"
+                ng-model="model.spec.monitor.max_retries" ng-pattern="/^\d+$/" min="1" max="10"
+                ng-required="true">
+          <span class="help-block" ng-show="monitorDetailsForm.retry.$invalid && monitorDetailsForm.retry.$dirty">
+            {$ ::ctrl.retryError $}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="form-group required"
+            ng-class="{ 'has-error': monitorDetailsForm.timeout.$invalid && monitorDetailsForm.timeout.$dirty }">
+          <label class="control-label" for="timeout">
+            <translate>Timeout (sec)</translate>
+            <span class="hz-icon-required fa fa-asterisk"></span>
+          </label>
+          <input name="timeout" id="timeout" type="number" class="form-control"
+                ng-model="model.spec.monitor.timeout" ng-pattern="/^\d+$/" min="0"
+                ng-required="true">
+          <span class="help-block" ng-show="monitorDetailsForm.timeout.$invalid && monitorDetailsForm.timeout.$dirty">
+            {$ ::ctrl.timeoutError $}
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row" ng-if="model.spec.monitor.type === 'HTTP' || model.spec.monitor.type === 'HTTPS'">
+
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="form-group">
+          <label translate class="control-label" for="method">HTTP Method</label>
+          <select class="form-control" name="method" id="method"
+                  ng-options="method for method in model.monitorMethods"
+                  ng-model="model.spec.monitor.http_method">
+          </select>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="form-group"
+            ng-class="{ 'has-error': monitorDetailsForm.status.$invalid && monitorDetailsForm.status.$dirty }">
+          <label translate class="control-label" for="status">Expected Codes</label>
+          <input name="status" id="status" type="text" class="form-control"
+                ng-model="model.spec.monitor.expected_codes" ng-pattern="::ctrl.statusPattern">
+          <span class="help-block" ng-show="monitorDetailsForm.status.$invalid && monitorDetailsForm.status.$dirty">
+            {$ ::ctrl.statusError $}
+          </span>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
+        <div class="form-group"
+            ng-class="{ 'has-error': monitorDetailsForm.path.$invalid && monitorDetailsForm.path.$dirty }">
+          <label translate class="control-label" for="path">URL Path</label>
+          <input name="path" id="path" type="text" class="form-control"
+                ng-model="model.spec.monitor.url_path" ng-pattern="::ctrl.urlPathPattern">
+          <span class="help-block" ng-show="monitorDetailsForm.path.$invalid && monitorDetailsForm.path.$dirty">
+            {$ ::ctrl.pathError $}
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-8 col-md-6">
+        <div class="form-group">
+          <label class="control-label required" translate>Admin State Up</label>
+          <div class="form-field">
+            <div class="btn-group">
+              <label class="btn btn-default"
+                    ng-repeat="option in model.yesNoOptions"
+                    ng-model="model.spec.monitor.admin_state_up"
+                    uib-btn-radio="option.value">{$ ::option.label $}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 
 </div>

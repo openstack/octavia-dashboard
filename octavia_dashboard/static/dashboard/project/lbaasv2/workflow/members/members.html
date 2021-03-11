@@ -1,4 +1,5 @@
-<div ng-controller="MemberDetailsController as ctrl">
+<div ng-controller="MemberDetailsController as ctrl"
+     ng-if="model.context.create_pool || model.context.id">
   <p translate>Add members to the load balancer pool.</p>
   <transfer-table tr-model="ctrl.tableData"
                   limits="::ctrl.tableLimits"

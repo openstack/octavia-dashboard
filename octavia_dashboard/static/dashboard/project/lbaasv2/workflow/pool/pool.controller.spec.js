@@ -24,8 +24,16 @@
     describe('PoolDetailsController', function() {
       var ctrl, scope;
 
-      beforeEach(inject(function($controller, $rootScope) {
-        scope = $rootScope.$new();
+      beforeEach(inject(function($controller) {
+        scope = {
+          model: {
+            context: {
+              create_listener: true,
+              create_pool: true,
+              create_monitor: true
+            }
+          }
+        };
         ctrl = $controller('PoolDetailsController', {
           $scope: scope
         });
@@ -33,6 +41,18 @@
 
       it('should define error messages for invalid fields', function() {
         expect(ctrl.tls_ciphersError).toBeDefined();
+      });
+
+      it('should update create_listener and create_monitor flags', function() {
+        scope.model.context.create_pool = true;
+        ctrl.createChange();
+        expect(scope.model.context.create_listener).toBe(true);
+        expect(scope.model.context.create_monitor).toBe(true);
+
+        scope.model.context.create_pool = false;
+        ctrl.createChange();
+        expect(scope.model.context.create_listener).toBe(true);
+        expect(scope.model.context.create_monitor).toBe(false);
       });
 
     });
