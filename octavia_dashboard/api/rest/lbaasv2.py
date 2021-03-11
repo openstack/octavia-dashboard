@@ -255,6 +255,7 @@ def create_pool(request, **kwargs):
         name=data['pool'].get('name'),
         description=data['pool'].get('description'),
         admin_state_up=data['pool'].get('admin_state_up'),
+        tls_enabled=data['pool'].get('tls_enabled'),
         # Replace empty string by None (uses default tls cipher string)
         tls_ciphers=data['pool'].get('tls_ciphers') or None,
     )
@@ -534,6 +535,7 @@ def update_pool(request, **kwargs):
         name=data['pool'].get('name'),
         description=data['pool'].get('description'),
         admin_state_up=data['pool'].get('admin_state_up'),
+        tls_enabled=data['pool'].get('tls_enabled'),
         # Replace empty string by None (uses default tls cipher string)
         tls_ciphers=data['pool'].get('tls_ciphers') or None,
     )
