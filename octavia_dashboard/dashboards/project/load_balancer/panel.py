@@ -20,4 +20,4 @@ import horizon
 class NGLoadBalancers(horizon.Panel):
     name = _("Load Balancers")
     slug = 'load_balancer'
-    permissions = ('openstack.services.network',)
+    permissions = ('openstack.services.load-balancer',)
