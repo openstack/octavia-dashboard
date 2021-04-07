@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fix a bug that prevented the update of non-HTTP and non-HTTPS health
+    monitors.
