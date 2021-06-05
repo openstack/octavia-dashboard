@@ -20,3 +20,17 @@ from django.conf import settings
 settings.POLICY_FILES.update({
     'load-balancer': 'octavia_policy.yaml',
 })
+
+# Sample
+# settings.LOGGING['loggers'].update({
+#     'openstack': {
+#         'handlers': ['console'],
+#         'level': 'DEBUG',
+#         'propagate': False,
+#     }
+#     'barbicanclient': {
+#         'handlers': ['console'],
+#         'level': 'DEBUG',
+#         'propagate': False,
+#     }
+# })
