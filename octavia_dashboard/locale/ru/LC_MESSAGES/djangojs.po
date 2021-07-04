@@ -1,22 +1,17 @@
-# Aleksey Alekseenko <9118250541@mail.ru>, 2016. #zanata
-# Alexander <ainikitenkov@gmail.com>, 2016. #zanata
-# Andrew <apapsujko@gmail.com>, 2016. #zanata
-# Artem <amikhalev90@gmail.com>, 2016. #zanata
-# Artem <amikhalev90@gmail.com>, 2017. #zanata
-# Fedor Tarasenko <feodor.tarasenko@gmail.com>, 2017. #zanata
+# Roman Gorshunov <roman.gorshunov@att.com>, 2021. #zanata
 msgid ""
 msgstr ""
-"Project-Id-Version: octavia-dashboard 1.0.1.dev55\n"
+"Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2017-02-03 18:54+0000\n"
+"POT-Creation-Date: 2021-06-08 14:43+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2017-02-03 08:56+0000\n"
-"Last-Translator: Fedor Tarasenko <feodor.tarasenko@gmail.com>\n"
+"PO-Revision-Date: 2021-07-03 04:06+0000\n"
+"Last-Translator: Roman Gorshunov <roman.gorshunov@att.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
-"X-Generator: Zanata 3.7.3\n"
+"X-Generator: Zanata 4.3.3\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
@@ -24,155 +19,20 @@ msgstr ""
 msgid "%(ip)s..."
 msgstr "%(ip)s..."
 
-msgid ""
-"<strong>Expected status codes:</strong>\n"
-"  The expected HTTP status codes to get from a successful health check. Must "
-"be a single number,\n"
-"  a comma separated list of numbers, or a range (two numbers separated by a "
-"hyphen)."
-msgstr ""
-"<strong>Ожидаемый статус-код:</strong>\n"
-" Ожидаемый HTTP статус-код при успешной проверке работоспособности. Должен "
-"быть одним \n"
-"числом, списком чисел разделённых запятой или диапозоном(два чиста "
-"разделённых дефисом)."
-
-msgid ""
-"<strong>HTTP method:</strong>\n"
-"  The HTTP method used to perform the health check."
-msgstr ""
-"<strong>HTTP метод:</strong>\n"
-"  HTTP метод используется для проверки работоспособности."
-
-msgid ""
-"<strong>IP address:</strong>\n"
-"  If an IP address is provided it must be a well-formed IPv4 or IPv6 "
-"address. The system will\n"
-"  attempt to assign the provided IP address to the load balancer. If an IP "
-"address is not provided\n"
-"  then one will be allocated for you."
-msgstr ""
-"<strong>IP адрес:</strong>\n"
-" Если предоставляется IP адрес, то он должен быть в формате IPv4 или IPv6. "
-"Система попытается\n"
-" назначить предоставленный IP адрес балансировщику нагрузки. Если IP адресс "
-"не предоставлен,\n"
-"тогда он будет выделен вам. "
-
-msgid ""
-"<strong>IP address:</strong>\n"
-"  The IP address of the member to receive traffic from the load balancer. "
-"Must be a well-formed\n"
-"  IPv4 or IPv6 address."
-msgstr ""
-"<strong>IP адрес:</strong>\n"
-" IP адрес участника для получение даннх от балансировщика нагрузки. Должен "
-"быть в формате \n"
-" IPv4 или IPv6."
-
-msgid ""
-"<strong>Interval:</strong>\n"
-"  The interval between health checks. Must be greater than or equal to the "
-"timeout."
-msgstr ""
-"<strong>Интервал:</strong>\n"
-" Интервал между проверками работоспособности. Должен быть не меньше времени "
-"ожидания."
-
-msgid ""
-"<strong>Method:</strong>\n"
-"  The load balancer algorithm that distributes traffic to the pool members.\n"
-"  <ul>\n"
-"    <li>\n"
-"      LEAST_CONNECTIONS: Allocates requests to the instance with the least "
-"number of active\n"
-"      connections.\n"
-"    </li>\n"
-"    <li>\n"
-"      ROUND_ROBIN: Rotates requests evenly between multiple instances.\n"
-"    </li>\n"
-"    <li>\n"
-"      SOURCE_IP: Requests from a unique source IP address are consistently "
-"directed to the same instance.\n"
-"    </li>\n"
-"  </ul>"
-msgstr ""
-"<strong>Алгоритм:</strong>\n"
-"  Алгоритм балансировки, используемый для распределения трафика среди "
-"участников пула.\n"
-"  <ul>\n"
-"    <li>\n"
-"      LEAST_CONNECTIONS: Направляет запросы инстансу с наименьшим "
-"количеством соединений.\n"
-"    </li>\n"
-"    <li>\n"
-"      ROUND_ROBIN: Равномерно распределяет запросы между инстансами.\n"
-"    </li>\n"
-"    <li>\n"
-"      SOURCE_IP: Запросы от одинаковых IP адресов последовательно "
-"направляются на один и тот же инстанс.\n"
-"    </li>\n"
-"  </ul>"
-
-msgid ""
-"<strong>Port:</strong>\n"
-"  The port on which the member listens for traffic. Must be a number from 1 "
-"to 65535."
-msgstr ""
-"<strong>Порт:</strong>\n"
-" Порт, через который участник пула ожидает трафик. Должен быть в диапазоне "
-"между 1 и 65535."
-
-msgid ""
-"<strong>Retries:</strong>\n"
-"  The number of allowed connection failures before marking the member as "
-"inactive. Must be a\n"
-"  number from 1 to 10."
-msgstr ""
-"<strong>Повторы:</strong>\n"
-" Количество допустимых ошибок соединения перед изменением состояния "
-"участника на неактивное. Значение должно\n"
-" быть в диапазоне между 1 и 10."
-
-msgid ""
-"<strong>Subnet:</strong>\n"
-"  The network on which to allocate the load balancer's IP address."
-msgstr ""
-"<strong>Подсеть:</strong>\n"
-"  Сеть в которой выделяется IP адрес балансировщику нагрузки."
-
-msgid ""
-"<strong>Subnet:</strong>\n"
-"  The network which contains the IP address of the member."
-msgstr ""
-"<strong>Подсеть:</strong>\n"
-"  Сеть содержащая IP адрес участников."
-
-msgid ""
-"<strong>Weight:</strong>\n"
-"  The weight of a member determines the portion of requests or connections "
-"it services compared\n"
-"  to the other members of the pool. A higher weight means it will receive "
-"more traffic. Must be\n"
-"  a number from 1 to 256."
-msgstr ""
-"<strong>Вес:</strong>\n"
-" Вес участника определяет долю обслуживаемых запросов или соединений по "
-"отношению к другим участникам пула.\n"
-" Больший вес означает, что участник пула получит больше трафика. Должен быть "
-"в диапазоне между 1 и 256."
-
 msgid "A new health monitor is being created."
-msgstr "Новый монитор работоспособности создается."
+msgstr "Создаётся новый Монитор работоспособности."
+
+msgid "A new l7 policy is being created."
+msgstr "Создаётся новая политика L7"
 
 msgid "A new listener is being created."
-msgstr "Новый получатель запросов создается."
+msgstr "Новый Получатель запросов создается."
 
 msgid "A new load balancer is being created."
-msgstr "Новый балансировщик нагрузки создается."
+msgstr "Создаётся новый Балансировщик нагрузки."
 
 msgid "A new pool is being created."
-msgstr "Новый пул создается."
+msgstr "Создаётся новый пул."
 
 msgid ""
 "A pool represents a group of members over which the load balancing will be "
@@ -181,11 +41,17 @@ msgstr ""
 "Пул представляет собой группу участников, среди которых распределяется "
 "нагрузка."
 
-msgid "Actions"
-msgstr "Действия"
+msgid "APP_COOKIE: Session persistence based on application cookie."
+msgstr "APP_COOKIE: Устойчивые сессии, основанные на cookie приложения."
+
+msgid "Action"
+msgstr "Действие"
+
+msgid "Action:"
+msgstr "Действие:"
 
 msgid "Active"
-msgstr "Активный"
+msgstr "Активен"
 
 msgid "Add"
 msgstr "Добавить"
@@ -196,17 +62,30 @@ msgstr "Добавить внешнего участника"
 msgid "Add members to the load balancer pool."
 msgstr "Добавить участников в пул балансировщика нагрузки."
 
+msgid "Add/Remove Members"
+msgstr "Добавить/Удалить участников"
+
 msgid "Add/Remove Pool Members"
 msgstr "Добавить/Удалить участников пула"
-
-msgid "Address"
-msgstr "Адрес"
 
 msgid "Admin State Up"
 msgstr "Административное состояние UP"
 
+msgid "Algorithm"
+msgstr "Алгоритм"
+
+msgid "Algorithm:"
+msgstr "Алгоритм:"
+
 msgid "Allocated Members"
 msgstr "Выделенные участники"
+
+msgid ""
+"An L7 Policy is a collection of L7 rules associated with a Listener, and "
+"which may also have an association to a back-end pool"
+msgstr ""
+"Политика L7 - это коллекция правил L7, связанных с Слушателем, которые в "
+"свою очередь могут быть связаны с бэкенд пулом."
 
 msgid "An error occurred. Please try again later."
 msgstr "Произошла ошибка. Повторите попытку."
@@ -223,8 +102,20 @@ msgstr "Привязать назначаемый IP адрес"
 msgid "Associating floating IP with load balancer."
 msgstr "Связывание назначаемого IP с балансировщиком нагрузки."
 
+msgid "Availability Zone"
+msgstr "Зона доступности"
+
 msgid "Available Instances"
 msgstr "Доступные инстансы"
+
+msgid "Backup"
+msgstr "Резервное копирование"
+
+msgid "Backup:"
+msgstr "Резерв:"
+
+msgid "CIDR"
+msgstr "CIDR"
 
 msgid "Cancel"
 msgstr "Отмена"
@@ -232,17 +123,53 @@ msgstr "Отмена"
 msgid "Certificate Name"
 msgstr "Имя сертификата"
 
+msgid "Client Data Timeout"
+msgstr "Таймаут данных клиента"
+
+msgid "Compare Type"
+msgstr "Сравнить тип"
+
 msgid "Confirm Delete Health Monitor"
-msgstr "Подтвердите Удаление Монитора Работоспособности"
+msgid_plural "Confirm Delete Health Monitors"
+msgstr[0] "Подтвердите удаление монитора работоспособности"
+msgstr[1] "Подтвердите удаление мониторов работоспособности"
+msgstr[2] "Подтвердите удаление мониторов работоспособности"
 
-msgid "Confirm Delete Listeners"
-msgstr "Подтвердите удаление получателей"
+msgid "Confirm Delete L7 Policy"
+msgid_plural "Confirm Delete L7 Policies"
+msgstr[0] "Подтвердите удаление политики L7"
+msgstr[1] "Подтвердите удаление политик L7"
+msgstr[2] "Подтвердите удаление политик L7"
 
-msgid "Confirm Delete Load Balancers"
-msgstr "Подтвердите Удаление Балансировщиков Нагрузки"
+msgid "Confirm Delete L7 Rule"
+msgid_plural "Confirm Delete L7 Rules"
+msgstr[0] "Подтвердите удаление правила L7"
+msgstr[1] "Подтвердите удаление правил L7"
+msgstr[2] "Подтвердите удаление правил L7"
+
+msgid "Confirm Delete Listener"
+msgid_plural "Confirm Delete Listeners"
+msgstr[0] "Подтвердите удаление получателя"
+msgstr[1] "Подтвердите удаление получателей"
+msgstr[2] "Подтвердите удаление получателей"
+
+msgid "Confirm Delete Load Balancer"
+msgid_plural "Confirm Delete Load Balancers"
+msgstr[0] "Подтвердите удаление балансировщика нагрузки"
+msgstr[1] "Подтвердите удаление балансировщиков нагрузки"
+msgstr[2] "Подтвердите удаление балансировщиков нагрузки"
+
+msgid "Confirm Delete Member"
+msgid_plural "Confirm Delete Members"
+msgstr[0] "Подтвердите удаление участника"
+msgstr[1] "Подтвердите удаление участников"
+msgstr[2] "Подтвердите удаление участников"
 
 msgid "Confirm Delete Pool"
-msgstr "Подтвердите удаление пула"
+msgid_plural "Confirm Delete Pools"
+msgstr[0] "Подтвердите удаление пула"
+msgstr[1] "Подтвердите удаление пулов"
+msgstr[2] "Подтвердите удаление пулов"
 
 msgid "Confirm Disassociate Floating IP Address"
 msgstr "Подтвердите отвязку назначаемых IP адресов"
@@ -250,20 +177,41 @@ msgstr "Подтвердите отвязку назначаемых IP адре
 msgid "Connection Limit"
 msgstr "Лимит соединений"
 
+msgid "Contains"
+msgstr "Содержит"
+
+msgid "Cookie"
+msgstr "Cookie"
+
+msgid "Cookie Name"
+msgstr "Название Cookie"
+
 msgid "Create Health Monitor"
-msgstr "Создать Монитор Работоспособности."
+msgstr "Создать монитор работоспособности"
+
+msgid "Create L7 Policy"
+msgstr "Создать политику L7"
+
+msgid "Create L7 Rule"
+msgstr "Создать правило L7"
 
 msgid "Create Listener"
 msgstr "Создать Получателя"
 
 msgid "Create Load Balancer"
-msgstr "Создать Балансировщик Нагрузки"
+msgstr "Создать Балансировщик нагрузки"
 
 msgid "Create Pool"
-msgstr "Создать Пул"
+msgstr "Создать пул"
+
+msgid "Created At"
+msgstr "Создано"
 
 msgid "Default Pool ID"
-msgstr "ИД Пула по умолчанию"
+msgstr "ID Пула по умолчанию"
+
+msgid "Default TLS Container Ref"
+msgstr "Ссылка на контейнер TLS по умолчанию"
 
 msgid "Degraded"
 msgstr "Деградировавший"
@@ -271,39 +219,123 @@ msgstr "Деградировавший"
 msgid "Delay"
 msgstr "Задержка"
 
+msgid "Delay (sec)"
+msgstr "Задержка (сек.)"
+
+msgid "Delay:"
+msgstr "Задержка:"
+
 msgid "Delete Health Monitor"
-msgstr "Удалить Монитор Работоспособности"
+msgid_plural "Delete Health Monitors"
+msgstr[0] "Удалить монитор работоспособности"
+msgstr[1] "Удалить мониторы работоспособности"
+msgstr[2] "Удалить мониторы работоспособности"
+
+msgid "Delete Health Monitors"
+msgstr "Удалить мониторы работоспособности"
+
+msgid "Delete L7 Policies"
+msgstr "Удалить политики L7"
+
+msgid "Delete L7 Policy"
+msgid_plural "Delete L7 Policies"
+msgstr[0] "Удалить политику L7"
+msgstr[1] "Удалить политики L7"
+msgstr[2] "Удалить политики L7"
+
+msgid "Delete L7 Rule"
+msgid_plural "Delete L7 Rules"
+msgstr[0] "Удалить правило L7"
+msgstr[1] "Удалить правила L7"
+msgstr[2] "Удалить правила L7"
+
+msgid "Delete L7 Rules"
+msgstr "Удалить правила L7"
 
 msgid "Delete Listener"
-msgstr "Удалить получателя"
+msgid_plural "Delete Listeners"
+msgstr[0] "Удалить получатель"
+msgstr[1] "Удалить получателей"
+msgstr[2] "Удалить получателей"
 
 msgid "Delete Listeners"
 msgstr "Удалить Получателей"
 
 msgid "Delete Load Balancer"
-msgstr "Удалить Балансировщик Нагрузки"
+msgid_plural "Delete Load Balancers"
+msgstr[0] "Удалить балансировщик нагрузки"
+msgstr[1] "Удалить балансировщики нагрузки"
+msgstr[2] "Удалить балансировщики нагрузки"
 
 msgid "Delete Load Balancers"
-msgstr "Удалить Балансировщики Нагрузки"
+msgstr "Удалить Балансировщики нагрузки"
+
+msgid "Delete Member"
+msgid_plural "Delete Members"
+msgstr[0] "Удалить участника"
+msgstr[1] "Удалить участников"
+msgstr[2] "Удалить участников"
+
+msgid "Delete Members"
+msgstr "Удалить участников"
 
 msgid "Delete Pool"
-msgstr "Удалить пул"
+msgid_plural "Delete Pools"
+msgstr[0] "Удалить пул"
+msgstr[1] "Удалить пулы"
+msgstr[2] "Удалить пулы"
+
+msgid "Delete Pools"
+msgstr "Удалить пулы"
 
 #, python-format
-msgid "Deleted health monitor: %s."
-msgstr "Удаленный монитор работоспособности: %s."
+msgid "Deleted Health Monitor: %s."
+msgid_plural "Deleted Health Monitors: %s."
+msgstr[0] "Удален монитор работоспособности: %s."
+msgstr[1] "Удалены мониторы работоспособности: %s."
+msgstr[2] "Удалены мониторы работоспособности: %s."
 
 #, python-format
-msgid "Deleted listeners: %s."
-msgstr "Удаленные получатели: %s."
+msgid "Deleted L7 Policy: %s."
+msgid_plural "Deleted L7 Policies: %s."
+msgstr[0] "Удалена политика L7: %s."
+msgstr[1] "Удалены политики L7: %s."
+msgstr[2] "Удалены политики L7: %s."
 
 #, python-format
-msgid "Deleted load balancers: %s."
-msgstr "Удаленные балансировщики нагрузки: %s."
+msgid "Deleted L7 Rule: %s."
+msgid_plural "Deleted L7 Rules: %s."
+msgstr[0] "Удалено правило L7: %s."
+msgstr[1] "Удалены правила L7: %s."
+msgstr[2] "Удалены правила L7: %s."
 
 #, python-format
-msgid "Deleted pool: %s."
-msgstr "Удален пул: %s."
+msgid "Deleted Listener: %s."
+msgid_plural "Deleted Listeners: %s."
+msgstr[0] "Удален получатель: %s."
+msgstr[1] "Удалены получатели: %s."
+msgstr[2] "Удалены получатели: %s."
+
+#, python-format
+msgid "Deleted Load Balancer: %s."
+msgid_plural "Deleted Load Balancers: %s."
+msgstr[0] "Удалён балансировщик нагрузки: %s."
+msgstr[1] "Удалены балансировщики нагрузки: %s."
+msgstr[2] "Удалены балансировщики нагрузки: %s."
+
+#, python-format
+msgid "Deleted Member: %s."
+msgid_plural "Deleted Members: %s."
+msgstr[0] "Удалён участник: %s."
+msgstr[1] "Удалены участники: %s."
+msgstr[2] "Удалены участники: %s."
+
+#, python-format
+msgid "Deleted Pool: %s."
+msgid_plural "Deleted Pools: %s."
+msgstr[0] "Пул удален: %s."
+msgstr[1] "Пулы удалены: %s."
+msgstr[2] "Пулы удалены: %s."
 
 msgid "Description"
 msgstr "Описание"
@@ -314,8 +346,36 @@ msgstr "Снять назначение"
 msgid "Disassociate Floating IP"
 msgstr "Отвязать Назначаемый IP"
 
-msgid "Edit"
-msgstr "Редактировать"
+#, python-format
+msgid "Disassociated floating IP address from load balancer: %s."
+msgstr "Отвязан назначаемый IP адрес от балансировщика нагрузки: %s."
+
+msgid "Edit Health Monitor"
+msgstr "Изменить монитор работоспособности"
+
+msgid "Edit L7 Policy"
+msgstr "Редактировать политику L7"
+
+msgid "Edit L7 Rule"
+msgstr "Редактировать правило L7"
+
+msgid "Edit Listener"
+msgstr "Редактировать Получатель"
+
+msgid "Edit Load Balancer"
+msgstr "Редактировать балансировщик нагрузки"
+
+msgid "Edit Member"
+msgstr "Редактировать участника"
+
+msgid "Edit Pool"
+msgstr "Редактировать пул"
+
+msgid "Ends With"
+msgstr "Заканчивается с"
+
+msgid "Equal To"
+msgstr "Равно"
 
 msgid "Error"
 msgstr "Ошибка"
@@ -323,21 +383,29 @@ msgstr "Ошибка"
 msgid "Expected Codes"
 msgstr "Ожидаемые коды"
 
-msgid "Expected status codes"
-msgstr "Ожидаемые статус-коды"
+msgid "Expected Codes:"
+msgstr "Ожидаемые коды:"
 
 msgid "Expiration Date"
 msgstr "Дата окончания действия"
 
-msgid "Floating IP Address"
-msgstr "Нефиксированный IP Адресс"
+msgid "File Type"
+msgstr "Тип файла"
 
-msgid ""
-"Floating IP address or pool\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Назначаемый IP адрес или пул\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Flavor"
+msgstr "Тип инстанса"
+
+msgid "Flavor Description"
+msgstr "Описание типа инстанса"
+
+msgid "Flavor ID"
+msgstr "ID типа инстансов"
+
+msgid "Floating IP"
+msgstr "Назначаемый IP"
+
+msgid "Floating IP address or pool"
+msgstr "Назначаемый IP адрес или пул"
 
 msgid "Floating IP addresses"
 msgstr "Назначаемые IP-адреса"
@@ -348,11 +416,26 @@ msgstr "Пул назначаемых IP адресов"
 msgid "HTTP Method"
 msgstr "Метод HTTP"
 
-msgid "HTTP method"
-msgstr "Метод HTTP"
+msgid "HTTP Method:"
+msgstr "Метод HTTP:"
+
+msgid "HTTP_COOKIE: Session persistence based on http cookie."
+msgstr "HTTP_COOKIE: Устойчивые сессии, основанные на HTTP cookie."
+
+msgid "Header"
+msgstr "Заголовок"
+
+msgid "Health Monitor"
+msgstr "Монитор работоспособности"
 
 msgid "Health Monitor ID"
-msgstr "ИД Монитора Работоспособности"
+msgstr "ID Монитора Работоспособности"
+
+msgid "Health Monitors"
+msgstr "Мониторы работоспособности"
+
+msgid "Host Name"
+msgstr "Имя сервера"
 
 msgid "ID"
 msgstr "ID"
@@ -360,47 +443,28 @@ msgstr "ID"
 msgid "IP Address"
 msgstr "IP адрес"
 
-msgid ""
-"IP Address\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            \n"
-"              Subnet\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            <th class=\"rsp-p1\">\n"
-"              Port\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            Weight</th>\n"
-"            <th class=\"actions_column\"></th>"
-msgstr ""
-"IP адрес\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            \n"
-"              Подсеть\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            <th class=\"rsp-p1\">\n"
-"              Порт\n"
-"              <span class=\"hz-icon-required fa fa-asterisk\" ng-show=\"ctrl."
-"tableData.displayedAllocated.length > 0\">\n"
-"            </span>\n"
-"            Вес</th>\n"
-"            <th class=\"actions_column\"></th>"
-
 #, python-format
 msgid "IP Addresses (%(count)s)"
 msgstr "IP адрес (%(count)s)"
 
 msgid "IP address"
-msgstr "IP адрес"
+msgstr "IP-адрес"
+
+msgid "IP address:"
+msgstr "IP адрес:"
+
+msgid ""
+"If an IP address is provided it must be a well-formed IPv4 or IPv6 address. "
+"The system will\n"
+"  attempt to assign the provided IP address to the load balancer. If an IP "
+"address is not provided\n"
+"  then one will be allocated for you."
+msgstr ""
+"Если предоставляется IP адрес, то он должен быть в формате IPv4 или IPv6. "
+"Система попытается\n"
+"  назначить предоставленный IP адрес балансировщику нагрузки. Если IP адресс "
+"не предоставлен,\n"
+"  тогда он будет выделен для вас."
 
 msgid ""
 "If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
@@ -411,44 +475,80 @@ msgstr ""
 "TERMINATED_HTTPS протокол. Первый сертификат будет использоваться по "
 "умолчанию."
 
+msgid "Inactive"
+msgstr "Неактивен"
+
+msgid "Insert Headers"
+msgstr "Вставить заголовки"
+
+msgid "Insert Headers:"
+msgstr "Добавить заголовки:"
+
+msgid "Invert"
+msgstr "Инвертировать"
+
+msgid "Invert:"
+msgstr "Инвертировать:"
+
+msgid "Key"
+msgstr "Ключ"
+
+msgid "Key Manager API Guide: Creating a Certificate Container"
+msgstr "Руководство по API менеджера ключей: создание контейнера сертификатов"
+
+msgid "Key Manager Service Command-Line Client"
+msgstr "Клиент командной строки сервиса менеджера ключей"
+
+msgid "Key:"
+msgstr "Ключ:"
+
+msgid "L7 Policies"
+msgstr "Политики L7"
+
+msgid "L7 Policy"
+msgstr "Политика L7"
+
+msgid "L7 Policy Details"
+msgstr "Информация о политике L7"
+
+msgid "L7 Rule"
+msgstr "Правило L7"
+
+msgid "L7 Rule Details"
+msgstr "Информация о правиле L7"
+
+msgid "L7 Rules"
+msgstr "Правила L7"
+
 msgid ""
-"Interval (sec)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+"LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
+"of active\n"
+"      connections."
 msgstr ""
-"Интервал (сек)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+"LEAST_CONNECTIONS: Распределяет запросы к инстансам с наименьшим количеством "
+"активных\n"
+"      соединений."
 
 msgid "Least Connections"
 msgstr "Меньше соединений"
 
-#, python-format
-msgid "Listener %(index)s"
-msgstr "Слушатель %(index)s"
-
-msgid "Listener 1"
-msgstr "Слушатель 1"
+msgid "Listener"
+msgstr "Слушатель"
 
 msgid "Listener Details"
 msgstr "Информация о слушателе"
 
 msgid "Listener ID"
-msgstr "ИД получателя"
+msgstr "ID получателя"
 
 msgid "Listeners"
 msgstr "Получатели"
 
-#, python-format
-msgid "Load Balancer %(index)s"
-msgstr "Балансировщика нагрузки %(index)s"
-
-msgid "Load Balancer Algorithm"
-msgstr "Алгоритм балансировки"
+msgid "Load Balancer"
+msgstr "Балансировщик нагрузки"
 
 msgid "Load Balancer Details"
 msgstr "Информация о балансировщике нагрузки"
-
-msgid "Load Balancer ID"
-msgstr "ИД балансировщика нагрузки"
 
 msgid "Load Balancers"
 msgstr "Балансировщики нагрузки"
@@ -459,31 +559,61 @@ msgstr "Загрузка"
 msgid "Max Retries"
 msgstr "Максимальное количество повторных попыток"
 
-msgid "Member ID"
-msgstr "ИД Участника"
+msgid "Max Retries Down"
+msgstr "Максимальное количество повторных попыток при отказе"
+
+msgid "Max Retries:"
+msgstr "Максимальное количество повторных попыток:"
+
+msgid "Member"
+msgstr "Участник "
+
+msgid "Member Connect Timeout"
+msgstr "Таймаут подключения члена"
+
+msgid "Member Data Timeout"
+msgstr "Таймаут данных члена"
 
 msgid "Members"
 msgstr "Участники"
 
 msgid ""
-"Method\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+"Members are the actual IP addresses that will receive traffic from the load "
+"balancer. Each\n"
+"  member must have a unique combination of IP address and port."
 msgstr ""
-"Метод\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+"Участники - IP адреса, принимающие трафик от балансировщика нагрузки. IP "
+"адрес и порт каждого участника должны быть уникальны."
 
-msgid "Monitor ID"
-msgstr "ИД монитора"
+msgid "Monitor Address"
+msgstr "Адрес монитора"
 
-msgid ""
-"Monitor type\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Тип монитора\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Monitor Address:"
+msgstr "Адрес монитора:"
+
+msgid "Monitor Details"
+msgstr "Детали Монитора"
+
+msgid "Monitor Port"
+msgstr "Порт монитора"
+
+msgid "Monitor Port:"
+msgstr "Порт монитора:"
 
 msgid "Name"
 msgstr "Имя"
+
+msgid "Network"
+msgstr "Сеть"
+
+msgid "Network ID"
+msgstr "ID сети"
+
+msgid "No"
+msgstr "Нет"
+
+msgid "No Monitor"
+msgstr "Без отслеживания"
 
 msgid "No available certificates"
 msgstr "Нет доступных сертификатов"
@@ -493,6 +623,9 @@ msgstr "Нет доступных инстансов"
 
 msgid "No items to display."
 msgstr "Нет элементов для отображения."
+
+msgid "No matching options"
+msgstr "Нет подходящих опций"
 
 msgid "No members have been allocated"
 msgstr "Участники не были выбраны"
@@ -507,13 +640,16 @@ msgid "Online"
 msgstr "В сети"
 
 msgid "Operating Status"
-msgstr "Рабочий Статус"
+msgstr "Рабочее состояние"
 
 msgid "Overview"
 msgstr "Обзор"
 
+msgid "Path"
+msgstr "Путь"
+
 msgid "Pending Create"
-msgstr "Ожидает создание"
+msgstr "Ожидает создания"
 
 msgid "Pending Delete"
 msgstr "Ожидает удаления"
@@ -521,30 +657,41 @@ msgstr "Ожидает удаления"
 msgid "Pending Update"
 msgstr "Ожидает обновления"
 
-msgid "Pool 1"
-msgstr "Пул 1"
+msgid "Please Wait"
+msgstr "Пожалуйста подождите"
+
+msgid "Pool"
+msgstr "Пул"
 
 msgid "Pool Details"
 msgstr "Информация о пуле"
 
-msgid "Pool ID"
-msgstr "ИД пула"
-
 msgid "Pool Members"
 msgstr "Участники пула"
+
+msgid "Pool member has been updated."
+msgstr "Участник пула был изменён."
+
+msgid "Pools"
+msgstr "Пулы"
 
 msgid "Port"
 msgstr "Порт"
 
-msgid ""
-"Port\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Порт\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Port ID"
 msgstr "ID порта"
+
+msgid "Port:"
+msgstr "Порт:"
+
+msgid "Position"
+msgstr "Позиция"
+
+msgid "Position:"
+msgstr "Позиция:"
+
+msgid "Project"
+msgstr "Проект"
 
 msgid "Project ID"
 msgstr "ID проекта"
@@ -552,15 +699,11 @@ msgstr "ID проекта"
 msgid "Protocol"
 msgstr "Протокол"
 
-msgid ""
-"Protocol\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Протокол\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-
 msgid "Protocol Port"
 msgstr "Порт протокола"
+
+msgid "Protocol:"
+msgstr "Протокол:"
 
 msgid "Provide the details for the health monitor."
 msgstr "Предоставить детали для монитора состояния."
@@ -571,6 +714,9 @@ msgstr "Предоставить детали для слушателя."
 msgid "Provide the details for the load balancer."
 msgstr "Предоставить детали для балансировщика нагрузки."
 
+msgid "Provide the details for the member."
+msgstr "Обновить детали участника"
+
 msgid "Provide the details for the pool."
 msgstr "Предоставить детали для пула."
 
@@ -580,18 +726,82 @@ msgstr "Провайдер"
 msgid "Provisioning Status"
 msgstr "Статус развертывания"
 
+msgid ""
+"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
+"with the L7 policy."
+msgstr ""
+"REDIRECT_TO_POOL: Запрос пересылается бэкенд пулу, ассоцированному с "
+"политикой L7."
+
+msgid ""
+"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
+"the redirect_url parameter."
+msgstr ""
+"REDIRECT_TO_URL: На запрос отправляется ответ с кодом перенаправления HTTP, "
+"на URL, указанный в параметре redirect_url."
+
+msgid ""
+"REJECT: The request is denied with an appropriate response code, and not "
+"forwarded on to any back-end pool."
+msgstr ""
+"REJECT: Запрос будет отклонён с соответствующим годом ответа и не будет "
+"перенаправлен в бэкенд пулы."
+
+msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
+msgstr "ROUND_ROBIN: Равномерно распределяет запросы между инстансами."
+
+msgid "Redirect Pool ID"
+msgstr "ID пула перенаправлений"
+
+msgid "Redirect Pool ID:"
+msgstr "ID пула перенаправления:"
+
+msgid "Redirect URL"
+msgstr "URL перенаправления"
+
+msgid "Redirect URL:"
+msgstr "URL перенаправления:"
+
+msgid "Redirect to Pool"
+msgstr "Перенаправить на пул"
+
+msgid "Redirect to URL"
+msgstr "Перенаправить на URL"
+
+msgid "Regex"
+msgstr "Регулярное выражение"
+
+msgid "Reject"
+msgstr "Отбросить"
+
 msgid "Remove"
 msgstr "Удалить"
 
 msgid ""
-"Retries\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+"Requests matching this policy will be redirected to the pool with this ID. "
+"Only valid if action is REDIRECT_TO_POOL."
 msgstr ""
-"Повторные попытки\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+"Запросы, соответствующие политике, будут перенаправлены в пул с этим ID. "
+"Применимо только если выбрано действие REDIRECT_TO_POOL."
 
 msgid "Round Robin"
 msgstr "Циклический"
+
+msgid "Rules"
+msgstr "Правила"
+
+msgid "SNI Container Refs"
+msgstr "Ссылка на контейнер SNI"
+
+msgid ""
+"SOURCE_IP: Requests from a unique source IP address are consistently "
+"directed to the same instance."
+msgstr ""
+"SOURCE_IP: Запросы от уникального IP адреса последовательно направляются на "
+"один и тот же инстанс."
+
+msgid "SOURCE_IP: Session persistence based on source ip."
+msgstr "SOURCE_IP: Устойчивые сессии, основанные на IP источника."
 
 msgid "SSL Certificates"
 msgstr "SSL сертификаты"
@@ -607,66 +817,69 @@ msgid "Select certificates from the available certificates below"
 msgstr "Выберите сертификаты из числа доступных указанных ниже"
 
 msgid "Select one or more SSL certificates for the listener."
-msgstr "Выберите один или более SSL сертификатов для службы отчётов."
+msgstr "Выберите один или несколько SSL сертификатов слушателя."
 
 msgid "Session Persistence"
 msgstr "Постоянство сессии"
 
+msgid "Session Persistence:"
+msgstr "Устойчивые сессии:"
+
 msgid "Source IP"
 msgstr "IP-адрес источника"
 
-msgid ""
-"Subnet\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Подсеть\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Starts With"
+msgstr "Начинается с"
+
+msgid "Subnet"
+msgstr "Подсеть"
 
 msgid "Subnet ID"
 msgstr "ID подсети"
 
+msgid "Subnet:"
+msgstr "Подсеть:"
+
+msgid "TCP Inspect Timeout"
+msgstr "Таймаут инспекции TCP"
+
+msgid "The HTTP method used to perform the health check."
+msgstr "HTTP метод используется для проверки работоспособности."
+
 msgid "The IP address is not valid."
 msgstr "IP адрес не действителен."
+
+msgid ""
+"The IP address of the member to receive traffic from the load balancer. Must "
+"be a well-formed\n"
+"  IPv4 or IPv6 address."
+msgstr ""
+"IP адрес участника для получение даннх от балансировщика нагрузки. Должен "
+"быть в формате\n"
+"  IPv4 или IPv6."
+
+msgid ""
+"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
+msgstr ""
+"Действие для политики L7: одно из REJECT, REDIRECT_TO_URL, or "
+"REDIRECT_TO_POOL."
 
 msgid "The URL path is not valid."
 msgstr "URL не является действительным."
 
+msgid ""
+"The expected HTTP status codes to get from a successful health check. Must "
+"be a single number,\n"
+"  a comma separated list of numbers, or a range (two numbers separated by a "
+"hyphen)."
+msgstr ""
+"Ожидаемый HTTP статус-код при успешной проверке работоспособности. Должен "
+"быть одним\n"
+"  числом, списком чисел разделённых запятой или диапозоном(два чиста "
+"разделённых дефисом)."
+
 msgid "The expected status code is not valid."
 msgstr "Ожидаемый код состояния невалиден."
-
-#, python-format
-msgid "The following health monitor could not be deleted: %s."
-msgstr "Следующий монитор работоспособности не может быть удален: %s."
-
-#, python-format
-msgid ""
-"The following listeners could not be deleted, possibly due to existing "
-"pools: %s."
-msgstr ""
-"Следующие получатели не могут быть удалены, возможно из за существующих "
-"пулов: %s."
-
-#, python-format
-msgid "The following listeners will not be deleted due to existing pools: %s."
-msgstr "Следующие получатели не будут удалены из за существующих пулов: %s."
-
-#, python-format
-msgid "The following load balancers are pending and cannot be deleted: %s."
-msgstr ""
-"Следующие балансировщики нагрузки в состоянии ожидания и не могут быть "
-"удалены: %s."
-
-#, python-format
-msgid ""
-"The following load balancers could not be deleted, possibly due to existing "
-"listeners: %s."
-msgstr ""
-"Следующие балансировщики нагрузки не могут быть удалены, возможно из за "
-"существующих получателей: %s."
-
-#, python-format
-msgid "The following pool could not be deleted: %s."
-msgstr "Данный пул не может быть удален: %s."
 
 msgid "The health check interval must be greater than or equal to the timeout."
 msgstr ""
@@ -675,8 +888,27 @@ msgstr ""
 msgid "The health monitor has been updated."
 msgstr "Монитор работоспособности был обновлен."
 
+msgid ""
+"The interval between health checks. Must be greater than or equal to the "
+"timeout."
+msgstr ""
+"Интервал между проверками работоспособности. Должен быть не меньше времени "
+"ожидания."
+
+msgid "The l7policy has been updated."
+msgstr "Политика L7 была обновлена."
+
+msgid "The l7rule has been updated."
+msgstr "Правило L7 было обновлено."
+
 msgid "The listener has been updated."
 msgstr "Получатель был обновлен."
+
+msgid ""
+"The load balancer algorithm that distributes traffic to the pool members."
+msgstr ""
+"Алгоритм балансировки, используемый для распределения трафика среди "
+"участников пула."
 
 msgid "The load balancer has been updated."
 msgstr "Балансировщик нагрузки был обновлен."
@@ -691,36 +923,99 @@ msgstr ""
 msgid "The max retry count must be a number between 1 and 10."
 msgstr "Количество попыток должно быть в диапазон между 1 и 10."
 
+msgid "The max retry down count must be a number between 1 and 10."
+msgstr "Количество попыток должно быть в диапазон между 1 и 10."
+
+msgid "The monitor address must be a valid IP address."
+msgstr "Адрес монитора должен быть корректным IP адресом."
+
+msgid "The monitor port must be a number between 1 and 65535."
+msgstr "Порт монитора должен быть числом в диапазоне между 1 и 65535."
+
+msgid "The network on which to allocate the load balancer's IP address."
+msgstr "Сеть в которой выделяется IP адрес балансировщику нагрузки."
+
+msgid "The network which contains the IP address of the member."
+msgstr "Сеть содержащая IP адрес участников."
+
+msgid ""
+"The number of allowed connection failures before marking the member as "
+"error. Must be a\n"
+"  number from 1 to 10. The default is 3."
+msgstr ""
+"Количество допустимых ошибок соединения перед изменением состояния участника "
+"на Ошибка. Значение должно\n"
+"  быть в диапазоне между 1 и 10. По-умолчанию равно 3."
+
+msgid ""
+"The number of allowed connection failures before marking the member as "
+"inactive. Must be a\n"
+"  number from 1 to 10."
+msgstr ""
+"Количество допустимых ошибок соединения перед изменением состояния участника "
+"на неактивное. Значение должно\n"
+"  быть в диапазоне между 1 и 10."
+
 msgid "The pool has been updated."
 msgstr "Пул был обновлен."
 
 msgid "The pool members have been updated."
-msgstr "Элементы пула были изменены."
-
-msgid "The port must be a number between 1 and 65535."
-msgstr "Значение для порта должно быть в диапозоне между 1 и 65535."
+msgstr "Участники пула были изменены."
 
 msgid ""
-"The port must be unique among all listeners attached to this load balancer."
+"The port on which the member listens for traffic. Must be a number from 1 to "
+"65535."
 msgstr ""
-"Порт должен быть уникален среди приемников, присоединенных к балансировщику "
-"нагрузки."
+"Порт, через который участник пула ожидает трафик. Должен быть в диапазоне "
+"между 1 и 65535."
+
+msgid "The position must be a number between 1 and 2147483647."
+msgstr "Позицией должно быть число от 1 до 2147483647."
+
+msgid "The position of this policy on the listener. Positions start at 1."
+msgstr "Позиция этой политики в слушателе. Позиции нумеруются с 1."
+
+msgid ""
+"The protocol for which this pool and its members listen. A valid value is "
+"HTTP, HTTPS, PROXY, PROXYV2, TCP or UDP."
+msgstr ""
+"Протокол, который используют пул и его участники. Допустимыми значениями "
+"являются HTTP, HTTPS, PROXY, PROXYV2, TCP или UDP."
+
+msgid "The redirect url must be a valid http or https url."
+msgstr "URL перенаправления должен быть корректным HTTP или HTTPS URL."
 
 msgid "The timeout must be a number greater than or equal to 0."
 msgstr "Значение таймаута должно быть больше или рано 0."
 
+msgid ""
+"The type of session persistence for distributing traffic to the pool members."
+msgstr ""
+"Тип устойчивых сессий для распределения трафика между участниками пула."
+
 msgid "The weight must be a number between 1 and 256."
 msgstr "Значение веса должно быть в диапозоне между 1 и 256."
+
+msgid ""
+"The weight of a member determines the portion of requests or connections it "
+"services compared\n"
+"  to the other members of the pool. A higher weight means it will receive "
+"more traffic. Must be\n"
+"  a number from 1 to 256."
+msgstr ""
+"Вес участника определяет долю обслуживаемых запросов или соединений по "
+"отношению к другим участникам пула.\n"
+"  Больший вес означает, что участник пула получит больше трафика. Должен "
+"быть в диапазоне между 1 и 256."
 
 msgid "Timeout"
 msgstr "Таймаут"
 
-msgid ""
-"Timeout (sec)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Таймаут (сек)\n"
-"          <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Timeout (sec)"
+msgstr "Таймаут (сек.)"
+
+msgid "Timeout:"
+msgstr "Таймаут:"
 
 msgid "Type"
 msgstr "Тип"
@@ -728,11 +1023,23 @@ msgstr "Тип"
 msgid "URL Path"
 msgstr "Путь URL"
 
-msgid "URL path"
-msgstr "Путь URL"
+msgid "URL Path:"
+msgstr "Путь URL:"
+
+msgid "Unable to create flavor profile."
+msgstr "Не удалось создать профиль типа инстанса."
+
+msgid "Unable to create flavor."
+msgstr "Не удалось создать тип инстансов."
 
 msgid "Unable to create health monitor."
 msgstr "Не удалось создать монитор работоспособности."
+
+msgid "Unable to create l7 policy."
+msgstr "Не удалось создать политику l7."
+
+msgid "Unable to create l7 rule."
+msgstr "Не удалось создать правило политики l7."
 
 msgid "Unable to create listener."
 msgstr "Не удалось создать получателя."
@@ -743,14 +1050,78 @@ msgstr "Не удалось создать балансировщик нагру
 msgid "Unable to create pool."
 msgstr "Не удалось создать пул."
 
+#, python-format
+msgid "Unable to delete Health Monitor: %s."
+msgid_plural "Unable to delete Health Monitors: %s."
+msgstr[0] "Не удалось удалить монитор работоспособности: %s."
+msgstr[1] "Не удалось удалить мониторы работоспособности: %s."
+msgstr[2] "Не удалось удалить мониторы работоспособности: %s."
+
+#, python-format
+msgid "Unable to delete L7 Policy: %s."
+msgid_plural "Unable to delete L7 Policies: %s."
+msgstr[0] "Не удалось удалить политику L7: %s."
+msgstr[1] "Не удалось удалить политики L7: %s."
+msgstr[2] "Не удалось удалить политики L7: %s."
+
+#, python-format
+msgid "Unable to delete L7 Rule: %s."
+msgid_plural "Unable to delete L7 Rules: %s."
+msgstr[0] "Не удалось удалить правило L7: %s."
+msgstr[1] "Не удалось удалить правила L7: %s."
+msgstr[2] "Не удалось удалить правила L7: %s."
+
+#, python-format
+msgid "Unable to delete Listener: %s."
+msgid_plural "Unable to delete Listeners: %s."
+msgstr[0] "Не удалось удалить получатель: %s."
+msgstr[1] "Не удалось удалить получателей: %s."
+msgstr[2] "Не удалось удалить получателей: %s."
+
+#, python-format
+msgid "Unable to delete Load Balancer: %s."
+msgid_plural "Unable to delete Load Balancers: %s."
+msgstr[0] "Не удалось удалить балансировщик нагрузки: %s."
+msgstr[1] "Не удалось удалить балансировщики нагрузки: %s."
+msgstr[2] "Не удалось удалить балансировщики нагрузки: %s."
+
+#, python-format
+msgid "Unable to delete Member: %s."
+msgid_plural "Unable to delete Members: %s."
+msgstr[0] "Не удалось удалить участника: %s."
+msgstr[1] "Не удалось удалить участников: %s."
+msgstr[2] "Не удалось удалить участников: %s."
+
+#, python-format
+msgid "Unable to delete Pool: %s."
+msgid_plural "Unable to delete Pools: %s."
+msgstr[0] "Не удалось удалить пул: %s."
+msgstr[1] "Не удалось удалить пулы: %s."
+msgstr[2] "Не удалось удалить пулы: %s."
+
+msgid "Unable to delete flavor profile."
+msgstr "Не удалось удалить профиль типа инстанса."
+
+msgid "Unable to delete flavor."
+msgstr "Не удалось удалить тип инстанса."
+
 msgid "Unable to delete health monitor."
 msgstr "Не удалось удалить монитор работоспособности."
+
+msgid "Unable to delete l7 policy."
+msgstr "Не удалось удалить политику l7."
+
+msgid "Unable to delete l7 rule."
+msgstr "Не удалось удалить правило политики l7."
 
 msgid "Unable to delete listener."
 msgstr "Не удалось удалить получателя."
 
 msgid "Unable to delete load balancer."
 msgstr "Не удалось удалить балансировщик нагрузки."
+
+msgid "Unable to delete member."
+msgstr "Не удалось удалить участника."
 
 msgid "Unable to delete pool."
 msgstr "Не удалось удалить пул."
@@ -763,14 +1134,44 @@ msgstr ""
 msgid "Unable to retrieve SSL certificates."
 msgstr "Не удалось получить SSL сертификаты."
 
+msgid "Unable to retrieve availability zones."
+msgstr "Не удалось получить список зон доступности."
+
+msgid "Unable to retrieve flavor profile."
+msgstr "Не удалось получить данные профиля типа инстансов."
+
+msgid "Unable to retrieve flavor profiles."
+msgstr "Не удалось получить данные профилей типов инстансов."
+
+msgid "Unable to retrieve flavor."
+msgstr "Не удалось получить тип инстанса."
+
+msgid "Unable to retrieve flavors."
+msgstr "Не удалось получить типы инстансов."
+
 msgid "Unable to retrieve health monitor."
-msgstr "Не удалось получить монитор работоспособности."
+msgstr "Не удалось получить данные монитора работоспособности."
+
+msgid "Unable to retrieve health monitors."
+msgstr "Не удалось получить список мониторов работоспособности."
+
+msgid "Unable to retrieve l7 policies."
+msgstr "Не удалось получить данные политик l7."
+
+msgid "Unable to retrieve l7 policy."
+msgstr "Не удалось получить данные политики l7."
+
+msgid "Unable to retrieve l7 rule."
+msgstr "Не удалось получить данные правила политики l7."
+
+msgid "Unable to retrieve l7 rules."
+msgstr "Не удалось получить данные правил политик l7."
 
 msgid "Unable to retrieve listener."
-msgstr "Не удалось получить получателя."
+msgstr "Не удалось получить данные получателя."
 
 msgid "Unable to retrieve listeners."
-msgstr "Не удалось получить получателей."
+msgstr "Не удалось получить данные получателей."
 
 msgid "Unable to retrieve load balancer."
 msgstr "Не удалось получить данные балансировщика нагрузки."
@@ -779,19 +1180,34 @@ msgid "Unable to retrieve load balancers."
 msgstr "Не удалось получить список балансировщиков нагрузки."
 
 msgid "Unable to retrieve member."
-msgstr "Не удалось получить участника."
+msgstr "Не удалось получить данные участника."
 
 msgid "Unable to retrieve members."
 msgstr "Не удалось получить участников."
 
 msgid "Unable to retrieve pool."
-msgstr "Не удалось получить пул."
+msgstr "Не удалось получить данные пула."
+
+msgid "Unable to retrieve pools."
+msgstr "Не удалось получить данные пулов."
 
 msgid "Unable to retrieve secrets."
-msgstr "Невозможно получить секретные ключи."
+msgstr "Не удалось получить секретные ключи."
+
+msgid "Unable to update flavor profile."
+msgstr "Не удалось обновить профиль типа инстанса."
+
+msgid "Unable to update flavor."
+msgstr "Не удалось обновить тип инстанса."
 
 msgid "Unable to update health monitor."
 msgstr "Не удалось обновить монитор работоспособности."
+
+msgid "Unable to update l7 policy."
+msgstr "Не удалось обновить политику l7."
+
+msgid "Unable to update l7 rule."
+msgstr "Не удалось обновить правило политики l7."
 
 msgid "Unable to update listener."
 msgstr "Не удалось обновить получателя."
@@ -812,26 +1228,63 @@ msgid "Update"
 msgstr "Обновить"
 
 msgid "Update Health Monitor"
-msgstr "Обновить Монитор Работоспособности"
+msgstr "Обновить монитор работоспособности"
+
+msgid "Update L7 Policy"
+msgstr "Обновить политику L7"
+
+msgid "Update L7 Rule"
+msgstr "Обновить правило L7"
 
 msgid "Update Listener"
-msgstr "Обновить получатель"
+msgstr "Обновить Получатель"
 
 msgid "Update Load Balancer"
-msgstr "Обновить Балансировщик Нагрузки"
+msgstr "Обновить Балансировщик нагрузки"
+
+msgid "Update Member"
+msgstr "Обновить участника"
 
 msgid "Update Pool"
 msgstr "Обновить пул"
 
+msgid "Updated At"
+msgstr "Обновлено"
+
+msgid ""
+"Use the key-manager service to create any certificate containers before "
+"creating the listener.\n"
+"    The following documentation provides information on how to create a "
+"certificate container:"
+msgstr ""
+"Перед созданием Слушателя, используйте сервис управления ключами для "
+"создания контейнеров с сертификатами.\n"
+"    Документация ниже предоставляет информацию о создании контейнера с "
+"сертификатом:"
+
+msgid "Value"
+msgstr "Значение"
+
+msgid "Value:"
+msgstr "Значение:"
+
 msgid "Weight"
 msgstr "Вес"
 
-msgid ""
-"Weight\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
-msgstr ""
-"Вес\n"
-"            <span class=\"hz-icon-required fa fa-asterisk\"></span>"
+msgid "Weight:"
+msgstr "Вес:"
+
+msgid "X-Forwarded-For"
+msgstr "X-Forwarded-For"
+
+msgid "X-Forwarded-Port"
+msgstr "X-Forwarded-Port"
+
+msgid "X-Forwarded-Proto"
+msgstr "X-Forwarded-Proto"
+
+msgid "Yes"
+msgstr "Да"
 
 #, python-format
 msgid ""
@@ -842,33 +1295,61 @@ msgstr ""
 "\". Пожалуйста подтвердите."
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted health "
-"monitors are not recoverable."
-msgstr ""
-"Вы выбрали \"%s\". Пожалуйста подтвердите ваш выбор. Удаление монитора "
-"работоспособности необратимо."
+msgid "You have selected \"%s\". Deleted L7 Policy is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted L7 Policies are not recoverable."
+msgstr[0] "Вы выбрали \"%s\". Удалённая политика Д7 не восстановима."
+msgstr[1] "Вы выбрали \"%s\". Удалённая политики Д7 не восстановимы."
+msgstr[2] "Вы выбрали \"%s\". Удалённая политики Д7 не восстановимы."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted L7 Rule is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted L7 Rules are not recoverable."
+msgstr[0] "Вы выбрали \"%s\". Удаляемое правило L7 не восстановимо."
+msgstr[1] "Вы выбрали \"%s\". Удаляемые правила L7 не восстановимы."
+msgstr[2] "Вы выбрали \"%s\". Удаляемые правила L7 не восстановимы."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted health monitor is not recoverable."
+msgid_plural ""
+"You have selected \"%s\". Deleted health monitors are not recoverable."
+msgstr[0] ""
+"Вы выбрали \"%s\". Удалённый монитор работоспособности не восстановим."
+msgstr[1] ""
+"Вы выбрали \"%s\". Удалённые мониторы работоспособности не восстановимы."
+msgstr[2] ""
+"Вы выбрали \"%s\". Удалённые мониторы работоспособности не восстановимы."
+
+#, python-format
+msgid "You have selected \"%s\". Deleted listener is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted listeners are not recoverable."
+msgstr[0] "Вы выбрали \"%s\". Удалённый получатель не восстановим."
+msgstr[1] "Вы выбрали \"%s\". Удалённые получатели не восстановимы."
+msgstr[2] "Вы выбрали \"%s\". Удалённые получатели не восстановимы."
 
 #, python-format
 msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted listeners "
-"are not recoverable."
-msgstr ""
-"Вы выбрали \"%s\". Пожалуйста подтвердите ваш выбор. Удаление получателей "
-"необратимо."
+"You have selected \"%s\". Deleted load balancer is not recoverable and this "
+"deletion will delete all of the sub-resources."
+msgid_plural ""
+"You have selected \"%s\". Deleted load balancers are not recoverable and "
+"this deletion will delete all of the sub-resources."
+msgstr[0] "Вы выбрали \"%s\". Удаляемый балансировщик нагрузки не восстановим."
+msgstr[1] ""
+"Вы выбрали \"%s\". Удаляемые балансировщики нагрузки не восстановимы."
+msgstr[2] ""
+"Вы выбрали \"%s\". Удаляемые балансировщики нагрузки не восстановимы."
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted load "
-"balancers are not recoverable."
-msgstr ""
-"Вы выбрали \"%s\". Пожалуйста подтвердите ваш выбор. Удаление "
-"балансировщиков нагрузки необратимо."
+msgid "You have selected \"%s\". Deleted member is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted members are not recoverable."
+msgstr[0] "Вы выбрали \"%s\". Удалённый участник не восстановим."
+msgstr[1] "Вы выбрали \"%s\". Удалённые участники не восстановимы."
+msgstr[2] "Вы выбрали \"%s\". Удалённые участники не восстановимы."
 
 #, python-format
-msgid ""
-"You have selected \"%s\". Please confirm your selection. Deleted pools are "
-"not recoverable."
-msgstr ""
-"Вы выбрали \"%s\". Пожалуйста подтвердите ваш выбор. Удаление пулов "
-"необратимо."
+msgid "You have selected \"%s\". Deleted pool is not recoverable."
+msgid_plural "You have selected \"%s\". Deleted pools are not recoverable."
+msgstr[0] "Вы выбрали \"%s\". Восстановить удаленный пул невозможно."
+msgstr[1] "Вы выбрали \"%s\". Восстановить удаленные пулы невозможно."
+msgstr[2] "Вы выбрали \"%s\". Восстановить удаленные пулы невозможно."
