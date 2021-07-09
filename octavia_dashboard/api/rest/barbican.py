@@ -52,7 +52,7 @@ class SSLCertificates(generic.View):
     """API for working with SSL certificate containers.
 
     """
-    url_regex = r'barbican/certificates/$'
+    url_regex = r'octavia-barbican/certificates/$'
 
     @rest_utils.ajax()
     def get(self, request):
@@ -72,7 +72,7 @@ class Secrets(generic.View):
     """API for working with secrets.
 
     """
-    url_regex = r'barbican/secrets/$'
+    url_regex = r'octavia-barbican/secrets/$'
 
     @rest_utils.ajax()
     def get(self, request):

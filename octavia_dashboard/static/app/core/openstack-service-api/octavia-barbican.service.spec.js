@@ -27,9 +27,11 @@
 
     beforeEach(module('horizon.app.core.openstack-service-api'));
 
-    beforeEach(inject(['horizon.app.core.openstack-service-api.barbican', function(barbicanAPI) {
-      service = barbicanAPI;
-    }]));
+    beforeEach(
+        inject(['horizon.app.core.openstack-service-api.octavia-barbican',
+                function(octaviaBarbicanAPI) {
+                  service = octaviaBarbicanAPI;
+                }]));
 
     it('defines the service', function() {
       expect(service).toBeDefined();
@@ -39,13 +41,13 @@
       {
         func: "getCertificates",
         method: "get",
-        path: "/api/barbican/certificates/",
+        path: "/api/octavia-barbican/certificates/",
         error: "Unable to retrieve SSL certificates."
       },
       {
         func: "getSecrets",
         method: "get",
-        path: "/api/barbican/secrets/",
+        path: "/api/octavia-barbican/secrets/",
         error: "Unable to retrieve secrets."
       }
     ];
