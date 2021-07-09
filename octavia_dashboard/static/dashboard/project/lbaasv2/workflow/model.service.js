@@ -27,7 +27,7 @@
     'horizon.app.core.openstack-service-api.neutron',
     'horizon.app.core.openstack-service-api.nova',
     'horizon.app.core.openstack-service-api.lbaasv2',
-    'horizon.app.core.openstack-service-api.barbican',
+    'horizon.app.core.openstack-service-api.octavia-barbican',
     'horizon.app.core.openstack-service-api.serviceCatalog',
     'horizon.framework.util.i18n.gettext'
   ];
@@ -45,7 +45,7 @@
    * @param neutronAPI The neutron service API.
    * @param novaAPI The nova service API.
    * @param lbaasv2API The LBaaS V2 service API.
-   * @param barbicanAPI The barbican service API.
+   * @param octaviaBarbicanAPI The octavia barbican service API.
    * @param serviceCatalog The keystone service catalog API.
    * @param gettext The horizon gettext function for translation.
    * @returns The model service for the create load balancer workflow.
@@ -56,7 +56,7 @@
     neutronAPI,
     novaAPI,
     lbaasv2API,
-    barbicanAPI,
+    octaviaBarbicanAPI,
     serviceCatalog,
     gettext
   ) {
@@ -880,8 +880,8 @@
 
     function prepareCertificates() {
       return $q.all([
-        barbicanAPI.getCertificates(true),
-        barbicanAPI.getSecrets(true)
+        octaviaBarbicanAPI.getCertificates(true),
+        octaviaBarbicanAPI.getSecrets(true)
       ]).then(onGetCertificates, certificatesError);
     }
 
