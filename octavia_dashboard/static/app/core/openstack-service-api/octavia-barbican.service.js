@@ -18,23 +18,23 @@
 
   angular
     .module('horizon.app.core.openstack-service-api')
-    .factory('horizon.app.core.openstack-service-api.barbican', barbicanAPI);
+    .factory('horizon.app.core.openstack-service-api.octavia-barbican', octaviaBarbicanAPI);
 
-  barbicanAPI.$inject = [
+  octaviaBarbicanAPI.$inject = [
     'horizon.framework.util.http.service',
     'horizon.framework.widgets.toast.service'
   ];
 
   /**
    * @ngdoc service
-   * @name horizon.app.core.openstack-service-api.barbican
+   * @name horizon.app.core.openstack-service-api.octavia-barbican
    * @description Provides direct pass through to barbican with NO abstraction.
    * @param apiService The horizon core API service.
    * @param toastService The horizon toast service.
-   * @returns The barbican service API.
+   * @returns The octavia barbican service API.
    */
 
-  function barbicanAPI(apiService, toastService) {
+  function octaviaBarbicanAPI(apiService, toastService) {
     var service = {
       getCertificates: getCertificates,
       getSecrets: getSecrets
@@ -47,7 +47,7 @@
     // SSL Certificate Containers
 
     /**
-     * @name horizon.app.core.openstack-service-api.barbican.getCertificates
+     * @name horizon.app.core.openstack-service-api.octavia-barbican.getCertificates
      * @description
      * Get a list of SSL certificate containers.
      *
@@ -57,7 +57,7 @@
      */
 
     function getCertificates(quiet) {
-      var promise = apiService.get('/api/barbican/certificates/');
+      var promise = apiService.get('/api/octavia-barbican/certificates/');
       return quiet ? promise : promise.error(function handleError() {
         toastService.add('error', gettext('Unable to retrieve SSL certificates.'));
       });
@@ -66,7 +66,7 @@
     // Secrets
 
     /**
-     * @name horizon.app.core.openstack-service-api.barbican.getSecrets
+     * @name horizon.app.core.openstack-service-api.octavia-barbican.getSecrets
      * @description
      * Get a list of secrets.
      *
@@ -76,7 +76,7 @@
      */
 
     function getSecrets(quiet) {
-      var promise = apiService.get('/api/barbican/secrets/');
+      var promise = apiService.get('/api/octavia-barbican/secrets/');
       return quiet ? promise : promise.error(function handleError() {
         toastService.add('error', gettext('Unable to retrieve secrets.'));
       });

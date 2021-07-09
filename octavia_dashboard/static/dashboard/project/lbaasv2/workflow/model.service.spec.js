@@ -307,7 +307,7 @@
         }
       });
 
-      $provide.value('horizon.app.core.openstack-service-api.barbican', {
+      $provide.value('horizon.app.core.openstack-service-api.octavia-barbican', {
         getCertificates: function() {
           var containers = [
             {
