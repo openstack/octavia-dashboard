@@ -1,0 +1,4 @@
+---
+fixes:
+  - |
+    Fixes a namespace collision with the barbican-ui dashboard.
