@@ -53,7 +53,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-copyright = u'2017-2019, OpenStack Foundation'
+copyright = '2017-2019, OpenStack Foundation'
 
 # If true, '()' will be appended to :func: etc. cross-reference text.
 add_function_parentheses = True
@@ -143,8 +143,8 @@ smartquotes_excludes = {'builders': ['latex']}
 latex_documents = [(
     'index',
     'doc-octavia-dashboard.tex',
-    u'Octavia Dashboard Documentation',
-    u'OpenStack Octavia Team',
+    'Octavia Dashboard Documentation',
+    'OpenStack Octavia Team',
     'manual'
 )]
 
