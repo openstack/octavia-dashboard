@@ -15,7 +15,7 @@
 """
 
 import _thread as thread
-from time import sleep
+import time
 
 from django.conf import settings
 from django.views import generic
@@ -27,6 +27,7 @@ try:
     from openstack import config as occ
 except ImportError:
     from os_client_config import config as occ
+from openstack import exceptions
 
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api.rest import urls
@@ -111,7 +112,7 @@ def poll_loadbalancer_status(request, loadbalancer_id, callback,
     interval = conf.HORIZON_CONFIG['ajax_poll_interval'] / 1000.0
     status = from_state
     while status == from_state:
-        sleep(interval)
+        time.sleep(interval)
         conn = _get_sdk_connection(request)
         lb = conn.load_balancer.get_load_balancer(loadbalancer_id)
         status = lb.provisioning_status
@@ -121,6 +122,68 @@ def poll_loadbalancer_status(request, loadbalancer_id, callback,
         if callback_kwargs:
             kwargs.update(callback_kwargs)
         callback(request, **kwargs)
+
+
+def _retry_on_conflict(conn, func, *args, retry_timeout=120, **kwargs):
+    load_balancer_getter = kwargs.pop('load_balancer_getter')
+    resource_id = kwargs.pop('resource_id')
+
+    interval = conf.HORIZON_CONFIG['ajax_poll_interval'] / 1000.0
+
+    load_balancer_id = load_balancer_getter(conn, resource_id)
+
+    start = time.time()
+    while time.time() - start < retry_timeout:
+        lb = conn.load_balancer.get_load_balancer(load_balancer_id)
+        if lb.provisioning_status == 'PENDING_UPDATE':
+            time.sleep(interval)
+            continue
+
+        try:
+            func(*args, **kwargs)
+        except exceptions.ConflictException:
+            # Still catching 409/Conflict as there might have multiple threads
+            # waiting for a non-PENDING provisioning state
+            time.sleep(interval)
+            continue
+        break
+
+
+def retry_on_conflict(conn, func, *args, retry_timeout=120, **kwargs):
+    load_balancer_getter = kwargs.pop('load_balancer_getter')
+    resource_id = kwargs.pop('resource_id')
+
+    try:
+        func(*args, **kwargs)
+    except exceptions.ConflictException:
+        thread.start_new_thread(
+            _retry_on_conflict,
+            (conn, func, *args),
+            {'retry_timeout': retry_timeout,
+             'load_balancer_getter': load_balancer_getter,
+             'resource_id': resource_id,
+             **kwargs})
+
+
+def listener_get_load_balancer_id(conn, listener_id):
+    listener = conn.load_balancer.get_listener(listener_id)
+    return listener.load_balancers[0]['id']
+
+
+def l7_policy_get_load_balancer_id(conn, l7_policy_id):
+    l7_policy = conn.load_balancer.get_l7_policy(l7_policy_id)
+    listener = conn.load_balancer.get_listener(l7_policy.listener_id)
+    return listener.load_balancers[0]['id']
+
+
+def pool_get_load_balancer_id(conn, pool_id):
+    pool = conn.load_balancer.get_pool(pool_id)
+    return pool.loadbalancers[0]['id']
+
+
+def health_monitor_get_load_balancer_id(conn, health_monitor_id):
+    pool_id = conn.load_balancer.get_health_monitor(health_monitor_id)
+    return pool_get_load_balancer_id(conn, pool_id)
 
 
 def create_loadbalancer(request):
@@ -850,7 +913,11 @@ class Listener(generic.View):
         http://localhost/api/lbaas/listeners/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
         conn = _get_sdk_connection(request)
-        conn.load_balancer.delete_listener(listener_id, ignore_missing=True)
+        retry_on_conflict(
+            conn, conn.load_balancer.delete_listener,
+            listener_id, ignore_missing=True,
+            load_balancer_getter=listener_get_load_balancer_id,
+            resource_id=listener_id)
 
 
 @urls.register
@@ -933,7 +1000,11 @@ class L7Policy(generic.View):
         http://localhost/api/lbaas/l7policies/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
         conn = _get_sdk_connection(request)
-        conn.load_balancer.delete_l7_policy(l7_policy_id)
+        retry_on_conflict(
+            conn, conn.load_balancer.delete_l7_policy,
+            l7_policy_id,
+            load_balancer_getter=l7_policy_get_load_balancer_id,
+            resource_id=l7_policy_id)
 
 
 @urls.register
@@ -992,7 +1063,11 @@ class L7Rule(generic.View):
     def delete(self, request, l7_rule_id, l7_policy_id):
         """Delete a specific l7 rule."""
         conn = _get_sdk_connection(request)
-        conn.load_balancer.delete_l7_rule(l7_rule_id, l7_policy_id)
+        retry_on_conflict(
+            conn, conn.load_balancer.delete_l7_rule,
+            l7_rule_id, l7_policy_id,
+            load_balancer_getter=l7_policy_get_load_balancer_id,
+            resource_id=l7_policy_id)
 
 
 @urls.register
@@ -1106,7 +1181,11 @@ class Pool(generic.View):
         http://localhost/api/lbaas/pools/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
         conn = _get_sdk_connection(request)
-        conn.load_balancer.delete_pool(pool_id)
+        retry_on_conflict(
+            conn, conn.load_balancer.delete_pool,
+            pool_id,
+            load_balancer_getter=pool_get_load_balancer_id,
+            resource_id=pool_id)
 
 
 @urls.register
@@ -1172,7 +1251,11 @@ class Member(generic.View):
 
         """
         conn = _get_sdk_connection(request)
-        conn.load_balancer.delete_member(member_id, pool_id)
+        retry_on_conflict(
+            conn, conn.load_balancer.delete_member,
+            member_id, pool_id,
+            load_balancer_getter=pool_get_load_balancer_id,
+            resource_id=pool_id)
 
     @rest_utils.ajax()
     def put(self, request, member_id, pool_id):
@@ -1262,8 +1345,12 @@ class HealthMonitor(generic.View):
         http://localhost/api/lbaas/healthmonitors/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
         conn = _get_sdk_connection(request)
-        conn.load_balancer.delete_health_monitor(health_monitor_id,
-                                                 ignore_missing=True)
+        retry_on_conflict(
+            conn, conn.load_balancer.delete_health_monitor,
+            health_monitor_id,
+            ignore_missing=True,
+            load_balancer_getter=health_monitor_get_load_balancer_id,
+            resource_id=health_monitor_id)
 
     @rest_utils.ajax()
     def put(self, request, health_monitor_id):
