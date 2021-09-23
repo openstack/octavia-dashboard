@@ -134,6 +134,8 @@
     ctrl.isOpen = false;
     // Arrays of text to be displayed
     ctrl.rows = [];
+    // Array of non-rendered options after filter apply
+    ctrl.filtered_options = [];
 
     // Lifecycle methods
     ctrl.$onInit = function() {
@@ -184,7 +186,7 @@
     };
 
     ctrl.selectOption = function(index) {
-      var option = ctrl.options[index];
+      var option = ctrl.filtered_options[index];
       ctrl.onSelect({
         option: option
       });
@@ -218,11 +220,13 @@
     };
 
     ctrl._buildRows = function() {
+      ctrl.filtered_options.length = 0;
       ctrl.rows.length = 0;
       angular.forEach(ctrl.options, function(option) {
         var row = ctrl._buildRow(option);
         if (row) {
           ctrl.rows.push(row);
+          ctrl.filtered_options.push(option);
         }
       });
     };
