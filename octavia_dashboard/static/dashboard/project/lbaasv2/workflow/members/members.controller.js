@@ -47,7 +47,7 @@
 
     // Error text for invalid fields
     ctrl.portError = gettext('The port must be a number between 1 and 65535.');
-    ctrl.weightError = gettext('The weight must be a number between 1 and 256.');
+    ctrl.weightError = gettext('The weight must be a number between 0 and 256.');
     ctrl.ipError = gettext('The IP address is not valid.');
 
     // Instances transer table widget properties
