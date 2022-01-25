@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    Octavia supports setting the weight of members from 0 to 256, but
+    in Horizon the value 0 was not accepted. This fix allows entering
+    the value 0 as well, which is important for putting a member into
+    DRAINING state.
