@@ -50,7 +50,7 @@
             <span class="hz-icon-required fa fa-asterisk"></span>
           </label>
           <input name="weight" id="weight" type="number" class="form-control"
-                 ng-model="modal.weight" ng-pattern="/^\d+$/" min="1" max="256"
+                 ng-model="modal.weight" ng-pattern="/^\d+$/" min="0" max="256"
                  ng-required="true">
           <span class="help-block" ng-show="form.weight.$invalid && form.weight.$dirty">
             {$ ::modal.weightError $}

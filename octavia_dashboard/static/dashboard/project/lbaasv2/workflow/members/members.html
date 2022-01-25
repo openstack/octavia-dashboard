@@ -89,7 +89,7 @@
               <div class="form-group member-weight"
                    ng-class="{ 'has-error': memberDetailsForm['{$ ::row.id $}-weight'].$invalid && memberDetailsForm['{$ ::row.id $}-weight'].$dirty }">
                 <input name="{$ ::row.id $}-weight" type="number" class="form-control"
-                       ng-model="row.weight" ng-pattern="/^\d+$/" min="1" max="256"
+                       ng-model="row.weight" ng-pattern="/^\d+$/" min="0" max="256"
                        ng-disabled="row.allocatedMember"
                        popover-placement="top" popover-append-to-body="true"
                        popover-trigger="focus"
