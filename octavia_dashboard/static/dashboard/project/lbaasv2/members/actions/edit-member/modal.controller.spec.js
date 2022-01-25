@@ -71,7 +71,7 @@
       expect(ctrl.weight).toBe(1);
       expect(ctrl.ipPattern).toBeDefined();
       expect(ctrl.helpUrl).toBeDefined();
-      expect(ctrl.weightError).toBe('The weight must be a number between 1 and 256.');
+      expect(ctrl.weightError).toBe('The weight must be a number between 0 and 256.');
       expect(ctrl.monitorAddressError).toBe('The monitor address must be a valid IP address.');
       expect(ctrl.monitorPortError).toBe('The monitor port must be a number between 1 and 65535.');
     });

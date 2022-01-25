@@ -30,8 +30,9 @@
   <strong translate>Weight:</strong>
   <translate>
   The weight of a member determines the portion of requests or connections it services compared
-  to the other members of the pool. A higher weight means it will receive more traffic. Must be
-  a number from 1 to 256.
+  to the other members of the pool. A value of 0 means the member does not receive new connections
+  but continues to service existing connections. A higher weight means it will receive more
+  traffic. Must be a number from 0 to 256.
   </translate>
 </p>
 <p>
