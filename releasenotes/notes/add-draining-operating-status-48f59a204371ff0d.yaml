@@ -1,0 +1,4 @@
+---
+fixes:
+  - |
+    Draining state was missing from the list of operating states.

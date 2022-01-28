@@ -43,6 +43,7 @@
   function loadBalancersService($q, api, gettext) {
     var operatingStatus = {
       ONLINE: gettext('Online'),
+      DRAINING: gettext('Draining'),
       OFFLINE: gettext('Offline'),
       DEGRADED: gettext('Degraded'),
       ERROR: gettext('Error'),
