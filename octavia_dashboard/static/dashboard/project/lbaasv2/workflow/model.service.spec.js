@@ -89,11 +89,19 @@
       mockNetworks = {
         a1: {
           name: 'network_1',
-          id: 'a1'
+          id: 'a1',
+          subnets: [{
+            id: 'subnet-1',
+            name: 'subnet-1'
+          }]
         },
         b2: {
           name: 'network_2',
-          id: 'b2'
+          id: 'b2',
+          subnets: [{
+            id: 'subnet-2',
+            name: 'subnet-2'
+          }]
         }
       };
       mockFlavors = {
@@ -411,15 +419,6 @@
       });
 
       $provide.value('horizon.app.core.openstack-service-api.neutron', {
-        getSubnets: function() {
-          var subnets = [{id: 'subnet-1', name: 'subnet-1'},
-            {id: 'subnet-2', name: 'subnet-2'}];
-
-          var deferred = $q.defer();
-          deferred.resolve({data: {items: subnets}});
-
-          return deferred.promise;
-        },
         getPorts: function() {
           var ports = [{
             device_id: '1',
@@ -440,10 +439,18 @@
         getNetworks: function() {
           var networks = [{
             name: 'network_1',
-            id: 'a1'
+            id: 'a1',
+            subnets: [{
+              id: 'subnet-1',
+              name: 'subnet-1'
+            }]
           }, {
             name: 'network_2',
-            id: 'b2'
+            id: 'b2',
+            subnets: [{
+              id: 'subnet-2',
+              name: 'subnet-2'
+            }]
           }];
 
           var deferred = $q.defer();
@@ -1511,7 +1518,7 @@
 
       beforeEach(inject(function($injector) {
         var neutronAPI = $injector.get('horizon.app.core.openstack-service-api.neutron');
-        neutronAPI.getSubnets = function() {
+        neutronAPI.getNetworks = function() {
           var deferred = $q.defer();
           deferred.reject('Error');
           return deferred.promise;
@@ -1523,11 +1530,11 @@
         scope.$apply();
       });
 
-      it('should fail to be initialized on subnets error', function() {
+      it('should fail to be initialized on networks error', function() {
         expect(model.initializing).toBe(false);
         expect(model.initialized).toBe(false);
         expect(model.spec.loadbalancer.name).toBeNull();
-        expect(model.subnets).toEqual([]);
+        expect(model.networks).toEqual({});
       });
     });
 
