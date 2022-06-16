@@ -77,6 +77,7 @@
     });
 
     it('should edit member weight, monitor address and port', function() {
+      fail = false;
       spyOn(api, 'editMember').and.callThrough();
       spyOn($uibModalInstance, 'close');
       ctrl.save();

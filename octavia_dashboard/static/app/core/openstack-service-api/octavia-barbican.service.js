@@ -58,7 +58,7 @@
 
     function getCertificates(quiet) {
       var promise = apiService.get('/api/octavia-barbican/certificates/');
-      return quiet ? promise : promise.error(function handleError() {
+      return quiet ? promise : promise.catch(function handleError() {
         toastService.add('error', gettext('Unable to retrieve SSL certificates.'));
       });
     }
@@ -77,7 +77,7 @@
 
     function getSecrets(quiet) {
       var promise = apiService.get('/api/octavia-barbican/secrets/');
-      return quiet ? promise : promise.error(function handleError() {
+      return quiet ? promise : promise.catch(function handleError() {
         toastService.add('error', gettext('Unable to retrieve secrets.'));
       });
     }

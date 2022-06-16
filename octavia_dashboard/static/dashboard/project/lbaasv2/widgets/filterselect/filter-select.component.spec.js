@@ -197,6 +197,8 @@
       beforeEach(
         inject(
           function($rootScope, $componentController) {
+            var events = $._data(document, 'events');
+            events.click = [];
             scope = $rootScope.$new();
             ctrl = $componentController('filterSelect', {
               $scope: scope,

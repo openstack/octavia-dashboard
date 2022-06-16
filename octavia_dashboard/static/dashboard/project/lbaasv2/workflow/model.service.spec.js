@@ -1026,6 +1026,67 @@
       });
     });
 
+    describe('Post initialize model (edit listener) no pool children', function() {
+
+      beforeEach(function() {
+        includeChildResources = true;
+        delete listenerResources.members;
+        delete listenerResources.monitor;
+        model.initialize('listener', '1234');
+        scope.$apply();
+      });
+
+      it('should initialize model properties', function() {
+        expect(model.initializing).toBe(false);
+        expect(model.initialized).toBe(true);
+        expect(model.subnets.length).toBe(2);
+        expect(model.members.length).toEqual(2);
+        expect(model.spec).toBeDefined();
+        expect(model.spec.loadbalancer_id).toBeDefined();
+        expect(model.spec.loadbalancer).toBeDefined();
+        expect(model.spec.listener).toBeDefined();
+        expect(model.spec.pool).toBeDefined();
+        expect(model.subnets.length).toBe(2);
+        expect(model.spec.monitor).toBeDefined();
+      });
+
+      it('should initialize the loadbalancer_id property', function() {
+        expect(model.spec.loadbalancer_id).toBe('1234');
+      });
+
+      it('should initialize all loadbalancer properties to null', function() {
+        expect(model.spec.loadbalancer.name).toBeNull();
+        expect(model.spec.loadbalancer.description).toBeNull();
+        expect(model.spec.loadbalancer.vip_address).toBeNull();
+        expect(model.spec.loadbalancer.vip_subnet_id).toBeNull();
+      });
+
+      it('should initialize all listener properties', function() {
+        expect(model.spec.listener.id).toBe('1234');
+        expect(model.spec.listener.name).toBe('Listener 1');
+        expect(model.spec.listener.description).toBe('listener description');
+        expect(model.spec.listener.protocol).toBe('HTTP');
+        expect(model.spec.listener.protocol_port).toBe(80);
+        expect(model.spec.listener.connection_limit).toBe(999);
+      });
+
+      it('should initialize all pool properties', function() {
+        expect(model.spec.pool.id).toBe('1234');
+        expect(model.spec.pool.name).toBe('Pool 1');
+        expect(model.spec.pool.description).toBe('pool description');
+        expect(model.spec.pool.protocol).toBe('HTTP');
+        expect(model.spec.pool.lb_algorithm).toBe('ROUND_ROBIN');
+        expect(model.spec.pool.session_persistence.type).toBe('APP_COOKIE');
+        expect(model.spec.pool.session_persistence.cookie_name).toBe('cookie_name');
+      });
+
+      it('should initialize context', function() {
+        expect(model.context.resource).toBe('listener');
+        expect(model.context.id).toBeDefined();
+        expect(model.context.submit).toBeDefined();
+      });
+    });
+
     describe('Post initialize model (edit l7 policy)', function() {
 
       beforeEach(function() {

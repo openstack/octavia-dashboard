@@ -740,7 +740,7 @@
                 model.spec.certificates.push(cert);
               });
             });
-          });
+          }, certificatesError);
           $('#wizard-side-nav ul li:last').show();
         }
       }

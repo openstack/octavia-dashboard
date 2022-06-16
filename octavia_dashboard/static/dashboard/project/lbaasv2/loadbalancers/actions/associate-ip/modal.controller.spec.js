@@ -105,6 +105,7 @@
     it('should associate floating IP if floating IP selected', function() {
       ctrl = $controller('AssociateFloatingIpModalController');
       ctrl.selected = ctrl.options[0];
+      associateFail = false;
       spyOn(network, 'associateFloatingIp').and.callThrough();
       spyOn($uibModalInstance, 'close');
       ctrl.save();
@@ -116,6 +117,7 @@
     it('should allocate floating IP if floating IP pool selected', function() {
       ctrl = $controller('AssociateFloatingIpModalController');
       ctrl.selected = ctrl.options[1];
+      associateFail = false;
       spyOn(network, 'allocateFloatingIp').and.callThrough();
       spyOn(network, 'associateFloatingIp').and.callThrough();
       spyOn($uibModalInstance, 'close');
