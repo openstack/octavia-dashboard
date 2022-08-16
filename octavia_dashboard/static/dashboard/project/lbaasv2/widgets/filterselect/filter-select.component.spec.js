@@ -188,6 +188,19 @@
         });
         expect(ctrl.isOpen).toBe(false);
       });
+
+      it('should select correct option after filter input', function() {
+        var mockInput = '2';
+        ctrl.text = mockInput;
+        ctrl.onTextChange();
+        ctrl.selectOption(0);
+        expect(ctrl.onSelect).toHaveBeenCalledWith({
+          option: mockOptions[1]
+        });
+        expect(ctrl.filtered_options.length).toBe(1);
+        expect(ctrl.filtered_options[0].text).toContain(mockInput);
+        expect(ctrl.isOpen).toBe(false);
+      });
     });
 
     describe('controller', function() {
