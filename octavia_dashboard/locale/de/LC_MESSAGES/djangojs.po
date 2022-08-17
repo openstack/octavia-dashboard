@@ -3,16 +3,17 @@
 # Robert Simai <robert.simai@suse.com>, 2018. #zanata
 # Robert Simai <robert.simai@suse.com>, 2019. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
+# Robert Holling <r.holling@protonmail.ch>, 2022. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2021-01-20 15:28+0000\n"
+"POT-Creation-Date: 2022-08-16 20:34+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2020-04-25 09:29+0000\n"
-"Last-Translator: Andreas Jaeger <jaegerandi@gmail.com>\n"
+"PO-Revision-Date: 2022-04-06 10:34+0000\n"
+"Last-Translator: Robert Holling <r.holling@protonmail.ch>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -321,7 +322,7 @@ msgstr[0] "Loadbalancer löschen"
 msgstr[1] "Loadbalancer löschen"
 
 msgid "Delete Load Balancers"
-msgstr "Gelöschte Loadbalancer"
+msgstr "Loadbalancer löschen"
 
 msgid "Delete Member"
 msgid_plural "Delete Members"
@@ -1237,22 +1238,6 @@ msgstr ""
 msgid ""
 "The value to use for the comparison. For example, the file type to compare."
 msgstr "Der Schlüssel zum Vergleich. Zum Beispiel der Dateityp zum Vergleich."
-
-msgid "The weight must be a number between 1 and 256."
-msgstr "Das Gewicht muss eine Zahl zwischen 1 und 256 sein."
-
-msgid ""
-"The weight of a member determines the portion of requests or connections it "
-"services compared\n"
-"  to the other members of the pool. A higher weight means it will receive "
-"more traffic. Must be\n"
-"  a number from 1 to 256."
-msgstr ""
-"Das Gewicht der Mitglieder bestimmt die Portion der Anfragen oder "
-"Verbindungen zum Dienst im Vergleich\n"
-"  zu anderen Mitgliedern des Pools. Ein höheres Gewicht wird mehr Verkehr "
-"erzeugen. Muss eine Zahl\n"
-"  zwischen 1 und 256 sein."
 
 msgid ""
 "Time, in milliseconds, to wait for additional TCP packets for content\n"
