@@ -364,6 +364,7 @@
         if (['ACTIVE', 'ERROR'].indexOf(response.data.provisioning_status) < 0) {
           return $q.reject();
         }
+        return null;
       });
     }
   }

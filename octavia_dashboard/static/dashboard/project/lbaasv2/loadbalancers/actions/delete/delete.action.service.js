@@ -147,6 +147,7 @@
       if (result.pass.length > 0) {
         return deleteModal.open(scope, result.pass.map(getEntity), context).then(deleteResult);
       }
+      return null;
     }
 
     function deleteItem(id) {
