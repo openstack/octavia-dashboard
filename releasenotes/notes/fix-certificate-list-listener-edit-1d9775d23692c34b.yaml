@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fix a bug that prevented to display the ``default_tls_container_ref`` when
+    editing an HTTP_TERMINATED listener.

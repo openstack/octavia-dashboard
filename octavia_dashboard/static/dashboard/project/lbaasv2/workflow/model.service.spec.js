@@ -36,7 +36,7 @@
           protocol_port: 80,
           connection_limit: 999,
           load_balancers: [{id: '1234'}],
-          sni_container_refs: ['container2'],
+          default_tls_container_ref: 'container2',
           insert_headers: {
             'X-Forwarded-For': 'True',
             'X-Forwarded-Port': 'True',
