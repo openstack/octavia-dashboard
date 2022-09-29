@@ -68,3 +68,6 @@ ChangeLog
 
 # Conf
 octavia_dashboard/conf
+
+# Git
+*.orig
