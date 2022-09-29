@@ -107,6 +107,7 @@
           $rootScope.$broadcast(events.ACTION_DONE);
           return args.handle(response);
         }
+        return null;
       }
     }
 
