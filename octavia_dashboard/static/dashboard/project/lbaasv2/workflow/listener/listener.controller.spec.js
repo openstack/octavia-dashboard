@@ -68,6 +68,11 @@
         expect(listener.protocol_port).toBe(443);
       });
 
+      it('should update port on protocol change to PROMETHEUS', function() {
+        ctrl.protocolChange('PROMETHEUS');
+        expect(listener.protocol_port).toBe(9100);
+      });
+
       it('should update port on protocol change to TCP', function() {
         ctrl.protocolChange('TCP');
         expect(listener.protocol_port).toBeUndefined();

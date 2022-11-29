@@ -527,7 +527,7 @@
 
       it('has array of listener protocols', function() {
         expect(model.listenerProtocols).toEqual(['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS',
-          'UDP', 'SCTP']);
+          'UDP', 'SCTP', 'PROMETHEUS']);
       });
 
       it('has array of pool lb_algorithms', function() {
@@ -909,8 +909,9 @@
       });
 
       it('should initialize listener protocols', function() {
-        expect(model.listenerProtocols.length).toBe(6);
+        expect(model.listenerProtocols.length).toBe(7);
         expect(model.listenerProtocols.indexOf('TERMINATED_HTTPS')).toBe(2);
+        expect(model.listenerProtocols.indexOf('PROMETHEUS')).toBe(6);
       });
     });
 
@@ -960,11 +961,11 @@
       });
 
       it('should initialize listener protocols', function() {
-        expect(model.listenerProtocols.length).toBe(5);
+        expect(model.listenerProtocols.length).toBe(6);
         expect(model.listenerProtocols.indexOf('TERMINATED_HTTPS')).toBe(-1);
         model.initialize('loadbalancer');
         scope.$apply();
-        expect(model.listenerProtocols.length).toBe(5);
+        expect(model.listenerProtocols.length).toBe(6);
       });
     });
 

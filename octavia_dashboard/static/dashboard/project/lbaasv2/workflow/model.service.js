@@ -86,7 +86,7 @@
       members: [],
       networks: {},
       flavors: {},
-      listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS', 'UDP', 'SCTP'],
+      listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS', 'UDP', 'SCTP', 'PROMETHEUS'],
       availability_zones: {},
       l7policyActions: [
         {value: 'REJECT', label: gettext('Reject')},

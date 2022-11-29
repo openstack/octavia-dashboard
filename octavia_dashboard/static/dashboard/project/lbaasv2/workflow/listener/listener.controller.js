@@ -55,7 +55,8 @@
 
     function filterPortsByProtocol(protocol) {
       if (protocol && $scope.model && $scope.model.allocatedListeners) {
-        var tcpFamily = ['TCP', 'HTTP', 'HTTPS', 'TERMINATED_HTTPS', 'PROXY', 'PROXYV2'];
+        var tcpFamily = ['TCP', 'HTTP', 'HTTPS', 'TERMINATED_HTTPS',
+          'PROXY', 'PROXYV2', 'PROMETHEUS'];
         var currentFamily = tcpFamily.indexOf(protocol) !== -1 ? 'TCP' : protocol;
 
         $scope.model.listenerPorts = [];
@@ -74,7 +75,8 @@
 
     function protocolChange(protocol) {
       filterPortsByProtocol(protocol);
-      var defaultPort = { HTTP: 80, TERMINATED_HTTPS: 443 }[protocol];
+      var defaultPort = { HTTP: 80, TERMINATED_HTTPS: 443, PROMETHEUS: 9100 }[protocol];
+      var nextButtonSelector = "div.modal-footer button:nth-last-of-type(2)";
       while (listenerPortExists(defaultPort)) {
         defaultPort += 1;
       }
@@ -84,6 +86,18 @@
       members.forEach(function setMemberPort(member) {
         member.port = { HTTP: 80, TERMINATED_HTTPS: 80 }[protocol];
       });
+
+      if (protocol === 'PROMETHEUS') {
+        $('#wizard-side-nav ul').children().slice($scope.currentIndex + 1).hide();
+        $scope.model.context.create_pool = false;
+        $scope.model.context.create_monitor = false;
+        $(nextButtonSelector).attr("disabled", "");
+      } else {
+        $('#wizard-side-nav ul').children().slice($scope.currentIndex + 1).show();
+        $scope.model.context.create_pool = true;
+        $scope.model.context.create_monitor = true;
+        $(nextButtonSelector).removeAttr("disabled");
+      }
 
       if (protocol === 'TERMINATED_HTTPS') {
         $('#wizard-side-nav ul li:last').show();
