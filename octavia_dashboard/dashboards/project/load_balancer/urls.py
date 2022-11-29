@@ -12,11 +12,11 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-from django.conf.urls import url
+from django.urls import re_path
 
 from octavia_dashboard.dashboards.project.load_balancer import views
 
 
 urlpatterns = [
-    url('', views.IndexView.as_view(), name='index'),
+    re_path('', views.IndexView.as_view(), name='index'),
 ]
