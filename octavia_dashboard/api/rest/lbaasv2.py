@@ -631,19 +631,27 @@ def update_monitor(request, **kwargs):
     """
     data = request.DATA
     monitor_id = data['monitor']['id']
+    hm_type = data['monitor']['type']
 
     conn = _get_sdk_connection(request)
+    healthmonitor_kwargs = {
+        'delay': data['monitor'].get('delay'),
+        'timeout': data['monitor'].get('timeout'),
+        'max_retries': data['monitor'].get('max_retries'),
+        'max_retries_down': data['monitor'].get('max_retries_down'),
+        'admin_state_up': data['monitor'].get('admin_state_up'),
+        'name': data['monitor'].get('name')
+    }
+    if hm_type in ('HTTP', 'HTTPS'):
+        healthmonitor_kwargs.update({
+            'http_method': data['monitor'].get('http_method'),
+            'url_path': data['monitor'].get('url_path'),
+            'expected_codes': data['monitor'].get('expected_codes')
+            })
+
     healthmonitor = conn.load_balancer.update_health_monitor(
         monitor_id,
-        delay=data['monitor'].get('delay'),
-        timeout=data['monitor'].get('timeout'),
-        max_retries=data['monitor'].get('max_retries'),
-        max_retries_down=data['monitor'].get('max_retries_down'),
-        http_method=data['monitor'].get('http_method'),
-        url_path=data['monitor'].get('url_path'),
-        expected_codes=data['monitor'].get('expected_codes'),
-        admin_state_up=data['monitor'].get('admin_state_up'),
-        name=data['monitor'].get('name')
+        **healthmonitor_kwargs
     )
 
     return _get_sdk_object_dict(healthmonitor)
