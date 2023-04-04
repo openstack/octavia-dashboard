@@ -27,7 +27,7 @@ settings.POLICY_FILES.update({
 #         'handlers': ['console'],
 #         'level': 'DEBUG',
 #         'propagate': False,
-#     }
+#     },
 #     'barbicanclient': {
 #         'handlers': ['console'],
 #         'level': 'DEBUG',
