@@ -54,7 +54,7 @@
                        ng-required="true" ng-disabled="row.allocatedMember"
                        popover-placement="top" popover-append-to-body="true"
                        popover-trigger="focus"
-                       ng-attr-popover="{$ memberDetailsForm[row.id + '-address'].$invalid && memberDetailsForm[row.id + '-address'].$dirty ? ctrl.ipError : '' $}">
+                       uib-popover="{$ memberDetailsForm[row.id + '-address'].$invalid && memberDetailsForm[row.id + '-address'].$dirty ? ctrl.ipError : '' $}">
               </div>
               <span ng-if="row.addresses.length === 1">{$ row.address.ip $}</span>
               <div ng-if="row.addresses.length > 1"
@@ -83,7 +83,7 @@
                        ng-required="true" ng-disabled="row.allocatedMember"
                        popover-placement="top" popover-append-to-body="true"
                        popover-trigger="focus"
-                       ng-attr-popover="{$ memberDetailsForm[row.id + '-port'].$invalid && memberDetailsForm[row.id + '-port'].$dirty ? ctrl.portError : '' $}">
+                       uib-popover="{$ memberDetailsForm[row.id + '-port'].$invalid && memberDetailsForm[row.id + '-port'].$dirty ? ctrl.portError : '' $}">
               </div>
             </td>
             <td class="rsp-p1">
@@ -94,7 +94,7 @@
                        ng-disabled="row.allocatedMember"
                        popover-placement="top" popover-append-to-body="true"
                        popover-trigger="focus"
-                       ng-attr-popover="{$ memberDetailsForm[row.id + '-weight'].$invalid && memberDetailsForm[row.id + '-weight'].$dirty ? ctrl.weightError : '' $}">
+                       uib-popover="{$ memberDetailsForm[row.id + '-weight'].$invalid && memberDetailsForm[row.id + '-weight'].$dirty ? ctrl.weightError : '' $}">
               </div>
             </td>
             <td class="actions_column">
@@ -126,7 +126,7 @@
                                                                                                             ng-disabled="row.allocatedMember"
                                                                                                             popover-placement="top" popover-append-to-body="true"
                                                                                                                                     popover-trigger="focus"
-                                                                                                                                    ng-attr-popover="{$ memberDetailsForm[row.id + '-monitor-address'].$invalid && memberDetailsForm[row.id + '-monitor-address'].$dirty ? ctrl.ipError : '' $}">
+                                                                                                                                    uib-popover="{$ memberDetailsForm[row.id + '-monitor-address'].$invalid && memberDetailsForm[row.id + '-monitor-address'].$dirty ? ctrl.ipError : '' $}">
                   </dd>
                 </dl>
                 <dl class="col-lg-5 col-md-5 col-sm-5">
@@ -138,7 +138,7 @@
                                                                                                                                      ng-disabled="row.allocatedMember"
                                                                                                                                      popover-placement="top" popover-append-to-body="true"
                                                                                                                                                              popover-trigger="focus"
-                                                                                                                                                             ng-attr-popover="{$ memberDetailsForm[row.id + '-monitor-port'].$invalid && memberDetailsForm[row.id + '-monitor-port'].$dirty ? ctrl.portError : '' $}">
+                                                                                                                                                             uib-popover="{$ memberDetailsForm[row.id + '-monitor-port'].$invalid && memberDetailsForm[row.id + '-monitor-port'].$dirty ? ctrl.portError : '' $}">
                   </dd>
                 </dl>
                 <dl class="col-lg-5 col-md-5 col-sm-5">
