@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Fixed a bug when displaying the member list, some fields were not displayed
+    correctly and new members could not be added.
+    This bug affected only Google Chrome 114 and above.
