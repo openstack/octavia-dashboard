@@ -8,11 +8,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-01-12 20:47+0000\n"
+"POT-Creation-Date: 2023-08-08 11:52+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-01-26 10:16+0000\n"
+"PO-Revision-Date: 2023-07-20 12:23+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -34,6 +34,9 @@ msgstr "2.0.0"
 msgid "2.0.1"
 msgstr "2.0.1"
 
+msgid "2023.1 Series Release Notes"
+msgstr "2023.1 Series Release Notes"
+
 msgid "3.0.0"
 msgstr "3.0.0"
 
@@ -43,26 +46,17 @@ msgstr "3.0.1"
 msgid "4.0.0"
 msgstr "4.0.0"
 
-msgid "4.0.2-3"
-msgstr "4.0.2-3"
-
 msgid "5.0.0"
 msgstr "5.0.0"
 
 msgid "5.0.2"
 msgstr "5.0.2"
 
-msgid "5.0.2-2"
-msgstr "5.0.2-2"
-
 msgid "6.0.0"
 msgstr "6.0.0"
 
 msgid "6.0.1"
 msgstr "6.0.1"
-
-msgid "6.0.1-3"
-msgstr "6.0.1-3"
 
 msgid "7.0.0"
 msgstr "7.0.0"
@@ -73,8 +67,8 @@ msgstr "7.0.1"
 msgid "8.0.0"
 msgstr "8.0.0"
 
-msgid "8.0.0-4"
-msgstr "8.0.0-4"
+msgid "8.0.1"
+msgstr "8.0.1"
 
 msgid "9.0.0"
 msgstr "9.0.0"
@@ -216,6 +210,15 @@ msgstr ""
 "enforcing the creation of children resources (Listeners, Pools, Health "
 "monitors). A switch has been added in the children's resource wizards to "
 "avoid resource creation."
+
+msgid ""
+"Barbicanclient caused an error when getting secrets. By replacing the code "
+"by OpenstackSDK this issue was fixed and the barbicanclient dependency could "
+"be dropped from the Octavia Dashboard."
+msgstr ""
+"Barbicanclient caused an error when getting secrets. By replacing the code "
+"by OpenstackSDK this issue was fixed and the barbicanclient dependency could "
+"be dropped from the Octavia Dashboard."
 
 msgid "Bug Fixes"
 msgstr "Bug Fixes"
