@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Barbicanclient caused an error when getting secrets. By replacing the
+    code by OpenstackSDK this issue was fixed and the barbicanclient
+    dependency could be dropped from the Octavia Dashboard.

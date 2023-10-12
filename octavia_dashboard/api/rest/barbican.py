@@ -14,37 +14,11 @@
 """API over the barbican service.
 """
 
-from barbicanclient import client as barbican_client
-from django.conf import settings
 from django.views import generic
-from keystoneclient.auth import token_endpoint
-from keystoneclient import session
+from octavia_dashboard.sdk_connection import get_sdk_connection
 
-from horizon.utils.memoized import memoized  # noqa
-from openstack_auth import utils as auth_utils
-
-from openstack_dashboard.api import base
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
-
-
-@memoized
-def barbicanclient(request):
-    region = request.user.services_region
-    endpoint = base.url_for(request, 'key-manager')
-    auth_url, _ = auth_utils.fix_auth_url_version_prefix(
-        settings.OPENSTACK_KEYSTONE_URL)
-    auth = token_endpoint.Token(auth_url, request.user.token.id)
-
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    # If 'insecure' is True, 'verify' is False in all cases; otherwise
-    # pass the cacert path if it is present, or True if no cacert.
-    verify = not insecure and (cacert or True)
-    return barbican_client.Client(session=session.Session(auth=auth,
-                                                          verify=verify),
-                                  endpoint=endpoint,
-                                  region_name=region)
 
 
 @urls.register
@@ -60,11 +34,10 @@ class SSLCertificates(generic.View):
 
         The listing result is an object with property "items".
         """
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-        containers = barbicanclient(request).containers
-        params = {'limit': limit, 'type': 'certificate'}
-        result = containers._api.get('containers', params=params)
-        return {'items': result.get('containers')}
+        conn = get_sdk_connection(request)
+        containers = list(conn.key_manager.containers(
+            type='certificate'))
+        return {'items': containers}
 
 
 @urls.register
@@ -80,8 +53,6 @@ class Secrets(generic.View):
 
         The listing result is an object with property "items".
         """
-        limit = getattr(settings, 'API_RESULT_LIMIT', 1000)
-        secrets = barbicanclient(request).secrets
-        params = {'limit': limit}
-        result = secrets._api.get('secrets', params=params)
-        return {'items': result.get('secrets')}
+        conn = get_sdk_connection(request)
+        secrets = list(conn.key_manager.secrets())
+        return {'items': secrets}

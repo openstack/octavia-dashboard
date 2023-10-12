@@ -17,16 +17,9 @@
 import _thread as thread
 import time
 
-from django.conf import settings
 from django.views import generic
-
 from horizon import conf
-import octavia_dashboard
-from openstack import connection
-try:
-    from openstack import config as occ
-except ImportError:
-    from os_client_config import config as occ
+from octavia_dashboard.sdk_connection import get_sdk_connection
 from openstack import exceptions
 
 from openstack_dashboard.api import neutron
@@ -34,38 +27,6 @@ from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
 
 neutronclient = neutron.neutronclient
-
-
-def _get_sdk_connection(request):
-    """Creates an SDK connection based on the request.
-
-    :param request: Django request object
-    :returns: SDK connection object
-    """
-    # NOTE(mordred) Nothing says love like two inverted booleans
-    # The config setting is NO_VERIFY which is, in fact, insecure.
-    # get_one_cloud wants verify, so we pass 'not insecure' to verify.
-    insecure = getattr(settings, 'OPENSTACK_SSL_NO_VERIFY', False)
-    cacert = getattr(settings, 'OPENSTACK_SSL_CACERT', None)
-    # Pass interface to honor 'OPENSTACK_ENDPOINT_TYPE'
-    interface = getattr(settings, 'OPENSTACK_ENDPOINT_TYPE', 'publicURL')
-    # Pass load_yaml_config as this is a Django service with its own config
-    # and we don't want to accidentally pick up a clouds.yaml file. We want to
-    # use the settings we're passing in.
-    cloud_config = occ.OpenStackConfig(load_yaml_config=False).get_one_cloud(
-        verify=not insecure,
-        cacert=cacert,
-        interface=interface,
-        region_name=request.user.services_region,
-        auth_type='token',
-        auth=dict(
-            project_id=request.user.project_id,
-            project_domain_id=request.user.domain_id,
-            token=request.user.token.unscoped_token,
-            auth_url=request.user.endpoint),
-        app_name='octavia-dashboard',
-        app_version=octavia_dashboard.__version__)
-    return connection.from_config(cloud_config=cloud_config)
 
 
 def _sdk_object_to_list(object):
@@ -113,7 +74,7 @@ def poll_loadbalancer_status(request, loadbalancer_id, callback,
     status = from_state
     while status == from_state:
         time.sleep(interval)
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         lb = conn.load_balancer.get_load_balancer(loadbalancer_id)
         status = lb.provisioning_status
 
@@ -189,7 +150,7 @@ def health_monitor_get_load_balancer_id(conn, health_monitor_id):
 def create_loadbalancer(request):
     data = request.DATA
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     build_kwargs = dict(
         project_id=request.user.project_id,
         vip_subnet_id=data['loadbalancer']['vip_subnet_id'],
@@ -230,7 +191,7 @@ def create_listener(request, **kwargs):
     except (KeyError, IndexError):
         default_tls_ref = None
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     # TODO(johnsom) Add SNI support
     # https://bugs.launchpad.net/octavia/+bug/1714294
     listener = conn.load_balancer.create_listener(
@@ -267,7 +228,7 @@ def create_l7_policy(request, **kwargs):
     """
     data = request.DATA
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     l7_policy = conn.load_balancer.create_l7_policy(
         action=data['l7policy']['action'],
         admin_state_up=data['l7policy'].get('admin_state_up'),
@@ -288,7 +249,7 @@ def create_l7_rule(request, **kwargs):
     """
     data = request.DATA
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     l7_rule = conn.load_balancer.create_l7_rule(
         admin_state_up=data['l7rule'].get('admin_state_up'),
         compare_type=data['l7rule']['compare_type'],
@@ -308,7 +269,7 @@ def create_pool(request, **kwargs):
     """
     data = request.DATA
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     pool = conn.load_balancer.create_pool(
         protocol=data['pool']['protocol'],
         lb_algorithm=data['pool']['lb_algorithm'],
@@ -342,7 +303,7 @@ def create_health_monitor(request, **kwargs):
     """
     data = request.DATA
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     health_mon = conn.load_balancer.create_health_monitor(
         type=data['monitor']['type'],
         delay=data['monitor']['delay'],
@@ -366,7 +327,7 @@ def create_flavor(request, **kwargs):
     """
     data = request.DATA
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     flavor = conn.load_balancer.create_flavor(
         name=data['flavor']['name'],
         flavor_profile_id=data['flavor']['flavor_profile_id'],
@@ -383,7 +344,7 @@ def create_flavor_profile(request, **kwargs):
     """
     data = request.DATA
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     flavor_profile = conn.load_balancer.create_flavor(
         name=data['flavor_profile']['name'],
         provider_name=data['flavor_profile']['provider_name'],
@@ -412,7 +373,7 @@ def add_member(request, **kwargs):
 
     member = members[index]
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     monitor_address = member.get('monitor_address')
     member = conn.load_balancer.create_member(
         pool_id,
@@ -463,7 +424,7 @@ def remove_member(request, **kwargs):
         members_to_delete = kwargs['members_to_delete']
         member_id = members_to_delete.pop(0)
 
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         conn.load_balancer.delete_member(member_id, pool_id,
                                          ignore_missing=True)
 
@@ -483,7 +444,7 @@ def update_loadbalancer(request, **kwargs):
     data = request.DATA
     loadbalancer_id = kwargs.get('loadbalancer_id')
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     loadbalancer = conn.load_balancer.update_load_balancer(
         loadbalancer_id,
         name=data['loadbalancer'].get('name'),
@@ -511,7 +472,7 @@ def update_listener(request, **kwargs):
     except (KeyError, IndexError):
         default_tls_ref = None
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     listener = conn.load_balancer.update_listener(
         listener=listener_id,
         name=data['listener'].get('name'),
@@ -545,7 +506,7 @@ def update_l7_policy(request, **kwargs):
     data = request.DATA
     l7_policy_id = data['l7policy'].get('id')
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     l7_policy = conn.load_balancer.update_l7_policy(
         action=data['l7policy']['action'],
         admin_state_up=data['l7policy'].get('admin_state_up'),
@@ -567,7 +528,7 @@ def update_l7_rule(request, **kwargs):
     data = request.DATA
     l7_rule_id = data['l7rule'].get('id')
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     l7_rule = conn.load_balancer.update_l7_rule(
         admin_state_up=data['l7rule'].get('admin_state_up'),
         compare_type=data['l7rule']['compare_type'],
@@ -590,7 +551,7 @@ def update_pool(request, **kwargs):
     pool_id = data['pool'].get('id')
     loadbalancer_id = data.get('loadbalancer_id')
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     pool = conn.load_balancer.update_pool(
         pool=pool_id,
         lb_algorithm=data['pool']['lb_algorithm'],
@@ -633,7 +594,7 @@ def update_monitor(request, **kwargs):
     monitor_id = data['monitor']['id']
     hm_type = data['monitor']['type']
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     healthmonitor_kwargs = {
         'delay': data['monitor'].get('delay'),
         'timeout': data['monitor'].get('timeout'),
@@ -664,7 +625,7 @@ def update_flavor(request, **kwargs):
     data = request.DATA
     flavor_id = data['flavor']['id']
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     flavor = conn.load_balancer.update_flavor(
         flavor_id,
         name=data['flavor'].get('name'),
@@ -682,7 +643,7 @@ def update_flavor_profile(request, **kwargs):
     data = request.DATA
     flavor_profile_id = data['flavor_profile']['id']
 
-    conn = _get_sdk_connection(request)
+    conn = get_sdk_connection(request)
     flavor_profile = conn.load_balancer.update_flavor_profile(
         flavor_profile_id,
         name=data['flavor_profile'].get('name'),
@@ -759,7 +720,7 @@ class LoadBalancers(generic.View):
 
         The listing result is an object with property "items".
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         lb_list = _sdk_object_to_list(conn.load_balancer.load_balancers(
             project_id=request.user.project_id))
         if request.GET.get('full') and neutron.floating_ip_supported(request):
@@ -789,7 +750,7 @@ class LoadBalancer(generic.View):
 
         http://localhost/api/lbaas/loadbalancers/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         loadbalancer = conn.load_balancer.find_load_balancer(loadbalancer_id)
         loadbalancer_dict = _get_sdk_object_dict(loadbalancer)
         if request.GET.get('full') and neutron.floating_ip_supported(request):
@@ -810,7 +771,7 @@ class LoadBalancer(generic.View):
 
         http://localhost/api/lbaas/loadbalancers/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         conn.load_balancer.delete_load_balancer(loadbalancer_id,
                                                 ignore_missing=True,
                                                 cascade=True)
@@ -830,7 +791,7 @@ class Listeners(generic.View):
         The listing result is an object with property "items".
         """
         loadbalancer_id = request.GET.get('loadbalancerId')
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         listener_list = _sdk_object_to_list(conn.load_balancer.listeners(
             project_id=request.user.project_id))
 
@@ -876,7 +837,7 @@ class Listener(generic.View):
 
         http://localhost/api/lbaas/listeners/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         listener = conn.load_balancer.find_listener(listener_id)
         listener = _get_sdk_object_dict(listener)
 
@@ -920,7 +881,7 @@ class Listener(generic.View):
 
         http://localhost/api/lbaas/listeners/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         retry_on_conflict(
             conn, conn.load_balancer.delete_listener,
             listener_id, ignore_missing=True,
@@ -942,7 +903,7 @@ class L7Policies(generic.View):
         The listing result is an object with property "items".
         """
         listener_id = request.GET.get('listenerId')
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         l7_policy_list = _sdk_object_to_list(conn.load_balancer.l7_policies(
             listener_id=listener_id))
         return {'items': l7_policy_list}
@@ -975,7 +936,7 @@ class L7Policy(generic.View):
 
         http://localhost/api/lbaas/l7policies/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         l7_policy = conn.load_balancer.find_l7_policy(l7_policy_id)
         l7_policy = _get_sdk_object_dict(l7_policy)
 
@@ -1007,7 +968,7 @@ class L7Policy(generic.View):
 
         http://localhost/api/lbaas/l7policies/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         retry_on_conflict(
             conn, conn.load_balancer.delete_l7_policy,
             l7_policy_id,
@@ -1028,7 +989,7 @@ class L7Rules(generic.View):
 
         The listing result is an object with property "items".
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         l7_rule_list = _sdk_object_to_list(conn.load_balancer.l7_rules(
             l7_policy_id))
         return {'items': l7_rule_list}
@@ -1057,7 +1018,7 @@ class L7Rule(generic.View):
     @rest_utils.ajax()
     def get(self, request, l7_rule_id, l7_policy_id):
         """Get a specific l7 rule."""
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         l7_rule = conn.load_balancer.find_l7_rule(l7_rule_id, l7_policy_id)
         return _get_sdk_object_dict(l7_rule)
 
@@ -1070,7 +1031,7 @@ class L7Rule(generic.View):
     @rest_utils.ajax()
     def delete(self, request, l7_rule_id, l7_policy_id):
         """Delete a specific l7 rule."""
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         retry_on_conflict(
             conn, conn.load_balancer.delete_l7_rule,
             l7_rule_id, l7_policy_id,
@@ -1093,7 +1054,7 @@ class Pools(generic.View):
         """
         loadbalancer_id = request.GET.get('loadbalancerId')
         listener_id = request.GET.get('listenerId')
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         pool_list = _sdk_object_to_list(conn.load_balancer.pools(
             project_id=request.user.project_id))
 
@@ -1150,7 +1111,7 @@ class Pool(generic.View):
 
         http://localhost/api/lbaas/pools/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         pool = conn.load_balancer.find_pool(pool_id)
         pool = _get_sdk_object_dict(pool)
 
@@ -1188,7 +1149,7 @@ class Pool(generic.View):
 
         http://localhost/api/lbaas/pools/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         retry_on_conflict(
             conn, conn.load_balancer.delete_pool,
             pool_id,
@@ -1209,7 +1170,7 @@ class Members(generic.View):
 
         The listing result is an object with property "items".
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         members_list = _sdk_object_to_list(conn.load_balancer.members(pool_id))
         return {'items': members_list}
 
@@ -1221,7 +1182,7 @@ class Members(generic.View):
         # Assemble the lists of member id's to add and remove, if any exist
         request_member_data = request.DATA.get('members', [])
 
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         existing_members = _sdk_object_to_list(
             conn.load_balancer.members(pool_id))
 
@@ -1249,7 +1210,7 @@ class Member(generic.View):
         """Get a specific member belonging to a specific pool.
 
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         member = conn.load_balancer.find_member(member_id, pool_id)
         return _get_sdk_object_dict(member)
 
@@ -1258,7 +1219,7 @@ class Member(generic.View):
         """Delete a specific member belonging to a specific pool.
 
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         retry_on_conflict(
             conn, conn.load_balancer.delete_member,
             member_id, pool_id,
@@ -1271,7 +1232,7 @@ class Member(generic.View):
 
         """
         data = request.DATA
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         monitor_address = data.get('monitor_address')
         member = conn.load_balancer.update_member(
             member_id, pool_id, weight=data.get('weight'),
@@ -1298,7 +1259,7 @@ class HealthMonitors(generic.View):
         The listing result is an object with property "items".
         """
         pool_id = request.GET.get('poolId')
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         health_monitor_list = _sdk_object_to_list(
             conn.load_balancer.health_monitors(
                 project_id=request.user.project_id
@@ -1342,7 +1303,7 @@ class HealthMonitor(generic.View):
         """Get a specific health monitor.
 
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         health_mon = conn.load_balancer.find_health_monitor(health_monitor_id)
         return _get_sdk_object_dict(health_mon)
 
@@ -1352,7 +1313,7 @@ class HealthMonitor(generic.View):
 
         http://localhost/api/lbaas/healthmonitors/cc758c90-3d98-4ea1-af44-aab405c9c915
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         retry_on_conflict(
             conn, conn.load_balancer.delete_health_monitor,
             health_monitor_id,
@@ -1381,7 +1342,7 @@ class Flavors(generic.View):
 
         The listing result is an object with property "items".
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         flavor_list = _sdk_object_to_list(
             conn.load_balancer.flavors()
         )
@@ -1411,7 +1372,7 @@ class Flavor(generic.View):
         """Get a specific flavor.
 
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         flavor = conn.load_balancer.find_flavor(flavor_id)
         return _get_sdk_object_dict(flavor)
 
@@ -1421,7 +1382,7 @@ class Flavor(generic.View):
 
         http://localhost/api/lbaas/flavors/3971d368-ca9b-4770-929a-3adca5bf89eb
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         conn.load_balancer.delete_flavor(flavor_id,
                                          ignore_missing=True)
 
@@ -1446,7 +1407,7 @@ class FlavorProfiles(generic.View):
 
         The listing result is an object with property "items".
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         flavor_profile_list = _sdk_object_to_list(
             conn.load_balancer.flavor_profiles()
         )
@@ -1476,7 +1437,7 @@ class FlavorProfile(generic.View):
         """Get a specific flavor profile.
 
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         flavor_profile = conn.load_balancer.find_flavor_profile(
             flavor_profile_id)
         return _get_sdk_object_dict(flavor_profile)
@@ -1487,7 +1448,7 @@ class FlavorProfile(generic.View):
 
         http://localhost/api/lbaas/flavorprofiles/e8150eab-aefa-42cc-867e-3fb336da52bd
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         conn.load_balancer.delete_flavor_profile(flavor_profile_id,
                                                  ignore_missing=True)
 
@@ -1512,7 +1473,7 @@ class AvailabilityZones(generic.View):
 
         The listing result is an object with property "items".
         """
-        conn = _get_sdk_connection(request)
+        conn = get_sdk_connection(request)
         availability_zone_list = _sdk_object_to_list(
             conn.load_balancer.availability_zones()
         )
