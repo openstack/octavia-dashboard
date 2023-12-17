@@ -43,7 +43,7 @@ def get_sdk_connection(request):
         auth=dict(
             project_id=request.user.project_id,
             project_domain_id=request.user.domain_id,
-            token=request.user.token.unscoped_token,
+            auth_token=request.user.token.unscoped_token,
             auth_url=request.user.endpoint),
         app_name='octavia-dashboard',
         app_version=octavia_dashboard.__version__)

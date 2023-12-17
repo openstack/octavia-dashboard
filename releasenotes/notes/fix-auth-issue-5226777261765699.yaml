@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fixed an authentication issue with the OpenStack services. The dashboard
+    could not get the list of load balancers.
