@@ -591,7 +591,11 @@ def update_monitor(request, **kwargs):
 
     """
     data = request.DATA
-    monitor_id = data['monitor']['id']
+
+    monitor_id = data['monitor'].get('id', None)
+    if monitor_id is None:
+        return
+
     hm_type = data['monitor']['type']
 
     conn = get_sdk_connection(request)
