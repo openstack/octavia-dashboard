@@ -4,15 +4,16 @@
 # Andi Chandler <andi@gowling.com>, 2020. #zanata
 # Andi Chandler <andi@gowling.com>, 2022. #zanata
 # Andi Chandler <andi@gowling.com>, 2023. #zanata
+# Andi Chandler <andi@gowling.com>, 2024. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-01-09 21:56+0000\n"
+"POT-Creation-Date: 2024-03-19 12:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2023-07-20 12:23+0000\n"
+"PO-Revision-Date: 2024-04-18 12:31+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -28,8 +29,17 @@ msgstr "1.0.2"
 msgid "10.0.0"
 msgstr "10.0.0"
 
+msgid "10.0.1"
+msgstr "10.0.1"
+
 msgid "11.0.0-4"
 msgstr "11.0.0-4"
+
+msgid "12.0.0"
+msgstr "12.0.0"
+
+msgid "13.0.0.0rc1"
+msgstr "13.0.0.0rc1"
 
 msgid "2.0.0"
 msgstr "2.0.0"
@@ -40,6 +50,12 @@ msgstr "2.0.1"
 msgid "2023.1 Series Release Notes"
 msgstr "2023.1 Series Release Notes"
 
+msgid "2023.2 Series Release Notes"
+msgstr "2023.2 Series Release Notes"
+
+msgid "2024.1 Series Release Notes"
+msgstr "2024.1 Series Release Notes"
+
 msgid "3.0.0"
 msgstr "3.0.0"
 
@@ -49,11 +65,17 @@ msgstr "3.0.1"
 msgid "4.0.0"
 msgstr "4.0.0"
 
+msgid "4.0.2-5"
+msgstr "4.0.2-5"
+
 msgid "5.0.0"
 msgstr "5.0.0"
 
 msgid "5.0.2"
 msgstr "5.0.2"
+
+msgid "5.0.2-4"
+msgstr "5.0.2-4"
 
 msgid "6.0.0"
 msgstr "6.0.0"
@@ -61,11 +83,17 @@ msgstr "6.0.0"
 msgid "6.0.1"
 msgstr "6.0.1"
 
+msgid "6.0.1-6"
+msgstr "6.0.1-6"
+
 msgid "7.0.0"
 msgstr "7.0.0"
 
 msgid "7.0.1"
 msgstr "7.0.1"
+
+msgid "7.0.1-4"
+msgstr "7.0.1-4"
 
 msgid "8.0.0"
 msgstr "8.0.0"
@@ -73,8 +101,14 @@ msgstr "8.0.0"
 msgid "8.0.1"
 msgstr "8.0.1"
 
+msgid "8.0.1-4"
+msgstr "8.0.1-4"
+
 msgid "9.0.0"
 msgstr "9.0.0"
+
+msgid "9.0.1"
+msgstr "9.0.1"
 
 msgid ""
 "A new dashboard wizard for Octavia. Allows you to create an Octavia load "
@@ -241,6 +275,22 @@ msgid ""
 msgstr ""
 "Fix a bug that prevented the update of non-HTTP and non-HTTPS health "
 "monitors."
+
+msgid ""
+"Fixed a bug when displaying the member list, some fields were not displayed "
+"correctly and new members could not be added. This bug affected only Google "
+"Chrome 114 and above."
+msgstr ""
+"Fixed a bug when displaying the member list, some fields were not displayed "
+"correctly and new members could not be added. This bug affected only Google "
+"Chrome 114 and above."
+
+msgid ""
+"Fixed an authentication issue with the OpenStack services. The dashboard "
+"could not get the list of load balancers."
+msgstr ""
+"Fixed an authentication issue with the OpenStack services. The dashboard "
+"could not get the list of load balancers."
 
 msgid "Fixed an issue where TERMINATED_HTTPS listener type was greyed out."
 msgstr "Fixed an issue where TERMINATED_HTTPS listener type was greyed out."
