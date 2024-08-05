@@ -16,6 +16,7 @@ from django.conf import settings
 import octavia_dashboard
 from openstack import config as occ
 from openstack import connection
+from openstack_dashboard.api import base
 
 
 def get_sdk_connection(request):
@@ -44,7 +45,7 @@ def get_sdk_connection(request):
             project_id=request.user.project_id,
             project_domain_id=request.user.domain_id,
             auth_token=request.user.token.unscoped_token,
-            auth_url=request.user.endpoint),
+            auth_url=base.url_for(request, 'identity')),
         app_name='octavia-dashboard',
         app_version=octavia_dashboard.__version__)
     return connection.from_config(cloud_config=cloud_config)
