@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fixed a bug when using multi-region deployments, the octavia-dashboard may
+    have used the wrong keystone catalog to get the load-balancer endpoint.
