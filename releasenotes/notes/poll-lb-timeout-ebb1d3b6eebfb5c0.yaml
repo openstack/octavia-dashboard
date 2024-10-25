@@ -1,0 +1,7 @@
+---
+features:
+  - |
+    Added a default timeout of 600 seconds (10 minutes) when polling Loadbalancer
+    status waiting to create other resource to prevent it from looping forever in
+    a thread. This can be configured with the new ``POLL_LOADBALANCER_STATUS_TIMEOUT``
+    settings.

@@ -21,6 +21,11 @@ settings.POLICY_FILES.update({
     'load-balancer': 'octavia_policy.yaml',
 })
 
+# Timeout in seconds for poll_loadbalancer_status background threads.
+# If a load balancer stays in PENDING_* state longer than this, the
+# polling thread will be terminated. Increase for slow environments.
+POLL_LOADBALANCER_STATUS_TIMEOUT = 600
+
 # Sample
 # settings.LOGGING['loggers'].update({
 #     'openstack': {
