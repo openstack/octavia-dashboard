@@ -733,12 +733,11 @@
 
         if (result.listener.protocol === 'TERMINATED_HTTPS') {
           keymanagerPromise.then(prepareCertificates).then(function addAvailableCertificates() {
-            result.listener.sni_container_refs.forEach(function addAvailableCertificate(ref) {
-              model.certificates.filter(function matchCertificate(cert) {
-                return cert.id === ref;
-              }).forEach(function addCertificate(cert) {
-                model.spec.certificates.push(cert);
-              });
+            var ref = result.listener.default_tls_container_ref;
+            model.certificates.filter(function matchCertificate(cert) {
+              return cert.id === ref;
+            }).forEach(function addCertificate(cert) {
+              model.spec.certificates.push(cert);
             });
           }, certificatesError);
           $('#wizard-side-nav ul li:last').show();
