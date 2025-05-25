@@ -50,7 +50,7 @@
 
     return workflowModal.init({
       controller: 'EditL7RuleWizardController',
-      message: gettext('The l7rule has been updated.'),
+      message: gettext('The L7 rule has been updated.'),
       handle: handle,
       allowed: allowed
     });

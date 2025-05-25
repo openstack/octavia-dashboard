@@ -52,7 +52,7 @@
   ) {
     return workflowModal.init({
       controller: 'CreateL7PolicyWizardController',
-      message: gettext('A new l7 policy is being created.'),
+      message: gettext('A new L7 policy is being created.'),
       handle: handle,
       allowed: allowed
     });
