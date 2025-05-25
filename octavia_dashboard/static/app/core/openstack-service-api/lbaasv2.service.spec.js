@@ -94,7 +94,7 @@
         func: 'getL7Policies',
         method: 'get',
         path: '/api/lbaas/l7policies/',
-        error: 'Unable to retrieve l7 policies.',
+        error: 'Unable to retrieve L7 policies.',
         testInput: [ '1234' ],
         data: { params: { listenerId: '1234' } }
       },
@@ -103,14 +103,14 @@
         method: 'get',
         path: '/api/lbaas/l7policies/',
         data: {},
-        error: 'Unable to retrieve l7 policies.'
+        error: 'Unable to retrieve L7 policies.'
       },
       {
         func: 'getL7Policy',
         method: 'get',
         path: '/api/lbaas/l7policies/1234/',
         data: { params: { includeChildResources: true } },
-        error: 'Unable to retrieve l7 policy.',
+        error: 'Unable to retrieve L7 policy.',
         testInput: [ '1234', true ]
       },
       {
@@ -118,35 +118,35 @@
         method: 'get',
         path: '/api/lbaas/l7policies/1234/',
         data: {},
-        error: 'Unable to retrieve l7 policy.',
+        error: 'Unable to retrieve L7 policy.',
         testInput: [ '1234', false ]
       },
       {
         func: 'deleteL7Policy',
         method: 'delete',
         path: '/api/lbaas/l7policies/1234/',
-        error: 'Unable to delete l7 policy.',
+        error: 'Unable to delete L7 policy.',
         testInput: [ '1234' ]
       },
       {
         func: 'getL7Rules',
         method: 'get',
         path: '/api/lbaas/l7policies/1234/l7rules/',
-        error: 'Unable to retrieve l7 rules.',
+        error: 'Unable to retrieve L7 rules.',
         testInput: [ '1234' ]
       },
       {
         func: 'getL7Rule',
         method: 'get',
         path: '/api/lbaas/l7policies/1234/l7rules/5678/',
-        error: 'Unable to retrieve l7 rule.',
+        error: 'Unable to retrieve L7 rule.',
         testInput: [ '1234', '5678' ]
       },
       {
         func: 'deleteL7Rule',
         method: 'delete',
         path: '/api/lbaas/l7policies/1234/l7rules/5678/',
-        error: 'Unable to delete l7 rule.',
+        error: 'Unable to delete L7 rule.',
         testInput: [ '1234', '5678' ]
       },
       {
@@ -380,7 +380,7 @@
         func: 'createL7Policy',
         method: 'post',
         path: '/api/lbaas/l7policies/',
-        error: 'Unable to create l7 policy.',
+        error: 'Unable to create L7 policy.',
         data: { name: 'l7policy-1' },
         testInput: [ { name: 'l7policy-1' } ]
       },
@@ -388,7 +388,7 @@
         func: 'editL7Policy',
         method: 'put',
         path: '/api/lbaas/l7policies/1234/',
-        error: 'Unable to update l7 policy.',
+        error: 'Unable to update L7 policy.',
         data: { name: 'l7policy-1' },
         testInput: [ '1234', { name: 'l7policy-1' } ]
       },
@@ -396,7 +396,7 @@
         func: 'createL7Rule',
         method: 'post',
         path: '/api/lbaas/l7policies/1234/l7rules/',
-        error: 'Unable to create l7 rule.',
+        error: 'Unable to create L7 rule.',
         data: { name: 'l7rule-1' },
         testInput: [ '1234', { name: 'l7rule-1' } ]
       },
@@ -404,7 +404,7 @@
         func: 'editL7Rule',
         method: 'put',
         path: '/api/lbaas/l7policies/1234/l7rules/5678/',
-        error: 'Unable to update l7 rule.',
+        error: 'Unable to update L7 rule.',
         data: { name: 'l7rule-1' },
         testInput: [ '1234', '5678', { name: 'l7rule-1' } ]
       },

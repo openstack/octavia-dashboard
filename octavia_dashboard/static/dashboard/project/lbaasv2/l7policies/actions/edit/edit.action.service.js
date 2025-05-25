@@ -50,7 +50,7 @@
 
     return workflowModal.init({
       controller: 'EditL7PolicyWizardController',
-      message: gettext('The l7policy has been updated.'),
+      message: gettext('The L7 policy has been updated.'),
       handle: handle,
       allowed: allowed
     });
