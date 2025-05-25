@@ -178,7 +178,7 @@
         ]
       },
       allowed_cidrs: {
-        label: gettext('Allowed Cidrs'),
+        label: gettext('Allowed CIDRs'),
         filters: ['noValue']
       },
       timeout_client_data: gettext('Client Data Timeout'),
