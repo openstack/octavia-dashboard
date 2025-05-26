@@ -1,12 +1,11 @@
-<p translate>
+<p>{% blocktrans trimmed %}
   If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL certificates must
   be selected. The first certificate will be the default.
-</p>
-<p>
-  <translate>
-    Use the key-manager service to create any certificate containers before creating the listener.
-    The following documentation provides information on how to create a certificate container:
-  </translate>
+{% endblocktrans %}</p>
+<p>{% blocktrans trimmed %}
+  Use the key-manager service to create any certificate containers before creating the listener.
+  The following documentation provides information on how to create a certificate container:
+{% endblocktrans %}</p>
   <ul>
     <li>
       <a target="_blank" href="https://docs.openstack.org/api-guide/key-manager/containers.html#certificate-containers">
@@ -14,7 +13,7 @@
       </a>
     </li>
     <li>
-      <a target="_blank" href="https://docs.openstack.org/cli-reference/barbican.html">
+      <a target="_blank" href="https://docs.openstack.org/python-barbicanclient/latest/">
         <translate>Key Manager Service Command-Line Client</translate>
       </a>
     </li>
