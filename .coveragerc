@@ -1,6 +1,7 @@
 [run]
 branch = True
 source = octavia_dashboard
+omit = octavia_dashboard/tests/*
 
 [report]
 ignore_errors = True
