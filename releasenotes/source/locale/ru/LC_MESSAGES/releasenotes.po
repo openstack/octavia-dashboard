@@ -1,0 +1,528 @@
+# Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
+msgid ""
+msgstr ""
+"Project-Id-Version: octavia-dashboard\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-05-16 13:23+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2025-07-14 09:28+0000\n"
+"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
+"Language-Team: Russian\n"
+"Language: ru\n"
+"X-Generator: Zanata 4.3.3\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+
+msgid "1.0.0"
+msgstr "1.0.0"
+
+msgid "1.0.2"
+msgstr "1.0.2"
+
+msgid "10.0.0"
+msgstr "10.0.0"
+
+msgid "10.0.1"
+msgstr "10.0.1"
+
+msgid "11.0.0-4"
+msgstr "11.0.0-4"
+
+msgid "12.0.0"
+msgstr "12.0.0"
+
+msgid "13.0.0"
+msgstr "13.0.0"
+
+msgid "2.0.0"
+msgstr "2.0.0"
+
+msgid "2.0.1"
+msgstr "2.0.1"
+
+msgid "2023.1 Series Release Notes"
+msgstr "Примечания к выпуску 2023.1"
+
+msgid "2023.2 Series Release Notes"
+msgstr "Примечания к выпуску 2023.2"
+
+msgid "2024.1 Series Release Notes"
+msgstr "Примечания к выпуску 2024.1"
+
+msgid "3.0.0"
+msgstr "3.0.0"
+
+msgid "3.0.1"
+msgstr "3.0.1"
+
+msgid "4.0.0"
+msgstr "4.0.0"
+
+msgid "4.0.2-5"
+msgstr "4.0.2-5"
+
+msgid "5.0.0"
+msgstr "5.0.0"
+
+msgid "5.0.2"
+msgstr "5.0.2"
+
+msgid "5.0.2-4"
+msgstr "5.0.2-4"
+
+msgid "6.0.0"
+msgstr "6.0.0"
+
+msgid "6.0.1"
+msgstr "6.0.1"
+
+msgid "6.0.1-6"
+msgstr "6.0.1-6"
+
+msgid "7.0.0"
+msgstr "7.0.0"
+
+msgid "7.0.1"
+msgstr "7.0.1"
+
+msgid "7.0.1-4"
+msgstr "7.0.1-4"
+
+msgid "8.0.0"
+msgstr "8.0.0"
+
+msgid "8.0.1"
+msgstr "8.0.1"
+
+msgid "8.0.1-4"
+msgstr "8.0.1-4"
+
+msgid "9.0.0"
+msgstr "9.0.0"
+
+msgid "9.0.1"
+msgstr "9.0.1"
+
+msgid ""
+"A new dashboard wizard for Octavia. Allows you to create an Octavia load "
+"balancer and related resources such as a listener, pool, pool members, and "
+"health monitor."
+msgstr ""
+"Новый мастер создания панели управления для Octavia. Позволяет создать "
+"балансировщик нагрузки Octavia и связанные с ним ресурсы, такие как "
+"слушатель, пул, участники пула и монитор состояния."
+
+msgid "A view of all the existing Octavia load balancers."
+msgstr "Просмотр всех существующих балансировщиков нагрузки Octavia."
+
+msgid ""
+"Ability to associate and disassociate floating IP addresses for a load "
+"balancer."
+msgstr ""
+"Возможность связывать и отвязывать плавающие IP-адреса для балансировщика "
+"нагрузки."
+
+msgid ""
+"Ability to choose from SSL certificates stored by the key-manager service "
+"when creating a listener using the TERMINATED_HTTPS protocol."
+msgstr ""
+"Возможность выбора SSL-сертификатов, хранящихся в службе менеджера ключей, "
+"при создании слушателя по протоколу TERMINATED_HTTPS."
+
+msgid ""
+"Ability to choose from existing instances from the compute service or "
+"specify external members when adding members to a pool."
+msgstr ""
+"Возможность выбрать существующие инстансы из вычислительной службы или "
+"указать внешних участников при добавлении участников в пул."
+
+msgid ""
+"Ability to create, update, and delete the Octavia load balancer, listener, "
+"pool, pool member, and health monitor resources."
+msgstr ""
+"Возможность создавать, обновлять и удалять ресурсы балансировщика нагрузки "
+"Octavia, слушателей, пулов, участников пулов и мониторов состояния."
+
+msgid ""
+"Ability to view details of a Octavia load balancer and drill down to see "
+"details for the listener, pool, pool member, and health monitor resources."
+msgstr ""
+"Возможность просмотреть подробную информацию о балансировщике нагрузки "
+"Octavia и для просмотра подробной информации о слушателе, пуле, участнике "
+"пула и ресурсах монитора состояния."
+
+msgid ""
+"Add SCTP support in listener protocol and health-monitor type select boxes."
+msgstr ""
+"Добавлена поддержка SCTP в поля выбора протокола слушателя и типа монитора "
+"состояния."
+
+msgid ""
+"Add TLS Enabled switch in the pool control form, allowing to enable/disable "
+"TLS communications between a load balancer and its members."
+msgstr ""
+"Добавлен переключатель включения TLS в форму управления пулом, позволяющий "
+"включать/выключать TLS-коммуникации между балансировщиком нагрузки и его "
+"участниками."
+
+msgid "Add load balancer flavor support."
+msgstr "Добавьте поддержку балансировщика нагрузки."
+
+msgid "Add the ability to set allowed_cidrs on the listeners"
+msgstr "Добавлена возможность устанавливать allowed_cidrs для слушателей"
+
+msgid "Added Octavia dashboard support for proxy protocol version 2."
+msgstr "Добавлена поддержка панели Octavia для протокола proxy версии 2."
+
+msgid ""
+"Added UDP protocol support in listeners and pools, added UDP-CONNECT method "
+"for health-monitor resources."
+msgstr ""
+"Добавлена поддержка протокола UDP в слушателях и пулах, добавлен метод UDP-"
+"CONNECT для ресурсов монитора состояния."
+
+msgid ""
+"Added option to specify TLS ciphers for listeners and pools. The ciphers are "
+"represented in OpenSSL syntax."
+msgstr ""
+"Добавлена возможность указывать TLS-шифры для слушателей и пулов. Шифры "
+"представлены в синтаксисе OpenSSL."
+
+msgid ""
+"Added support for availability zones. Can now create a LB in a specific AZ."
+msgstr ""
+"Добавлена поддержка зон доступности. Теперь можно создать баланскировщики в "
+"определенной зоне доступности."
+
+msgid "Adds L7 policy support to the dashboard."
+msgstr "Добавлена поддержка L7 политики в панель управления."
+
+msgid "Adds RBAC support to the dashboard panels."
+msgstr "Добавлена поддержка RBAC в панель управления."
+
+msgid ""
+"Adds a new UI component which works as a standard select control "
+"alternative. Options in the component are presented in a table which may be "
+"filtered using the select input field. Filtering is done across all table "
+"fields."
+msgstr ""
+"Добавлен новый компонент пользовательского интерфейса, который работает как "
+"альтернатива стандартному элементу управления выбора. Варианты в компоненте "
+"представлены в виде таблицы, которую можно фильтровать с помощью поля ввода "
+"выбора. Фильтрация осуществляется по всем полям таблицы."
+
+msgid "Adds the ability to auto refresh detail pages upon action."
+msgstr ""
+"Добавлена возможность автоматического обновления страниц с деталями при "
+"выполнении действий."
+
+msgid "Adds the ability to set member as backup."
+msgstr "Добавлена возможность установить участника в качестве резервного."
+
+msgid ""
+"Adds the ability to set the X-Forwarded-Proto insertion header on listeners."
+msgstr ""
+"Добавлена возможность установки заголовка вставки X-Forwarded-Proto для "
+"слушателей."
+
+msgid "Adds the ability to set the insertion headers on listeners."
+msgstr "Добавлена возможность устанавливать заголовки вставки для слушателей."
+
+msgid "Adds the ability to set the timeout options on listeners."
+msgstr "Добавлена возможность установки таймаута для слушателей."
+
+msgid "All objects now allow setting the \"Admin State\"."
+msgstr ""
+"Все объекты теперь позволяют устанавливать \"Административное состояние\"."
+
+msgid "Allow cascade deletion of load balancer."
+msgstr "Разрешено каскадное удаление балансировщика нагрузки."
+
+msgid ""
+"Allows the creation of single resources (i.e Load Balancer) without "
+"enforcing the creation of children resources (Listeners, Pools, Health "
+"monitors). A switch has been added in the children resource wizards to avoid "
+"resource creation."
+msgstr ""
+"Разрешено создавать отдельные ресурсы (например, балансировщик нагрузки) без "
+"принудительного создания дочерних ресурсов (слушателей, пулов, мониторов "
+"состояния). В мастерах создания дочерних ресурсов добавлен переключатель, "
+"позволяющий избежать создания ресурсов."
+
+msgid ""
+"Barbicanclient caused an error when getting secrets. By replacing the code "
+"by OpenstackSDK this issue was fixed and the barbicanclient dependency could "
+"be dropped from the Octavia Dashboard."
+msgstr ""
+"Клиент Barbican вызывал ошибку при получении секретов. Путем замены кода на "
+"OpenStackSDK эта проблема была исправлена, и зависимость клиента Barbican "
+"может быть убрана из панели Octavia."
+
+msgid "Bug Fixes"
+msgstr "Исправления ошибок"
+
+msgid "Created at and Updated at times are now visible on the details pages."
+msgstr ""
+"Времена создания и обновления теперь отображаются на страницах деталей."
+
+msgid "Current Series Release Notes"
+msgstr "Примечания к текущему выпуску"
+
+msgid "Draining state was missing from the list of operating states."
+msgstr "В списке рабочих состояний отсутствовало состояние удаления."
+
+msgid ""
+"Fix a bug that prevented the update of non-HTTP and non-HTTPS health "
+"monitors."
+msgstr ""
+"Исправлена ошибка, из-за которой не обновлялись не-HTTP и не-HTTPS мониторы "
+"состояния."
+
+msgid ""
+"Fixed a bug when displaying the member list, some fields were not displayed "
+"correctly and new members could not be added. This bug affected only Google "
+"Chrome 114 and above."
+msgstr ""
+"Исправлена ошибка при отображении списка участников, когда некоторые поля "
+"отображались некорректно, и новые участники не могли быть добавлены. Эта "
+"ошибка затрагивала только Google Chrome 114 и выше."
+
+msgid ""
+"Fixed an authentication issue with the OpenStack services. The dashboard "
+"could not get the list of load balancers."
+msgstr ""
+"Исправлена проблема аутентификации в службах OpenStack. Панель управления не "
+"могла получить список балансировщиков нагрузки."
+
+msgid "Fixed an issue where TERMINATED_HTTPS listener type was greyed out."
+msgstr ""
+"Исправлена проблема, при которой тип слушателя TERMINATED_HTTPS отображался "
+"серым цветом."
+
+msgid "Fixes a namespace collision with the barbican-ui dashboard."
+msgstr "Исправлен конфликт с пространством имен панели barbican-ui."
+
+msgid ""
+"Fixes an issue in the Octavia dashboard where users receive a 403 error when "
+"attempting to create a load balancer. This was due to the dashboard "
+"attempting to access the flavor profile information which is an "
+"administrator only object by default."
+msgstr ""
+"Устранена проблема в панели управления Octavia, когда пользователи получали "
+"ошибку 403 при попытке создать балансировщик нагрузки. Это происходило из-за "
+"того, что панель управления пыталась получить доступ к информации профиля "
+"шаблона конфигурации, который по умолчанию является объектом, доступным "
+"только администратору."
+
+msgid "Health monitors can now change the expected HTTP codes."
+msgstr "Мониторы состояния теперь могут изменять ожидаемые HTTP-коды."
+
+msgid "Health monitors can now use alternate IP addresses and ports."
+msgstr ""
+"Мониторы состояния теперь могут использовать альтернативные IP-адреса и "
+"порты."
+
+msgid "Known Issues"
+msgstr "Известные проблемы"
+
+msgid "Listener connection limits can now be updated."
+msgstr "Теперь можно обновлять ограничение подключений слушателей."
+
+msgid "Members now display the subnet_id on the details page."
+msgstr "Теперь участники отображают id подсети на странице деталей."
+
+msgid "New Features"
+msgstr "Новые возможности"
+
+msgid "Octavia Dashboard Release Notes"
+msgstr "Примечания к выпуску панели управления Octavia"
+
+msgid ""
+"Octavia supports setting the weight of members from 0 to 256, but in Horizon "
+"the value 0 was not accepted. This fix allows entering the value 0 as well, "
+"which is important for putting a member into DRAINING state."
+msgstr ""
+"Octavia поддерживает установку веса участников от 0 до 256, но в Horizon "
+"значение 0 не принималось. Это исправление позволяет ввести значение 0, что "
+"важно для перевода участника в состояние DRAINING."
+
+msgid "Other Notes"
+msgstr "Другие примечания"
+
+msgid ""
+"Pools attached to a load balancer are now listed on the load balancer "
+"details page."
+msgstr ""
+"Пулы, подключенные к балансировщику нагрузки, теперь отображаются на "
+"странице деталей о балансировщике нагрузки."
+
+msgid "Pools can now change the load balancing algorithm after creation."
+msgstr ""
+"Теперь пулы могут менять алгоритм балансировки нагрузки после создания."
+
+msgid "Prelude"
+msgstr "Предисловие"
+
+msgid ""
+"Provisioning and operating status is now available on all object details "
+"pages."
+msgstr ""
+"Статус предоставления и рабочий статус теперь доступен на всех страницах с "
+"деталями об объекте."
+
+msgid ""
+"Python 2.7 support has been dropped. Last release of octavia-dashboard to "
+"support py2.7 is OpenStack Train. The minimum version of Python now "
+"supported by octavia-dashboard is Python 3.6."
+msgstr ""
+"Поддержка Python 2.7 была прекращена. Последний релиз octavia-dashboard с "
+"поддержкой py2.7 - OpenStack Train. Минимальная версия Python, "
+"поддерживаемая Octavia Dashboard - Python 3.6."
+
+msgid "Queens Series Release Notes"
+msgstr "Примечания к выпуску Queens"
+
+msgid ""
+"RBAC can now be enabled for the Octavia dashboard. Whether you enable RBAC "
+"in the dashboard or not, the API RBAC will still be in effect. Enabling RBAC "
+"in the dashboard will enforce the policies in the dashboard before the API "
+"call is made."
+msgstr ""
+"Теперь RBAC можно включить для панели управления Octavia. Независимо от "
+"того, включите вы RBAC в панели или нет, RBAC API все равно будет "
+"действовать. Включение RBAC в панели управления приведет к применению "
+"политик в панели перед выполнением вызова API. "
+
+msgid "Rocky Series Release Notes"
+msgstr "Примечания к выпуску Rocky"
+
+msgid "Security Issues"
+msgstr "Вопросы безопасности"
+
+msgid "Stein Series Release Notes"
+msgstr "Примечания к выпуску Stein"
+
+msgid ""
+"The Octavia team is excited to release the 1.0.0 version of the Octavia "
+"dashboard. This dashboard uses the Octavia API endpoint via the "
+"openstacksdk. This release includes a number of improvements over the old "
+"neutron-lbaas-dashboard that worked against the neutron API endpoint. These "
+"improvements are listed below in the features section of this release note."
+msgstr ""
+"Команда Octavia рада выпустить версию 1.0.0 панели управления Octavia. Эта "
+"панель использует точку доступа Octavia API через openstacksdk. Этот релиз "
+"включает в себя ряд улучшений по сравнению со старой версией neutron-lbaas-"
+"dashboard, которая работала с точкой доступа API neutron. Эти улучшения "
+"перечислены ниже в разделе возможностей данного релиза."
+
+msgid ""
+"The neutron-lbaas neutron extension is not required to use this dashboard. "
+"Load balancers created with neutron-lbaas that have not been migrated to "
+"Octavia may not be accessible via this dashboard. Only resources accessible "
+"via the Octavia API will be visible in this dashboard."
+msgstr ""
+"Для использования этой панели расширение neutron-lbaas не требуется. "
+"Балансировщики нагрузки, созданные с помощью neutron-lbaas, которые не были "
+"перенесены на Octavia, могут быть недоступны через эту панель. На этой "
+"панели будут видны только ресурсы, доступные через Octavia API."
+
+msgid ""
+"The new component replaces the standard select for subnet selection in the "
+"Load Balancer creation modal wizard."
+msgstr ""
+"Новый компонент заменяет стандартный выбор подсети в мастере создания "
+"балансировщика нагрузки."
+
+msgid "The object details pages now use a tabbed navigation for child objects."
+msgstr ""
+"На страницах с подробной информацией об объекте теперь используется "
+"навигация по вкладкам для дочерних объектов."
+
+msgid ""
+"The octavia-dashboard requires openstacksdk > 0.24.0 for flavor support."
+msgstr "Для поддержки octavia-dashboard требуется openstacksdk > 0.24.0."
+
+msgid ""
+"The octavia-dashboard requires openstacksdk >= 0.10.0 to resolve an issue "
+"with displaying the health monitor details page. It is expected this will be "
+"included in the OpenStack Queens release."
+msgstr ""
+"Для octavia-dashboard требуется openstacksdk >= 0.10.0, чтобы решить "
+"проблему с отображением страницы подробной информации о мониторе состояния. "
+"Ожидается, что это будет включено в релиз OpenStack Queens."
+
+msgid ""
+"The pool name is now visible in pool selection drop downs in addition to the "
+"pool ID."
+msgstr ""
+"Имя пула теперь отображается в выпадающих списках выбора пула в дополнение к "
+"ID пула."
+
+msgid "The session persistence for a pool can now be changed."
+msgstr "Теперь можно изменить постоянство сессии для пула."
+
+msgid ""
+"This changed the default behavior of load balancer deletion from non-cascade "
+"deletion to cascade deletion."
+msgstr ""
+"Это изменило поведение по умолчанию при удалении балансировщика нагрузки с "
+"некаскадного на каскадное."
+
+msgid ""
+"This dashboard can be used alongside the neutron-lbaas-dashboard, but both "
+"dashboard panels will use the \"Load Balancer\" labels."
+msgstr ""
+"Эта панель может использоваться вместе с панелью neutron-lbaas-dashboard, но "
+"в обеих панелях будут использоваться метки \"Балансировщик нагрузки\"."
+
+msgid ""
+"To enable RBAC support in the Octavia dashboard you need to install the "
+"generated octavia_dashboard/conf/octavia_policy.yaml file into your horizon "
+"openstack_dashboard/conf/ directory and also copy octavia_dashboard/"
+"local_settings.d/_1499_load_balancer_settings.py file into your horizon "
+"openstack_dashboard/local/local_settings.d/ directory."
+msgstr ""
+"Чтобы включить поддержку RBAC в панели управления Octavia, необходимо "
+"установить сгенерированный файл octavia_dashboard/conf/octavia_policy.yaml в "
+"каталог horizon openstack_dashboard/conf/, а также скопировать файл "
+"octavia_dashboard/local_settings.d/_1499_load_balancer_settings.py в каталог "
+"horizon openstack_dashboard/local/local_settings.d/."
+
+msgid "Train Series Release Notes"
+msgstr "Примечания к выпуску Train"
+
+msgid ""
+"Update Python base version from 3.6 to 3.8. As per Openstack Python runtime "
+"versions policy Python 3.8 is the minimum Python version in the Zed release "
+"cycle."
+msgstr ""
+"Обновлена базовая версия Python с 3.6 до 3.8. В соответствии с политикой "
+"версий OpenStack Python runtime Python 3.8 является минимальной версией "
+"Python в цикле выпуска Zed."
+
+msgid "Upgrade Notes"
+msgstr "Примечания к обновлению"
+
+msgid "Ussuri Series Release Notes"
+msgstr "Примечания к выпуску Ussuri"
+
+msgid "Victoria Series Release Notes"
+msgstr "Примечания к выпуску Victoria"
+
+msgid "Wallaby Series Release Notes"
+msgstr "Примечания к выпуску Wallaby"
+
+msgid "Xena Series Release Notes"
+msgstr "Примечания к выпуску Xena"
+
+msgid "Yoga Series Release Notes"
+msgstr "Примечания к выпуску Yoga"
+
+msgid "You can now change the default pool on listeners."
+msgstr "Теперь вы можете изменить пул по умолчанию для слушателей."
+
+msgid "Zed Series Release Notes"
+msgstr "Примечания к выпуску Zed"
