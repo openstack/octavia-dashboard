@@ -17,7 +17,7 @@ octavia_dashboard/enabled directory to openstack_dashboard/local/enabled
 (Optional) To enable policy enforcement at the Horizon level, copy the policy
 file into horizon's policy files folder, and add this config ``POLICY_FILES``::
 
-    'octavia': 'octavia_policy.json',
+    'octavia': 'octavia_policy.yaml',
 
 Django has a compressor feature that performs many enhancements for the
 delivery of static files. If the compressor feature is enabled in your
