@@ -4,11 +4,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-05-16 13:23+0000\n"
+"POT-Creation-Date: 2025-07-18 18:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-07-14 09:28+0000\n"
+"PO-Revision-Date: 2025-07-31 12:08+0000\n"
 "Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -19,6 +19,12 @@ msgstr ""
 msgid "1.0.0"
 msgstr "1.0.0"
 
+msgid "1.0.0.0b1"
+msgstr "1.0.0.0b1"
+
+msgid "1.0.0.0rc1"
+msgstr "1.0.0.0rc1"
+
 msgid "1.0.2"
 msgstr "1.0.2"
 
@@ -28,17 +34,35 @@ msgstr "10.0.0"
 msgid "10.0.1"
 msgstr "10.0.1"
 
-msgid "11.0.0-4"
-msgstr "11.0.0-4"
-
 msgid "12.0.0"
 msgstr "12.0.0"
 
 msgid "13.0.0"
 msgstr "13.0.0"
 
+msgid "13.0.0-3"
+msgstr "13.0.0-3"
+
+msgid "14.0.0"
+msgstr "14.0.0"
+
+msgid "15.0.0"
+msgstr "15.0.0"
+
+msgid "15.0.0-5"
+msgstr "15.0.0-5"
+
 msgid "2.0.0"
 msgstr "2.0.0"
+
+msgid "2.0.0.0b1"
+msgstr "2.0.0.0b1"
+
+msgid "2.0.0.0b2"
+msgstr "2.0.0.0b2"
+
+msgid "2.0.0.0rc1"
+msgstr "2.0.0.0rc1"
 
 msgid "2.0.1"
 msgstr "2.0.1"
@@ -46,11 +70,23 @@ msgstr "2.0.1"
 msgid "2023.1 Series Release Notes"
 msgstr "Примечания к выпуску 2023.1"
 
+msgid "2023.1-eom"
+msgstr "2023.1-eom"
+
 msgid "2023.2 Series Release Notes"
 msgstr "Примечания к выпуску 2023.2"
 
+msgid "2023.2-eol"
+msgstr "2023.2-eol"
+
 msgid "2024.1 Series Release Notes"
 msgstr "Примечания к выпуску 2024.1"
+
+msgid "2024.2 Series Release Notes"
+msgstr "Примечания к выпуску 2024.2"
+
+msgid "2025.1 Series Release Notes"
+msgstr "Примечания к выпуску 2025.1"
 
 msgid "3.0.0"
 msgstr "3.0.0"
@@ -61,11 +97,17 @@ msgstr "3.0.1"
 msgid "4.0.0"
 msgstr "4.0.0"
 
+msgid "4.0.0.0rc1"
+msgstr "4.0.0.0rc1"
+
 msgid "4.0.2-5"
 msgstr "4.0.2-5"
 
 msgid "5.0.0"
 msgstr "5.0.0"
+
+msgid "5.0.0.0rc1"
+msgstr "5.0.0.0rc1"
 
 msgid "5.0.2"
 msgstr "5.0.2"
@@ -75,6 +117,9 @@ msgstr "5.0.2-4"
 
 msgid "6.0.0"
 msgstr "6.0.0"
+
+msgid "6.0.0.0rc1"
+msgstr "6.0.0.0rc1"
 
 msgid "6.0.1"
 msgstr "6.0.1"
@@ -169,7 +214,7 @@ msgstr ""
 "участниками."
 
 msgid "Add load balancer flavor support."
-msgstr "Добавьте поддержку балансировщика нагрузки."
+msgstr "Добавлена поддержка шаблона конфигурации балансировщика нагрузки."
 
 msgid "Add the ability to set allowed_cidrs on the listeners"
 msgstr "Добавлена возможность устанавливать allowed_cidrs для слушателей"
@@ -282,6 +327,13 @@ msgstr ""
 "состояния."
 
 msgid ""
+"Fix a bug that prevented to display the ``default_tls_container_ref`` when "
+"editing an HTTP_TERMINATED listener."
+msgstr ""
+"Исправлена ошибка, из-за которой не отображался "
+"``default_tls_container_ref`` при редактировании слушателя HTTP_TERMINATED."
+
+msgid ""
 "Fixed a bug when displaying the member list, some fields were not displayed "
 "correctly and new members could not be added. This bug affected only Google "
 "Chrome 114 and above."
@@ -289,6 +341,14 @@ msgstr ""
 "Исправлена ошибка при отображении списка участников, когда некоторые поля "
 "отображались некорректно, и новые участники не могли быть добавлены. Эта "
 "ошибка затрагивала только Google Chrome 114 и выше."
+
+msgid ""
+"Fixed a bug when using multi-region deployments, the octavia-dashboard may "
+"have used the wrong keystone catalog to get the load-balancer endpoint."
+msgstr ""
+"Исправлена ошибка при использовании многорегиональных развертываний: панель "
+"управления Octavia могла использовать неправильный каталог Keystone для "
+"получения точки доступа балансировщика нагрузки."
 
 msgid ""
 "Fixed an authentication issue with the OpenStack services. The dashboard "
@@ -380,7 +440,7 @@ msgid ""
 msgstr ""
 "Поддержка Python 2.7 была прекращена. Последний релиз octavia-dashboard с "
 "поддержкой py2.7 - OpenStack Train. Минимальная версия Python, "
-"поддерживаемая Octavia Dashboard - Python 3.6."
+"поддерживаемая панелью управления Octavia - Python 3.6."
 
 msgid "Queens Series Release Notes"
 msgstr "Примечания к выпуску Queens"
@@ -404,6 +464,13 @@ msgstr "Вопросы безопасности"
 
 msgid "Stein Series Release Notes"
 msgstr "Примечания к выпуску Stein"
+
+msgid ""
+"Support for Python 3.9 has been removed. Now Python 3.10 is the minimum "
+"version supported."
+msgstr ""
+"Поддержка Python 3.9 прекращена. Теперь Python 3.10 — минимальная "
+"поддерживаемая версия."
 
 msgid ""
 "The Octavia team is excited to release the 1.0.0 version of the Octavia "
