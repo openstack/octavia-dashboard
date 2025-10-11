@@ -17,8 +17,8 @@ msgstr ""
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 3.7.3\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2)\n"
 
 #, python-format
 msgid "%(ip)s..."
@@ -835,11 +835,11 @@ msgstr ""
 
 #, python-format
 msgid ""
-"You are about to disassociate the floating IP address from load balancer \"%s"
-"\". Please confirm."
+"You are about to disassociate the floating IP address from load balancer "
+"\"%s\". Please confirm."
 msgstr ""
-"Вы собираетесь отвязать назначаемые IP адреса от балансировщика нагрузки \"%s"
-"\". Пожалуйста подтвердите."
+"Вы собираетесь отвязать назначаемые IP адреса от балансировщика нагрузки "
+"\"%s\". Пожалуйста подтвердите."
 
 #, python-format
 msgid ""
