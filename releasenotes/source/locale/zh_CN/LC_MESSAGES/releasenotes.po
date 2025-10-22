@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-30 22:04+0000\n"
+"POT-Creation-Date: 2025-07-18 18:58+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,6 +16,9 @@ msgstr ""
 
 msgid "1.0.0"
 msgstr "1.0.0"
+
+msgid "2.0.0.0b1"
+msgstr "2.0.0.0b1"
 
 msgid ""
 "A new dashboard wizard for Octavia. Allows you to create an Octavia load "
