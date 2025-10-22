@@ -30,7 +30,7 @@ Finally restart your web server to enable octavia-dashboard in your Horizon:
 
 Ubuntu::
 
-      $ sudo service apache2 restart
+      $ sudo systemctl restart apache2
 
 Red Hat based::
 
