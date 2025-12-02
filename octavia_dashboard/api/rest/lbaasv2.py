@@ -696,6 +696,8 @@ def add_floating_ip_info(request, loadbalancers):
     """Add floating IP address info to each load balancer.
 
     """
+    if not loadbalancers:
+        return
     floating_ips = neutron.tenant_floating_ip_list(request)
     for lb in loadbalancers:
         floating_ip = {}
