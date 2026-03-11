@@ -1,0 +1,5 @@
+---
+fixes:
+  - |
+    Fixed a bug that prevented Horizon from compiling the octavia-dashboard
+    SCSS styles
