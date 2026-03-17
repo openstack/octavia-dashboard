@@ -1,14 +1,16 @@
 # Dmitriy Chubinidze <dcu995@gmail.com>, 2025. #zanata
 # Ivan Anfimov <lazekteam@gmail.com>, 2025. #zanata
+# Dmitriy Chubinidze <dcu995@gmail.com>, 2026. #zanata
+# Ivan Anfimov <lazekteam@gmail.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2025-07-18 18:58+0000\n"
+"POT-Creation-Date: 2026-03-13 12:10+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2025-07-28 03:49+0000\n"
+"PO-Revision-Date: 2026-03-05 09:18+0000\n"
 "Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
@@ -24,7 +26,7 @@ msgid "A new health monitor is being created."
 msgstr "Создается новый монитор состояния."
 
 msgid "A new l7 policy is being created."
-msgstr "Создается новая l7 политика."
+msgstr "Создается новая L7 политика."
 
 msgid "A new listener is being created."
 msgstr "Создается новый слушатель."
@@ -85,7 +87,7 @@ msgid "Add external member"
 msgstr "Добавить внешнего участника"
 
 msgid "Add members to the load balancer pool."
-msgstr "Добавьте участников в пул балансировщика нагрузки."
+msgstr "Добавить участников в пул балансировщика нагрузки."
 
 msgid "Add/Remove Members"
 msgstr "Добавить/удалить участников"
@@ -140,7 +142,7 @@ msgid ""
 "  Default is null which monitors the member address."
 msgstr ""
 "Альтернативный IP-адрес, используемый для мониторинга состояния участника "
-"бекэнда.\n"
+"бэкенда.\n"
 "  По умолчанию равен null, который отслеживает адрес участника."
 
 msgid ""
@@ -173,11 +175,13 @@ msgid "Available Instances"
 msgstr "Доступные инстансы"
 
 msgid "Backend member connection timeout in milliseconds. Default: 5000."
-msgstr "Таймаут подключения к серверам в миллисекундах. По умолчанию: 5000."
+msgstr ""
+"Таймаут установки соединения с участником бэкенда в миллисекундах. По "
+"умолчанию: 5000."
 
 msgid "Backend member inactivity timeout in milliseconds. Default: 50000."
 msgstr ""
-"Таймаут для запросов балансировщика в миллисекундах. По умолчанию: 50000."
+"Таймаут бездействия участника бэкенда в миллисекундах. По умолчанию: 50000."
 
 msgid "Backup"
 msgstr "Резервный"
@@ -230,9 +234,9 @@ msgstr[2] "Подтвердить удаление L7 политик"
 
 msgid "Confirm Delete L7 Rule"
 msgid_plural "Confirm Delete L7 Rules"
-msgstr[0] "Подтверждение удаления L7 правила"
-msgstr[1] "Подтверждение удаления L7 правил"
-msgstr[2] "Подтверждение удаления L7 правил"
+msgstr[0] "Подтвердить удаление L7 правила"
+msgstr[1] "Подтвердить удаление L7 правил"
+msgstr[2] "Подтвердить удаление L7 правил"
 
 msgid "Confirm Delete Listener"
 msgid_plural "Confirm Delete Listeners"
@@ -242,24 +246,24 @@ msgstr[2] "Подтвердить удаление слушателей"
 
 msgid "Confirm Delete Load Balancer"
 msgid_plural "Confirm Delete Load Balancers"
-msgstr[0] "Подтверждение удаления балансировщика нагрузки"
-msgstr[1] "Подтверждение удаления балансировщиков нагрузки"
-msgstr[2] "Подтверждение удаления балансировщиков нагрузки"
+msgstr[0] "Подтвердить удаление балансировщика нагрузки"
+msgstr[1] "Подтвердить удаление балансировщиков нагрузки"
+msgstr[2] "Подтвердить удаление балансировщиков нагрузки"
 
 msgid "Confirm Delete Member"
 msgid_plural "Confirm Delete Members"
-msgstr[0] "Подтверждение удаления участника"
-msgstr[1] "Подтверждение удаления участников"
-msgstr[2] "Подтверждение удаления участников"
+msgstr[0] "Подтвердить удаление участника"
+msgstr[1] "Подтвердить удаление участников"
+msgstr[2] "Подтвердить удаление участников"
 
 msgid "Confirm Delete Pool"
 msgid_plural "Confirm Delete Pools"
-msgstr[0] "Подтверждение удаления пула"
-msgstr[1] "Подтверждение удаления пулов"
-msgstr[2] "Подтверждение удаления пулов"
+msgstr[0] "Подтвердить удаление пула"
+msgstr[1] "Подтвердить удаление пулов"
+msgstr[2] "Подтвердить удаление пулов"
 
 msgid "Confirm Disassociate Floating IP Address"
-msgstr "Подтверждение отвязки плавающего IP-адреса"
+msgstr "Подтвердить отвязку плавающего IP-адреса"
 
 msgid "Connection Limit"
 msgstr "Ограничение подключений"
@@ -283,7 +287,7 @@ msgid "Create L7 Policy"
 msgstr "Создать L7 политику"
 
 msgid "Create L7 Rule"
-msgstr "Создать правило L7"
+msgstr "Создать L7 правило"
 
 msgid "Create Listener"
 msgstr "Создать слушателя"
@@ -405,9 +409,9 @@ msgstr[2] "Удалены L7 правила: %s."
 #, python-format
 msgid "Deleted Listener: %s."
 msgid_plural "Deleted Listeners: %s."
-msgstr[0] "Удаленный слушатель: %s."
-msgstr[1] "Удаленные слушатели: %s."
-msgstr[2] "Удаленные слушатели: %s."
+msgstr[0] "Слушатель удален: %s."
+msgstr[1] "Слушатели удалены: %s."
+msgstr[2] "Слушатели удалены: %s."
 
 #, python-format
 msgid "Deleted Load Balancer: %s."
@@ -426,9 +430,9 @@ msgstr[2] "Удалены участники: %s."
 #, python-format
 msgid "Deleted Pool: %s."
 msgid_plural "Deleted Pools: %s."
-msgstr[0] "Удаленный пул: %s."
-msgstr[1] "Удаленные пулы: %s."
-msgstr[2] "Удаленные пулы: %s."
+msgstr[0] "Пул удален: %s."
+msgstr[1] "Пулы удалены: %s."
+msgstr[2] "Пулы удалены: %s."
 
 msgid "Description"
 msgstr "Описание"
@@ -490,7 +494,7 @@ msgid ""
 "Enable TLS for backend re-encryption, communications between the load\n"
 "  balancer and the member servers are encrypted."
 msgstr ""
-"Включите TLS для повторного шифрования бекэнда, связь между\n"
+"Включите TLS для повторного шифрования бэкенда, связь между\n"
 "  балансировщиком и серверами-участниками шифруется."
 
 msgid "Ends With"
@@ -544,7 +548,7 @@ msgstr "Плавающие IP-пулы"
 
 msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
 msgstr ""
-"Таймаут соединения входящих запросов⁠ серверов в миллисекундах. По умолчанию: "
+"Таймаут бездействия клиента на фронтенде в миллисекундах. По умолчанию: "
 "50000."
 
 msgid ""
@@ -665,13 +669,13 @@ msgid "L7 Policy"
 msgstr "L7 политика"
 
 msgid "L7 Policy Details"
-msgstr "Детали L7 политики"
+msgstr "Подробности L7 политики"
 
 msgid "L7 Rule"
 msgstr "L7 правило"
 
 msgid "L7 Rule Details"
-msgstr "Детали L7 правила"
+msgstr "Подробности L7 правила"
 
 msgid "L7 Rules"
 msgstr "L7 правила"
@@ -692,7 +696,7 @@ msgid "Listener"
 msgstr "Слушатель"
 
 msgid "Listener Details"
-msgstr "Детали слушателя"
+msgstr "Подробности слушателя"
 
 msgid "Listener ID"
 msgstr "ID слушателя"
@@ -704,7 +708,7 @@ msgid "Load Balancer"
 msgstr "Балансировщик нагрузки"
 
 msgid "Load Balancer Details"
-msgstr "Детали балансировщика нагрузки"
+msgstr "Подробности балансировщика нагрузки"
 
 msgid "Load Balancers"
 msgstr "Балансировщики нагрузки"
@@ -758,7 +762,7 @@ msgid "Monitor Address:"
 msgstr "Адрес монитора:"
 
 msgid "Monitor Details"
-msgstr "Детали монитора"
+msgstr "Подробности монитора"
 
 msgid "Monitor Port"
 msgstr "Порт монитора"
@@ -825,10 +829,10 @@ msgid "Pending Create"
 msgstr "Ожидание создания"
 
 msgid "Pending Delete"
-msgstr "Ожидает удаления"
+msgstr "Ожидание удаления"
 
 msgid "Pending Update"
-msgstr "Ожидает обновление"
+msgstr "Ожидание обновления"
 
 msgid "Please Wait"
 msgstr "Пожалуйста, подождите"
@@ -837,7 +841,7 @@ msgid "Pool"
 msgstr "Пул"
 
 msgid "Pool Details"
-msgstr "Детали пула"
+msgstr "Подробности пула"
 
 msgid "Pool Members"
 msgstr "Участники пула"
@@ -879,25 +883,25 @@ msgid "Protocol:"
 msgstr "Протокол:"
 
 msgid "Provide the details for the health monitor."
-msgstr "Укажите данные для монитора состояния здоровья."
+msgstr "Укажите подробности для монитора состояния здоровья."
 
 msgid "Provide the details for the l7 policy."
-msgstr "Укажите данные для политики L7."
+msgstr "Укажите подробности для L7 политики."
 
 msgid "Provide the details for the l7 rule."
-msgstr "Укажите детали для правила L7."
+msgstr "Укажите подробности для L7 правила."
 
 msgid "Provide the details for the listener."
-msgstr "Предоставьте детали о слушателе."
+msgstr "Укажите подробности о слушателе."
 
 msgid "Provide the details for the load balancer."
-msgstr "Укажите детали для балансировщика нагрузки."
+msgstr "Укажите подробности для балансировщика нагрузки."
 
 msgid "Provide the details for the member."
-msgstr "Укажите данные об участнике."
+msgstr "Укажите подробности об участнике."
 
 msgid "Provide the details for the pool."
-msgstr "Предоставьте детали о пуле."
+msgstr "Укажите подробности о пуле."
 
 msgid "Provider"
 msgstr "Провайдер"
@@ -920,7 +924,7 @@ msgstr ""
 "в параметре redirect_url."
 
 msgid "REGEX: Perl type regular expression matching."
-msgstr "REGEX: сопоставление регулярных выражений типа Perl."
+msgstr "REGEX: сопоставление регулярных выражений Perl."
 
 msgid ""
 "REJECT: The request is denied with an appropriate response code, and not "
@@ -1106,7 +1110,7 @@ msgstr ""
 "  EQUAL_TO, REGEX или STARTS_WITH."
 
 msgid "The connection limit must be a number greater than or equal to -1."
-msgstr "Ограничение соединений должно быть числом, большим или равным -1."
+msgstr "Ограничение подключений должно быть числом, большим или равным -1."
 
 msgid ""
 "The expected HTTP status codes to get from a successful health check. Must "
@@ -1124,7 +1128,7 @@ msgstr "Ожидаемый код состояния не соответству
 
 msgid "The health check interval must be greater than or equal to the timeout."
 msgstr ""
-"Интервал проверки работоспособности должен быть больше или равен тайм-ауту."
+"Интервал проверки работоспособности должен быть больше или равен таймауту."
 
 msgid "The health monitor has been updated."
 msgstr "Монитор состояния был обновлен."
@@ -1245,8 +1249,8 @@ msgstr ""
 msgid ""
 "The port on which the front end listens. Must be an integer from 1 to 65535."
 msgstr ""
-"Порт, на котором прослушивается фронт-энд. Должно быть целым числом от 1 до "
-"65535."
+"Порт, на котором фронтенд принимает соединения. Должен быть целым числом от "
+"1 до 65535."
 
 msgid ""
 "The port on which the member listens for traffic. Must be a number from 1 to "
@@ -1268,9 +1272,10 @@ msgid ""
 "certificate containers and\n"
 "  secrets."
 msgstr ""
-"Протокол, к которому прислушивается фронтенд. Протокол TERMINATED_HTTPS "
-"доступен только в том случае, если включен менеджер ключей и у вас есть "
-"полномочия на список контейнеров сертификатов и секреты."
+"Протокол, по которому фронтенд принимает соединения. Протокол "
+"TERMINATED_HTTPS доступен только если включена служба управления ключами "
+"(key-manager) и у вас есть права на просмотр контейнеров сертификатов и "
+"секретов."
 
 msgid ""
 "The protocol for which this pool and its members listen. A valid value is "
@@ -1300,14 +1305,15 @@ msgstr ""
 "  и меньше или равно интервалу."
 
 msgid "The timeout must be a number between 0 and 31536000000."
-msgstr "Тайм-аут должен быть числом от 0 до 31536000000."
+msgstr "Таймаут должен быть числом от 0 до 31536000000."
 
 msgid "The timeout must be a number greater than or equal to 0."
 msgstr "Таймаут должен быть числом, большим или равным 0."
 
 msgid ""
 "The type of session persistence for distributing traffic to the pool members."
-msgstr "Тип сохранения сессий для распределения трафика между членами пула."
+msgstr ""
+"Тип сохранения сессий для распределения трафика между участниками пула."
 
 msgid ""
 "The value to use for the comparison. For example, the file type to compare."
