@@ -12,7 +12,7 @@ Horizon panels for Octavia
 * Documentation: https://docs.openstack.org/octavia-dashboard/latest/
 * Source: https://opendev.org/openstack/octavia-dashboard
 * Release notes: https://docs.openstack.org/releasenotes/octavia-dashboard/
-* Bugs: https://storyboard.openstack.org/#!/project/909
+* Bugs: https://launchpad.net/octavia
 
 Features
 --------

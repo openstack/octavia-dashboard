@@ -68,7 +68,8 @@ pygments_style = 'native'
 # openstackdocstheme options
 openstackdocs_repo_name = 'openstack/octavia-dashboard'
 openstackdocs_pdf_link = True
-openstackdocs_use_storyboard = True
+openstackdocs_bug_project = 'octavia'
+openstackdocs_bug_tag = 'docs'
 
 apidoc_output_dir = 'contributor/modules'
 apidoc_module_dir = '../../octavia_dashboard'
