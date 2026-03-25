@@ -40,7 +40,7 @@
 
     var ctrl = this;
 
-    ctrl.redirectUrlError = gettext('The redirect url must be a valid http or https url.');
+    ctrl.redirectUrlError = gettext('The redirect URL must be a valid HTTP or HTTPS URL.');
     ctrl.positionError = gettext('The position must be a number between 1 and 2147483647.');
 
   }
