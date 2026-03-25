@@ -523,12 +523,20 @@
       });
 
       it('has array of pool lb_algorithms', function() {
-        expect(model.methods).toEqual(['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP',
-          'SOURCE_IP_PORT']);
+        expect(model.methods).toEqual([
+          {value: 'LEAST_CONNECTIONS', label: 'Least Connections'},
+          {value: 'ROUND_ROBIN', label: 'Round Robin'},
+          {value: 'SOURCE_IP', label: 'Source IP'},
+          {value: 'SOURCE_IP_PORT', label: 'Source IP:Port'}
+        ]);
       });
 
       it('has array of pool session persistence types', function() {
-        expect(model.types).toEqual(['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE']);
+        expect(model.types).toEqual([
+          {value: 'SOURCE_IP', label: 'Source IP'},
+          {value: 'HTTP_COOKIE', label: 'HTTP Cookie'},
+          {value: 'APP_COOKIE', label: 'App Cookie'}
+        ]);
       });
 
       it('has array of monitor types', function() {

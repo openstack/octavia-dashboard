@@ -93,8 +93,17 @@
       l7ruleCompareTypes: ['REGEX', 'EQUAL_TO', 'STARTS_WITH', 'ENDS_WITH', 'CONTAINS'],
       l7ruleFileTypeCompareTypes: ['REGEX', 'EQUAL_TO'],
       poolProtocols: ['HTTP', 'HTTPS', 'PROXY', 'PROXYV2', 'TCP', 'UDP', 'SCTP'],
-      methods: ['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP', 'SOURCE_IP_PORT'],
-      types: ['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'],
+      methods: [
+        {value: 'LEAST_CONNECTIONS', label: gettext('Least Connections')},
+        {value: 'ROUND_ROBIN', label: gettext('Round Robin')},
+        {value: 'SOURCE_IP', label: gettext('Source IP')},
+        {value: 'SOURCE_IP_PORT', label: gettext('Source IP:Port')}
+      ],
+      types: [
+        {value: 'SOURCE_IP', label: gettext('Source IP')},
+        {value: 'HTTP_COOKIE', label: gettext('HTTP Cookie')},
+        {value: 'APP_COOKIE', label: gettext('App Cookie')}
+      ],
       monitorTypes: ['HTTP', 'HTTPS', 'PING', 'TCP', 'TLS-HELLO', 'UDP-CONNECT', 'SCTP'],
       monitorMethods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE',
                        'TRACE', 'OPTIONS', 'PATCH', 'CONNECT'],
