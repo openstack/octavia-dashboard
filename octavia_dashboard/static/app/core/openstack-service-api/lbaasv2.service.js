@@ -392,7 +392,7 @@
       }
       return apiService.get('/api/lbaas/l7policies/', params)
         .catch(function () {
-          toastService.add('error', gettext('Unable to retrieve l7 policies.'));
+          toastService.add('error', gettext('Unable to retrieve L7 policies.'));
         });
     }
 
@@ -412,7 +412,7 @@
           : {};
       return apiService.get('/api/lbaas/l7policies/' + id + '/', params)
         .catch(function () {
-          toastService.add('error', gettext('Unable to retrieve l7 policy.'));
+          toastService.add('error', gettext('Unable to retrieve L7 policy.'));
         });
     }
 
@@ -427,7 +427,7 @@
     function createL7Policy(spec) {
       return apiService.post('/api/lbaas/l7policies/', spec)
         .catch(function () {
-          toastService.add('error', gettext('Unable to create l7 policy.'));
+          toastService.add('error', gettext('Unable to create L7 policy.'));
         });
     }
 
@@ -444,7 +444,7 @@
     function editL7Policy(id, spec) {
       return apiService.put('/api/lbaas/l7policies/' + id + '/', spec)
         .catch(function () {
-          toastService.add('error', gettext('Unable to update l7 policy.'));
+          toastService.add('error', gettext('Unable to update L7 policy.'));
         });
     }
 
@@ -460,7 +460,7 @@
     function deleteL7Policy(id, quiet) {
       var promise = apiService.delete('/api/lbaas/l7policies/' + id + '/');
       return quiet ? promise : promise.catch(function () {
-        toastService.add('error', gettext('Unable to delete l7 policy.'));
+        toastService.add('error', gettext('Unable to delete L7 policy.'));
       });
     }
 
@@ -480,7 +480,7 @@
     function getL7Rules(l7policyId) {
       return apiService.get('/api/lbaas/l7policies/' + l7policyId + '/l7rules/')
         .catch(function () {
-          toastService.add('error', gettext('Unable to retrieve l7 rules.'));
+          toastService.add('error', gettext('Unable to retrieve L7 rules.'));
         });
     }
 
@@ -497,7 +497,7 @@
     function getL7Rule(l7policyId, l7ruleId) {
       return apiService.get('/api/lbaas/l7policies/' + l7policyId + '/l7rules/' + l7ruleId + '/')
         .catch(function () {
-          toastService.add('error', gettext('Unable to retrieve l7 rule.'));
+          toastService.add('error', gettext('Unable to retrieve L7 rule.'));
         });
     }
 
@@ -514,7 +514,7 @@
     function createL7Rule(l7policyId, spec) {
       return apiService.post('/api/lbaas/l7policies/' + l7policyId + '/l7rules/', spec)
         .catch(function () {
-          toastService.add('error', gettext('Unable to create l7 rule.'));
+          toastService.add('error', gettext('Unable to create L7 rule.'));
         });
     }
 
@@ -534,7 +534,7 @@
       return apiService.put('/api/lbaas/l7policies/' + l7policyId +
         '/l7rules/' + l7ruleId + '/', spec)
         .catch(function () {
-          toastService.add('error', gettext('Unable to update l7 rule.'));
+          toastService.add('error', gettext('Unable to update L7 rule.'));
         });
     }
 
@@ -553,7 +553,7 @@
       var promise = apiService.delete('/api/lbaas/l7policies/' + l7policyId +
         '/l7rules/' + l7ruleId + '/');
       return quiet ? promise : promise.catch(function () {
-        toastService.add('error', gettext('Unable to delete l7 rule.'));
+        toastService.add('error', gettext('Unable to delete L7 rule.'));
       });
     }
 
