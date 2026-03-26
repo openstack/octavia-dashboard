@@ -4,17 +4,17 @@
 <p>
   <strong translate>Action:</strong>
   <translate>
-  The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL.
+  The L7 policy action. One of "Reject", "Redirect To URL", or "Redirect To Pool".
   </translate>
   <ul>
     <li translate>
-      REJECT: The request is denied with an appropriate response code, and not forwarded on to any back-end pool.
+      <strong>Reject</strong>: The request is denied with an appropriate response code, and not forwarded on to any back-end pool.
     </li>
     <li translate>
-      REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in the redirect_url parameter.
+      <strong>Redirect To URL</strong>: The request is sent an HTTP redirect to the URL defined in the redirect_url parameter.
     </li>
     <li translate>
-      REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated with the L7 policy.
+      <strong>Redirect To Pool</strong>: The request is forwarded to the back-end pool associated with the L7 policy.
     </li>
   </ul>
 </p>
@@ -27,12 +27,12 @@
 <p>
   <strong translate>Redirect Pool ID:</strong>
   <translate>
-  Requests matching this policy will be redirected to the pool with this ID. Only valid if action is REDIRECT_TO_POOL.
+  Requests matching this policy will be redirected to the pool with this ID. Only valid if action is "Redirect to Pool".
   </translate>
 </p>
 <p>
   <strong translate>Redirect URL:</strong>
   <translate>
-  Requests matching this policy will be redirected to this URL. Only valid if action is REDIRECT_TO_URL.
+  Requests matching this policy will be redirected to this URL. Only valid if action is "Redirect to URL".
   </translate>
 </p>

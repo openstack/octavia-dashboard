@@ -1,0 +1,5 @@
+---
+features:
+  - |
+    Updated the L7 Policy and Rule workflow dropdowns to display
+    human-readable labels instead of raw enum values.
