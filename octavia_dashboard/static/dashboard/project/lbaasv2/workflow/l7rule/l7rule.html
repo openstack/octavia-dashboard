@@ -28,7 +28,7 @@
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
         <select class="form-control" name="type" id="type"
-                ng-options="type for type in model.l7ruleTypes"
+                ng-options="type.value as type.label for type in model.l7ruleTypes"
                 ng-model="model.spec.l7rule.type"
                 ng-required="true">
         </select>
@@ -54,7 +54,7 @@
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
         <select class="form-control" name="compare_type" id="compare_type"
-                ng-options="compare_type for compare_type in model.l7ruleFileTypeCompareTypes"
+                ng-options="compare_type.value as compare_type.label for compare_type in model.l7ruleFileTypeCompareTypes"
                 ng-model="model.spec.l7rule.compare_type"
                 ng-required="true">
         </select>
@@ -68,7 +68,7 @@
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
         <select class="form-control" name="compare_type" id="compare_type"
-                ng-options="compare_type for compare_type in model.l7ruleCompareTypes"
+                ng-options="compare_type.value as compare_type.label for compare_type in model.l7ruleCompareTypes"
                 ng-model="model.spec.l7rule.compare_type"
                 ng-required="true">
         </select>
