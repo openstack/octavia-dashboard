@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-05-16 13:24+0000\n"
+"POT-Creation-Date: 2026-03-25 08:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -21,9 +21,6 @@ msgstr "%(ip)s..."
 
 msgid "A new health monitor is being created."
 msgstr "一个新的健康监控器正在创建。"
-
-msgid "A new l7 policy is being created."
-msgstr "一个新的七层策略正在被创建"
 
 msgid "A new listener is being created."
 msgstr "一个新的监听器正在创建。"
@@ -458,9 +455,6 @@ msgstr "HTTP 方法"
 msgid "HTTP Method:"
 msgstr "HTTP 方法："
 
-msgid "HTTP_COOKIE: Session persistence based on http cookie."
-msgstr "HTTP_COOKIE：基于 HTTP COOKIE 的会话持久化。"
-
 msgid "Header"
 msgstr "报头"
 
@@ -502,14 +496,6 @@ msgstr ""
 "IP地址必须为格式良好的 IPv4 或 IPv6 地址。\n"
 "系统尝试为负载均衡器分配提供的 IP 地址。\n"
 "如果没有提供 IP 地址，则需要你手动分配一个 IP。"
-
-msgid ""
-"If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
-"certificates must\n"
-"  be selected. The first certificate will be the default."
-msgstr ""
-"如果监听器使用 TERMINATED_HTTPS 协议，则必须选择一个或多个 SSL 证书。\n"
-"默认选择第一个。"
 
 msgid "Inactive"
 msgstr "闲置"
@@ -760,12 +746,6 @@ msgstr "协议："
 msgid "Provide the details for the health monitor."
 msgstr "为健康监控提供详情。"
 
-msgid "Provide the details for the l7 policy."
-msgstr "提供七层策略的详情。"
-
-msgid "Provide the details for the l7 rule."
-msgstr "提供七层规则的详情。"
-
 msgid "Provide the details for the listener."
 msgstr "为监听器提供详情。"
 
@@ -860,9 +840,6 @@ msgid ""
 "SOURCE_IP: Requests from a unique source IP address are consistently "
 "directed to the same instance."
 msgstr "SOURCE_IP：来自相同源IP地址的请求连续的发送到同一实例。"
-
-msgid "SOURCE_IP: Session persistence based on source ip."
-msgstr "SOURCE_IP：基于源 IP 地址的会话持久化。"
 
 msgid "SSL Certificates"
 msgstr "SSL 证书"
@@ -999,12 +976,6 @@ msgid ""
 "  to evaluate."
 msgstr "用于比较的键。例如 COOKIE 的名字。"
 
-msgid "The l7policy has been updated."
-msgstr "七层策略已更新"
-
-msgid "The l7rule has been updated."
-msgstr "七层规则已更新"
-
 msgid "The listener has been updated."
 msgstr "监听器已更新。"
 
@@ -1098,9 +1069,6 @@ msgstr ""
 "TERMINATED_HTTPS 协议只有在 key-manager 服务可用\n"
 "并且你有权限查询证书容器和密钥的情况下才有用。"
 
-msgid "The redirect url must be a valid http or https url."
-msgstr "重定向 URL 必须是一个有效的 HTTP 或 HTTPS URL"
-
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
 "URL path."
@@ -1163,12 +1131,6 @@ msgstr "无法创建实例类型。"
 msgid "Unable to create health monitor."
 msgstr "无法创建健康监控。"
 
-msgid "Unable to create l7 policy."
-msgstr "无法创建七层策略。"
-
-msgid "Unable to create l7 rule."
-msgstr "无法创建七层规则。"
-
 msgid "Unable to create listener."
 msgstr "无法创建监听器。"
 
@@ -1222,12 +1184,6 @@ msgstr "无法删除实例类型。"
 msgid "Unable to delete health monitor."
 msgstr "无法删除健康监控。"
 
-msgid "Unable to delete l7 policy."
-msgstr "无法删除七层策略。"
-
-msgid "Unable to delete l7 rule."
-msgstr "无法删除七层规则。"
-
 msgid "Unable to delete listener."
 msgstr "无法删除监听器。"
 
@@ -1265,18 +1221,6 @@ msgstr "无法获取健康监控。"
 msgid "Unable to retrieve health monitors."
 msgstr "无法获取健康监控。"
 
-msgid "Unable to retrieve l7 policies."
-msgstr "无法获取七层策略。"
-
-msgid "Unable to retrieve l7 policy."
-msgstr "无法获取七层策略。"
-
-msgid "Unable to retrieve l7 rule."
-msgstr "无法获取七层规则。"
-
-msgid "Unable to retrieve l7 rules."
-msgstr "无法获取七层规则。"
-
 msgid "Unable to retrieve listener."
 msgstr "无法检索监听器。"
 
@@ -1312,12 +1256,6 @@ msgstr "无法更新实例类型。"
 
 msgid "Unable to update health monitor."
 msgstr "无法更新健康监控。"
-
-msgid "Unable to update l7 policy."
-msgstr "无法更新七层策略。"
-
-msgid "Unable to update l7 rule."
-msgstr "无法更新七层规则。"
 
 msgid "Unable to update listener."
 msgstr "无法更新监听器。"
@@ -1360,15 +1298,6 @@ msgstr "更新资源池"
 
 msgid "Updated At"
 msgstr "更新于"
-
-msgid ""
-"Use the key-manager service to create any certificate containers before "
-"creating the listener.\n"
-"    The following documentation provides information on how to create a "
-"certificate container:"
-msgstr ""
-"创建监听器前，使用 key-manager 服务创建所有证书容器。\n"
-"下面的文档介绍了如何创建一个证书容器："
 
 msgid "Value"
 msgstr "值"

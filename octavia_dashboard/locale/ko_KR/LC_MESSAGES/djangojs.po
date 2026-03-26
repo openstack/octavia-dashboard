@@ -2,14 +2,14 @@
 # ByungYeol Woo <wby1089@gmail.com>, 2018. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2018. #zanata
 # Jaewook Oh <kyle.oh95@gmail.com>, 2018. #zanata
-# Sungjin Kang <gang.sungjin@gmail.com>, 2018. #zanata
+# Sungjin Kang <ujuc@ujuc.me>, 2018. #zanata
 # ByungYeol Woo <wby1089@gmail.com>, 2019. #zanata
 # Ian Y. Choi <ianyrchoi@gmail.com>, 2020. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-05-16 13:24+0000\n"
+"POT-Creation-Date: 2026-03-25 08:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -26,9 +26,6 @@ msgstr "%(ip)s..."
 
 msgid "A new health monitor is being created."
 msgstr "새로운 상태 모니터가 생성되고 있습니다."
-
-msgid "A new l7 policy is being created."
-msgstr "새로운 l7 정책이 생성되고 있습니다."
 
 msgid "A new listener is being created."
 msgstr "새로운 리스너를 생성하고 있습니다."
@@ -478,9 +475,6 @@ msgstr "HTTP 메서드"
 msgid "HTTP Method:"
 msgstr "HTTP 메소드:"
 
-msgid "HTTP_COOKIE: Session persistence based on http cookie."
-msgstr "HTTP_COOKIE: 세션 지속성 기반의 http 쿠키."
-
 msgid "Header"
 msgstr "해더"
 
@@ -524,15 +518,6 @@ msgstr ""
 "   제공된 IP 주소를 로드 밸런서에 할당하려고 시도합니다. IP 주소가 제공되지 "
 "않은 경우\n"
 "   하나가 할당될 것입니다."
-
-msgid ""
-"If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
-"certificates must\n"
-"  be selected. The first certificate will be the default."
-msgstr ""
-"만약 리스너가 TERMINATED_HTTPS 프로토콜을 사용한다면, 하나 이상의 SSL 인증서"
-"가 \n"
-"선택되어야 합니다. 첫 인증서는 기본값이 됩니다."
 
 msgid "Inactive"
 msgstr "비활성"
@@ -789,12 +774,6 @@ msgstr "프로토콜:"
 msgid "Provide the details for the health monitor."
 msgstr "상태 모니터의 세부 사항을 제공하십시오."
 
-msgid "Provide the details for the l7 policy."
-msgstr "L7 정책의 세부 사항을 제공하세요."
-
-msgid "Provide the details for the l7 rule."
-msgstr "L7 규칙에 대한 세부 사항 제공."
-
 msgid "Provide the details for the listener."
 msgstr "리스너에 대한 자세한 정보를 제공하십시오."
 
@@ -894,9 +873,6 @@ msgid ""
 msgstr ""
 "SOURCE_IP: 하나의 고유한 소스 IP 주소로부터의 요청들은 지속적으로 같은 인스턴"
 "스로 이동합니다."
-
-msgid "SOURCE_IP: Session persistence based on source ip."
-msgstr "SOURCE_IP: 세션 지속성 기반의 소스 ip."
 
 msgid "SSL Certificates"
 msgstr "SSL 인증서"
@@ -1040,12 +1016,6 @@ msgstr ""
 "비교에 사용되는 키. 예를 들어, 평가에 사용될\n"
 " 쿠키의 이름."
 
-msgid "The l7policy has been updated."
-msgstr "L7 정책이 업데이트 되었습니다."
-
-msgid "The l7rule has been updated."
-msgstr "L7 규칙이 업데이트 되었습니다."
-
 msgid "The listener has been updated."
 msgstr "리스너가 업데이트 되었습니다."
 
@@ -1147,9 +1117,6 @@ msgstr ""
 "는 \n"
 "  권한이 있어야 이용이 가능합니다."
 
-msgid "The redirect url must be a valid http or https url."
-msgstr "리디렉션 url은 유효한 http 또는 https url이어야 합니다."
-
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
 "URL path."
@@ -1215,12 +1182,6 @@ msgstr "Flavor를 생성할 수 없습니다."
 msgid "Unable to create health monitor."
 msgstr "상태 모니터를 생성할 수 없습니다."
 
-msgid "Unable to create l7 policy."
-msgstr "L7 정책을 생성하지 못했습니다."
-
-msgid "Unable to create l7 rule."
-msgstr "L7 규칙을 생성하지 못했습니다."
-
 msgid "Unable to create listener."
 msgstr "리스너를 생성할 수 없습니다."
 
@@ -1274,12 +1235,6 @@ msgstr "Flavor를 삭제할 수 없습니다."
 msgid "Unable to delete health monitor."
 msgstr "상태 모니터를 삭제할 수 없습니다."
 
-msgid "Unable to delete l7 policy."
-msgstr "L7 정책을 삭제하지 못했습니다."
-
-msgid "Unable to delete l7 rule."
-msgstr "L7 규칙을 삭제하지 못했습니다."
-
 msgid "Unable to delete listener."
 msgstr "리스너를 삭제할 수 없습니다."
 
@@ -1320,18 +1275,6 @@ msgstr "상태 모니터를 가져올 수 없습니다."
 msgid "Unable to retrieve health monitors."
 msgstr "상태 모니터를 가져올 수 없습니다."
 
-msgid "Unable to retrieve l7 policies."
-msgstr "L7 정책들을 찾을 수 없습니다."
-
-msgid "Unable to retrieve l7 policy."
-msgstr "L7 정책을 찾을 수 없습니다."
-
-msgid "Unable to retrieve l7 rule."
-msgstr "L7 규칙을 찾을 수 없습니다."
-
-msgid "Unable to retrieve l7 rules."
-msgstr "L7 규칙들을 찾을 수 없습니다."
-
 msgid "Unable to retrieve listener."
 msgstr "리스너를 가져올 수 없습니다."
 
@@ -1367,12 +1310,6 @@ msgstr "Flavor를 업데이트할 수 없습니다."
 
 msgid "Unable to update health monitor."
 msgstr "상태 모니터를 업데이트할 수 없습니다."
-
-msgid "Unable to update l7 policy."
-msgstr "L7 정책을 갱신하지 못했습니다."
-
-msgid "Unable to update l7 rule."
-msgstr "L7 규칙을 갱신하지 못했습니다."
 
 msgid "Unable to update listener."
 msgstr "리스너를 업데이트할 수 없습니다."
@@ -1415,16 +1352,6 @@ msgstr "풀 업데이트"
 
 msgid "Updated At"
 msgstr "업데이트"
-
-msgid ""
-"Use the key-manager service to create any certificate containers before "
-"creating the listener.\n"
-"    The following documentation provides information on how to create a "
-"certificate container:"
-msgstr ""
-"리스너를 만들기 전에 인증서 컨테이너를 만들기 위해 키 관리자 서비스를 사용하"
-"세요.\n"
-"  다음 문서는 인증서 컨테이너를 어떻게 만드는지에 대한 정보를 제공합니다:"
 
 msgid "Value"
 msgstr "값"

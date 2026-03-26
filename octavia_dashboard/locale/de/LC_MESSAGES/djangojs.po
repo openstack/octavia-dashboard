@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-05-16 13:24+0000\n"
+"POT-Creation-Date: 2026-03-25 08:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,9 +25,6 @@ msgstr "%(ip)s..."
 
 msgid "A new health monitor is being created."
 msgstr "Ein neuer Gesundheitsmonitor wurde erstellt."
-
-msgid "A new l7 policy is being created."
-msgstr "Eine neue L7 Richtlinie wird erstellt."
 
 msgid "A new listener is being created."
 msgstr "Ein neuer Listener wird erstellt."
@@ -510,9 +507,6 @@ msgstr "HTTP-Methode"
 msgid "HTTP Method:"
 msgstr "HTTP Methode:"
 
-msgid "HTTP_COOKIE: Session persistence based on http cookie."
-msgstr "HTTP_COOKIE: Sitzungsdauer basiert auf HTTP-Cookie."
-
 msgid "Header"
 msgstr "Header"
 
@@ -556,15 +550,6 @@ msgstr ""
 "  versuchen, die bereitgestellte IP-Adresse zum Loadbalancer hinzuzufügen. "
 "Wenn keine IP-Adresse zur Verfügung gestellt ist,\n"
 "  wird eine für Sie allokiert."
-
-msgid ""
-"If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
-"certificates must\n"
-"  be selected. The first certificate will be the default."
-msgstr ""
-"Wenn der Listener das TERMINATED_HTTPS Protokoll verwendet, müssen ein oder "
-"mehrere Zertifikate ausgewählt sein.\n"
-" Das erste Zertifikat wird der Standard."
 
 msgid "Inactive"
 msgstr "Inaktiv"
@@ -823,12 +808,6 @@ msgstr "Protokoll:"
 msgid "Provide the details for the health monitor."
 msgstr "Geben Sie die Details zum Gesundheitsmonitor an."
 
-msgid "Provide the details for the l7 policy."
-msgstr "Angabe von Details zur L7 Richtlinie."
-
-msgid "Provide the details for the l7 rule."
-msgstr "Angabe von Details zur L7 Regel."
-
 msgid "Provide the details for the listener."
 msgstr "Geben Sie die Details für den Listener an."
 
@@ -931,9 +910,6 @@ msgid ""
 msgstr ""
 "SOURCE_IP: Anfragen von derselben Quell-IP-Adresse werden permanent zur "
 "selben Instanz geschickt."
-
-msgid "SOURCE_IP: Session persistence based on source ip."
-msgstr "SOURCE_IP: Sitzungsdauer basiert auf Quell-IP."
 
 msgid "SSL Certificates"
 msgstr "SSL-Zertifikate"
@@ -1091,12 +1067,6 @@ msgstr ""
 "Der Schlüssel zum Vergleich. Zum Beispiel der Name des Cookies\n"
 " zur Evaluierung."
 
-msgid "The l7policy has been updated."
-msgstr "Die L7 Richtlinie wurde aktualisiert."
-
-msgid "The l7rule has been updated."
-msgstr "Die L7 Regel wurde aktualisiert."
-
 msgid "The listener has been updated."
 msgstr "Der Listener wurde aktualisiert."
 
@@ -1204,9 +1174,6 @@ msgstr ""
 "  der Schlüsselverwaltungsdienst aktiviert ist und Sie die Berechtigung "
 "haben, Zertifikats-Container und Geheimnisse aufzulisten."
 
-msgid "The redirect url must be a valid http or https url."
-msgstr "Die Umleitungs-URL muss eine gültige http oder https URL sein."
-
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
 "URL path."
@@ -1277,12 +1244,6 @@ msgstr "Variante kann nicht erstellt werden."
 msgid "Unable to create health monitor."
 msgstr "Gesundheitsmonitor kann nicht erzeugt werden."
 
-msgid "Unable to create l7 policy."
-msgstr "L7 Richtlinie kann nicht erstellt werden."
-
-msgid "Unable to create l7 rule."
-msgstr "L7 Regel kann nicht erstellt werden."
-
 msgid "Unable to create listener."
 msgstr "Listener kann nicht erstellt werden"
 
@@ -1343,12 +1304,6 @@ msgstr "Variante kann nicht gelöscht werden."
 msgid "Unable to delete health monitor."
 msgstr "Gesundheitsmonitor kann nicht gelöscht werden."
 
-msgid "Unable to delete l7 policy."
-msgstr "L7 Richtlinie kann nicht gelöscht werden."
-
-msgid "Unable to delete l7 rule."
-msgstr "L7 Regel kann nicht gelöscht werden."
-
 msgid "Unable to delete listener."
 msgstr "Listener kann nicht gelöscht werden."
 
@@ -1390,18 +1345,6 @@ msgstr "Gesundheitsmonitor kann nicht abgerufen werden."
 msgid "Unable to retrieve health monitors."
 msgstr "Gesundheitsmonitore können nicht abgerufen werden."
 
-msgid "Unable to retrieve l7 policies."
-msgstr "L7 Richtlinien können nicht abgerufen werden."
-
-msgid "Unable to retrieve l7 policy."
-msgstr "L7 Richtlinie kann nicht abgerufen werden."
-
-msgid "Unable to retrieve l7 rule."
-msgstr "L7 Regel kann nicht abgerufen werden."
-
-msgid "Unable to retrieve l7 rules."
-msgstr "L7 Regeln können nicht abgerufen werden."
-
 msgid "Unable to retrieve listener."
 msgstr "Listener kann nicht abgerufen werden."
 
@@ -1437,12 +1380,6 @@ msgstr "Die Variante kann nicht aktualisiert werden."
 
 msgid "Unable to update health monitor."
 msgstr "Gesundheitsmonitor kann nicht aktualisiert werden."
-
-msgid "Unable to update l7 policy."
-msgstr "L7 Richtlinie kann nicht aktualisiert werden."
-
-msgid "Unable to update l7 rule."
-msgstr "L7 Regel kann nicht aktualisiert werden."
 
 msgid "Unable to update listener."
 msgstr "Listener kann nicht aktualisiert werden."
@@ -1485,17 +1422,6 @@ msgstr "Pool aktualisieren"
 
 msgid "Updated At"
 msgstr "Aktualisiert am"
-
-msgid ""
-"Use the key-manager service to create any certificate containers before "
-"creating the listener.\n"
-"    The following documentation provides information on how to create a "
-"certificate container:"
-msgstr ""
-"Benutzen Sie den Schlüsselverwaltungsdienst zum Erstellen jeglicher "
-"Zertifikat-Container, bevor die Listener erstellt werden.\n"
-"    Die folgende Dokumentation stellt Informationen bereit, wie Zertifikat-"
-"Container zu erstellen sind:"
 
 msgid "Value"
 msgstr "Wert"

@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2024-05-16 13:24+0000\n"
+"POT-Creation-Date: 2026-03-25 08:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,9 +22,6 @@ msgstr "%(ip)s..."
 
 msgid "A new health monitor is being created."
 msgstr "新しいヘルスモニターは作成中です。"
-
-msgid "A new l7 policy is being created."
-msgstr "新しい L7 ポリシーは作成中です。"
 
 msgid "A new listener is being created."
 msgstr "新しいリスナーは作成中です。"
@@ -479,9 +476,6 @@ msgstr "HTTP メソッド"
 msgid "HTTP Method:"
 msgstr "HTTP メソッド:"
 
-msgid "HTTP_COOKIE: Session persistence based on http cookie."
-msgstr "http クッキー: http クッキーに基づくセッション永続性"
-
 msgid "Header"
 msgstr "ヘッダー"
 
@@ -525,15 +519,6 @@ msgstr ""
 "  システムは、指定された IP アドレスをロードバランサーに割り当てるように試み"
 "ます。IP アドレスが指定されていない場合には、\n"
 "  システムによって確保されます。"
-
-msgid ""
-"If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
-"certificates must\n"
-"  be selected. The first certificate will be the default."
-msgstr ""
-"リスナーが TERMINATED_HTTPS プロトコルを使用する場合には、SSL 証明書を1 つま"
-"たは複数選択する必要があります。\n"
-" 最初の証明書がデフォルトとなります。"
 
 msgid "Inactive"
 msgstr "非稼働"
@@ -792,12 +777,6 @@ msgstr "プロトコル:"
 msgid "Provide the details for the health monitor."
 msgstr "ヘルスモニターの詳細を設定してください。"
 
-msgid "Provide the details for the l7 policy."
-msgstr "L7 ポリシーの詳細を設定してください。"
-
-msgid "Provide the details for the l7 rule."
-msgstr "L7 ルールの詳細を設定してください。"
-
 msgid "Provide the details for the listener."
 msgstr "リスナーの詳細を設定してください。"
 
@@ -900,9 +879,6 @@ msgid ""
 msgstr ""
 "送信元 IP: 同じ送信元 IP アドレスからのリクエストは同じメンバーに転送されま"
 "す。"
-
-msgid "SOURCE_IP: Session persistence based on source ip."
-msgstr "送信元 IP: 送信元 IP に基づくセッション永続性"
 
 msgid "SSL Certificates"
 msgstr "SSL 証明書"
@@ -1050,12 +1026,6 @@ msgstr ""
 "比較に使用するキー。\n"
 "  例: 評価するクッキーの名前"
 
-msgid "The l7policy has been updated."
-msgstr "L7 ポリシーが更新されました。"
-
-msgid "The l7rule has been updated."
-msgstr "L7 ルールが更新されました。"
-
 msgid "The listener has been updated."
 msgstr "リスナーが更新されました。"
 
@@ -1160,10 +1130,6 @@ msgstr ""
 "  証明書のコンテナーとシークレットを一覧表示する権限がある場合にのみ\n"
 "  利用可能です。"
 
-msgid "The redirect url must be a valid http or https url."
-msgstr ""
-"リダイレクト先 URL は有効な http または https の URL でなければいけません。"
-
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
 "URL path."
@@ -1230,12 +1196,6 @@ msgstr "フレーバーを作成できません。"
 msgid "Unable to create health monitor."
 msgstr "ヘルスモニターを作成できません。"
 
-msgid "Unable to create l7 policy."
-msgstr "L7 ポリシーを作成できません。"
-
-msgid "Unable to create l7 rule."
-msgstr "L7 ルールを作成できません。"
-
 msgid "Unable to create listener."
 msgstr "リスナーを作成できません。"
 
@@ -1289,12 +1249,6 @@ msgstr "フレーバーを削除できません。"
 msgid "Unable to delete health monitor."
 msgstr "ヘルスモニターを削除できません。"
 
-msgid "Unable to delete l7 policy."
-msgstr "L7 ポリシーを削除できません。"
-
-msgid "Unable to delete l7 rule."
-msgstr "L7 ルールを削除できません。"
-
 msgid "Unable to delete listener."
 msgstr "リスナーを削除できません。"
 
@@ -1333,18 +1287,6 @@ msgstr "ヘルスモニターを取得できません。"
 msgid "Unable to retrieve health monitors."
 msgstr "ヘルスモニターの一覧を取得できません。"
 
-msgid "Unable to retrieve l7 policies."
-msgstr "L7 ポリシーの一覧を取得できません。"
-
-msgid "Unable to retrieve l7 policy."
-msgstr "L7 ポリシーを取得できません。"
-
-msgid "Unable to retrieve l7 rule."
-msgstr "L7 ルールを取得できません。"
-
-msgid "Unable to retrieve l7 rules."
-msgstr "L7 ルールの一覧を取得できません。"
-
 msgid "Unable to retrieve listener."
 msgstr "リスナーを取得できません。"
 
@@ -1380,12 +1322,6 @@ msgstr "フレーバーを更新できません。"
 
 msgid "Unable to update health monitor."
 msgstr "ヘルスモニターを更新できません。"
-
-msgid "Unable to update l7 policy."
-msgstr "L7 ポリシーを更新できません。"
-
-msgid "Unable to update l7 rule."
-msgstr "L7 ルールを更新できません。"
 
 msgid "Unable to update listener."
 msgstr "リスナーを更新できません。"
@@ -1428,17 +1364,6 @@ msgstr "プールの更新"
 
 msgid "Updated At"
 msgstr "最終更新"
-
-msgid ""
-"Use the key-manager service to create any certificate containers before "
-"creating the listener.\n"
-"    The following documentation provides information on how to create a "
-"certificate container:"
-msgstr ""
-"リスナーを作成する前に key-manager サービスを使用して証明書のコンテナーを作成"
-"します。\n"
-"    以下のドキュメントには、証明書のコンテナーの作成に関する情報が記載されて"
-"います。"
 
 msgid "Value"
 msgstr "値"

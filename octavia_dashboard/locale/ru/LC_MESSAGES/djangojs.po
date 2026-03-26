@@ -6,12 +6,12 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-03-13 12:10+0000\n"
+"POT-Creation-Date: 2026-03-25 08:02+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-03-05 09:18+0000\n"
-"Last-Translator: Ivan Anfimov <lazekteam@gmail.com>\n"
+"PO-Revision-Date: 2026-03-25 09:26+0000\n"
+"Last-Translator: Dmitriy Chubinidze <dcu995@gmail.com>\n"
 "Language-Team: Russian\n"
 "Language: ru\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -22,11 +22,11 @@ msgstr ""
 msgid "%(ip)s..."
 msgstr "%(ip)s..."
 
+msgid "A new L7 policy is being created."
+msgstr "Создается новая L7 политика."
+
 msgid "A new health monitor is being created."
 msgstr "Создается новый монитор состояния."
-
-msgid "A new l7 policy is being created."
-msgstr "Создается новая L7 политика."
 
 msgid "A new listener is being created."
 msgstr "Создается новый слушатель."
@@ -116,7 +116,7 @@ msgstr "Алгоритм:"
 msgid "Allocated Members"
 msgstr "Выделенные участники"
 
-msgid "Allowed Cidrs"
+msgid "Allowed CIDRs"
 msgstr "Разрешенные CIDR"
 
 msgid "Allowed Cidrs:"
@@ -571,8 +571,8 @@ msgstr "Метод HTTP"
 msgid "HTTP Method:"
 msgstr "Метод HTTP:"
 
-msgid "HTTP_COOKIE: Session persistence based on http cookie."
-msgstr "HTTP_COOKIE: сохранение сессии на основе HTTP cookie."
+msgid "HTTP_COOKIE: Session persistence based on HTTP cookie."
+msgstr "HTTP_COOKIE: Сохранение сессии на основе HTTP-cookie."
 
 msgid "Header"
 msgstr "Заголовок"
@@ -617,15 +617,6 @@ msgstr ""
 "  попытается назначить предоставленный IP-адрес балансировщику нагрузки. "
 "Если IP-адрес не указан\n"
 "  то он будет для вас выделен."
-
-msgid ""
-"If the listener uses the TERMINATED_HTTPS protocol, then one or more SSL "
-"certificates must\n"
-"  be selected. The first certificate will be the default."
-msgstr ""
-"Если слушатель использует протокол TERMINATED_HTTPS, то один или несколько "
-"SSL сертификатов должны быть выбраны. Первый сертификат будет использоваться "
-"по умолчанию."
 
 msgid "Inactive"
 msgstr "Неактивный"
@@ -882,14 +873,14 @@ msgstr "Порт протокола"
 msgid "Protocol:"
 msgstr "Протокол:"
 
-msgid "Provide the details for the health monitor."
-msgstr "Укажите подробности для монитора состояния здоровья."
-
-msgid "Provide the details for the l7 policy."
+msgid "Provide the details for the L7 policy."
 msgstr "Укажите подробности для L7 политики."
 
-msgid "Provide the details for the l7 rule."
+msgid "Provide the details for the L7 rule."
 msgstr "Укажите подробности для L7 правила."
+
+msgid "Provide the details for the health monitor."
+msgstr "Укажите подробности для монитора состояния здоровья."
 
 msgid "Provide the details for the listener."
 msgstr "Укажите подробности о слушателе."
@@ -995,8 +986,8 @@ msgstr ""
 "SOURCE_IP: запросы с уникального IP-адреса источника последовательно "
 "направляются в один и тот же инстанс."
 
-msgid "SOURCE_IP: Session persistence based on source ip."
-msgstr "SOURCE_IP: сохранение сессии на основе IP источника."
+msgid "SOURCE_IP: Session persistence based on source IP."
+msgstr "SOURCE_IP: Сохранение сессии на основе исходного IP-адреса."
 
 msgid "SSL Certificates"
 msgstr "SSL сертификаты"
@@ -1093,6 +1084,12 @@ msgid ""
 msgstr ""
 "Действие политики L7. Одно из REJECT, REDIRECT_TO_URL или REDIRECT_TO_POOL."
 
+msgid "The L7 policy has been updated."
+msgstr "L7 политика была обновлена."
+
+msgid "The L7 rule has been updated."
+msgstr "L7 правило было обновлено."
+
 msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
 msgstr "Тип L7 правила. Один из COOKIE, FILE_TYPE, HEADER, HOST_NAME или PATH."
 
@@ -1162,12 +1159,6 @@ msgid ""
 msgstr ""
 "Ключ, используемый для сравнения. Например, имя файла cookie\n"
 "  для оценки."
-
-msgid "The l7policy has been updated."
-msgstr "L7 политика была обновлена."
-
-msgid "The l7rule has been updated."
-msgstr "L7 правило было обновлено."
 
 msgid "The listener has been updated."
 msgstr "Слушатель был обновлен."
@@ -1284,9 +1275,8 @@ msgstr ""
 "Протокол, по которому прослушивается этот пул и его участники. Допустимыми "
 "значениями являются HTTP, HTTPS, PROXY, PROXYV2, TCP, UDP или SCTP."
 
-msgid "The redirect url must be a valid http or https url."
-msgstr ""
-"URL-адрес перенаправления должен быть допустимым URL-адресом http или https."
+msgid "The redirect URL must be a valid HTTP or HTTPS URL."
+msgstr "URL перенаправления должен быть допустимым HTTP- или HTTPS-адресом."
 
 msgid ""
 "The target of the health check HTTP request to the member. Must be a valid "
@@ -1368,6 +1358,12 @@ msgstr "Путь URL"
 msgid "URL Path:"
 msgstr "URL путь:"
 
+msgid "Unable to create L7 policy."
+msgstr "Не удалось создать L7 политику."
+
+msgid "Unable to create L7 rule."
+msgstr "Не удалось создать L7 правило."
+
 msgid "Unable to create flavor profile."
 msgstr "Не удалось создать профиль шаблона конфигурации."
 
@@ -1376,12 +1372,6 @@ msgstr "Не удалось создать шаблон конфигурации
 
 msgid "Unable to create health monitor."
 msgstr "Не удалось создать монитор состояния."
-
-msgid "Unable to create l7 policy."
-msgstr "Не удалось создать L7 политику."
-
-msgid "Unable to create l7 rule."
-msgstr "Не удалось создать L7 правило."
 
 msgid "Unable to create listener."
 msgstr "Не удалось создать слушателя."
@@ -1412,6 +1402,12 @@ msgid_plural "Unable to delete L7 Rules: %s."
 msgstr[0] "Не удалось удалить L7 правило: %s."
 msgstr[1] "Не удалось удалить L7 правила: %s."
 msgstr[2] "Не удалось удалить L7 правила: %s."
+
+msgid "Unable to delete L7 policy."
+msgstr "Не удалось удалить L7 политику."
+
+msgid "Unable to delete L7 rule."
+msgstr "Не удалось удалить L7 правило."
 
 #, python-format
 msgid "Unable to delete Listener: %s."
@@ -1450,12 +1446,6 @@ msgstr "Не удалось удалить шаблон конфигурации
 msgid "Unable to delete health monitor."
 msgstr "Не удалось удалить монитор состояния."
 
-msgid "Unable to delete l7 policy."
-msgstr "Не удалось удалить L7 политику."
-
-msgid "Unable to delete l7 rule."
-msgstr "Не удалось удалить L7 правило."
-
 msgid "Unable to delete listener."
 msgstr "Не удалось удалить слушателя."
 
@@ -1471,6 +1461,18 @@ msgstr "Не удалось удалить пул."
 #, python-format
 msgid "Unable to disassociate floating IP address from load balancer: %s."
 msgstr "Не удалось отвязать плавающий IP-адрес от балансировщика нагрузки: %s."
+
+msgid "Unable to retrieve L7 policies."
+msgstr "Не удалось получить L7 политики."
+
+msgid "Unable to retrieve L7 policy."
+msgstr "Не удалось получить L7 политику."
+
+msgid "Unable to retrieve L7 rule."
+msgstr "Не удалось получить L7 правило."
+
+msgid "Unable to retrieve L7 rules."
+msgstr "Не удалось получить L7 правила."
 
 msgid "Unable to retrieve SSL certificates."
 msgstr "Не удалось получить SSL сертификаты."
@@ -1495,18 +1497,6 @@ msgstr "Не удалось получить монитор состояния."
 
 msgid "Unable to retrieve health monitors."
 msgstr "Не удалось получить мониторы состояния."
-
-msgid "Unable to retrieve l7 policies."
-msgstr "Не удалось получить L7 политики."
-
-msgid "Unable to retrieve l7 policy."
-msgstr "Не удалось получить L7 политику."
-
-msgid "Unable to retrieve l7 rule."
-msgstr "Не удалось получить L7 правило."
-
-msgid "Unable to retrieve l7 rules."
-msgstr "Не удалось получить L7 правила."
 
 msgid "Unable to retrieve listener."
 msgstr "Не удалось получить слушателя."
@@ -1535,6 +1525,12 @@ msgstr "Не удалось получить пулы."
 msgid "Unable to retrieve secrets."
 msgstr "Не удалось получить секреты."
 
+msgid "Unable to update L7 policy."
+msgstr "Не удалось обновить L7 политику."
+
+msgid "Unable to update L7 rule."
+msgstr "Не удалось обновить L7 правило."
+
 msgid "Unable to update flavor profile."
 msgstr "Не удалось обновить профиль шаблона конфигурации."
 
@@ -1543,12 +1539,6 @@ msgstr "Не удалось обновить шаблон конфигураци
 
 msgid "Unable to update health monitor."
 msgstr "Не удалось обновить монитор состояния."
-
-msgid "Unable to update l7 policy."
-msgstr "Не удалось обновить L7 политику."
-
-msgid "Unable to update l7 rule."
-msgstr "Не удалось обновить L7 правило."
 
 msgid "Unable to update listener."
 msgstr "Не удалось обновить слушателя."
@@ -1591,17 +1581,6 @@ msgstr "Обновить пул"
 
 msgid "Updated At"
 msgstr "Обновлен в"
-
-msgid ""
-"Use the key-manager service to create any certificate containers before "
-"creating the listener.\n"
-"    The following documentation provides information on how to create a "
-"certificate container:"
-msgstr ""
-"Используйте службу key-manager для создания контейнеров сертификатов перед "
-"созданием слушателя.\n"
-"    В следующей документации содержится информация о том, как создать "
-"контейнер сертификатов:"
 
 msgid "Value"
 msgstr "Значение"
