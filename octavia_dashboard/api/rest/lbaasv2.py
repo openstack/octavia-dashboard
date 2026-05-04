@@ -26,8 +26,6 @@ from openstack_dashboard.api import neutron
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
 
-neutronclient = neutron.neutronclient
-
 
 def _sdk_object_to_list(object):
     """Converts an SDK generator object to a list of dictionaries.
