@@ -22,7 +22,7 @@
 
   octaviaBarbicanAPI.$inject = [
     'horizon.framework.util.http.service',
-    'horizon.framework.widgets.toast.service'
+    'horizon.app.core.openstack-service-api.lbaasv2-error'
   ];
 
   /**
@@ -34,7 +34,7 @@
    * @returns The octavia barbican service API.
    */
 
-  function octaviaBarbicanAPI(apiService, toastService) {
+  function octaviaBarbicanAPI(apiService, lbaasv2ErrorService) {
     var service = {
       getCertificates: getCertificates,
       getSecrets: getSecrets
@@ -43,6 +43,10 @@
     return service;
 
     ///////////////
+
+    function handleError(message, error) {
+      lbaasv2ErrorService.handleError(message, error);
+    }
 
     // SSL Certificate Containers
 
@@ -58,8 +62,8 @@
 
     function getCertificates(quiet) {
       var promise = apiService.get('/api/octavia-barbican/certificates/');
-      return quiet ? promise : promise.catch(function handleError() {
-        toastService.add('error', gettext('Unable to retrieve SSL certificates.'));
+      return quiet ? promise : promise.catch(function (error) {
+        handleError(gettext('Unable to retrieve SSL certificates.'), error);
       });
     }
 
@@ -77,8 +81,8 @@
 
     function getSecrets(quiet) {
       var promise = apiService.get('/api/octavia-barbican/secrets/');
-      return quiet ? promise : promise.catch(function handleError() {
-        toastService.add('error', gettext('Unable to retrieve secrets.'));
+      return quiet ? promise : promise.catch(function (error) {
+        handleError(gettext('Unable to retrieve secrets.'), error);
       });
     }
 

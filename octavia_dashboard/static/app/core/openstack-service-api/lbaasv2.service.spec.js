@@ -506,6 +506,18 @@
       expect(service.deleteFlavorProfile("whatever", true)).toBe("promise");
     });
 
+    it('includes API error details in the error message', function() {
+      var promise = {catch: angular.noop, then: function() { return this; }};
+      spyOn(apiService, 'post').and.returnValue(promise);
+      spyOn(promise, 'catch');
+      service.createListener({ name: 'test' });
+      var innerFunc = promise.catch.calls.argsFor(0)[0];
+      spyOn(toastService, 'add');
+      innerFunc({ status: 400, data: 'Invalid input for allowed_cidrs.' });
+      expect(toastService.add).toHaveBeenCalledWith(
+        'error', 'Unable to create listener. Invalid input for allowed_cidrs.');
+    });
+
   });
 
 })();

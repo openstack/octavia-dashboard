@@ -1,0 +1,9 @@
+---
+fixes:
+  - |
+    Fixed API validation errors not being displayed to the user.
+    Previously, the dashboard only showed generic error messages
+    (e.g. "Unable to create listener.") and discarded the detailed
+    error information returned by the Octavia API. Now the API error
+    details are appended to the error message shown to the user.
+    See `LP#2013722 <https://bugs.launchpad.net/octavia/+bug/2013722>`__.

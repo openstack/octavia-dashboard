@@ -70,6 +70,18 @@
       expect(service.getSecrets(true)).toBe("promise");
     });
 
+    it('includes API error details in the error message', function() {
+      var promise = {catch: angular.noop, then: function() { return this; }};
+      spyOn(apiService, 'get').and.returnValue(promise);
+      spyOn(promise, 'catch');
+      service.getCertificates();
+      var innerFunc = promise.catch.calls.argsFor(0)[0];
+      spyOn(toastService, 'add');
+      innerFunc({ status: 400, data: 'Barbican service unavailable.' });
+      expect(toastService.add).toHaveBeenCalledWith(
+        'error', 'Unable to retrieve SSL certificates. Barbican service unavailable.');
+    });
+
   });
 
 })();
