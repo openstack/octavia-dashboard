@@ -154,15 +154,21 @@ def create_loadbalancer(request):
         vip_subnet_id=data['loadbalancer']['vip_subnet_id'],
         name=data['loadbalancer'].get('name'),
         description=data['loadbalancer'].get('description'),
-        vip_address=data['loadbalancer'].get('vip_address'),
         admin_state_up=data['loadbalancer'].get('admin_state_up'),
     )
+    vip_address = data['loadbalancer'].get('vip_address')
+    if vip_address:
+        build_kwargs['vip_address'] = vip_address
+
     flavor_id = data['loadbalancer'].get('flavor_id')
     if flavor_id:
         build_kwargs['flavor_id'] = flavor_id
     availability_zone = data['loadbalancer'].get('availability_zone')
     if availability_zone:
         build_kwargs['availability_zone'] = availability_zone
+    provider = data['loadbalancer'].get('provider')
+    if provider:
+        build_kwargs['provider'] = provider
 
     loadbalancer = conn.load_balancer.create_load_balancer(**build_kwargs)
     if data.get('listener'):
@@ -1483,3 +1489,24 @@ class AvailabilityZones(generic.View):
         )
 
         return {'items': availability_zone_list}
+
+
+@urls.register
+class Providers(generic.View):
+    """API for load balancer providers.
+
+    """
+    url_regex = r'lbaas/providers/$'
+
+    @rest_utils.ajax()
+    def get(self, request):
+        """List of providers.
+
+        The listing result is an object with property "items".
+        """
+        conn = get_sdk_connection(request)
+        provider_list = _sdk_object_to_list(
+            conn.load_balancer.providers()
+        )
+
+        return {'items': provider_list}

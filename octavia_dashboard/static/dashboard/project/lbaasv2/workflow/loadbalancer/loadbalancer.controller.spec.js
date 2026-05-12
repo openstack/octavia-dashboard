@@ -22,7 +22,8 @@
     beforeEach(module('horizon.dashboard.project.lbaasv2'));
 
     describe('LoadBalancerDetailsController', function() {
-      var ctrl, scope, mockSubnets, mockFlavors, mockAvailabilityZones;
+      var ctrl, scope, mockSubnets, mockFlavors, mockAvailabilityZones,
+        mockProviders;
       beforeEach(inject(function($controller, $rootScope) {
         mockSubnets = [{
           id: '7262744a-e1e4-40d7-8833-18193e8de191',
@@ -79,6 +80,14 @@
           is_enabled: true
         }];
 
+        mockProviders = [{
+          name: 'amphora',
+          description: 'amphora description'
+        }, {
+          name: 'octavia',
+          description: 'octavia description'
+        }];
+
         scope = $rootScope.$new();
         scope.model = {
           networks: {
@@ -104,6 +113,11 @@
               is_enabled: true
             }
           },
+          providers: {
+            amphora: { name: 'amphora', description: 'amphora description' },
+            octavia: { name: 'octavia', description: 'octavia description' }
+          },
+
           subnets: [{}, {}],
           spec: {
             loadbalancer: {
@@ -118,6 +132,7 @@
         spyOn(ctrl, 'buildSubnetOptions').and.callThrough();
         spyOn(ctrl, 'buildFlavorOptions').and.callThrough();
         spyOn(ctrl, 'buildAvailabilityZoneOptions').and.callThrough();
+        spyOn(ctrl, 'buildProviderOptions').and.callThrough();
         spyOn(ctrl, '_checkLoaded').and.callThrough();
       }));
 
@@ -168,6 +183,15 @@
         );
       });
 
+      it('should create provider shorthand text', function() {
+        expect(ctrl.providerShorthand(mockProviders[0])).toBe(
+          'amphora'
+        );
+        expect(ctrl.providerShorthand(mockProviders[1])).toBe(
+          'octavia'
+        );
+      });
+
       it('should set subnet', function() {
         ctrl.setSubnet(mockSubnets[0]);
         expect(scope.model.spec.loadbalancer.vip_subnet_id).toBe(mockSubnets[0]);
@@ -189,6 +213,13 @@
         expect(scope.model.spec.loadbalancer.availability_zone).toBe(null);
       });
 
+      it('should set provider', function() {
+        ctrl.setProvider(mockProviders[0]);
+        expect(scope.model.spec.loadbalancer.provider).toBe(mockProviders[0]);
+        ctrl.setProvider(null);
+        expect(scope.model.spec.loadbalancer.provider).toBe(null);
+      });
+
       it('should initialize watchers', function() {
         ctrl.$onInit();
 
@@ -205,6 +236,10 @@
         expect(ctrl._checkLoaded).toHaveBeenCalled();
 
         scope.model.availability_zones = {};
+        scope.$apply();
+        expect(ctrl._checkLoaded).toHaveBeenCalled();
+
+        scope.model.providers = {};
         scope.$apply();
         expect(ctrl._checkLoaded).toHaveBeenCalled();
 
@@ -278,6 +313,13 @@
         //expect(ctrl.buildSubnetOptions).toHaveBeenCalled();
       });
 
+      it('should initialize provider watcher', function() {
+        ctrl.$onInit();
+
+        scope.model.providers = {};
+        scope.$apply();
+      });
+
       it('should produce flavor column data', function() {
         expect(ctrl.flavorColumns).toBeDefined();
 
@@ -296,6 +338,13 @@
 
         expect(ctrl.availabilityZoneColumns[0].label).toBe('Availability Zone');
         expect(ctrl.availabilityZoneColumns[0].value).toBe('name');
+      });
+
+      it('should produce provider column data', function() {
+        expect(ctrl.providerColumns).toBeDefined();
+
+        expect(ctrl.providerColumns[0].label).toBe('Provider');
+        expect(ctrl.providerColumns[0].value).toBe('name');
       });
 
     });

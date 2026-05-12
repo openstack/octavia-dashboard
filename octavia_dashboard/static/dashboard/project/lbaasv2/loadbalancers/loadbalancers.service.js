@@ -62,7 +62,8 @@
     var loadBalancerAlgorithm = {
       ROUND_ROBIN: gettext('Round Robin'),
       LEAST_CONNECTIONS: gettext('Least Connections'),
-      SOURCE_IP: gettext('Source IP')
+      SOURCE_IP: gettext('Source IP'),
+      SOURCE_IP_PORT: gettext('Source IP and port')
     };
 
     var l7policyAction = {

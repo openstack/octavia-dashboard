@@ -136,12 +136,35 @@
       }
     };
 
+    ctrl.providerColumns = [{
+      label: gettext('Provider'),
+      value: 'name'
+    }, {
+      label: gettext('Description'),
+      value: 'description'
+    }];
+
+    ctrl.providerOptions = [];
+
+    ctrl.providerShorthand = function(provider) {
+      return provider.name;
+    };
+
+    ctrl.setProvider = function(option) {
+      if (option) {
+        $scope.model.spec.loadbalancer.provider = option;
+      } else {
+        $scope.model.spec.loadbalancer.provider = null;
+      }
+    };
+
     ctrl.dataLoaded = false;
     ctrl._checkLoaded = function() {
       if ($scope.model.initialized) {
         ctrl.buildSubnetOptions();
         ctrl.buildFlavorOptions();
         ctrl.buildAvailabilityZoneOptions();
+        ctrl.buildProviderOptions();
         ctrl.dataLoaded = true;
       }
     };
@@ -169,6 +192,9 @@
       $scope.$watchCollection('model.availability_zones', function() {
         ctrl._checkLoaded();
       });
+      $scope.$watchCollection('model.providers', function() {
+        ctrl._checkLoaded();
+      });
       $scope.$watch('model.initialized', function() {
         ctrl._checkLoaded();
       });
@@ -193,6 +219,15 @@
         }).map(function(key) {
           return $scope.model.availability_zones[key];
         });
+    };
+    ctrl.buildProviderOptions = function() {
+      ctrl.providerOptions = Object.keys($scope.model.providers).filter(function(key) {
+        // filter out the 'octavia' provider, it's an alias for 'amphora' and
+        // it's deprecated
+        return key !== "octavia";
+      }).map(function(key) {
+        return $scope.model.providers[key];
+      });
     };
   }
 })();

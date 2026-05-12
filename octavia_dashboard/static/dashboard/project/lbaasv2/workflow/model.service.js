@@ -93,7 +93,7 @@
       l7ruleCompareTypes: ['REGEX', 'EQUAL_TO', 'STARTS_WITH', 'ENDS_WITH', 'CONTAINS'],
       l7ruleFileTypeCompareTypes: ['REGEX', 'EQUAL_TO'],
       poolProtocols: ['HTTP', 'HTTPS', 'PROXY', 'PROXYV2', 'TCP', 'UDP', 'SCTP'],
-      methods: ['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP'],
+      methods: ['LEAST_CONNECTIONS', 'ROUND_ROBIN', 'SOURCE_IP', 'SOURCE_IP_PORT'],
       types: ['SOURCE_IP', 'HTTP_COOKIE', 'APP_COOKIE'],
       monitorTypes: ['HTTP', 'HTTPS', 'PING', 'TCP', 'TLS-HELLO', 'UDP-CONNECT', 'SCTP'],
       monitorMethods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE',
@@ -104,6 +104,7 @@
         { label: gettext('Yes'), value: true },
         { label: gettext('No'), value: false }
       ],
+      providers: {},
 
       /**
        * api methods for UI controllers
@@ -156,7 +157,8 @@
           vip_subnet_id: null,
           flavor_id: null,
           availability_zone: null,
-          admin_state_up: true
+          admin_state_up: true,
+          provider: null
         },
         listener: {
           id: null,
@@ -276,6 +278,7 @@
       return $q.all([
         lbaasv2API.getFlavors().then(onGetFlavors),
         lbaasv2API.getAvailabilityZones().then(onGetAvailabilityZones),
+        lbaasv2API.getProviders().then(onGetProviders),
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getPorts().then(onGetPorts),
         neutronAPI.getNetworks().then(onGetNetworks),
@@ -299,6 +302,12 @@
     function onGetAvailabilityZones(response) {
       angular.forEach(response.data.items, function(value) {
         model.availability_zones[value.name] = value;
+      });
+    }
+
+    function onGetProviders(response) {
+      angular.forEach(response.data.items, function(value) {
+        model.providers[value.name] = value;
       });
     }
 
@@ -365,9 +374,10 @@
         lbaasv2API.getFlavors().then(onGetFlavors),
         lbaasv2API.getAvailabilityZones().then(onGetAvailabilityZones),
         lbaasv2API.getLoadBalancer(model.context.id).then(onGetLoadBalancer),
+        lbaasv2API.getProviders().then(onGetProviders),
         neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getNetworks().then(onGetNetworks)
-      ]).then(initSubnet).then(initFlavor).then(initAvailabilityZone);
+      ]).then(initSubnet).then(initFlavor).then(initAvailabilityZone).then(initProvider);
     }
 
     function initEditListener() {
@@ -492,6 +502,10 @@
         finalSpec.loadbalancer.availability_zone = finalSpec.loadbalancer.availability_zone.name;
       }
 
+      if (angular.isObject(finalSpec.loadbalancer.provider)) {
+        finalSpec.loadbalancer.provider = finalSpec.loadbalancer.provider.name;
+      }
+
       // Load balancer requires vip_subnet_id
       if (!finalSpec.loadbalancer.vip_subnet_id) {
         delete finalSpec.loadbalancer;
@@ -503,6 +517,7 @@
       if (context.resource === 'loadbalancer' && context.id) {
         delete finalSpec.flavor_id;
         delete finalSpec.availability_zone;
+        delete finalSpec.provider;
         delete finalSpec.vip_subnet_id;
         delete finalSpec.vip_address;
       }
@@ -794,6 +809,7 @@
       spec.flavor_id = loadbalancer.flavor_id;
       spec.availability_zone = loadbalancer.availability_zone;
       spec.admin_state_up = loadbalancer.admin_state_up;
+      spec.provider = loadbalancer.provider;
     }
 
     function setListenerSpec(listener) {
@@ -962,6 +978,11 @@
     function initAvailabilityZone() {
       model.spec.loadbalancer.availability_zone = model.availability_zones[
         model.spec.loadbalancer.availability_zone];
+    }
+
+    function initProvider() {
+      model.spec.loadbalancer.provider = model.providers[
+        model.spec.loadbalancer.provider];
     }
 
     function mapSubnetObj(subnetId) {
