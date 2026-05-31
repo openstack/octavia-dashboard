@@ -1,3 +1,12 @@
+<!-- Checking for "Create Pool = No"-->
+<div ng-if="!model.context.create_pool && !model.context.id"
+     class="alert alert-warning">
+  <span translate>
+    Pool members cannot be configured until a pool is created.
+    Please configure 'Pool Details' first.
+  </span>
+</div>
+
 <div ng-controller="MemberDetailsController as ctrl"
      ng-if="model.context.create_pool || model.context.id">
   <p translate>Add members to the load balancer pool.</p>
