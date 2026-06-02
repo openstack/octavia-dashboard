@@ -50,7 +50,7 @@
             <span class="hz-icon-required fa fa-asterisk"></span>
           </label>
           <select class="form-control" name="method" id="method"
-                  ng-options="method for method in model.methods"
+                  ng-options="method.value as method.label for method in model.methods"
                   ng-model="model.spec.pool.lb_algorithm"
                   ng-required="true">
           </select>
@@ -84,11 +84,11 @@
           </label>
           <select class="form-control" name="type" id="type"
                   ng-model="model.spec.pool.session_persistence.type">
-            <option value="">None</option>
+            <option value="" translate>None</option>
             <option ng-repeat="type in model.types"
-                    ng-disabled="model.spec.listener.protocol === 'UDP' && type !== 'SOURCE_IP'"
-                    value="{$ type $}">
-              {$ type $}
+                    ng-disabled="model.spec.listener.protocol === 'UDP' && type.value !== 'SOURCE_IP'"
+                    value="{$ type.value $}">
+              {$ type.label $}
             </option>
           </select>
         </div>
