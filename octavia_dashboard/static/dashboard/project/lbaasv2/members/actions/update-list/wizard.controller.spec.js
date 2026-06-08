@@ -56,7 +56,7 @@
 
     it('initializes workflow with correct properties', function() {
       expect(workflowSpy).toHaveBeenCalledWith('Add/Remove Pool Members',
-        'fa fa-pencil', ['members']);
+        'fa-pencil', ['members']);
     });
 
     it('defines scope.submit', function() {

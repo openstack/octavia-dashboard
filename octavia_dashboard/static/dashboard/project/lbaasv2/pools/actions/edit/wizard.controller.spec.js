@@ -64,7 +64,7 @@
 
     it('initializes workflow with correct properties', function() {
       expect(workflowSpy).toHaveBeenCalledWith('Update Pool',
-        'fa fa-pencil', ['pool']);
+        'fa-pencil', ['pool']);
     });
 
     it('defines scope.submit', function() {

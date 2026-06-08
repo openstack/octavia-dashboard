@@ -37,7 +37,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Create Pool'),
-        'fa fa-cloud-download',
+        'fa-cloud-download',
         ['pool', 'members', 'monitor']
     );
     if (!listenerId) {
