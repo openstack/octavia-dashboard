@@ -54,7 +54,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Update Listener'),
-        'fa fa-pencil', steps);
+        'fa-pencil', steps);
     scope.model.initialize('listener', scope.launchContext.id);
   }
 

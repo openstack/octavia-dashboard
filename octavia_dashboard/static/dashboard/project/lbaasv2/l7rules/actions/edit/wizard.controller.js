@@ -53,7 +53,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Update L7 Rule'),
-        'fa fa-pencil', ['l7rule']);
+        'fa-pencil', ['l7rule']);
     scope.model.initialize('l7rule', scope.launchContext.id, loadbalancerId, l7policyId);
   }
 

@@ -36,7 +36,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Create L7 Rule'),
-        'fa fa-cloud-download',
+        'fa-cloud-download',
         ['l7rule']
     );
     scope.model.initialize('l7rule', false, loadbalancerId, l7policyId);

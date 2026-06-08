@@ -65,7 +65,7 @@
 
     it('initializes workflow with correct properties', function() {
       expect(workflowSpy).toHaveBeenCalledWith('Update L7 Rule',
-        'fa fa-pencil', ['l7rule']);
+        'fa-pencil', ['l7rule']);
     });
 
     it('defines scope.submit', function() {

@@ -54,7 +54,7 @@
 
     it('initializes workflow with correct properties', function() {
       expect(workflowSpy).toHaveBeenCalledWith('Update Load Balancer',
-        'fa fa-pencil', ['loadbalancer']);
+        'fa-pencil', ['loadbalancer']);
     });
 
     it('defines scope.submit', function() {
