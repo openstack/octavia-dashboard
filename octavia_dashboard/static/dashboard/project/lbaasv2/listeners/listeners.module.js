@@ -54,7 +54,7 @@
     var listenerResourceType = registry.getResourceType(resourceType);
 
     listenerResourceType
-      .setNames(gettext('Listener'), gettext('Listeners'))
+      .setNames('Listener', 'Listeners', ngettext('Listener', 'Listeners', 1))
       .setSummaryTemplateUrl(basePath + 'listeners/details/drawer.html')
       .setProperties(listenerProperties(loadBalancerService))
       .setListFunction(loadBalancerService.getListenersPromise)
