@@ -54,7 +54,8 @@
     var healthMonitorResourceType = registry.getResourceType(resourceType);
 
     healthMonitorResourceType
-      .setNames(gettext('Health Monitor'), gettext('Health Monitors'))
+      .setNames('Health Monitor', 'Health Monitors',
+                ngettext('Health Monitor', 'Health Monitors', 1))
       .setSummaryTemplateUrl(basePath + 'healthmonitors/details/drawer.html')
       .setProperties(healthMonitorProperties(loadBalancerService))
       .setListFunction(loadBalancerService.getHealthMonitorsPromise)

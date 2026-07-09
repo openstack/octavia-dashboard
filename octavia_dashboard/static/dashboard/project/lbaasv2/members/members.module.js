@@ -54,7 +54,7 @@
     var memberResourceType = registry.getResourceType(resourceType);
 
     memberResourceType
-      .setNames(gettext('Member'), gettext('Members'))
+      .setNames('Member', 'Members', ngettext('Member', 'Members', 1))
       .setSummaryTemplateUrl(basePath + 'members/details/drawer.html')
       .setProperties(memberProperties(loadBalancerService))
       .setListFunction(loadBalancerService.getMembersPromise)
