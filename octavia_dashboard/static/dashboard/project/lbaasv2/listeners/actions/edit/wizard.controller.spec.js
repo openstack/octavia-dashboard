@@ -64,7 +64,7 @@
       scope.launchContext = { id: '1234', protocol: 'TERMINATED_HTTPS' };
       ctrl = $controller('EditListenerWizardController', { $scope: scope });
       expect(workflowSpy).toHaveBeenCalledWith('Update Listener',
-        'fa fa-pencil', jasmine.any(Object));
+        'fa-pencil', jasmine.any(Object));
     }));
 
     it('defines scope.submit', function() {

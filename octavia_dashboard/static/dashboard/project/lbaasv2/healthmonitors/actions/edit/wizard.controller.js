@@ -33,7 +33,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Update Health Monitor'),
-        'fa fa-cloud-download',
+        'fa-cloud-download',
         ['monitor']
     );
     scope.model.initialize('monitor', scope.launchContext.id);

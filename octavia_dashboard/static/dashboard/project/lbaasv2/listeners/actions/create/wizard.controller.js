@@ -35,7 +35,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Create Listener'),
-        'fa fa-cloud-download',
+        'fa-cloud-download',
         ['listener', 'certificates', 'pool', 'members', 'monitor']
     );
     scope.model.initialize('listener', false, loadbalancerId);

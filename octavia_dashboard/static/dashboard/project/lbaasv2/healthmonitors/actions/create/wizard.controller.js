@@ -38,7 +38,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Create Health Monitor'),
-        'fa fa-cloud-download',
+        'fa-cloud-download',
         ['monitor']
     );
     scope.model.initialize('monitor', false, loadbalancerId, poolId);

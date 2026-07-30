@@ -34,7 +34,7 @@
     scope.model = model;
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(gettext('Update Load Balancer'),
-                                     'fa fa-pencil',
+                                     'fa-pencil',
                                      ['loadbalancer']);
     scope.model.initialize('loadbalancer', scope.launchContext.id);
   }

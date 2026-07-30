@@ -35,7 +35,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
       gettext('Create Load Balancer'),
-      'fa fa-cloud-download',
+      'fa-cloud-download',
       ['loadbalancer', 'listener', 'certificates', 'pool', 'members', 'monitor']
     );
     scope.model.initialize('loadbalancer');

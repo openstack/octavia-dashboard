@@ -52,7 +52,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Update Pool'),
-        'fa fa-pencil', ['pool']);
+        'fa-pencil', ['pool']);
     scope.model.initialize('pool', scope.launchContext.id, loadbalancerId);
   }
 

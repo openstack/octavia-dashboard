@@ -36,7 +36,7 @@
     scope.submit = scope.model.submit;
     scope.workflow = workflowService(
         gettext('Add/Remove Pool Members'),
-        'fa fa-pencil',
+        'fa-pencil',
         ['members']
     );
     scope.model.initialize('members', false, loadbalancerId, poolId);
