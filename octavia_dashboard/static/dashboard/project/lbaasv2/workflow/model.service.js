@@ -266,10 +266,14 @@
 
     function initializeResources() {
       var type = (model.context.id ? 'edit' : 'create') + model.context.resource;
-      keymanagerPromise = serviceCatalog.ifTypeEnabled('key-manager');
+
+      keymanagerPromise = $q.when(false);
 
       if (type === 'createloadbalancer' || model.context.resource === 'listener') {
-        keymanagerPromise.then(angular.noop, certificatesNotSupported);
+
+        keymanagerPromise = serviceCatalog.ifTypeEnabled('key-manager');
+
+        keymanagerPromise.catch(certificatesNotSupported);
       }
 
       var promise = {

@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Fixed an issue where LBaaS v2 operations unrelated to TLS certificates
+    could show errors when the Barbican key-manager service was absent from
+    the service catalog.
