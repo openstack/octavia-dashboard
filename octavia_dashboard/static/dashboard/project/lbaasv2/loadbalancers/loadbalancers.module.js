@@ -58,7 +58,8 @@
     var loadBalancerResourceType = registry.getResourceType(resourceType);
 
     loadBalancerResourceType
-      .setNames(gettext('Load Balancer'), gettext('Load Balancers'))
+      .setNames('Load Balancer', 'Load Balancers',
+                ngettext('Load Balancer', 'Load Balancers', 1))
       .setSummaryTemplateUrl(basePath + 'loadbalancers/details/drawer.html')
       .setProperties(loadBalancerProperties(loadBalancerService))
       .setListFunction(loadBalancerService.getLoadBalancersPromise)
