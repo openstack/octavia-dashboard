@@ -166,7 +166,7 @@
           </label>
           <select class="form-control" name="default_pool_id" id="default_pool_id"
                   ng-model="model.spec.listener.default_pool_id">
-            <option value="">None</option>
+            <option translate value="">None</option>
             <option ng-repeat="pool_id in model.spec.availablePools" value="{$ pool_id.substring(0, 36) $}">
               {$ pool_id $}
             </option>
