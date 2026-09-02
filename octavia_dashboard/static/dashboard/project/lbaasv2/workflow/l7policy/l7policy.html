@@ -30,7 +30,7 @@
           <span class="hz-icon-required fa fa-asterisk"></span>
         </label>
         <select class="form-control" name="action" id="action"
-                ng-options="action for action in model.l7policyActions"
+                ng-options="action.value as action.label for action in model.l7policyActions"
                 ng-model="model.spec.l7policy.action"
                 ng-required="true">
         </select>

@@ -5,27 +5,27 @@ false.
 <p>
   <strong translate>Type:</strong>
   <translate>
-  The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH.
+  The L7 rule type. One of "Cookie", "File Type", "Header", "Host Name" or "Path".
   </translate>
   <ul>
     <li translate>
-      COOKIE: The rule looks for a cookie named by the key parameter and
+      <strong>Cookie</strong>: The rule looks for a cookie named by the key parameter and
       compares it against the value parameter in the rule.
     </li>
     <li translate>
-      HEADER: The rule looks for a header defined in the key parameter
+      <strong>Header</strong>: The rule looks for a header defined in the key parameter
       and compares it against the value parameter in the rule.
     </li>
     <li translate>
-      FILE_TYPE: The rule compares the last portion of the URI against
+      <strong>File Type</strong>: The rule compares the last portion of the URI against
       the value parameter in the rule. (eg. "txt", "jpg", etc.)
     </li>
     <li translate>
-      PATH: The rule compares the path portion of the HTTP URI against
+      <strong>Path</strong>: The rule compares the path portion of the HTTP URI against
       the value parameter in the rule.
     </li>
     <li translate>
-      HOST_NAME: The rule does a comparison between the HTTP/1.1
+      <strong>Host Name</strong>: The rule does a comparison between the HTTP/1.1
       hostname in the request against the value parameter in the rule.
     </li>
   </ul>
@@ -33,24 +33,24 @@ false.
 <p>
   <strong translate>Compare Type:</strong>
   <translate>
-  The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,
-  EQUAL_TO, REGEX, or STARTS_WITH.
+  The comparison type for the L7 rule. One of "Contains", "Ends With",
+  "Equal To", "Regex" or "Starts With".
   </translate>
   <ul>
     <li translate>
-      REGEX: Perl type regular expression matching.
+      <strong>Regex</strong>: Perl type regular expression matching.
     </li>
     <li translate>
-      STARTS_WITH: String starts with.
+      <strong>Starts With</strong>: String starts with.
     </li>
     <li translate>
-      ENDS_WITH: String ends with.
+      <strong>Ends With</strong>: String ends with.
     </li>
     <li translate>
-      CONTAINS: String contains.
+      <strong>Contains</strong>: String contains.
     </li>
     <li translate>
-      EQUAL_TO: String is equal to.
+      <strong>Equal To</strong>: String is equal to.
     </li>
   </ul>
 </p>

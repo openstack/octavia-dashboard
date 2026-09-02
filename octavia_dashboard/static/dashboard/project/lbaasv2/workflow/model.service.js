@@ -88,10 +88,29 @@
       flavors: {},
       listenerProtocols: ['HTTP', 'TCP', 'TERMINATED_HTTPS', 'HTTPS', 'UDP', 'SCTP'],
       availability_zones: {},
-      l7policyActions: ['REJECT', 'REDIRECT_TO_URL', 'REDIRECT_TO_POOL'],
-      l7ruleTypes: ['HOST_NAME', 'PATH', 'FILE_TYPE', 'HEADER', 'COOKIE'],
-      l7ruleCompareTypes: ['REGEX', 'EQUAL_TO', 'STARTS_WITH', 'ENDS_WITH', 'CONTAINS'],
-      l7ruleFileTypeCompareTypes: ['REGEX', 'EQUAL_TO'],
+      l7policyActions: [
+        {value: 'REJECT', label: gettext('Reject')},
+        {value: 'REDIRECT_TO_URL', label: gettext('Redirect To URL')},
+        {value: 'REDIRECT_TO_POOL', label: gettext('Redirect To Pool')}
+      ],
+      l7ruleTypes: [
+        {value: 'HOST_NAME', label: gettext('Host Name')},
+        {value: 'PATH', label: gettext('Path')},
+        {value: 'FILE_TYPE', label: gettext('File Type')},
+        {value: 'HEADER', label: gettext('Header')},
+        {value: 'COOKIE', label: gettext('Cookie')}
+      ],
+      l7ruleCompareTypes: [
+        {value: 'REGEX', label: gettext('Regex')},
+        {value: 'EQUAL_TO', label: gettext('Equal To')},
+        {value: 'STARTS_WITH', label: gettext('Starts With')},
+        {value: 'ENDS_WITH', label: gettext('Ends With')},
+        {value: 'CONTAINS', label: gettext('Contains')}
+      ],
+      l7ruleFileTypeCompareTypes: [
+        {value: 'REGEX', label: gettext('Regex')},
+        {value: 'EQUAL_TO', label: gettext('Equal To')}
+      ],
       poolProtocols: ['HTTP', 'HTTPS', 'PROXY', 'PROXYV2', 'TCP', 'UDP', 'SCTP'],
       methods: [
         {value: 'LEAST_CONNECTIONS', label: gettext('Least Connections')},
