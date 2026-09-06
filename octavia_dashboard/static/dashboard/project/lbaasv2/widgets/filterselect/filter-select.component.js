@@ -159,7 +159,7 @@
       ctrl._buildRows();
     };
 
-    // Handles clicking outside of the comopnent
+    // Handles clicking outside of the component
     ctrl.externalClick = function(event) {
       if (!$element.find(event.target).length) {
         ctrl._setOpenExternal(false);

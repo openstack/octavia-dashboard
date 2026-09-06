@@ -171,7 +171,7 @@
 
     /*
     The watchers in this component are a bit of a workaround for the way
-    data is loaded asynchornously in the model service. First data loads
+    data is loaded asynchronously in the model service. First data loads
     are marked by a change of 'model.initialized' from false to true, which
     should replace the striped loading bar with a functional dropdown.
 

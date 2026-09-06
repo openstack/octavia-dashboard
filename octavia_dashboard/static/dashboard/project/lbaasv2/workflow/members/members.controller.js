@@ -50,7 +50,7 @@
     ctrl.weightError = gettext('The weight must be a number between 0 and 256.');
     ctrl.ipError = gettext('The IP address is not valid.');
 
-    // Instances transer table widget properties
+    // Instances transfer table widget properties
     ctrl.tableData = {
       available: $scope.model.members,
       allocated: $scope.model.spec.members,

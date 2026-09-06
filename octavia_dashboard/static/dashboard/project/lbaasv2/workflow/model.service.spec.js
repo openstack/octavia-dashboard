@@ -2736,7 +2736,7 @@
       });
     });
 
-    describe('Model visible resources (edit listener, no x forwared for)', function() {
+    describe('Model visible resources (edit listener, no x forwarded for)', function() {
 
       beforeEach(function() {
         listenerResources.listener.insert_headers['X-Forwarded-For'] = '';
@@ -2751,7 +2751,7 @@
       });
     });
 
-    describe('Model visible resources (edit listener, no x forwared port)', function() {
+    describe('Model visible resources (edit listener, no x forwarded port)', function() {
 
       beforeEach(function() {
         delete listenerResources.listener.insert_headers['X-Forwarded-Port'];
@@ -2765,7 +2765,7 @@
       });
     });
 
-    describe('Model visible resources (edit listener, no x forwared proto)', function() {
+    describe('Model visible resources (edit listener, no x forwarded proto)', function() {
 
       beforeEach(function() {
         delete listenerResources.listener.insert_headers['X-Forwarded-Proto'];
