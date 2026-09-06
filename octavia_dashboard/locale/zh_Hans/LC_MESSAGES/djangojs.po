@@ -1,15 +1,16 @@
 # Jacky Hu <hudayou@hotmail.com>, 2018. #zanata
 # Tony <tfu@redhat.com>, 2019. #zanata
+# Jacky Hu <hudayou@hotmail.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-03-25 08:02+0000\n"
+"POT-Creation-Date: 2026-09-03 07:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-03-21 01:01+0000\n"
-"Last-Translator: Tony <tfu@redhat.com>\n"
+"PO-Revision-Date: 2026-09-02 07:42+0000\n"
+"Last-Translator: Copied by Zanata <copied-by-zanata@zanata.org>\n"
 "Language-Team: Chinese (China)\n"
 "Language: zh_CN\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -35,9 +36,6 @@ msgid ""
 "A pool represents a group of members over which the load balancing will be "
 "applied."
 msgstr "资源池代表提供负载均衡器的一组成员。"
-
-msgid "APP_COOKIE: Session persistence based on application cookie."
-msgstr "APP_COOKIE：基于应用 COOKIE 的会话持久化。"
 
 msgid "Action"
 msgstr "行为"
@@ -93,20 +91,6 @@ msgid ""
 "false."
 msgstr "一个七层规则是返回是或否的单一简单逻辑测试"
 
-msgid ""
-"An alternate IP address used for health monitoring a backend member.\n"
-"  Default is null which monitors the member address."
-msgstr ""
-"用于后端成员健康监控的 IP 地址。\n"
-"默认是空时监测该成员地址。"
-
-msgid ""
-"An alternate protocol port used for health monitoring a backend member.\n"
-"  Default is null which monitors the member protocol port."
-msgstr ""
-"用于后端成员健康监控的协议端口。\n"
-"默认是空时监测该成员协议端口。"
-
 msgid "An error occurred. Please try again later."
 msgstr "发生错误，请稍后重试。"
 
@@ -139,14 +123,6 @@ msgstr "备份："
 
 msgid "CIDR"
 msgstr "CIDR"
-
-msgid "CONTAINS: String contains."
-msgstr "包含：字符串包含。"
-
-msgid ""
-"COOKIE: The rule looks for a cookie named by the key parameter and\n"
-"      compares it against the value parameter in the rule."
-msgstr "COOKIE：该规则查找以键参数命名的 COOKIE 并将其与值参数相比较。"
 
 msgid "Cancel"
 msgstr "取消"
@@ -351,12 +327,6 @@ msgstr "解除关联浮动 IP"
 msgid "Disassociated floating IP address from load balancer: %s."
 msgstr "已从负载均衡器取解除浮动IP关联：%s。"
 
-msgid "ENDS_WITH: String ends with."
-msgstr "ENDS_WITH：字符串后缀。"
-
-msgid "EQUAL_TO: String is equal to."
-msgstr "EQUAL_TO：字符串相同。"
-
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
 "configured separately and\n"
@@ -407,11 +377,6 @@ msgstr "预期的状态码："
 msgid "Expiration Date"
 msgstr "截止日期"
 
-msgid ""
-"FILE_TYPE: The rule compares the last portion of the URI against\n"
-"      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
-msgstr "FILE_TYPE：该规则将 URI 的后缀与值参数相比较。（例如：“txt”，“jpg”。）"
-
 msgid "File Type"
 msgstr "文件类型"
 
@@ -439,16 +404,6 @@ msgstr "浮动 IP 资源池"
 msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
 msgstr "前端客户闲置超时时限，单位是毫秒，默认值：50000。"
 
-msgid ""
-"HEADER: The rule looks for a header defined in the key parameter\n"
-"      and compares it against the value parameter in the rule."
-msgstr "HEADER：该规则查找以键参数命名的报头并将其与值参数相比较。"
-
-msgid ""
-"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
-"      hostname in the request against the value parameter in the rule."
-msgstr "HOST_NAME：该规则将请求中的 HTTP/1.1 主机名与值参数相比较。"
-
 msgid "HTTP Method"
 msgstr "HTTP 方法"
 
@@ -458,8 +413,10 @@ msgstr "HTTP 方法："
 msgid "Header"
 msgstr "报头"
 
+#, fuzzy
 msgid "Health Monitor"
-msgstr "健康监控"
+msgid_plural "Health Monitors"
+msgstr[0] "健康监控"
 
 msgid "Health Monitor ID"
 msgstr "健康监控器 ID"
@@ -532,14 +489,18 @@ msgstr "键："
 msgid "L7 Policies"
 msgstr "七层策略"
 
+#, fuzzy
 msgid "L7 Policy"
-msgstr "七层策略"
+msgid_plural "L7 Policies"
+msgstr[0] "七层策略"
 
 msgid "L7 Policy Details"
 msgstr "七层策略详情"
 
+#, fuzzy
 msgid "L7 Rule"
-msgstr "七层规则"
+msgid_plural "L7 Rules"
+msgstr[0] "七层规则"
 
 msgid "L7 Rule Details"
 msgstr "七层规则详情"
@@ -547,17 +508,13 @@ msgstr "七层规则详情"
 msgid "L7 Rules"
 msgstr "七层规则"
 
-msgid ""
-"LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
-"of active\n"
-"      connections."
-msgstr "LEAST_CONNECTIONS：分发至最少活动连接次数的实例。"
-
 msgid "Least Connections"
 msgstr "最少连接数"
 
+#, fuzzy
 msgid "Listener"
-msgstr "监控器"
+msgid_plural "Listeners"
+msgstr[0] "监控器"
 
 msgid "Listener Details"
 msgstr "监听器详情"
@@ -568,8 +525,10 @@ msgstr "监听器ID"
 msgid "Listeners"
 msgstr "监控器"
 
+#, fuzzy
 msgid "Load Balancer"
-msgstr "负载均衡器"
+msgid_plural "Load Balancers"
+msgstr[0] "负载均衡器"
 
 msgid "Load Balancer Details"
 msgstr "负载均衡器详情"
@@ -592,8 +551,10 @@ msgstr "最大失败重试次数："
 msgid "Max Retries:"
 msgstr "最大重试次数："
 
+#, fuzzy
 msgid "Member"
-msgstr "成员"
+msgid_plural "Members"
+msgstr[0] "成员"
 
 msgid "Member Connect Timeout"
 msgstr "成员连接超时时限"
@@ -678,11 +639,6 @@ msgstr "操作状态"
 msgid "Overview"
 msgstr "概览"
 
-msgid ""
-"PATH: The rule compares the path portion of the HTTP URI against\n"
-"      the value parameter in the rule."
-msgstr "PATH：该规则将 HTTP URI 的路径部分与值参数相比较。"
-
 msgid "Path"
 msgstr "路径"
 
@@ -698,8 +654,10 @@ msgstr "暂挂更新"
 msgid "Please Wait"
 msgstr "请等待"
 
+#, fuzzy
 msgid "Pool"
-msgstr "资源池"
+msgid_plural "Pools"
+msgstr[0] "资源池"
 
 msgid "Pool Details"
 msgstr "资源池详情"
@@ -764,29 +722,6 @@ msgstr "提供者"
 msgid "Provisioning Status"
 msgstr "配置状态"
 
-msgid ""
-"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
-"with the L7 policy."
-msgstr "REDIRECT_TO_POOL：请求被转发到该七层策略关联的资源池。"
-
-msgid ""
-"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
-"the redirect_url parameter."
-msgstr ""
-"REDIRECT_TO_URL：请求被作为一个 HTTP 重定向发送到 redirect_url 参数里定义的 "
-"URL。"
-
-msgid "REGEX: Perl type regular expression matching."
-msgstr "REGEX：Perl 正则表达式匹配。"
-
-msgid ""
-"REJECT: The request is denied with an appropriate response code, and not "
-"forwarded on to any back-end pool."
-msgstr "REJECT：请求被拒绝并返回合适的状态码，并不被转发给任何资源池"
-
-msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
-msgstr "ROUND_ROBIN：在多个实例之间轮询分发。"
-
 msgid "Redirect Pool ID"
 msgstr "重定向资源池 ID"
 
@@ -814,19 +749,6 @@ msgstr "拒绝"
 msgid "Remove"
 msgstr "移除"
 
-msgid ""
-"Requests matching this policy will be redirected to the pool with this ID. "
-"Only valid if action is REDIRECT_TO_POOL."
-msgstr ""
-"与该策略相匹配的请求将被重定向到由 ID 指定的资源池。仅当行为是 "
-"REDIRECT_TO_POOL 时有效。"
-
-msgid ""
-"Requests matching this policy will be redirected to this URL. Only valid if "
-"action is REDIRECT_TO_URL."
-msgstr ""
-"与该策略相匹配的请求将被重定向指定的 URL。仅当行为是 REDIRECT_TO_URL 时有效。"
-
 msgid "Round Robin"
 msgstr "轮询"
 
@@ -836,16 +758,8 @@ msgstr "规则"
 msgid "SNI Container Refs"
 msgstr "SNI 容器编号"
 
-msgid ""
-"SOURCE_IP: Requests from a unique source IP address are consistently "
-"directed to the same instance."
-msgstr "SOURCE_IP：来自相同源IP地址的请求连续的发送到同一实例。"
-
 msgid "SSL Certificates"
 msgstr "SSL 证书"
-
-msgid "STARTS_WITH: String starts with."
-msgstr "STARTS_WITH：字符串前缀。"
 
 msgid ""
 "Select a floating IP address to associate with the load balancer or a "
@@ -914,22 +828,8 @@ msgstr ""
 "用于从负载均衡器中接收消息成员的 IP 地址。\n"
 "必须使用格式良好的 IPv4 或 IPv6 地址。"
 
-msgid ""
-"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
-msgstr "七层策略行为。REJECT，REDIRECT_TO_URL，REDIRECT_TO_POOL 其中之一"
-
-msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
-msgstr "七层规则类型。COOKIE，FILE_TYPE，HEADER，HOST_NAME，PATH 之中之一。"
-
 msgid "The URL path is not valid."
 msgstr "URL 路径无效。"
-
-msgid ""
-"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
-"  EQUAL_TO, REGEX, or STARTS_WITH."
-msgstr ""
-"七层规则的比较类型。CONTAINS，ENDS_WITH，EQUAL_TO，REGEX，STARTS_WITH 其中之"
-"一。"
 
 msgid "The connection limit must be a number greater than or equal to -1."
 msgstr "连接限制必须是大于或等于 -1 的整数。"
