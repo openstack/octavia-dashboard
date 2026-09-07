@@ -9,11 +9,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-05-07 09:51+0000\n"
+"POT-Creation-Date: 2026-09-03 07:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2026-03-29 08:22+0000\n"
+"PO-Revision-Date: 2026-09-02 07:42+0000\n"
 "Last-Translator: Andi Chandler <andi@gowling.com>\n"
 "Language-Team: English (United Kingdom)\n"
 "Language: en_GB\n"
@@ -40,13 +40,6 @@ msgid "A new pool is being created."
 msgstr "A new pool is being created."
 
 msgid ""
-"A newline separated list of cidrs to be allowed to connect to the listener.\n"
-"  An empty list means allow from any."
-msgstr ""
-"A newline separated list of CIDRs to be allowed to connect to the listener.\n"
-"  An empty list means allow from any."
-
-msgid ""
 "A pool represents a group of members over which the load balancing will be "
 "applied."
 msgstr ""
@@ -67,9 +60,6 @@ msgstr ""
 "TLS_AES_128_GCM_SHA256\"\n"
 "  Note, don't include quotation marks. An empty string sets the default TLS\n"
 "  Cipher String configured in Octavia."
-
-msgid "APP_COOKIE: Session persistence based on application cookie."
-msgstr "APP_COOKIE: Session persistence based on application cookie."
 
 msgid "Action"
 msgstr "Action"
@@ -119,9 +109,6 @@ msgstr "Allocated Members"
 msgid "Allowed CIDRs"
 msgstr "Allowed CIDRs"
 
-msgid "Allowed Cidrs:"
-msgstr "Allowed CIDRs:"
-
 msgid ""
 "An L7 Policy is a collection of L7 rules associated with a Listener, and "
 "which may also have an association to a back-end pool"
@@ -135,23 +122,12 @@ msgid ""
 msgstr ""
 "An L7 Rule is a single, simple logical test which returns either true or\n"
 "false."
-
-msgid ""
-"An alternate IP address used for health monitoring a backend member.\n"
-"  Default is null which monitors the member address."
-msgstr ""
-"An alternate IP address used for health monitoring a backend member.\n"
-"  Default is null which monitors the member address."
-
-msgid ""
-"An alternate protocol port used for health monitoring a backend member.\n"
-"  Default is null which monitors the member protocol port."
-msgstr ""
-"An alternate protocol port used for health monitoring a backend member.\n"
-"  Default is null which monitors the member protocol port."
 
 msgid "An error occurred. Please try again later."
 msgstr "An error occurred. Please try again later."
+
+msgid "App Cookie"
+msgstr "App Cookie"
 
 msgid "Associate"
 msgstr "Associate"
@@ -185,16 +161,6 @@ msgstr "Backup:"
 
 msgid "CIDR"
 msgstr "CIDR"
-
-msgid "CONTAINS: String contains."
-msgstr "CONTAINS: String contains."
-
-msgid ""
-"COOKIE: The rule looks for a cookie named by the key parameter and\n"
-"      compares it against the value parameter in the rule."
-msgstr ""
-"COOKIE: The rule looks for a cookie named by the key parameter and\n"
-"      compares it against the value parameter in the rule."
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -423,12 +389,6 @@ msgstr "Disassociated floating IP address from load balancer: %s."
 msgid "Draining"
 msgstr "Draining"
 
-msgid "ENDS_WITH: String ends with."
-msgstr "ENDS_WITH: String ends with."
-
-msgid "EQUAL_TO: String is equal to."
-msgstr "EQUAL_TO: String is equal to."
-
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
 "configured separately and\n"
@@ -488,13 +448,6 @@ msgstr "Expected Codes:"
 msgid "Expiration Date"
 msgstr "Expiration Date"
 
-msgid ""
-"FILE_TYPE: The rule compares the last portion of the URI against\n"
-"      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
-msgstr ""
-"FILE_TYPE: The rule compares the last portion of the URI against\n"
-"      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
-
 msgid "File Type"
 msgstr "File Type"
 
@@ -522,19 +475,8 @@ msgstr "Floating IP pools"
 msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
 msgstr "Frontend client inactivity timeout in milliseconds. Default: 50000."
 
-msgid ""
-"HEADER: The rule looks for a header defined in the key parameter\n"
-"      and compares it against the value parameter in the rule."
-msgstr ""
-"HEADER: The rule looks for a header defined in the key parameter\n"
-"      and compares it against the value parameter in the rule."
-
-msgid ""
-"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
-"      hostname in the request against the value parameter in the rule."
-msgstr ""
-"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
-"      hostname in the request against the value parameter in the rule."
+msgid "HTTP Cookie"
+msgstr "HTTP Cookie"
 
 msgid "HTTP Method"
 msgstr "HTTP Method"
@@ -542,14 +484,14 @@ msgstr "HTTP Method"
 msgid "HTTP Method:"
 msgstr "HTTP Method:"
 
-msgid "HTTP_COOKIE: Session persistence based on HTTP cookie."
-msgstr "HTTP_COOKIE: Session persistence based on HTTP cookie."
-
 msgid "Header"
 msgstr "Header"
 
+#, fuzzy
 msgid "Health Monitor"
-msgstr "Health Monitor"
+msgid_plural "Health Monitors"
+msgstr[0] "Health Monitor"
+msgstr[1] ""
 
 msgid "Health Monitor ID"
 msgstr "Health Monitor ID"
@@ -626,14 +568,20 @@ msgstr "Key:"
 msgid "L7 Policies"
 msgstr "L7 Policies"
 
+#, fuzzy
 msgid "L7 Policy"
-msgstr "L7 Policy"
+msgid_plural "L7 Policies"
+msgstr[0] "L7 Policy"
+msgstr[1] ""
 
 msgid "L7 Policy Details"
 msgstr "L7 Policy Details"
 
+#, fuzzy
 msgid "L7 Rule"
-msgstr "L7 Rule"
+msgid_plural "L7 Rules"
+msgstr[0] "L7 Rule"
+msgstr[1] ""
 
 msgid "L7 Rule Details"
 msgstr "L7 Rule Details"
@@ -641,20 +589,14 @@ msgstr "L7 Rule Details"
 msgid "L7 Rules"
 msgstr "L7 Rules"
 
-msgid ""
-"LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
-"of active\n"
-"      connections."
-msgstr ""
-"LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
-"of active\n"
-"      connections."
-
 msgid "Least Connections"
 msgstr "Least Connections"
 
+#, fuzzy
 msgid "Listener"
-msgstr "Listener"
+msgid_plural "Listeners"
+msgstr[0] "Listener"
+msgstr[1] ""
 
 msgid "Listener Details"
 msgstr "Listener Details"
@@ -665,8 +607,11 @@ msgstr "Listener ID"
 msgid "Listeners"
 msgstr "Listeners"
 
+#, fuzzy
 msgid "Load Balancer"
-msgstr "Load Balancer"
+msgid_plural "Load Balancers"
+msgstr[0] "Load Balancer"
+msgstr[1] ""
 
 msgid "Load Balancer Details"
 msgstr "Load Balancer Details"
@@ -689,8 +634,11 @@ msgstr "Max Retries Down:"
 msgid "Max Retries:"
 msgstr "Max Retries:"
 
+#, fuzzy
 msgid "Member"
-msgstr "Member"
+msgid_plural "Members"
+msgstr[0] "Member"
+msgstr[1] ""
 
 msgid "Member Connect Timeout"
 msgstr "Member Connect Timeout"
@@ -776,13 +724,6 @@ msgstr "Operating Status"
 msgid "Overview"
 msgstr "Overview"
 
-msgid ""
-"PATH: The rule compares the path portion of the HTTP URI against\n"
-"      the value parameter in the rule."
-msgstr ""
-"PATH: The rule compares the path portion of the HTTP URI against\n"
-"      the value parameter in the rule."
-
 msgid "Path"
 msgstr "Path"
 
@@ -798,8 +739,11 @@ msgstr "Pending Update"
 msgid "Please Wait"
 msgstr "Please Wait"
 
+#, fuzzy
 msgid "Pool"
-msgstr "Pool"
+msgid_plural "Pools"
+msgstr[0] "Pool"
+msgstr[1] ""
 
 msgid "Pool Details"
 msgstr "Pool Details"
@@ -870,38 +814,17 @@ msgstr "Provider"
 msgid "Provisioning Status"
 msgstr "Provisioning Status"
 
-msgid ""
-"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
-"with the L7 policy."
-msgstr ""
-"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
-"with the L7 policy."
-
-msgid ""
-"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
-"the redirect_url parameter."
-msgstr ""
-"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
-"the redirect_url parameter."
-
-msgid "REGEX: Perl type regular expression matching."
-msgstr "REGEX: Perl type regular expression matching."
-
-msgid ""
-"REJECT: The request is denied with an appropriate response code, and not "
-"forwarded on to any back-end pool."
-msgstr ""
-"REJECT: The request is denied with an appropriate response code, and not "
-"forwarded on to any back-end pool."
-
-msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
-msgstr "ROUND_ROBIN: Rotates requests evenly between multiple instances."
-
 msgid "Redirect Pool ID"
 msgstr "Redirect Pool ID"
 
 msgid "Redirect Pool ID:"
 msgstr "Redirect Pool ID:"
+
+msgid "Redirect To Pool"
+msgstr "Redirect To Pool"
+
+msgid "Redirect To URL"
+msgstr "Redirect To URL"
 
 msgid "Redirect URL"
 msgstr "Redirect URL"
@@ -924,20 +847,6 @@ msgstr "Reject"
 msgid "Remove"
 msgstr "Remove"
 
-msgid ""
-"Requests matching this policy will be redirected to the pool with this ID. "
-"Only valid if action is REDIRECT_TO_POOL."
-msgstr ""
-"Requests matching this policy will be redirected to the pool with this ID. "
-"Only valid if action is REDIRECT_TO_POOL."
-
-msgid ""
-"Requests matching this policy will be redirected to this URL. Only valid if "
-"action is REDIRECT_TO_URL."
-msgstr ""
-"Requests matching this policy will be redirected to this URL. Only valid if "
-"action is REDIRECT_TO_URL."
-
 msgid "Round Robin"
 msgstr "Round Robin"
 
@@ -947,21 +856,8 @@ msgstr "Rules"
 msgid "SNI Container Refs"
 msgstr "SNI Container Refs"
 
-msgid ""
-"SOURCE_IP: Requests from a unique source IP address are consistently "
-"directed to the same instance."
-msgstr ""
-"SOURCE_IP: Requests from a unique source IP address are consistently "
-"directed to the same instance."
-
-msgid "SOURCE_IP: Session persistence based on source IP."
-msgstr "SOURCE_IP: Session persistence based on source IP."
-
 msgid "SSL Certificates"
 msgstr "SSL Certificates"
-
-msgid "STARTS_WITH: String starts with."
-msgstr "STARTS_WITH: String starts with."
 
 msgid ""
 "Select a floating IP address to associate with the load balancer or a "
@@ -984,6 +880,12 @@ msgstr "Session Persistence:"
 
 msgid "Source IP"
 msgstr "Source IP"
+
+msgid "Source IP and port"
+msgstr "Source IP and port"
+
+msgid "Source IP:Port"
+msgstr "Source IP:Port"
 
 msgid "Starts With"
 msgstr "Starts With"
@@ -1047,9 +949,11 @@ msgstr ""
 "  IPv4 or IPv6 address."
 
 msgid ""
-"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
+"The L7 policy action. One of \"Reject\", \"Redirect To URL\", or \"Redirect "
+"To Pool\"."
 msgstr ""
-"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
+"The L7 policy action. One of \"Reject\", \"Redirect To URL\", or \"Redirect "
+"To Pool\"."
 
 msgid "The L7 policy has been updated."
 msgstr "The L7 policy has been updated."
@@ -1057,22 +961,11 @@ msgstr "The L7 policy has been updated."
 msgid "The L7 rule has been updated."
 msgstr "The L7 rule has been updated."
 
-msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
-msgstr ""
-"The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
-
 msgid "The URL path is not valid."
 msgstr "The URL path is not valid."
 
 msgid "The cipher string must conform to OpenSSL syntax."
 msgstr "The cipher string must conform to OpenSSL syntax."
-
-msgid ""
-"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
-"  EQUAL_TO, REGEX, or STARTS_WITH."
-msgstr ""
-"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
-"  EQUAL_TO, REGEX, or STARTS_WITH."
 
 msgid "The connection limit must be a number greater than or equal to -1."
 msgstr "The connection limit must be a number greater than or equal to -1."
@@ -1481,6 +1374,9 @@ msgstr "Unable to retrieve pool."
 
 msgid "Unable to retrieve pools."
 msgstr "Unable to retrieve pools."
+
+msgid "Unable to retrieve providers."
+msgstr "Unable to retrieve providers."
 
 msgid "Unable to retrieve secrets."
 msgstr "Unable to retrieve secrets."

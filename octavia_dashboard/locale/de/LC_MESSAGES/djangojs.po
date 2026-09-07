@@ -4,16 +4,18 @@
 # Robert Simai <robert.simai@suse.com>, 2019. #zanata
 # Andreas Jaeger <jaegerandi@gmail.com>, 2020. #zanata
 # Robert Holling <r.holling@protonmail.ch>, 2022. #zanata
+# Frank Kloeker <eumel@arcor.de>, 2026. #zanata
+# Robert Simai <robert.simai@suse.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-03-25 08:02+0000\n"
+"POT-Creation-Date: 2026-09-03 07:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2022-04-06 10:34+0000\n"
-"Last-Translator: Robert Holling <r.holling@protonmail.ch>\n"
+"PO-Revision-Date: 2026-09-02 07:42+0000\n"
+"Last-Translator: Frank Kloeker <eumel@arcor.de>\n"
 "Language-Team: German\n"
 "Language: de\n"
 "X-Generator: Zanata 4.3.3\n"
@@ -41,9 +43,6 @@ msgid ""
 msgstr ""
 "Ein Pool repräsentiert eine Gruppe von Mitgliedern, auf die die "
 "Lastverteilung angewendet wird."
-
-msgid "APP_COOKIE: Session persistence based on application cookie."
-msgstr "APP_COOKIE: Sitzungsdauer basiert auf einen Anwendungs-Cookie."
 
 msgid "Action"
 msgstr "Aktion"
@@ -103,22 +102,6 @@ msgstr ""
 "Eine L7 Regel ist ein einfacher logischer Test, der richtig oder falsch "
 "zurückgibt."
 
-msgid ""
-"An alternate IP address used for health monitoring a backend member.\n"
-"  Default is null which monitors the member address."
-msgstr ""
-"Eine alternative IP-Adresse für Gesundheitsmonitoring eines Backend-"
-"Mitglieds.\n"
-"  Standard ist null wodurch zum Monitoren die Mitgliedadresse benutzt wird."
-
-msgid ""
-"An alternate protocol port used for health monitoring a backend member.\n"
-"  Default is null which monitors the member protocol port."
-msgstr ""
-"Ein alternativer Protokoll-Port für Gesundheitsmonitoring eins Backend-"
-"Mitglieds.\n"
-"  Standard ist null wodurch zum Monitoren der Mitgliedport benutzt wird."
-
 msgid "An error occurred. Please try again later."
 msgstr "Ein Fehler ist aufgetreten. Bitte versuchen Sie es später noch einmal."
 
@@ -156,17 +139,6 @@ msgstr "Sicherungskopie:"
 
 msgid "CIDR"
 msgstr "CIDR"
-
-msgid "CONTAINS: String contains."
-msgstr "CONTAINS: Zeichenkette enthält."
-
-msgid ""
-"COOKIE: The rule looks for a cookie named by the key parameter and\n"
-"      compares it against the value parameter in the rule."
-msgstr ""
-"COOKIE: Die Regel sucht nach einem Cookie, das mit dem Schlüsselparameter "
-"benannt ist und\n"
-"       vergleicht es mit dem Wertparameter in der Regel."
 
 msgid "Cancel"
 msgstr "Abbrechen"
@@ -392,12 +364,6 @@ msgstr "Floating IP trennen"
 msgid "Disassociated floating IP address from load balancer: %s."
 msgstr "Verbindung der Floating-IP zum Loadbalancer lösen: %s."
 
-msgid "ENDS_WITH: String ends with."
-msgstr "ENDS_WITH: Zeichenkette endet damit."
-
-msgid "EQUAL_TO: String is equal to."
-msgstr "EQUAL_TO: Zeichenkette ist gleich."
-
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
 "configured separately and\n"
@@ -450,13 +416,6 @@ msgstr "Erwartete Codes:"
 msgid "Expiration Date"
 msgstr "Ablaufdatum"
 
-msgid ""
-"FILE_TYPE: The rule compares the last portion of the URI against\n"
-"      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
-msgstr ""
-"FILE_TYPE: Die Regel vergleicht den letzten Teil des URIs mit\n"
-"       der Wertparameter in der Regel (z.B. \"txt\", \"jpg\" usw.)"
-
 msgid "File Type"
 msgstr "Dateityp"
 
@@ -486,21 +445,6 @@ msgstr ""
 "Inaktivitätszeitlimit des Front-End-Clients in Millisekunden. Standard: "
 "50000."
 
-msgid ""
-"HEADER: The rule looks for a header defined in the key parameter\n"
-"      and compares it against the value parameter in the rule."
-msgstr ""
-"HEADER: Die Regel sucht nach einem Header, der im Schlüsselparameter "
-"definiert ist\n"
-"       und vergleicht sie mit dem Wertparameter in der Regel."
-
-msgid ""
-"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
-"      hostname in the request against the value parameter in the rule."
-msgstr ""
-"HOST_NAME: Die Regel führt einen Vergleich zwischen HTTP/1.1 durch\n"
-"       Hostname in der Anforderung für den Wertparameter in der Regel."
-
 msgid "HTTP Method"
 msgstr "HTTP-Methode"
 
@@ -510,8 +454,11 @@ msgstr "HTTP Methode:"
 msgid "Header"
 msgstr "Header"
 
+#, fuzzy
 msgid "Health Monitor"
-msgstr "Gesundheitsmonitor"
+msgid_plural "Health Monitors"
+msgstr[0] "Gesundheitsmonitor"
+msgstr[1] ""
 
 msgid "Health Monitor ID"
 msgstr "Gesundheitsmonitor-ID"
@@ -589,14 +536,20 @@ msgstr "Schlüssel:"
 msgid "L7 Policies"
 msgstr "L7 Policies"
 
+#, fuzzy
 msgid "L7 Policy"
-msgstr "L7 Richtlinie"
+msgid_plural "L7 Policies"
+msgstr[0] "L7 Richtlinie"
+msgstr[1] ""
 
 msgid "L7 Policy Details"
 msgstr "L7 Richtlinie Details"
 
+#, fuzzy
 msgid "L7 Rule"
-msgstr "L7 Regel"
+msgid_plural "L7 Rules"
+msgstr[0] "L7 Regel"
+msgstr[1] ""
 
 msgid "L7 Rule Details"
 msgstr "L7 Regel Details"
@@ -604,19 +557,14 @@ msgstr "L7 Regel Details"
 msgid "L7 Rules"
 msgstr "L7 Regeln"
 
-msgid ""
-"LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
-"of active\n"
-"      connections."
-msgstr ""
-"LEAST_CONNECTIONS: Allokiert Anfragen zur Instanz mit den wenigsten aktiven\n"
-"  Verbindungen."
-
 msgid "Least Connections"
 msgstr "Letzte Verbindungen"
 
+#, fuzzy
 msgid "Listener"
-msgstr "Listener"
+msgid_plural "Listeners"
+msgstr[0] "Listener"
+msgstr[1] ""
 
 msgid "Listener Details"
 msgstr "Listener Details"
@@ -627,8 +575,11 @@ msgstr "Listener-ID"
 msgid "Listeners"
 msgstr "Listener"
 
+#, fuzzy
 msgid "Load Balancer"
-msgstr "Loadbalancer"
+msgid_plural "Load Balancers"
+msgstr[0] "Loadbalancer"
+msgstr[1] ""
 
 msgid "Load Balancer Details"
 msgstr "Loadbalancer-Details"
@@ -651,8 +602,11 @@ msgstr "Maximale Wiederholungen:"
 msgid "Max Retries:"
 msgstr "Max Versuche:"
 
+#, fuzzy
 msgid "Member"
-msgstr "Mitglied"
+msgid_plural "Members"
+msgstr[0] "Mitglied"
+msgstr[1] ""
 
 msgid "Member Connect Timeout"
 msgstr "Member Connect Timeout"
@@ -738,13 +692,6 @@ msgstr "Betriebsstatus"
 msgid "Overview"
 msgstr "Übersicht"
 
-msgid ""
-"PATH: The rule compares the path portion of the HTTP URI against\n"
-"      the value parameter in the rule."
-msgstr ""
-"PATH: Die Regel vergleicht den Pfadabschnitt des HTTP-URIs mit\n"
-"       der Wertparameter in der Regel"
-
 msgid "Path"
 msgstr "Pfad"
 
@@ -760,8 +707,11 @@ msgstr "Geplante Aktualisierung"
 msgid "Please Wait"
 msgstr "Bitte warten"
 
+#, fuzzy
 msgid "Pool"
-msgstr "Pool"
+msgid_plural "Pools"
+msgstr[0] "Pool"
+msgstr[1] ""
 
 msgid "Pool Details"
 msgstr "Pool-Details"
@@ -826,34 +776,6 @@ msgstr "Anbieter"
 msgid "Provisioning Status"
 msgstr "Provisionierungsstatus"
 
-msgid ""
-"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
-"with the L7 policy."
-msgstr ""
-"REDIRECT_TO_POOL: Die Anfrage wird an den mit der L7 Richtlinie verbundenen "
-"back-end Pool weitergeleitet."
-
-msgid ""
-"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
-"the redirect_url parameter."
-msgstr ""
-"REDIRECT_TO_URL: Die Anfrage wird mit einer HTTP-Umleitung an die im "
-"redirect_url Parameter definierte URL beantwortet."
-
-msgid "REGEX: Perl type regular expression matching."
-msgstr "REGEX: Übereinstimmung mit Perl-typischem regulären Ausdrück."
-
-msgid ""
-"REJECT: The request is denied with an appropriate response code, and not "
-"forwarded on to any back-end pool."
-msgstr ""
-"REJECT: Die Anfrage wird mit einem angemessenen Antwortcode abgewiesen und "
-"nicht an einen back-end Pool weitergeleitet."
-
-msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
-msgstr ""
-"ROUND_ROBIN: Rotiert Anfragen zufällig zwischen verschiedenen Instanzen."
-
 msgid "Redirect Pool ID"
 msgstr "Umleitungs-Pool-ID"
 
@@ -881,20 +803,6 @@ msgstr "Abweisen"
 msgid "Remove"
 msgstr "Entfernen"
 
-msgid ""
-"Requests matching this policy will be redirected to the pool with this ID. "
-"Only valid if action is REDIRECT_TO_POOL."
-msgstr ""
-"Anfragen, die der Richtlinie entsprechen, werden an den Pool mit dieser ID "
-"weitergeleitet. Nur gültig, wenn die Aktion REDIRECT_TO_POOL gesetzt ist."
-
-msgid ""
-"Requests matching this policy will be redirected to this URL. Only valid if "
-"action is REDIRECT_TO_URL."
-msgstr ""
-"Anfragen, die der Richtlinie entsprechen, werden zu dieser URL "
-"weitergeleitet. Nur gültig, wenn die Aktion REDIRECT_TO_URL gesetzt ist."
-
 msgid "Round Robin"
 msgstr "Rundlauf-Verfahren"
 
@@ -904,18 +812,8 @@ msgstr "Regeln"
 msgid "SNI Container Refs"
 msgstr "SNI Container Refs"
 
-msgid ""
-"SOURCE_IP: Requests from a unique source IP address are consistently "
-"directed to the same instance."
-msgstr ""
-"SOURCE_IP: Anfragen von derselben Quell-IP-Adresse werden permanent zur "
-"selben Instanz geschickt."
-
 msgid "SSL Certificates"
 msgstr "SSL-Zertifikate"
-
-msgid "STARTS_WITH: String starts with."
-msgstr "STARTS_WITH: Zeichenkette startet damit."
 
 msgid ""
 "Select a floating IP address to associate with the load balancer or a "
@@ -993,25 +891,8 @@ msgstr ""
 "im bekannten Format sein als\n"
 "  IPv4 oder IPv6 Addresse."
 
-msgid ""
-"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
-msgstr ""
-"Die L7 Richtlinienaktion. Eine von REJECT, REDIRECT_TO_URL oder "
-"REDIRECT_TO_POOL."
-
-msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
-msgstr ""
-"Der L7 Regeltyp. Einer aus COOKIE, FILE_TYPE, HEADER, HOST_NAME  oder PATH."
-
 msgid "The URL path is not valid."
 msgstr "Der URL-Pfad ist ungültig."
-
-msgid ""
-"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
-"  EQUAL_TO, REGEX, or STARTS_WITH."
-msgstr ""
-"Der Vergleichstyp für die L7-Regel. Eine von CONTAINS, ENDS_WITH,\n"
-"  EQUAL_TO, REGEX, or STARTS_WITH."
 
 msgid "The connection limit must be a number greater than or equal to -1."
 msgstr "Das Verbindungslimit muss eine Nummer grösser oder gleich -1 sein."

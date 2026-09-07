@@ -1,14 +1,15 @@
 # suhartono <cloudsuhartono@gmail.com>, 2018. #zanata
 # suhartono <cloudsuhartono@gmail.com>, 2019. #zanata
+# suhartono <cloudsuhartono@gmail.com>, 2026. #zanata
 msgid ""
 msgstr ""
 "Project-Id-Version: octavia-dashboard VERSION\n"
 "Report-Msgid-Bugs-To: https://bugs.launchpad.net/openstack-i18n/\n"
-"POT-Creation-Date: 2026-03-25 08:02+0000\n"
+"POT-Creation-Date: 2026-09-03 07:49+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2019-07-17 04:17+0000\n"
+"PO-Revision-Date: 2026-09-02 07:42+0000\n"
 "Last-Translator: suhartono <cloudsuhartono@gmail.com>\n"
 "Language-Team: Indonesian\n"
 "Language: id\n"
@@ -37,9 +38,6 @@ msgid ""
 msgstr ""
 "Sebuah pool mewakili sekelompok anggota dimana load balancing akan "
 "diterapkan."
-
-msgid "APP_COOKIE: Session persistence based on application cookie."
-msgstr "APP_COOKIE: Sesi persistensi berdasarkan aplikasi cookie."
 
 msgid "Action"
 msgstr "Action"
@@ -100,22 +98,6 @@ msgstr ""
 "Aturan L7 adalah tes logis tunggal, sederhana yang mengembalikan baik benar "
 "atau salah."
 
-msgid ""
-"An alternate IP address used for health monitoring a backend member.\n"
-"  Default is null which monitors the member address."
-msgstr ""
-"Alamat IP alternatif yang digunakan untuk memantau kesehatan anggota "
-"backend.\n"
-"   Default adalah null yang memonitor alamat anggota."
-
-msgid ""
-"An alternate protocol port used for health monitoring a backend member.\n"
-"  Default is null which monitors the member protocol port."
-msgstr ""
-"Port protokol alternatif yang digunakan untuk pemantauan kesehatan anggota "
-"backend.\n"
-"   Default adalah null yang memonitor port protokol anggota."
-
 msgid "An error occurred. Please try again later."
 msgstr "Terjadi kesalahan. Silakan coba lagi nanti."
 
@@ -148,16 +130,6 @@ msgstr "Backup (cadangan):"
 
 msgid "CIDR"
 msgstr "CIDR"
-
-msgid "CONTAINS: String contains."
-msgstr "CONTAINS: String mengandung."
-
-msgid ""
-"COOKIE: The rule looks for a cookie named by the key parameter and\n"
-"      compares it against the value parameter in the rule."
-msgstr ""
-"COOKIE: Aturan mencari cookie yang dinamai oleh parameter kunci dan "
-"membandingkannya dengan parameter nilai dalam aturan."
 
 msgid "Cancel"
 msgstr "Cancel"
@@ -362,12 +334,6 @@ msgstr "Disassociate Floating IP"
 msgid "Disassociated floating IP address from load balancer: %s."
 msgstr "Alamat IP mengambang yang dipisahkan dari load balancer: %s."
 
-msgid "ENDS_WITH: String ends with."
-msgstr "ENDS_WITH: String berakhir dengan."
-
-msgid "EQUAL_TO: String is equal to."
-msgstr "EQUAL_TO: String sama dengan."
-
 msgid ""
 "Each port that listens for traffic on a particular load balancer is "
 "configured separately and\n"
@@ -420,13 +386,6 @@ msgstr "Expected Codes:"
 msgid "Expiration Date"
 msgstr "Expiration Date"
 
-msgid ""
-"FILE_TYPE: The rule compares the last portion of the URI against\n"
-"      the value parameter in the rule. (eg. \"txt\", \"jpg\", etc.)"
-msgstr ""
-"FILE_TYPE: Aturannya membandingkan bagian terakhir dari URI terhadap\n"
-"       parameter nilai dalam aturan. (eg. \"txt\", \"jpg\", etc.)"
-
 msgid "File Type"
 msgstr "File Type"
 
@@ -455,20 +414,6 @@ msgid "Frontend client inactivity timeout in milliseconds. Default: 50000."
 msgstr ""
 "Batas waktu ketidakstabilan klien frontend dalam milidetik. Default: 50000."
 
-msgid ""
-"HEADER: The rule looks for a header defined in the key parameter\n"
-"      and compares it against the value parameter in the rule."
-msgstr ""
-"HEADER: Aturan mencari header yang ditentukan dalam parameter kunci dan "
-"membandingkannya dengan parameter nilai dalam aturan."
-
-msgid ""
-"HOST_NAME: The rule does a comparison between the HTTP/1.1\n"
-"      hostname in the request against the value parameter in the rule."
-msgstr ""
-"HOST_NAME: Aturan melakukan perbandingan antara HTTP / 1.1 nama host dalam "
-"permintaan terhadap parameter nilai dalam aturan."
-
 msgid "HTTP Method"
 msgstr "HTTP Method"
 
@@ -478,8 +423,10 @@ msgstr "HTTP Method:"
 msgid "Header"
 msgstr "Header"
 
+#, fuzzy
 msgid "Health Monitor"
-msgstr "Health Monitor"
+msgid_plural "Health Monitors"
+msgstr[0] "Health Monitor"
 
 msgid "Health Monitor ID"
 msgstr "Health Monitor ID"
@@ -557,14 +504,18 @@ msgstr "Key:"
 msgid "L7 Policies"
 msgstr "L7 Policies"
 
+#, fuzzy
 msgid "L7 Policy"
-msgstr "Kebijakan L7"
+msgid_plural "L7 Policies"
+msgstr[0] "Kebijakan L7"
 
 msgid "L7 Policy Details"
 msgstr "L7 Policy Details"
 
+#, fuzzy
 msgid "L7 Rule"
-msgstr "Peraturan L7"
+msgid_plural "L7 Rules"
+msgstr[0] "Peraturan L7"
 
 msgid "L7 Rule Details"
 msgstr "L7 Rule Details"
@@ -572,20 +523,13 @@ msgstr "L7 Rule Details"
 msgid "L7 Rules"
 msgstr "Peraturan L7"
 
-msgid ""
-"LEAST_CONNECTIONS: Allocates requests to the instance with the least number "
-"of active\n"
-"      connections."
-msgstr ""
-"LEAST_CONNECTIONS: Alokasikan permintaan ke instance dengan jumlah paling "
-"sedikit yang aktif\n"
-"       koneksi."
-
 msgid "Least Connections"
 msgstr "Least Connections"
 
+#, fuzzy
 msgid "Listener"
-msgstr "Listener"
+msgid_plural "Listeners"
+msgstr[0] "Listener"
 
 msgid "Listener Details"
 msgstr "Listener Details"
@@ -596,8 +540,10 @@ msgstr "Listener ID"
 msgid "Listeners"
 msgstr "Listeners"
 
+#, fuzzy
 msgid "Load Balancer"
-msgstr "Load Balancer"
+msgid_plural "Load Balancers"
+msgstr[0] "Load Balancer"
 
 msgid "Load Balancer Details"
 msgstr "Load Balancer Details"
@@ -620,8 +566,10 @@ msgstr "Max Retries Down:"
 msgid "Max Retries:"
 msgstr "Max Retries:"
 
+#, fuzzy
 msgid "Member"
-msgstr "Member"
+msgid_plural "Members"
+msgstr[0] "Member"
 
 msgid "Member Connect Timeout"
 msgstr "Member Connect Timeout (batas waktu koneksi anggota)"
@@ -707,13 +655,6 @@ msgstr "Operating Status"
 msgid "Overview"
 msgstr "Overview"
 
-msgid ""
-"PATH: The rule compares the path portion of the HTTP URI against\n"
-"      the value parameter in the rule."
-msgstr ""
-"PATH: Aturan membandingkan bagian path HTTP URI dengan parameter nilai dalam "
-"aturan."
-
 msgid "Path"
 msgstr "Path"
 
@@ -729,8 +670,10 @@ msgstr "Pending Update"
 msgid "Please Wait"
 msgstr "Please Wait"
 
+#, fuzzy
 msgid "Pool"
-msgstr "Pool"
+msgid_plural "Pools"
+msgstr[0] "Pool"
 
 msgid "Pool Details"
 msgstr "Pool Details"
@@ -795,34 +738,6 @@ msgstr "Provider"
 msgid "Provisioning Status"
 msgstr "Provisioning Status"
 
-msgid ""
-"REDIRECT_TO_POOL: The request is forwarded to the back-end pool associated "
-"with the L7 policy."
-msgstr ""
-"REDIRECT_TO_POOL: Permintaan diteruskan ke kumpulan back-end yang terkait "
-"dengan kebijakan L7."
-
-msgid ""
-"REDIRECT_TO_URL: The request is sent an HTTP redirect to the URL defined in "
-"the redirect_url parameter."
-msgstr ""
-"REDIRECT_TO_URL: Permintaan dikirim redirect HTTP ke URL yang ditentukan "
-"dalam parameter redirect_url."
-
-msgid "REGEX: Perl type regular expression matching."
-msgstr "REGEX: Pencocokan ekspresi reguler tipe Perl."
-
-msgid ""
-"REJECT: The request is denied with an appropriate response code, and not "
-"forwarded on to any back-end pool."
-msgstr ""
-"REJECT: Permintaan ditolak dengan kode respons yang sesuai, dan tidak "
-"diteruskan ke kumpulan back-end apa pun."
-
-msgid "ROUND_ROBIN: Rotates requests evenly between multiple instances."
-msgstr ""
-"ROUND_ROBIN: Memutar permintaan secara merata di antara beberapa instance."
-
 msgid "Redirect Pool ID"
 msgstr "Redirect Pool ID"
 
@@ -850,20 +765,6 @@ msgstr "Reject"
 msgid "Remove"
 msgstr "Remove"
 
-msgid ""
-"Requests matching this policy will be redirected to the pool with this ID. "
-"Only valid if action is REDIRECT_TO_POOL."
-msgstr ""
-"Permintaan yang cocok dengan kebijakan ini akan dialihkan ke kumpulan dengan "
-"ID ini. Hanya valid jika tindakan REDIRECT_TO_POOL."
-
-msgid ""
-"Requests matching this policy will be redirected to this URL. Only valid if "
-"action is REDIRECT_TO_URL."
-msgstr ""
-"Permintaan yang cocok dengan kebijakan ini akan dialihkan ke URL ini. Hanya "
-"valid jika tindakan REDIRECT_TO_URL."
-
 msgid "Round Robin"
 msgstr "Round Robin"
 
@@ -873,18 +774,8 @@ msgstr "Rules"
 msgid "SNI Container Refs"
 msgstr "SNI Container Refs"
 
-msgid ""
-"SOURCE_IP: Requests from a unique source IP address are consistently "
-"directed to the same instance."
-msgstr ""
-"SOURCE_IP: Permintaan dari alamat IP sumber unik secara konsisten diarahkan "
-"ke instance yang sama."
-
 msgid "SSL Certificates"
 msgstr "SSL Certificates"
-
-msgid "STARTS_WITH: String starts with."
-msgstr "STARTS_WITH: String dimulai dengan."
 
 msgid ""
 "Select a floating IP address to associate with the load balancer or a "
@@ -960,25 +851,8 @@ msgstr ""
 "balancer).  Harus menjadi well-formed\n"
 "   Alamat IPv4 atau IPv6"
 
-msgid ""
-"The L7 policy action. One of REJECT, REDIRECT_TO_URL, or REDIRECT_TO_POOL."
-msgstr ""
-"Tindakan kebijakan L7. Salah satu REJECT, REDIRECT_TO_URL, atau "
-"REDIRECT_TO_POOL."
-
-msgid "The L7 rule type. One of COOKIE, FILE_TYPE, HEADER, HOST_NAME, or PATH."
-msgstr ""
-"The L7 rule type. Salah satu COOKIE, FILE_TYPE, HEADER, HOST_NAME, atau PATH."
-
 msgid "The URL path is not valid."
 msgstr "URL path tidak valid."
-
-msgid ""
-"The comparison type for the L7 rule. One of CONTAINS, ENDS_WITH,\n"
-"  EQUAL_TO, REGEX, or STARTS_WITH."
-msgstr ""
-"The comparison type untuk aturan L7. Salah satu CONTAINS, ENDS_WITH,\n"
-"   EQUAL_TO, REGEX, atau STARTS_WITH."
 
 msgid "The connection limit must be a number greater than or equal to -1."
 msgstr ""
