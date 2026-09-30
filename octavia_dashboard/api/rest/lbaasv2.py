@@ -15,6 +15,7 @@
 """
 
 import _thread as thread
+import threading
 import time
 
 from django.views import generic
@@ -145,6 +146,23 @@ def health_monitor_get_load_balancer_id(conn, health_monitor_id):
     return pool_get_load_balancer_id(conn, pool_id)
 
 
+# Cap the number of concurrent background polling threads so that a flood
+# of load balancer creation requests cannot exhaust server resources.
+_MAX_CONCURRENT_POLL_THREADS = 10
+_poll_thread_semaphore = threading.BoundedSemaphore(_MAX_CONCURRENT_POLL_THREADS)
+
+
+def _start_poll_thread(args, kwargs):
+    """Start a background polling thread, bounded by a semaphore."""
+    if _poll_thread_semaphore.acquire(blocking=False):
+        def _poll_and_release(*a, **kw):
+            try:
+                poll_loadbalancer_status(*a, **kw)
+            finally:
+                _poll_thread_semaphore.release()
+        thread.start_new_thread(_poll_and_release, args, kwargs)
+
+
 def create_loadbalancer(request):
     data = request.DATA
 
@@ -179,7 +197,7 @@ def create_loadbalancer(request):
         # active.
         args = (request, loadbalancer.id, create_listener)
         kwargs = {'from_state': 'PENDING_CREATE'}
-        thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
+        _start_poll_thread(args, kwargs)
 
     return _get_sdk_object_dict(loadbalancer)
 
@@ -221,7 +239,7 @@ def create_listener(request, **kwargs):
     if data.get('pool'):
         args = (request, kwargs['loadbalancer_id'], create_pool)
         kwargs = {'callback_kwargs': {'listener_id': listener.id}}
-        thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
+        _start_poll_thread(args, kwargs)
 
     return _get_sdk_object_dict(listener)
 
@@ -292,11 +310,11 @@ def create_pool(request, **kwargs):
         args = (request, kwargs['loadbalancer_id'], add_member)
         kwargs = {'callback_kwargs': {'pool_id': pool.id,
                                       'index': 0}}
-        thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
+        _start_poll_thread(args, kwargs)
     elif data.get('monitor'):
         args = (request, kwargs['loadbalancer_id'], create_health_monitor)
         kwargs = {'callback_kwargs': {'pool_id': pool.id}}
-        thread.start_new_thread(poll_loadbalancer_status, args, kwargs)
+        _start_poll_thread(args, kwargs)
 
     return _get_sdk_object_dict(pool)
 
