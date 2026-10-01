@@ -1,0 +1,7 @@
+---
+fixes:
+  - |
+    Fixes a UI validation bug that incorrectly prevented creating multiple
+    listeners on the same port. The validation logic now correctly
+    recognizes different L4 protocol families, enabling port sharing
+    between protocols like TCP and UDP.

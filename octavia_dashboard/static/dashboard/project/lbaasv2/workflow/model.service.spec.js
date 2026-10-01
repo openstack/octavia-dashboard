@@ -515,6 +515,7 @@
 
       it('has empty listener protocol_ports array', function() {
         expect(model.listenerPorts).toEqual([]);
+        expect(model.allocatedListeners).toEqual([]);
       });
 
       it('has array of listener protocols', function() {
