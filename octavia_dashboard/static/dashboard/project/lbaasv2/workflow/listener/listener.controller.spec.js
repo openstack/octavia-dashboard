@@ -135,6 +135,33 @@
         expect(scope.model.context.create_monitor).toBe(false);
       });
 
+      it('should filter listenerPorts based on L4 protocol family', function() {
+        scope.model.allocatedListeners = undefined;
+        ctrl.protocolChange('HTTP');
+
+        scope.model.allocatedListeners = [
+                { port: 80, protocol: 'TCP' },
+                { port: 8080, protocol: 'UDP' }
+        ];
+
+        ctrl.protocolChange('HTTP');
+        expect(scope.model.listenerPorts).toEqual([80]);
+
+        ctrl.protocolChange('UDP');
+        expect(scope.model.listenerPorts).toEqual([8080]);
+
+        ctrl.protocolChange();
+      });
+
+      it('should initialize safely if model spec is missing', inject(function($controller) {
+        var emptyScope = { model: {} };
+
+        var testCtrl = $controller('ListenerDetailsController', {
+          $scope: emptyScope
+        });
+
+        expect(testCtrl).toBeDefined();
+      }));
     });
   });
 })();
