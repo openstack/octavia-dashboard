@@ -1,0 +1,6 @@
+---
+fixes:
+  - |
+    Fixes a bug in the "Create Listener" modal that caused protocol options
+    like UDP and SCTP to disappear from the dropdown menu during consecutive
+    uses without a page refresh.
