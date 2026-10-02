@@ -1032,8 +1032,9 @@
       // This function is called if the key-manager service is not available. In that case we
       // cannot support the TERMINATED_HTTPS listener protocol so we hide the option if creating
       // a new load balancer or listener. However for editing we still need it.
-      if (!model.context.id) {
-        model.listenerProtocols.splice(2, 1);
+      var termHttpsIdx = model.listenerProtocols.indexOf('TERMINATED_HTTPS');
+      if (!model.context.id && termHttpsIdx !== -1) {
+        model.listenerProtocols.splice(termHttpsIdx, 1);
       }
     }
 
