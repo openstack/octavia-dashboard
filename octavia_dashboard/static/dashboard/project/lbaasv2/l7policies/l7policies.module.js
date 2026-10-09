@@ -53,7 +53,8 @@
     var l7policyResourceType = registry.getResourceType(resourceType);
 
     l7policyResourceType
-      .setNames(gettext('L7 Policy'), gettext('L7 Policies'))
+      .setNames('L7 Policy', 'L7 Policies',
+                ngettext('L7 Policy', 'L7 Policies', 1))
       .setSummaryTemplateUrl(basePath + 'l7policies/details/drawer.html')
       .setProperties(l7policyProperties(loadBalancerService))
       .setListFunction(loadBalancerService.getL7PoliciesPromise)

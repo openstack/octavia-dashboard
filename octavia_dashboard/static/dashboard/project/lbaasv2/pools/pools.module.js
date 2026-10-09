@@ -54,7 +54,7 @@
     var poolResourceType = registry.getResourceType(resourceType);
 
     poolResourceType
-      .setNames(gettext('Pool'), gettext('Pools'))
+      .setNames('Pool', 'Pools', ngettext('Pool', 'Pools', 1))
       .setSummaryTemplateUrl(basePath + 'pools/details/drawer.html')
       .setProperties(poolProperties(loadBalancerService))
       .setListFunction(loadBalancerService.getPoolsPromise)
