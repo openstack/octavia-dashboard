@@ -17,6 +17,7 @@
 import _thread as thread
 import time
 
+from django.conf import settings
 from django.views import generic
 from horizon import conf
 from octavia_dashboard.sdk_connection import get_sdk_connection
@@ -25,6 +26,10 @@ from openstack import exceptions
 from openstack_dashboard.api import neutron
 from openstack_dashboard.api.rest import urls
 from openstack_dashboard.api.rest import utils as rest_utils
+
+
+POLL_LOADBALANCER_STATUS_TIMEOUT = getattr(
+    settings, 'POLL_LOADBALANCER_STATUS_TIMEOUT', 600)
 
 
 def _sdk_object_to_list(object):
@@ -55,7 +60,7 @@ def _get_sdk_object_dict(object):
 
 def poll_loadbalancer_status(request, loadbalancer_id, callback,
                              from_state='PENDING_UPDATE', to_state='ACTIVE',
-                             callback_kwargs=None):
+                             callback_kwargs=None, timeout=None):
     """Poll for the status of the load balancer.
 
     Polls for the status of the load balancer and calls a function when the
@@ -67,10 +72,21 @@ def poll_loadbalancer_status(request, loadbalancer_id, callback,
     :param from_state: initial expected state of the load balancer
     :param to_state: state to check for
     :param callback_kwargs: kwargs to pass into the callback function
+    :param timeout: timeout in seconds for polling, defaults to None, if
+                    None will use POLL_LOADBALANCER_STATUS_TIMEOUT settings
+                    or fallback to 600 seconds.
     """
+    poll_timeout = timeout
+    if poll_timeout is None:
+        poll_timeout = POLL_LOADBALANCER_STATUS_TIMEOUT
     interval = conf.HORIZON_CONFIG['ajax_poll_interval'] / 1000.0
     status = from_state
+    start = time.time()
     while status == from_state:
+        if time.time() - start >= poll_timeout:
+            raise TimeoutError(
+                "poll status timeout waiting for "
+                f"loadbalancer {loadbalancer_id}")
         time.sleep(interval)
         conn = get_sdk_connection(request)
         lb = conn.load_balancer.get_load_balancer(loadbalancer_id)
