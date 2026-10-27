@@ -53,7 +53,27 @@
 
     ////////////
 
+    function filterPortsByProtocol(protocol) {
+      if (protocol && $scope.model && $scope.model.allocatedListeners) {
+        var tcpFamily = ['TCP', 'HTTP', 'HTTPS', 'TERMINATED_HTTPS', 'PROXY', 'PROXYV2'];
+        var currentFamily = tcpFamily.indexOf(protocol) !== -1 ? 'TCP' : protocol;
+
+        $scope.model.listenerPorts = [];
+        $scope.model.allocatedListeners.forEach(function(l) {
+          var lFamily = tcpFamily.indexOf(l.protocol) !== -1 ? 'TCP' : l.protocol;
+          if (currentFamily === lFamily) {
+            $scope.model.listenerPorts.push(l.port);
+          }
+        });
+      }
+    }
+
+    if ($scope.model && $scope.model.spec && $scope.model.spec.listener) {
+      filterPortsByProtocol($scope.model.spec.listener.protocol);
+    }
+
     function protocolChange(protocol) {
+      filterPortsByProtocol(protocol);
       var defaultPort = { HTTP: 80, TERMINATED_HTTPS: 443 }[protocol];
       while (listenerPortExists(defaultPort)) {
         defaultPort += 1;

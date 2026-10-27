@@ -128,6 +128,7 @@
                        'TRACE', 'OPTIONS', 'PATCH', 'CONNECT'],
       certificates: [],
       listenerPorts: [],
+      allocatedListeners: [],
       yesNoOptions: [
         { label: gettext('Yes'), value: true },
         { label: gettext('No'), value: false }
@@ -174,6 +175,7 @@
 
       model.certificates = [];
       model.listenerPorts = [];
+      model.allocatedListeners = [];
 
       model.spec = {
         loadbalancer_id: loadBalancerId,
@@ -669,6 +671,10 @@
     function onGetListeners(response) {
       angular.forEach(response.data.items, function addPort(listener) {
         model.listenerPorts.push(listener.protocol_port);
+        model.allocatedListeners.push({
+          port: listener.protocol_port,
+          protocol: listener.protocol
+        });
       });
     }
 
