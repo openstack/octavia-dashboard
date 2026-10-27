@@ -962,6 +962,9 @@
       it('should initialize listener protocols', function() {
         expect(model.listenerProtocols.length).toBe(5);
         expect(model.listenerProtocols.indexOf('TERMINATED_HTTPS')).toBe(-1);
+        model.initialize('loadbalancer');
+        scope.$apply();
+        expect(model.listenerProtocols.length).toBe(5);
       });
     });
 
