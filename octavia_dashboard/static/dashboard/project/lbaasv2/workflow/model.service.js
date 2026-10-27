@@ -307,17 +307,20 @@
       return $q.all([
         lbaasv2API.getFlavors().then(onGetFlavors),
         lbaasv2API.getAvailabilityZones().then(onGetAvailabilityZones),
-        neutronAPI.getSubnets().then(onGetSubnets),
-        neutronAPI.getPorts().then(onGetPorts),
         neutronAPI.getNetworks().then(onGetNetworks),
+        neutronAPI.getPorts().then(onGetPorts),
         novaAPI.getServers().then(onGetServers),
         keymanagerPromise.then(prepareCertificates, angular.noop)
       ]).then(initMemberAddresses);
     }
 
     function onGetNetworks(response) {
+      model.subnets = [];
       angular.forEach(response.data.items, function(value) {
         model.networks[value.id] = value;
+        angular.forEach(value.subnets, function(value) {
+          model.subnets.push(value);
+        });
       });
     }
 
@@ -337,7 +340,7 @@
       model.context.submit = createListener;
       return $q.all([
         lbaasv2API.getListeners(model.spec.loadbalancer_id).then(onGetListeners),
-        neutronAPI.getSubnets().then(onGetSubnets),
+        neutronAPI.getNetworks().then(onGetNetworks),
         neutronAPI.getPorts().then(onGetPorts),
         novaAPI.getServers().then(onGetServers),
         keymanagerPromise.then(prepareCertificates, angular.noop)
@@ -362,13 +365,13 @@
       if (model.spec.parentResourceId) {
         return $q.all([
           lbaasv2API.getListener(model.spec.parentResourceId).then(onGetListener),
-          neutronAPI.getSubnets().then(onGetSubnets),
+          neutronAPI.getNetworks().then(onGetNetworks),
           neutronAPI.getPorts().then(onGetPorts),
           novaAPI.getServers().then(onGetServers)
         ]).then(initMemberAddresses);
       } else {
         return $q.all([
-          neutronAPI.getSubnets().then(onGetSubnets),
+          neutronAPI.getNetworks().then(onGetNetworks),
           neutronAPI.getPorts().then(onGetPorts),
           novaAPI.getServers().then(onGetServers)
         ]).then(initMemberAddresses);
@@ -384,7 +387,7 @@
       model.context.submit = updatePoolMemberList;
       return $q.all([
         lbaasv2API.getPool(model.spec.parentResourceId).then(onGetPool),
-        neutronAPI.getSubnets().then(onGetSubnets).then(getMembers).then(onGetMembers),
+        neutronAPI.getNetworks().then(onGetNetworks).then(getMembers).then(onGetMembers),
         neutronAPI.getPorts().then(onGetPorts),
         novaAPI.getServers().then(onGetServers)
       ]).then(initMemberAddresses);
@@ -396,7 +399,6 @@
         lbaasv2API.getFlavors().then(onGetFlavors),
         lbaasv2API.getAvailabilityZones().then(onGetAvailabilityZones),
         lbaasv2API.getLoadBalancer(model.context.id).then(onGetLoadBalancer),
-        neutronAPI.getSubnets().then(onGetSubnets),
         neutronAPI.getNetworks().then(onGetNetworks)
       ]).then(initSubnet).then(initFlavor).then(initAvailabilityZone);
     }
@@ -404,7 +406,7 @@
     function initEditListener() {
       model.context.submit = editListener;
       return $q.all([
-        neutronAPI.getSubnets().then(onGetSubnets).then(getListener)
+        neutronAPI.getNetworks().then(onGetNetworks).then(getListener)
           .then(onGetListener).then(getPools).then(onGetPools),
         neutronAPI.getPorts().then(onGetPorts),
         novaAPI.getServers().then(onGetServers)
@@ -427,7 +429,7 @@
     function initEditPool() {
       model.context.submit = editPool;
       return $q.all([
-        neutronAPI.getSubnets().then(onGetSubnets).then(getPool).then(onGetPool),
+        neutronAPI.getNetworks().then(onGetNetworks).then(getPool).then(onGetPool),
         neutronAPI.getPorts().then(onGetPorts),
         novaAPI.getServers().then(onGetServers)
       ]).then(initMemberAddresses);
@@ -667,11 +669,6 @@
           model.spec.availablePools.push(p);
         }
       });
-    }
-
-    function onGetSubnets(response) {
-      model.subnets.length = 0;
-      push.apply(model.subnets, response.data.items);
     }
 
     function onGetServers(response) {
